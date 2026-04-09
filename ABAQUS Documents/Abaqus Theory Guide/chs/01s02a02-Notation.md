@@ -242,4 +242,4 @@
 
 在本指南的某些章节中，我们需要描述整个有限元方程系统的节点变量操作。在这些章节中，我们使用经典矩阵-向量表示法。在这种表示法中，![](../graphics/stm_eqn00004.gif) 表示包含节点变量的列向量，![](../graphics/stm_eqn00002.gif) 表示行向量，矩阵写为 ![](../graphics/stm_eqn00147.gif)。常见操作是两个向量之间的标量积，
 
-![](../graphics/stm_eqn00148.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00149.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00151.gif）。
+![](../graphics/stm_eqn00148.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00149.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00151.gif)）。

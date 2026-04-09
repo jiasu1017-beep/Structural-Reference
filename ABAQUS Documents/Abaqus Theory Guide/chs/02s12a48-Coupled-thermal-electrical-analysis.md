@@ -97,7 +97,7 @@
 ![](../graphics/stm_eqn02457.gif)
 ![](../graphics/stm_eqn02408.gif)![](../graphics/stm_eqn02453.gif)### Jacobian贡献
 
-![](../graphics/stm_eqn02442.gif)![](../graphics/stm_eqn01111.gif)![](../graphics/stm_eqn00438.gif)Jacobian贡献通过对电势![](../graphics/stm_eqn02442.gif)温度![](../graphics/stm_eqn01111.gif)时间![](../graphics/stm_eqn00438]取[方程2.12.1-8](02s12a48-Coupled-thermal-electrical-analysis.md)和[方程2.12.1-9](02s12a48-Coupled-thermal-electrical-analysis.md)的变分获得。这产生
+![](../graphics/stm_eqn02442.gif)![](../graphics/stm_eqn01111.gif)![](../graphics/stm_eqn00438.gif)Jacobian贡献通过对电势![](../graphics/stm_eqn02442.gif)温度![](../graphics/stm_eqn01111.gif)时间![](../graphics/stm_eqn00438.gif)取[方程2.12.1-8](02s12a48-Coupled-thermal-electrical-analysis.md)和[方程2.12.1-9](02s12a48-Coupled-thermal-electrical-analysis.md)的变分获得。这产生
 
 ![](../graphics/stm_eqn02458.gif)
 

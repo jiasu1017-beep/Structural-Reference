@@ -136,7 +136,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 ![](../graphics/stm_eqn06559.gif)![](../graphics/stm_eqn06537.gif)![](../graphics/stm_eqn06555.gif)量退化变量*d*的定义必须与单轴单调响应（![](../graphics/stm_eqn06510.gif)![](../graphics/stm_eqn06511.gif)一致，而且还应捕捉循环加载下退化机制的复杂性。对于一般多轴应力条件，Abaqus假定
 
-![](../graphics/stm_eqn06556.gif)似于单轴循环情况，只是![](../graphics/stm_eqn06522.gif)![](../graphics/stm_eqn06523.gif)在根据函数![](../graphics/stm_eqn06557给出为
+![](../graphics/stm_eqn06556.gif)似于单轴循环情况，只是![](../graphics/stm_eqn06522.gif)![](../graphics/stm_eqn06523.gif)在根据函数![](../graphics/stm_eqn06557.gif)给出为
 
 ![](../graphics/stm_eqn06558)
 

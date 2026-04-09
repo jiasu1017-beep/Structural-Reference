@@ -144,7 +144,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 ![](../graphics/stm_eqn02005.gif)
 ![](../graphics/stm_eqn02000.gif)因此，写为
 ![](../graphics/stm_eqn02006.gif)
-![](../graphics/stm_eqn02001.gif)平衡方程现在呈密度为复数且声学介质速度不进入的形式。我们将这个方程除以![](../graphics/stm_eqn02002]并将其与本构定律的时间二阶导数结合，[方程2.9.1-2](02s09a41-Coupled-acoustic-structural-medium-analy.md)，获得
+![](../graphics/stm_eqn02001.gif)平衡方程现在呈密度为复数且声学介质速度不进入的形式。我们将这个方程除以![](../graphics/stm_eqn02002.gif)并将其与本构定律的时间二阶导数结合，[方程2.9.1-2](02s09a41-Coupled-acoustic-structural-medium-analy.md)，获得
 
 ![](../graphics/stm_eqn02003.gif)我们没有使用瞬态动力学公式中所做的假设，即![](../graphics/stm_eqn02004.gif)空间梯度很小。
 ![](../graphics/stm_eqn02007.gif)### 变分陈述

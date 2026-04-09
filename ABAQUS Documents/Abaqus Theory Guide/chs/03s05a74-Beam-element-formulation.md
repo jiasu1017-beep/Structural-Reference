@@ -271,7 +271,7 @@
 
 ![](../graphics/stm_eqn03686.gif)因此，应变可以写成形式
 
-![](../graphics/stm_eqn03687.gif)[![](../graphics/stm_eqn03669.gif)表达式中的第二项与纯弹性扭转的剪切应变场成正比：
+![](../graphics/stm_eqn03687.gif)![](../graphics/stm_eqn03669.gif)表达式中的第二项与纯弹性扭转的剪切应变场成正比：
 
 ![](../graphics/stm_eqn03688.gif)我们使用这个定义从剪切应变表达式中消除![](../graphics/stm_eqn01258.gif)的梯度，这给出应变的最终表达式
 
@@ -325,7 +325,7 @@
 
 ![](../graphics/stm_eqn03715.gif)因此，只有相对于质心的扭矩对虚功变化率的初始应力贡献起作用：
 
-![](../graphics/stm_eqn03716.gif)[![](../graphics/stm_eqn03717.gif)和![](../graphics/stm_eqn03718.gif)的二阶变分包含曲率和扭转二阶变分的贡献。这些可以通过定义相对于横截面坐标系原点的弯矩和扭矩来分离：
+![](../graphics/stm_eqn03716.gif)![](../graphics/stm_eqn03717.gif)和![](../graphics/stm_eqn03718.gif)的二阶变分包含曲率和扭转二阶变分的贡献。这些可以通过定义相对于横截面坐标系原点的弯矩和扭矩来分离：
 
 ![](../graphics/stm_eqn03719.gif)虚功变化率的表达式然后取形式
 

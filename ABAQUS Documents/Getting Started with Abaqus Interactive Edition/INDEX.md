@@ -44,6 +44,10 @@ This is the Chinese translation of the Abaqus 6.14 Getting Started with Abaqus: 
 | 附录 Appendix | 中文标题 Chinese Title | 英文标题 English Title | 中文文件 Chinese | 英文文件 English |
 |--------------|----------------------|----------------------|-----------------|-----------------|
 | 附录A / App A | 示例文件 | Example Files | [chs/Appendix-A-Example-Files.md](./chs/Appendix-A-Example-Files.md) | [eng/Appendix-A-Example-Files.md](./eng/Appendix-A-Example-Files.md) |
+| 附录B / App B | 在Abaqus/CAE中创建和分析简单模型 | Creating and Analyzing a Simple Model in Abaqus/CAE | [chs/Appendix-B-Simple-Model-in-CAE.md](./chs/Appendix-B-Simple-Model-in-CAE.md) | [eng/Appendix-B-Simple-Model-in-CAE.md](./eng/Appendix-B-Simple-Model-in-CAE.md) |
+| 附录C / App C | 使用附加技术创建和分析模型 | Using Additional Techniques to Create and Analyze a Model in Abaqus/CAE | [chs/Appendix-C-Additional-Techniques.md](./chs/Appendix-C-Additional-Techniques.md) | [eng/Appendix-C-Additional-Techniques.md](./eng/Appendix-C-Additional-Techniques.md) |
+| 附录D / App D | 查看分析输出 | Viewing the Output from Your Analysis | [chs/Appendix-D-Viewing-Output.md](./chs/Appendix-D-Viewing-Output.md) | [eng/Appendix-D-Viewing-Output.md](./eng/Appendix-D-Viewing-Output.md) |
+| 附录E / App E | 弯管流动分析 | Flow through a bent tube | [chs/Appendix-E-Flow-Analysis.md](./chs/Appendix-E-Flow-Analysis.md) | [eng/Appendix-E-Flow-Analysis.md](./eng/Appendix-E-Flow-Analysis.md) |
 
 ### 附加文档 / Additional Documentation
 

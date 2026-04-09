@@ -41,6 +41,10 @@
 | 附录 | 标题 | 文件 |
 |------|------|------|
 | 附录A | Example Files（示例文件） | [Appendix-A-Example-Files.md](./Appendix-A-Example-Files.md) |
+| 附录B | Creating and Analyzing a Simple Model in Abaqus/CAE（在Abaqus/CAE中创建和分析简单模型） | [Appendix-B-Simple-Model-in-CAE.md](./Appendix-B-Simple-Model-in-CAE.md) |
+| 附录C | Using Additional Techniques to Create and Analyze a Model in Abaqus/CAE（使用附加技术创建和分析模型） | [Appendix-C-Additional-Techniques.md](./Appendix-C-Additional-Techniques.md) |
+| 附录D | Viewing the Output from Your Analysis（查看分析输出） | [Appendix-D-Viewing-Output.md](./Appendix-D-Viewing-Output.md) |
+| 附录E | Flow through a bent tube（弯管流动分析） | [Appendix-E-Flow-Analysis.md](./Appendix-E-Flow-Analysis.md) |
 
 ---
 

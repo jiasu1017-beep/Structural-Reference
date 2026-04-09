@@ -41,6 +41,10 @@ This directory contains the English version of the Abaqus Interactive Edition do
 | Appendix | Title | File |
 |----------|-------|------|
 | Appendix A | Example Files | [Appendix-A-Example-Files.md](./Appendix-A-Example-Files.md) |
+| Appendix B | Creating and Analyzing a Simple Model in Abaqus/CAE | [Appendix-B-Simple-Model-in-CAE.md](./Appendix-B-Simple-Model-in-CAE.md) |
+| Appendix C | Using Additional Techniques to Create and Analyze a Model in Abaqus/CAE | [Appendix-C-Additional-Techniques.md](./Appendix-C-Additional-Techniques.md) |
+| Appendix D | Viewing the Output from Your Analysis | [Appendix-D-Viewing-Output.md](./Appendix-D-Viewing-Output.md) |
+| Appendix E | Flow through a bent tube | [Appendix-E-Flow-Analysis.md](./Appendix-E-Flow-Analysis.md) |
 
 ---
 

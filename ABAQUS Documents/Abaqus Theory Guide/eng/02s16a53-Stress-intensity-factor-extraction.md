@@ -45,7 +45,7 @@ Based on the definition of the *J*-integral, the interaction integrals ![](../gr
 
 ![](../graphics/stm_eqn02677.gif)with ![](../graphics/stm_eqn02678.gif) given as
 
-![](../graphics/stm_eqn02679.gif)The subscript ![](../graphics/stm_eqn02680.gif) represents three auxiliary pure Mode I, Mode II, and Mode III crack-tip fields for ![](../graphics/stm_eqn02681.gif), respectively. ![](../graphics/stm_eqn02597.gif) is a contour that lies in the normal plane at position *s* along the crack front, beginning on the bottom crack surface and ending on the top surface (see [Figure 2.16.2&#8211;1](02s16a53.md)). The limit ![](../graphics/stm_eqn02598.gif) indicates that ![](../graphics/stm_eqn02597.gif) shrinks onto the crack tip.
+![](../graphics/stm_eqn02679.gif)The subscript ![](../graphics/stm_eqn02680.gif) represents three auxiliary pure Mode I, Mode II, and Mode III crack-tip fields for ![](../graphics/stm_eqn02681.gif), respectively. ![](../graphics/stm_eqn02597.gif) is a contour that lies in the normal plane at position *s* along the crack front, beginning on the bottom crack surface and ending on the top surface (see [Figure 2.16.2&#8211;1](02s16a53-Stress-intensity-factor-extraction.md)). The limit ![](../graphics/stm_eqn02598.gif) indicates that ![](../graphics/stm_eqn02597.gif) shrinks onto the crack tip.
 
 Figure 2.16.2&#8211;1 Definition of local orthogonal Cartesian coordinates at the point *s* on the crack front; the crack is in the ![](../graphics/stm_eqn01412.gif)&#8211;![](../graphics/stm_eqn02618.gif) plane.
 

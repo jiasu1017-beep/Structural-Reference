@@ -15,13 +15,13 @@ This section describes the formulation of the generalized axisymmetric membrane 
 
 The coordinate system used with both families of elements is the cylindrical system (*r*, *z*, ![](../graphics/stm_eqn01111.gif)), where *r* measures the distance of a point from the axis of the cylindrical system, *z* measures its position along this axis, and ![](../graphics/stm_eqn01111.gif) measures the angle between the plane containing the point and the axis of the coordinate system and some fixed reference plane that contains the coordinate system axis. The order in which the coordinates and displacements are taken in these elements is based on the convention that *z* is the second coordinate. This order is not the same as that used in three-dimensional elements in Abaqus, in which *z* is the third coordinate; nor is it the order (*r*, ![](../graphics/stm_eqn01111.gif), *z*) that is usually taken in cylindrical systems.
 
-Let ![](../graphics/stm_eqn03061.gif), ![](../graphics/stm_eqn03062.gif), and ![](../graphics/stm_eqn03063.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the undeformed state, as shown in [Figure 3.4.3&#8211;1](03s04a72.md).
+Let ![](../graphics/stm_eqn03061.gif), ![](../graphics/stm_eqn03062.gif), and ![](../graphics/stm_eqn03063.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the undeformed state, as shown in [Figure 3.4.3&#8211;1](03s04a72-Axisymmetric-membranes.md).
 
 Figure 3.4.3&#8211;1 Cylindrical coordinate system and definition of position vectors.
 
 ![](../graphics/stmcylsys.png)The reference position ![](../graphics/stm_eqn00141.gif) of the point can be represented in terms of the original radius, *R*, and the axial position, *Z*:
 
-![](../graphics/stm_eqn03467.gif)Likewise, let ![](../graphics/stm_eqn03101.gif), ![](../graphics/stm_eqn03066.gif), and ![](../graphics/stm_eqn03067.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the deformed state. As shown in [Figure 3.4.3&#8211;1](03s04a72.md), the radial and circumferential base vectors depend on the ![](../graphics/stm_eqn01111.gif) coordinate: ![](../graphics/stm_eqn03468.gif) and ![](../graphics/stm_eqn03069.gif).
+![](../graphics/stm_eqn03467.gif)Likewise, let ![](../graphics/stm_eqn03101.gif), ![](../graphics/stm_eqn03066.gif), and ![](../graphics/stm_eqn03067.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the deformed state. As shown in [Figure 3.4.3&#8211;1](03s04a72-Axisymmetric-membranes.md), the radial and circumferential base vectors depend on the ![](../graphics/stm_eqn01111.gif) coordinate: ![](../graphics/stm_eqn03468.gif) and ![](../graphics/stm_eqn03069.gif).
 
 The current position, ![](../graphics/stm_eqn00117.gif), of the point can be represented in terms of the current radius, *r*, and the current axial position, *z*, as
 
@@ -49,7 +49,7 @@ The components of the deformation gradient require that two sets of orthonormal 
 
 ![](../graphics/stm_eqn03480.gif)where *S* and *s* are length measuring coordinates along the element length in the reference and current configurations, respectively. The components of the deformation gradient in the two sets of basis vectors may be computed as
 
-![](../graphics/stm_eqn03481.gif)Using the definitions of the basis vectors in [Equation 3.4.3&#8211;3](03s04a72.md), the components of the deformation gradient tensor are
+![](../graphics/stm_eqn03481.gif)Using the definitions of the basis vectors in [Equation 3.4.3&#8211;3](03s04a72-Axisymmetric-membranes.md), the components of the deformation gradient tensor are
 
 ![](../graphics/stm_eqn03482.gif)
 ### Virtual work
@@ -58,7 +58,7 @@ As discussed in "Equilibrium and virtual work,"  Section 1.5.1, the formulation 
 
 ![](../graphics/stm_eqn03483.gif)where ![](../graphics/stm_eqn03094.gif) represents the first variation of the deformation gradient tensor. Alternatively, the virtual velocity gradient can be written as
 
-![](../graphics/stm_eqn03484.gif)Recall that Abaqus formulates the finite element equations in terms of a fixed spatial basis with respect to the axisymmetric twist degree of freedom. Therefore, the desired result for ![](../graphics/stm_eqn03094.gif) does not simply follow from the linearization of [Equation 3.4.3&#8211;2](03s04a72.md). Namely, the contributions from the variations
+![](../graphics/stm_eqn03484.gif)Recall that Abaqus formulates the finite element equations in terms of a fixed spatial basis with respect to the axisymmetric twist degree of freedom. Therefore, the desired result for ![](../graphics/stm_eqn03094.gif) does not simply follow from the linearization of [Equation 3.4.3&#8211;2](03s04a72-Axisymmetric-membranes.md). Namely, the contributions from the variations
 
 ![](../graphics/stm_eqn03485.gif)arising from the spin of the coordinate system must be canceled out. To this end, ![](../graphics/stm_eqn00319.gif) can be modified according to
 

@@ -22,9 +22,9 @@ The nodal displacements, velocities, accelerations, and the variations in displa
 
 ![](../graphics/stm_eqn00972.gif)where ![](../graphics/stm_eqn00973.gif) is the generalized mass associated with mode ![](../graphics/stm_eqn00904.gif):
 
-![](../graphics/stm_eqn00974.gif)From [Equation 2.4.3&#8211;3](02s04a21.md) it is seen that the element residuals are projected onto the vector space spanned by the chosen number of eigenmodes. Having calculated the generalized acceleration for each mode, the generalized displacement and velocity are calculated with the central difference operator
+![](../graphics/stm_eqn00974.gif)From [Equation 2.4.3&#8211;3](02s04a21-Subspace-dynamics.md) it is seen that the element residuals are projected onto the vector space spanned by the chosen number of eigenmodes. Having calculated the generalized acceleration for each mode, the generalized displacement and velocity are calculated with the central difference operator
 
-![](../graphics/stm_eqn00975.gif)The nodal values for all kinematic variables are obtained using the formul in [Equation 2.4.3&#8211;2](02s04a21.md).
+![](../graphics/stm_eqn00975.gif)The nodal values for all kinematic variables are obtained using the formul in [Equation 2.4.3&#8211;2](02s04a21-Subspace-dynamics.md).
 
 When initial velocities are applied, specified either explicitly by the user or implicitly by continuation of the previous dynamic step, the initial velocity vector ![](../graphics/stm_eqn00976.gif) has to be projected into the eigenspace. This leads to an initial generalized velocity for the mode ![](../graphics/stm_eqn00904.gif) in the form
 

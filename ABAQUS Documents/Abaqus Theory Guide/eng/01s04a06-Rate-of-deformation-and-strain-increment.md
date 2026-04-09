@@ -60,7 +60,7 @@ Since we assume ![](../graphics/stm_eqn00433.gif) rotates the deformation basis-
 
 ![](../graphics/stm_eqn00439.gif)Then our integration of ![](../graphics/stm_eqn00118.gif) is the matrix ![](../graphics/stm_eqn00432.gif), on the basis at the end of the increment, and defined by
 
-![](../graphics/stm_eqn00440.gif)Using [Equation 1.4.3&#8211;2](01s04a06.md), this is
+![](../graphics/stm_eqn00440.gif)Using [Equation 1.4.3&#8211;2](01s04a06-Rate-of-deformation-and-strain-increment.md), this is
 
 ![](../graphics/stm_eqn00441.gif)Since
 
@@ -80,7 +80,7 @@ We now assume that the incremental stretch at any time in the increment written 
 
 ![](../graphics/stm_eqn00450.gif)and, hence,
 
-![](../graphics/stm_eqn00451.gif)so that, finally, from [Equation 1.4.3&#8211;3](01s04a06.md),
+![](../graphics/stm_eqn00451.gif)so that, finally, from [Equation 1.4.3&#8211;3](01s04a06-Rate-of-deformation-and-strain-increment.md),
 
 ![](../graphics/stm_eqn00452.gif)Thus, as long as we assume that the stretch at any time during the increment has the same principal directions as the total increment of stretch (on the fixed basis at the start of the increment), the logarithmic definition of incremental strain provides the required integral of the strain rate expressed as the rate of deformation. This assumption amounts to requiring that the components of stretch grow proportionally during the increment: that ![](../graphics/stm_eqn00453.gif), where *p* is any scalar that we take to grow monotonically from 0 to 1 during ![](../graphics/stm_eqn00454.gif). This assumption might be questionable if the increments are very large, but it is consistent with the levels of approximation used in the integration of the inelastic constitutive models. We, therefore, have a simple method for calculating the strain increment for use in this type of constitutive model without any additional loss of accuracy compared to what we already accept in the constitutive integration itself.
 ### Reference

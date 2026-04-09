@@ -13,7 +13,7 @@
 
 ![](../graphics/stm_eqn03395.gif)其中![](../graphics/stm_eqn00033.gif)是柯西应力，![](../graphics/stm_eqn03396.gif)是虚变形率（![](../graphics/stm_eqn03397.gif)，其中![](../graphics/stm_eqn01597.gif)是虚速度场），*V*是薄膜的当前体积。
 
-我们假定薄膜表面内的薄膜应力分量唯一非零：![](../graphics/stm_eqn03398.gif)。然后[公式3.4.1-1](03s04a70.md)简化为
+我们假定薄膜表面内的薄膜应力分量唯一非零：![](../graphics/stm_eqn03398.gif)。然后[公式3.4.1-1](03s04a70-Membrane-elements.md)简化为
 
 ![](../graphics/stm_eqn03399.gif)其中
 
@@ -72,7 +72,7 @@
 
 然后从极分解![](../graphics/stm_eqn03437.gif)定义增量应变和旋转，其中![](../graphics/stm_eqn00433.gif)是旋转矩阵，![](../graphics/stm_eqn00572.gif)是纯拉伸：
 
-![](../graphics/graphics/stm_eqn03438.gif)（参见"变形，" 第1.4.1节）。我们通过求解以下特征值问题找到![](../graphics/stm_eqn00574.gif)和相应的特征向量![](../graphics/stm_eqn03439.gif)
+![](../graphics/stm_eqn03438.gif)（参见"变形，" 第1.4.1节）。我们通过求解以下特征值问题找到![](../graphics/stm_eqn00574.gif)和相应的特征向量![](../graphics/stm_eqn03439.gif)
 
 ![](../graphics/stm_eqn03440.gif)由于我们假定薄膜没有横向剪切，法线方向（沿![](../graphics/stm_eqn00016.gif)）始终是主方向，因此特征值问题是![](../graphics/stm_eqn03441.gif)问题
 

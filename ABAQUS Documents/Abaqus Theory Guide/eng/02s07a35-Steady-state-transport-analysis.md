@@ -9,7 +9,7 @@ Abaqus/Standard provides a specialized analysis capability to model the steady-s
 
 The kinematics of the rolling problem are described in terms of a coordinate frame that moves along with the ground motion of the body. In this moving frame the rigid body rotation is described in a spatial or Eulerian manner and the deformation in a material or Lagrangian manner. It is this kinematic description that converts the steady moving contact field problem into a purely spatially dependent simulation.
 
-We consider the case shown in [Figure 2.7.1&#8211;1](02s07a35.md), where the ground velocity of the body is described in terms of a constant cornering motion.
+We consider the case shown in [Figure 2.7.1&#8211;1](02s07a35-Steady-state-transport-analysis.md), where the ground velocity of the body is described in terms of a constant cornering motion.
 
 Figure 2.7.1&#8211;1 Constant cornering motion.
 
@@ -49,7 +49,7 @@ The velocity of the center of the body ![](../graphics/stm_eqn01638.gif) (which 
 
 ![](../graphics/stm_eqn01671.gif)since the motions due to rolling and deformation vanish on the axis.
 
-To obtain the expression for straight line motion, as shown in [Figure 2.7.1&#8211;2](02s07a35.md), we move ![](../graphics/stm_eqn01639.gif) far away from the center of the body ![](../graphics/stm_eqn01672.gif) but keep ![](../graphics/stm_eqn01673.gif) the same. In that case ![](../graphics/stm_eqn01674.gif) and, hence, in the limit
+To obtain the expression for straight line motion, as shown in [Figure 2.7.1&#8211;2](02s07a35-Steady-state-transport-analysis.md), we move ![](../graphics/stm_eqn01639.gif) far away from the center of the body ![](../graphics/stm_eqn01672.gif) but keep ![](../graphics/stm_eqn01673.gif) the same. In that case ![](../graphics/stm_eqn01674.gif) and, hence, in the limit
 
 ![](../graphics/stm_eqn01675.gif)
 

@@ -8,7 +8,7 @@ The modal dynamic procedure provides time history analysis of linear systems. Th
 
 ![](../graphics/stm_eqn01218.gif)where the ![](../graphics/stm_eqn00904.gif) and ![](../graphics/stm_eqn01219.gif) indices span the eigenspace; ![](../graphics/stm_eqn01220.gif)is the projected viscous damping matix; ![](../graphics/stm_eqn01221.gif) is the "generalized coordinate" of the mode ![](../graphics/stm_eqn01219.gif) (the amplitude of the response in this mode); ![](../graphics/stm_eqn01222.gif) is the natural frequency of the undamped mode ![](../graphics/stm_eqn01219.gif) (obtained as the square root of the eigenvalue in the eigenfrequency step that precedes the modal dynamic time history analysis); ![](../graphics/stm_eqn01223.gif) is the magnitude of the loading projected onto this mode (the "generalized load" for the mode); and ![](../graphics/stm_eqn01224.gif) is the change in *f* over the time increment, which is ![](../graphics/stm_eqn00883.gif).
 
-If the projected damping matrix is diagonal, [Equation 2.5.5&#8211;1](02s05a28.md) becomes the following uncoupled set of equations:
+If the projected damping matrix is diagonal, [Equation 2.5.5&#8211;1](02s05a28-Modal-dynamic-analysis.md) becomes the following uncoupled set of equations:
 
 ![](../graphics/stm_eqn01225.gif)where ![](../graphics/stm_eqn01226.gif) is the critical damping ratio given by the relation
 
@@ -22,7 +22,7 @@ The solution to the uncoupled equations is obtained readily as a particular inte
 There are three cases of this solution for nonrigid body motion (![](../graphics/stm_eqn01235.gif)), depending on whether the damping in the modal equilibrium equation is greater than, equal to, or less than critical damping (that is, depending on whether ![](../graphics/stm_eqn01236.gif) is positive, zero, or negative).
 ### Solution to the coupled system
 
-[Equation 2.5.5&#8211;3](02s05a28.md) can be generalized to address full coupling in the projected damping matrix.  Let the matrix ![](../graphics/stm_eqn00162.gif) be split into its diagonal and off-diagonal parts so that
+[Equation 2.5.5&#8211;3](02s05a28-Modal-dynamic-analysis.md) can be generalized to address full coupling in the projected damping matrix.  Let the matrix ![](../graphics/stm_eqn00162.gif) be split into its diagonal and off-diagonal parts so that
 
 ![](../graphics/stm_eqn01237.gif) Then, with the additional assumption that the off-diagonal damping force varies linearly over a time increment, the equation for the uncoupled system can be rewritten as
 
@@ -57,7 +57,7 @@ In this case, with
 
 ![](../graphics/stm_eqn01249.gif)Rigid body mode with damping
 
-If there are rigid body modes in the finite element model, there will be one or several eigenvalues that are zero. The equation of motion ([Equation 2.5.5&#8211;1](02s05a28.md)) is reduced to
+If there are rigid body modes in the finite element model, there will be one or several eigenvalues that are zero. The equation of motion ([Equation 2.5.5&#8211;1](02s05a28-Modal-dynamic-analysis.md)) is reduced to
 
 ![](../graphics/stm_eqn01250.gif)
 
@@ -67,7 +67,7 @@ Only Rayleigh damping can be specified for a rigid body mode, since the critical
 
 ![](../graphics/stm_eqn01252.gif)Rigid body mode without damping
 
-For the particular case of a rigid body mode without damping, the equation of motion ([Equation 2.5.5&#8211;1](02s05a28.md)) is reduced to
+For the particular case of a rigid body mode without damping, the equation of motion ([Equation 2.5.5&#8211;1](02s05a28-Modal-dynamic-analysis.md)) is reduced to
 
 ![](../graphics/stm_eqn01253.gif)For this case
 

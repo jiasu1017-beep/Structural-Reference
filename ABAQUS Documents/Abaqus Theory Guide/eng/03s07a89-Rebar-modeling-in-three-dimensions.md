@@ -4,7 +4,7 @@
 
 **Products: **Abaqus/Standard  Abaqus/Explicit
 
-Let ![](../graphics/stm_eqn04979.gif) be the isoparametric coordinates of the basic finite element in which the rebar are placed. Let ![](../graphics/stm_eqn04980.gif), be isoparametric coordinates on the surface of reinforcement, with ![](../graphics/stm_eqn04981.gif). Let *t* be a material coordinate along the rebar direction. See [Figure 3.7.2&#8211;1](03s07a89.md).
+Let ![](../graphics/stm_eqn04979.gif) be the isoparametric coordinates of the basic finite element in which the rebar are placed. Let ![](../graphics/stm_eqn04980.gif), be isoparametric coordinates on the surface of reinforcement, with ![](../graphics/stm_eqn04981.gif). Let *t* be a material coordinate along the rebar direction. See [Figure 3.7.2&#8211;1](03s07a89-Rebar-modeling-in-three-dimensions.md).
 
 Figure 3.7.2&#8211;1 Rebar in a solid, three-dimensional element.
 

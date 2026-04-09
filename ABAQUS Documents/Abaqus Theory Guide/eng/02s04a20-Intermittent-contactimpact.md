@@ -34,7 +34,7 @@ Since finite velocity jumps are occurring at the time of impact in infinitesimal
 
 ![](../graphics/stm_eqn00956.gif)
 
-But ![](../graphics/stm_eqn00957.gif) at ![](../graphics/stm_eqn00945.gif), and ![](../graphics/stm_eqn00958.gif), so the second term in [Equation 2.4.2&#8211;4](02s04a20.md) is zero. However, the constraint ([Equation 2.4.2&#8211;2](02s04a20.md)) must be satisfied by augmenting [Equation 2.4.2&#8211;4](02s04a20.md) with a Lagrange multiplier term with *H* as the multiplier:
+But ![](../graphics/stm_eqn00957.gif) at ![](../graphics/stm_eqn00945.gif), and ![](../graphics/stm_eqn00958.gif), so the second term in [Equation 2.4.2&#8211;4](02s04a20-Intermittent-contactimpact.md) is zero. However, the constraint ([Equation 2.4.2&#8211;2](02s04a20-Intermittent-contactimpact.md)) must be satisfied by augmenting [Equation 2.4.2&#8211;4](02s04a20-Intermittent-contactimpact.md) with a Lagrange multiplier term with *H* as the multiplier:
 
 ![](../graphics/stm_eqn00959.gif)
 

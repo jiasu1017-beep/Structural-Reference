@@ -20,7 +20,7 @@
 
 ![](../graphics/stm_eqn01601.gif)其中![](../graphics/stm_eqn01602.gif)是材料的弹性矩阵，![](../graphics/stm_eqn01603.gif)是刚度比例阻尼因子（Rayleigh阻尼假设的另一部分），![](../graphics/stm_eqn01604.gif)是形成刚度矩阵虚部的结构阻尼因子（称为结构阻尼矩阵）。应变和应变率的变化来自位移和速度的变化：
 
-![](../graphics/stm_eqn01605.gif)这允许我们将[方程2.6.1-2](02s06a33.md)写为
+![](../graphics/stm_eqn01605.gif)这允许我们将[方程2.6.1-2](02s06a33-Direct-steady-state-dynamic-analysis.md)写为
 
 ![](../graphics/stm_eqn01606.gif)其中我们定义了刚度矩阵
 
@@ -34,7 +34,7 @@
 
 ![](../graphics/stm_eqn01610.gif)和
 
-![](../graphics/stm_eqn01611.gif)其中![](../graphics/stm_eqn01612.gif)和![](../graphics/stm_eqn01613.gif)是位移振幅的实部和虚部，![](../graphics/stm_eqn01614.gif)和![](../graphics/stm_eqn01615.gif)是施加在结构上的力的振幅的实部和虚部，![](../graphics/stm_eqn01258.gif)是圆频率。将谐波激励和响应的表达式代入[方程2.6.1-4](02s06a33.md)并以矩阵形式写出结果，得到
+![](../graphics/stm_eqn01611.gif)其中![](../graphics/stm_eqn01612.gif)和![](../graphics/stm_eqn01613.gif)是位移振幅的实部和虚部，![](../graphics/stm_eqn01614.gif)和![](../graphics/stm_eqn01615.gif)是施加在结构上的力的振幅的实部和虚部，![](../graphics/stm_eqn01258.gif)是圆频率。将谐波激励和响应的表达式代入[方程2.6.1-4](02s06a33-Direct-steady-state-dynamic-analysis.md)并以矩阵形式写出结果，得到
 
 ![](../graphics/stm_eqn01616.gif)其中
 

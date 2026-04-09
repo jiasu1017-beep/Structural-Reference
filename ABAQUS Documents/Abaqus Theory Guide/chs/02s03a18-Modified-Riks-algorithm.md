@@ -27,7 +27,7 @@
 
 假设解已开发到点 ![](../graphics/stm_eqn00836.gif)。形成切线刚度 ![](../graphics/stm_eqn00837.gif)，我们求解
 
-![](../graphics/stm_eqn00838.gif)[图 2.3.2-2](02s03a18.md) 中的增量大小 ![](../graphics/stm_eqn00839.gif) 从解空间中的指定路径长度 ![](../graphics/stm_eqn00840.gif) 中选择，所以
+![](../graphics/stm_eqn00838.gif)[图 2.3.2-2](02s03a18-Modified-Riks-algorithm.md) 中的增量大小 ![](../graphics/stm_eqn00839.gif) 从解空间中的指定路径长度 ![](../graphics/stm_eqn00840.gif) 中选择，所以
 
 ![](../graphics/stm_eqn00841.gif)因此，
 
@@ -37,11 +37,11 @@
 
 ![](../graphics/stm_eqn00849.gif)
 
-在某些情况下，当响应在 ![](../graphics/stm_eqn00850.gif) 空间中显示非常高的曲率时，这个标准可能会导致选择错误的符号——例如参见 [图 2.3.2-3](02s03a18.md)。
+在某些情况下，当响应在 ![](../graphics/stm_eqn00850.gif) 空间中显示非常高的曲率时，这个标准可能会导致选择错误的符号——例如参见 [图 2.3.2-3](02s03a18-Modified-Riks-algorithm.md)。
 
 图 2.3.2-3 ![](../graphics/stm_eqn00851.gif) 符号错误选择的示例。
 
-![](../graphics/stmincorrect-dlambda-nls.png) 在实际案例中很少选择错误的符号，除非增量大小太大或解急剧分岔。检查此类情况在计算上是昂贵的：一种方法是找到 ![](../graphics/stm_eqn00852.gif) 处的解，这样我们获得一个给出 ![](../graphics/stm_eqn00853.gif) 处定向切线近似值的向量。因为这种情况很少见，所以不包括此类检查，仅使用上面给出的简单点积来确定 ![](../graphics/stm_eqn00854.gif) 的符号。因此，我们现在找到了 [图 2.3.2-2](02s03a18.md) 中的点 ![](../graphics/stm_eqn00855.gif)。现在通过以下迭代算法将解校正到平衡路径上，位于经过 ![](../graphics/stm_eqn00856.gif) 并与 ![](../graphics/stm_eqn00857.gif) 正交的平面中。
+![](../graphics/stmincorrect-dlambda-nls.png) 在实际案例中很少选择错误的符号，除非增量大小太大或解急剧分岔。检查此类情况在计算上是昂贵的：一种方法是找到 ![](../graphics/stm_eqn00852.gif) 处的解，这样我们获得一个给出 ![](../graphics/stm_eqn00853.gif) 处定向切线近似值的向量。因为这种情况很少见，所以不包括此类检查，仅使用上面给出的简单点积来确定 ![](../graphics/stm_eqn00854.gif) 的符号。因此，我们现在找到了 [图 2.3.2-2](02s03a18-Modified-Riks-algorithm.md) 中的点 ![](../graphics/stm_eqn00855.gif)。现在通过以下迭代算法将解校正到平衡路径上，位于经过 ![](../graphics/stm_eqn00856.gif) 并与 ![](../graphics/stm_eqn00857.gif) 正交的平面中。
 
 初始化：![](../graphics/stm_eqn00858.gif)
 
@@ -49,7 +49,7 @@
 
 形成 ![](../graphics/stm_eqn00861.gif) 在节点处的内（应力）力，
 
-![](../graphics/stm_eqn00862.gif)在状态 ![](../graphics/stm_eqn00863.gif) 处——即在 [图 2.3.2-2](02s03a18.md) 中的 ![](../graphics/stm_eqn00864.gif) 处。
+![](../graphics/stm_eqn00862.gif)在状态 ![](../graphics/stm_eqn00863.gif) 处——即在 [图 2.3.2-2](02s03a18-Modified-Riks-algorithm.md) 中的 ![](../graphics/stm_eqn00864.gif) 处。
 
 检查平衡：
 
@@ -59,7 +59,7 @@
 
 ![](../graphics/stm_eqn00867.gif)也就是说，我们同时求解两个荷载向量 ![](../graphics/stm_eqn00868.gif) 和 ![](../graphics/stm_eqn00869.gif)，并获得两个位移向量 ![](../graphics/stm_eqn00870.gif) 和 ![](../graphics/stm_eqn00871.gif)。
 
-现在缩放向量 ![](../graphics/stm_eqn00872.gif)，并将其添加到 ![](../graphics/stm_eqn00873.gif) 处，其中 ![](../graphics/stm_eqn00874.gif) 是缩放残差在 ![](../graphics/stm_eqn00875.gif) 上的投影，这样我们从 ![](../graphics/stm_eqn00864.gif) 移动到在与 ![](../graphics/stm_eqn00877.gif) 正交的平面中的 ![](../graphics/stm_eqn00876.gif)——参见 [图 2.3.2-2](02s03a18.md)。这给出方程
+现在缩放向量 ![](../graphics/stm_eqn00872.gif)，并将其添加到 ![](../graphics/stm_eqn00873.gif) 处，其中 ![](../graphics/stm_eqn00874.gif) 是缩放残差在 ![](../graphics/stm_eqn00875.gif) 上的投影，这样我们从 ![](../graphics/stm_eqn00864.gif) 移动到在与 ![](../graphics/stm_eqn00877.gif) 正交的平面中的 ![](../graphics/stm_eqn00876.gif)——参见 [图 2.3.2-2](02s03a18-Modified-Riks-algorithm.md)。这给出方程
 
 ![](../graphics/stm_eqn00878.gif)简化为给出
 

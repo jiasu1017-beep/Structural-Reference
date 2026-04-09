@@ -7,7 +7,7 @@
 本节讨论Abaqus/Standard中小应变剪切柔性单元的公式，它们是四边形（S4R5、S8R5、S9R5和S8R），6节点三角形STRI65除外。这些单元的基本思想是壳参考表面上一点的位置——![](../graphics/stm_eqn00117.gif)——和一个向量![](../graphics/stm_eqn00483.gif)——近似垂直于参考表面——的分量被独立插值。然后壳理论的运动学包括从![](../graphics/stm_eqn00117.gif)相对于表面上位置的导数测量参考表面上的膜应变，以及从![](../graphics/stm_eqn00483.gif)的导数测量弯曲应变；用于此目的的应变度量是Koiter-Sanders理论应变的近似（[Budiansky和Sanders, 1963](07s01a01-References.md)）。横向剪切应变测量为![](../graphics/stm_eqn00483.gif)在壳参考表面切线上的投影变化。对于这些单元类型，应变度量适用于大旋转但小应变，并且忽略由变形引起的壳厚度变化。
 ### 符号
 
-[图3.6.3-1](03s06a81.md)中显示了一个典型的壳表面片段。
+[图3.6.3-1](03s06a81-Shear-flexible-small-strain-shell-elemen.md)中显示了一个典型的壳表面片段。
 
 图3.6.3-1 壳参考表面。
 
@@ -156,7 +156,7 @@
 
 由壳位移变化引起的这项变化（"载荷刚度"）为
 
-![](../graphics/graphics/stm_eqn04147.gif)因为我们假定压力大小*p*是外部给定的，不依赖于位置![](../graphics/stm_eqn00117.gif)。忽略自由边效应，并假定大小*p*均匀，导致对称形式
+![](../graphics/stm_eqn04147.gif)因为我们假定压力大小*p*是外部给定的，不依赖于位置![](../graphics/stm_eqn00117.gif)。忽略自由边效应，并假定大小*p*均匀，导致对称形式
 
 ![](../graphics/stm_eqn04148.gif)
 

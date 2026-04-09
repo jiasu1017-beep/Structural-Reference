@@ -4,7 +4,7 @@
 
 **Product: **Abaqus/Standard
 
-The line spring elements in Abaqus/Standard provide a computationally inexpensive tool for the analysis of part-through cracks in plates and shells. The basic concept was first proposed by [Rice (1972)](07s01a01-References.md) and has been further discussed by [Parks and White (1982)](07s01a01-References.md). The "line spring" is a series of one-dimensional finite elements placed along the part-through flaw, which allows local flexibility of one side of the flaw with respect to the other (points *A* and *B* in [Figure 3.9.5&#8211;1](03s09a96.md)). This local flexibility is calculated from existing solutions for single edge notch specimens in plane strain ([Figure 3.9.5&#8211;2](03s09a96.md)). The approach is computationally inexpensive compared to fully three-dimensional models of the vicinity of the flaw; it is also approximate because of the use of two-dimensional solutions embedded in the shell model. Practical experience with the method on typical geometries has shown that, for several important geometries, the method provides acceptable accuracy.
+The line spring elements in Abaqus/Standard provide a computationally inexpensive tool for the analysis of part-through cracks in plates and shells. The basic concept was first proposed by [Rice (1972)](07s01a01-References.md) and has been further discussed by [Parks and White (1982)](07s01a01-References.md). The "line spring" is a series of one-dimensional finite elements placed along the part-through flaw, which allows local flexibility of one side of the flaw with respect to the other (points *A* and *B* in [Figure 3.9.5&#8211;1](03s09a96-Line-spring-elements.md)). This local flexibility is calculated from existing solutions for single edge notch specimens in plane strain ([Figure 3.9.5&#8211;2](03s09a96-Line-spring-elements.md)). The approach is computationally inexpensive compared to fully three-dimensional models of the vicinity of the flaw; it is also approximate because of the use of two-dimensional solutions embedded in the shell model. Practical experience with the method on typical geometries has shown that, for several important geometries, the method provides acceptable accuracy.
 
 Figure 3.9.5&#8211;1 Surface geometry; line spring modeling. Side *B* of the element contains nodes *1*, *2*, and *3*; and for LS6 elements side *A* contains nodes *4*, *5*, and *6*.
 
@@ -14,13 +14,13 @@ Figure 3.9.5&#8211;2 Line spring compliance calibration model.
 
 ![](../graphics/stmlinespring-compliance-nls.png)
 
-This section discusses the geometric and kinematic basis of the elements as well as the equilibrium statement and the development of the local solutions that define the constitutive relationships. The constitutive relations are expressed in terms of the forces and moments carried across the crack and the relative displacements and rotations of points on opposite sides of the crack (*A* and *B* in [Figure 3.9.5&#8211;1](03s09a96.md)), and are derived from local solutions to single edge cracked plane strain specimens. Elastic and fully plastic (limit analysis) solutions are used to construct an approximate elastic-plastic model.
+This section discusses the geometric and kinematic basis of the elements as well as the equilibrium statement and the development of the local solutions that define the constitutive relationships. The constitutive relations are expressed in terms of the forces and moments carried across the crack and the relative displacements and rotations of points on opposite sides of the crack (*A* and *B* in [Figure 3.9.5&#8211;1](03s09a96-Line-spring-elements.md)), and are derived from local solutions to single edge cracked plane strain specimens. Elastic and fully plastic (limit analysis) solutions are used to construct an approximate elastic-plastic model.
 
 At each point along the flaw a local orthonormal basis system is defined ![](../graphics/stm_eqn05402.gif), with ![](../graphics/stm_eqn00479.gif) the tangent to the shell along the flaw, ![](../graphics/stm_eqn00483.gif) the normal to the shell, and ![](../graphics/stm_eqn00178.gif) defined as
 
 ![](../graphics/stm_eqn05403.gif)
 
-We use the shell normal, ![](../graphics/stm_eqn00483.gif), to determine the side of the shell on which the flaw occurs; flaws that open on the positive ![](../graphics/stm_eqn00483.gif) side are given positive flaw depths to indicate this, and those on the negative ![](../graphics/stm_eqn00483.gif) side are given negative flaw depths. The relative motion between two points---*A* and *B* in [Figure 3.9.5&#8211;1](03s09a96.md)---on opposite sides of the flaw but otherwise at the same place, then defines a set of six generalized strains as follows. Side *B* of the element contains nodes *1*, *2*, *3*; and for LS6 elements side *A* contains nodes *4*, *5*, and *6*.
+We use the shell normal, ![](../graphics/stm_eqn00483.gif), to determine the side of the shell on which the flaw occurs; flaws that open on the positive ![](../graphics/stm_eqn00483.gif) side are given positive flaw depths to indicate this, and those on the negative ![](../graphics/stm_eqn00483.gif) side are given negative flaw depths. The relative motion between two points---*A* and *B* in [Figure 3.9.5&#8211;1](03s09a96-Line-spring-elements.md)---on opposite sides of the flaw but otherwise at the same place, then defines a set of six generalized strains as follows. Side *B* of the element contains nodes *1*, *2*, *3*; and for LS6 elements side *A* contains nodes *4*, *5*, and *6*.
 
 Mode I:| opening displacement |  |
 | --- | --- |
@@ -51,7 +51,7 @@ The elements use quadratic interpolation of displacement and rotation components
 Two line spring elements are provided---LS6 is a general element for use with arbitrary flaws in a shell, while LS3S is provided for Mode I use in cases when the crack lies on a plane of symmetry and the deformation will be symmetric about the same plane, so that only one-half of the geometry must be modeled.
 ### Elasticity
 
-The Mode I line spring compliance is based on a single edge notched specimen subject to far-field tension and bending, as shown in [Figure 3.9.5&#8211;2](03s09a96.md). This compliance is
+The Mode I line spring compliance is based on a single edge notched specimen subject to far-field tension and bending, as shown in [Figure 3.9.5&#8211;2](03s09a96-Line-spring-elements.md). This compliance is
 
 ![](../graphics/stm_eqn05412.gif)where the matrix ![](../graphics/stm_eqn05413.gif) can be obtained from the energy compliance calibrations of [Rice (1972)](07s01a01-References.md). The inverse of ![](../graphics/stm_eqn05413.gif) provides the Mode I stiffness per unit length of flaw, relating ![](../graphics/stm_eqn05414.gif) and ![](../graphics/stm_eqn05415.gif) to ![](../graphics/stm_eqn05416.gif) and ![](../graphics/stm_eqn05417.gif). Similar results in Mode II and Mode III complete the elastic stiffness.
 
@@ -102,7 +102,7 @@ Then for ![](../graphics/stm_eqn05437.gif) the yield function, ![](../graphics/s
 
 This surface is chosen to blend continuously with ![](../graphics/stm_eqn05441.gif) at ![](../graphics/stm_eqn05442.gif) and as a reasonable estimate of the behavior for ![](../graphics/stm_eqn05443.gif). It is, otherwise, arbitrary. [Rice (1972)](07s01a01-References.md) points out that at ![](../graphics/stm_eqn05444.gif), the yield surface will have a vertex. The smooth surface used in Abaqus has been adopted for numerical reasons. This smoothness restricts the possible flow behavior at ![](../graphics/stm_eqn05445.gif), but we assume that this is not a critical issue.
 
-These surfaces are shown in [Figure 3.9.5&#8211;3](03s09a96.md). The figure also indicates a region where the model is not appropriate (because the crack will close). Warning messages are provided if the generalized stress point enters this region at any integration point.
+These surfaces are shown in [Figure 3.9.5&#8211;3](03s09a96-Line-spring-elements.md). The figure also indicates a region where the model is not appropriate (because the crack will close). Warning messages are provided if the generalized stress point enters this region at any integration point.
 
 Figure 3.9.5&#8211;3 Generalized stress yield surface assumed for line springs.
 

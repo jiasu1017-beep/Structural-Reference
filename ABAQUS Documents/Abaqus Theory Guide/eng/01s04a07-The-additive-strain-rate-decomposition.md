@@ -18,7 +18,7 @@ We begin by assuming that the material has a natural elastic reference state in 
 
 For the materials of concern here, we now assume that the elastic strains, ![](../graphics/stm_eqn00464.gif), are very small compared to unity. Using this together with the left polar decomposition of the elastic deformation, we can write
 
-![](../graphics/stm_eqn00465.gif)where ![](../graphics/stm_eqn00466.gif), ![](../graphics/stm_eqn00467.gif), and ![](../graphics/stm_eqn00468.gif). We now use this decomposition of ![](../graphics/stm_eqn00469.gif) in [Equation 1.4.4&#8211;2](01s04a07.md) to obtain
+![](../graphics/stm_eqn00465.gif)where ![](../graphics/stm_eqn00466.gif), ![](../graphics/stm_eqn00467.gif), and ![](../graphics/stm_eqn00468.gif). We now use this decomposition of ![](../graphics/stm_eqn00469.gif) in [Equation 1.4.4&#8211;2](01s04a07-The-additive-strain-rate-decomposition.md) to obtain
 
 ![](../graphics/stm_eqn00470.gif)We now define
 
@@ -30,7 +30,7 @@ For the materials of concern here, we now assume that the elastic strains, ![](.
 
 We now make the assumption that ![](../graphics/stm_eqn00475.gif), which holds for isotropy; and the last expression reduces to
 
-![](../graphics/stm_eqn00476.gif)where we introduce the notation ![](../graphics/stm_eqn00477.gif). [Equation 1.4.4&#8211;3](01s04a07.md) is the classical "additive rate of deformation decomposition" of plasticity theory---see [Aravas (1991)](07s01a01-References.md) for an example. We see that it derives from the general decomposition ([Equation 1.4.4&#8211;1](01s04a07.md)) when we use the symmetric part of the velocity gradient with respect to current position and when the total elastic strain is always small compared to one. The rate of deformation decomposition is used in this form in almost all the inelastic constitutive models in Abaqus, and it is denoted as ![](../graphics/stm_eqn00478.gif).
+![](../graphics/stm_eqn00476.gif)where we introduce the notation ![](../graphics/stm_eqn00477.gif). [Equation 1.4.4&#8211;3](01s04a07-The-additive-strain-rate-decomposition.md) is the classical "additive rate of deformation decomposition" of plasticity theory---see [Aravas (1991)](07s01a01-References.md) for an example. We see that it derives from the general decomposition ([Equation 1.4.4&#8211;1](01s04a07-The-additive-strain-rate-decomposition.md)) when we use the symmetric part of the velocity gradient with respect to current position and when the total elastic strain is always small compared to one. The rate of deformation decomposition is used in this form in almost all the inelastic constitutive models in Abaqus, and it is denoted as ![](../graphics/stm_eqn00478.gif).
 ### Reference
 
 ### Reference

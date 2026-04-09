@@ -48,7 +48,7 @@ These discretized equilibrium equations, together with the continuity equation d
 
 ![](../graphics/stm_eqn01763.gif)
 
-From the variation of discretized equilibrium, [Equation 2.8.2&#8211;2](02s08a37.md), the term ![](../graphics/stm_eqn01764.gif) gives rise to the mass matrix (for the d'Alembert forces) and the "load stiffness matrix" in the Jacobian. The load stiffness matrix is discussed in Chapter 3, "Elements," and Chapter 6, "Loading and Constraints," for particular load types. The load stiffness term associated with the weight of the wetting liquid is
+From the variation of discretized equilibrium, [Equation 2.8.2&#8211;2](02s08a37-Discretized-equilibrium-statement-for-a-.md), the term ![](../graphics/stm_eqn01764.gif) gives rise to the mass matrix (for the d'Alembert forces) and the "load stiffness matrix" in the Jacobian. The load stiffness matrix is discussed in Chapter 3, "Elements," and Chapter 6, "Loading and Constraints," for particular load types. The load stiffness term associated with the weight of the wetting liquid is
 
 ![](../graphics/stm_eqn01765.gif)where
 

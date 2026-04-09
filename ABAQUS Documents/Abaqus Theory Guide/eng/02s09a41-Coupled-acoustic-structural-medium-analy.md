@@ -40,7 +40,7 @@ For an acoustic medium capable of undergoing cavitation, the absolute pressure (
 ![](../graphics/stm_eqn01916.gif)where ![](../graphics/stm_eqn01917.gif) is the fluid cavitation limit and  ![](../graphics/stm_eqn01918.gif) is the initial acoustic static pressure. A total wave formulation is used for a nonlinear acoustic medium undergoing cavitation. This formulation is very similar to the scattered wave formulation presented below except that the pseudopressure, defined as the product of the bulk modulus and the compressive volumetric strain, plays the role of the material state variable instead of the acoustic excess pressure. The acoustic excess pressure is readily available from this pseudopressure subject to the cavitation condition.
 ### Physical boundary conditions in acoustic analysis
 
-Acoustic fields are strongly dependent on the conditions at the boundary of the acoustic medium. The boundary of a region of acoustic medium that obeys [Equation 2.9.1&#8211;1](02s09a41.md) and [Equation 2.9.1&#8211;2](02s09a41.md) can be divided into subregions *S* on which the following conditions are imposed:| , | where the value of the acoustic pressure p is prescribed. |
+Acoustic fields are strongly dependent on the conditions at the boundary of the acoustic medium. The boundary of a region of acoustic medium that obeys [Equation 2.9.1&#8211;1](02s09a41-Coupled-acoustic-structural-medium-analy.md) and [Equation 2.9.1&#8211;2](02s09a41-Coupled-acoustic-structural-medium-analy.md) can be divided into subregions *S* on which the following conditions are imposed:| , | where the value of the acoustic pressure p is prescribed. |
 | --- | --- |
 | , | where we prescribe the normal derivative of the acoustic medium. This condition also prescribes the motion of the fluid particles and can be used to model acoustic sources, rigid walls (baffles), incident wave fields, and symmetry planes. |
 | , | the "reactive" acoustic boundary, where there is a prescribed linear relationship between the fluid acoustic pressure and its normal derivative. Quite a few physical effects can be modeled in this manner: in particular, the effect of thin layers of material, whose own motions are unimportant, placed between acoustic media and rigid baffles. An example is the carpet glued to the floor of a room or car interior that absorbs and reflects acoustic waves. This thin layer of material provides a "reactive surface," or impedance boundary condition, to the acoustic medium. This type of boundary condition is also referred to as an imposed impedance, admittance, or a "Dirichlet to Neumann map." |
@@ -52,17 +52,17 @@ Acoustic fields are strongly dependent on the conditions at the boundary of the 
 
 In Abaqus the finite element formulations are slightly different in direct integration transient and steady-state or modal analyses, primarily with regard to the treatment of the volumetric drag loss parameter and spatial variations of the constitutive parameters. To derive a symmetric system of ordinary differential equations for implicit integration, some approximations are made in the transient case that are not needed in steady state. For linear transient dynamic analysis, the modal procedure can be used and is much more efficient.
 
-To derive the partial differential equation used in direct integration transient analysis, we divide [Equation 2.9.1&#8211;1](02s09a41.md) by ![](../graphics/stm_eqn01910.gif), take its gradient with respect to ![](../graphics/stm_eqn00117.gif), neglect the gradient of ![](../graphics/stm_eqn01926.gif), and combine the result with the time derivatives of [Equation 2.9.1&#8211;2](02s09a41.md) to obtain the equation of motion for the fluid in terms of the fluid pressure:
+To derive the partial differential equation used in direct integration transient analysis, we divide [Equation 2.9.1&#8211;1](02s09a41-Coupled-acoustic-structural-medium-analy.md) by ![](../graphics/stm_eqn01910.gif), take its gradient with respect to ![](../graphics/stm_eqn00117.gif), neglect the gradient of ![](../graphics/stm_eqn01926.gif), and combine the result with the time derivatives of [Equation 2.9.1&#8211;2](02s09a41-Coupled-acoustic-structural-medium-analy.md) to obtain the equation of motion for the fluid in terms of the fluid pressure:
 
 ![](../graphics/stm_eqn01927.gif)The assumption that the gradient of ![](../graphics/stm_eqn01926.gif) is small is violated where there are discontinuities in the quantity ![](../graphics/stm_eqn01926.gif) (for example, on the boundary between two elements that have a different ![](../graphics/stm_eqn01926.gif) value).Variational statement
 
-An equivalent weak form for the equation of motion, [Equation 2.9.1&#8211;3](02s09a41.md), is obtained by introducing an arbitrary variational field, ![](../graphics/stm_eqn00285.gif), and integrating over the fluid:
+An equivalent weak form for the equation of motion, [Equation 2.9.1&#8211;3](02s09a41-Coupled-acoustic-structural-medium-analy.md), is obtained by introducing an arbitrary variational field, ![](../graphics/stm_eqn00285.gif), and integrating over the fluid:
 
 ![](../graphics/stm_eqn01928.gif)Green's theorem allows this to be rewritten as
 
-![](../graphics/stm_eqn01929.gif)Assuming that *p* is prescribed on ![](../graphics/stm_eqn01919.gif), the equilibrium equation, [Equation 2.9.1&#8211;1](02s09a41.md), is used on the remainder of the boundary to relate the pressure gradient to the motion of the boundary:
+![](../graphics/stm_eqn01929.gif)Assuming that *p* is prescribed on ![](../graphics/stm_eqn01919.gif), the equilibrium equation, [Equation 2.9.1&#8211;1](02s09a41-Coupled-acoustic-structural-medium-analy.md), is used on the remainder of the boundary to relate the pressure gradient to the motion of the boundary:
 
-![](../graphics/stm_eqn01930.gif)Using this equation, the term ![](../graphics/stm_eqn01931.gif) is eliminated from [Equation 2.9.1&#8211;4](02s09a41.md) to produce
+![](../graphics/stm_eqn01930.gif)Using this equation, the term ![](../graphics/stm_eqn01931.gif) is eliminated from [Equation 2.9.1&#8211;4](02s09a41-Coupled-acoustic-structural-medium-analy.md) to produce
 
 ![](../graphics/stm_eqn01932.gif)where, for convenience, the boundary "traction" term
 
@@ -80,7 +80,7 @@ In direct integration transient dynamics we enforce the acoustic boundary condit
 | On , | the acoustic-structural interface, we apply the acoustic-structural interface condition by equating displacement of the fluid and solid, which enforces the condition where  is the displacement of the structure. In the presence of volumetric drag it follows that the acoustic boundary traction coupling fluid to solid is In Abaqus/Standard the formulation of the transient coupled problem would be made nonsymmetric by the presence of the term . In the great majority of practical applications the acoustic tractions associated with volumetric drag are small compared to those associated with fluid inertia, so this term is ignored in transient analysis: |
 | On , | the mixed impedance boundary and acoustic-structural boundary, we apply a condition that relates the relative outward velocity between the acoustic medium and the structure to the pressure and rate of change of pressure: This relative normal velocity represents a rate of compression (or extension) of the intervening layer. Applying this equation to the definition of , we obtain for the transient case This expression for  is the sum of its definitions for  and . In the steady-state case the effect of volumetric drag on the structural displacement term in the acoustic traction is included: |
 
-These definitions for the boundary term, ![](../graphics/stm_eqn01934.gif), are introduced into [Equation 2.9.1&#8211;6](02s09a41.md) to give the final variational statement for the acoustic medium (this is the equivalent of the virtual work statement for the structure):
+These definitions for the boundary term, ![](../graphics/stm_eqn01934.gif), are introduced into [Equation 2.9.1&#8211;6](02s09a41-Coupled-acoustic-structural-medium-analy.md) to give the final variational statement for the acoustic medium (this is the equivalent of the virtual work statement for the structure):
 
 ![](../graphics/stm_eqn01958.gif)
 
@@ -94,9 +94,9 @@ These definitions for the boundary term, ![](../graphics/stm_eqn01934.gif), are 
 
 ![](../graphics/stm_eqn01963.gif)where ![](../graphics/stm_eqn00033.gif) is the stress at a point in the structure, *p* is the pressure acting on the fluid-structural interface, ![](../graphics/stm_eqn00483.gif) is the outward normal to the structure, ![](../graphics/stm_eqn00593.gif) is the density of the material, ![](../graphics/stm_eqn01595.gif) is the mass proportional damping factor (part of the Rayleigh damping assumption for the structure), ![](../graphics/stm_eqn01964.gif) is the acceleration of a point in the structure, ![](../graphics/stm_eqn00479.gif) is the surface traction applied to the structure, ![](../graphics/stm_eqn01965.gif) is a variational displacement field, and ![](../graphics/stm_eqn01596.gif) is the strain variation that is compatible with ![](../graphics/stm_eqn01965.gif). For simplicity in this equation all other loading terms except the fluid pressure and surface traction ![](../graphics/stm_eqn00479.gif) have been neglected: they are imposed in the usual way.The discretized finite element equations
 
-[Equation 2.9.1&#8211;14](02s09a41.md) and [Equation 2.9.1&#8211;15](02s09a41.md) define the variational problem for the coupled fields ![](../graphics/stm_eqn01950.gif) and *p*. The problem is discretized by introducing interpolation functions: in the fluid ![](../graphics/stm_eqn01966.gif), ![](../graphics/stm_eqn01967.gif) up to the number of pressure nodes and in the structure ![](../graphics/stm_eqn01968.gif), ![](../graphics/stm_eqn01969.gif) up to the number of displacement degrees of freedom. In these and the following equations we assume summation over the superscripts that refer to the degrees of freedom of the discretized model. We also use the superscripts ![](../graphics/stm_eqn01970.gif), ![](../graphics/stm_eqn01971.gif) to refer to pressure degrees of freedom in the fluid and ![](../graphics/stm_eqn01972.gif), ![](../graphics/stm_eqn01973.gif) to refer to displacement degrees of freedom in the structure. We use a Galerkin method for the structural system; the variational field has the same form as the displacement: ![](../graphics/stm_eqn01974.gif). For the fluid we use ![](../graphics/stm_eqn01975.gif) but with the subsequent Petrov-Galerkin substitution
+[Equation 2.9.1&#8211;14](02s09a41-Coupled-acoustic-structural-medium-analy.md) and [Equation 2.9.1&#8211;15](02s09a41-Coupled-acoustic-structural-medium-analy.md) define the variational problem for the coupled fields ![](../graphics/stm_eqn01950.gif) and *p*. The problem is discretized by introducing interpolation functions: in the fluid ![](../graphics/stm_eqn01966.gif), ![](../graphics/stm_eqn01967.gif) up to the number of pressure nodes and in the structure ![](../graphics/stm_eqn01968.gif), ![](../graphics/stm_eqn01969.gif) up to the number of displacement degrees of freedom. In these and the following equations we assume summation over the superscripts that refer to the degrees of freedom of the discretized model. We also use the superscripts ![](../graphics/stm_eqn01970.gif), ![](../graphics/stm_eqn01971.gif) to refer to pressure degrees of freedom in the fluid and ![](../graphics/stm_eqn01972.gif), ![](../graphics/stm_eqn01973.gif) to refer to displacement degrees of freedom in the structure. We use a Galerkin method for the structural system; the variational field has the same form as the displacement: ![](../graphics/stm_eqn01974.gif). For the fluid we use ![](../graphics/stm_eqn01975.gif) but with the subsequent Petrov-Galerkin substitution
 
-![](../graphics/stm_eqn01976.gif) The new function ![](../graphics/stm_eqn01977.gif) makes the single variational equation obtained from summing [Equation 2.9.1&#8211;14](02s09a41.md) and [Equation 2.9.1&#8211;15](02s09a41.md) dimensionally consistent:
+![](../graphics/stm_eqn01976.gif) The new function ![](../graphics/stm_eqn01977.gif) makes the single variational equation obtained from summing [Equation 2.9.1&#8211;14](02s09a41-Coupled-acoustic-structural-medium-analy.md) and [Equation 2.9.1&#8211;15](02s09a41-Coupled-acoustic-structural-medium-analy.md) dimensionally consistent:
 
 ![](../graphics/stm_eqn01978.gif)where, for simplicity, we have introduced the following definitions:
 
@@ -135,7 +135,7 @@ All model degrees of freedom and loads are assumed to be varying harmonically at
 
 ![](../graphics/stm_eqn02000.gif)and, thus, write
 
-![](../graphics/stm_eqn02001.gif)The equilibrium equation is now in a form where the density is complex and the acoustic medium velocity does not enter. We divide this equation by ![](../graphics/stm_eqn02002.gif) and combine it with the second time derivative of the constitutive law, [Equation 2.9.1&#8211;2](02s09a41.md), to obtain
+![](../graphics/stm_eqn02001.gif)The equilibrium equation is now in a form where the density is complex and the acoustic medium velocity does not enter. We divide this equation by ![](../graphics/stm_eqn02002.gif) and combine it with the second time derivative of the constitutive law, [Equation 2.9.1&#8211;2](02s09a41-Coupled-acoustic-structural-medium-analy.md), to obtain
 
 ![](../graphics/stm_eqn02003.gif)We have not used the assumption that the spatial gradient of ![](../graphics/stm_eqn02004.gif) is small, as was done in the transient dynamics formulation.Variational statement
 
@@ -155,7 +155,7 @@ In steady state the boundary traction is defined as
 | On , | the acoustic-structural interface, we equate the displacement of the fluid and solid as in the transient case. However, the acoustic boundary traction coupling fluid to solid,can be applied without affecting the symmetry of the overall formulation. Consequently, the acoustic tractions in the steady-state case make no assumptions about volumetric drag. |
 | On , | the mixed impedance boundary and acoustic-structural boundary, the condition results in the definitionIn this case the effect of volumetric drag is included without approximation. |The final variational statement becomes
 
-![](../graphics/stm_eqn02014.gif)This equation is formally identical to [Equation 2.9.1&#8211;4](02s09a41.md), except for the pressure "stiffness" term, the radiation boundary conditions, and the imposed boundary traction term. Because the volumetric drag effect is contained in the complex density, the acoustic-structural boundary term in this formulation does not have the limitation that the volumetric drag must be small compared to other effects in the acoustic medium. In addition, in this formulation the applied flux on an acoustic boundary represents the inward acceleration of the acoustic medium, whether or not the volumetric drag is large. Finally, the radiation boundary conditions do not make any approximations with regard to the volumetric drag parameter.
+![](../graphics/stm_eqn02014.gif)This equation is formally identical to [Equation 2.9.1&#8211;4](02s09a41-Coupled-acoustic-structural-medium-analy.md), except for the pressure "stiffness" term, the radiation boundary conditions, and the imposed boundary traction term. Because the volumetric drag effect is contained in the complex density, the acoustic-structural boundary term in this formulation does not have the limitation that the volumetric drag must be small compared to other effects in the acoustic medium. In addition, in this formulation the applied flux on an acoustic boundary represents the inward acceleration of the acoustic medium, whether or not the volumetric drag is large. Finally, the radiation boundary conditions do not make any approximations with regard to the volumetric drag parameter.
 
 The above equation uses the complex density, ![](../graphics/stm_eqn02015.gif). We manipulate it into a form that has real coefficients and an additional time derivative through the relations
 
@@ -163,7 +163,7 @@ The above equation uses the complex density, ![](../graphics/stm_eqn02015.gif). 
 
 ![](../graphics/stm_eqn02017.gif)The discretized finite element equations
 
-Applying Galerkin's principle, the finite element equations are derived as before. We arrive again at [Equation 2.9.1&#8211;17](02s09a41.md) with the same matrices except for the damping and stiffness matrices of the acoustic elements and the surfaces that have imposed impedance conditions, which now appear as
+Applying Galerkin's principle, the finite element equations are derived as before. We arrive again at [Equation 2.9.1&#8211;17](02s09a41-Coupled-acoustic-structural-medium-analy.md) with the same matrices except for the damping and stiffness matrices of the acoustic elements and the surfaces that have imposed impedance conditions, which now appear as
 
 ![](../graphics/stm_eqn02018.gif)The matrix modeling loss to volumetric drag is proportional to the fluid stiffness matrix in this formulation.
 
@@ -175,7 +175,7 @@ For steady-state harmonic response we assume that the structure undergoes small 
 
 To solve the steady-state problem, we assume that the governing equations are satisfied in the base state, and we linearize these equations in terms of the harmonic oscillations. For the internal force vector this yields
 
-![](../graphics/stm_eqn02025.gif)and [Equation 2.9.1&#8211;17](02s09a41.md) can be rewritten, using the time-harmonic relations, as
+![](../graphics/stm_eqn02025.gif)and [Equation 2.9.1&#8211;17](02s09a41-Coupled-acoustic-structural-medium-analy.md) can be rewritten, using the time-harmonic relations, as
 
 ![](../graphics/stm_eqn02026.gif)with
 
@@ -191,22 +191,22 @@ We assume that the loads and (because of linearity) the response are harmonic; h
 
 ![](../graphics/stm_eqn02031.gif)and
 
-![](../graphics/stm_eqn02032.gif)where ![](../graphics/stm_eqn02033.gif), ![](../graphics/stm_eqn02034.gif), ![](../graphics/stm_eqn02035.gif), and ![](../graphics/stm_eqn02036.gif) are the real and imaginary parts of the amplitudes of the response; ![](../graphics/stm_eqn02037.gif) and ![](../graphics/stm_eqn02038.gif) are the real and imaginary parts of the amplitude of the force applied to the structure; ![](../graphics/stm_eqn02039.gif) and ![](../graphics/stm_eqn02040.gif) are the real and imaginary parts of the amplitude of the acoustic traction (dimensions of volumetric acceleration) applied to the fluid; and ![](../graphics/stm_eqn01258.gif) is the circular frequency. We substitute these equations into [Equation 2.9.1&#8211;23](02s09a41.md) and use the time-harmonic form of [Equation 2.9.1&#8211;16](02s09a41.md), ![](../graphics/stm_eqn02041.gif), which yields the coupled complex linear equation system
+![](../graphics/stm_eqn02032.gif)where ![](../graphics/stm_eqn02033.gif), ![](../graphics/stm_eqn02034.gif), ![](../graphics/stm_eqn02035.gif), and ![](../graphics/stm_eqn02036.gif) are the real and imaginary parts of the amplitudes of the response; ![](../graphics/stm_eqn02037.gif) and ![](../graphics/stm_eqn02038.gif) are the real and imaginary parts of the amplitude of the force applied to the structure; ![](../graphics/stm_eqn02039.gif) and ![](../graphics/stm_eqn02040.gif) are the real and imaginary parts of the amplitude of the acoustic traction (dimensions of volumetric acceleration) applied to the fluid; and ![](../graphics/stm_eqn01258.gif) is the circular frequency. We substitute these equations into [Equation 2.9.1&#8211;23](02s09a41-Coupled-acoustic-structural-medium-analy.md) and use the time-harmonic form of [Equation 2.9.1&#8211;16](02s09a41-Coupled-acoustic-structural-medium-analy.md), ![](../graphics/stm_eqn02041.gif), which yields the coupled complex linear equation system
 
 ![](../graphics/stm_eqn02042.gif)where
 
 ![](../graphics/stm_eqn02043.gif)and
 
-![](../graphics/stm_eqn02044.gif)If ![](../graphics/stm_eqn01503.gif) is symmetric, [Equation 2.9.1&#8211;24](02s09a41.md) is symmetric. The system may be quite large, because the real and imaginary parts of the structural degrees of freedom and of the pressure in the fluid all appear in the system. This set of equations is solved for each frequency requested in the direct-solution steady-state dynamics procedure. If damping is absent, the user can specify that only the real matrix equation should be factored in the analysis. Nonzero volumetric drag values (![](../graphics/stm_eqn01256.gif)) for the acoustic medium and nonzero ![](../graphics/stm_eqn01944.gif) values for the impedances represent damping. As mentioned above for the transient case, the coupled system can be split into an uncoupled structural analysis and an acoustic analysis driven by the structural response, provided the fluid forces on the structure are small.
+![](../graphics/stm_eqn02044.gif)If ![](../graphics/stm_eqn01503.gif) is symmetric, [Equation 2.9.1&#8211;24](02s09a41-Coupled-acoustic-structural-medium-analy.md) is symmetric. The system may be quite large, because the real and imaginary parts of the structural degrees of freedom and of the pressure in the fluid all appear in the system. This set of equations is solved for each frequency requested in the direct-solution steady-state dynamics procedure. If damping is absent, the user can specify that only the real matrix equation should be factored in the analysis. Nonzero volumetric drag values (![](../graphics/stm_eqn01256.gif)) for the acoustic medium and nonzero ![](../graphics/stm_eqn01944.gif) values for the impedances represent damping. As mentioned above for the transient case, the coupled system can be split into an uncoupled structural analysis and an acoustic analysis driven by the structural response, provided the fluid forces on the structure are small.
 ### Formulation for eigenvalue extraction and mode-based procedures
 
-From the discretized equation, [Equation 2.9.1&#8211;17](02s09a41.md), we can write the frequency domain problem as
+From the discretized equation, [Equation 2.9.1&#8211;17](02s09a41-Coupled-acoustic-structural-medium-analy.md), we can write the frequency domain problem as
 
 ![](../graphics/stm_eqn02045.gif)where ![](../graphics/stm_eqn01091.gif) is a natural (as opposed to forced response) frequency. The indices have been suppressed for brevity. This system is due to [Zienkiewicz and Newton (1969)](07s01a01-References.md) and is used in Abaqus as the starting point for mode-based procedures. Suppressing any damping terms, forcing, and any terms associated with a reactive surface,
 
 ![](../graphics/stm_eqn02046.gif)Interpreted as a linear eigenvalue problem (where ![](../graphics/stm_eqn02047.gif) is the eigenvalue), this equation cannot be solved directly in Abaqus due to the unsymmetric stiffness and mass matrices. However, it can be shown that these equations do yield real-valued natural frequencies and modes, suggesting that they can be rewritten in symmetric forms.
 
-Application of the modes of [Equation 2.9.1&#8211;25](02s09a41.md) to form a reduced system (see below) must be done with some caution, since this unsymmetric system has distinct left and right eigenvector sets. In particular, the "singular modes" associated with zero frequency are of interest because they describe the low-frequency limiting behavior of the system (or the "rigid-body motion" in a kinematic sense) and are, therefore, essential for the construction of an accurate projected frequency domain operator. The right singular modes of the coupled system are
+Application of the modes of [Equation 2.9.1&#8211;25](02s09a41-Coupled-acoustic-structural-medium-analy.md) to form a reduced system (see below) must be done with some caution, since this unsymmetric system has distinct left and right eigenvector sets. In particular, the "singular modes" associated with zero frequency are of interest because they describe the low-frequency limiting behavior of the system (or the "rigid-body motion" in a kinematic sense) and are, therefore, essential for the construction of an accurate projected frequency domain operator. The right singular modes of the coupled system are
 
 ![](../graphics/stm_eqn02048.gif)
 
@@ -216,7 +216,7 @@ Application of the modes of [Equation 2.9.1&#8211;25](02s09a41.md) to form a red
 
 ![](../graphics/stm_eqn02055.gif)
 
-![](../graphics/stm_eqn02056.gif)The right acoustic and left structural singular modes are coupled, with nontrivial fields on the structural and acoustic domains. These coupled singular modes are a consequence of the stiffness term in [Equation 2.9.1&#8211;25](02s09a41.md), and they must be computed if this system is to be projected.
+![](../graphics/stm_eqn02056.gif)The right acoustic and left structural singular modes are coupled, with nontrivial fields on the structural and acoustic domains. These coupled singular modes are a consequence of the stiffness term in [Equation 2.9.1&#8211;25](02s09a41-Coupled-acoustic-structural-medium-analy.md), and they must be computed if this system is to be projected.
 
 An alternative frequency domain formulation, due to [Everstine (1981)](07s01a01-References.md), involves the substitution ![](../graphics/stm_eqn02057.gif) and results in a formally symmetric system:
 
@@ -230,7 +230,7 @@ Introducing an auxiliary variable, ![](../graphics/stm_eqn02061.gif), augmenting
 
 ![](../graphics/stm_eqn02063.gif) This augmented system of equations is due to Ohayon and is used only for Lanczos eigenvalue extraction. The auxiliary variable ![](../graphics/stm_eqn02064.gif) is internal to Abaqus/Standard and is not available for output. If ![](../graphics/stm_eqn02065.gif) is singular, orthogonalization against the singular acoustic modes is done in the Lanczos eigensolver.
 
-The left and right eigenvectors for the original system of equations, [Equation 2.9.1&#8211;25](02s09a41.md), can be constructed from the Lanczos solution. As mentioned above, the singular modes are essential for construction of an accurate projected operator. It is easy to verify that the Lanczos system has the following structural singular mode:
+The left and right eigenvectors for the original system of equations, [Equation 2.9.1&#8211;25](02s09a41-Coupled-acoustic-structural-medium-analy.md), can be constructed from the Lanczos solution. As mentioned above, the singular modes are essential for construction of an accurate projected operator. It is easy to verify that the Lanczos system has the following structural singular mode:
 
 ![](../graphics/stm_eqn02066.gif)However, if we seek nontrivial acoustic singular modes (i.e., ![](../graphics/stm_eqn02067.gif), such that ![](../graphics/stm_eqn02068.gif)), we easily find that ![](../graphics/stm_eqn02069.gif) but also that
 
@@ -238,7 +238,7 @@ The left and right eigenvectors for the original system of equations, [Equation 
 
 ![](../graphics/stm_eqn02073.gif)Consequently, to find an acoustic singular mode using the Lanczos formulation, we construct a perturbation "force" ![](../graphics/stm_eqn02074.gif) such that ![](../graphics/stm_eqn02075.gif) The Lanczos formulation will yield the nontrivial singular acoustic mode
 
-![](../graphics/stm_eqn02076.gif)The left and right eigenvectors of the original, unsymmetric system [Equation 2.9.1&#8211;25](02s09a41.md), including the singular modes, can be constructed from the Lanczos solutions ![](../graphics/stm_eqn02077.gif):
+![](../graphics/stm_eqn02076.gif)The left and right eigenvectors of the original, unsymmetric system [Equation 2.9.1&#8211;25](02s09a41-Coupled-acoustic-structural-medium-analy.md), including the singular modes, can be constructed from the Lanczos solutions ![](../graphics/stm_eqn02077.gif):
 
 ![](../graphics/stm_eqn02078.gif)where
 
@@ -277,7 +277,7 @@ The medium supporting acoustic waves may be flowing through a porous matrix, suc
 
 ![](../graphics/stm_eqn02099.gif)
 
-In steady state this linearized equation can be written in the form of [Equation 2.9.1&#8211;19](02s09a41.md), with
+In steady state this linearized equation can be written in the form of [Equation 2.9.1&#8211;19](02s09a41-Coupled-acoustic-structural-medium-analy.md), with
 
 ![](../graphics/stm_eqn02100.gif)
 
@@ -310,13 +310,13 @@ Acoustic contribution factors help the user interpret the behavior of a coupled 
 
 First, consider an acoustic medium in contact with a structure undergoing time-harmonic vibration. The structure exerts a traction on the fluid at each point on the wetted surface, causing harmonic pressure in the acoustic medium. In a given solution to a coupled forced response problem, it is sometimes useful to separate the pressure into constituent parts, each due to the vibration of a portion of the wetted surface. For example, in an automotive acoustic problem it may be useful to determine the parts of the acoustic pressure field due to the windows, floor, and other panels separately. The pressure field ![](../graphics/stm_eqn02112.gif) generated by some given structural vibration acting only on structural surface ![](../graphics/stm_eqn02113.gif), with all other parts of the wetted surface held fixed, is defined as the acoustic contribution factor of that surface:
 
-![](../graphics/stm_eqn02114.gif)where ![](../graphics/stm_eqn02115.gif) and ![](../graphics/stm_eqn02116.gif) is the coupling matrix associated with surface partition ![](../graphics/stm_eqn02113.gif). ![](../graphics/stm_eqn02116.gif) can correspond to a group of disjoint surfaces (for example, all the window glass in an automobile) or to a single node. Because the natural boundary condition in Abaqus for acoustic elements is a rigid wall, [Equation 2.9.1&#8211;34](02s09a41.md) corresponds physically to an acoustic field coupled to the structure only at surface ![](../graphics/stm_eqn02113.gif), with all other bounding surfaces rigid.
+![](../graphics/stm_eqn02114.gif)where ![](../graphics/stm_eqn02115.gif) and ![](../graphics/stm_eqn02116.gif) is the coupling matrix associated with surface partition ![](../graphics/stm_eqn02113.gif). ![](../graphics/stm_eqn02116.gif) can correspond to a group of disjoint surfaces (for example, all the window glass in an automobile) or to a single node. Because the natural boundary condition in Abaqus for acoustic elements is a rigid wall, [Equation 2.9.1&#8211;34](02s09a41-Coupled-acoustic-structural-medium-analy.md) corresponds physically to an acoustic field coupled to the structure only at surface ![](../graphics/stm_eqn02113.gif), with all other bounding surfaces rigid.
 
 For example, if a single panel's acoustic contribution is separated from the total acoustic pressure,
 
 ![](../graphics/stm_eqn02117.gif)the coupled system of equations for the structural acoustic problem can be written
 
-![](../graphics/stm_eqn02118.gif) where ![](../graphics/stm_eqn02119.gif). This equation makes it clear that the panel's acoustic contribution factor depends on the solution to the specific coupled harmonic forced response problem. However, it is more efficient to solve for ![](../graphics/stm_eqn02120.gif) and ![](../graphics/stm_eqn02121.gif) instead and then solve for ![](../graphics/stm_eqn02122.gif) using [Equation 2.9.1&#8211;34](02s09a41.md).
+![](../graphics/stm_eqn02118.gif) where ![](../graphics/stm_eqn02119.gif). This equation makes it clear that the panel's acoustic contribution factor depends on the solution to the specific coupled harmonic forced response problem. However, it is more efficient to solve for ![](../graphics/stm_eqn02120.gif) and ![](../graphics/stm_eqn02121.gif) instead and then solve for ![](../graphics/stm_eqn02122.gif) using [Equation 2.9.1&#8211;34](02s09a41-Coupled-acoustic-structural-medium-analy.md).
 
 When subspace-based steady-state dynamics or mode-based steady-state dynamics is used, ![](../graphics/stm_eqn02123.gif) and ![](../graphics/stm_eqn02116.gif) are projected; in turn, these projected matrices depend on whether the preceding eigenanalysis step was coupled or uncoupled. For the uncoupled case separate modal transformations ![](../graphics/stm_eqn02124.gif) and ![](../graphics/stm_eqn02125.gif) correspond to the acoustic and structural modes, and
 
@@ -326,33 +326,33 @@ When subspace-based steady-state dynamics or mode-based steady-state dynamics is
 
 ![](../graphics/stm_eqn02129.gif)
 
-The contribution of a specific mode to the acoustic pressure of a forced harmonic coupled system may be of interest as well. Physically, a modal acoustic contribution factor is the part of the acoustic field in a forced response problem due to the action of one structural (or coupled) mode on the acoustic fluid. The calculation of a modal acoustic contribution factor depends on whether the modes in question are uncoupled or coupled structural-acoustic modes. However, its definition is analogous to the surface or panel acoustic contribution factor: it is the acoustic response due to forcing on the wetted surface due only to a single mode of interest, with all other modes held fixed. Starting from [Equation 2.9.1&#8211;34](02s09a41.md), but using the entire wetted surface coupling operator ![](../graphics/stm_eqn02130.gif),
+The contribution of a specific mode to the acoustic pressure of a forced harmonic coupled system may be of interest as well. Physically, a modal acoustic contribution factor is the part of the acoustic field in a forced response problem due to the action of one structural (or coupled) mode on the acoustic fluid. The calculation of a modal acoustic contribution factor depends on whether the modes in question are uncoupled or coupled structural-acoustic modes. However, its definition is analogous to the surface or panel acoustic contribution factor: it is the acoustic response due to forcing on the wetted surface due only to a single mode of interest, with all other modes held fixed. Starting from [Equation 2.9.1&#8211;34](02s09a41-Coupled-acoustic-structural-medium-analy.md), but using the entire wetted surface coupling operator ![](../graphics/stm_eqn02130.gif),
 
 ![](../graphics/stm_eqn02131.gif)where ![](../graphics/stm_eqn02132.gif) is the structural response of the coupled problem, restricted to mode ![](../graphics/stm_eqn02113.gif). If coupled mode transformations are used, this equation becomes
 
-![](../graphics/stm_eqn02133.gif)If there is no acoustic force ![](../graphics/stm_eqn02134.gif) in the coupled system of interest and no damping or boundary impedances in the acoustic fluid, this equation is simply the *J*th row of the acoustic part of the projected coupled harmonic forced response problem. Consequently, the modal acoustic contribution ![](../graphics/stm_eqn02135.gif) due to mode *J* is simply equal to the *J*th modal coefficient of the solution to the coupled problem, ![](../graphics/stm_eqn02136.gif), times the *J*th column of the pressure partition of the modal transformation, ![](../graphics/stm_eqn02137.gif). Thus, no additional solution is required to obtain modal acoustic contribution factors when using coupled mode projections if acoustic forcing is absent. If acoustic forcing or damping is present in the coupled response problem defining ![](../graphics/stm_eqn02136.gif), [Equation 2.9.1&#8211;37](02s09a41.md) must be solved after the solution ![](../graphics/stm_eqn02136.gif) is obtained.
+![](../graphics/stm_eqn02133.gif)If there is no acoustic force ![](../graphics/stm_eqn02134.gif) in the coupled system of interest and no damping or boundary impedances in the acoustic fluid, this equation is simply the *J*th row of the acoustic part of the projected coupled harmonic forced response problem. Consequently, the modal acoustic contribution ![](../graphics/stm_eqn02135.gif) due to mode *J* is simply equal to the *J*th modal coefficient of the solution to the coupled problem, ![](../graphics/stm_eqn02136.gif), times the *J*th column of the pressure partition of the modal transformation, ![](../graphics/stm_eqn02137.gif). Thus, no additional solution is required to obtain modal acoustic contribution factors when using coupled mode projections if acoustic forcing is absent. If acoustic forcing or damping is present in the coupled response problem defining ![](../graphics/stm_eqn02136.gif), [Equation 2.9.1&#8211;37](02s09a41-Coupled-acoustic-structural-medium-analy.md) must be solved after the solution ![](../graphics/stm_eqn02136.gif) is obtained.
 
-When uncoupled modes are used in the projection for the solution of a coupled system, there is no direct relationship between acoustic and structural mode shapes. Therefore, application of the uncoupled modal transformations to the harmonic forced response problem does not produce the same trivial result as in the coupled mode case. The system resulting from the application of the separate uncoupled mode transformations ![](../graphics/stm_eqn02124.gif) and ![](../graphics/stm_eqn02125.gif) to [Equation 2.9.1&#8211;36](02s09a41.md) must be solved for the modal coefficients ![](../graphics/stm_eqn02138.gif) corresponding to forcing via structural mode ![](../graphics/stm_eqn02113.gif):
+When uncoupled modes are used in the projection for the solution of a coupled system, there is no direct relationship between acoustic and structural mode shapes. Therefore, application of the uncoupled modal transformations to the harmonic forced response problem does not produce the same trivial result as in the coupled mode case. The system resulting from the application of the separate uncoupled mode transformations ![](../graphics/stm_eqn02124.gif) and ![](../graphics/stm_eqn02125.gif) to [Equation 2.9.1&#8211;36](02s09a41-Coupled-acoustic-structural-medium-analy.md) must be solved for the modal coefficients ![](../graphics/stm_eqn02138.gif) corresponding to forcing via structural mode ![](../graphics/stm_eqn02113.gif):
 
 ![](../graphics/stm_eqn02139.gif)
 ### Impedance and admittance at fluid boundaries
 
-[Equation 2.9.1&#8211;11](02s09a41.md) (or alternatively [Equation 2.9.1&#8211;9](02s09a41.md)) can be written in a complex admittance form for steady-state analysis:
+[Equation 2.9.1&#8211;11](02s09a41-Coupled-acoustic-structural-medium-analy.md) (or alternatively [Equation 2.9.1&#8211;9](02s09a41-Coupled-acoustic-structural-medium-analy.md)) can be written in a complex admittance form for steady-state analysis:
 
 ![](../graphics/stm_eqn02140.gif)where we define
 
-![](../graphics/stm_eqn02141.gif)The term ![](../graphics/stm_eqn02142.gif) is the complex admittance of the boundary, and ![](../graphics/stm_eqn02143.gif) is the corresponding complex impedance. Thus, a required complex impedance or admittance value can be entered for a given frequency by fitting data to the parameters ![](../graphics/stm_eqn01944.gif) and ![](../graphics/stm_eqn02144.gif) using [Equation 2.9.1&#8211;39](02s09a41.md).
+![](../graphics/stm_eqn02141.gif)The term ![](../graphics/stm_eqn02142.gif) is the complex admittance of the boundary, and ![](../graphics/stm_eqn02143.gif) is the corresponding complex impedance. Thus, a required complex impedance or admittance value can be entered for a given frequency by fitting data to the parameters ![](../graphics/stm_eqn01944.gif) and ![](../graphics/stm_eqn02144.gif) using [Equation 2.9.1&#8211;39](02s09a41-Coupled-acoustic-structural-medium-analy.md).
 
 For absorption of plane waves in an infinite medium with volumetric drag, the complex impedance can be shown to be
 
 ![](../graphics/stm_eqn02145.gif)
 
-For the impedance-based nonreflective boundary condition in Abaqus/Standard, the equations above are used to determine the required constants ![](../graphics/stm_eqn02146.gif) and ![](../graphics/stm_eqn01943.gif). They are a function of frequency if the volumetric drag is nonzero. The small-drag versions of these equations are used in the direct time integration procedures, as in [Equation 2.9.1&#8211;46](02s09a41.md).
+For the impedance-based nonreflective boundary condition in Abaqus/Standard, the equations above are used to determine the required constants ![](../graphics/stm_eqn02146.gif) and ![](../graphics/stm_eqn01943.gif). They are a function of frequency if the volumetric drag is nonzero. The small-drag versions of these equations are used in the direct time integration procedures, as in [Equation 2.9.1&#8211;46](02s09a41-Coupled-acoustic-structural-medium-analy.md).
 ### Radiation boundary conditions
 
 Many acoustic studies involve a vibrating structure in an infinite domain. In these cases we model a layer of the acoustic medium using finite elements, to a thickness of ![](../graphics/stm_eqn02147.gif) to a full wavelength, out to a "radiating" boundary surface. We then impose a condition on this surface to allow the acoustic waves to pass through and not reflect back into the computational domain. For radiation boundaries of simple shapes---such as planes, spheres, and the like---simple impedance boundary conditions can represent good approximations to the exact radiation conditions. In particular, we include local algebraic radiation conditions of the form
 
-![](../graphics/stm_eqn02148.gif) where ![](../graphics/stm_eqn02149.gif) is the wave number and ![](../graphics/stm_eqn01999.gif) is the complex density (see [Equation 2.9.1&#8211;18](02s09a41.md)). *f* is a geometric factor related to the metric factors of the curvilinear coordinate system used on the boundary, and ![](../graphics/stm_eqn01219.gif) is a spreading loss term (see [Table 2.9.1&#8211;1](02s09a41.md)).
+![](../graphics/stm_eqn02148.gif) where ![](../graphics/stm_eqn02149.gif) is the wave number and ![](../graphics/stm_eqn01999.gif) is the complex density (see [Equation 2.9.1&#8211;18](02s09a41-Coupled-acoustic-structural-medium-analy.md)). *f* is a geometric factor related to the metric factors of the curvilinear coordinate system used on the boundary, and ![](../graphics/stm_eqn01219.gif) is a spreading loss term (see [Table 2.9.1&#8211;1](02s09a41-Coupled-acoustic-structural-medium-analy.md)).
 
 Table 2.9.1&#8211;1 Boundary condition parameters.| Geometry | f |  |
 | --- | --- | --- |
@@ -360,19 +360,19 @@ Table 2.9.1&#8211;1 Boundary condition parameters.| Geometry | f |  |
 | Circle or circular cylinder | 1 |  |
 | Ellipse or elliptical cylinder |  |  |
 | Sphere | 1 |  |
-| Prolate spheroid |  |  |Comparison of [Equation 2.9.1&#8211;41](02s09a41.md) and [Equation 2.9.1&#8211;9](02s09a41.md) reveals that, for steady-state analysis, there exists a direct analogy to the reactive boundary equation, [Equation 2.9.1&#8211;21](02s09a41.md), with
+| Prolate spheroid |  |  |Comparison of [Equation 2.9.1&#8211;41](02s09a41-Coupled-acoustic-structural-medium-analy.md) and [Equation 2.9.1&#8211;9](02s09a41-Coupled-acoustic-structural-medium-analy.md) reveals that, for steady-state analysis, there exists a direct analogy to the reactive boundary equation, [Equation 2.9.1&#8211;21](02s09a41-Coupled-acoustic-structural-medium-analy.md), with
 
 ![](../graphics/stm_eqn02154.gif) and
 
 ![](../graphics/stm_eqn02155.gif)For transient procedures the treatment of volumetric drag in the acoustic equations and the radiation conditions necessitates an approximation. In the acoustics equation we use the boundary term
 
-![](../graphics/stm_eqn02156.gif)Combining [Equation 2.9.1&#8211;41](02s09a41.md) with [Equation 2.9.1&#8211;44](02s09a41.md), expanding about ![](../graphics/stm_eqn02157.gif), and retaining only first-order terms leads to
+![](../graphics/stm_eqn02156.gif)Combining [Equation 2.9.1&#8211;41](02s09a41-Coupled-acoustic-structural-medium-analy.md) with [Equation 2.9.1&#8211;44](02s09a41-Coupled-acoustic-structural-medium-analy.md), expanding about ![](../graphics/stm_eqn02157.gif), and retaining only first-order terms leads to
 
 ![](../graphics/stm_eqn02158.gif)The Fourier inverse of the steady-state form results in the transient boundary condition
 
 ![](../graphics/stm_eqn02159.gif)
 
-This expression involves independent coefficients for pressure and its first derivative in time, unlike the transient reactive boundary expression ([Equation 2.9.1&#8211;10](02s09a41.md)), which includes independent coefficients for the first and second derivatives of pressure only. Consequently, to implement this expression, we define the admittance parameters
+This expression involves independent coefficients for pressure and its first derivative in time, unlike the transient reactive boundary expression ([Equation 2.9.1&#8211;10](02s09a41-Coupled-acoustic-structural-medium-analy.md)), which includes independent coefficients for the first and second derivatives of pressure only. Consequently, to implement this expression, we define the admittance parameters
 
 ![](../graphics/stm_eqn02160.gif) and
 
@@ -380,12 +380,12 @@ This expression involves independent coefficients for pressure and its first der
 
 ![](../graphics/stm_eqn02162.gif)
 
-The values of the parameters *f* and ![](../graphics/stm_eqn01219.gif) vary with the geometry of the boundary of the radiating surface of the acoustic medium. The geometries supported in Abaqus are summarized in [Table 2.9.1&#8211;1](02s09a41.md). In the table ![](../graphics/stm_eqn02163.gif) refers to the eccentricity of the ellipse or spheroid; ![](../graphics/stm_eqn02164.gif) refers to the radius of the circle, sphere, or the semimajor axis of the ellipse or spheroid; ![](../graphics/stm_eqn02165.gif) is the vector locating the integration point on the ellipse or spheroid; ![](../graphics/stm_eqn01672.gif) is the vector locating the center of the ellipse or spheroid; and ![](../graphics/stm_eqn02166.gif) is the vector that orients the major axis.
+The values of the parameters *f* and ![](../graphics/stm_eqn01219.gif) vary with the geometry of the boundary of the radiating surface of the acoustic medium. The geometries supported in Abaqus are summarized in [Table 2.9.1&#8211;1](02s09a41-Coupled-acoustic-structural-medium-analy.md). In the table ![](../graphics/stm_eqn02163.gif) refers to the eccentricity of the ellipse or spheroid; ![](../graphics/stm_eqn02164.gif) refers to the radius of the circle, sphere, or the semimajor axis of the ellipse or spheroid; ![](../graphics/stm_eqn02165.gif) is the vector locating the integration point on the ellipse or spheroid; ![](../graphics/stm_eqn01672.gif) is the vector locating the center of the ellipse or spheroid; and ![](../graphics/stm_eqn02166.gif) is the vector that orients the major axis.
 
 These algebraic boundary conditions are approximations to the exact impedance of a boundary radiating into an infinite exterior. The plane wave condition is the exact impedance for plane waves normally incident to a planar boundary. The spherical condition exactly annihilates the first Legendre mode of a radiating spherical surface; the circular condition is asymptotically correct for the first mode [(Bayliss et al., 1982)](07s01a01-References.md). The elliptical and prolate spheroidal conditions are based on expansions of elliptical and prolate spheroidal wave functions in the low-eccentricity limit [(Grote and Keller, 1995)](07s01a01-References.md); the prolate spheroidal condition exactly annihilates the first term of its expansion, while the elliptical condition is asymptotic.
 ### An improvement on radiation boundary conditions for plane waves
 
-As already pointed out, the radiation boundary conditions derived in the previous section for plane waves are actually based on the presumption that the sound wave impinges on the boundary from an orthogonal direction. But this is not always the case. [Figure 2.9.1&#8211;1](02s09a41.md) shows a general example for plane waves in which the sound wave direction differs from the boundary normal by an angle of ![](../graphics/stm_eqn01111.gif).
+As already pointed out, the radiation boundary conditions derived in the previous section for plane waves are actually based on the presumption that the sound wave impinges on the boundary from an orthogonal direction. But this is not always the case. [Figure 2.9.1&#8211;1](02s09a41-Coupled-acoustic-structural-medium-analy.md) shows a general example for plane waves in which the sound wave direction differs from the boundary normal by an angle of ![](../graphics/stm_eqn01111.gif).
 
 Figure 2.9.1&#8211;1 A plane wave not normally incident to the boundary.
 
@@ -395,11 +395,11 @@ Figure 2.9.1&#8211;1 A plane wave not normally incident to the boundary.
 
 ![](../graphics/stm_eqn02171.gif)
 
-Using the first-order expanding approximation to the second term in the square root in the above equation (similar to what we did to reach [Equation 2.9.1&#8211;45](02s09a41.md)), we can obtain an improved radiation boundary condition
+Using the first-order expanding approximation to the second term in the square root in the above equation (similar to what we did to reach [Equation 2.9.1&#8211;45](02s09a41-Coupled-acoustic-structural-medium-analy.md)), we can obtain an improved radiation boundary condition
 
-![](../graphics/stm_eqn02172.gif)It can be found from comparison that this equation differs from [Equation 2.9.1&#8211;46](02s09a41.md) only by a factor of ![](../graphics/stm_eqn02173.gif) for plane waves. In two dimensions the ![](../graphics/stm_eqn02173.gif) can be calculated as
+![](../graphics/stm_eqn02172.gif)It can be found from comparison that this equation differs from [Equation 2.9.1&#8211;46](02s09a41-Coupled-acoustic-structural-medium-analy.md) only by a factor of ![](../graphics/stm_eqn02173.gif) for plane waves. In two dimensions the ![](../graphics/stm_eqn02173.gif) can be calculated as
 
-![](../graphics/stm_eqn02174.gif)The normal and tangential derivatives ![](../graphics/stm_eqn02175.gif) and ![](../graphics/stm_eqn02176.gif) at the integration points can be evaluated using the corresponding element along the radiation boundary surface (see [Figure 2.9.1&#8211;2](02s09a41.md)); i.e.,
+![](../graphics/stm_eqn02174.gif)The normal and tangential derivatives ![](../graphics/stm_eqn02175.gif) and ![](../graphics/stm_eqn02176.gif) at the integration points can be evaluated using the corresponding element along the radiation boundary surface (see [Figure 2.9.1&#8211;2](02s09a41-Coupled-acoustic-structural-medium-analy.md)); i.e.,
 
 ![](../graphics/stm_eqn02177.gif)where ![](../graphics/stm_eqn02178.gif) are the nodal pressure values of the element.
 
@@ -409,7 +409,7 @@ Figure 2.9.1&#8211;2 An element along the boundary.
 
 The method described in this section can be used only for direct integration transient dynamics; it cannot be used with steady-state or modal response. In addition, it is available for planar, axisymmetric, and three-dimensional geometries.
 
-Finally, the method makes the equilibrium equations nonlinear, as shown in [Equation 2.9.1&#8211;52](02s09a41.md). Although in theory the iteration process in Abaqus/Standard can solve the nonlinear equilibrium equations accurately, the use of a small half-increment residual tolerance is strongly suggested since in many cases the pressure and its related residual along the radiation boundaries are very weak relative to the other places in the modeled domain. The computation of ![](../graphics/stm_eqn02173.gif) at the integration point is based on the nodal pressures. The nodal pressures are updated using the explicit central difference procedure described in "Explicit dynamic analysis,"  Section 2.4.5.
+Finally, the method makes the equilibrium equations nonlinear, as shown in [Equation 2.9.1&#8211;52](02s09a41-Coupled-acoustic-structural-medium-analy.md). Although in theory the iteration process in Abaqus/Standard can solve the nonlinear equilibrium equations accurately, the use of a small half-increment residual tolerance is strongly suggested since in many cases the pressure and its related residual along the radiation boundaries are very weak relative to the other places in the modeled domain. The computation of ![](../graphics/stm_eqn02173.gif) at the integration point is based on the nodal pressures. The nodal pressures are updated using the explicit central difference procedure described in "Explicit dynamic analysis,"  Section 2.4.5.
 ### References
 
 ### References

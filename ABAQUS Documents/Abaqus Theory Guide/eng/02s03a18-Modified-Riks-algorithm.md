@@ -4,7 +4,7 @@
 
 **Product: **Abaqus/Standard
 
-It is often necessary to obtain nonlinear static equilibrium solutions for unstable problems, where the load-displacement response can exhibit the type of behavior sketched in [Figure 2.3.2&#8211;1](02s03a18.md)---that is, during periods of the response, the load and/or the displacement may decrease as the solution evolves. The modified Riks method is an algorithm that allows effective solution of such cases.
+It is often necessary to obtain nonlinear static equilibrium solutions for unstable problems, where the load-displacement response can exhibit the type of behavior sketched in [Figure 2.3.2&#8211;1](02s03a18-Modified-Riks-algorithm.md)---that is, during periods of the response, the load and/or the displacement may decrease as the solution evolves. The modified Riks method is an algorithm that allows effective solution of such cases.
 
 Figure 2.3.2&#8211;1 Typical unstable static response.
 
@@ -19,7 +19,7 @@ The solution space is scaled to make the dimensions approximately the same magni
 
 load ![](../graphics/stm_eqn00833.gif),
 
-displacements ![](../graphics/stm_eqn00834.gif)and the solution path is then the continuous set of equilibrium points described by the vector ![](../graphics/stm_eqn00835.gif) in this scaled space. All components of this vector will be of order unity. The algorithm is shown in [Figure 2.3.2&#8211;2](02s03a18.md) and is described below.
+displacements ![](../graphics/stm_eqn00834.gif)and the solution path is then the continuous set of equilibrium points described by the vector ![](../graphics/stm_eqn00835.gif) in this scaled space. All components of this vector will be of order unity. The algorithm is shown in [Figure 2.3.2&#8211;2](02s03a18-Modified-Riks-algorithm.md) and is described below.
 
 Figure 2.3.2&#8211;2 Modified Riks algorithm.
 
@@ -27,7 +27,7 @@ Figure 2.3.2&#8211;2 Modified Riks algorithm.
 
 Suppose the solution has been developed to the point ![](../graphics/stm_eqn00836.gif). The tangent stiffness, ![](../graphics/stm_eqn00837.gif), is formed, and we solve
 
-![](../graphics/stm_eqn00838.gif)The increment size ![](../graphics/stm_eqn00839.gif) in [Figure 2.3.2&#8211;2](02s03a18.md)) is chosen from a specified path length, ![](../graphics/stm_eqn00840.gif), in the solution space, so that
+![](../graphics/stm_eqn00838.gif)The increment size ![](../graphics/stm_eqn00839.gif) in [Figure 2.3.2&#8211;2](02s03a18-Modified-Riks-algorithm.md)) is chosen from a specified path length, ![](../graphics/stm_eqn00840.gif), in the solution space, so that
 
 ![](../graphics/stm_eqn00841.gif)and, hence,
 
@@ -37,11 +37,11 @@ Suppose the solution has been developed to the point ![](../graphics/stm_eqn0083
 
 ![](../graphics/stm_eqn00849.gif)
 
-It is possible that in some cases, where the response shows very high curvature in the ![](../graphics/stm_eqn00850.gif) space, this criterion will cause the wrong sign to be chosen---see, for example, [Figure 2.3.2&#8211;3](02s03a18.md).
+It is possible that in some cases, where the response shows very high curvature in the ![](../graphics/stm_eqn00850.gif) space, this criterion will cause the wrong sign to be chosen---see, for example, [Figure 2.3.2&#8211;3](02s03a18-Modified-Riks-algorithm.md).
 
 Figure 2.3.2&#8211;3 Example of incorrect choice of sign for ![](../graphics/stm_eqn00851.gif).
 
-![](../graphics/stmincorrect-dlambda-nls.png) The wrong sign is rarely chosen in practical cases, unless the increment size is too large or the solution bifurcates sharply. To check for such cases is computationally expensive: one approach would be for the solution to be found at ![](../graphics/stm_eqn00852.gif), so that we obtain a vector that gives a close approximation of the directed tangent at ![](../graphics/stm_eqn00853.gif). Because the case is so rare, such a check is not included, and the simple dot product given above is used alone to determine the sign of ![](../graphics/stm_eqn00854.gif). Thus, we have now found the point ![](../graphics/stm_eqn00855.gif) in [Figure 2.3.2&#8211;2](02s03a18.md). The solution is now corrected onto the equilibrium path in the plane passing through ![](../graphics/stm_eqn00856.gif) and orthogonal to ![](../graphics/stm_eqn00857.gif), by the following iterative algorithm.
+![](../graphics/stmincorrect-dlambda-nls.png) The wrong sign is rarely chosen in practical cases, unless the increment size is too large or the solution bifurcates sharply. To check for such cases is computationally expensive: one approach would be for the solution to be found at ![](../graphics/stm_eqn00852.gif), so that we obtain a vector that gives a close approximation of the directed tangent at ![](../graphics/stm_eqn00853.gif). Because the case is so rare, such a check is not included, and the simple dot product given above is used alone to determine the sign of ![](../graphics/stm_eqn00854.gif). Thus, we have now found the point ![](../graphics/stm_eqn00855.gif) in [Figure 2.3.2&#8211;2](02s03a18-Modified-Riks-algorithm.md). The solution is now corrected onto the equilibrium path in the plane passing through ![](../graphics/stm_eqn00856.gif) and orthogonal to ![](../graphics/stm_eqn00857.gif), by the following iterative algorithm.
 
 Initialize: ![](../graphics/stm_eqn00858.gif)
 
@@ -49,7 +49,7 @@ For ![](../graphics/stm_eqn00859.gif) iteration ![](../graphics/stm_eqn00860.gif
 
 Form ![](../graphics/stm_eqn00861.gif) the internal (stress) forces at the nodes,
 
-![](../graphics/stm_eqn00862.gif)at the state ![](../graphics/stm_eqn00863.gif)---that is, at ![](../graphics/stm_eqn00864.gif) in [Figure 2.3.2&#8211;2](02s03a18.md).
+![](../graphics/stm_eqn00862.gif)at the state ![](../graphics/stm_eqn00863.gif)---that is, at ![](../graphics/stm_eqn00864.gif) in [Figure 2.3.2&#8211;2](02s03a18-Modified-Riks-algorithm.md).
 
 Check equilibrium:
 
@@ -59,7 +59,7 @@ Solve:
 
 ![](../graphics/stm_eqn00867.gif)That is, we solve simultaneously with two load vectors, ![](../graphics/stm_eqn00868.gif) and ![](../graphics/stm_eqn00869.gif), and obtain two displacement vectors, ![](../graphics/stm_eqn00870.gif) and ![](../graphics/stm_eqn00871.gif).
 
-Now scale the vector ![](../graphics/stm_eqn00872.gif), and add it to ![](../graphics/stm_eqn00873.gif) where ![](../graphics/stm_eqn00874.gif) is the projection of the scaled residuals onto ![](../graphics/stm_eqn00875.gif) so that we move from ![](../graphics/stm_eqn00864.gif) to ![](../graphics/stm_eqn00876.gif) in the plane orthogonal to ![](../graphics/stm_eqn00877.gif)---see [Figure 2.3.2&#8211;2](02s03a18.md). This gives the equation
+Now scale the vector ![](../graphics/stm_eqn00872.gif), and add it to ![](../graphics/stm_eqn00873.gif) where ![](../graphics/stm_eqn00874.gif) is the projection of the scaled residuals onto ![](../graphics/stm_eqn00875.gif) so that we move from ![](../graphics/stm_eqn00864.gif) to ![](../graphics/stm_eqn00876.gif) in the plane orthogonal to ![](../graphics/stm_eqn00877.gif)---see [Figure 2.3.2&#8211;2](02s03a18-Modified-Riks-algorithm.md). This gives the equation
 
 ![](../graphics/stm_eqn00878.gif)which simplifies to give
 

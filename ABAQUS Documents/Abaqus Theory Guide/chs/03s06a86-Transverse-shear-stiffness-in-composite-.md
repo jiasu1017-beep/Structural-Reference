@@ -41,11 +41,11 @@ Abaqus支持单元类型S3R、S3RS、S4、S4R、S4RS、S4RSW、SC6R、SC8R和S8R
 
 ![](../graphics/stm_eqn04892.gif)
 
-将该方程在*x*方向上的梯度与平衡方程[公式3.6.8-1](03s06a86.md)和[公式3.6.8-2](03s06a86.md)结合，得到板厚度方向横向剪切应力变化的描述：
+将该方程在*x*方向上的梯度与平衡方程[公式3.6.8-1](03s06a86-Transverse-shear-stiffness-in-composite-.md)和[公式3.6.8-2](03s06a86-Transverse-shear-stiffness-in-composite-.md)结合，得到板厚度方向横向剪切应力变化的描述：
 
 ![](../graphics/stm_eqn04893.gif)在计算![](../graphics/stm_eqn04894.gif)时，我们假设复合截面的弹性和厚度不随（或缓慢随）壳上的位置变化。
 
-层合复合壳截面由*N*层组成，![](../graphics/stm_eqn04895.gif)，第1层的（![](../graphics/stm_eqn04896.gif),![](../graphics/stm_eqn04897.gif)）值不同，第2层的（![](../graphics/stm_eqn04898.gif),![](../graphics/stm_eqn04899.gif)）值不同，![](../graphics/stm_eqn04900.gif)（![](../graphics/stm_eqn04901.gif),![](../graphics/stm_eqn04902.gif)）在第*N*层。第*i*层从![](../graphics/stm_eqn04903.gif)延伸到![](../graphics/stm_eqn04904.gif)，其厚度为![](../graphics/stm_eqn04905.gif)。通过壳厚度积分[公式3.6.8-6](03s06a86.md)，使用边界条件![](../graphics/stm_eqn04906.gif)在![](../graphics/stm_eqn04907.gif)处，![](../graphics/stm_eqn04908.gif)在![](../graphics/stm_eqn04909.gif)处，![](../graphics/stm_eqn04906.gif)在![](../graphics/stm_eqn04910.gif)处，得到第*i*层中的横向剪切应力为
+层合复合壳截面由*N*层组成，![](../graphics/stm_eqn04895.gif)，第1层的（![](../graphics/stm_eqn04896.gif),![](../graphics/stm_eqn04897.gif)）值不同，第2层的（![](../graphics/stm_eqn04898.gif),![](../graphics/stm_eqn04899.gif)）值不同，![](../graphics/stm_eqn04900.gif)（![](../graphics/stm_eqn04901.gif),![](../graphics/stm_eqn04902.gif)）在第*N*层。第*i*层从![](../graphics/stm_eqn04903.gif)延伸到![](../graphics/stm_eqn04904.gif)，其厚度为![](../graphics/stm_eqn04905.gif)。通过壳厚度积分[公式3.6.8-6](03s06a86-Transverse-shear-stiffness-in-composite-.md)，使用边界条件![](../graphics/stm_eqn04906.gif)在![](../graphics/stm_eqn04907.gif)处，![](../graphics/stm_eqn04908.gif)在![](../graphics/stm_eqn04909.gif)处，![](../graphics/stm_eqn04906.gif)在![](../graphics/stm_eqn04910.gif)处，得到第*i*层中的横向剪切应力为
 
 ![](../graphics/stm_eqn04911.gif)其中
 

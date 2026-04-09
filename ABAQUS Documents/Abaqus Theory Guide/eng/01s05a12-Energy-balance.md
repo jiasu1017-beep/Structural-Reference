@@ -32,23 +32,23 @@ is the body force vector, and
 
 is the normal direction vector on boundary *S*.
 
-Using Gauss' theorem and the identity that ![](../graphics/stm_eqn00594.gif) on the boundary *S*, the first term of the right-hand side of [Equation 1.5.5&#8211;1](01s05a12.md) can be rewritten as
+Using Gauss' theorem and the identity that ![](../graphics/stm_eqn00594.gif) on the boundary *S*, the first term of the right-hand side of [Equation 1.5.5&#8211;1](01s05a12-Energy-balance.md) can be rewritten as
 
 ![](../graphics/stm_eqn00595.gif) where we have used the fact that ![](../graphics/stm_eqn00596.gif) is symmetric, and we also know (see "Equilibrium and virtual work,"  Section 1.5.1) that
 
-![](../graphics/stm_eqn00597.gif)where ![](../graphics/stm_eqn00598.gif)  is the strain rate tensor (see "Rate of deformation and strain increment,"  Section 1.4.3).  Substituting [Equation 1.5.5&#8211;2](01s05a12.md) into [Equation 1.5.5&#8211;1](01s05a12.md) yields
+![](../graphics/stm_eqn00597.gif)where ![](../graphics/stm_eqn00598.gif)  is the strain rate tensor (see "Rate of deformation and strain increment,"  Section 1.4.3).  Substituting [Equation 1.5.5&#8211;2](01s05a12-Energy-balance.md) into [Equation 1.5.5&#8211;1](01s05a12-Energy-balance.md) yields
 
 ![](../graphics/stm_eqn00599.gif)
 
 From Cauchy's equation of motion we have
 
-![](../graphics/stm_eqn00600.gif) Substituting this into [Equation 1.5.5&#8211;3](01s05a12.md) gives
+![](../graphics/stm_eqn00600.gif) Substituting this into [Equation 1.5.5&#8211;3](01s05a12-Energy-balance.md) gives
 
 ![](../graphics/stm_eqn00601.gif)From this we get the energy equation
 
 ![](../graphics/stm_eqn00602.gif)Integrating this equation we find
 
-![](../graphics/stm_eqn00603.gif)where ![](../graphics/stm_eqn00604.gif) is the energy at time ![](../graphics/stm_eqn00605.gif). To make the energy balance ([Equation 1.5.5&#8211;1](01s05a12.md)) more convenient to use, we integrate it in time:
+![](../graphics/stm_eqn00603.gif)where ![](../graphics/stm_eqn00604.gif) is the energy at time ![](../graphics/stm_eqn00605.gif). To make the energy balance ([Equation 1.5.5&#8211;1](01s05a12-Energy-balance.md)) more convenient to use, we integrate it in time:
 
 ![](../graphics/stm_eqn00606.gif)or
 

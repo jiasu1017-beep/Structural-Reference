@@ -12,7 +12,7 @@ Let *V* denote a volume occupied by a part of the body in the current configurat
 
 The "true" or Cauchy stress matrix ![](../graphics/stm_eqn00033.gif) at a point of *S* is defined by
 
-![](../graphics/stm_eqn00482.gif)where ![](../graphics/stm_eqn00483.gif) is the unit outward normal to *S* at the point. Using this definition, [Equation 1.5.1&#8211;2](01s05a08.md) is
+![](../graphics/stm_eqn00482.gif)where ![](../graphics/stm_eqn00483.gif) is the unit outward normal to *S* at the point. Using this definition, [Equation 1.5.1&#8211;2](01s05a08-Equilibrium-and-virtual-work.md) is
 
 ![](../graphics/stm_eqn00484.gif)
 
@@ -26,17 +26,17 @@ Applying the Gauss theorem to the surface integral in the equilibrium equation g
 
 Since the volume is arbitrary, this equation must apply pointwise in the body, thus providing the differential equation of translational equilibrium:
 
-![](../graphics/stm_eqn00488.gif)These are the three familiar differential equations of force equilibrium. In deriving them we have made no approximation with respect to the magnitude of the deformation or rotation---the equations are an exact statement of equilibrium so long as we are precise about our definitions of surface tractions, body forces, stress (Cauchy stress, defined by [Equation 1.5.1&#8211;2](01s05a08.md)), volume, and area.
+![](../graphics/stm_eqn00488.gif)These are the three familiar differential equations of force equilibrium. In deriving them we have made no approximation with respect to the magnitude of the deformation or rotation---the equations are an exact statement of equilibrium so long as we are precise about our definitions of surface tractions, body forces, stress (Cauchy stress, defined by [Equation 1.5.1&#8211;2](01s05a08-Equilibrium-and-virtual-work.md)), volume, and area.
 
 Moment equilibrium is most simply written in the general case by taking moments about the origin:
 
 ![](../graphics/stm_eqn00489.gif)Use of the Gauss theorem with this equation then leads to the result that the ``true'' (Cauchy) stress matrix must be symmetric:
 
-![](../graphics/stm_eqn00490.gif)so that at each point there are only six independent components of stress. Conversely, by taking the stress matrix to be symmetric, we automatically satisfy moment equilibrium and, therefore, need only consider translational equilibrium when explicitly writing the equilibrium equations. (The moment equilibrium equation written above assumes that there are no point couples acting on the volume. If there are, the stress matrix does not have the symmetry property of [Equation 1.5.1&#8211;4](01s05a08.md). Continuum mechanics models that allow for such point couples have been developed, but they are not relevant to any of the models provided in Abaqus.)
+![](../graphics/stm_eqn00490.gif)so that at each point there are only six independent components of stress. Conversely, by taking the stress matrix to be symmetric, we automatically satisfy moment equilibrium and, therefore, need only consider translational equilibrium when explicitly writing the equilibrium equations. (The moment equilibrium equation written above assumes that there are no point couples acting on the volume. If there are, the stress matrix does not have the symmetry property of [Equation 1.5.1&#8211;4](01s05a08-Equilibrium-and-virtual-work.md). Continuum mechanics models that allow for such point couples have been developed, but they are not relevant to any of the models provided in Abaqus.)
 
-The basis for the development of a displacement-interpolation finite element model is the introduction of some locally based spatial approximation to parts of the solution. To develop such an approximation, we begin by replacing the three equilibrium equations represented by [Equation 1.5.1&#8211;3](01s05a08.md) by an equivalent "weak form"---a single scalar equation over the entire body, which is obtained by multiplying the pointwise differential equations by an arbitrary, vector-valued "test function," defined, with suitable continuity, over the entire volume, and integrating. As the test function is quite arbitrary, the differential equilibrium statement in any particular direction at any particular point can always be recovered by choosing the test function to be nonzero only in that direction at that point. For this case of equilibrium with a general stress matrix, this equivalent "weak form" is the virtual work principle. The test function can be imagined to be a "virtual" velocity field, ![](../graphics/stm_eqn00140.gif), which is completely arbitrary except that it must obey any prescribed kinematic constraints and have sufficient continuity: the dot product of this test function with the equilibrium force field then represents the "virtual" work rate.
+The basis for the development of a displacement-interpolation finite element model is the introduction of some locally based spatial approximation to parts of the solution. To develop such an approximation, we begin by replacing the three equilibrium equations represented by [Equation 1.5.1&#8211;3](01s05a08-Equilibrium-and-virtual-work.md) by an equivalent "weak form"---a single scalar equation over the entire body, which is obtained by multiplying the pointwise differential equations by an arbitrary, vector-valued "test function," defined, with suitable continuity, over the entire volume, and integrating. As the test function is quite arbitrary, the differential equilibrium statement in any particular direction at any particular point can always be recovered by choosing the test function to be nonzero only in that direction at that point. For this case of equilibrium with a general stress matrix, this equivalent "weak form" is the virtual work principle. The test function can be imagined to be a "virtual" velocity field, ![](../graphics/stm_eqn00140.gif), which is completely arbitrary except that it must obey any prescribed kinematic constraints and have sufficient continuity: the dot product of this test function with the equilibrium force field then represents the "virtual" work rate.
 
-Taking the dot product of [Equation 1.5.1&#8211;3](01s05a08.md) with ![](../graphics/stm_eqn00140.gif) results in a single scalar equation at each material point that is then integrated over the entire body to give
+Taking the dot product of [Equation 1.5.1&#8211;3](01s05a08-Equilibrium-and-virtual-work.md) with ![](../graphics/stm_eqn00140.gif) results in a single scalar equation at each material point that is then integrated over the entire body to give
 
 ![](../graphics/stm_eqn00491.gif)
 
@@ -44,7 +44,7 @@ The chain rule allows us to write
 
 ![](../graphics/stm_eqn00492.gif)so that
 
-![](../graphics/stm_eqn00493.gif)Thus, the virtual work statement, [Equation 1.5.1&#8211;5](01s05a08.md), can be written
+![](../graphics/stm_eqn00493.gif)Thus, the virtual work statement, [Equation 1.5.1&#8211;5](01s05a08-Equilibrium-and-virtual-work.md), can be written
 
 ![](../graphics/stm_eqn00494.gif)From the previous section we recognize
 

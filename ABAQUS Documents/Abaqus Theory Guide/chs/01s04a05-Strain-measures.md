@@ -38,7 +38,7 @@
 
 ![](../graphics/stm_eqn00400.gif)其中我们理解矩阵函数意味着两个矩阵具有相同的主方向，其主值通过 *f* 的定义相关，这是指示两个矩阵之间关系的一种方便的简写方式。
 
-在 [方程 1.4.2-2](01s04a05.md) 中，我们通过使用当前配置中的主应变方向写了矩阵 ![](../graphics/stm_eqn00399.gif)。我们同样可以首先从极分解开始，分解为拉伸然后是主拉伸方向的旋转：![](../graphics/stm_eqn00399.gif) 将以类似的方式定义，然后与其在参考配置中的主方向相关联。Abaqus通常报告相对于当前配置中方向的应变。没有明显理由选择这个：两种方法都可以，只要用户知道正在使用哪一种。Abaqus报告的应变度量在"Abaqus Analysis User's Guide"第1.2.2节"约定"中列出。
+在 [方程 1.4.2-2](01s04a05-Strain-measures.md) 中，我们通过使用当前配置中的主应变方向写了矩阵 ![](../graphics/stm_eqn00399.gif)。我们同样可以首先从极分解开始，分解为拉伸然后是主拉伸方向的旋转：![](../graphics/stm_eqn00399.gif) 将以类似的方式定义，然后与其在参考配置中的主方向相关联。Abaqus通常报告相对于当前配置中方向的应变。没有明显理由选择这个：两种方法都可以，只要用户知道正在使用哪一种。Abaqus报告的应变度量在"Abaqus Analysis User's Guide"第1.2.2节"约定"中列出。
 
 在有限元代码中，变形梯度 ![](../graphics/stm_eqn00319.gif) 通常从每个单元节点的位移解和为单元选择的插值函数在每个材料计算点计算。我们现在需要一个算法来获得 ![](../graphics/stm_eqn00399.gif)，给定应变度量的选择。这个算法可以从 [方程 1.4.1-12](01s04a04-Deformation.md) 立即获得：![](../graphics/stm_eqn00335.gif) 矩阵 ![](../graphics/stm_eqn00330.gif) 的特征值和特征向量是 ![](../graphics/stm_eqn00331.gif)；![](../graphics/stm_eqn00332.gif) 和 ![](../graphics/stm_eqn00333.gif)；以及 ![](../graphics/stm_eqn00298.gif)、![](../graphics/stm_eqn00401.gif) 和 ![](../graphics/stm_eqn00300.gif)。然后我们可以计算 ![](../graphics/stm_eqn00402.gif) 等，对于选择为应变度量的函数 *f*，从而构建
 
@@ -56,7 +56,7 @@ Green应变在一维中定义为
 
 ![](../graphics/stm_eqn00408.gif)
 
-将这个一维定义与 [方程 1.4.2-2](01s04a05.md) 和 [方程 1.4.2-3](01s04a05.md) 比较，我们看到
+将这个一维定义与 [方程 1.4.2-2](01s04a05-Strain-measures.md) 和 [方程 1.4.2-3](01s04a05-Strain-measures.md) 比较，我们看到
 
 ![](../graphics/stm_eqn00409.gif)然后是Green应变在一维中的推广。（Green应变矩阵更标准的定义是通过使用 ![](../graphics/stm_eqn00291.gif) 而不是 ![](../graphics/stm_eqn00330.gif) 获得，所以应变矩阵以参考配置而不是当前配置为基：
 

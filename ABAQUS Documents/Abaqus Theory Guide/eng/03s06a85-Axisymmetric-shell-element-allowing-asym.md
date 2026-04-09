@@ -81,7 +81,7 @@ The virtual work expression from the three-dimensional theory is
 
 ![](../graphics/stm_eqn04692.gif)
 
-We now introduce the kinematic assumption [Equation 3.6.7&#8211;1](03s06a85.md) into the definition of ![](../graphics/stm_eqn04687.gif) to find
+We now introduce the kinematic assumption [Equation 3.6.7&#8211;1](03s06a85-Axisymmetric-shell-element-allowing-asym.md) into the definition of ![](../graphics/stm_eqn04687.gif) to find
 
 ![](../graphics/stm_eqn04693.gif)where differentiation is now with respect to the parametric coordinates, so that ![](../graphics/stm_eqn04694.gif) and ![](../graphics/stm_eqn04695.gif). Define the following shell strain measure components and kinematic relationships:
 
@@ -89,7 +89,7 @@ We now introduce the kinematic assumption [Equation 3.6.7&#8211;1](03s06a85.md) 
 
 Substituting the above definitions into the virtual work expression, we find (after some manipulation) that the volume integral reduces to the following integral over the deformed reference surface
 
-![](../graphics/stm_eqn04698.gif)where ![](../graphics/stm_eqn04699.gif) and the current reference surface Jacobian determinant is ![](../graphics/stm_eqn04700.gif). In the above virtual work expression, the ![](../graphics/stm_eqn04267.gif) term in ![](../graphics/stm_eqn04701.gif) has been neglected. This term is ![](../graphics/stm_eqn04702.gif)---where *h* is the thickness and *R* is some characteristic radius of curvature---and is negligible in light of the kinematic assumption [Equation 3.6.7&#8211;1](03s06a85.md). The shell stress resultant components are defined by the following integrals through the thickness of the shell:
+![](../graphics/stm_eqn04698.gif)where ![](../graphics/stm_eqn04699.gif) and the current reference surface Jacobian determinant is ![](../graphics/stm_eqn04700.gif). In the above virtual work expression, the ![](../graphics/stm_eqn04267.gif) term in ![](../graphics/stm_eqn04701.gif) has been neglected. This term is ![](../graphics/stm_eqn04702.gif)---where *h* is the thickness and *R* is some characteristic radius of curvature---and is negligible in light of the kinematic assumption [Equation 3.6.7&#8211;1](03s06a85-Axisymmetric-shell-element-allowing-asym.md). The shell stress resultant components are defined by the following integrals through the thickness of the shell:
 
 ![](../graphics/stm_eqn04703.gif)
 
@@ -112,7 +112,7 @@ Define the following notation. Let ![](../graphics/stm_eqn04716.gif) ![](../grap
 
 ![](../graphics/stm_eqn04723.gif)Note that the basis vectors ![](../graphics/stm_eqn03500.gif) and ![](../graphics/stm_eqn03501.gif) induce distance measuring coordinates ![](../graphics/stm_eqn04724.gif) and ![](../graphics/stm_eqn04725.gif) such that
 
-![](../graphics/stm_eqn04726.gif)It follows from [Equation 3.6.7&#8211;5](03s06a85.md) that the orthonormal tangent vectors are given by
+![](../graphics/stm_eqn04726.gif)It follows from [Equation 3.6.7&#8211;5](03s06a85-Axisymmetric-shell-element-allowing-asym.md) that the orthonormal tangent vectors are given by
 
 ![](../graphics/stm_eqn04727.gif)
 
@@ -131,11 +131,11 @@ For the material calculations, it is important to express both the strain and st
 ![](../graphics/stm_eqn04743.gif)
 ### Strain displacement operators
 
-We now write the virtual work expression [Equation 3.6.7&#8211;4](03s06a85.md) in matrix operator notation. Define the following stress resultant component vectors:
+We now write the virtual work expression [Equation 3.6.7&#8211;4](03s06a85-Axisymmetric-shell-element-allowing-asym.md) in matrix operator notation. Define the following stress resultant component vectors:
 
 ![](../graphics/stm_eqn04744.gif)Define the matrix strain displacement operators as follows:
 
-![](../graphics/stm_eqn04745.gif)where ![](../graphics/stm_eqn04746.gif) is the column of zeros ![](../graphics/stm_eqn04747.gif). Then the virtual work expression [Equation 3.6.7&#8211;4](03s06a85.md) is equivalently stated
+![](../graphics/stm_eqn04745.gif)where ![](../graphics/stm_eqn04746.gif) is the column of zeros ![](../graphics/stm_eqn04747.gif). Then the virtual work expression [Equation 3.6.7&#8211;4](03s06a85-Axisymmetric-shell-element-allowing-asym.md) is equivalently stated
 
 ![](../graphics/stm_eqn04748.gif)
 ### Corotational coordinate system
@@ -154,7 +154,7 @@ Obtain the Abaqus convention pair of orthonormal surface vectors ![](../graphics
 
 ![](../graphics/stm_eqn04758.gif)From this it can be determined that
 
-![](../graphics/stm_eqn04759.gif)and ![](../graphics/stm_eqn04760.gif) are then determined by [Equation 3.6.7&#8211;6](03s06a85.md).
+![](../graphics/stm_eqn04759.gif)and ![](../graphics/stm_eqn04760.gif) are then determined by [Equation 3.6.7&#8211;6](03s06a85-Axisymmetric-shell-element-allowing-asym.md).
 
 Having determined the updated vectors ![](../graphics/stm_eqn04761.gif), we can calculate the quantities required for coordinate transformation. First the incremental deformation gradient components and the Jacobian matrix components:
 
@@ -163,7 +163,7 @@ Having determined the updated vectors ![](../graphics/stm_eqn04761.gif), we can 
 ![](../graphics/stm_eqn04764.gif)
 ### Consistent linearization
 
-The iterative solution procedure requires the calculation of the consistent tangent stiffness. This stiffness has two parts, one resulting from the material model and the other resulting from the changing geometry. We denote the second variational quantities with ![](../graphics/stm_eqn04765.gif). Returning to [Equation 3.6.7&#8211;4](03s06a85.md), the virtual work expression can be written as
+The iterative solution procedure requires the calculation of the consistent tangent stiffness. This stiffness has two parts, one resulting from the material model and the other resulting from the changing geometry. We denote the second variational quantities with ![](../graphics/stm_eqn04765.gif). Returning to [Equation 3.6.7&#8211;4](03s06a85-Axisymmetric-shell-element-allowing-asym.md), the virtual work expression can be written as
 
 ![](../graphics/stm_eqn04766.gif)where ![](../graphics/stm_eqn04767.gif), ![](../graphics/stm_eqn04768.gif) is the Jacobian determinant of the reference configuration parametrization given by ![](../graphics/stm_eqn04769.gif), and components are relative to the corotated frame with ![](../graphics/stm_eqn04770.gif). We assume constitutive behavior such that
 
@@ -180,13 +180,13 @@ At the beginning of an increment we have the configuration at iteration *k*, den
 
 ![](../graphics/stm_eqn04776.gif)We use these incremental fields to update the configuration to iteration ![](../graphics/stm_eqn04777.gif).
 
-1. *Reference surface update*: The displacement increments are interpolated using the same interpolation scheme as the total displacement vector in [Equation 3.6.7&#8211;2](03s06a85.md):
+1. *Reference surface update*: The displacement increments are interpolated using the same interpolation scheme as the total displacement vector in [Equation 3.6.7&#8211;2](03s06a85-Axisymmetric-shell-element-allowing-asym.md):
 
 ![](../graphics/stm_eqn04778.gif)The reference surface position map is updated from the displacement increment by
 
 ![](../graphics/stm_eqn04779.gif)
 
-2. *Rotation field update*: The incremental rotation field is updated with the same interpolation scheme as the total rotation field in [Equation 3.6.7&#8211;3](03s06a85.md):
+2. *Rotation field update*: The incremental rotation field is updated with the same interpolation scheme as the total rotation field in [Equation 3.6.7&#8211;3](03s06a85-Axisymmetric-shell-element-allowing-asym.md):
 
 ![](../graphics/stm_eqn04780.gif)This incremental rotation vector corresponds to a finite rotation, characterized by quaternion parameters as
 
@@ -230,11 +230,11 @@ The equivalent nodal loads associated with surface pressure *p* can be obtained 
 
 ![](../graphics/stm_eqn04810.gif)with ![](../graphics/stm_eqn03233.gif) and ![](../graphics/stm_eqn03234.gif). Recall that the current position of a point can be expressed in terms of the axial interpolator ![](../graphics/stm_eqn04811.gif) and the circumferential interpolators ![](../graphics/stm_eqn04664.gif) by
 
-![](../graphics/stm_eqn04812.gif)The terms in [Equation 3.6.7&#8211;7](03s06a85.md) can be worked out as follows:
+![](../graphics/stm_eqn04812.gif)The terms in [Equation 3.6.7&#8211;7](03s06a85-Axisymmetric-shell-element-allowing-asym.md) can be worked out as follows:
 
 ![](../graphics/stm_eqn04813.gif)and, hence,
 
-![](../graphics/stm_eqn04814.gif)The variations ![](../graphics/stm_eqn04815.gif) are written ![](../graphics/stm_eqn04816.gif), where the components have interpolations similar to those in [Equation 3.6.7&#8211;7](03s06a85.md). Therefore, the virtual work contribution becomes
+![](../graphics/stm_eqn04814.gif)The variations ![](../graphics/stm_eqn04815.gif) are written ![](../graphics/stm_eqn04816.gif), where the components have interpolations similar to those in [Equation 3.6.7&#8211;7](03s06a85-Axisymmetric-shell-element-allowing-asym.md). Therefore, the virtual work contribution becomes
 
 ![](../graphics/stm_eqn04817.gif)With the introduction of the interpolation functions, we obtain the equivalent nodal forces:
 

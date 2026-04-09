@@ -23,7 +23,7 @@ To continue with the derivation, we transform the weighted residual statement in
 
 ![](../graphics/stm_eqn03337.gif)where ![](../graphics/stm_eqn03338.gif), ![](../graphics/stm_eqn03339.gif), and ![](../graphics/stm_eqn03340.gif) are the parent element coordinates; ![](../graphics/stm_eqn03341.gif); ![](../graphics/stm_eqn03342.gif); ![](../graphics/stm_eqn03343.gif); and ![](../graphics/stm_eqn03344.gif) are element shape functions with indices varying over the number of degrees of freedom of the element. The mapping and shape functions are described below.
 
-Inserting the shape functions into [Equation 3.3.2&#8211;1](03s03a69.md) and integrating by parts, we obtain the following element equation:
+Inserting the shape functions into [Equation 3.3.2&#8211;1](03s03a69-Acoustic-infinite-elements.md) and integrating by parts, we obtain the following element equation:
 
 ![](../graphics/stm_eqn03345.gif)
 
@@ -98,7 +98,7 @@ The remaining terms are complex; and, as in the case for acoustic finite element
 
 ![](../graphics/stm_eqn03386.gif)we obtain real-valued element matrices as follows:
 
-![](../graphics/stm_eqn03387.gif)These are used directly in [Equation 2.9.1&#8211;24](02s09a41.md).
+![](../graphics/stm_eqn03387.gif)These are used directly in [Equation 2.9.1&#8211;24](02s09a41-Coupled-acoustic-structural-medium-analy.md).
 ### Lateral face terms due to impedance conditions
 
 An infinite element volume may have an impedance boundary condition defined on a face extending to infinity. Such a definition can be used to model, for example, an infinite half-space of water above a lossy seabed or under a layer of ice. The derivation of the contribution of the impedance condition to the infinite element matrix is straightforward and follows the derivation for finite elements (see "Coupled acoustic-structural medium analysis,"  Section 2.9.1). The contributing term in the transient case is

@@ -22,7 +22,7 @@ The eigenfrequency step prior to the subspace-based steady-state dynamic analysi
 
 ![](../graphics/stm_eqn01625.gif)where ![](../graphics/stm_eqn01091.gif) is the eigenfrequency in radians/time. The procedure assumes that the complex displacement changes for the damped system can be written in the form
 
-![](../graphics/stm_eqn01626.gif) where ![](../graphics/stm_eqn01627.gif) are the complex modal amplitudes. Using [Equation 2.6.2&#8211;3](02s06a34.md) in [Equation 2.6.2&#8211;1](02s06a34.md) and premultiplying with ![](../graphics/stm_eqn01628.gif), the equation of motion projected onto the subspace is provided:
+![](../graphics/stm_eqn01626.gif) where ![](../graphics/stm_eqn01627.gif) are the complex modal amplitudes. Using [Equation 2.6.2&#8211;3](02s06a34-Subspace-based-steady-state-dynamic-anal.md) in [Equation 2.6.2&#8211;1](02s06a34-Subspace-based-steady-state-dynamic-anal.md) and premultiplying with ![](../graphics/stm_eqn01628.gif), the equation of motion projected onto the subspace is provided:
 
 ![](../graphics/stm_eqn01629.gif)where
 
@@ -30,13 +30,13 @@ The eigenfrequency step prior to the subspace-based steady-state dynamic analysi
 
 For harmonic excitation and response we can write
 
-![](../graphics/stm_eqn01631.gif)where ![](../graphics/stm_eqn01632.gif) and ![](../graphics/stm_eqn01633.gif) are the real and imaginary parts of the modal amplitudes and ![](../graphics/stm_eqn01634.gif) and ![](../graphics/stm_eqn01635.gif) are the real and imaginary parts of the amplitude of the force applied to the structure after projection onto the subspace. Substituting the expressions for harmonic excitation and response in [Equation 2.6.2&#8211;4](02s06a34.md) and writing the result in matrix form yields
+![](../graphics/stm_eqn01631.gif)where ![](../graphics/stm_eqn01632.gif) and ![](../graphics/stm_eqn01633.gif) are the real and imaginary parts of the modal amplitudes and ![](../graphics/stm_eqn01634.gif) and ![](../graphics/stm_eqn01635.gif) are the real and imaginary parts of the amplitude of the force applied to the structure after projection onto the subspace. Substituting the expressions for harmonic excitation and response in [Equation 2.6.2&#8211;4](02s06a34-Subspace-based-steady-state-dynamic-anal.md) and writing the result in matrix form yields
 
 ![](../graphics/stm_eqn01636.gif)where
 
 ![](../graphics/stm_eqn01637.gif)
 
-The equation is solved for the real and imaginary part of the complex modal amplitudes ![](../graphics/stm_eqn01627.gif), and [Equation 2.6.2&#8211;3](02s06a34.md) can be used to compute the real and imaginary part of the nodal displacements.
+The equation is solved for the real and imaginary part of the complex modal amplitudes ![](../graphics/stm_eqn01627.gif), and [Equation 2.6.2&#8211;3](02s06a34-Subspace-based-steady-state-dynamic-anal.md) can be used to compute the real and imaginary part of the nodal displacements.
 
 For a coupled acoustic-structural analysis the development is similar. However, in this case the "damping" matrix also contains volumetric drag, impedance boundary, radiating boundary, and fluid-solid coupling effects. Although the original formulation of the coupled acoustic-structural eigenvalue extraction problem is unsymmetric, the equations are rearranged such that the fluid-solid coupling effects are retained without making the problem unsymmetric. The resulting modes and frequencies are associated with the coupled, undamped fluid-solid system. The subspace-based steady-state dynamic procedure will project the full, coupled, and damped acoustic-structural system of equations onto the space spanned by the set of coupled fluid-solid modes.
 

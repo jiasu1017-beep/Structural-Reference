@@ -13,7 +13,7 @@ The original geometry of the elements is assumed to be axisymmetric with respect
 
 ![](../graphics/stm_eqn03119.gif)Similarly the displacement ![](../graphics/stm_eqn00428.gif) of the point can be represented in terms of the components ![](../graphics/stm_eqn03055.gif), ![](../graphics/stm_eqn03056.gif), and ![](../graphics/stm_eqn03120.gif) with respect to these same vectors at the original position of the point:
 
-![](../graphics/stm_eqn03121.gif)For small radial and circumferential displacements the circumferential displacement is proportional to the change in circumferential angle (![](../graphics/stm_eqn03122.gif)), but for large displacements this relation becomes nonlinear (![](../graphics/stm_eqn03123.gif)), as shown in [Figure 3.2.9&#8211;1](03s02a67.md).
+![](../graphics/stm_eqn03121.gif)For small radial and circumferential displacements the circumferential displacement is proportional to the change in circumferential angle (![](../graphics/stm_eqn03122.gif)), but for large displacements this relation becomes nonlinear (![](../graphics/stm_eqn03123.gif)), as shown in [Figure 3.2.9&#8211;1](03s02a67-Axisymmetric-elements-allowing-nonlinear.md).
 
 Figure 3.2.9&#8211;1 Displacement and rotation in the *r*&#8211;![](../graphics/stm_eqn01111.gif) plane.
 
@@ -25,7 +25,7 @@ A general interpolation scheme for ![](../graphics/stm_eqn00428.gif) using Fouri
 
 We reduce the number of variables in such an element by assuming that bending is allowed only about one plane, ![](../graphics/stm_eqn03117.gif), so that the plane ![](../graphics/stm_eqn03130.gif), *n* integer, is a plane of symmetry. The only terms that satisfy this condition are
 
-![](../graphics/stm_eqn03131.gif) For convenience we use the values of the ![](../graphics/stm_eqn03072.gif) and ![](../graphics/stm_eqn03056.gif) displacement components at specific locations around the model between ![](../graphics/stm_eqn03132.gif) and ![](../graphics/stm_eqn03133.gif) instead of the Fourier amplitudes ![](../graphics/stm_eqn03134.gif) and ![](../graphics/stm_eqn03135.gif). The main reason for this is to allow the elements to be used with interface elements, such as slide lines, for which physical displacement values are required. This is accurate only if it is assumed that the relative displacements in the ![](../graphics/stm_eqn01111.gif)-direction are small so that the interface conditions are considered with respect to ![](../graphics/stm_eqn03055.gif) and ![](../graphics/stm_eqn03056.gif) only; that is, in planes of constant ![](../graphics/stm_eqn01111.gif). In addition, we omit the subscript *s* in the expression for the circumferential displacement: ![](../graphics/stm_eqn03136.gif). [Equation 3.2.9&#8211;1](03s02a67.md) is, therefore, rewritten
+![](../graphics/stm_eqn03131.gif) For convenience we use the values of the ![](../graphics/stm_eqn03072.gif) and ![](../graphics/stm_eqn03056.gif) displacement components at specific locations around the model between ![](../graphics/stm_eqn03132.gif) and ![](../graphics/stm_eqn03133.gif) instead of the Fourier amplitudes ![](../graphics/stm_eqn03134.gif) and ![](../graphics/stm_eqn03135.gif). The main reason for this is to allow the elements to be used with interface elements, such as slide lines, for which physical displacement values are required. This is accurate only if it is assumed that the relative displacements in the ![](../graphics/stm_eqn01111.gif)-direction are small so that the interface conditions are considered with respect to ![](../graphics/stm_eqn03055.gif) and ![](../graphics/stm_eqn03056.gif) only; that is, in planes of constant ![](../graphics/stm_eqn01111.gif). In addition, we omit the subscript *s* in the expression for the circumferential displacement: ![](../graphics/stm_eqn03136.gif). [Equation 3.2.9&#8211;1](03s02a67-Axisymmetric-elements-allowing-nonlinear.md) is, therefore, rewritten
 
 ![](../graphics/stm_eqn03137.gif)where ![](../graphics/stm_eqn03138.gif) are trigonometric interpolation functions and ![](../graphics/stm_eqn03139.gif), ![](../graphics/stm_eqn03140.gif) are physical radial and axial displacement components at ![](../graphics/stm_eqn03141.gif).
 
@@ -129,12 +129,12 @@ For fully integrated, 4-node quadrilaterals we again use the approximation
 
 ![](../graphics/stm_eqn03203.gif)
 
-The displacements and, hence, the displacement variations, are interpolated in terms of nodal displacement variations with [Equation 3.2.9&#8211;2](03s02a67.md). The derivatives of the displacements with respect to ![](../graphics/stm_eqn03159.gif), *Z*, and ![](../graphics/stm_eqn03077.gif) are readily obtained from these expressions:
+The displacements and, hence, the displacement variations, are interpolated in terms of nodal displacement variations with [Equation 3.2.9&#8211;2](03s02a67-Axisymmetric-elements-allowing-nonlinear.md). The derivatives of the displacements with respect to ![](../graphics/stm_eqn03159.gif), *Z*, and ![](../graphics/stm_eqn03077.gif) are readily obtained from these expressions:
 
 ![](../graphics/stm_eqn03204.gif)
 ### Stiffness in the current state
 
-Since the elements are formulated in terms of Cartesian components of displacements, the equations presented in "Solid element formulation,"  Section 3.2.2, apply. For the 4-node quadrilaterals, we can adapt [Equation 3.2.2&#8211;1](03s02a60.md) to the averaged volume change formulation, which yields
+Since the elements are formulated in terms of Cartesian components of displacements, the equations presented in "Solid element formulation,"  Section 3.2.2, apply. For the 4-node quadrilaterals, we can adapt [Equation 3.2.2&#8211;1](03s02a60-Solid-element-formulation.md) to the averaged volume change formulation, which yields
 
 ![](../graphics/stm_eqn03205.gif)The second variation in ![](../graphics/stm_eqn03206.gif) is obtained with the standard procedure
 
@@ -149,13 +149,13 @@ The hourglass pattern can vary along the circumference, which requires applicati
 
 Hourglassing can also occur in the circumferential direction.Hence, at each integration point around the circumference, we calculate the hourglass strains
 
-![](../graphics/stm_eqn03213.gif)Here ![](../graphics/stm_eqn00319.gif) is the deformation gradient as given by [Equation 3.2.9&#8211;3](03s02a67.md) and ![](../graphics/stm_eqn03214.gif) and ![](../graphics/stm_eqn03215.gif) are the hourglass modes in the deformed and undeformed geometry respectively:
+![](../graphics/stm_eqn03213.gif)Here ![](../graphics/stm_eqn00319.gif) is the deformation gradient as given by [Equation 3.2.9&#8211;3](03s02a67-Axisymmetric-elements-allowing-nonlinear.md) and ![](../graphics/stm_eqn03214.gif) and ![](../graphics/stm_eqn03215.gif) are the hourglass modes in the deformed and undeformed geometry respectively:
 
 ![](../graphics/stm_eqn03216.gif)where ![](../graphics/stm_eqn03217.gif) is the same hourglass operator as used for the 4-node axisymmetric continuum elements and ![](../graphics/stm_eqn03218.gif) and ![](../graphics/stm_eqn03219.gif) are the nodal positions at angle ![](../graphics/stm_eqn01111.gif) in the deformed and undeformed states. Observe that since the initial geometry is axisymmetric, ![](../graphics/stm_eqn03219.gif) is independent of ![](../graphics/stm_eqn01111.gif):
 
 ![](../graphics/stm_eqn03220.gif)In the deformed state we write
 
-![](../graphics/stm_eqn03221.gif)With [Equation 3.2.9&#8211;2](03s02a67.md) this becomes
+![](../graphics/stm_eqn03221.gif)With [Equation 3.2.9&#8211;2](03s02a67-Axisymmetric-elements-allowing-nonlinear.md) this becomes
 
 ![](../graphics/stm_eqn03222.gif)The hourglass "strain" transforms into an hourglass "force" with the hourglass stiffness *c*:
 
@@ -163,7 +163,7 @@ Hourglassing can also occur in the circumferential direction.Hence, at each inte
 
 ![](../graphics/stm_eqn03224.gif)
 
-Here ![](../graphics/stm_eqn03225.gif) follows from [Equation 3.2.9&#8211;7](03s02a67.md), and for ![](../graphics/stm_eqn03226.gif) we obtain
+Here ![](../graphics/stm_eqn03225.gif) follows from [Equation 3.2.9&#8211;7](03s02a67-Axisymmetric-elements-allowing-nonlinear.md), and for ![](../graphics/stm_eqn03226.gif) we obtain
 
 ![](../graphics/stm_eqn03227.gif)
 
@@ -182,7 +182,7 @@ The equivalent nodal loads associated with surface pressure *p* can be obtained 
 
 ![](../graphics/stm_eqn03236.gif)
 
-The terms in [Equation 3.2.9&#8211;8](03s02a67.md) can be worked out as follows:
+The terms in [Equation 3.2.9&#8211;8](03s02a67-Axisymmetric-elements-allowing-nonlinear.md) can be worked out as follows:
 
 ![](../graphics/stm_eqn03237.gif)and, hence,
 

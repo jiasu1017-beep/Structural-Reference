@@ -42,7 +42,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 ![](../graphics/stm_eqn01916.gif)其中![](../graphics/stm_eqn01917)是流体空化极限，![](../graphics/stm_eqn01918)是初始声学静压力。对于经历空化的非线性声学介质，使用总波公式。这个公式与下面介绍的散射波公式非常相似，只是定义为体积模量与压缩体积应变乘积的伪压力扮演着材料状态变量的角色，而不是声学过量压力。根据空化条件，可以从这个伪压力容易地获得声学过量压力。
 ### 声学分析中的物理边界条件
 
-声场强烈依赖于声学介质边界上的条件。服从[方程2.9.1-1](02s09a41.md)和[方程2.9.1-2](02s09a41.md)的声学介质区域的边界可以分为以下条件被施加的子区域*S*：
+声场强烈依赖于声学介质边界上的条件。服从[方程2.9.1-1](02s09a41-Coupled-acoustic-structural-medium-analy.md)和[方程2.9.1-2](02s09a41-Coupled-acoustic-structural-medium-analy.md)的声学介质区域的边界可以分为以下条件被施加的子区域*S*：
 
 | ， | 其中规定了声学压力*p*的值。 |
 | --- | --- |
@@ -56,18 +56,18 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 在Abaqus中，有限元公式在直接积分瞬态和稳态或模态分析中略有不同，主要在于体积 drag 损失参数的处理和本构参数的空间变化。为了导出用于隐式积分的对称常微分方程组，在瞬态情况下做了一些在稳态中不需要的近似。对于线性瞬态动力学分析，可以使用模态过程，效率更高。
 
-为了导出用于直接积分瞬态分析的双曲线偏微分方程，我们将[方程2.9.1-1](02s09a41.md)除以![](../graphics/stm_eqn01910)，取其关于![](../graphics/stm_eqn00117)的梯度，忽略![](../graphics/stm_eqn01926)的梯度，并将结果与[方程2.9.1-2](02s09a41.md)的时间导数结合，得到以流体压力表示的流体运动方程：
+为了导出用于直接积分瞬态分析的双曲线偏微分方程，我们将[方程2.9.1-1](02s09a41-Coupled-acoustic-structural-medium-analy.md)除以![](../graphics/stm_eqn01910)，取其关于![](../graphics/stm_eqn00117)的梯度，忽略![](../graphics/stm_eqn01926)的梯度，并将结果与[方程2.9.1-2](02s09a41-Coupled-acoustic-structural-medium-analy.md)的时间导数结合，得到以流体压力表示的流体运动方程：
 
 ![](../graphics/stm_eqn01927.gif)假设![](../graphics/stm_eqn01926)的梯度很小，这在![](../graphics/stm_eqn01926)不连续的地方（例如，在具有不同![](../graphics/stm_eqn01926)值的两个单元之间的边界上）会被违反。
 ### 变分陈述
 
-运动方程的等效弱形式，[方程2.9.1-3](02s09a41.md)，通过引入任意变分场![](../graphics/stm_eqn00285)并在整个流体上积分获得：
+运动方程的等效弱形式，[方程2.9.1-3](02s09a41-Coupled-acoustic-structural-medium-analy.md)，通过引入任意变分场![](../graphics/stm_eqn00285)并在整个流体上积分获得：
 
 ![](../graphics/stm_eqn01928.gif)Green定理允许这被重写为
 
-![](../graphics/stm_eqn01929.gif)假设*p*在![](../graphics/stm_eqn01919)上被规定，平衡方程，[方程2.9.1-1](02s09a41.md)，在边界的其余部分上用于将压力梯度与边界运动相关联：
+![](../graphics/stm_eqn01929.gif)假设*p*在![](../graphics/stm_eqn01919)上被规定，平衡方程，[方程2.9.1-1](02s09a41-Coupled-acoustic-structural-medium-analy.md)，在边界的其余部分上用于将压力梯度与边界运动相关联：
 
-![](../graphics/stm_eqn01930.gif)使用这个方程，项![](../graphics/stm_eqn01931)从[方程2.9.1-4](02s09a41.md)中消除，产生
+![](../graphics/stm_eqn01930.gif)使用这个方程，项![](../graphics/stm_eqn01931)从[方程2.9.1-4](02s09a41-Coupled-acoustic-structural-medium-analy.md)中消除，产生
 
 ![](../graphics/stm_eqn01932.gif)其中，为方便起见，引入了边界"牵引力"项
 
@@ -86,7 +86,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 | 在上， | 声学-结构界面，我们通过将流体和固体的位移等价来施加声学-结构界面条件，强制执行条件其中是结构的位移。在存在体积 drag 的情况下，紧接着声学边界牵引力耦合流体到固体的是在Abaqus/Standard中，瞬态耦合问题的公式将由于项的存在而变得非对称。在绝大多数实际应用中，与流体惯性相关的声学牵引力相比，与体积 drag 相关的声学牵引力很小，因此在瞬态分析中忽略了这个项： |
 | 在上， | 混合阻抗边界和声学-结构边界，我们应用将声学介质和结构之间的相对外法向速度与压力和压力变化率相关联的条件：这个相对法向速度表示中间层的压缩（或拉伸）速率。将这个方程应用于的定义，我们得到瞬态情况下的这的是对于和的定义之和。在稳态情况下，体积 drag 对结构位移项在声学牵引力中的影响包括在内： |
 
-这些边界项![](../graphics/stm_eqn01934)的定义被引入[方程2.9.1-6](02s09a41.md)中，给出声学介质的最终变分陈述（这是结构虚功陈述的等效）：
+这些边界项![](../graphics/stm_eqn01934)的定义被引入[方程2.9.1-6](02s09a41-Coupled-acoustic-structural-medium-analy.md)中，给出声学介质的最终变分陈述（这是结构虚功陈述的等效）：
 
 ![](../graphics/stm_eqn01958.gif)
 
@@ -101,9 +101,9 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 ![](../graphics/stm_eqn01963.gif)其中![](../graphics/stm_eqn00033)是结构中一点的应力，*p*是作用在流体-结构界面的压力，![](../graphics/stm_eqn00483)是结构的外法线，![](../graphics/stm_eqn00593)是材料的密度，![](../graphics/stm_eqn01595)是质量比例阻尼因子（结构Rayleigh阻尼假设的一部分），![](../graphics/stm_eqn01964)是结构中一点的加速度，![](../graphics/stm_eqn00479)是施加在结构上的表面牵引力，![](../graphics/stm_eqn01965)是变分位移场，![](../graphics/stm_eqn01996)是与![](../graphics/stm_eqn01965)兼容的应变变分。为简单起见，在这个方程中，除了流体压力和表面牵引力![](../graphics/stm_eqn00479)之外的所有其他荷载项都被忽略了：它们以通常的方式施加。
 ### 离散有限元方程
 
-[方程2.9.1-14](02s09a41.md)和[方程2.9.1-15](02s09a41.md)定义了耦合场![](../graphics/stm_eqn01950)和*p*的变分问题。问题通过引入插值函数离散化：在流体中![](../graphics/stm_eqn01966)，![](../graphics/stm_eqn01967)直到压力节点数，在结构中![](../graphics/stm_eqn01968)，![](../graphics/stm_eqn01969)直到位移自由度数。在这些和下面的方程中，我们假设对指代离散模型自由度的上标求和。我们还使用上标![](../graphics/stm_eqn01970)、![](../graphics/stm_eqn01971)来指代流体中的压力自由度，![](../graphics/stm_eqn01972)、![](../graphics/stm_eqn01973)来指代结构中的位移自由度。我们对结构系统使用Galerkin方法；变分场与位移具有相同的形式：![](../graphics/stm_eqn01974)。对于流体，我们使用![](../graphics/stm_eqn01975)，但随后进行Petrov-Galerkin替换
+[方程2.9.1-14](02s09a41-Coupled-acoustic-structural-medium-analy.md)和[方程2.9.1-15](02s09a41-Coupled-acoustic-structural-medium-analy.md)定义了耦合场![](../graphics/stm_eqn01950)和*p*的变分问题。问题通过引入插值函数离散化：在流体中![](../graphics/stm_eqn01966)，![](../graphics/stm_eqn01967)直到压力节点数，在结构中![](../graphics/stm_eqn01968)，![](../graphics/stm_eqn01969)直到位移自由度数。在这些和下面的方程中，我们假设对指代离散模型自由度的上标求和。我们还使用上标![](../graphics/stm_eqn01970)、![](../graphics/stm_eqn01971)来指代流体中的压力自由度，![](../graphics/stm_eqn01972)、![](../graphics/stm_eqn01973)来指代结构中的位移自由度。我们对结构系统使用Galerkin方法；变分场与位移具有相同的形式：![](../graphics/stm_eqn01974)。对于流体，我们使用![](../graphics/stm_eqn01975)，但随后进行Petrov-Galerkin替换
 
-![](../graphics/stm_eqn01976.gif) 新函数![](../graphics/stm_eqn01977)使得从求和[方程2.9.1-14](02s09a41.md)和[方程2.9.1-15](02s09a41.md)获得的单个变分方程在维度上一致：
+![](../graphics/stm_eqn01976.gif) 新函数![](../graphics/stm_eqn01977)使得从求和[方程2.9.1-14](02s09a41-Coupled-acoustic-structural-medium-analy.md)和[方程2.9.1-15](02s09a41-Coupled-acoustic-structural-medium-analy.md)获得的单个变分方程在维度上一致：
 
 ![](../graphics/stm_eqn01978.gif)其中，为简单起见，我们引入了以下定义：
 
@@ -144,7 +144,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02000.gif)因此，写为
 
-![](../graphics/stm_eqn02001.gif)平衡方程现在呈密度为复数且声学介质速度不进入的形式。我们将这个方程除以![](../graphics/stm_eqn02002]并将其与本构定律的时间二阶导数结合，[方程2.9.1-2](02s09a41.md)，获得
+![](../graphics/stm_eqn02001.gif)平衡方程现在呈密度为复数且声学介质速度不进入的形式。我们将这个方程除以![](../graphics/stm_eqn02002]并将其与本构定律的时间二阶导数结合，[方程2.9.1-2](02s09a41-Coupled-acoustic-structural-medium-analy.md)，获得
 
 ![](../graphics/stm_eqn02003.gif)我们没有使用瞬态动力学公式中所做的假设，即![](../graphics/stm_eqn02004)的空间梯度很小。
 ### 变分陈述
@@ -167,7 +167,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 最终的变分陈述变为
 
-![](../graphics/stm_eqn02014.gif)这个方程在形式上与[方程2.9.1-4](02s09a41.md)相同，只是压力"刚度"项、辐射边界条件和施加的边界牵引力项不同。因为体积 drag 效应包含在复密度中，所以这个公式中的声学-结构边界项没有体积 drag 必须相对于声学介质中的其他效应很小的限制。此外，在这个公式中，施加在声学边界上的通量表示声学介质的内加速度，无论体积 drag 是否很大。最后，辐射边界条件对体积 drag 参数不做任何近似。
+![](../graphics/stm_eqn02014.gif)这个方程在形式上与[方程2.9.1-4](02s09a41-Coupled-acoustic-structural-medium-analy.md)相同，只是压力"刚度"项、辐射边界条件和施加的边界牵引力项不同。因为体积 drag 效应包含在复密度中，所以这个公式中的声学-结构边界项没有体积 drag 必须相对于声学介质中的其他效应很小的限制。此外，在这个公式中，施加在声学边界上的通量表示声学介质的内加速度，无论体积 drag 是否很大。最后，辐射边界条件对体积 drag 参数不做任何近似。
 
 上述方程使用复密度![](../graphics/stm_eqn02015]。我们通过关系
 
@@ -176,7 +176,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 ![](../graphics/stm_eqn02017.gif)
 ### 离散有限元方程
 
-应用Galerkin原理，有限元方程如前所述推导。我们再次得到[方程2.9.1-17](02s09a41.md)，矩阵相同，除了声学单元的阻尼和刚度矩阵以及具有施加阻抗条件的表面，现在表现为
+应用Galerkin原理，有限元方程如前所述推导。我们再次得到[方程2.9.1-17](02s09a41-Coupled-acoustic-structural-medium-analy.md)，矩阵相同，除了声学单元的阻尼和刚度矩阵以及具有施加阻抗条件的表面，现在表现为
 
 ![](../graphics/stm_eqn02018.gif)在这个公式中，建模体积 drag 损失的矩阵与流体刚度矩阵成正比。
 
@@ -188,7 +188,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 为了求解稳态问题，我们假设主导方程在基态中满足，并且我们在谐波振荡方面将这些方程线性化。对于内力向量，这产生
 
-![](../graphics/stm_eqn02025.gif)并且[方程2.9.1-17](02s09a41.md)可以使用时间谐波关系重写为
+![](../graphics/stm_eqn02025.gif)并且[方程2.9.1-17](02s09a41-Coupled-acoustic-structural-medium-analy.md)可以使用时间谐波关系重写为
 
 ![](../graphics/stm_eqn02026.gif)其中
 
@@ -204,22 +204,22 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02031.gif)和
 
-![](../graphics/stm_eqn02032.gif)其中![](../graphics/stm_eqn02033)、![](../graphics/stm_eqn02034)、![](../graphics/stm_eqn02035)和![](../graphics/stm_eqn02036)是响应振幅的实部和虚部；![](../graphics/stm_eqn02037)和![](../graphics/stm_eqn02038)是施加在结构上的力的振幅的实部和虚部；![](../graphics/stm_eqn02039)和![](../graphics/stm_eqn02040)是施加在流体上的声学牵引力（体积加速度维度）振幅的实部和虚部；![](../graphics/stm_eqn01258)是圆频率。我们将这些方程代入[方程2.9.1-23](02s09a41.md)并使用[方程2.9.1-16](02s09a41.md)的时间谐波形式，![](../graphics/stm_eqn02041)，这产生了耦合复线性方程组
+![](../graphics/stm_eqn02032.gif)其中![](../graphics/stm_eqn02033)、![](../graphics/stm_eqn02034)、![](../graphics/stm_eqn02035)和![](../graphics/stm_eqn02036)是响应振幅的实部和虚部；![](../graphics/stm_eqn02037)和![](../graphics/stm_eqn02038)是施加在结构上的力的振幅的实部和虚部；![](../graphics/stm_eqn02039)和![](../graphics/stm_eqn02040)是施加在流体上的声学牵引力（体积加速度维度）振幅的实部和虚部；![](../graphics/stm_eqn01258)是圆频率。我们将这些方程代入[方程2.9.1-23](02s09a41-Coupled-acoustic-structural-medium-analy.md)并使用[方程2.9.1-16](02s09a41-Coupled-acoustic-structural-medium-analy.md)的时间谐波形式，![](../graphics/stm_eqn02041)，这产生了耦合复线性方程组
 
 ![](../graphics/stm_eqn02042.gif)其中
 
 ![](../graphics/stm_eqn02043.gif)和
 
-![](../graphics/stm_eqn02044.gif)如果![](../graphics/stm_eqn01503)是对称的，[方程2.9.1-24](02s09a41.md)是对称的。系统可能相当大，因为结构自由度的实部和虚部以及流体中的压力都出现在系统中。这个方程组在直接求解稳态动力学过程中为每个请求的频率求解。如果不存在阻尼，用户可以指定在分析中只对实矩阵方程进行因式分解。非零体积 drag 值（![](../graphics/stm_eqn01256）对于声学介质和非零![](../graphics/stm_eqn01944)值对于阻抗表示阻尼。如上所述对于瞬态情况，如果结构上的流体力量很小，耦合系统可以拆分为解耦的结构分析和由结构响应驱动的声学分析。
+![](../graphics/stm_eqn02044.gif)如果![](../graphics/stm_eqn01503)是对称的，[方程2.9.1-24](02s09a41-Coupled-acoustic-structural-medium-analy.md)是对称的。系统可能相当大，因为结构自由度的实部和虚部以及流体中的压力都出现在系统中。这个方程组在直接求解稳态动力学过程中为每个请求的频率求解。如果不存在阻尼，用户可以指定在分析中只对实矩阵方程进行因式分解。非零体积 drag 值（![](../graphics/stm_eqn01256）对于声学介质和非零![](../graphics/stm_eqn01944)值对于阻抗表示阻尼。如上所述对于瞬态情况，如果结构上的流体力量很小，耦合系统可以拆分为解耦的结构分析和由结构响应驱动的声学分析。
 ### 特征值提取和基于模态过程的公式
 
-从离散方程，[方程2.9.1-17](02s09a41.md)，我们可以将频域问题写为
+从离散方程，[方程2.9.1-17](02s09a41-Coupled-acoustic-structural-medium-analy.md)，我们可以将频域问题写为
 
 ![](../graphics/stm_eqn02045.gif)其中![](../graphics/stm_eqn01091)是固有（而非强制响应）频率。为简洁起见省略了索引。这个系统归功于[Zienkiewicz和Newton（1969）](07s01a01-References.md)，在Abaqus中用作基于模态过程的起点。抑制任何阻尼项、荷载和任何与反应表面相关的项，
 
 ![](../graphics/stm_eqn02046.gif)被解释为线性特征值问题（其中![](../graphics/stm_eqn02047)是特征值），由于非对称刚度和质量矩阵，这个方程不能在Abaqus中直接求解。然而，可以表明这些方程确实产生实值固有频率和模态，表明它们可以重写为对称形式。
 
-应用[方程2.9.1-25](02s09a41.md)的模态来形成缩减系统（见下文）必须谨慎，因为这个非对称系统具有不同的左右特征向量集。特别是，与零频率相关的"奇异模态"是令人关注的，因为它们描述了系统的低频极限行为（或运动学意义上的"刚体运动"），因此对于构建准确的投影频域算子是必不可少的。耦合系统的右奇异模态是
+应用[方程2.9.1-25](02s09a41-Coupled-acoustic-structural-medium-analy.md)的模态来形成缩减系统（见下文）必须谨慎，因为这个非对称系统具有不同的左右特征向量集。特别是，与零频率相关的"奇异模态"是令人关注的，因为它们描述了系统的低频极限行为（或运动学意义上的"刚体运动"），因此对于构建准确的投影频域算子是必不可少的。耦合系统的右奇异模态是
 
 ![](../graphics/stm_eqn02048.gif)
 
@@ -229,7 +229,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02055.gif)
 
-![](../graphics/stm_eqn02056.gif)右声学和左结构奇异模态是耦合的，在结构和声学域上具有非平凡场。这些耦合奇异模态是[方程2.9.1-25](02s09a41.md)中刚度项的结果，如果要投影这个系统，必须计算它们。
+![](../graphics/stm_eqn02056.gif)右声学和左结构奇异模态是耦合的，在结构和声学域上具有非平凡场。这些耦合奇异模态是[方程2.9.1-25](02s09a41-Coupled-acoustic-structural-medium-analy.md)中刚度项的结果，如果要投影这个系统，必须计算它们。
 
 另一种频域公式，归功于[Everstine（1981）](07s01a01-References.md)，涉及替换![](../graphics/stm_eqn02057)并导致形式对称的系统：
 
@@ -244,7 +244,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02063.gif) 这个增广方程组归功于Ohayon，仅用于Lanczos特征值提取。辅助变量![](../graphics/stm_eqn02064)是Abaqus/Standard内部的，不可用于输出。如果![](../graphics/stm_eqn02065)是非奇异的，则在Lanczos特征求解器中执行与奇异声学模态的正交化。
 
-原始方程组[方程2.9.1-25](02s09a41.md)的左右特征向量可以从Lanczos解构造。如上所述，奇异模态对于构建准确的投影算子是必不可少的。容易验证Lanczos系统具有以下结构奇异模态：
+原始方程组[方程2.9.1-25](02s09a41-Coupled-acoustic-structural-medium-analy.md)的左右特征向量可以从Lanczos解构造。如上所述，奇异模态对于构建准确的投影算子是必不可少的。容易验证Lanczos系统具有以下结构奇异模态：
 
 ![](../graphics/stm_eqn02066.gif)然而，如果我们寻找非平凡的声学奇异模态（即，![](../graphics/stm_eqn02067)，使得![](../graphics/stm_eqn02068))，我们容易发现![](../graphics/stm_eqn02069)，但也
 
@@ -252,7 +252,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02073.gif)因此，为了使用Lanczos公式找到声学奇异模态，我们构造一个扰动"力"![](../graphics/stm_eqn02074)，使得![](../graphics/stm_eqn02075) Lanczos公式将产生非平凡奇异声学模态
 
-![](../graphics/stm_eqn02076.gif)原始非对称系统[方程2.9.1-25](02s09a41.md)的左右特征向量，包括奇异模态，可以从Lanczos解![](../graphics/stm_eqn02077)构造：
+![](../graphics/stm_eqn02076.gif)原始非对称系统[方程2.9.1-25](02s09a41-Coupled-acoustic-structural-medium-analy.md)的左右特征向量，包括奇异模态，可以从Lanczos解![](../graphics/stm_eqn02077)构造：
 
 ![](../graphics/stm_eqn02078.gif)其中
 
@@ -293,7 +293,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02099.gif)
 
-在稳态中，这个线性化方程可以写成[方程2.9.1-19](02s09a41.md)的形式，其中
+在稳态中，这个线性化方程可以写成[方程2.9.1-19](02s09a41-Coupled-acoustic-structural-medium-analy.md)的形式，其中
 
 ![](../graphics/stm_eqn02100.gif)
 
@@ -327,13 +327,13 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 首先，考虑与经历时间谐波振动的结构接触的声学介质。结构在湿润表面上每一点对流体施加牵引力，导致声学介质中的谐波压力。在给定耦合强制响应问题的解中，有时将压力分离成各个部分是有用的，每个部分由于湿润表面一部分的振动。例如，在汽车声学问题中，分别确定由于窗户、地板和其他面板产生的声压场部分可能是是有用的。由仅作用在结构表面![](../graphics/stm_eqn02113)上的给定结构振动产生的压力场![](../graphics/stm_eqn02112)，而湿润表面的所有其他部分保持固定，被定义为该表面的声学贡献因子：
 
-![](../graphics/stm_eqn02114.gif)其中![](../graphics/stm_eqn02115)和![](../graphics/stm_eqn02116)是与表面划分![](../graphics/stm_eqn02113)相关的耦合矩阵。![](../graphics/stm_eqn02116)可以对应于一组不相交的表面（例如，汽车中所有的窗玻璃）或单个节点。因为Abaqus中声学元素的自然边界条件是刚性壁，[方程2.9.1-34](02s09a41.md)在物理上对应于声学场仅在表面![](../graphics/stm_eqn02113)处与结构耦合，而所有其他边界表面都是刚性的。
+![](../graphics/stm_eqn02114.gif)其中![](../graphics/stm_eqn02115)和![](../graphics/stm_eqn02116)是与表面划分![](../graphics/stm_eqn02113)相关的耦合矩阵。![](../graphics/stm_eqn02116)可以对应于一组不相交的表面（例如，汽车中所有的窗玻璃）或单个节点。因为Abaqus中声学元素的自然边界条件是刚性壁，[方程2.9.1-34](02s09a41-Coupled-acoustic-structural-medium-analy.md)在物理上对应于声学场仅在表面![](../graphics/stm_eqn02113)处与结构耦合，而所有其他边界表面都是刚性的。
 
 例如，如果单个面板的声学贡献与总声学压力分离，
 
 ![](../graphics/stm_eqn02117.gif)结构声学问题的耦合方程组可以写为
 
-![](../graphics/stm_eqn02118.gif) 其中![](../graphics/stm_eqn02119)。这个方程清楚地表明，面板的声学贡献因子取决于特定耦合谐波强制响应问题的解。然而，更高效的是求解![](../graphics/stm_eqn02120)和![](../graphics/stm_eqn02121)，然后使用[方程2.9.1-34](02s09a41.md)求解![](../graphics/stm_eqn02122)。
+![](../graphics/stm_eqn02118.gif) 其中![](../graphics/stm_eqn02119)。这个方程清楚地表明，面板的声学贡献因子取决于特定耦合谐波强制响应问题的解。然而，更高效的是求解![](../graphics/stm_eqn02120)和![](../graphics/stm_eqn02121)，然后使用[方程2.9.1-34](02s09a41-Coupled-acoustic-structural-medium-analy.md)求解![](../graphics/stm_eqn02122)。
 
 当使用基于子空间的稳态动力学或基于模态的稳态动力学时，![](../graphics/stm_eqn02123)和![](../graphics/stm_eqn02116)被投影；反过来，这些投影矩阵取决于前面的特征分析步骤是耦合的还是非耦合的。对于非耦合情况，单独的模态变换![](../graphics/stm_eqn02124)和![](../graphics/stm_eqn02125)对应于声学和结构模态，并且
 
@@ -343,33 +343,33 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02129.gif)
 
-感兴趣的可能还有特定模态对强制谐波耦合系统声学压力的贡献。物理上，模态声学贡献因子是强制响应问题中声学场的一部分，由于一个结构（或耦合）模态对声学流体的作用。模态声学贡献因子的计算取决于所讨论的模态是非耦合还是耦合的结构-声学模态。然而，它的定义类似于表面或面板声学贡献因子：它是由于仅感兴趣的单模态的作用而在湿润表面上由于荷载的声学响应，而所有其他模态保持固定。从[方程2.9.1-34](02s09a41.md)开始，但使用整个湿润表面耦合算子![](../graphics/stm_eqn02130)，
+感兴趣的可能还有特定模态对强制谐波耦合系统声学压力的贡献。物理上，模态声学贡献因子是强制响应问题中声学场的一部分，由于一个结构（或耦合）模态对声学流体的作用。模态声学贡献因子的计算取决于所讨论的模态是非耦合还是耦合的结构-声学模态。然而，它的定义类似于表面或面板声学贡献因子：它是由于仅感兴趣的单模态的作用而在湿润表面上由于荷载的声学响应，而所有其他模态保持固定。从[方程2.9.1-34](02s09a41-Coupled-acoustic-structural-medium-analy.md)开始，但使用整个湿润表面耦合算子![](../graphics/stm_eqn02130)，
 
 ![](../graphics/stm_eqn02131.gif)其中![](../graphics/stm_eqn02132)是耦合问题的结构响应，限制到模态![](../graphics/stm_eqn02113)。如果使用耦合模态变换，这个方程变为
 
-![](../graphics/stm_eqn02133.gif)如果感兴趣的耦合系统中没有声学力![](../graphics/stm_eqn02134)并且声学流体中没有阻尼或边界阻抗，这个方程简化为投影耦合谐波强制响应问题声学部分的第*J*行。因此，当使用耦合模态投影时，如果不存在声学激励，则不需要额外的求解来获得模态声学贡献因子。如果在定义![](../graphics/stm_eqn02136)的耦合响应问题中存在声学激励或阻尼，则必须在获得解![](../graphics/stm_eqn02136)后求解[方程2.9.1-37](02s09a41.md)。
+![](../graphics/stm_eqn02133.gif)如果感兴趣的耦合系统中没有声学力![](../graphics/stm_eqn02134)并且声学流体中没有阻尼或边界阻抗，这个方程简化为投影耦合谐波强制响应问题声学部分的第*J*行。因此，当使用耦合模态投影时，如果不存在声学激励，则不需要额外的求解来获得模态声学贡献因子。如果在定义![](../graphics/stm_eqn02136)的耦合响应问题中存在声学激励或阻尼，则必须在获得解![](../graphics/stm_eqn02136)后求解[方程2.9.1-37](02s09a41-Coupled-acoustic-structural-medium-analy.md)。
 
-当在耦合系统求解的投影中使用非耦合模态时，声学和结构模态形状之间没有直接关系。因此，将单独的非耦合模态变换应用于谐波强制响应问题不会产生与耦合模态情况相同的平凡结果。从[方程2.9.1-36](02s09a41.md)推导的，使用单独非耦合模态变换![](../graphics/stm_eqn02124)和![](../graphics/stm_eqn02125)得到的系统，必须为对应于通过结构模态![](../graphics/stm_eqn02113)激励的模态系数![](../graphics/stm_eqn02138)求解：
+当在耦合系统求解的投影中使用非耦合模态时，声学和结构模态形状之间没有直接关系。因此，将单独的非耦合模态变换应用于谐波强制响应问题不会产生与耦合模态情况相同的平凡结果。从[方程2.9.1-36](02s09a41-Coupled-acoustic-structural-medium-analy.md)推导的，使用单独非耦合模态变换![](../graphics/stm_eqn02124)和![](../graphics/stm_eqn02125)得到的系统，必须为对应于通过结构模态![](../graphics/stm_eqn02113)激励的模态系数![](../graphics/stm_eqn02138)求解：
 
 ![](../graphics/stm_eqn02139.gif)
 ### 流体边界上的阻抗和导纳
 
-[方程2.9.1-11](02s09a41.md)（或替代地[方程2.9.1-9](02s09a41.md)）可以为稳态分析写成复导纳形式：
+[方程2.9.1-11](02s09a41-Coupled-acoustic-structural-medium-analy.md)（或替代地[方程2.9.1-9](02s09a41-Coupled-acoustic-structural-medium-analy.md)）可以为稳态分析写成复导纳形式：
 
 ![](../graphics/stm_eqn02140.gif)其中我们定义
 
-![](../graphics/stm_eqn02141.gif)项![](../graphics/stm_eqn02142)是边界的复导纳，![](../graphics/stm_eqn02143)是对应的复阻抗。因此，可以通过使用[方程2.9.1-39](02s09a41.md)将数据拟合到参数![](../graphics/stm_eqn01944)和![](../graphics/stm_eqn02144)来为给定频率输入所需的复阻抗或导纳值。
+![](../graphics/stm_eqn02141.gif)项![](../graphics/stm_eqn02142)是边界的复导纳，![](../graphics/stm_eqn02143)是对应的复阻抗。因此，可以通过使用[方程2.9.1-39](02s09a41-Coupled-acoustic-structural-medium-analy.md)将数据拟合到参数![](../graphics/stm_eqn01944)和![](../graphics/stm_eqn02144)来为给定频率输入所需的复阻抗或导纳值。
 
 对于在具有体积drag的无限介质中平面波的吸收，复阻抗可以显示为
 
 ![](../graphics/stm_eqn02145.gif)
 
-对于Abaqus/Standard中基于阻抗的非反射边界条件，上述方程用于确定所需的常数![](../graphics/stm_eqn02146)和![](../graphics/stm_eqn01943)。如果体积drag非零，它们是频率的函数。这些方程的小drag版本在直接时间积分过程中使用，如[方程2.9.1-46](02s09a41.md)中所示。
+对于Abaqus/Standard中基于阻抗的非反射边界条件，上述方程用于确定所需的常数![](../graphics/stm_eqn02146)和![](../graphics/stm_eqn01943)。如果体积drag非零，它们是频率的函数。这些方程的小drag版本在直接时间积分过程中使用，如[方程2.9.1-46](02s09a41-Coupled-acoustic-structural-medium-analy.md)中所示。
 ### 辐射边界条件
 
 许多声学研究涉及在无限域中的振动结构。在这些情况下，我们使用有限元对声学介质的一层进行建模，到完整波长的厚度![](../graphics/stm_eqn02147)，到一个"辐射"边界表面。然后我们在这个表面上施加条件，允许声波通过而不是反射回计算域。对于简单形状的辐射边界——如平面、球面等——简单的阻抗边界条件可以代表精确辐射条件的良好近似。特别是，我们包含形式为
 
-![](../graphics/stm_eqn02148.gif)的局部代数辐射条件，其中![](../graphics/stm_eqn02149)是波数，![](../graphics/stm_eqn01999)是复密度（见[方程2.9.1-18](02s09a41.md)）。*f*是与边界上使用的曲线坐标系度量因子相关的几何因子，![](../graphics/stm_eqn01219)是一个扩展损失项（见[表2.9.1-1](02s09a41.md)）。
+![](../graphics/stm_eqn02148.gif)的局部代数辐射条件，其中![](../graphics/stm_eqn02149)是波数，![](../graphics/stm_eqn01999)是复密度（见[方程2.9.1-18](02s09a41-Coupled-acoustic-structural-medium-analy.md)）。*f*是与边界上使用的曲线坐标系度量因子相关的几何因子，![](../graphics/stm_eqn01219)是一个扩展损失项（见[表2.9.1-1](02s09a41-Coupled-acoustic-structural-medium-analy.md)）。
 
 表2.9.1-1 边界条件参数。
 | 几何 | f |  |
@@ -380,19 +380,19 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 | 球体 | 1 |  |
 | 长球体 |  |  |
 
-比较[方程2.9.1-41](02s09a41.md)和[方程2.9.1-9](02s09a41.md)表明，对于稳态分析，存在与反应边界方程[方程2.9.1-21](02s09a41.md)的直接类比，其中
+比较[方程2.9.1-41](02s09a41-Coupled-acoustic-structural-medium-analy.md)和[方程2.9.1-9](02s09a41-Coupled-acoustic-structural-medium-analy.md)表明，对于稳态分析，存在与反应边界方程[方程2.9.1-21](02s09a41-Coupled-acoustic-structural-medium-analy.md)的直接类比，其中
 
 ![](../graphics/stm_eqn02154.gif)和
 
 ![](../graphics/stm_eqn02155.gif)对于瞬态过程，声学方程中体积drag的处理和辐射条件需要近似。在声学方程中，我们使用边界项
 
-![](../graphics/stm_eqn02156.gif)将[方程2.9.1-41](02s09a41.md)与[方程2.9.1-44](02s09a41.md)结合，关于![](../graphics/stm_eqn02157)展开，并仅保留一阶项导致
+![](../graphics/stm_eqn02156.gif)将[方程2.9.1-41](02s09a41-Coupled-acoustic-structural-medium-analy.md)与[方程2.9.1-44](02s09a41-Coupled-acoustic-structural-medium-analy.md)结合，关于![](../graphics/stm_eqn02157)展开，并仅保留一阶项导致
 
 ![](../graphics/stm_eqn02158.gif)稳态形式的傅里叶逆得到瞬态边界条件
 
 ![](../graphics/stm_eqn02159.gif)
 
-这个表达式包含压力及其时间一阶导数的独立系数，这与瞬态反应边界表达式（[方程2.9.1-10](02s09a41.md)）不同，后者仅包含压力的一阶和二阶导数的独立系数。因此，为了实现这个表达式，我们定义导纳参数
+这个表达式包含压力及其时间一阶导数的独立系数，这与瞬态反应边界表达式（[方程2.9.1-10](02s09a41-Coupled-acoustic-structural-medium-analy.md)）不同，后者仅包含压力的一阶和二阶导数的独立系数。因此，为了实现这个表达式，我们定义导纳参数
 
 ![](../graphics/stm_eqn02160.gif)和
 
@@ -400,7 +400,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02162.gif)
 
-参数*f*和![](../graphics/stm_eqn01219)的值随声学介质辐射表面边界几何形状而变化。Abaqus中支持的几何形状总结在[表2.9.1-1](02s09a41.md)中。在表中，![](../graphics/stm_eqn02163)指椭圆或球体的偏心率；![](../graphics/stm_eqn02164)指圆、球的半径或椭圆或球体的半长轴；![](../graphics/stm_eqn02165)是定位椭圆或球体上积分点的向量；![](../graphics/stm_eqn01672)是定位椭圆或球体中心的向量；![](../graphics/stm_eqn02166)是定向长轴的向量。
+参数*f*和![](../graphics/stm_eqn01219)的值随声学介质辐射表面边界几何形状而变化。Abaqus中支持的几何形状总结在[表2.9.1-1](02s09a41-Coupled-acoustic-structural-medium-analy.md)中。在表中，![](../graphics/stm_eqn02163)指椭圆或球体的偏心率；![](../graphics/stm_eqn02164)指圆、球的半径或椭圆或球体的半长轴；![](../graphics/stm_eqn02165)是定位椭圆或球体上积分点的向量；![](../graphics/stm_eqn01672)是定位椭圆或球体中心的向量；![](../graphics/stm_eqn02166)是定向长轴的向量。
 
 这些代数边界条件是向无限外部辐射的边界精确阻抗的近似。平面波条件是垂直入射到平面边界上平面波的精确阻抗。球面条件精确消除辐射球面的第一Legendre模式；圆条件对第一模式是渐近正确的（[Bayliss等，1982](07s01a01-References.md)）。椭圆和长球体条件基于低偏心率极限的椭圆和长球体波函数的展开（[Grote和Keller，1995](07s01a01-References.md)）；长球体条件精确消除其展开的第一项，而椭圆条件是渐近的。
 ### 平面波辐射边界条件的改进
@@ -415,9 +415,9 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02171.gif)
 
-使用第一个近似到上述方程平方根中第二项的一阶展开近似（类似于我们达到[方程2.9.1-45](02s09a41.md)所做的），我们可以获得改进的辐射边界条件
+使用第一个近似到上述方程平方根中第二项的一阶展开近似（类似于我们达到[方程2.9.1-45](02s09a41-Coupled-acoustic-structural-medium-analy.md)所做的），我们可以获得改进的辐射边界条件
 
-![](../graphics/stm_eqn02172.gif)可以从比较中发现，这个方程与[方程2.9.1-46](02s09a41.md)的区别仅在于平面波的因子![](../graphics/stm_eqn02173)。在二维中，![](../graphics/stm_eqn02173)可以计算为
+![](../graphics/stm_eqn02172.gif)可以从比较中发现，这个方程与[方程2.9.1-46](02s09a41-Coupled-acoustic-structural-medium-analy.md)的区别仅在于平面波的因子![](../graphics/stm_eqn02173)。在二维中，![](../graphics/stm_eqn02173)可以计算为
 
 ![](../graphics/stm_eqn02174.gif)法向和切向导数![](../graphics/stm_eqn02175)和![](../graphics/stm_eqn02176)在积分点可以使用辐射边界表面上的相应单元来评估（即，见图2.9.1-2）；即，
 
@@ -429,7 +429,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 本节中描述的方法只能用于直接积分瞬态动力学；它不能与稳态或模态响应结合使用。此外，它适用于平面、轴对称和三维几何。
 
-最后，该方法使平衡方程非线性，如[方程2.9.1-52](02s09a41.md)所示。虽然在理论上Abaqus/Standard中的迭代过程可以准确求解非线性平衡方程，但强烈建议使用小的半增量残差容差，因为在许多情况下，边界上压力及其相关残差相对于建模域中其他地方的量非常弱。积分点处![](../graphics/stm_eqn02173)的计算基于节点压力。节点压力使用"显式动力学分析"第2.4.5节中描述的显式中心差分程序更新。
+最后，该方法使平衡方程非线性，如[方程2.9.1-52](02s09a41-Coupled-acoustic-structural-medium-analy.md)所示。虽然在理论上Abaqus/Standard中的迭代过程可以准确求解非线性平衡方程，但强烈建议使用小的半增量残差容差，因为在许多情况下，边界上压力及其相关残差相对于建模域中其他地方的量非常弱。积分点处![](../graphics/stm_eqn02173)的计算基于节点压力。节点压力使用"显式动力学分析"第2.4.5节中描述的显式中心差分程序更新。
 ### 参考文献
 
 ### 参考文献

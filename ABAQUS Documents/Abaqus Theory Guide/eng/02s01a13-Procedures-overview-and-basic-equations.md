@@ -19,7 +19,7 @@ Abaqus/Standard and Abaqus/Explicit are separate program modules with different 
 In this chapter the basic equations for the most important analysis procedures in Abaqus/Standard and Abaqus/Explicit are described. In some sections specific aspects of an analysis procedure (i.e., damping, cavity radiation, etc.) are discussed.
 ### Basic finite element equations
 
-This section describes the basic equations for standard displacement-based finite element analysis. We begin with the equilibrium statement, written as the virtual work principle, [Equation 1.5.1&#8211;6](01s05a08.md):
+This section describes the basic equations for standard displacement-based finite element analysis. We begin with the equilibrium statement, written as the virtual work principle, [Equation 1.5.1&#8211;6](01s05a08-Equilibrium-and-virtual-work.md):
 
 ![](../graphics/stm_eqn00652.gif)
 
@@ -35,7 +35,7 @@ The virtual field, ![](../graphics/stm_eqn00658.gif), must be compatible with al
 
 ![](../graphics/stm_eqn00659.gif)
 
-The continuum variational statement [Equation 2.1.1&#8211;1](02s01a13.md) is, thus, approximated by a variation over the finite set ![](../graphics/stm_eqn00660.gif).
+The continuum variational statement [Equation 2.1.1&#8211;1](02s01a13-Procedures-overview-and-basic-equations.md) is, thus, approximated by a variation over the finite set ![](../graphics/stm_eqn00660.gif).
 
 Now ![](../graphics/stm_eqn00661.gif) is the virtual rate of material strain associated with ![](../graphics/stm_eqn00658.gif), and because it is a rate form, it must be linear in ![](../graphics/stm_eqn00658.gif). Hence, the interpolation assumption gives
 
@@ -53,9 +53,9 @@ This system of equations forms the basis for the (standard) assumed displacement
 
 ![](../graphics/stm_eqn00668.gif)
 
-For the Newton algorithm (or for the linear perturbation procedure) used in Abaqus/Standard, we need the Jacobian of the finite element equilibrium equations. To develop the Jacobian, we begin by taking the variation of [Equation 2.1.1&#8211;1](02s01a13.md), giving
+For the Newton algorithm (or for the linear perturbation procedure) used in Abaqus/Standard, we need the Jacobian of the finite element equilibrium equations. To develop the Jacobian, we begin by taking the variation of [Equation 2.1.1&#8211;1](02s01a13-Procedures-overview-and-basic-equations.md), giving
 
-![](../graphics/stm_eqn00669.gif)where ![](../graphics/stm_eqn00670.gif) represents the linear variation of the quantity ![](../graphics/stm_eqn00671.gif) with respect to the basic variables (the degrees of freedom of the finite element model). In the above expression ![](../graphics/stm_eqn00672.gif) is the volume change between the reference and the current volume occupied by a piece of the structure and, likewise, ![](../graphics/stm_eqn00673.gif) is the surface area ratio between the reference and the current configuration. The Jacobian matrix is obtained by restricting the above variation, allowing variations in the nodal variables, ![](../graphics/stm_eqn00657.gif), only. Let such a restricted variation be indicated by ![](../graphics/stm_eqn00674.gif). Examining [Equation 2.1.1&#8211;3](02s01a13.md) term by term with this in mind, we proceed as follows. The first term contains ![](../graphics/stm_eqn00675.gif). We now assume that the constitutive theory allows us to write
+![](../graphics/stm_eqn00669.gif)where ![](../graphics/stm_eqn00670.gif) represents the linear variation of the quantity ![](../graphics/stm_eqn00671.gif) with respect to the basic variables (the degrees of freedom of the finite element model). In the above expression ![](../graphics/stm_eqn00672.gif) is the volume change between the reference and the current volume occupied by a piece of the structure and, likewise, ![](../graphics/stm_eqn00673.gif) is the surface area ratio between the reference and the current configuration. The Jacobian matrix is obtained by restricting the above variation, allowing variations in the nodal variables, ![](../graphics/stm_eqn00657.gif), only. Let such a restricted variation be indicated by ![](../graphics/stm_eqn00674.gif). Examining [Equation 2.1.1&#8211;3](02s01a13-Procedures-overview-and-basic-equations.md) term by term with this in mind, we proceed as follows. The first term contains ![](../graphics/stm_eqn00675.gif). We now assume that the constitutive theory allows us to write
 
 ![](../graphics/stm_eqn00676.gif)where ![](../graphics/stm_eqn00677.gif) and ![](../graphics/stm_eqn00678.gif) are defined in terms of the current state, direction of straining, etc., and on the kinematic assumptions used to form the generalized strains. See Chapter 4, "Mechanical Constitutive Theories," for a detailed discussion of forming ![](../graphics/stm_eqn00677.gif) and ![](../graphics/stm_eqn00678.gif) for the material models currently available in Abaqus. From the choice of generalized strain measure and interpolation function,
 
@@ -67,7 +67,7 @@ For the Newton algorithm (or for the linear perturbation procedure) used in Abaq
 
 ![](../graphics/stm_eqn00682.gif)the usual "small-displacement stiffness matrix," except that, since the strain measure ![](../graphics/stm_eqn00404.gif) will always be nonlinear in displacement, the ![](../graphics/stm_eqn00663.gif) in this term will be a function of displacement.
 
-The second term in [Equation 2.1.1&#8211;3](02s01a13.md) is
+The second term in [Equation 2.1.1&#8211;3](02s01a13-Procedures-overview-and-basic-equations.md) is
 
 ![](../graphics/stm_eqn00683.gif)This is rewritten as
 
@@ -75,7 +75,7 @@ The second term in [Equation 2.1.1&#8211;3](02s01a13.md) is
 
 ![](../graphics/stm_eqn00685.gif)This term contributes to the Jacobian and is the "initial stress matrix."
 
-The external load rate terms in [Equation 2.1.1&#8211;3](02s01a13.md) are considered next. In general, these load vectors can be written
+The external load rate terms in [Equation 2.1.1&#8211;3](02s01a13-Procedures-overview-and-basic-equations.md) are considered next. In general, these load vectors can be written
 
 ![](../graphics/stm_eqn00686.gif)where ![](../graphics/stm_eqn00280.gif) represents the externally prescribed loading parameters. Whether the load depends on position or not depends on the particular load type, but common types of loading (pressure, centrifugal load) do depend on position---for example, if ![](../graphics/stm_eqn00479.gif) is caused by pressure on the surface, ![](../graphics/stm_eqn00479.gif) depends on the pressure magnitude, on the direction of the normal to the surface, and on the current surface area: the latter two are functions of the current position of points on the surface. The variation of the load vector with nodal variables can then be written symbolically as
 
@@ -83,7 +83,7 @@ The external load rate terms in [Equation 2.1.1&#8211;3](02s01a13.md) are consid
 
 ![](../graphics/stm_eqn00688.gif)and then writing
 
-![](../graphics/stm_eqn00689.gif)where ![](../graphics/stm_eqn00690.gif) is obtained directly from the interpolation functions, we can write the Jacobian terms pertaining to the last four terms of [Equation 2.1.1&#8211;3](02s01a13.md) as
+![](../graphics/stm_eqn00689.gif)where ![](../graphics/stm_eqn00690.gif) is obtained directly from the interpolation functions, we can write the Jacobian terms pertaining to the last four terms of [Equation 2.1.1&#8211;3](02s01a13-Procedures-overview-and-basic-equations.md) as
 
 ![](../graphics/stm_eqn00691.gif)
 
@@ -93,7 +93,7 @@ The complete Jacobian matrix is then
 
 ![](../graphics/stm_eqn00692.gif)
 
-Thus, [Equation 2.1.1&#8211;2](02s01a13.md) and [Equation 2.1.1&#8211;4](02s01a13.md) provide the basis for the Newton incremental solution, given specification of the interpolation function and constitutive theories to be used.
+Thus, [Equation 2.1.1&#8211;2](02s01a13-Procedures-overview-and-basic-equations.md) and [Equation 2.1.1&#8211;4](02s01a13-Procedures-overview-and-basic-equations.md) provide the basis for the Newton incremental solution, given specification of the interpolation function and constitutive theories to be used.
 ### Reference
 
 ### Reference

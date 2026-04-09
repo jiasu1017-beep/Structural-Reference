@@ -15,7 +15,7 @@ Our formulation is based on *gray body* radiation theory, which means that the m
 
 ![](../graphics/stm_eqn02346.gif)where ![](../graphics/stm_eqn02347.gif) is the flux into facet ![](../graphics/stm_eqn02348.gif); ![](../graphics/stm_eqn02349.gif) are the emissivities of facets ![](../graphics/stm_eqn02350.gif); ![](../graphics/stm_eqn01110.gif) is the Stefan-Boltzmann constant; ![](../graphics/stm_eqn02351.gif) is the geometrical view factor matrix; ![](../graphics/stm_eqn02352.gif) are the temperatures of facets ![](../graphics/stm_eqn02350.gif); ![](../graphics/stm_eqn02243.gif) is the value of absolute zero on the temperature scale being used; and ![](../graphics/stm_eqn02353.gif) is the Kronecker delta.
 
-In the special case of *blackbody* radiation, where no reflection takes place (emissivity equal to one), [Equation 2.11.4&#8211;1](02s11a46.md) reduces to
+In the special case of *blackbody* radiation, where no reflection takes place (emissivity equal to one), [Equation 2.11.4&#8211;1](02s11a46-Cavity-radiation.md) reduces to
 
 ![](../graphics/stm_eqn02354.gif)
 ### Spatial interpolation
@@ -39,13 +39,13 @@ The radiation flux into facet *i* can now be written as
 ![](../graphics/stm_eqn02363.gif)
 ### Cavity radiation flux and Jacobian contributions
 
-Abaqus/Standard provides two different schemes for obtaining the cavity radiation flux defined in [Equation 2.11.4&#8211;1](02s11a46.md): a robust, serial method, suitable for small cavities, and a fully parallel method recommended for large cavities.Serial solution of the cavity radiation equations
+Abaqus/Standard provides two different schemes for obtaining the cavity radiation flux defined in [Equation 2.11.4&#8211;1](02s11a46-Cavity-radiation.md): a robust, serial method, suitable for small cavities, and a fully parallel method recommended for large cavities.Serial solution of the cavity radiation equations
 
-Thermal radiation problems involving small cavities allow us to solve [Equation 2.11.4&#8211;1](02s11a46.md) for the radiation flux per unit area into a cavity facet as
+Thermal radiation problems involving small cavities allow us to solve [Equation 2.11.4&#8211;1](02s11a46-Cavity-radiation.md) for the radiation flux per unit area into a cavity facet as
 
 ![](../graphics/stm_eqn02364.gif)where
 
-![](../graphics/stm_eqn02365.gif)[Equation 2.11.4&#8211;5](02s11a46.md) requires the computation of the inverse ![](../graphics/stm_eqn02366.gif), which is why this method is suitable only for small cavities. The radiation flux into facet *i* can then be written as
+![](../graphics/stm_eqn02365.gif)[Equation 2.11.4&#8211;5](02s11a46-Cavity-radiation.md) requires the computation of the inverse ![](../graphics/stm_eqn02366.gif), which is why this method is suitable only for small cavities. The radiation flux into facet *i* can then be written as
 
 ![](../graphics/stm_eqn02367.gif)where
 
@@ -55,7 +55,7 @@ Thermal radiation problems involving small cavities allow us to solve [Equation 
 
 ![](../graphics/stm_eqn02370.gif)
 
-Substituting [Equation 2.11.4&#8211;3](02s11a46.md) and [Equation 2.11.4&#8211;6](02s11a46.md) above into [Equation 2.11.4&#8211;4](02s11a46.md), we can write the nodal contributions from the radiation flux as
+Substituting [Equation 2.11.4&#8211;3](02s11a46-Cavity-radiation.md) and [Equation 2.11.4&#8211;6](02s11a46-Cavity-radiation.md) above into [Equation 2.11.4&#8211;4](02s11a46-Cavity-radiation.md), we can write the nodal contributions from the radiation flux as
 
 ![](../graphics/stm_eqn02371.gif)where
 
@@ -69,9 +69,9 @@ The Jacobian contribution arising from the cavity radiation flux is then written
 
 In all practical cases this Jacobian is unsymmetric. This exact unsymmetric Jacobian is always used when the serial method for cavity radiation analysis is performed.Solution of parallel-decomposed cavities
 
-Abaqus/Standard provides a parallel scheme for the calculation of view factors and the solution of the cavity radiation equations of large cavities. Once parallel decomposition is enabled for a particular cavity, Abaqus/Standard will use an iterative solution technique for obtaining the radiative heat fluxes from [Equation 2.11.4&#8211;1](02s11a46.md). This iterative technique is based on a Krylov method with a preconditioner.
+Abaqus/Standard provides a parallel scheme for the calculation of view factors and the solution of the cavity radiation equations of large cavities. Once parallel decomposition is enabled for a particular cavity, Abaqus/Standard will use an iterative solution technique for obtaining the radiative heat fluxes from [Equation 2.11.4&#8211;1](02s11a46-Cavity-radiation.md). This iterative technique is based on a Krylov method with a preconditioner.
 
-Since we do not obtain the inverse ![](../graphics/stm_eqn02366.gif) as in the serial method above, we do not have access to the exact Jacobian in [Equation 2.11.4&#8211;8](02s11a46.md). Instead, we use an approximation to the Jacobian based on small changes to the irradiation (any part not due to emission from the surface). Since the resulting approximation is sparse, iterations during solution of the heat transfer finite element equations are carried out much faster than with the exact expression. However, since the Jacobian is approximate, convergence will not be quadratic in the vicinity of the solution. In fact, Abaqus/Standard may require many more iterations when cavity parallel decomposition is enabled than with the serial method, especially in the case of steady-state analyses and models containing surfaces with low emissivities. In these cases we recommend switching the analysis to transient steps and allowing for more iterations per increment in the solution of the heat transfer finite element equations.
+Since we do not obtain the inverse ![](../graphics/stm_eqn02366.gif) as in the serial method above, we do not have access to the exact Jacobian in [Equation 2.11.4&#8211;8](02s11a46-Cavity-radiation.md). Instead, we use an approximation to the Jacobian based on small changes to the irradiation (any part not due to emission from the surface). Since the resulting approximation is sparse, iterations during solution of the heat transfer finite element equations are carried out much faster than with the exact expression. However, since the Jacobian is approximate, convergence will not be quadratic in the vicinity of the solution. In fact, Abaqus/Standard may require many more iterations when cavity parallel decomposition is enabled than with the serial method, especially in the case of steady-state analyses and models containing surfaces with low emissivities. In these cases we recommend switching the analysis to transient steps and allowing for more iterations per increment in the solution of the heat transfer finite element equations.
 ### Reference
 
 ### Reference

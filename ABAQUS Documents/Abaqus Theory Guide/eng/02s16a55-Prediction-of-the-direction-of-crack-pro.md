@@ -16,7 +16,7 @@ The direction of crack propagation can be obtained using either the condition ![
 ![](../graphics/stm_eqn02712.gif)where the crack propagation angle ![](../graphics/stm_eqn02713.gif) is measured with respect to the crack plane. ![](../graphics/stm_eqn02714.gif) represents the crack propagation in the "straight-ahead" direction. ![](../graphics/stm_eqn02715.gif) if ![](../graphics/stm_eqn02716.gif) while ![](../graphics/stm_eqn02717.gif) if ![](../graphics/stm_eqn02718.gif)
 ### Maximum energy release rate criterion
 
-Consider a crack segment of length *a* kinking out the plane of the crack at an angle ![](../graphics/stm_eqn02713.gif), as shown in [Figure 2.16.4&#8211;1](02s16a55.md).
+Consider a crack segment of length *a* kinking out the plane of the crack at an angle ![](../graphics/stm_eqn02713.gif), as shown in [Figure 2.16.4&#8211;1](02s16a55-Prediction-of-the-direction-of-crack-pro.md).
 
 Figure 2.16.4&#8211;1 Contour for evaluation of the *J*-integral.
 
@@ -33,7 +33,7 @@ The maximum energy release rate criterion postulates that the parent crack initi
 
 This criterion simply postulates that a crack will initially propagate in the direction that makes ![](../graphics/stm_eqn02725.gif).
 
-It can be seen from [Figure 2.16.4&#8211;1](02s16a55.md) that the maximum energy release rate criterion and the ![](../graphics/stm_eqn02707.gif) criterion predict nearly coincident crack propagation angles. By comparison, the maximum tangential stress criterion predicts smaller crack propagation angles.
+It can be seen from [Figure 2.16.4&#8211;1](02s16a55-Prediction-of-the-direction-of-crack-pro.md) that the maximum energy release rate criterion and the ![](../graphics/stm_eqn02707.gif) criterion predict nearly coincident crack propagation angles. By comparison, the maximum tangential stress criterion predicts smaller crack propagation angles.
 ### Reference
 
 ### Reference

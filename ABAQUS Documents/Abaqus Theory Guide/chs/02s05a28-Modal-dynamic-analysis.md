@@ -8,7 +8,7 @@
 
 ![](../graphics/stm_eqn01218.gif)其中索引 ![](../graphics/stm_eqn00904.gif) 和 ![](../graphics/stm_eqn01219.gif) 跨越特征空间；![](../graphics/stm_eqn01220.gif) 是投影的黏性阻尼矩阵；![](../graphics/stm_eqn01221.gif) 是模态 ![](../graphics/stm_eqn01219.gif) 的"广义坐标"（该模态中响应的振幅）；![](../graphics/stm_eqn01222.gif) 是无阻尼模态 ![](../graphics/stm_eqn01219.gif) 的固有频率（作为在模态动力学时间历史分析之前的特征频率步骤中特征值的平方根获得）；![](../graphics/stm_eqn01223.gif) 是投影到该模态上的荷载大小（模态的"广义荷载"）；![](../graphics/stm_eqn01224.gif) 是 *f* 在时间增量期间的变化，即 ![](../graphics/stm_eqn00883.gif)。
 
-如果投影阻尼矩阵是对角的，[方程 2.5.5-1](02s05a28.md) 变为以下解耦方程组：
+如果投影阻尼矩阵是对角的，[方程 2.5.5-1](02s05a28-Modal-dynamic-analysis.md) 变为以下解耦方程组：
 
 ![](../graphics/stm_eqn01225.gif)其中 ![](../graphics/stm_eqn01226.gif) 是由关系给出的临界阻尼比
 
@@ -22,7 +22,7 @@
 对于非刚体运动（![](../graphics/stm_eqn01235.gif)），此解有三种情况，取决于模态平衡方程中的阻尼是大于、等于还是小于临界阻尼（即取决于 ![](../graphics/stm_eqn01236.gif) 是正、零还是负）。
 ### 耦合系统的求解
 
-[方程 2.5.5-3](02s05a28.md) 可以推广以处理投影阻尼矩阵中的完全耦合。设矩阵 ![](../graphics/stm_eqn00162.gif) 分裂为其对角和非对角部分，所以
+[方程 2.5.5-3](02s05a28-Modal-dynamic-analysis.md) 可以推广以处理投影阻尼矩阵中的完全耦合。设矩阵 ![](../graphics/stm_eqn00162.gif) 分裂为其对角和非对角部分，所以
 
 ![](../graphics/stm_eqn01237.gif)然后，附加假设非对角阻尼力在时间增量上线性变化，解耦系统的方程可以重写为
 
@@ -57,7 +57,7 @@
 
 ![](../graphics/stm_eqn01249.gif)带阻尼的刚体模态
 
-如果有限元模型中有刚体模态，将有一个或几个为零的特征值。运动方程（[方程 2.5.5-1](02s05a28.md)）简化为
+如果有限元模型中有刚体模态，将有一个或几个为零的特征值。运动方程（[方程 2.5.5-1](02s05a28-Modal-dynamic-analysis.md)）简化为
 
 ![](../graphics/stm_eqn01250.gif)
 
@@ -67,7 +67,7 @@
 
 ![](../graphics/stm_eqn01252.gif)无阻尼的刚体模态
 
-对于无阻尼刚体模态的特殊情况，运动方程（[方程 2.5.5-1](02s05a28.md)）简化为
+对于无阻尼刚体模态的特殊情况，运动方程（[方程 2.5.5-1](02s05a28-Modal-dynamic-analysis.md)）简化为
 
 ![](../graphics/stm_eqn01253.gif)对于这种情况
 

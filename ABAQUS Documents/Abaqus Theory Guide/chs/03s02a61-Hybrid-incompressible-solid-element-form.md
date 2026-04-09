@@ -22,11 +22,11 @@
 
 ![](../graphics/stm_eqn02883.gif)其中
 
-![](../graphics/stm_eqn02884.gif)是静水压力应力，![](../graphics/stm_eqn00593.gif)是一个很小的数。如果![](../graphics/stm_eqn00593.gif)设为零，则![](../graphics/stm_eqn01727.gif)中的静水分量将与独立压力场![](../graphics/stm_eqn02882.gif)相同，对应于纯"混合"公式。选择小的非零值（![](../graphics/graphics/stm_eqn02885.gif)）是为了避免方程求解器的困难。这个关系以增量形式使用：
+![](../graphics/stm_eqn02884.gif)是静水压力应力，![](../graphics/stm_eqn00593.gif)是一个很小的数。如果![](../graphics/stm_eqn00593.gif)设为零，则![](../graphics/stm_eqn01727.gif)中的静水分量将与独立压力场![](../graphics/stm_eqn02882.gif)相同，对应于纯"混合"公式。选择小的非零值（![](../graphics/stm_eqn02885.gif)）是为了避免方程求解器的困难。这个关系以增量形式使用：
 
 ![](../graphics/stm_eqn02886.gif)其中![](../graphics/stm_eqn02887.gif)是增量开始时的修正柯西应力。我们在虚功表达式中使用修正柯西应力，并用Lagrange乘子强制约束![](../graphics/stm_eqn02888.gif)来增强表达式：
 
-![](../graphics/stm_eqn02889.gif)其中*J*是体积变化比（Jacobian），![](../graphics/stm_eqn02890.gif)是其插值仍需确定的Lagrange乘子。![](../graphics/graphics/stm_eqn02891.gif)将在每个单元上插值，以便以积分（平均）意义满足约束。由于![](../graphics/stm_eqn01051.gif)是从运动学解计算出的等效压力应力增量的值，如果材料完全不可压缩，[公式3.2.3-4](03s02a61.md)就没有意义，因为此时![](../graphics/stm_eqn01051.gif)无法计算。出于开发目的，我们认为体积模量是有限的，我们将能够表明，当允许体积模量接近无穷大时，最终公式接近可用极限。
+![](../graphics/stm_eqn02889.gif)其中*J*是体积变化比（Jacobian），![](../graphics/stm_eqn02890.gif)是其插值仍需确定的Lagrange乘子。![](../graphics/stm_eqn02891.gif)将在每个单元上插值，以便以积分（平均）意义满足约束。由于![](../graphics/stm_eqn01051.gif)是从运动学解计算出的等效压力应力增量的值，如果材料完全不可压缩，[公式3.2.3-4](03s02a61-Hybrid-incompressible-solid-element-form.md)就没有意义，因为此时![](../graphics/stm_eqn01051.gif)无法计算。出于开发目的，我们认为体积模量是有限的，我们将能够表明，当允许体积模量接近无穷大时，最终公式接近可用极限。
 
 对于切线刚度（Jacobian）的公式，我们需要定义![](../graphics/stm_eqn02892.gif)的变化率。因此，我们用参考体积![](../graphics/stm_eqn01828.gif)重写虚功方程：
 
@@ -36,7 +36,7 @@
 
 ![](../graphics/stm_eqn02896.gif)其中我们使用了恒等式![](../graphics/stm_eqn02897.gif)。
 
-修正应力的变化率来自[公式3.2.3-4](03s02a61.md)和本构方程：
+修正应力的变化率来自[公式3.2.3-4](03s02a61-Hybrid-incompressible-solid-element-form.md)和本构方程：
 
 ![](../graphics/stm_eqn02898.gif)其中
 
@@ -48,7 +48,7 @@
 
 ![](../graphics/stm_eqn02902.gif)其中
 
-![](../graphics/stm_eqn02903.gif)是（瞬时）体积模量。这是![](../graphics/stm_eqn02890.gif)的合适选择，因为（独立的）与![](../graphics/stm_eqn02904.gif)成比例的项确保修正增量压力场![](../graphics/graphics/stm_eqn02891.gif)被正确约束到增量压力![](../graphics/stm_eqn01051.gif)。如果我们假设体积模量![](../graphics/stm_eqn02905.gif)和*K*随应变缓慢变化并忽略体积变化，我们可以为二阶变分![](../graphics/stm_eqn02906.gif)写成：
+![](../graphics/stm_eqn02903.gif)是（瞬时）体积模量。这是![](../graphics/stm_eqn02890.gif)的合适选择，因为（独立的）与![](../graphics/stm_eqn02904.gif)成比例的项确保修正增量压力场![](../graphics/stm_eqn02891.gif)被正确约束到增量压力![](../graphics/stm_eqn01051.gif)。如果我们假设体积模量![](../graphics/stm_eqn02905.gif)和*K*随应变缓慢变化并忽略体积变化，我们可以为二阶变分![](../graphics/stm_eqn02906.gif)写成：
 
 ![](../graphics/stm_eqn02907.gif)因此，我们得到虚功表达式：
 
@@ -64,7 +64,7 @@
 
 ![](../graphics/stm_eqn02913.gif)
 
-不对称项![](../graphics/stm_eqn02914.gif)仅在大体积变化发生时才显著。因此，该项被忽略，除了对于具有体积塑性的材料模型，如（封顶）Drucker-Prager模型和Cam-clay模型。对于这些模型，本构矩阵![](../graphics/stm_eqn00162.gif)通常已经是不对称的，因此添加这个非对称项不会影响分析成本。在![](../graphics/stm_eqn02906.gif)的表达式中假设了（体积）模量仅随应变缓慢变化。对于具有体积塑性的材料模型来说并非如此，这些模量可能发生突变。这可能导致收敛缓慢甚至收敛失败。失败通常仅发生在高阶单元中，因为在低阶单元中![](../graphics/graphics/stm_eqn02915.gif)在每一点都接近零，![](../graphics/stm_eqn02906.gif)中的误差没有影响。
+不对称项![](../graphics/stm_eqn02914.gif)仅在大体积变化发生时才显著。因此，该项被忽略，除了对于具有体积塑性的材料模型，如（封顶）Drucker-Prager模型和Cam-clay模型。对于这些模型，本构矩阵![](../graphics/stm_eqn00162.gif)通常已经是不对称的，因此添加这个非对称项不会影响分析成本。在![](../graphics/stm_eqn02906.gif)的表达式中假设了（体积）模量仅随应变缓慢变化。对于具有体积塑性的材料模型来说并非如此，这些模量可能发生突变。这可能导致收敛缓慢甚至收敛失败。失败通常仅发生在高阶单元中，因为在低阶单元中![](../graphics/stm_eqn02915.gif)在每一点都接近零，![](../graphics/stm_eqn02906.gif)中的误差没有影响。
 ### 参考
 
 ### 参考

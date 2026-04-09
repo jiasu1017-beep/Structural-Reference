@@ -45,11 +45,11 @@ The packing density and swelling may cause the gel particles to touch. In that c
 
 ![](../graphics/stm_eqn01810.gif)where
 
-![](../graphics/stm_eqn01811.gif)where ![](../graphics/stm_eqn01812.gif) is defined by the integration of [Equation 2.8.3&#8211;3](02s08a38.md). This entrapped liquid can be compressed by pressure so that, when the porous medium is under stress, we assume
+![](../graphics/stm_eqn01811.gif)where ![](../graphics/stm_eqn01812.gif) is defined by the integration of [Equation 2.8.3&#8211;3](02s08a38-Constitutive-behavior-in-a-porous-medium.md). This entrapped liquid can be compressed by pressure so that, when the porous medium is under stress, we assume
 
 ![](../graphics/stm_eqn01813.gif)and thus
 
-![](../graphics/stm_eqn01814.gif)Combining this with [Equation 2.8.3&#8211;1](02s08a38.md) and neglecting small terms compared to unity then provides
+![](../graphics/stm_eqn01814.gif)Combining this with [Equation 2.8.3&#8211;1](02s08a38-Constitutive-behavior-in-a-porous-medium.md) and neglecting small terms compared to unity then provides
 
 ![](../graphics/stm_eqn01815.gif)
 
@@ -62,13 +62,13 @@ The constitutive behavior of the gel containing entrapped fluid is given by the 
 ![](../graphics/stm_eqn01817.gif)where ![](../graphics/stm_eqn01728.gif) is the average pressure stress in the gel fluid and ![](../graphics/stm_eqn01818.gif) is its volumetric effective strain.
 ### Effective strain
 
-From [Equation 2.8.3&#8211;2](02s08a38.md) we see that the volumetric strain ![](../graphics/stm_eqn01819.gif) represents that part of the total volumetric strain caused by pore pressure acting on the solid matter in the porous medium and by thermal expansion of that solid matter. In addition, entrapment of liquid in the medium may cause an additional volume change ratio:
+From [Equation 2.8.3&#8211;2](02s08a38-Constitutive-behavior-in-a-porous-medium.md) we see that the volumetric strain ![](../graphics/stm_eqn01819.gif) represents that part of the total volumetric strain caused by pore pressure acting on the solid matter in the porous medium and by thermal expansion of that solid matter. In addition, entrapment of liquid in the medium may cause an additional volume change ratio:
 
 ![](../graphics/stm_eqn01820.gif)Finally, ![](../graphics/stm_eqn01821.gif) is a saturation driven moisture swelling strain that represents the volumetric swelling of the solid skeleton in partially saturated flow conditions. This moisture swelling can be isotropic or anisotropic. The remaining part of the strain in the medium,
 
 ![](../graphics/stm_eqn01822.gif) is the strain that is assumed to modify the effective stress in the medium. That is, we assume
 
-![](../graphics/stm_eqn01823.gif)Specific constitutive models of this type are discussed in Chapter 4, "Mechanical Constitutive Theories." From this assumption, and using [Equation 2.8.3&#8211;5](02s08a38.md), we can write the Jaumann rate of change of the effective stress in terms of the rate of change of the kinematic and pore liquid pressure variables as
+![](../graphics/stm_eqn01823.gif)Specific constitutive models of this type are discussed in Chapter 4, "Mechanical Constitutive Theories." From this assumption, and using [Equation 2.8.3&#8211;5](02s08a38-Constitutive-behavior-in-a-porous-medium.md), we can write the Jaumann rate of change of the effective stress in terms of the rate of change of the kinematic and pore liquid pressure variables as
 
 ![](../graphics/stm_eqn01824.gif) where ![](../graphics/stm_eqn01825.gif) is defined for each particular model in Chapter 4, "Mechanical Constitutive Theories."
 
@@ -76,7 +76,7 @@ Also, for the effective pressure stress of the fluid entrapped in the gel,
 
 ![](../graphics/stm_eqn01826.gif)
 
-Then, from [Equation 2.8.2&#8211;3](02s08a37.md),
+Then, from [Equation 2.8.2&#8211;3](02s08a37-Discretized-equilibrium-statement-for-a-.md),
 
 ![](../graphics/stm_eqn01827.gif)
 ### Reference

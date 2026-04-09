@@ -32,23 +32,23 @@
 
 是边界 *S* 上的法线方向向量。
 
-利用高斯定理和在边界 *S* 上 ![](../graphics/stm_eqn00594.gif) 的恒等式，[方程 1.5.5-1](01s05a12.md) 右边第一项可以重写为
+利用高斯定理和在边界 *S* 上 ![](../graphics/stm_eqn00594.gif) 的恒等式，[方程 1.5.5-1](01s05a12-Energy-balance.md) 右边第一项可以重写为
 
 ![](../graphics/stm_eqn00595.gif) 其中我们使用了 ![](../graphics/stm_eqn00596.gif) 是对称的事实，我们也知道（见"平衡与虚功"第1.5.1节）
 
-![](../graphics/stm_eqn00597.gif)其中 ![](../graphics/stm_eqn00598.gif) 是应变率张量（见"变形率与应变增量"第1.4.3节）。 将 [方程 1.5.5-2](01s05a12.md) 代入 [方程 1.5.5-1](01s05a12.md) 得到
+![](../graphics/stm_eqn00597.gif)其中 ![](../graphics/stm_eqn00598.gif) 是应变率张量（见"变形率与应变增量"第1.4.3节）。 将 [方程 1.5.5-2](01s05a12-Energy-balance.md) 代入 [方程 1.5.5-1](01s05a12-Energy-balance.md) 得到
 
 ![](../graphics/stm_eqn00599.gif)
 
 从Cauchy运动方程我们有
 
-![](../graphics/stm_eqn00600.gif) 将其代入 [方程 1.5.5-3](01s05a12.md) 给出
+![](../graphics/stm_eqn00600.gif) 将其代入 [方程 1.5.5-3](01s05a12-Energy-balance.md) 给出
 
 ![](../graphics/stm_eqn00601.gif)由此得到能量方程
 
 ![](../graphics/stm_eqn00602.gif)积分此方程我们发现
 
-![](../graphics/stm_eqn00603.gif)其中 ![](../graphics/stm_eqn00604.gif) 是时间 ![](../graphics/stm_eqn00605.gif) 时的能量。为了使能量平衡（[方程 1.5.5-1](01s05a12.md)）更方便使用，我们对其进行时间积分：
+![](../graphics/stm_eqn00603.gif)其中 ![](../graphics/stm_eqn00604.gif) 是时间 ![](../graphics/stm_eqn00605.gif) 时的能量。为了使能量平衡（[方程 1.5.5-1](01s05a12-Energy-balance.md)）更方便使用，我们对其进行时间积分：
 
 ![](../graphics/stm_eqn00606.gif)或
 

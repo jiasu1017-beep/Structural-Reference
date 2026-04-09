@@ -7,7 +7,7 @@
 This section discusses the formulation of the small-strain shear flexible elements in Abaqus/Standard, which are quadrilaterals (S4R5, S8R5, S9R5, and S8R), except for the 6-node triangle STRI65. The essential idea of these elements is that the position of a point in the shell reference surface---![](../graphics/stm_eqn00117.gif)---and the components of a vector ![](../graphics/stm_eqn00483.gif)---which is approximately normal to the reference surface---are interpolated independently. The kinematics of the shell theory then consist of measuring membrane strain on the reference surface from the derivatives of ![](../graphics/stm_eqn00117.gif) with respect to position on the surface and bending strain from the derivatives of ![](../graphics/stm_eqn00483.gif); the strain measures that are used for this purpose are approximations to Koiter-Sanders theory strains ([Budiansky and Sanders, 1963](07s01a01-References.md)). The transverse shear strains are measured as the changes in the projections of ![](../graphics/stm_eqn00483.gif) onto tangents to the shell's reference surface. For these element types the strain measures are suitable for large rotations but small strains, and the change in the shell's thickness caused by deformation is neglected.
 ### Notation
 
-A typical piece of shell surface is shown in [Figure 3.6.3&#8211;1](03s06a81.md).
+A typical piece of shell surface is shown in [Figure 3.6.3&#8211;1](03s06a81-Shear-flexible-small-strain-shell-elemen.md).
 
 Figure 3.6.3&#8211;1 Shell reference surface.
 

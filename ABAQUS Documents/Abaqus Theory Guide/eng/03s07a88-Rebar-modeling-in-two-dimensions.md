@@ -4,7 +4,7 @@
 
 **Products: **Abaqus/Standard  Abaqus/Explicit
 
-Let ![](../graphics/stm_eqn04949.gif) be the element's usual isoparametric coordinates. Let *r* be an isoparametric coordinate along the line where the face of the element intersects the plane of reinforcement, with ![](../graphics/stm_eqn04950.gif) in an element (see [Figure 3.7.1&#8211;1](03s07a88.md)).
+Let ![](../graphics/stm_eqn04949.gif) be the element's usual isoparametric coordinates. Let *r* be an isoparametric coordinate along the line where the face of the element intersects the plane of reinforcement, with ![](../graphics/stm_eqn04950.gif) in an element (see [Figure 3.7.1&#8211;1](03s07a88-Rebar-modeling-in-two-dimensions.md)).
 
 Figure 3.7.1&#8211;1 Rebar in a solid, two-dimensional element.
 

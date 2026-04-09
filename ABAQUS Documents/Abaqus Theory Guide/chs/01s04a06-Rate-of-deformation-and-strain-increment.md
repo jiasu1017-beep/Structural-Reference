@@ -60,7 +60,7 @@
 
 ![](../graphics/stm_eqn00439.gif)那么我们对 ![](../graphics/stm_eqn00118.gif) 的积分是在增量结束时的基上的矩阵 ![](../graphics/stm_eqn00432.gif)，定义为
 
-![](../graphics/stm_eqn00440.gif)使用 [方程 1.4.3-2](01s04a06.md)，这是
+![](../graphics/stm_eqn00440.gif)使用 [方程 1.4.3-2](01s04a06-Rate-of-deformation-and-strain-increment.md)，这是
 
 ![](../graphics/stm_eqn00441.gif)由于
 
@@ -80,7 +80,7 @@
 
 ![](../graphics/stm_eqn00450.gif)因此，
 
-![](../graphics/stm_eqn00451.gif)所以，最终，从 [方程 1.4.3-3](01s04a06.md)，
+![](../graphics/stm_eqn00451.gif)所以，最终，从 [方程 1.4.3-3](01s04a06-Rate-of-deformation-and-strain-increment.md)，
 
 ![](../graphics/stm_eqn00452.gif)因此，只要我们假设在增量期间任何时候的拉伸与增量总拉伸（写在增量开始的固定基上）具有相同的主方向，对数应变增量的定义提供了变形率表示的应变率的所需积分。这个假设可能在大增量时值得商榷，但它与在本构积分中使用的近似水平是一致的。因此，我们有一种简单的方法来计算用于此类本构模型的应变增量，而与本构积分本身已经接受的准确性相比，没有额外的准确性损失。
 ### 参考

@@ -65,7 +65,7 @@ In this case the fluid is compressible, and the volume is a function of the pres
 ![](../graphics/stm_eqn05046.gif)
 ### Volume calculation
 
-The hydrostatic fluid elements appear as surface elements that cover the cavity boundary, but they are actually volume elements when the cavity reference node is accounted for. [Figure 3.8.1&#8211;1](03s08a91.md) depicts the 4-node hydrostatic fluid volume element, F3D4. The dashed lines indicate that the element is actually pyramidal in shape.
+The hydrostatic fluid elements appear as surface elements that cover the cavity boundary, but they are actually volume elements when the cavity reference node is accounted for. [Figure 3.8.1&#8211;1](03s08a91-Hydrostatic-fluid-calculations.md) depicts the 4-node hydrostatic fluid volume element, F3D4. The dashed lines indicate that the element is actually pyramidal in shape.
 
 Figure 3.8.1&#8211;1 F3D4 hydrostatic fluid element.
 
@@ -124,13 +124,13 @@ This mass change needs to be converted to a volume change in each cavity. It is 
 
 Many applications of fluid flow between cavities involve dynamic loading in the form of steady-state vibration; and often in such cases the dissipative losses in the link between the cavities must be modeled to obtain useful results. In most problems of this class the fluids on either side of the fluid link are first pressurized statically. In the implementation in Abaqus/Standard, it is assumed that the vibration amplitude is sufficiently small that the fluid link response in the dynamic phase of the problem can be treated as linear perturbations about the prepressurized state.
 
-For small vibrations about a prepressurized state we linearize [Equation 3.8.1&#8211;1](03s08a91.md) to give
+For small vibrations about a prepressurized state we linearize [Equation 3.8.1&#8211;1](03s08a91-Hydrostatic-fluid-calculations.md) to give
 
 ![](../graphics/stm_eqn05086.gif)The mass flow through the link can, therefore, be derived as follows:
 
 ![](../graphics/stm_eqn05087.gif)
 
-Substituting the above expression for mass flow into [Equation 3.8.1&#8211;2](03s08a91.md) and noting that ![](../graphics/stm_eqn05088.gif) yields
+Substituting the above expression for mass flow into [Equation 3.8.1&#8211;2](03s08a91-Hydrostatic-fluid-calculations.md) and noting that ![](../graphics/stm_eqn05088.gif) yields
 
 ![](../graphics/stm_eqn05089.gif)
 
@@ -139,7 +139,7 @@ In Abaqus this model is provided only for the direct-solution steady-state dynam
 
 It is possible that negative eigenvalues will be encountered in the solution of certain hydrostatic fluid element problems. With standard elements this can indicate that a bifurcation or buckling load has been exceeded. However, this is not necessarily true with hydrostatic fluid elements; negative eigenvalues can result solely from the numerical implementation.
 
-Consider the simple hydrostatic fluid model depicted in [Figure 3.8.1&#8211;2](03s08a91.md).
+Consider the simple hydrostatic fluid model depicted in [Figure 3.8.1&#8211;2](03s08a91-Hydrostatic-fluid-calculations.md).
 
 Figure 3.8.1&#8211;2 Simple hydrostatic fluid model.
 

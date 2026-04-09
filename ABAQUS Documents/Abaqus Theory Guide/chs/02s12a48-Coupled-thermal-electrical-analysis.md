@@ -45,12 +45,12 @@
 
 ![](../graphics/stm_eqn02419.gif)其中*V*是固体材料的体积，表面积为*S*；![](../graphics/stm_eqn00593)是材料密度；*U*是内能；![](../graphics/stm_eqn02234)是热传导率矩阵；*q*是单位面积的热通量，流入物体；*r*是物体内产生的热量。热问题在"非耦合热传递分析"第2.11.1节中详细讨论。
 
-[方程2.12.1-4](02s12a48.md)和[方程2.12.1-5](02s12a48.md)分别描述了电气和热问题。耦合来自两个来源：电问题中的电导率依赖于温度，![](../graphics/stm_eqn02420)，热问题中的内部热生成是电流的函数，![](../graphics/stm_eqn02421)，如下所述。
+[方程2.12.1-4](02s12a48-Coupled-thermal-electrical-analysis.md)和[方程2.12.1-5](02s12a48-Coupled-thermal-electrical-analysis.md)分别描述了电气和热问题。耦合来自两个来源：电问题中的电导率依赖于温度，![](../graphics/stm_eqn02420)，热问题中的内部热生成是电流的函数，![](../graphics/stm_eqn02421)，如下所述。
 ### 电流导致的热能
 
 焦耳定律描述了电流流过导体时消耗的电能率，![](../graphics/stm_eqn02422)，为
 
-![](../graphics/stm_eqn02423.gif)使用[方程2.12.1-2](02s12a48.md)和[方程2.12.1-3](02s12a48.md)，焦耳定律被重写为
+![](../graphics/stm_eqn02423.gif)使用[方程2.12.1-2](02s12a48-Coupled-thermal-electrical-analysis.md)和[方程2.12.1-3](02s12a48-Coupled-thermal-electrical-analysis.md)，焦耳定律被重写为
 
 ![](../graphics/stm_eqn02424.gif)在稳态分析中，![](../graphics/stm_eqn02422)在时间![](../graphics/stm_eqn00438)评估。在瞬态分析中，在增量上获得![](../graphics/stm_eqn02422)的平均值
 
@@ -97,7 +97,7 @@
 ![](../graphics/stm_eqn02457.gif)
 ### Jacobian贡献
 
-Jacobian贡献通过对电势![](../graphics/stm_eqn02442)和温度![](../graphics/stm_eqn01111)在时间![](../graphics/stm_eqn00438]取[方程2.12.1-8](02s12a48.md)和[方程2.12.1-9](02s12a48.md)的变分获得。这产生
+Jacobian贡献通过对电势![](../graphics/stm_eqn02442)和温度![](../graphics/stm_eqn01111)在时间![](../graphics/stm_eqn00438]取[方程2.12.1-8](02s12a48-Coupled-thermal-electrical-analysis.md)和[方程2.12.1-9](02s12a48-Coupled-thermal-electrical-analysis.md)的变分获得。这产生
 
 ![](../graphics/stm_eqn02458.gif)
 

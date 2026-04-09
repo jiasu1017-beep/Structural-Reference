@@ -170,7 +170,7 @@ is the force coefficient (min(1.0, ![](../graphics/stm_eqn05348.gif))).
 
 The values in parentheses are the default values supplied by Abaqus, and the value of ![](../graphics/stm_eqn05339.gif) is found from the ISO equation as explained above.
 
-The Marshall envelope governs the compressive and tensile response of the strut as shown in [Figure 3.9.3&#8211;1](03s09a94.md). The dotted lines in the interior of the envelope indicate the damaged-elastic modulus defining the loading-unloading force versus strain path.
+The Marshall envelope governs the compressive and tensile response of the strut as shown in [Figure 3.9.3&#8211;1](03s09a94-Buckling-strut-response-for-frame-elemen.md). The dotted lines in the interior of the envelope indicate the damaged-elastic modulus defining the loading-unloading force versus strain path.
 
 Figure 3.9.3&#8211;1 Marshall strut theory buckling envelope.
 

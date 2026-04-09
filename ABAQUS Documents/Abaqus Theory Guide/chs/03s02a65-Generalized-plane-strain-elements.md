@@ -6,7 +6,7 @@
 
 Abaqus中使用的广义平面应变理论假定模型位于两个边界平面之间，这两个平面可能作为刚体相对移动，从而导致模型"厚度方向"纤维的应变。假定模型的变形与该厚度方向的位置无关，因此两个平面的相对运动仅导致厚度方向纤维的直接应变。这个应变及其一阶和二阶变分定义如下。
 
-设![](../graphics/stm_eqn03039.gif)是其中一个边界平面中的固定点，如图[图3.2.7-1](03s02a65.md)所示。纤维在![](../graphics/stm_eqn03040.gif)与其在另一个边界平面中的像之间的长度是![](../graphics/stm_eqn03041.gif)，其中![](../graphics/stm_eqn00945.gif)是原始配置中该纤维的长度，![](../graphics/stm_eqn03042.gif)是该纤维长度的变化。![](../graphics/stm_eqn03042.gif)是单元参考节点处自由度3的值。
+设![](../graphics/stm_eqn03039.gif)是其中一个边界平面中的固定点，如图[图3.2.7-1](03s02a65-Generalized-plane-strain-elements.md)所示。纤维在![](../graphics/stm_eqn03040.gif)与其在另一个边界平面中的像之间的长度是![](../graphics/stm_eqn03041.gif)，其中![](../graphics/stm_eqn00945.gif)是原始配置中该纤维的长度，![](../graphics/stm_eqn03042.gif)是该纤维长度的变化。![](../graphics/stm_eqn03042.gif)是单元参考节点处自由度3的值。
 
 图3.2.7-1 广义平面应变单元。
 

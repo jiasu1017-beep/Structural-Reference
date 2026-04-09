@@ -26,7 +26,7 @@ We modify the Cauchy stress by introducing an independent hydrostatic pressure f
 
 ![](../graphics/stm_eqn02886.gif)where ![](../graphics/stm_eqn02887.gif) is the modified Cauchy stress at the start of the increment. We use the modified Cauchy stress in the virtual work expression and augment the expression with the Lagrange multiplier enforced constraint ![](../graphics/stm_eqn02888.gif):
 
-![](../graphics/stm_eqn02889.gif)with *J* the volume change ratio (Jacobian) and ![](../graphics/stm_eqn02890.gif) a Lagrange multiplier whose interpolation must still be determined. ![](../graphics/stm_eqn02891.gif) will be interpolated over each element so that the constraint is satisfied in an integrated (average) sense. Since ![](../graphics/stm_eqn01051.gif) is the value of the equivalent pressure stress increment computed from the kinematic solution, [Equation 3.2.3&#8211;4](03s02a61.md) does not make sense if the material is fully incompressible because then ![](../graphics/stm_eqn01051.gif) cannot be computed. For the purpose of development we regard the bulk modulus as finite, and we will be able to show that the final formulation approaches a usable limit as we allow the bulk modulus to approach infinity.
+![](../graphics/stm_eqn02889.gif)with *J* the volume change ratio (Jacobian) and ![](../graphics/stm_eqn02890.gif) a Lagrange multiplier whose interpolation must still be determined. ![](../graphics/stm_eqn02891.gif) will be interpolated over each element so that the constraint is satisfied in an integrated (average) sense. Since ![](../graphics/stm_eqn01051.gif) is the value of the equivalent pressure stress increment computed from the kinematic solution, [Equation 3.2.3&#8211;4](03s02a61-Hybrid-incompressible-solid-element-form.md) does not make sense if the material is fully incompressible because then ![](../graphics/stm_eqn01051.gif) cannot be computed. For the purpose of development we regard the bulk modulus as finite, and we will be able to show that the final formulation approaches a usable limit as we allow the bulk modulus to approach infinity.
 
 For the formulation of the tangent stiffness (the Jacobian), we need to define the rate of change of ![](../graphics/stm_eqn02892.gif). Therefore, we rewrite the virtual work equation in terms of the reference volume ![](../graphics/stm_eqn01828.gif):
 
@@ -36,7 +36,7 @@ For the formulation of the tangent stiffness (the Jacobian), we need to define t
 
 ![](../graphics/stm_eqn02896.gif)where we used the identity ![](../graphics/stm_eqn02897.gif).
 
-The rate of the modified stress follows from [Equation 3.2.3&#8211;4](03s02a61.md) and the constitutive equations:
+The rate of the modified stress follows from [Equation 3.2.3&#8211;4](03s02a61-Hybrid-incompressible-solid-element-form.md) and the constitutive equations:
 
 ![](../graphics/stm_eqn02898.gif)where
 

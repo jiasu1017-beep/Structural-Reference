@@ -4,7 +4,7 @@
 
 **产品：** Abaqus/Standard  Abaqus/Explicit
 
-这两个壳单元是上一节描述的壳的轴对称版本，使用[Hughes等人（1977）](07s01a01-References.md)的"缩减积分惩罚"方法。虽然这些是壳单元，它们也是二维梁单元B21和B22的简单扩展。扩展包括周向项。因此，这些单元是一维的，在径向平面中变形。该平面中的笛卡尔坐标是*r*（半径）和*z*（轴向位置）。沿这种平面中壳参考表面测量的距离由材料坐标*S*表示（见[图3.6.2-1](03s06a80.md)）。
+这两个壳单元是上一节描述的壳的轴对称版本，使用[Hughes等人（1977）](07s01a01-References.md)的"缩减积分惩罚"方法。虽然这些是壳单元，它们也是二维梁单元B21和B22的简单扩展。扩展包括周向项。因此，这些单元是一维的，在径向平面中变形。该平面中的笛卡尔坐标是*r*（半径）和*z*（轴向位置）。沿这种平面中壳参考表面测量的距离由材料坐标*S*表示（见[图3.6.2-1](03s06a80-Axisymmetric-shell-elements.md)）。
 
 图3.6.2-1 轴对称壳。
 
@@ -52,7 +52,7 @@
 
 是参考表面中的材料坐标。
 
-上面列出的假设意味着![](../graphics/stm_eqn04029.gif)仅为常数，且![](../graphics/stm_eqn04030.gif)是小的量。[公式3.6.2-1](03s06a80.md)在增量结束时写出，在增量开始时同样的方程写为
+上面列出的假设意味着![](../graphics/stm_eqn04029.gif)仅为常数，且![](../graphics/stm_eqn04030.gif)是小的量。[公式3.6.2-1](03s06a80-Axisymmetric-shell-elements.md)在增量结束时写出，在增量开始时同样的方程写为
 
 ![](../graphics/stm_eqn04031.gif)增量结束时的度量为
 
@@ -70,7 +70,7 @@
 
 承受轴对称变形的轴对称壳有一个极大的简化，即主方向不旋转。因此，通过假定![](../graphics/stm_eqn04038.gif)和![](../graphics/stm_eqn04039.gif) orient in these principal directions（![](../graphics/stm_eqn04040.gif)是经向的，![](../graphics/stm_eqn03939.gif)是周向的），这些方向内发生的拉伸比在增量中写为
 
-![](../graphics/stm_eqn04041.gif)其中从这点往后，对于指标![](../graphics/stm_eqn00904.gif)和![](../graphics/stm_eqn01219.gif)省略了求和约定。使用[公式3.6.2-3](03s06a80.md)和[公式3.6.2-4](03s06a80.md)并截断到![](../graphics/stm_eqn02098.gif)的一阶给出
+![](../graphics/stm_eqn04041.gif)其中从这点往后，对于指标![](../graphics/stm_eqn00904.gif)和![](../graphics/stm_eqn01219.gif)省略了求和约定。使用[公式3.6.2-3](03s06a80-Axisymmetric-shell-elements.md)和[公式3.6.2-4](03s06a80-Axisymmetric-shell-elements.md)并截断到![](../graphics/stm_eqn02098.gif)的一阶给出
 
 ![](../graphics/stm_eqn04042.gif)其中
 
@@ -122,7 +122,7 @@
 
 ![](../graphics/stm_eqn04070.gif)并假定
 
-![](../graphics/stm_eqn04071.gif)满足要求。[公式3.6.2-9](03s06a80.md)可以通过代入[公式3.6.2-7](03s06a80.md)中![](../graphics/stm_eqn04072.gif)的定义简化为
+![](../graphics/stm_eqn04071.gif)满足要求。[公式3.6.2-9](03s06a80-Axisymmetric-shell-elements.md)可以通过代入[公式3.6.2-7](03s06a80-Axisymmetric-shell-elements.md)中![](../graphics/stm_eqn04072.gif)的定义简化为
 
 ![](../graphics/stm_eqn04073.gif)因此
 
@@ -138,11 +138,11 @@
 
 ![](../graphics/stm_eqn04077.gif)
 
-在壳中，由使用[公式3.6.2-10](03s06a80.md)中的应变增量求和定义的平面应力理论得出；
+在壳中，由使用[公式3.6.2-10](03s06a80-Axisymmetric-shell-elements.md)中的应变增量求和定义的平面应力理论得出；
 
 ![](../graphics/stm_eqn04078.gif)
 
-是[公式3.6.2-10](03s06a80.md)中应变增量的变分；
+是[公式3.6.2-10](03s06a80-Axisymmetric-shell-elements.md)中应变增量的变分；
 
 ![](../graphics/stm_eqn04079.gif)
 
@@ -150,7 +150,7 @@
 
 ![](../graphics/stm_eqn01362.gif)
 
-是来自[公式3.6.2-8](03s06a80.md)的横向剪切应变，
+是来自[公式3.6.2-8](03s06a80-Axisymmetric-shell-elements.md)的横向剪切应变，
 
 *h*
 

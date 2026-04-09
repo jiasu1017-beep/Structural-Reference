@@ -18,7 +18,7 @@ Several representations of modal damping are provided. Modal damping defines ![]
 
 ![](../graphics/stm_eqn01358.gif)where ![](../graphics/stm_eqn01359.gif) is the structural damping coefficient for the mode. Rayleigh damping is defined by ![](../graphics/stm_eqn01360.gif); ![](../graphics/stm_eqn01361.gif) and ![](../graphics/stm_eqn01362.gif) are the Rayleigh coefficients damping low and high frequency modes, respectively. Rayleigh damping can be reproduced exactly by modal damping as
 
-![](../graphics/stm_eqn01363.gif)Introducing all of these damping definitions into [Equation 2.5.7&#8211;1](02s05a30.md) gives
+![](../graphics/stm_eqn01363.gif)Introducing all of these damping definitions into [Equation 2.5.7&#8211;1](02s05a30-Steady-state-linear-dynamic-analysis.md) gives
 
 ![](../graphics/stm_eqn01364.gif)The solution to this equation is
 

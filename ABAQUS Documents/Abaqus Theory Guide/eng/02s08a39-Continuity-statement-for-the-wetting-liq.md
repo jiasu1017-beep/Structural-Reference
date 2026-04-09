@@ -73,56 +73,56 @@ The permeability of a particular fluid in a multiphase flow system depends on th
 
 The function ![](../graphics/stm_eqn01861.gif) can be defined by the user. [Nguyen and Durso (1983)](07s01a01-References.md) observe that, in steady flow through a partially saturated medium, the permeability varies with ![](../graphics/stm_eqn01862.gif). We, therefore, take ![](../graphics/stm_eqn01863.gif) by default.
 
-Introducing the flow constitutive law allows the mass continuity equation ([Equation 2.8.4&#8211;1](02s08a39.md)) to be written
+Introducing the flow constitutive law allows the mass continuity equation ([Equation 2.8.4&#8211;1](02s08a39-Continuity-statement-for-the-wetting-liq.md)) to be written
 
 ![](../graphics/stm_eqn01864.gif)
 ### Volumetric strain in the liquid and grains
 
-The bulk behavior of the grains was discussed in "Constitutive behavior in a porous medium,"  Section 2.8.3. From [Equation 2.8.3&#8211;2](02s08a38.md),
+The bulk behavior of the grains was discussed in "Constitutive behavior in a porous medium,"  Section 2.8.3. From [Equation 2.8.3&#8211;2](02s08a38-Constitutive-behavior-in-a-porous-medium.md),
 
-![](../graphics/stm_eqn01865.gif)Combining this with [Equation 2.8.1&#8211;4](02s08a36.md) and neglecting all but first-order terms in small quantities, we obtain
+![](../graphics/stm_eqn01865.gif)Combining this with [Equation 2.8.1&#8211;4](02s08a36-Effective-stress-principle-for-porous-me.md) and neglecting all but first-order terms in small quantities, we obtain
 
-![](../graphics/stm_eqn01866.gif)Using [Equation 2.8.3&#8211;1](02s08a38.md) and again neglecting second-order terms in small quantities, we obtain
+![](../graphics/stm_eqn01866.gif)Using [Equation 2.8.3&#8211;1](02s08a38-Constitutive-behavior-in-a-porous-medium.md) and again neglecting second-order terms in small quantities, we obtain
 
-![](../graphics/stm_eqn01867.gif)Combining this result with [Equation 2.8.3&#8211;4](02s08a38.md), and again approximating to first-order in small quantities,
+![](../graphics/stm_eqn01867.gif)Combining this result with [Equation 2.8.3&#8211;4](02s08a38-Constitutive-behavior-in-a-porous-medium.md), and again approximating to first-order in small quantities,
 
 ![](../graphics/stm_eqn01868.gif)
 ### Saturation
 
-Because ![](../graphics/stm_eqn01719.gif) measures pressure in the wetting liquid and we neglect the pressure in the other fluid phase in the medium (see "Effective stress principle for porous media,"  Section 2.8.1), the medium is fully saturated for ![](../graphics/stm_eqn01869.gif). Negative values of ![](../graphics/stm_eqn01719.gif) represent capillary effects in the medium. For ![](../graphics/stm_eqn01870.gif) it is known (see, for example, [Nguyen and Durso, 1983](07s01a01-References.md)) that, at a given value of capillary pressure, ![](../graphics/stm_eqn01871.gif), the saturation lies within certain limits. Typical forms of these limits are shown in [Figure 2.8.4&#8211;1](02s08a39.md).
+Because ![](../graphics/stm_eqn01719.gif) measures pressure in the wetting liquid and we neglect the pressure in the other fluid phase in the medium (see "Effective stress principle for porous media,"  Section 2.8.1), the medium is fully saturated for ![](../graphics/stm_eqn01869.gif). Negative values of ![](../graphics/stm_eqn01719.gif) represent capillary effects in the medium. For ![](../graphics/stm_eqn01870.gif) it is known (see, for example, [Nguyen and Durso, 1983](07s01a01-References.md)) that, at a given value of capillary pressure, ![](../graphics/stm_eqn01871.gif), the saturation lies within certain limits. Typical forms of these limits are shown in [Figure 2.8.4&#8211;1](02s08a39-Continuity-statement-for-the-wetting-liq.md).
 
 Figure 2.8.4&#8211;1 Typical liquid absorption and exsorption behavior.
 
 ![](../graphics/stmliquid-absorp-exsorp-nls.png) We write these limits as ![](../graphics/stm_eqn01872.gif), where ![](../graphics/stm_eqn01873.gif) is the limit at which absorption will occur (so that ![](../graphics/stm_eqn01874.gif)), and ![](../graphics/stm_eqn01875.gif) is the limit at which exsorption will occur, and thus ![](../graphics/stm_eqn01876.gif). We assume that these relationships are uniquely invertible and can, thus, also be written as ![](../graphics/stm_eqn01877.gif) during absorption and ![](../graphics/stm_eqn01878.gif) during exsorption. We also assume that some wetting liquid will always be present in the medium: ![](../graphics/stm_eqn01879.gif).
 
-[Bear (1972)](07s01a01-References.md) suggests that the transition between absorption and exsorption and vice versa takes place along "scanning" curves. We approximate these with a straight line, as shown in [Figure 2.8.4&#8211;1](02s08a39.md).
+[Bear (1972)](07s01a01-References.md) suggests that the transition between absorption and exsorption and vice versa takes place along "scanning" curves. We approximate these with a straight line, as shown in [Figure 2.8.4&#8211;1](02s08a39-Continuity-statement-for-the-wetting-liq.md).
 
-Saturation is treated as a state variable that may have to change if the wetting liquid pressure is outside the range for which its value is admissible according to that actual data corresponding to [Figure 2.8.4&#8211;1](02s08a39.md). The evolution of saturation as a state variable is defined as follows. Assume that the saturation at time *t*, ![](../graphics/stm_eqn01880.gif), is known. It must satisfy the constraints
+Saturation is treated as a state variable that may have to change if the wetting liquid pressure is outside the range for which its value is admissible according to that actual data corresponding to [Figure 2.8.4&#8211;1](02s08a39-Continuity-statement-for-the-wetting-liq.md). The evolution of saturation as a state variable is defined as follows. Assume that the saturation at time *t*, ![](../graphics/stm_eqn01880.gif), is known. It must satisfy the constraints
 
 ![](../graphics/stm_eqn01881.gif)We solve the continuity equation for ![](../graphics/stm_eqn01882.gif), initially assuming ![](../graphics/stm_eqn01883.gif). We then obtain ![](../graphics/stm_eqn01884.gif) by the following rules:
 
-![](../graphics/stm_eqn01885.gif) where ![](../graphics/stm_eqn01886.gif) is the slope of the scanning line. These choices are shown in [Figure 2.8.4&#8211;2](02s08a39.md).
+![](../graphics/stm_eqn01885.gif) where ![](../graphics/stm_eqn01886.gif) is the slope of the scanning line. These choices are shown in [Figure 2.8.4&#8211;2](02s08a39-Continuity-statement-for-the-wetting-liq.md).
 
 Figure 2.8.4&#8211;2 Evolution of *s* in unsaturated cases.
 
 ![](../graphics/stmunsat-s-evol.png)
 ### Jacobian contribution
 
-The Jacobian contribution from the continuity equation is obtained from the variation of [Equation 2.8.4&#8211;2](02s08a39.md) with respect to ![](../graphics/stm_eqn01887.gif) and ![](../graphics/stm_eqn01719.gif) at time ![](../graphics/stm_eqn00438.gif).
+The Jacobian contribution from the continuity equation is obtained from the variation of [Equation 2.8.4&#8211;2](02s08a39-Continuity-statement-for-the-wetting-liq.md) with respect to ![](../graphics/stm_eqn01887.gif) and ![](../graphics/stm_eqn01719.gif) at time ![](../graphics/stm_eqn00438.gif).
 
 Consider first the surface integral. The surface divides into that part across which the liquid mass flow rate, ![](../graphics/stm_eqn01888.gif), is prescribed and that part where the wetting liquid pressure, ![](../graphics/stm_eqn01719.gif), is prescribed. Thus, the only contribution of this term to the Jacobian is the variation in the integral caused by change in surface area in that part where the mass flow is prescribed. We neglect this contribution.
 
-The remaining part of the variation of [Equation 2.8.4&#8211;2](02s08a39.md) is
+The remaining part of the variation of [Equation 2.8.4&#8211;2](02s08a39-Continuity-statement-for-the-wetting-liq.md) is
 
 ![](../graphics/stm_eqn01889.gif)
 
-Using [Equation 2.8.4&#8211;3](02s08a39.md) we have
+Using [Equation 2.8.4&#8211;3](02s08a39-Continuity-statement-for-the-wetting-liq.md) we have
 
 ![](../graphics/stm_eqn01890.gif) and, thus, neglecting small terms compared to unity,
 
 ![](../graphics/stm_eqn01891.gif)
 
-[Equation 2.8.3&#8211;5](02s08a38.md) shows that ![](../graphics/stm_eqn01892.gif), which is defined by the evolution equation given in "Constitutive behavior in a porous medium,"  Section 2.8.3, and so makes no contribution to the Jacobian.
+[Equation 2.8.3&#8211;5](02s08a38-Constitutive-behavior-in-a-porous-medium.md) shows that ![](../graphics/stm_eqn01892.gif), which is defined by the evolution equation given in "Constitutive behavior in a porous medium,"  Section 2.8.3, and so makes no contribution to the Jacobian.
 
 Finally, the Jacobian contribution from the permeability term is rather complex in the general case of the nonlinear Forchheimer flow law. Although we include it in the software, here we only write the linearized flow version reflecting Darcy's law (![](../graphics/stm_eqn01852.gif)):
 

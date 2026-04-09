@@ -4,7 +4,7 @@
 
 **Products: **Abaqus/Standard  Abaqus/Explicit
 
-These two shell elements are axisymmetric versions of the shells described in the previous section and use the "reduced-integration penalty" method of [Hughes et al. (1977)](07s01a01-References.md). While these are shell elements, they are also simple extensions of the two-dimensional beam elements B21 and B22. The extension is the inclusion of the hoop terms. These elements are thus one-dimensional, deforming in a radial plane. The Cartesian coordinates in this plane are *r* (radius) and *z* (axial position). Distance along the shell reference surface in such a plane is measured by the material coordinate *S* (see [Figure 3.6.2&#8211;1](03s06a80.md)).
+These two shell elements are axisymmetric versions of the shells described in the previous section and use the "reduced-integration penalty" method of [Hughes et al. (1977)](07s01a01-References.md). While these are shell elements, they are also simple extensions of the two-dimensional beam elements B21 and B22. The extension is the inclusion of the hoop terms. These elements are thus one-dimensional, deforming in a radial plane. The Cartesian coordinates in this plane are *r* (radius) and *z* (axial position). Distance along the shell reference surface in such a plane is measured by the material coordinate *S* (see [Figure 3.6.2&#8211;1](03s06a80-Axisymmetric-shell-elements.md)).
 
 Figure 3.6.2&#8211;1 Axisymmetric shell.
 
@@ -52,7 +52,7 @@ measures position with respect to the thickness direction, in the reference conf
 
 are material coordinates in the reference surface.
 
-The assumptions listed above imply that ![](../graphics/stm_eqn04029.gif) only and that ![](../graphics/stm_eqn04030.gif) are small quantities. [Equation 3.6.2&#8211;1](03s06a80.md) is written at the end of an increment, and at the start of an increment the same equation is written as
+The assumptions listed above imply that ![](../graphics/stm_eqn04029.gif) only and that ![](../graphics/stm_eqn04030.gif) are small quantities. [Equation 3.6.2&#8211;1](03s06a80-Axisymmetric-shell-elements.md) is written at the end of an increment, and at the start of an increment the same equation is written as
 
 ![](../graphics/stm_eqn04031.gif)The metric at the end of an increment is
 
@@ -70,7 +70,7 @@ At the start of the increment the same quantities are
 
 Axisymmetric shells undergoing axisymmetric deformations have the great simplification that principal directions do not rotate. Thus, by assuming that ![](../graphics/stm_eqn04038.gif) and ![](../graphics/stm_eqn04039.gif) are oriented in these principal directions (![](../graphics/stm_eqn04040.gif) is meridional and ![](../graphics/stm_eqn04039.gif) is circumferential), the stretch ratios that occur within the increment in these directions are written as
 
-![](../graphics/stm_eqn04041.gif)where from this point onward the summation convention has been dropped for indexes ![](../graphics/stm_eqn00904.gif) and ![](../graphics/stm_eqn01219.gif). Using [Equation 3.6.2&#8211;3](03s06a80.md) and [Equation 3.6.2&#8211;4](03s06a80.md) and truncating to first order in ![](../graphics/stm_eqn02098.gif) then gives
+![](../graphics/stm_eqn04041.gif)where from this point onward the summation convention has been dropped for indexes ![](../graphics/stm_eqn00904.gif) and ![](../graphics/stm_eqn01219.gif). Using [Equation 3.6.2&#8211;3](03s06a80-Axisymmetric-shell-elements.md) and [Equation 3.6.2&#8211;4](03s06a80-Axisymmetric-shell-elements.md) and truncating to first order in ![](../graphics/stm_eqn02098.gif) then gives
 
 ![](../graphics/stm_eqn04042.gif)where
 
@@ -122,7 +122,7 @@ Defining
 
 ![](../graphics/stm_eqn04070.gif)and assuming
 
-![](../graphics/stm_eqn04071.gif)satisfies the requirement. [Equation 3.6.2&#8211;9](03s06a80.md) may be simplified by substituting in the definition of ![](../graphics/stm_eqn04072.gif) in [Equation 3.6.2&#8211;7](03s06a80.md) to give
+![](../graphics/stm_eqn04071.gif)satisfies the requirement. [Equation 3.6.2&#8211;9](03s06a80-Axisymmetric-shell-elements.md) may be simplified by substituting in the definition of ![](../graphics/stm_eqn04072.gif) in [Equation 3.6.2&#8211;7](03s06a80-Axisymmetric-shell-elements.md) to give
 
 ![](../graphics/stm_eqn04073.gif)and so
 
@@ -138,11 +138,11 @@ are the Kirchhoff stresses at a point;
 
 ![](../graphics/stm_eqn04077.gif)
 
-in the shell, defined by plane stress theory using the summation of the strain increments in [Equation 3.6.2&#8211;10](03s06a80.md) to define the strain at this point;
+in the shell, defined by plane stress theory using the summation of the strain increments in [Equation 3.6.2&#8211;10](03s06a80-Axisymmetric-shell-elements.md) to define the strain at this point;
 
 ![](../graphics/stm_eqn04078.gif)
 
-are the variations of the strain increments in [Equation 3.6.2&#8211;10](03s06a80.md);
+are the variations of the strain increments in [Equation 3.6.2&#8211;10](03s06a80-Axisymmetric-shell-elements.md);
 
 ![](../graphics/stm_eqn04079.gif)
 
@@ -150,7 +150,7 @@ are the transverse shear forces per unit area, defined by ![](../graphics/stm_eq
 
 ![](../graphics/stm_eqn01362.gif)
 
-are the transverse shear strains from [Equation 3.6.2&#8211;8](03s06a80.md),
+are the transverse shear strains from [Equation 3.6.2&#8211;8](03s06a80-Axisymmetric-shell-elements.md),
 
 *h*
 

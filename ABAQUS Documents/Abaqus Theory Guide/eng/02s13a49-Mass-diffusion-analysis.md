@@ -44,7 +44,7 @@ An example of a particular form of this constitutive model is the assumption mad
 
 ![](../graphics/stm_eqn02486.gif)
 
-Changing variables (![](../graphics/stm_eqn02487.gif)) and introducing the constitutive assumption of [Equation 2.13.1&#8211;3](02s13a49.md) into [Equation 2.13.1&#8211;2](02s13a49.md) yields
+Changing variables (![](../graphics/stm_eqn02487.gif)) and introducing the constitutive assumption of [Equation 2.13.1&#8211;3](02s13a49-Mass-diffusion-analysis.md) into [Equation 2.13.1&#8211;2](02s13a49-Mass-diffusion-analysis.md) yields
 
 ![](../graphics/stm_eqn02488.gif)where
 
@@ -64,7 +64,7 @@ Time integration in transient problems utilizes the backward Euler method (the m
 ![](../graphics/stm_eqn02495.gif)
 ### Jacobian contribution
 
-The Jacobian contribution from the conservation equation is obtained from the variation of [Equation 2.13.1&#8211;6](02s13a49.md) with respect to ![](../graphics/stm_eqn00155.gif) at time ![](../graphics/stm_eqn00438.gif). This yields
+The Jacobian contribution from the conservation equation is obtained from the variation of [Equation 2.13.1&#8211;6](02s13a49-Mass-diffusion-analysis.md) with respect to ![](../graphics/stm_eqn00155.gif) at time ![](../graphics/stm_eqn00438.gif). This yields
 
 ![](../graphics/stm_eqn02496.gif)
 

@@ -13,7 +13,7 @@ The virtual work contribution from the internal forces in a membrane element is
 
 ![](../graphics/stm_eqn03395.gif)where ![](../graphics/stm_eqn00033.gif) is the Cauchy stress, ![](../graphics/stm_eqn03396.gif) is the virtual rate of deformation (![](../graphics/stm_eqn03397.gif), where ![](../graphics/stm_eqn01597.gif) is the virtual velocity field), and *V* is the current volume of the membrane.
 
-We assume that only the membrane stress components in the surface of the membrane are nonzero: ![](../graphics/stm_eqn03398.gif). Then [Equation 3.4.1&#8211;1](03s04a70.md) simplifies to
+We assume that only the membrane stress components in the surface of the membrane are nonzero: ![](../graphics/stm_eqn03398.gif). Then [Equation 3.4.1&#8211;1](03s04a70-Membrane-elements.md) simplifies to
 
 ![](../graphics/stm_eqn03399.gif)where
 

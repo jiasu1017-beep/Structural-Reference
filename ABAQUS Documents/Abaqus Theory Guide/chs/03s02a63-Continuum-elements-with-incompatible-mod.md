@@ -40,7 +40,7 @@ Abaqus 中使用的几何线性不兼容模式公式与[Simo 和 Rifai（1990）
 
 ![](../graphics/stm_eqn02976.gif)其中 *r* 是半径；对于三维单元，它是
 
-![](../graphics/stm_eqn02977.gif)将[公式 3.2.5-2](03s02a63.md)代入[公式 3.2.5-1](03s02a63.md)使我们能够为 ![](../graphics/stm_eqn02969.gif) 创建一个简单条件：
+![](../graphics/stm_eqn02977.gif)将[公式 3.2.5-2](03s02a63-Continuum-elements-with-incompatible-modes.md)代入[公式 3.2.5-1](03s02a63-Continuum-elements-with-incompatible-modes.md)使我们能够为 ![](../graphics/stm_eqn02969.gif) 创建一个简单条件：
 
 ![](../graphics/stm_eqn02978.gif)
 
@@ -90,11 +90,11 @@ Abaqus 中使用的几何线性不兼容模式公式与[Simo 和 Rifai（1990）
 
 ![](../graphics/stm_eqn03003.gif)
 
-与[公式 3.2.5-2](03s02a63.md)类似，主要不兼容模式被描述为参数梯度场 ![](../graphics/stm_eqn03004.gif) 的变换：
+与[公式 3.2.5-2](03s02a63-Continuum-elements-with-incompatible-modes.md)类似，主要不兼容模式被描述为参数梯度场 ![](../graphics/stm_eqn03004.gif) 的变换：
 
 ![](../graphics/stm_eqn03005.gif)其中 ![](../graphics/stm_eqn03006.gif) 是增量开始时单元中心处的参数变换，
 
-![](../graphics/stm_eqn03007.gif)![](../graphics/stm_eqn02972.gif) 是位置 ![](../graphics/stm_eqn02973.gif) 处参数变换的Jacobian；![](../graphics/stm_eqn02974.gif) 是增量开始时单元重心的Jacobian。注意 ![](../graphics/graphics/stm_eqn02972.gif) 是基于仅由位移自由度引起的变形来计算的，不包括由不兼容模式引起的体积变化。
+![](../graphics/stm_eqn03007.gif)![](../graphics/stm_eqn02972.gif) 是位置 ![](../graphics/stm_eqn02973.gif) 处参数变换的Jacobian；![](../graphics/stm_eqn02974.gif) 是增量开始时单元重心的Jacobian。注意 ![](../graphics/stm_eqn02972.gif) 是基于仅由位移自由度引起的变形来计算的，不包括由不兼容模式引起的体积变化。
 
 增量参数梯度场 ![](../graphics/stm_eqn03004.gif) 与线性公式中的形式完全相同，
 

@@ -34,7 +34,7 @@
 
 ![](../graphics/stm_eqn00956.gif)
 
-但 ![](../graphics/stm_eqn00957.gif) 在 ![](../graphics/stm_eqn00945.gif)，以及 ![](../graphics/stm_eqn00958.gif)，所以 [方程 2.4.2-4](02s04a20.md) 的第二项为零。然而，必须用 *H* 作为乘子的拉格朗日乘子项增强 [方程 2.4.2-4](02s04a20.md) 来满足约束（[方程 2.4.2-2](02s04a20.md)）：
+但 ![](../graphics/stm_eqn00957.gif) 在 ![](../graphics/stm_eqn00945.gif)，以及 ![](../graphics/stm_eqn00958.gif)，所以 [方程 2.4.2-4](02s04a20-Intermittent-contactimpact.md) 的第二项为零。然而，必须用 *H* 作为乘子的拉格朗日乘子项增强 [方程 2.4.2-4](02s04a20-Intermittent-contactimpact.md) 来满足约束（[方程 2.4.2-2](02s04a20-Intermittent-contactimpact.md)）：
 
 ![](../graphics/stm_eqn00959.gif)
 

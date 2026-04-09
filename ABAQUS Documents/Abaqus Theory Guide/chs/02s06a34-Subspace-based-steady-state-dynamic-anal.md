@@ -22,7 +22,7 @@
 
 ![](../graphics/stm_eqn01625.gif)提取了无阻尼系统的![](../graphics/stm_eqn01624.gif)个特征模态，其中![](../graphics/stm_eqn01091.gif)是弧度/时间的特征频率。该过程假设阻尼系统的复位移变化可以写为
 
-![](../graphics/stm_eqn01626.gif)其中![](../graphics/stm_eqn01627.gif)是复模态振幅。将[方程2.6.2-3](02s06a34.md)代入[方程2.6.2-1](02s06a34.md)并左乘![](../graphics/stm_eqn01628.gif)，提供了投影到子空间上的运动方程：
+![](../graphics/stm_eqn01626.gif)其中![](../graphics/stm_eqn01627.gif)是复模态振幅。将[方程2.6.2-3](02s06a34-Subspace-based-steady-state-dynamic-anal.md)代入[方程2.6.2-1](02s06a34-Subspace-based-steady-state-dynamic-anal.md)并左乘![](../graphics/stm_eqn01628.gif)，提供了投影到子空间上的运动方程：
 
 ![](../graphics/stm_eqn01629.gif)其中
 
@@ -30,13 +30,13 @@
 
 对于谐波激励和响应，我们可以写为
 
-![](../graphics/stm_eqn01631.gif)其中![](../graphics/stm_eqn01632.gif)和![](../graphics/stm_eqn01633.gif)是模态振幅的实部和虚部，![](../graphics/stm_eqn01634.gif)和![](../graphics/stm_eqn01635.gif)是投影到子空间后施加在结构上的力的振幅的实部和虚部。将[方程2.6.2-4](02s06a34.md)中谐波激励和响应的表达式代入，并将结果写为矩阵形式，得到
+![](../graphics/stm_eqn01631.gif)其中![](../graphics/stm_eqn01632.gif)和![](../graphics/stm_eqn01633.gif)是模态振幅的实部和虚部，![](../graphics/stm_eqn01634.gif)和![](../graphics/stm_eqn01635.gif)是投影到子空间后施加在结构上的力的振幅的实部和虚部。将[方程2.6.2-4](02s06a34-Subspace-based-steady-state-dynamic-anal.md)中谐波激励和响应的表达式代入，并将结果写为矩阵形式，得到
 
 ![](../graphics/stm_eqn01636.gif)其中
 
 ![](../graphics/stm_eqn01637.gif)
 
-求解复模态振幅![](../graphics/stm_eqn01627.gif)的实部和虚部，并使用[方程2.6.2-3](02s06a34.md)计算节点位移的实部和虚部。
+求解复模态振幅![](../graphics/stm_eqn01627.gif)的实部和虚部，并使用[方程2.6.2-3](02s06a34-Subspace-based-steady-state-dynamic-anal.md)计算节点位移的实部和虚部。
 
 对于耦合声学-结构分析，开发过程类似。然而，在这种情况下，"阻尼"矩阵还包含体积 drag、阻抗边界、辐射边界和流固耦合效应。虽然耦合声学-结构特征值提取问题的原始公式是非对称的，但方程被重新排列，使得流固耦合效应被保留而不使问题非对称。结果得到的模态和频率与耦合、无阻尼的流固系统相关联。基于子空间的稳态动力学过程将完整的、耦合的、有阻尼的声学-结构方程组投影到耦合流固模态所跨越的空间上。
 

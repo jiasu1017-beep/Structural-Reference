@@ -4,7 +4,7 @@
 
 **产品：** Abaqus/Standard  Abaqus/Explicit
 
-设![](../graphics/stm_eqn04979.gif)为放置钢筋的基本有限单元的等参坐标。设![](../graphics/stm_eqn04980.gif)为增强表面上的等参坐标，![](../graphics/stm_eqn04981.gif)。设*t*为沿钢筋方向的材料坐标。见[图3.7.2-1](03s07a89.md)。
+设![](../graphics/stm_eqn04979.gif)为放置钢筋的基本有限单元的等参坐标。设![](../graphics/stm_eqn04980.gif)为增强表面上的等参坐标，![](../graphics/stm_eqn04981.gif)。设*t*为沿钢筋方向的材料坐标。见[图3.7.2-1](03s07a89-Rebar-modeling-in-three-dimensions.md)。
 
 图3.7.2-1 实体三维单元中的钢筋。
 

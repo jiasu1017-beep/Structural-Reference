@@ -21,7 +21,7 @@
 
 ![](../graphics/stm_eqn03814.gif)其中![](../graphics/stm_eqn03815.gif)和![](../graphics/stm_eqn03816.gif)是在梁的点![](../graphics/stm_eqn03804.gif)处与轴向变形相关的任何材料应力和应变度量，因为假定应变很小。为此，我们将使用Green应变，所以
 
-![](../graphics/graphics/stm_eqn03817.gif)其中![](../graphics/stm_eqn03818.gif)是当前配置长度与纤维轴向上参考配置长度之比的平方。从[公式3.5.3-1](03s05a75.md)及其在参考配置中的等价物，我们有
+![](../graphics/stm_eqn03817.gif)其中![](../graphics/stm_eqn03818.gif)是当前配置长度与纤维轴向上参考配置长度之比的平方。从[公式3.5.3-1](03s05a75-Euler-Bernoulli-beam-elements.md)及其在参考配置中的等价物，我们有
 
 ![](../graphics/stm_eqn03819.gif)同样，由于细长假设忽略*g*和*h*中除一阶外的所有项，这变为
 
@@ -72,7 +72,7 @@
 ![](../graphics/stm_eqn03839.gif)
 ### 内部虚功率Jacobian
 
-对于总体牛顿法的Jacobian矩阵，[公式2.1.1-3](02s01a13.md)，必须形成关于节点位移变分的内部功变分的变分。本构理论写成
+对于总体牛顿法的Jacobian矩阵，[公式2.1.1-3](02s01a13-Procedures-overview-and-basic-equations.md)，必须形成关于节点位移变分的内部功变分的变分。本构理论写成
 
 ![](../graphics/stm_eqn03840.gif)所以
 
@@ -109,7 +109,7 @@
 
 ![](../graphics/stm_eqn03864.gif)适当组合项，
 
-![](../graphics/stm_eqn03865.gif)因此，从[公式3.5.3-2](03s05a75.md)
+![](../graphics/stm_eqn03865.gif)因此，从[公式3.5.3-2](03s05a75-Euler-Bernoulli-beam-elements.md)
 
 ![](../graphics/stm_eqn03866.gif)以类似方式，可以表明
 
@@ -161,7 +161,7 @@
 
 ![](../graphics/stm_eqn03891.gif)由这些变量和初始几何定义。此外，![](../graphics/stm_eqn03884.gif)可直接从![](../graphics/stm_eqn03889.gif)和![](../graphics/stm_eqn00479.gif)获得。因此，上述集合是一组令人满意的节点变量。为了消除不需要的轴向应变约束，在Abaqus中，每个这种单元的节点处的拉伸![](../graphics/stm_eqn03892.gif)被作为单元的内部变量（为此创建了第三个内部节点，因此它不与相邻单元共享。）
 
-应该指出，上述变换（[公式3.5.3-3](03s05a75.md)）是非线性的。这导致一些复杂性——例如，d'Alembert力不再具有简单形式![](../graphics/stm_eqn03893.gif)，而是矩阵![](../graphics/stm_eqn03894.gif)替换![](../graphics/stm_eqn03895.gif)，其中![](../graphics/stm_eqn03896.gif)和![](../graphics/stm_eqn03897.gif)使用变换（[公式3.5.3-3](03s05a75.md)）及其适当的时间导数。所得Jacobian是非对称的；Abaqus忽略非对称项。
+应该指出，上述变换（[公式3.5.3-3](03s05a75-Euler-Bernoulli-beam-elements.md)）是非线性的。这导致一些复杂性——例如，d'Alembert力不再具有简单形式![](../graphics/stm_eqn03893.gif)，而是矩阵![](../graphics/stm_eqn03894.gif)替换![](../graphics/stm_eqn03895.gif)，其中![](../graphics/stm_eqn03896.gif)和![](../graphics/stm_eqn03897.gif)使用变换（[公式3.5.3-3](03s05a75-Euler-Bernoulli-beam-elements.md)）及其适当的时间导数。所得Jacobian是非对称的；Abaqus忽略非对称项。
 ### 积分
 
 横截面积分已在剪切梁的背景下讨论过——对这些梁来说是一样的。沿梁轴线，积分方案如下所述。

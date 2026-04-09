@@ -6,7 +6,7 @@
 
 The generalized plane strain theory used in Abaqus assumes that the model lies between two bounding planes, which may move as rigid bodies with respect to each other, thus causing strain of the "thickness direction" fibers of the model. It is assumed that the deformation of the model is independent of position with respect to this thickness direction, so the relative motion of the two planes causes a direct strain of the thickness direction fibers only. This strain and its first and second variations are defined as follows.
 
-Let ![](../graphics/stm_eqn03039.gif) be a fixed point in one of the bounding planes, as shown in [Figure 3.2.7&#8211;1](03s02a65.md). The length of the fiber between ![](../graphics/stm_eqn03040.gif) and its image in the other bounding plane is ![](../graphics/stm_eqn03041.gif), where ![](../graphics/stm_eqn00945.gif) is the length of this fiber in the initial configuration and ![](../graphics/stm_eqn03042.gif) is the change in length of this fiber. ![](../graphics/stm_eqn03042.gif) is the value of degree of freedom 3 at the reference node of the element.
+Let ![](../graphics/stm_eqn03039.gif) be a fixed point in one of the bounding planes, as shown in [Figure 3.2.7&#8211;1](03s02a65-Generalized-plane-strain-elements.md). The length of the fiber between ![](../graphics/stm_eqn03040.gif) and its image in the other bounding plane is ![](../graphics/stm_eqn03041.gif), where ![](../graphics/stm_eqn00945.gif) is the length of this fiber in the initial configuration and ![](../graphics/stm_eqn03042.gif) is the change in length of this fiber. ![](../graphics/stm_eqn03042.gif) is the value of degree of freedom 3 at the reference node of the element.
 
 Figure 3.2.7&#8211;1 Generalized plane strain element.
 

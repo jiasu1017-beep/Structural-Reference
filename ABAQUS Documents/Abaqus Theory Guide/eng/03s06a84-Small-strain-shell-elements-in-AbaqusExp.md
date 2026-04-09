@@ -9,13 +9,13 @@ The small-strain shell elements in Abaqus/Explicit use a Mindlin-Reissner type o
 
 The geometry of the shell is defined by its reference surface, which is determined by the nodal coordinates of the element. The embedded element corotational coordinate system, ![](../graphics/stm_eqn04513.gif), is tangent to the reference surface and rotates with the element. This embedded corotational coordinate system serves as a local coordinate system and is constructed as follows:
 
-For the quadrilateral element the local coordinate ![](../graphics/stm_eqn04514.gif) is coincident with the line connecting the midpoints of sides, ![](../graphics/stm_eqn04515.gif), as shown in [Figure 3.6.6&#8211;1](03s06a84.md).
+For the quadrilateral element the local coordinate ![](../graphics/stm_eqn04514.gif) is coincident with the line connecting the midpoints of sides, ![](../graphics/stm_eqn04515.gif), as shown in [Figure 3.6.6&#8211;1](03s06a84-Small-strain-shell-elements-in-AbaqusExp.md).
 
 Figure 3.6.6&#8211;1 Local coordinate system for small-strain quadrilateral and triangular shell elements.
 
 ![](../graphics/stmsmstrain-quadtri-shells.png)The ![](../graphics/stm_eqn04514.gif)&#8211;![](../graphics/stm_eqn04516.gif) plane is defined to pass through this line normal to the cross product ![](../graphics/stm_eqn04517.gif).
 
-For the triangular element the local coordinate ![](../graphics/stm_eqn04514.gif) is coincident with the side connecting nodes 1 and 2 as shown in [Figure 3.6.6&#8211;1](03s06a84.md). The ![](../graphics/stm_eqn04514.gif)&#8211;![](../graphics/stm_eqn04516.gif) plane coincides with the plane of the element.For notational purposes the corotational coordinate system is defined by a triad ![](../graphics/stm_eqn04518.gif), and any vector or tensor whose components are expressed in this system will bear a superposed "hat."
+For the triangular element the local coordinate ![](../graphics/stm_eqn04514.gif) is coincident with the side connecting nodes 1 and 2 as shown in [Figure 3.6.6&#8211;1](03s06a84-Small-strain-shell-elements-in-AbaqusExp.md). The ![](../graphics/stm_eqn04514.gif)&#8211;![](../graphics/stm_eqn04516.gif) plane coincides with the plane of the element.For notational purposes the corotational coordinate system is defined by a triad ![](../graphics/stm_eqn04518.gif), and any vector or tensor whose components are expressed in this system will bear a superposed "hat."
 
 Although the corotational coordinate system described here is used in the actual element computations, this system is transparent to the user. All reported stresses, strains, and other tensorial quantities for these shell elements are defined with respect to the coordinate system described in "Finite-strain shell element formulation,"  Section 3.6.5.
 ### Velocity strain formulation
@@ -104,7 +104,7 @@ The components of the transverse shear velocity strain are given by
 
 ![](../graphics/stm_eqn04559.gif)
 
-![](../graphics/stm_eqn04560.gif)where nodal rotational components ![](../graphics/stm_eqn04561.gif) and ![](../graphics/stm_eqn04562.gif) are based on a projection and a transformation. Consider three adjacent local element nodes *K*, *I*, and *J* as shown in [Figure 3.6.6&#8211;2](03s06a84.md). Outward facing vectors ![](../graphics/stm_eqn04563.gif) and ![](../graphics/stm_eqn04564.gif) are constructed perpendicular to element sides ![](../graphics/stm_eqn04565.gif) and ![](../graphics/stm_eqn04566.gif), respectively. In addition, they are tangent to the reference surface at the midsides.
+![](../graphics/stm_eqn04560.gif)where nodal rotational components ![](../graphics/stm_eqn04561.gif) and ![](../graphics/stm_eqn04562.gif) are based on a projection and a transformation. Consider three adjacent local element nodes *K*, *I*, and *J* as shown in [Figure 3.6.6&#8211;2](03s06a84-Small-strain-shell-elements-in-AbaqusExp.md). Outward facing vectors ![](../graphics/stm_eqn04563.gif) and ![](../graphics/stm_eqn04564.gif) are constructed perpendicular to element sides ![](../graphics/stm_eqn04565.gif) and ![](../graphics/stm_eqn04566.gif), respectively. In addition, they are tangent to the reference surface at the midsides.
 
 Figure 3.6.6&#8211;2 Vector and edge definition for shear projection in the element S4RSW.
 

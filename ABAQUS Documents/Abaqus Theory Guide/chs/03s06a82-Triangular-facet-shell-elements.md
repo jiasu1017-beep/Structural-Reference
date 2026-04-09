@@ -56,7 +56,7 @@ Abaqus/Standard中的STRI3单元类型是一个面壳——一个用于近似壳
 
 ![](../graphics/stm_eqn04181.gif)而在![](../graphics/stm_eqn04182.gif)中，
 
-![](../graphics/graphics/stm_eqn04183.gif)
+![](../graphics/stm_eqn04183.gif)
 
 此外，对于用于在节点处引入额外刚度以避免由法线方向旋转分量引起的奇异性的"应变"，
 

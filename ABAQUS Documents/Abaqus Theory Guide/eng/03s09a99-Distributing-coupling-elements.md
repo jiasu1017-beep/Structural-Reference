@@ -13,7 +13,7 @@ The reference node has displacement ![](../graphics/stm_eqn05493.gif) and rotati
 
 Let ![](../graphics/stm_eqn05498.gif) and ![](../graphics/stm_eqn05499.gif) be the load and moment applied to the reference node. The statically admissible force distribution ![](../graphics/stm_eqn03432.gif) among the coupling nodes satisfies
 
-![](../graphics/stm_eqn05500.gif)where ![](../graphics/stm_eqn05501.gif) and ![](../graphics/stm_eqn05502.gif) are the positions of the reference and coupling nodes, respectively. For an arbitrary number of coupling nodes there is no unique solution to [Equation 3.9.8&#8211;1](03s09a99.md).
+![](../graphics/stm_eqn05500.gif)where ![](../graphics/stm_eqn05501.gif) and ![](../graphics/stm_eqn05502.gif) are the positions of the reference and coupling nodes, respectively. For an arbitrary number of coupling nodes there is no unique solution to [Equation 3.9.8&#8211;1](03s09a99-Distributing-coupling-elements.md).
 
 The force distribution adopted in Abaqus has the property that the linearized motion of the reference node is compatible with the coupling node group motion in an average sense. This compatibility can be described by considering the momentum of a moving coupling node group in a case where weight factors are considered as masses. In this case the reference node motion is identical to that of a point on a rigid body occupying the position of the reference node, where the center of mass of the rigid body is the center of mass of the coupling nodes and the rigid body moves with the same linear and angular momentum as the coupling node group. Since the element mass is distributed this way, the dynamic behavior of the element also has this property.
 
@@ -51,7 +51,7 @@ The virtual work expression for the attached structure is augmented with the con
 ![](../graphics/stm_eqn05514.gif)where ![](../graphics/stm_eqn05515.gif) is the augmented virtual work expression, ![](../graphics/stm_eqn04709.gif) is the virtual work expression for the attached structure, and ![](../graphics/stm_eqn05516.gif) and ![](../graphics/stm_eqn05517.gif) are the respective Lagrange multiplier variables for force and moment.
 ### Initial stress stiffness terms
 
-The initial stress stiffness terms are derived from a suitable approximation of the exact virtual work expression shown in [Equation 3.9.8&#8211;2](03s09a99.md). This approximation is based on an assumption of infinitesimal incremental motions, ![](../graphics/stm_eqn05518.gif) and ![](../graphics/stm_eqn05519.gif), that implies
+The initial stress stiffness terms are derived from a suitable approximation of the exact virtual work expression shown in [Equation 3.9.8&#8211;2](03s09a99-Distributing-coupling-elements.md). This approximation is based on an assumption of infinitesimal incremental motions, ![](../graphics/stm_eqn05518.gif) and ![](../graphics/stm_eqn05519.gif), that implies
 
 ![](../graphics/stm_eqn05520.gif)An approximate virtual work expression is obtained:
 

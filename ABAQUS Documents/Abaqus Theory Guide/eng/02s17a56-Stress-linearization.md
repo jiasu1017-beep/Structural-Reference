@@ -33,7 +33,7 @@ The membrane values of the stress components are computed using the following eq
 
 *x* is the coordinate along the path.The linear bending values of the stress components are computed using the following equations:
 
-![](../graphics/stm_eqn02728.gif)where ![](../graphics/stm_eqn02729.gif) and ![](../graphics/stm_eqn02730.gif) are the bending values of the stress at point A and point B (the endpoints of the section; see [Figure 2.17.1&#8211;1](02s17a56.md)).
+![](../graphics/stm_eqn02728.gif)where ![](../graphics/stm_eqn02729.gif) and ![](../graphics/stm_eqn02730.gif) are the bending values of the stress at point A and point B (the endpoints of the section; see [Figure 2.17.1&#8211;1](02s17a56-Stress-linearization.md)).
 
 Figure 2.17.1&#8211;1 Recommended stress paths.
 
@@ -45,7 +45,7 @@ The integration is performed numerically. Assuming the path between point A and 
 
 ![](../graphics/stm_eqn02732.gif)where ![](../graphics/stm_eqn02733.gif) is the stress at point *j* along the path.Axisymmetric structures
 
-The derivation of the above equations is similar for the axisymmetric case, except for the fact that the neutral axis is shifted radially outward. Separate expressions are obtained for the stresses in the thickness, meridional, and hoop directions. In Abaqus/CAE these are represented as local directions 1, 2, and 3, respectively (see [Figure 2.17.1&#8211;2](02s17a56.md)).
+The derivation of the above equations is similar for the axisymmetric case, except for the fact that the neutral axis is shifted radially outward. Separate expressions are obtained for the stresses in the thickness, meridional, and hoop directions. In Abaqus/CAE these are represented as local directions 1, 2, and 3, respectively (see [Figure 2.17.1&#8211;2](02s17a56-Stress-linearization.md)).
 
 Figure 2.17.1&#8211;2 Stress directions.
 

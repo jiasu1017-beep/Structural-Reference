@@ -18,7 +18,7 @@
 
 ![](../graphics/stm_eqn01358.gif)其中![](../graphics/stm_eqn01359.gif)是模态的结构阻尼系数。Rayleigh阻尼由![](../graphics/stm_eqn01360.gif)定义；![](../graphics/stm_eqn01361.gif)和![](../graphics/stm_eqn01362.gif)分别是阻尼低频和高频模态的Rayleigh系数。Rayleigh阻尼可以精确地由模态阻尼重现为
 
-![](../graphics/stm_eqn01363.gif)将所有这些阻尼定义引入[方程2.5.7-1](02s05a30.md)给出
+![](../graphics/stm_eqn01363.gif)将所有这些阻尼定义引入[方程2.5.7-1](02s05a30-Steady-state-linear-dynamic-analysis.md)给出
 
 ![](../graphics/stm_eqn01364.gif)该方程的解为
 

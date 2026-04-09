@@ -12,11 +12,11 @@ The mathematical eigenvalue problem is a classical field of study, and much work
 
 ![](../graphics/stm_eqn01083.gif)where ![](../graphics/stm_eqn01084.gif) is the mass matrix, which is symmetric and positive definite in the problems of interest here; ![](../graphics/stm_eqn01085.gif) is the damping matrix; ![](../graphics/stm_eqn01086.gif) is the stiffness matrix, which may include large-displacement effects, such as "stress stiffening" (initial stress terms), and, therefore, may not be positive definite or symmetric; ![](../graphics/stm_eqn01087.gif) is the eigenvalue; and ![](../graphics/stm_eqn01088.gif) is the eigenvector---the mode of vibration. This equation is available immediately from a linear perturbation of the equilibrium equation of the system.
 
-The eigensystem ([Equation 2.5.1&#8211;1](02s05a24.md)) in general will have complex eigenvalues and eigenvectors. This system can be symmetrized by assuming that ![](../graphics/stm_eqn01086.gif) is symmetric and by neglecting ![](../graphics/stm_eqn01085.gif) during eigenvalue extraction. The symmetrized system has real squared eigenvalues, ![](../graphics/stm_eqn01089.gif), and real eigenvectors only.
+The eigensystem ([Equation 2.5.1&#8211;1](02s05a24-Eigenvalue-extraction.md)) in general will have complex eigenvalues and eigenvectors. This system can be symmetrized by assuming that ![](../graphics/stm_eqn01086.gif) is symmetric and by neglecting ![](../graphics/stm_eqn01085.gif) during eigenvalue extraction. The symmetrized system has real squared eigenvalues, ![](../graphics/stm_eqn01089.gif), and real eigenvectors only.
 
 Typically, for symmetric eigenproblems we will also assume that ![](../graphics/stm_eqn01086.gif) is positive semidefinite. In this case ![](../graphics/stm_eqn01087.gif) becomes an imaginary eigenvalue, ![](../graphics/stm_eqn01090.gif), where ![](../graphics/stm_eqn01091.gif) is the circular frequency, and the eigenvalue problem can be written as
 
-![](../graphics/stm_eqn01092.gif)If the model contains hybrid elements, contact pairs, or contact elements, the system of equations contains Lagrange multipliers and the stiffness matrix ![](../graphics/stm_eqn01086.gif) becomes indefinite. However, all the terms of the mass matrix corresponding to the Lagrange multipliers are equal to zero. Therefore, all the eigenvalues are imaginary, and the eigenvalue problem can still be written as [Equation 2.5.1&#8211;2](02s05a24.md).
+![](../graphics/stm_eqn01092.gif)If the model contains hybrid elements, contact pairs, or contact elements, the system of equations contains Lagrange multipliers and the stiffness matrix ![](../graphics/stm_eqn01086.gif) becomes indefinite. However, all the terms of the mass matrix corresponding to the Lagrange multipliers are equal to zero. Therefore, all the eigenvalues are imaginary, and the eigenvalue problem can still be written as [Equation 2.5.1&#8211;2](02s05a24-Eigenvalue-extraction.md).
 
 Abaqus provides eigenvalue extraction procedures for both symmetric and complex eigenproblems. For symmetrized eigenproblems Abaqus/Standard offers two approaches: Lanczos and subspace iteration methods. For complex eigenproblems the subspace projection method is used.
 ### Eigenvalue extraction for symmetric systems
@@ -55,7 +55,7 @@ The implementation of the Lanczos eigensolver as a powerful tool for extraction 
 
 The Lanczos procedure in Abaqus/Standard consists of a set of Lanczos "runs," in each of which a set of iterations called steps is performed. For each Lanczos run the following spectral transformation is applied:
 
-![](../graphics/stm_eqn01109.gif)where ![](../graphics/stm_eqn01110.gif) is the shift, ![](../graphics/stm_eqn01111.gif) is the eigenvalue, and ![](../graphics/stm_eqn01088.gif) is the eigenvector. This transformation allows rapid convergence to the desired eigenvalues. The eigenvectors of the symmetrized problem ([Equation 2.5.1&#8211;2](02s05a24.md)) and the transformed problem ([Equation 2.5.1&#8211;5](02s05a24.md)) are identical, while the eigenvalues of the original problem and the transformed problem are related in the following manner:
+![](../graphics/stm_eqn01109.gif)where ![](../graphics/stm_eqn01110.gif) is the shift, ![](../graphics/stm_eqn01111.gif) is the eigenvalue, and ![](../graphics/stm_eqn01088.gif) is the eigenvector. This transformation allows rapid convergence to the desired eigenvalues. The eigenvectors of the symmetrized problem ([Equation 2.5.1&#8211;2](02s05a24-Eigenvalue-extraction.md)) and the transformed problem ([Equation 2.5.1&#8211;5](02s05a24-Eigenvalue-extraction.md)) are identical, while the eigenvalues of the original problem and the transformed problem are related in the following manner:
 
 ![](../graphics/stm_eqn01112.gif)
 
@@ -103,7 +103,7 @@ Solve the following reduced eigenvalue problem for the band matrix ![](../graphi
 
 ![](../graphics/stm_eqn01135.gif)and ![](../graphics/stm_eqn01136.gif) and ![](../graphics/stm_eqn01137.gif) are, respectively, the matrices containing the eigenvectors and eigenvalues of the reduced eigenproblem. This problem is solved by the Householder and Q-R algorithms, which are discussed below.
 
-Determine the error bounds in eigenvalue approximation for the symmetrized eigenvalue problem ([Equation 2.5.1&#8211;2](02s05a24.md)) (see [Parlett, 1980](07s01a01-References.md); [Grimes, Lewis, and Simon, 1994](07s01a01-References.md)). Check the termination conditions of the Lanczos run.The Lanczos run terminates if one of the following conditions is satisfied:
+Determine the error bounds in eigenvalue approximation for the symmetrized eigenvalue problem ([Equation 2.5.1&#8211;2](02s05a24-Eigenvalue-extraction.md)) (see [Parlett, 1980](07s01a01-References.md); [Grimes, Lewis, and Simon, 1994](07s01a01-References.md)). Check the termination conditions of the Lanczos run.The Lanczos run terminates if one of the following conditions is satisfied:
 
 All the eigenvalues required for the current run are extracted.
 
@@ -113,7 +113,7 @@ The number of Lanczos steps exceeds the maximum number allowed.
 
 Continuation of the current run is evaluated to be inefficient. This decision is based on the estimation of the "cost per eigenvalue" over the next few steps (the Lanczos run is continued as long as the cost per eigenvalue is decreasing).
 
-After termination of each Lanczos run, the converged eigenvectors of the symmetrized problem ([Equation 2.5.1&#8211;2](02s05a24.md)) are recovered using the blocks of vectors ![](../graphics/stm_eqn01138.gif) and the eigenvectors ![](../graphics/stm_eqn01136.gif).
+After termination of each Lanczos run, the converged eigenvectors of the symmetrized problem ([Equation 2.5.1&#8211;2](02s05a24-Eigenvalue-extraction.md)) are recovered using the blocks of vectors ![](../graphics/stm_eqn01138.gif) and the eigenvectors ![](../graphics/stm_eqn01136.gif).
 
 Once the Lanczos run for the shift ![](../graphics/stm_eqn01139.gif) is completed, the shift value ![](../graphics/stm_eqn01140.gif) is computed using the results of all the previous Lanczos runs. To describe the shifting strategy, the following concepts are introduced:
 
@@ -121,13 +121,13 @@ The "computational interval" is the interval between the minimum and maximum eig
 
 The Sturm sequence number, ![](../graphics/stm_eqn01141.gif), of a real nonsingular symmetric matrix ![](../graphics/stm_eqn00147.gif) is the number of negative eigenvalues. This number is equal to the number of negative terms in the diagonal matrix ![](../graphics/stm_eqn01142.gif) of the Cholesky decomposition ![](../graphics/stm_eqn01143.gif) and is, therefore, available after the Cholesky decomposition is completed.
 
-Let ![](../graphics/stm_eqn01113.gif) and ![](../graphics/stm_eqn01144.gif) be two shift values such that ![](../graphics/stm_eqn01145.gif) Then the number of eigenvalues of the symmetrized problem ([Equation 2.5.1&#8211;2](02s05a24.md), assuming that ![](../graphics/stm_eqn01084.gif) is positive definite or positive semidefinite) in the interval ![](../graphics/stm_eqn01146.gif) is equal to ![](../graphics/stm_eqn01147.gif) If this number is equal to the number of eigenvalues actually determined by the Lanczos algorithm, the interval ![](../graphics/stm_eqn01146.gif) is called "a trust interval." The trust interval containing the center point is referred to as "a primary trust interval" (denoted by the key "+" in the trust intervals list printed in the message file). The shifting strategy is aimed at constructing the primary trust interval inside the computational interval containing the required number of eigenvalues closest to the center point.
+Let ![](../graphics/stm_eqn01113.gif) and ![](../graphics/stm_eqn01144.gif) be two shift values such that ![](../graphics/stm_eqn01145.gif) Then the number of eigenvalues of the symmetrized problem ([Equation 2.5.1&#8211;2](02s05a24-Eigenvalue-extraction.md), assuming that ![](../graphics/stm_eqn01084.gif) is positive definite or positive semidefinite) in the interval ![](../graphics/stm_eqn01146.gif) is equal to ![](../graphics/stm_eqn01147.gif) If this number is equal to the number of eigenvalues actually determined by the Lanczos algorithm, the interval ![](../graphics/stm_eqn01146.gif) is called "a trust interval." The trust interval containing the center point is referred to as "a primary trust interval" (denoted by the key "+" in the trust intervals list printed in the message file). The shifting strategy is aimed at constructing the primary trust interval inside the computational interval containing the required number of eigenvalues closest to the center point.
 
 One of the most important features in the formulation of the shift update strategy is the concept of a "sentinel." The sentinels are the endpoints of the intervals containing exclusively converged eigenvalues closest to the current shift value (in each direction). The sentinels are computed during each Lanczos run and are updated at the end of each step after the eigenvalue analysis of the reduced matrix ![](../graphics/stm_eqn01133.gif) is completed. The basic assumption is that there are no missing eigenvalues inside the sentinels; therefore, they are excluded from the computation intervals for the upcoming Lanczos runs. This assumption is later verified on the basis of the Sturm sequence check, and a special procedure is activated if some eigenvalues are missing. If no missing eigenvalues are detected, the sentinels transform directly into the corresponding trust intervals.
 
 The new shift values are selected on the basis of the nonconverged eigenvalue approximations after the Lanczos run is terminated. Assuming the same convergence properties for the upcoming runs, the new shift values are selected in such a way that the number of eigenvalues expected to be found in the upcoming runs will be close to the number of eigenvalues found inside the corresponding sentinels on the previous run.The Householder method with quarter rotation
 
-The Householder method is used to reduce a general matrix to a symmetric tridiagonal form. A tridiagonal matrix is one whose only nonzero entries are on or immediately adjacent to the diagonal. The first step is to transform [Equation 2.5.1&#8211;4](02s05a24.md) to the form
+The Householder method is used to reduce a general matrix to a symmetric tridiagonal form. A tridiagonal matrix is one whose only nonzero entries are on or immediately adjacent to the diagonal. The first step is to transform [Equation 2.5.1&#8211;4](02s05a24-Eigenvalue-extraction.md) to the form
 
 ![](../graphics/stm_eqn01148.gif)where ![](../graphics/stm_eqn01118.gif) is the identity matrix.
 
@@ -163,7 +163,7 @@ Then,
 
 ![](../graphics/stm_eqn01160.gif)This algorithm is developed in detail in [Strang's (1976)](07s01a01-References.md) book.
 
-The Householder algorithm produces a symmetric tridiagonal matrix, which has the same eigenvalues as the original matrix, because the transformation ([Equation 2.5.1&#8211;6](02s05a24.md)) does not alter the eigenvalues.
+The Householder algorithm produces a symmetric tridiagonal matrix, which has the same eigenvalues as the original matrix, because the transformation ([Equation 2.5.1&#8211;6](02s05a24-Eigenvalue-extraction.md)) does not alter the eigenvalues.
 
 The next step is to calculate the eigenvalues of the tridiagonal matrix. This is done by the Q-R algorithm. In this method the matrix ![](../graphics/stm_eqn00147.gif), which is now tridiagonal (although this is not a requirement for the method to work), is factored into ![](../graphics/stm_eqn01161.gif), where ![](../graphics/stm_eqn01162.gif) is an orthonormal matrix (that is, ![](../graphics/stm_eqn01163.gif)) and ![](../graphics/stm_eqn01164.gif) is an upper-triangular matrix (that is, all the terms in ![](../graphics/stm_eqn01164.gif) below the diagonal are zero).
 
@@ -186,9 +186,9 @@ The final step after the eigenvalues have been obtained is to calculate the eige
 ![](../graphics/stm_eqn01170.gif)where ![](../graphics/stm_eqn00280.gif) is the eigenvalue just obtained and ![](../graphics/stm_eqn01171.gif) is any vector. Because the left-hand-side matrix is singular in the direction of the eigenvector ![](../graphics/stm_eqn01088.gif), this vector will be obtained regardless of the right-hand-side vector ![](../graphics/stm_eqn01171.gif), as long as ![](../graphics/stm_eqn01171.gif) is not orthogonal to the eigenvector. To ensure that consecutive vectors are orthogonal, especially in the case of multiple eigenvalues, ![](../graphics/stm_eqn01171.gif) is always chosen to be orthogonal to the previously extracted eigenvectors. Since ![](../graphics/stm_eqn01172.gif) is singular, a slight numerical shift must be included to decompose it and, thus, solve for ![](../graphics/stm_eqn01088.gif). In the standard notation used in this guide, the matrix of eigenvectors ![](../graphics/stm_eqn01173.gif) is written as ![](../graphics/stm_eqn01174.gif), where N refers to the nodal variable in the problem and ![](../graphics/stm_eqn01175.gif) is the mode number.
 ### Complex eigenvalue extraction
 
-Abaqus/Standard offers the subspace projection method to solve for complex eigenvalues and right eigenvectors of the original eigenproblem ([Equation 2.5.1&#8211;1](02s05a24.md)).Subspace projection method
+Abaqus/Standard offers the subspace projection method to solve for complex eigenvalues and right eigenvectors of the original eigenproblem ([Equation 2.5.1&#8211;1](02s05a24-Eigenvalue-extraction.md)).Subspace projection method
 
-In the subspace projection method the original eigensystem ([Equation 2.5.1&#8211;1](02s05a24.md)) is projected onto a subspace spanned by the eigenvectors of the undamped, symmetric system ([Equation 2.5.1&#8211;2](02s05a24.md)). Thus, the symmetrized eigenproblem must be solved prior to the complex eigenvalue extraction procedure to create the subspace onto which the original system will be projected. Next, the original mass, damping, and stiffness matrices are projected onto the subspace of *N* eigenvectors:
+In the subspace projection method the original eigensystem ([Equation 2.5.1&#8211;1](02s05a24-Eigenvalue-extraction.md)) is projected onto a subspace spanned by the eigenvectors of the undamped, symmetric system ([Equation 2.5.1&#8211;2](02s05a24-Eigenvalue-extraction.md)). Thus, the symmetrized eigenproblem must be solved prior to the complex eigenvalue extraction procedure to create the subspace onto which the original system will be projected. Next, the original mass, damping, and stiffness matrices are projected onto the subspace of *N* eigenvectors:
 
 ![](../graphics/stm_eqn01176.gif)
 
@@ -196,7 +196,7 @@ In the subspace projection method the original eigensystem ([Equation 2.5.1&#821
 
 ![](../graphics/stm_eqn01178.gif)Then, we arrive at the following eigenproblem:
 
-![](../graphics/stm_eqn01179.gif)Typically, the number of eigenvectors is relatively small; a few hundred is common. This small  complex eigenvalue system is solved using the standard QZ method for generalized nonsymmetric eigenproblems. Complex eigenvalues of the projected system are the approximation of the eigenvalues of the original system ([Equation 2.5.1&#8211;1](02s05a24.md)), but the right eigenvectors of the original system need to be recovered:
+![](../graphics/stm_eqn01179.gif)Typically, the number of eigenvectors is relatively small; a few hundred is common. This small  complex eigenvalue system is solved using the standard QZ method for generalized nonsymmetric eigenproblems. Complex eigenvalues of the projected system are the approximation of the eigenvalues of the original system ([Equation 2.5.1&#8211;1](02s05a24-Eigenvalue-extraction.md)), but the right eigenvectors of the original system need to be recovered:
 
 ![](../graphics/stm_eqn01180.gif)where ![](../graphics/stm_eqn01181.gif) is the approximation of *k*-th right eigenvector of the original system.
 

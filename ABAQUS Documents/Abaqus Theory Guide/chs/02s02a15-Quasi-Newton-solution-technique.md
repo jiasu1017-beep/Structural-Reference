@@ -4,21 +4,21 @@
 
 **产品：** Abaqus/Standard
 
-非线性分析中计算工作的一个主要贡献是求解非线性方程（[方程 2.2.1-1](02s02a14.md)）。在大多数情况下，Abaqus/Standard使用Newton方法求解这些方程，如"在Abaqus/Standard中的非线性求解方法"第2.2.1节中所述。Newton方法的主要优点是当迭代 *i* 处的近似在"收敛半径"内时（即当由 ![](../graphics/stm_eqn00718.gif) 定义的梯度提供对解的改进时），其二次收敛速率。该方法有两个主要缺点：必须计算Jacobian矩阵，而且必须求解同一个矩阵。Jacobian矩阵的计算是一个问题，因为在许多重要情况下，很难从代数上推导矩阵的形式。Jacobian的求解是一个问题，因为涉及计算工作：随着问题规模增加，线性方程的直接求解可能主导整个计算工作。
+非线性分析中计算工作的一个主要贡献是求解非线性方程（[方程 2.2.1-1](02s02a14-Nonlinear-solution-methods-in-AbaqusStan.md)）。在大多数情况下，Abaqus/Standard使用Newton方法求解这些方程，如"在Abaqus/Standard中的非线性求解方法"第2.2.1节中所述。Newton方法的主要优点是当迭代 *i* 处的近似在"收敛半径"内时（即当由 ![](../graphics/stm_eqn00718.gif) 定义的梯度提供对解的改进时），其二次收敛速率。该方法有两个主要缺点：必须计算Jacobian矩阵，而且必须求解同一个矩阵。Jacobian矩阵的计算是一个问题，因为在许多重要情况下，很难从代数上推导矩阵的形式。Jacobian的求解是一个问题，因为涉及计算工作：随着问题规模增加，线性方程的直接求解可能主导整个计算工作。
 
 有许多重要的非线性应用，其中Jacobian是对称的，条件相当好，并且在从一次迭代到下一次迭代中变化不大。例子包括相对于参与响应的固有振型的周期而言具有小时间增量的隐式动力时间积分，或者小位移弹塑性分析，其中屈服是受限的（如在许多实际断裂力学应用中发生的那样）。在这种情况下，特别是当问题很大时，使用Newton方法的替代方法来求解非线性方程可能更便宜。"拟Newton"方法就是这样一种方法；[Matthies and Strang (1979)](07s01a01-References.md) 已经表明，对于具有对称Jacobian矩阵的方程组，BFGS（Broyden、Fletcher、Goldfarb、Shanno）方法可以写成一种特别在计算机上有效的简单形式，并在此类应用中取得成功。该方法在Abaqus/Standard中实现并在本节中描述。用户必须明确选择此方法：默认情况下，Abaqus/Standard使用标准Newton方法。
 
 拟Newton方法的基础是获得一系列改进的Jacobian矩阵近似 ![](../graphics/stm_eqn00719.gif)，满足割线条件：
 
-![](../graphics/stm_eqn00720.gif)使得随着迭代进行，![](../graphics/stm_eqn00721.gif) 接近 ![](../graphics/stm_eqn00722.gif)。[方程 2.2.2-1](02s02a15.md) 是基本的拟Newton方程。
+![](../graphics/stm_eqn00720.gif)使得随着迭代进行，![](../graphics/stm_eqn00721.gif) 接近 ![](../graphics/stm_eqn00722.gif)。[方程 2.2.2-1](02s02a15-Quasi-Newton-solution-technique.md) 是基本的拟Newton方程。
 
 为方便起见，我们将残差从一次迭代到下一次迭代的变化定义为
 
-![](../graphics/stm_eqn00723.gif)以便 [方程 2.2.2-1](02s02a15.md) 可以写成
+![](../graphics/stm_eqn00723.gif)以便 [方程 2.2.2-1](02s02a15-Quasi-Newton-solution-technique.md) 可以写成
 
 ![](../graphics/stm_eqn00724.gif)其中 ![](../graphics/stm_eqn00725.gif) 是在"在Abaqus/Standard中的非线性求解方法"第2.2.1节中定义的从前一次迭代到解的修正。
 
-Matthies和Strang的BFGS方法实现是一种计算成本低廉的创建系列近似于 ![](../graphics/stm_eqn00726.gif) 的方法，满足 [方程 2.2.2-1](02s02a15.md) 并保持 ![](../graphics/stm_eqn00721.gif) 的对称性和正定性。它们通过使用"乘积加增量"形式更新 ![](../graphics/stm_eqn00727.gif) 到 ![](../graphics/stm_eqn00726.gif) 来实现：
+Matthies和Strang的BFGS方法实现是一种计算成本低廉的创建系列近似于 ![](../graphics/stm_eqn00726.gif) 的方法，满足 [方程 2.2.2-1](02s02a15-Quasi-Newton-solution-technique.md) 并保持 ![](../graphics/stm_eqn00721.gif) 的对称性和正定性。它们通过使用"乘积加增量"形式更新 ![](../graphics/stm_eqn00727.gif) 到 ![](../graphics/stm_eqn00726.gif) 来实现：
 
 ![](../graphics/stm_eqn00728.gif)其中
 

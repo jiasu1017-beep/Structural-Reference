@@ -25,7 +25,7 @@ Abaqus中使用的几何线性不兼容模式公式与[Simo和Rifai (1990)](07s0
 
 ![](../graphics/stm_eqn02966.gif)也可以表示为形式
 
-![](../graphics/graphics/stm_eqn02967.gif)此外，它必须与任何恒定梯度场正交，这产生条件
+![](../graphics/stm_eqn02967.gif)此外，它必须与任何恒定梯度场正交，这产生条件
 
 ![](../graphics/stm_eqn02968.gif)如果违反这些条件，单元将无法通过分片测试。
 
@@ -39,7 +39,7 @@ Abaqus中使用的几何线性不兼容模式公式与[Simo和Rifai (1990)](07s0
 
 ![](../graphics/stm_eqn02976.gif)其中*r*是半径；对于三维单元，它是
 
-![](../graphics/stm_eqn02977.gif)将[公式3.2.5-2](03s02a63.md)代入[公式3.2.5-1](03s02a63.md)允许我们为![](../graphics/stm_eqn02969.gif)创建一个简单条件：
+![](../graphics/stm_eqn02977.gif)将[公式3.2.5-2](03s02a63-Continuum-elements-with-incompatible-modes.md)代入[公式3.2.5-1](03s02a63-Continuum-elements-with-incompatible-modes.md)允许我们为![](../graphics/stm_eqn02969.gif)创建一个简单条件：
 
 ![](../graphics/stm_eqn02978.gif)
 
@@ -88,7 +88,7 @@ Abaqus中使用的几何线性不兼容模式公式与[Simo和Rifai (1990)](07s0
 
 ![](../graphics/stm_eqn03003.gif)
 
-类似于[公式3.2.5-2](03s02a63.md)，主要不兼容模式被描述为参数梯度场![](../graphics/stm_eqn03004.gif)的变换：
+类似于[公式3.2.5-2](03s02a63-Continuum-elements-with-incompatible-modes.md)，主要不兼容模式被描述为参数梯度场![](../graphics/stm_eqn03004.gif)的变换：
 
 ![](../graphics/stm_eqn03005.gif)其中![](../graphics/stm_eqn03006.gif)是增量开始时单元中心处的参数变换，
 

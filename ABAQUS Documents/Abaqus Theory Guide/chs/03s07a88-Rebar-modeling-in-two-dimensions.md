@@ -4,7 +4,7 @@
 
 **产品：** Abaqus/Standard  Abaqus/Explicit
 
-设![](../graphics/stm_eqn04949.gif)为单元的 usual等参坐标。设*r*为沿着单元面与增强平面相交线的等参坐标，在单元中![](../graphics/stm_eqn04950.gif)（参见[图3.7.1-1](03s07a88.md)）。
+设![](../graphics/stm_eqn04949.gif)为单元的 usual等参坐标。设*r*为沿着单元面与增强平面相交线的等参坐标，在单元中![](../graphics/stm_eqn04950.gif)（参见[图3.7.1-1](03s07a88-Rebar-modeling-in-two-dimensions.md)）。
 
 图3.7.1-1 实体二维单元中的钢筋。
 

@@ -15,13 +15,13 @@ This section describes the formulation of the generalized axisymmetric elements.
 
 The coordinate system used with both families of elements is the cylindrical system (*r*, *z*, ![](../graphics/stm_eqn01111.gif)), where *r* measures the distance of a point from the axis of the cylindrical system, *z* measures its position along this axis, and ![](../graphics/stm_eqn01111.gif) measures the angle between the plane containing the point and the axis of the coordinate system and some fixed reference plane that contains the coordinate system axis. The order in which the coordinates and displacements are taken in these elements is based on the convention that *z* is the second coordinate. This order is not the same as that used in three-dimensional elements in Abaqus, in which *z* is the third coordinate, nor is it the order (*r*, ![](../graphics/stm_eqn01111.gif), *z*), usually taken in cylindrical systems.
 
-Let ![](../graphics/stm_eqn03061.gif), ![](../graphics/stm_eqn03062.gif), and ![](../graphics/stm_eqn03063.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the undeformed state, as shown in [Figure 3.2.8&#8211;1](03s02a66.md).
+Let ![](../graphics/stm_eqn03061.gif), ![](../graphics/stm_eqn03062.gif), and ![](../graphics/stm_eqn03063.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the undeformed state, as shown in [Figure 3.2.8&#8211;1](03s02a66-Axisymmetric-elements.md).
 
 Figure 3.2.8&#8211;1 Cylindrical coordinate system and definition of position vectors.
 
 ![](../graphics/stmcylsys.png)The reference position ![](../graphics/stm_eqn00141.gif) of the point can be represented in terms of the original radius *R* and the axial position *Z*:
 
-![](../graphics/stm_eqn03064.gif)Likewise, let ![](../graphics/stm_eqn03065.gif), ![](../graphics/stm_eqn03066.gif), and ![](../graphics/stm_eqn03067.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the deformed state. As shown in [Figure 3.2.8&#8211;1](03s02a66.md), the radial and circumferential base vectors depend on the ![](../graphics/stm_eqn01111.gif) coordinate: ![](../graphics/stm_eqn03068.gif) and ![](../graphics/stm_eqn03069.gif). The current position ![](../graphics/stm_eqn00117.gif) of the point can be represented in terms of the current radius *r* and the current axial position *z*:
+![](../graphics/stm_eqn03064.gif)Likewise, let ![](../graphics/stm_eqn03065.gif), ![](../graphics/stm_eqn03066.gif), and ![](../graphics/stm_eqn03067.gif) be unit vectors in the radial, axial, and circumferential directions at a point in the deformed state. As shown in [Figure 3.2.8&#8211;1](03s02a66-Axisymmetric-elements.md), the radial and circumferential base vectors depend on the ![](../graphics/stm_eqn01111.gif) coordinate: ![](../graphics/stm_eqn03068.gif) and ![](../graphics/stm_eqn03069.gif). The current position ![](../graphics/stm_eqn00117.gif) of the point can be represented in terms of the current radius *r* and the current axial position *z*:
 
 ![](../graphics/stm_eqn03070.gif)
 
@@ -37,7 +37,7 @@ The following isoparametric interpolation scheme for the motion is used:
 
 For a material point in space, the deformation gradient ![](../graphics/stm_eqn00319.gif) is defined as the gradient of the current position ![](../graphics/stm_eqn00117.gif) with respect to the original position ![](../graphics/stm_eqn00141.gif):
 
-![](../graphics/stm_eqn03084.gif)The current position ![](../graphics/stm_eqn00117.gif) is given by [Equation 3.2.8&#8211;1](03s02a66.md), and the gradient operator can be described in terms of partial derivatives with respect to the cylindrical coordinates:
+![](../graphics/stm_eqn03084.gif)The current position ![](../graphics/stm_eqn00117.gif) is given by [Equation 3.2.8&#8211;1](03s02a66-Axisymmetric-elements.md), and the gradient operator can be described in terms of partial derivatives with respect to the cylindrical coordinates:
 
 ![](../graphics/stm_eqn03085.gif)Since the radial and circumferential base vectors depend on the original circumferential coordinate ![](../graphics/stm_eqn01111.gif), the partial derivatives of these base vectors with respect to ![](../graphics/stm_eqn01111.gif) are nonvanishing:
 
@@ -49,7 +49,7 @@ For a material point in space, the deformation gradient ![](../graphics/stm_eqn0
 
 Alternatively, it can be written in matrix form as
 
-![](../graphics/stm_eqn03089.gif)where the motion given by [Equation 3.2.8&#8211;2](03s02a66.md) has been used explicitly.
+![](../graphics/stm_eqn03089.gif)where the motion given by [Equation 3.2.8&#8211;2](03s02a66-Axisymmetric-elements.md) has been used explicitly.
 
 Similarly, the inverse deformation gradient ![](../graphics/stm_eqn03090.gif) is readily obtained as
 
@@ -60,7 +60,7 @@ As discussed in "Equilibrium and virtual work,"  Section 1.5.1, the formulation 
 
 ![](../graphics/stm_eqn03093.gif)where ![](../graphics/stm_eqn03094.gif) is the linearized deformation gradient.
 
-Abaqus formulates the finite element equations in terms of a fixed spatial basis with respect to the axisymmetric twist degree of freedom. Therefore, the desired result for ![](../graphics/stm_eqn03094.gif) in [Equation 3.2.8&#8211;4](03s02a66.md) does not simply follow from the linearization of [Equation 3.2.8&#8211;3](03s02a66.md). Namely, it is necessary to cancel out the contributions from the variations
+Abaqus formulates the finite element equations in terms of a fixed spatial basis with respect to the axisymmetric twist degree of freedom. Therefore, the desired result for ![](../graphics/stm_eqn03094.gif) in [Equation 3.2.8&#8211;4](03s02a66-Axisymmetric-elements.md) does not simply follow from the linearization of [Equation 3.2.8&#8211;3](03s02a66-Axisymmetric-elements.md). Namely, it is necessary to cancel out the contributions from the variations
 
 ![](../graphics/stm_eqn03095.gif)To this end ![](../graphics/stm_eqn00319.gif) can be modified according to
 
@@ -87,7 +87,7 @@ As shown in "Procedures: overview and basic equations,"  Section 2.1.1, the cont
 
 ![](../graphics/stm_eqn03106.gif)The second variation in ![](../graphics/stm_eqn03107.gif) is obtained as
 
-![](../graphics/stm_eqn03108.gif)where ![](../graphics/stm_eqn03109.gif) has the same form as ![](../graphics/stm_eqn03110.gif) in [Equation 3.2.8&#8211;5](03s02a66.md). Moreover, in this formulation ![](../graphics/stm_eqn03111.gif) is nonzero, and it can be shown with the aid of "Rotation variables,"  Section 1.3.1, that ![](../graphics/stm_eqn03112.gif) has the form
+![](../graphics/stm_eqn03108.gif)where ![](../graphics/stm_eqn03109.gif) has the same form as ![](../graphics/stm_eqn03110.gif) in [Equation 3.2.8&#8211;5](03s02a66-Axisymmetric-elements.md). Moreover, in this formulation ![](../graphics/stm_eqn03111.gif) is nonzero, and it can be shown with the aid of "Rotation variables,"  Section 1.3.1, that ![](../graphics/stm_eqn03112.gif) has the form
 
 ![](../graphics/stm_eqn03113.gif)In component form,
 

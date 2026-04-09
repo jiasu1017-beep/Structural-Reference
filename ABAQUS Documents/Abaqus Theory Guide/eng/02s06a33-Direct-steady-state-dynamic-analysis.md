@@ -20,7 +20,7 @@ For the steady-state harmonic response we assume that the structure undergoes sm
 
 ![](../graphics/stm_eqn01601.gif)where ![](../graphics/stm_eqn01602.gif) is the elasticity matrix for the material, ![](../graphics/stm_eqn01603.gif) is the stiffness proportional damping factor (the other part of the Rayleigh damping assumption), and ![](../graphics/stm_eqn01604.gif) is the structural damping factor that forms the imaginary part of the stiffness matrix (known as the structural damping matrix). The strain and strain rate changes follow from the displacement and velocity changes:
 
-![](../graphics/stm_eqn01605.gif)This allows us to write [Equation 2.6.1&#8211;2](02s06a33.md) as
+![](../graphics/stm_eqn01605.gif)This allows us to write [Equation 2.6.1&#8211;2](02s06a33-Direct-steady-state-dynamic-analysis.md) as
 
 ![](../graphics/stm_eqn01606.gif)where we have defined the stiffness matrix
 
@@ -34,7 +34,7 @@ For harmonic excitation and response we can write
 
 ![](../graphics/stm_eqn01610.gif)and
 
-![](../graphics/stm_eqn01611.gif)where ![](../graphics/stm_eqn01612.gif) and ![](../graphics/stm_eqn01613.gif) are the real and imaginary parts of the amplitudes of the displacement, ![](../graphics/stm_eqn01614.gif) and ![](../graphics/stm_eqn01615.gif) are the real and imaginary parts of the amplitude of the force applied to the structure, and ![](../graphics/stm_eqn01258.gif) is the circular frequency. Substituting the expressions for harmonic excitation and response in [Equation 2.6.1&#8211;4](02s06a33.md) and writing the result in matrix form yields
+![](../graphics/stm_eqn01611.gif)where ![](../graphics/stm_eqn01612.gif) and ![](../graphics/stm_eqn01613.gif) are the real and imaginary parts of the amplitudes of the displacement, ![](../graphics/stm_eqn01614.gif) and ![](../graphics/stm_eqn01615.gif) are the real and imaginary parts of the amplitude of the force applied to the structure, and ![](../graphics/stm_eqn01258.gif) is the circular frequency. Substituting the expressions for harmonic excitation and response in [Equation 2.6.1&#8211;4](02s06a33-Direct-steady-state-dynamic-analysis.md) and writing the result in matrix form yields
 
 ![](../graphics/stm_eqn01616.gif)where
 

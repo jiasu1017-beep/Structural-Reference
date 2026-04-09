@@ -17,11 +17,11 @@ Node-based submodeling is the most commonly used technique. With this technique 
 
 In the solid-to-solid case the positions of the submodel boundary nodes (the driven nodes) are determined with respect to the global model, and the appropriate element interpolation functions are used to obtain the values of the degrees of freedom at the driven nodes. An "exterior tolerance," which the user can specify, is used to check whether it is valid to extrapolate values from the global model. In cases where the submodel boundary nodes fall outside the global model, the extrapolation is valid if the distance between the driven nodes and the free surface of the global model falls within the specified tolerance.
 
-A similar check is done along the global model boundaries for the shell-to-shell submodeling case. We also check whether the driven nodes of the submodel lie sufficiently close to the midsurface of the shell elements in the global model. To simplify the calculations, the closest point in the global model is approximated by measuring the distance in the direction normal to a flat approximation to each shell element in the global model, as shown in [Figure 2.15.1&#8211;1](02s15a51.md).
+A similar check is done along the global model boundaries for the shell-to-shell submodeling case. We also check whether the driven nodes of the submodel lie sufficiently close to the midsurface of the shell elements in the global model. To simplify the calculations, the closest point in the global model is approximated by measuring the distance in the direction normal to a flat approximation to each shell element in the global model, as shown in [Figure 2.15.1&#8211;1](02s15a51-Submodeling-analysis.md).
 
 Figure 2.15.1&#8211;1 Flat surface approximation in shell-to-shell submodeling.
 
-![](../graphics/stmflat-surf-approx-nls.png)For the shell-to-solid case Abaqus uses two kinds of tolerances to determine the relation between the submodel and the global model. First, the closest point on the shell midsurface of the global model is determined. This point will subsequently be referred to as the "image node" of the driven node. The exterior tolerance parameter is used to check if the image node lies within the domain of the global model. Then the distance between the driven node and its image is checked against half of the maximum shell thickness specified by the user (see [Figure 2.15.1&#8211;2](02s15a51.md)).
+![](../graphics/stmflat-surf-approx-nls.png)For the shell-to-solid case Abaqus uses two kinds of tolerances to determine the relation between the submodel and the global model. First, the closest point on the shell midsurface of the global model is determined. This point will subsequently be referred to as the "image node" of the driven node. The exterior tolerance parameter is used to check if the image node lies within the domain of the global model. Then the distance between the driven node and its image is checked against half of the maximum shell thickness specified by the user (see [Figure 2.15.1&#8211;2](02s15a51-Submodeling-analysis.md)).
 
 Figure 2.15.1&#8211;2 Center zone in shell-to-solid submodeling.
 
@@ -33,7 +33,7 @@ After the locations of the driven nodes (or image nodes for the shell-to-solid c
 
 For solid-to-solid and shell-to-shell submodeling, the interpolated values of displacements, rotations, temperatures, etc. are applied directly to the driven nodes. For these nodes the user can specify the individual degrees of freedom that are driven.Driven variables for shell-to-solid submodeling
 
-In the shell-to-solid case the driven degrees of freedom are chosen automatically, depending on the distance between the driven node and the midsurface of the shell. If the node lies within the center zone (specified by the user; see [Figure 2.15.1&#8211;2](02s15a51.md)), all displacement components are driven. If the node lies outside the center zone, only the displacement components parallel to the shell midsurface are driven. By default, the size of the center zone is taken as 10% of the maximum shell thickness. The procedure is described in detail below. The center zone should be large enough so that it contains at least one layer of nodes. If the transverse shear stresses at the submodel boundary are high and the submodel is highly refined in the thickness direction, this can result in high local stresses, since the shear force at the submodel boundary is only transferred at the driven nodes within the center zone. High transverse shear stresses occur only in regions where bending moments vary rapidly, and it is better not to locate the submodel boundary in such regions. It is best to locate the submodel boundary in areas of low transverse shear stress in the global model.
+In the shell-to-solid case the driven degrees of freedom are chosen automatically, depending on the distance between the driven node and the midsurface of the shell. If the node lies within the center zone (specified by the user; see [Figure 2.15.1&#8211;2](02s15a51-Submodeling-analysis.md)), all displacement components are driven. If the node lies outside the center zone, only the displacement components parallel to the shell midsurface are driven. By default, the size of the center zone is taken as 10% of the maximum shell thickness. The procedure is described in detail below. The center zone should be large enough so that it contains at least one layer of nodes. If the transverse shear stresses at the submodel boundary are high and the submodel is highly refined in the thickness direction, this can result in high local stresses, since the shear force at the submodel boundary is only transferred at the driven nodes within the center zone. High transverse shear stresses occur only in regions where bending moments vary rapidly, and it is better not to locate the submodel boundary in such regions. It is best to locate the submodel boundary in areas of low transverse shear stress in the global model.
 
 All displacement degrees of freedom are driven when the driven node lies within the center zone. For geometrically linear analysis these prescribed displacements are obtained from the displacements and rotations of the image node as
 
@@ -41,7 +41,7 @@ All displacement degrees of freedom are driven when the driven node lies within 
 
 ![](../graphics/stm_eqn02566.gif)
 
-For large-displacement analysis finite rotations must be taken into account. The finite rotation equivalent of [Equation 2.15.1&#8211;1](02s15a51.md) is
+For large-displacement analysis finite rotations must be taken into account. The finite rotation equivalent of [Equation 2.15.1&#8211;1](02s15a51-Submodeling-analysis.md) is
 
 ![](../graphics/stm_eqn02567.gif)where ![](../graphics/stm_eqn00162.gif) is the rotation matrix as defined in "Rotation variables,"  Section 1.3.1; ![](../graphics/stm_eqn00064.gif) is the identity tensor; and ![](../graphics/stm_eqn02568.gif) is the rotated vector connecting the image node to the driven node in the current configuration:
 
@@ -57,9 +57,9 @@ Since the submodeling capability in Abaqus is quite general and allows the use o
 
 In the schemes listed below the first procedure type applies to the global analysis and the second to the submodel analysis.
 
-General procedure to general procedure for small-displacement theory: [Equation 2.15.1&#8211;1](02s15a51.md) is used inside the center zone, and [Equation 2.15.1&#8211;3](02s15a51.md) is used outside the center zone.
+General procedure to general procedure for small-displacement theory: [Equation 2.15.1&#8211;1](02s15a51-Submodeling-analysis.md) is used inside the center zone, and [Equation 2.15.1&#8211;3](02s15a51-Submodeling-analysis.md) is used outside the center zone.
 
-General procedure to general procedure for large-displacement theory: [Equation 2.15.1&#8211;2](02s15a51.md) is used inside the center zone, and [Equation 2.15.1&#8211;4](02s15a51.md) outside the center zone.
+General procedure to general procedure for large-displacement theory: [Equation 2.15.1&#8211;2](02s15a51-Submodeling-analysis.md) is used inside the center zone, and [Equation 2.15.1&#8211;4](02s15a51-Submodeling-analysis.md) outside the center zone.
 
 General procedure to linear perturbation procedure for small-displacement theory:
 
@@ -102,13 +102,13 @@ With the surface-based submodeling technique global model responses are used to 
 
 The interpolation procedure resembles that for node-based submodeling in solids. In the surface-based case, though, the positions of the submodel boundary surface integration points (the driven integration points) are determined with respect to the global model, and the appropriate element interpolation functions are used to obtain the values of the stress tensor at the given integration point. An "exterior tolerance," which the user can specify, is used to check whether it is valid to extrapolate values from the global model. In cases where the submodel falls outside the global model, the extrapolation is valid if the distance between the driven integration points and the free surface of the global model falls within the specified tolerance.Stress solution smoothing
 
-After the locations of the driven integration points in the global mesh are determined, a prescribed stress at the integration point is interpolated from node-located stress values from the global model. These driving-node-located stresses are determined from the global model material point stress values through a patch recovery technique. In this technique the driving node stress is determined from a polynomial curve fit of stress results in adjacent elements. The effect of this recovery technique is a smoothing of the stress solution, as shown in [Figure 2.15.1&#8211;3](02s15a51.md).
+After the locations of the driven integration points in the global mesh are determined, a prescribed stress at the integration point is interpolated from node-located stress values from the global model. These driving-node-located stresses are determined from the global model material point stress values through a patch recovery technique. In this technique the driving node stress is determined from a polynomial curve fit of stress results in adjacent elements. The effect of this recovery technique is a smoothing of the stress solution, as shown in [Figure 2.15.1&#8211;3](02s15a51-Submodeling-analysis.md).
 
 Figure 2.15.1&#8211;3 Relation between global model element stress results and the patch recovery calculated stress field used for node-based interpolation.
 
 ![](../graphics/stmsmoothstress-nls.png)
 
-Because the driving node stress result is a function of the neighboring element stress results, the elements in the global model that contribute to the driving stress at a particular integration point extend beyond the global element encompassing the driven integration point. Consider the submodel driven surface shown in [Figure 2.15.1&#8211;4](02s15a51.md).
+Because the driving node stress result is a function of the neighboring element stress results, the elements in the global model that contribute to the driving stress at a particular integration point extend beyond the global element encompassing the driven integration point. Consider the submodel driven surface shown in [Figure 2.15.1&#8211;4](02s15a51-Submodeling-analysis.md).
 
 Figure 2.15.1&#8211;4 The extent of global elements contributing to a driving stress for integration points lying within a single global model element.
 

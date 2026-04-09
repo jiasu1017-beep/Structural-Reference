@@ -16,7 +16,7 @@
 
 我们还将残差向量以与位移解相同的形式扩展为截断的傅里叶级数：
 
-![](../graphics/stm_eqn00750.gif)其中每个残差向量系数 ![](../graphics/stm_eqn00751.gif) 和 ![](../graphics/stm_eqn00752.gif) 在傅里叶级数中对应于位移系数。将 ![](../graphics/graphics/stm_eqn00742.gif) 转换为傅里叶项是按增量逐元素完成的：
+![](../graphics/stm_eqn00750.gif)其中每个残差向量系数 ![](../graphics/stm_eqn00751.gif) 和 ![](../graphics/stm_eqn00752.gif) 在傅里叶级数中对应于位移系数。将 ![](../graphics/stm_eqn00742.gif) 转换为傅里叶项是按增量逐元素完成的：
 
 ![](../graphics/stm_eqn00753.gif)
 

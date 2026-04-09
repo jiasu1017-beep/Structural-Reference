@@ -45,12 +45,12 @@ The heat conduction behavior is described by the basic energy balance relation
 
 ![](../graphics/stm_eqn02419.gif)where *V* is a volume of solid material, with surface area *S*; ![](../graphics/stm_eqn00593.gif) is the density of the material; *U* is the internal energy; ![](../graphics/stm_eqn02234.gif) is the thermal conductivity matrix; *q* is the heat flux per unit area of the body, flowing into the body; and *r* is the heat generated within the body. The thermal problem is discussed in detail in "Uncoupled heat transfer analysis,"  Section 2.11.1.
 
-[Equation 2.12.1&#8211;4](02s12a48.md) and [Equation 2.12.1&#8211;5](02s12a48.md) describe the electrical and thermal problems, respectively. Coupling arises from two sources: the conductivity in the electrical problem is temperature dependent, ![](../graphics/stm_eqn02420.gif), and the internal heat generation in the thermal problem is a function of electrical current, ![](../graphics/stm_eqn02421.gif), as described below.
+[Equation 2.12.1&#8211;4](02s12a48-Coupled-thermal-electrical-analysis.md) and [Equation 2.12.1&#8211;5](02s12a48-Coupled-thermal-electrical-analysis.md) describe the electrical and thermal problems, respectively. Coupling arises from two sources: the conductivity in the electrical problem is temperature dependent, ![](../graphics/stm_eqn02420.gif), and the internal heat generation in the thermal problem is a function of electrical current, ![](../graphics/stm_eqn02421.gif), as described below.
 ### Thermal energy due to electrical current
 
 Joule's law describes the rate of electrical energy, ![](../graphics/stm_eqn02422.gif), dissipated by current flowing through a conductor as
 
-![](../graphics/stm_eqn02423.gif)Using [Equation 2.12.1&#8211;2](02s12a48.md) and [Equation 2.12.1&#8211;3](02s12a48.md), Joule's law is rewritten as
+![](../graphics/stm_eqn02423.gif)Using [Equation 2.12.1&#8211;2](02s12a48-Coupled-thermal-electrical-analysis.md) and [Equation 2.12.1&#8211;3](02s12a48-Coupled-thermal-electrical-analysis.md), Joule's law is rewritten as
 
 ![](../graphics/stm_eqn02424.gif)In a steady-state analysis ![](../graphics/stm_eqn02422.gif) is evaluated at time ![](../graphics/stm_eqn00438.gif). In a transient analysis an averaged value of ![](../graphics/stm_eqn02422.gif) is obtained over the increment
 
@@ -97,7 +97,7 @@ The temperature field in the thermal problem is approximated by the same set of 
 ![](../graphics/stm_eqn02457.gif)
 ### Jacobian contributions
 
-The Jacobian contributions are obtained by taking variations of [Equation 2.12.1&#8211;8](02s12a48.md) and [Equation 2.12.1&#8211;9](02s12a48.md) with respect to the electrical potential, ![](../graphics/stm_eqn02442.gif), and the temperature, ![](../graphics/stm_eqn01111.gif), at time ![](../graphics/stm_eqn00438.gif). This yields
+The Jacobian contributions are obtained by taking variations of [Equation 2.12.1&#8211;8](02s12a48-Coupled-thermal-electrical-analysis.md) and [Equation 2.12.1&#8211;9](02s12a48-Coupled-thermal-electrical-analysis.md) with respect to the electrical potential, ![](../graphics/stm_eqn02442.gif), and the temperature, ![](../graphics/stm_eqn01111.gif), at time ![](../graphics/stm_eqn00438.gif). This yields
 
 ![](../graphics/stm_eqn02458.gif)
 

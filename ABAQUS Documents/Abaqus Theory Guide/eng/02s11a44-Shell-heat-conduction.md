@@ -32,11 +32,11 @@ is an interpolator in the reference surface, and
 
 are nodal temperature values (at node *N*, point *P* through the thickness).
 
-The basic heat energy balance is [Equation 2.11.1&#8211;3](02s11a43.md), with the approximate Jacobian matrix for the Newton method based on
+The basic heat energy balance is [Equation 2.11.1&#8211;3](02s11a43-Uncoupled-heat-transfer-analysis.md), with the approximate Jacobian matrix for the Newton method based on
 
-![](../graphics/stm_eqn02289.gif)where ![](../graphics/stm_eqn02290.gif) is the correction to the temperature solution at time ![](../graphics/stm_eqn00438.gif). The derivation of this form is discussed in "Uncoupled heat transfer analysis,"  Section 2.11.1. The form of these terms for shell heat conduction elements is obtained by introducing the interpolator, [Equation 2.11.2&#8211;1](02s11a44.md), and neglecting the change in area, with respect to ![](../graphics/stm_eqn02280.gif), of surfaces parallel to the reference surface.
+![](../graphics/stm_eqn02289.gif)where ![](../graphics/stm_eqn02290.gif) is the correction to the temperature solution at time ![](../graphics/stm_eqn00438.gif). The derivation of this form is discussed in "Uncoupled heat transfer analysis,"  Section 2.11.1. The form of these terms for shell heat conduction elements is obtained by introducing the interpolator, [Equation 2.11.2&#8211;1](02s11a44-Shell-heat-conduction.md), and neglecting the change in area, with respect to ![](../graphics/stm_eqn02280.gif), of surfaces parallel to the reference surface.
 
-The internal energy rate term (the first term in [Equation 2.11.1&#8211;3](02s11a43.md)) contributes, to the residual,
+The internal energy rate term (the first term in [Equation 2.11.1&#8211;3](02s11a43-Uncoupled-heat-transfer-analysis.md)) contributes, to the residual,
 
 ![](../graphics/stm_eqn02291.gif)and to the Jacobian,
 

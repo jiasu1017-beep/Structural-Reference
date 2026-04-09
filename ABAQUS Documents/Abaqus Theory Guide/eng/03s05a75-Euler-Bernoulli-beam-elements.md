@@ -21,7 +21,7 @@ The internal virtual work rate associated with axial stress is
 
 ![](../graphics/stm_eqn03814.gif)where ![](../graphics/stm_eqn03815.gif)and ![](../graphics/stm_eqn03816.gif) are any material stress and strain measures associated with axial deformation at the point ![](../graphics/stm_eqn03804.gif) of the beam, since strains are assumed to be small. For this purpose we will use Green's strain so that
 
-![](../graphics/stm_eqn03817.gif)where ![](../graphics/stm_eqn03818.gif), the square of the ratio of current configuration length to reference configuration length in the axial direction on the fiber. From [Equation 3.5.3&#8211;1](03s05a75.md) and its equivalent in the reference configuration, we have
+![](../graphics/stm_eqn03817.gif)where ![](../graphics/stm_eqn03818.gif), the square of the ratio of current configuration length to reference configuration length in the axial direction on the fiber. From [Equation 3.5.3&#8211;1](03s05a75-Euler-Bernoulli-beam-elements.md) and its equivalent in the reference configuration, we have
 
 ![](../graphics/stm_eqn03819.gif)Again, neglecting all but first-order terms in *g* and *h* because of the slenderness assumption, this becomes
 
@@ -72,7 +72,7 @@ the torsional strain.With these measures, the internal virtual work rate can be 
 ![](../graphics/stm_eqn03839.gif)
 ### Internal virtual work rate Jacobian
 
-For the Jacobian matrix of the overall Newton method, [Equation 2.1.1&#8211;3](02s01a13.md), the variation of this internal work rate with respect to nodal displacement variations must be formed. The constitutive theory is written as
+For the Jacobian matrix of the overall Newton method, [Equation 2.1.1&#8211;3](02s01a13-Procedures-overview-and-basic-equations.md), the variation of this internal work rate with respect to nodal displacement variations must be formed. The constitutive theory is written as
 
 ![](../graphics/stm_eqn03840.gif)and so
 
@@ -109,7 +109,7 @@ Taking the variations of the above strain definitions gives directly
 
 ![](../graphics/stm_eqn03864.gif)Combining terms appropriately,
 
-![](../graphics/stm_eqn03865.gif)Hence, from [Equation 3.5.3&#8211;2](03s05a75.md)
+![](../graphics/stm_eqn03865.gif)Hence, from [Equation 3.5.3&#8211;2](03s05a75-Euler-Bernoulli-beam-elements.md)
 
 ![](../graphics/stm_eqn03866.gif)In a similar manner one can show that
 
@@ -161,7 +161,7 @@ To avoid this difficulty, the following procedure is adopted. At a node the tang
 
 ![](../graphics/stm_eqn03891.gif) is defined by these variables and the initial geometry. Furthermore, ![](../graphics/stm_eqn03884.gif) is directly available from ![](../graphics/stm_eqn03889.gif) and ![](../graphics/stm_eqn00479.gif). Thus, the above set is a satisfactory set of nodal variables. To eliminate the unwanted axial strain constraint, in Abaqus the stretch ![](../graphics/stm_eqn03892.gif) at the node of each such element is taken as an internal variable, local to the element (a third internal node is created for this purpose, and so it is not shared with neighboring elements.)
 
-It should be remarked that the above transformation ([Equation 3.5.3&#8211;3](03s05a75.md)) is nonlinear. This leads to some complications---for example, the d'Alembert forces no longer have the simple form ![](../graphics/stm_eqn03893.gif) rather, a matrix ![](../graphics/stm_eqn03894.gif) replaces ![](../graphics/stm_eqn03895.gif) where ![](../graphics/stm_eqn03896.gif) and ![](../graphics/stm_eqn03897.gif) use the transformation ([Equation 3.5.3&#8211;3](03s05a75.md)) and its appropriate time derivatives. The resulting Jacobian is nonsymmetric; Abaqus ignores the nonsymmetric terms.
+It should be remarked that the above transformation ([Equation 3.5.3&#8211;3](03s05a75-Euler-Bernoulli-beam-elements.md)) is nonlinear. This leads to some complications---for example, the d'Alembert forces no longer have the simple form ![](../graphics/stm_eqn03893.gif) rather, a matrix ![](../graphics/stm_eqn03894.gif) replaces ![](../graphics/stm_eqn03895.gif) where ![](../graphics/stm_eqn03896.gif) and ![](../graphics/stm_eqn03897.gif) use the transformation ([Equation 3.5.3&#8211;3](03s05a75-Euler-Bernoulli-beam-elements.md)) and its appropriate time derivatives. The resulting Jacobian is nonsymmetric; Abaqus ignores the nonsymmetric terms.
 ### Integration
 
 The cross-section integration has already been discussed in the context of the shear beams---it is the same for these beams. Along the beam axis, the integration schemes are as described below.

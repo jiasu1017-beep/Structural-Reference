@@ -39,7 +39,7 @@ The last condition is used to obtain a suitable general form of the incompatible
 
 ![](../graphics/stm_eqn02976.gif)where *r* is the radius; and for three-dimensional elements it is
 
-![](../graphics/stm_eqn02977.gif)Substitution of [Equation 3.2.5&#8211;2](03s02a63.md) in [Equation 3.2.5&#8211;1](03s02a63.md) allows us to create a simple condition for ![](../graphics/stm_eqn02969.gif):
+![](../graphics/stm_eqn02977.gif)Substitution of [Equation 3.2.5&#8211;2](03s02a63-Continuum-elements-with-incompatible-mod.md) in [Equation 3.2.5&#8211;1](03s02a63-Continuum-elements-with-incompatible-mod.md) allows us to create a simple condition for ![](../graphics/stm_eqn02969.gif):
 
 ![](../graphics/stm_eqn02978.gif)
 
@@ -88,7 +88,7 @@ Satisfaction of the instantaneous patch test requires the addition of an incompa
 
 ![](../graphics/stm_eqn03003.gif)
 
-Similar to [Equation 3.2.5&#8211;2](03s02a63.md) the principal incompatible modes are described as a transformation of the parametric gradient field ![](../graphics/stm_eqn03004.gif):
+Similar to [Equation 3.2.5&#8211;2](03s02a63-Continuum-elements-with-incompatible-mod.md) the principal incompatible modes are described as a transformation of the parametric gradient field ![](../graphics/stm_eqn03004.gif):
 
 ![](../graphics/stm_eqn03005.gif)where ![](../graphics/stm_eqn03006.gif) is the parametric transformation at the center of the element in the state at the start of the increment,
 

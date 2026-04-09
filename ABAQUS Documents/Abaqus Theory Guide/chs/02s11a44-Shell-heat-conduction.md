@@ -32,11 +32,11 @@
 
 是节点温度值（在节点*N*，厚度方向点*P*处）。
 
-基本热能量平衡为[方程2.11.1-3](02s11a43.md)，具有基于
+基本热能量平衡为[方程2.11.1-3](02s11a43-Uncoupled-heat-transfer-analysis.md)，具有基于
 
-![](../graphics/stm_eqn02289.gif)的Newton方法的近似Jacobian矩阵，其中![](../graphics/stm_eqn02290)是时间![](../graphics/stm_eqn00438)处温度解的修正。这种形式的发展在"非耦合热传递分析"第2.11.1节中讨论。壳体热传导单元这些项的形式通过引入插值器[方程2.11.2-1](02s11a44.md)获得，并忽略与参考表面平行的表面面积相对于![](../graphics/stm_eqn02280)的变化。
+![](../graphics/stm_eqn02289.gif)的Newton方法的近似Jacobian矩阵，其中![](../graphics/stm_eqn02290)是时间![](../graphics/stm_eqn00438)处温度解的修正。这种形式的发展在"非耦合热传递分析"第2.11.1节中讨论。壳体热传导单元这些项的形式通过引入插值器[方程2.11.2-1](02s11a44-Shell-heat-conduction.md)获得，并忽略与参考表面平行的表面面积相对于![](../graphics/stm_eqn02280)的变化。
 
-内部能量率项（[方程2.11.1-3](02s11a43.md)的第一项）对残差贡献
+内部能量率项（[方程2.11.1-3](02s11a43-Uncoupled-heat-transfer-analysis.md)的第一项）对残差贡献
 
 ![](../graphics/stm_eqn02291.gif)对Jacobian贡献
 

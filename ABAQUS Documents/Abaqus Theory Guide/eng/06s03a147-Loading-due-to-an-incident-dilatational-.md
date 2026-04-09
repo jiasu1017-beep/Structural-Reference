@@ -33,7 +33,7 @@ The incident field is independent of the scattered field by convention. Therefor
 
 The scattered fluid traction, ![](../graphics/stm_eqn06890.gif), depends on the incident pressure through the decomposition above and the solid motion at the boundary. In the absence of an impedance condition at this boundary, this results in the relation
 
-![](../graphics/stm_eqn08083.gif)If an impedance condition is applied at the fluid-solid boundary, application of the total pressure decomposition and [Equation 2.9.1&#8211;13](02s09a41.md) results in the relation
+![](../graphics/stm_eqn08083.gif)If an impedance condition is applied at the fluid-solid boundary, application of the total pressure decomposition and [Equation 2.9.1&#8211;13](02s09a41-Coupled-acoustic-structural-medium-analy.md) results in the relation
 
 ![](../graphics/stm_eqn08084.gif)
 ### Virtual mass formulation

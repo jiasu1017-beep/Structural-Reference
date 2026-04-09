@@ -18,7 +18,7 @@
 
 对于我们关注的材料，我们现在假设弹性应变 ![](../graphics/stm_eqn00464.gif) 与1相比非常小。利用这一点以及弹性变形的左极分解，我们可以写成
 
-![](../graphics/stm_eqn00465.gif)其中 ![](../graphics/stm_eqn00466.gif)、![](../graphics/stm_eqn00467.gif) 和 ![](../graphics/stm_eqn00468.gif)。我们现在使用 [方程 1.4.4-2](01s04a07.md) 中 ![](../graphics/stm_eqn00469.gif) 的这个分解来获得
+![](../graphics/stm_eqn00465.gif)其中 ![](../graphics/stm_eqn00466.gif)、![](../graphics/stm_eqn00467.gif) 和 ![](../graphics/stm_eqn00468.gif)。我们现在使用 [方程 1.4.4-2](01s04a07-The-additive-strain-rate-decomposition.md) 中 ![](../graphics/stm_eqn00469.gif) 的这个分解来获得
 
 ![](../graphics/stm_eqn00470.gif)我们现在定义
 
@@ -30,7 +30,7 @@
 
 我们现在做出假设 ![](../graphics/stm_eqn00475.gif)，这各向同性成立；最后一个表达式简化为
 
-![](../graphics/stm_eqn00476.gif)其中我们引入符号 ![](../graphics/stm_eqn00477.gif)。[方程 1.4.4-3](01s04a07.md) 是塑性理论中经典的"加法率变形分解"——例如参见 [Aravas (1991)](07s01a01-References.md)。我们看到，当我们对当前位置的速度梯度的对称部分使用，并且当总弹性应变始终比1小时，它来自一般分解（[方程 1.4.4-1](01s04a07.md)）。率变形分解以这种形式用于Abaqus中几乎所有的非弹性本构模型，它表示为 ![](../graphics/stm_eqn00478.gif)。
+![](../graphics/stm_eqn00476.gif)其中我们引入符号 ![](../graphics/stm_eqn00477.gif)。[方程 1.4.4-3](01s04a07-The-additive-strain-rate-decomposition.md) 是塑性理论中经典的"加法率变形分解"——例如参见 [Aravas (1991)](07s01a01-References.md)。我们看到，当我们对当前位置的速度梯度的对称部分使用，并且当总弹性应变始终比1小时，它来自一般分解（[方程 1.4.4-1](01s04a07-The-additive-strain-rate-decomposition.md)）。率变形分解以这种形式用于Abaqus中几乎所有的非弹性本构模型，它表示为 ![](../graphics/stm_eqn00478.gif)。
 ### 参考
 
 ### 参考

@@ -59,7 +59,7 @@
 
 ![](../graphics/stm_eqn05913.gif)
 
-将![](../graphics/stm_eqn05754.gif）的演化方程（[公式4.3.8-4](04s03a110.md)）引入一致性条件（[公式4.3.8-3](04s03a110.md)）提供
+![](../graphics/stm_eqn05754.gif)将![](../graphics/stm_eqn05754.gif）的演化方程（[公式4.3.8-4](04s03a110.md)）引入一致性条件（[公式4.3.8-3](04s03a110.md)）提供
 
 ![](../graphics/stm_eqn05914.gif)
 

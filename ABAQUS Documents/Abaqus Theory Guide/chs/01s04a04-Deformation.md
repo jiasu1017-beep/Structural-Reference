@@ -88,7 +88,7 @@
 
 ![](../graphics/stm_eqn00339.gif)定义的相关逆变向量
 
-和逆变度量张量
+![](../graphics/stm_eqn00340.gif)和逆变度量张量
 
 ![](../graphics/stm_eqn00340.gif)
 
@@ -102,7 +102,7 @@
 
 ![](../graphics/stm_eqn00347.gif)我们必须继续记住，![](../graphics/stm_eqn00348.gif) 的第一个索引与当前配置中沿基向量的分量相关联（在本例中为 ![](../graphics/stm_eqn00008.gif)），而其第二个索引与参考配置中沿基向量的分量相关联（![](../graphics/stm_eqn00349.gif]）。
 
-从 [方程 1.4.1-13](01s04a04-Deformation.md) 我们可以写出
+![](../graphics/stm_eqn00350.gif)![](../graphics/stm_eqn00351.gif)从 [方程 1.4.1-13](01s04a04-Deformation.md) 我们可以写出
 
 ![](../graphics/stm_eqn00350.gif)其中 ![](../graphics/stm_eqn00351.gif) 是我们在参考配置中选择的基系统的逆变度量。
 
@@ -116,7 +116,7 @@
 
 ![](../graphics/stm_eqn00357.gif)
 
-极分解给出
+![](../graphics/stm_eqn00358.gif)极分解给出
 
 ![](../graphics/stm_eqn00358.gif)所以
 
@@ -135,4 +135,4 @@
 
 ### 参考
 
-"Abaqus Analysis User's Guide" 第1.2.2节"约定"
+![](../graphics/stm_eqn00327.gif)![](../graphics/stm_eqn00305.gif)![](../graphics/stm_eqn00320.gif)"Abaqus Analysis User's Guide" 第1.2.2节"约定"

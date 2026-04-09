@@ -2,13 +2,13 @@
 
 ### 3.6.2 轴对称壳单元
 
-**产品：** Abaqus/Standard  Abaqus/Explicit
+![](../graphics/stm_eqn04059.gif)**产品：** Abaqus/Standard  Abaqus/Explicit
 
 这两个壳单元是上一节描述的壳的轴对称版本，使用[Hughes等人（1977）](07s01a01-References.md)的"缩减积分惩罚"方法。虽然这些是壳单元，它们也是二维梁单元B21和B22的简单扩展。扩展包括周向项。因此，这些单元是一维的，在径向平面中变形。该平面中的笛卡尔坐标是*r*（半径）和*z*（轴向位置）。沿这种平面中壳参考表面测量的距离由材料坐标*S*表示（见[图3.6.2-1](03s06a80-Axisymmetric-shell-elements.md)）。
 
 图3.6.2-1 轴对称壳。
 
-![](../graphics/stmaxishellfig-nls.png)
+![](../graphics/stm_eqn04051.gif)![](../graphics/stm_eqn04052.gif)![](../graphics/stmaxishellfig-nls.png)
 ### 插值和积分
 
 2节点单元（SAX1）使用线性插值函数的单点积分来分布载荷。质量矩阵是集中的。3节点单元（SAX2）使用二次插值函数的二点积分来计算刚度，三次插值函数的三个点来分布载荷。SAX2使用一致质量矩阵。所有积分使用Gauss方法。沿厚度的积分遵循Abaqus中使用的常规数值或精确方案。
@@ -122,7 +122,7 @@
 
 ![](../graphics/stm_eqn04070.gif)并假定
 
-![](../graphics/stm_eqn04071.gif)满足要求。[公式3.6.2-9](03s06a80-Axisymmetric-shell-elements.md)可以通过代入[公式3.6.2-7](03s06a80-Axisymmetric-shell-elements.md)中![](../graphics/stm_eqn04072.gif)的定义简化为
+![](../graphics/stm_eqn02098.gif)![](../graphics/stm_eqn01219.gif)![](../graphics/stm_eqn04041.gif)![](../graphics/stm_eqn00904.gif)![](../graphics/stm_eqn04071.gif)满足要求。[公式3.6.2-9](03s06a80-Axisymmetric-shell-elements.md)可以通过代入[公式3.6.2-7](03s06a80-Axisymmetric-shell-elements.md)中![](../graphics/stm_eqn04072.gif)的定义简化为
 
 ![](../graphics/stm_eqn04073.gif)因此
 
@@ -142,7 +142,7 @@
 
 ![](../graphics/stm_eqn04078.gif)
 
-是[公式3.6.2-10](03s06a80-Axisymmetric-shell-elements.md)中应变增量的变分；
+![](../graphics/stm_eqn04031.gif)是[公式3.6.2-10](03s06a80-Axisymmetric-shell-elements.md)中应变增量的变分；
 
 ![](../graphics/stm_eqn04079.gif)
 
@@ -167,4 +167,4 @@
 
 ### 参考
 
-"Abaqus Analysis User's Guide"第29.6.9节"轴对称壳单元库"
+![](../graphics/stm_eqn04045.gif)![](../graphics/stm_eqn04044.gif)"Abaqus Analysis User's Guide"第29.6.9节"轴对称壳单元库"

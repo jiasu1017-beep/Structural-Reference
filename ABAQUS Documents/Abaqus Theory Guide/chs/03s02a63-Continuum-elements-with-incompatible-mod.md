@@ -19,70 +19,70 @@ Abaqus 中使用的几何线性不兼容模式公式与[Simo 和 Rifai（1990）
 ### 几何线性公式
 
 正如 Simo 的论文中所讨论的，不兼容模式公式可以从一般的胡-鹫津（Hu-Washizu）变分原理严格推导出来。在本讨论中，我们不会给出这种推导，而只使用 Simo 工作的关键结果。
-
+![](../graphics/stm_eqn02963.gif)![](../graphics/stm_eqn02964.gif)
 在不兼容模式公式中，位移梯度 ![](../graphics/stm_eqn02963.gif) 用额外的、不兼容的位移梯度场 ![](../graphics/stm_eqn02964.gif) 进行增强：
-
+![](../graphics/stm_eqn02965.gif)![](../graphics/stm_eqn02964.gif)
 ![](../graphics/stm_eqn02965.gif)不兼容位移梯度 ![](../graphics/stm_eqn02964.gif) 在单元内部选择。该场不能任意选择。它必须独立于规则位移梯度。
-
+![](../graphics/stm_eqn02966.gif)
 ![](../graphics/stm_eqn02966.gif)也可以表示为形式
-
+![](../graphics/stm_eqn02967.gif)
 ![](../graphics/stm_eqn02967.gif)此外，它必须与任何恒定梯度场正交，这给出条件
-
+![](../graphics/stm_eqn02968.gif)
 ![](../graphics/stm_eqn02968.gif)如果违反这些条件，单元将无法通过分片试验。
-
+![](../graphics/stm_eqn02969.gif)
 最后一个条件用于获得不兼容模式的一般形式。我们将不兼容场描述为参数梯度场 ![](../graphics/stm_eqn02969.gif) 的变换：
-
+![](../graphics/stm_eqn02970.gif)![](../graphics/stm_eqn00479.gif)
 ![](../graphics/stm_eqn02970.gif)其中 ![](../graphics/stm_eqn00479.gif) 是单元中心处的参数变换
-
+![](../graphics/stm_eqn02971.gif)![](../graphics/stm_eqn02972.gif)![](../graphics/stm_eqn02973.gif)![](../graphics/stm_eqn02974.gif)
 ![](../graphics/stm_eqn02971.gif)![](../graphics/stm_eqn02972.gif) 是位置 ![](../graphics/stm_eqn02973.gif) 处参数变换的Jacobian，![](../graphics/stm_eqn02974.gif) 是单元中心的Jacobian。对于平面单元，Jacobian可以写成
-
+![](../graphics/stm_eqn02975.gif)
 ![](../graphics/stm_eqn02975.gif)其中 *h* 是厚度；对于轴对称单元，它是
-
+![](../graphics/stm_eqn02976.gif)
 ![](../graphics/stm_eqn02976.gif)其中 *r* 是半径；对于三维单元，它是
-
+![](../graphics/stm_eqn02977.gif)![](../graphics/stm_eqn02969.gif)
 ![](../graphics/stm_eqn02977.gif)将[公式 3.2.5-2](03s02a63-Continuum-elements-with-incompatible-modes.md)代入[公式 3.2.5-1](03s02a63-Continuum-elements-with-incompatible-modes.md)使我们能够为 ![](../graphics/stm_eqn02969.gif) 创建一个简单条件：
-
+![](../graphics/stm_eqn02978.gif)
 ![](../graphics/stm_eqn02978.gif)
 
 对于二维单元，这给出
-
+![](../graphics/stm_eqn02979.gif)
 ![](../graphics/stm_eqn02979.gif)对于三维单元，
-
+![](../graphics/stm_eqn02980.gif)![](../graphics/stm_eqn02981.gif)![](../graphics/stm_eqn02973.gif)![](../graphics/stm_eqn02981.gif)
 ![](../graphics/stm_eqn02980.gif)这使得可以将 ![](../graphics/stm_eqn02981.gif) 写成 ![](../graphics/stm_eqn02973.gif) 的简单多项式。![](../graphics/stm_eqn02981.gif) 的主要贡献可以写成形式
-
+![](../graphics/stm_eqn02982.gif)![](../graphics/stm_eqn02983.gif)![](../graphics/stm_eqn02984.gif)![](../graphics/stm_eqn02985.gif)![](../graphics/stm_eqn02986.gif)
 ![](../graphics/stm_eqn02982.gif)其中 ![](../graphics/stm_eqn02983.gif) 是向量自由度，![](../graphics/stm_eqn02984.gif) 是向量，求和 *i* 延伸到参数坐标。在二维单元中 ![](../graphics/stm_eqn02985.gif) 和 ![](../graphics/stm_eqn02986.gif) 是如下形式的向量
-
+![](../graphics/stm_eqn02987.gif)
 ![](../graphics/stm_eqn02987.gif)在三维单元中
-
+![](../graphics/stm_eqn02988.gif)
 ![](../graphics/stm_eqn02988.gif)因此，不兼容位移梯度的主要贡献变为
-
 ![](../graphics/stm_eqn02989.gif)
-
+![](../graphics/stm_eqn02989.gif)
+![](../graphics/stm_eqn02983.gif)![](../graphics/stm_eqn02964.gif)![](../graphics/stm_eqn02990.gif)![](../graphics/stm_eqn02991.gif)
 添加这些项后，寄生剪切和弯曲时的泊松效应被消除。注意 ![](../graphics/stm_eqn02990.gif) 中的向量 ![](../graphics/stm_eqn02983.gif) 在 ![](../graphics/stm_eqn02964.gif) 中以与节点位移向量 ![](../graphics/stm_eqn02990.gif) 在 ![](../graphics/stm_eqn02991.gif) 中类似的形式出现，
-
+![](../graphics/stm_eqn02992.gif)
 ![](../graphics/stm_eqn02992.gif)并且可以类似于位移自由度来处理。
 
 对于近似不可压缩材料行为，除 CPS4I 外的所有单元中仍可观察到静水压力中的双线性模式。这些模式可以通过引入形式为
-
+![](../graphics/stm_eqn02993.gif)![](../graphics/stm_eqn02994.gif)![](../graphics/stm_eqn02995.gif)
 ![](../graphics/stm_eqn02993.gif)的额外不兼容模式来消除，其中 ![](../graphics/stm_eqn02994.gif) 是额外的标量自由度。对于二维单元，添加一个项 ![](../graphics/stm_eqn02995.gif)，其中
-
+![](../graphics/stm_eqn02996.gif)![](../graphics/stm_eqn02994.gif)
 ![](../graphics/stm_eqn02996.gif)在三维单元中，添加四个额外的项 ![](../graphics/stm_eqn02994.gif)，其中
-
+![](../graphics/stm_eqn02997.gif)![](../graphics/stm_eqn02964.gif)
 ![](../graphics/stm_eqn02997.gif)因此，不兼容位移梯度 ![](../graphics/stm_eqn02964.gif) 采用最终形式
-
+![](../graphics/stm_eqn02998.gif)
 ![](../graphics/stm_eqn02998.gif)
 
 不兼容位移梯度的对称部分对不兼容应变有贡献：
-
+![](../graphics/stm_eqn02999.gif)
 ![](../graphics/stm_eqn02999.gif)斜对称部分在几何线性公式中不起作用。
 
-### 几何非线性公式
+![](../graphics/stm_eqn00319.gif)### 几何非线性公式
 
 由于我们希望使用可用于任何材料模型的公式，我们希望将不兼容模式表示为变形梯度 ![](../graphics/stm_eqn00319.gif) 的修改。最明显的方法是将不兼容模式添加到变形梯度：
 
 ![](../graphics/stm_eqn03000.gif)这种方法已被 Simo 和 Armero 成功使用。基于此公式的单元满足大应变分片试验；即，任何单元片将能够精确表示均匀变形。然而，一旦单元因变形而畸变，分片试验将不再满足增量意义；即，随后的均匀变形将不能被精确表示。事实证明，这对于涉及大压缩变形的问题来说是致命的缺陷。
 
-满足瞬时分片试验需要在标准变形率上添加不兼容变形率张量：
+![](../graphics/stm_eqn03001.gif)满足瞬时分片试验需要在标准变形率上添加不兼容变形率张量：
 
 ![](../graphics/stm_eqn03001.gif)为了获得这种类型的近似关系，我们将总变形梯度写成一系列增量变形梯度的乘积：
 
@@ -104,7 +104,7 @@ Abaqus 中使用的几何线性不兼容模式公式与[Simo 和 Rifai（1990）
 
 ![](../graphics/stm_eqn03010.gif)
 
-关于当前状态的位置梯度变化从基本关系获得
+![](../graphics/stm_eqn03011.gif)关于当前状态的位置梯度变化从基本关系获得
 
 ![](../graphics/stm_eqn03011.gif)其中
 
@@ -122,7 +122,7 @@ Abaqus 中使用的几何线性不兼容模式公式与[Simo 和 Rifai（1990）
 
 ![](../graphics/stm_eqn03019.gif)
 
-对于有限应变增量，我们使用 Hughes 和 Winget 提出的增量中间方法。这给出
+![](../graphics/stm_eqn03020.gif)对于有限应变增量，我们使用 Hughes 和 Winget 提出的增量中间方法。这给出
 
 ![](../graphics/stm_eqn03020.gif)二阶变分以常规方式获得。由于规则变形梯度和主要不兼容模式都是纯基于位移的，初始应力刚度项很容易获得为
 

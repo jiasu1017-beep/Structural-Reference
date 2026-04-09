@@ -60,7 +60,7 @@
 
 ![](../graphics/stm_eqn00439.gif)那么我们对 ![](../graphics/stm_eqn00118.gif) 的积分是在增量结束时的基上的矩阵 ![](../graphics/stm_eqn00432.gif)，定义为
 
-![](../graphics/stm_eqn00440.gif)使用 [方程 1.4.3-2](01s04a06-Rate-of-deformation-and-strain-increment.md)，这是
+![](../graphics/stm_eqn00430.gif)![](../graphics/stm_eqn00429.gif)![](../graphics/stm_eqn00440.gif)使用 [方程 1.4.3-2](01s04a06-Rate-of-deformation-and-strain-increment.md)，这是
 
 ![](../graphics/stm_eqn00441.gif)由于
 

@@ -13,7 +13,7 @@
 
 图3.3.1-1 无限单元的极点节点位置。
 
-![](../graphics/stminf-pole-node.png)
+![](../graphics/stm_eqn03291.gif)![](../graphics/stm_eqn03292.gif)![](../graphics/stm_eqn03294.gif)![](../graphics/stm_eqn03293.gif)![](../graphics/stm_eqn03275.gif)![](../graphics/stm_eqn03289.gif)![](../graphics/stminf-pole-node.png)
 
 因此，一维概念基于有限和无限单元之间界面上的节点（节点1），距离极点![](../graphics/stm_eqn03284.gif)，在映射空间中位于![](../graphics/stm_eqn03285.gif)，以及节点2，距离极点![](../graphics/stm_eqn03286.gif)（极点在![](../graphics/stm_eqn01415.gif)），在映射空间中位于![](../graphics/stm_eqn03287.gif)。选择![](../graphics/stm_eqn03282.gif)映射为
 
@@ -54,7 +54,7 @@
 
 ![](../graphics/stm_eqn03304.gif)这里为简单起见使用了指标符号。
 
-我们考虑沿*x*轴传播的平面波。这个方程存在这种形式的两种体波解。一种描述平面纵向（"推动"）波，其形式为
+![](../graphics/stm_eqn03305.gif)![](../graphics/stm_eqn03306.gif)我们考虑沿*x*轴传播的平面波。这个方程存在这种形式的两种体波解。一种描述平面纵向（"推动"）波，其形式为
 
 ![](../graphics/stm_eqn03305.gif)其中，通过代入上面的控制方程，我们发现波速，![](../graphics/stm_eqn03306.gif)，是
 
@@ -85,4 +85,4 @@
 
 ### 参考
 
-"Infinite elements," Section 28.3.1 of the Abaqus Analysis User's Guide
+![](../graphics/stm_eqn03284.gif)![](../graphics/stm_eqn03286.gif)![](../graphics/stm_eqn03285.gif)![](../graphics/stm_eqn03287.gif)![](../graphics/stm_eqn01415.gif)![](../graphics/stm_eqn03282.gif)![](../graphics/stm_eqn03297.gif)"Infinite elements," Section 28.3.1 of the Abaqus Analysis User's Guide

@@ -55,15 +55,15 @@ Abaqus/Standard提供了两种不同的方案来获得[方程2.11.4-1](02s11a46-
 
 ![](../graphics/stm_eqn02370.gif)
 
-将上述[方程2.11.4-3](02s11a46-Cavity-radiation.md)和[方程2.11.4-6](02s11a46-Cavity-radiation.md)代入[方程2.11.4-4](02s11a46-Cavity-radiation.md)，我们可以将辐射通量对节点的贡献写为
+![](../graphics/stm_eqn02365.gif)![](../graphics/stm_eqn02366.gif)将上述[方程2.11.4-3](02s11a46-Cavity-radiation.md)和[方程2.11.4-6](02s11a46-Cavity-radiation.md)代入[方程2.11.4-4](02s11a46-Cavity-radiation.md)，我们可以将辐射通量对节点的贡献写为
 
 ![](../graphics/stm_eqn02371.gif)其中
 
 ![](../graphics/stm_eqn02372.gif)
 
-辐射通量![](../graphics/stm_eqn02373)基于增量结束时的温度、增量结束时的坐标和增量开始时的发射率来评估。在热传递分析期间坐标的任何时间变化被预定义为平移和/或旋转运动，因此不对Jacobian贡献。发射率作为温度和预定义场变量函数的任何变化随时间被显式处理（使用增量开始时的值），因此也不对Jacobian贡献。您可以指定热传递分析增量期间允许的最大发射率变化。因此，唯一的Jacobian贡献来自温度变化。
+![](../graphics/stm_eqn02373.gif)辐射通量![](../graphics/stm_eqn02373)基于增量结束时的温度、增量结束时的坐标和增量开始时的发射率来评估。在热传递分析期间坐标的任何时间变化被预定义为平移和/或旋转运动，因此不对Jacobian贡献。发射率作为温度和预定义场变量函数的任何变化随时间被显式处理（使用增量开始时的值），因此也不对Jacobian贡献。您可以指定热传递分析增量期间允许的最大发射率变化。因此，唯一的Jacobian贡献来自温度变化。
 
-由腔体辐射通量引起的Jacobian贡献然后被 trivial 写为
+![](../graphics/stm_eqn02368.gif)由腔体辐射通量引起的Jacobian贡献然后被 trivial 写为
 
 ![](../graphics/stm_eqn02374.gif)
 
@@ -71,7 +71,7 @@ Abaqus/Standard提供了两种不同的方案来获得[方程2.11.4-1](02s11a46-
 ### 并行分解腔体的求解
 
 Abaqus/Standard为大腔体的视角因子计算和腔体辐射方程求解提供了一种并行方案。一旦为特定腔体启用了并行分解，Abaqus/Standard将使用迭代技术从[方程2.11.4-1](02s11a46-Cavity-radiation.md)获取辐射热通量。这种迭代技术基于具有预条件子的Krylov方法。
-
+![](../graphics/stm_eqn02366.gif)
 由于我们没有像上述串行方法那样获得逆矩阵![](../graphics/stm_eqn02366)，我们无法访问[方程2.11.4-8](02s11a46-Cavity-radiation.md)中的精确Jacobian。相反，我们使用基于照射（任何不由表面发射引起的部分）微小变化的Jacobian近似。由于 resulting 的近似是稀疏的，在热传递有限元方程求解期间迭代比使用精确表达式快得多。然而，由于Jacobian是近似的，在解附近收敛不会是二次的。实际上，与串行方法相比，当启用腔体并行分解时，Abaqus/Standard可能需要更多迭代，特别是在稳态分析和包含低发射率表面的模型中。在这些情况下，我们建议将分析切换到瞬态步骤，并在求解热传递有限元方程时允许每增量更多迭代。
 ### 参考
 

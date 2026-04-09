@@ -6,25 +6,25 @@
 
 在几何非线性分析中，压力载荷施加在变形结构上。因此，等效节点载荷依赖于节点位移。这种依赖性导致Abaqus/Standard中求解过程使用的Jacobian的附加贡献。外部虚功为
 
-其中A是施加压力的表面；是表面的法线，指向材料内部；是虚位移场；p是压力幅度。
+![](../graphics/stm_eqn08234.gif)![](../graphics/stm_eqn00483.gif)![](../graphics/stm_eqn01597.gif)其中A是施加压力的表面；是表面的法线，指向材料内部；是虚位移场；p是压力幅度。
 
 ### 三维空间中表面上压力载荷刚度
-
+![](../graphics/stm_eqn08235.gif)
 表达式可以重写为：
-
+![](../graphics/stm_eqn08236.gif)![](../graphics/stm_eqn00117.gif)![](../graphics/stm_eqn00483.gif)
 其中是表面对应点的当前坐标，表面参数坐标（g, h）被选择通过叉积给正确的符号。外部虚功为
-
+![](../graphics/stm_eqn08237.gif)
 载荷刚度矩阵从
-
+![](../graphics/stm_eqn08238.gif)![](../graphics/stm_eqn08239.gif)
 获得，其中对于实体，。
 
 ### 二维空间中表面上压力载荷刚度
 
-现在
+![](../graphics/stm_eqn08240.gif)![](../graphics/stm_eqn08241.gif)![](../graphics/stm_eqn00483.gif)现在
 
-其中是模型平面外的单位向量，t是二维实体的厚度（假定为常数），表面参数坐标g被选择通过叉积给正确的符号。外部功为
+![](../graphics/stm_eqn08242.gif)其中是模型平面外的单位向量，t是二维实体的厚度（假定为常数），表面参数坐标g被选择通过叉积给正确的符号。外部功为
 
-载荷刚度矩阵从
+![](../graphics/stm_eqn08243.gif)载荷刚度矩阵从
 
 获得。
 

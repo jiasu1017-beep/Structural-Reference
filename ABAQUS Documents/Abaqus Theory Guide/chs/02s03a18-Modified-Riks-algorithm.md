@@ -23,7 +23,7 @@
 
 图 2.3.2-2 修正Riks算法。
 
-![](../graphics/stmmodified-riks-alg-nls.png)
+![](../graphics/stm_eqn00878.gif)![](../graphics/stmmodified-riks-alg-nls.png)
 
 假设解已开发到点 ![](../graphics/stm_eqn00836.gif)。形成切线刚度 ![](../graphics/stm_eqn00837.gif)，我们求解
 

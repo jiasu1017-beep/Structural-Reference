@@ -2,7 +2,7 @@
 
 ### 3.4.2 桁架单元
 
-**产品：** Abaqus/Standard  Abaqus/Explicit
+![](../graphics/stm_eqn03460.gif)**产品：** Abaqus/Standard  Abaqus/Explicit
 
 桁架单元是假设仅通过轴向拉伸变形的 一维杆或棒。它们在节点处是销接头，因此离散化中仅使用平移位移和每个节点的初始位置向量。当应变较大时，通过假定桁架由不可压缩材料制成来简化公式。
 
@@ -66,4 +66,4 @@ Abaqus中有两个桁架单元：一个2节点线性插值桁架和一个3节点
 
 ### 参考
 
-"Abaqus Analysis User's Guide"第29.2.1节"桁架单元"
+![](../graphics/stm_eqn03454.gif)![](../graphics/stm_eqn01386.gif)![](../graphics/stm_eqn03453.gif)![](../graphics/stm_eqn03452.gif)![](../graphics/stm_eqn01385.gif)"Abaqus Analysis User's Guide"第29.2.1节"桁架单元"

@@ -228,13 +228,13 @@
 ![](../graphics/stm_eqn00269.gif)使用"映射" [方程 1.4.1-1](01s04a04-Deformation.md)。
 
 矩阵
-
+![](../graphics/stm_eqn00142.gif)![](../graphics/stm_eqn00001.gif)![](../graphics/stm_eqn00143.gif)![](../graphics/stm_eqn00144.gif)![](../graphics/stm_eqn00145.gif)![](../graphics/stm_eqn00146.gif)![](../graphics/stm_eqn00144.gif)
 ![](../graphics/stm_eqn00270.gif)称为变形梯度矩阵，[方程 1.4.1-2](01s04a04-Deformation.md) 写成
-
+![](../graphics/stm_eqn00004.gif)![](../graphics/stm_eqn00002.gif)![](../graphics/stm_eqn00147.gif)
 ![](../graphics/stm_eqn00271.gif)
-### 节点变量
+![](../graphics/stm_eqn00148.gif)![](../graphics/stm_eqn00149.gif)### 节点变量
 
-到目前为止，我们已经讨论了被认为与模型中所有点相关的量。有限元近似基于假设插值，通过它，位移、位置以及通常其他变量在任何材料点由有限数量的节点变量定义。在本指南中，我们使用大写上标来指代单个节点变量或节点向量，并对这些索引采用求和约定。
+![](../graphics/stm_eqn00150.gif)![](../graphics/stm_eqn00151.gif)到目前为止，我们已经讨论了被认为与模型中所有点相关的量。有限元近似基于假设插值，通过它，位移、位置以及通常其他变量在任何材料点由有限数量的节点变量定义。在本指南中，我们使用大写上标来指代单个节点变量或节点向量，并对这些索引采用求和约定。
 
 因此，插值可以相当普遍地写成
 

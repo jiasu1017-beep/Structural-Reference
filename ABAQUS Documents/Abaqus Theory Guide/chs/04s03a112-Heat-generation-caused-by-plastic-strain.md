@@ -87,8 +87,8 @@ Abaqus通常使用后向Euler格式积分塑性应变，因此增量结束时的
 
 ### 参考
 
-"Fully coupled thermal-stress analysis,"  Section 6.5.3 of the Abaqus Analysis User's Guide
+![](../graphics/stm_eqn06062.gif)![](../graphics/stm_eqn05702.gif)![](../graphics/stm_eqn05624.gif)![](../graphics/stm_eqn05625.gif)"Fully coupled thermal-stress analysis,"  Section 6.5.3 of the Abaqus Analysis User's Guide
 
-"Fully coupled thermal-electrical-structural analysis,"  Section 6.7.4 of the Abaqus Analysis User's Guide
+![](../graphics/stm_eqn06043.gif)![](../graphics/stm_eqn05528.gif)![](../graphics/stm_eqn00033.gif)![](../graphics/stm_eqn02098.gif)![](../graphics/stm_eqn06044.gif)"Fully coupled thermal-electrical-structural analysis,"  Section 6.7.4 of the Abaqus Analysis User's Guide
 
-"Adiabatic analysis,"  Section 6.5.4 of the Abaqus Analysis User's Guide
+![](../graphics/stm_eqn06050.gif)"Adiabatic analysis,"  Section 6.5.4 of the Abaqus Analysis User's Guide

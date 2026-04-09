@@ -169,7 +169,7 @@ S4RS单元基于[Belytschko等人（1984）](07s01a01-References.md)。通过在
 
 ![](../graphics/stm_eqn04591.gif)这些方程分别表示关于![](../graphics/stm_eqn04514.gif)轴的力矩平衡、关于![](../graphics/stm_eqn04516.gif)轴的力矩平衡，以及![](../graphics/stm_eqn04526.gif)方向上的力平衡。
 ### 沙漏控制
-
+![](../graphics/stm_eqn04591.gif)![](../graphics/stm_eqn04514.gif)![](../graphics/stm_eqn04516.gif)![](../graphics/stm_eqn04526.gif)
 由于使用单点积分，四边形单元可能出现几种伪模式，通常称为沙漏模式。为了抑制沙漏模式，使用了[Belytschko等人（1984）](07s01a01-References.md)描述的一致伪模式控制。沙漏形状向量![](../graphics/stm_eqn04428.gif)定义为
 
 ![](../graphics/stm_eqn04592.gif)沙漏应变率由
@@ -188,7 +188,7 @@ S4RS单元基于[Belytschko等人（1984）](07s01a01-References.md)。通过在
 
 ![](../graphics/stm_eqn04607.gif)
 
-对应于广义沙漏应力的节点沙漏力和力矩为
+![](../graphics/stm_eqn04607.gif)对应于广义沙漏应力的节点沙漏力和力矩为
 
 ![](../graphics/stm_eqn04608.gif)
 
@@ -196,7 +196,7 @@ S4RS单元基于[Belytschko等人（1984）](07s01a01-References.md)。通过在
 
 ![](../graphics/stm_eqn04610.gif)这些沙漏力和力矩直接加到前面描述的局部节点力和力矩上。
 ### 参考
-
+![](../graphics/stm_eqn04610.gif)
 ### 参考
 
 "Choosing a shell element," Section 29.6.2 of the Abaqus Analysis User's Guide

@@ -6,22 +6,22 @@
 
 Abaqus为梁元素横截面方向的单位长度载荷提供载荷选项（载荷类型P1、P2）。由于这些是跟随力，它们具有载荷刚度；这种刚度有时很重要，特别是在通过特征值提取进行屈曲预测的情况下。Abaqus/Standard中包含这种载荷刚度的对称形式（见Hibbitt, 1979和Mang, 1980）。下面开发这个形式。梁上的外部虚功为
 
-其中压力载荷由外部规定的压力幅度p给出，如，其中定义了载荷的特定横截面方向。因此，，其中当，和当，所以
+![](../graphics/stm_eqn08244.gif)![](../graphics/stm_eqn01009.gif)![](../graphics/stm_eqn08245.gif)![](../graphics/stm_eqn08246.gif)![](../graphics/stm_eqn08247.gif)![](../graphics/stm_eqn08248.gif)![](../graphics/stm_eqn08249.gif)![](../graphics/stm_eqn08250.gif)![](../graphics/stm_eqn08251.gif)其中压力载荷由外部规定的压力幅度p给出，如，其中定义了载荷的特定横截面方向。因此，，其中当，和当，所以
 
-其中S是沿梁的材料坐标。现在假设载荷幅度p是外部规定的，因此不随位置变化，的随位置变化率是
+![](../graphics/stm_eqn08252.gif)![](../graphics/stm_eqn08253.gif)![](../graphics/stm_eqn08254.gif)其中S是沿梁的材料坐标。现在假设载荷幅度p是外部规定的，因此不随位置变化，的随位置变化率是
 
-现在
+![](../graphics/stm_eqn08255.gif)现在
 
 因此
 
-因此，
+![](../graphics/stm_eqn08256.gif)因此，
 
-这个载荷刚度不是对称的，除非对于在固定端（或无边，如环）的平面中的梁，第一项正好为零，第二项给出对称形式
+![](../graphics/stm_eqn08257.gif)这个载荷刚度不是对称的，除非对于在固定端（或无边，如环）的平面中的梁，第一项正好为零，第二项给出对称形式
 
 在Abaqus中，即使对于三维一般梁，载荷刚度也是作为上述对称部分引入的。
 
-### 参考
+![](../graphics/stm_eqn08258.gif)### 参考
 
 ### 参考
 
-"Abaqus Analysis User's Guide"第34.4.3节"分布载荷"
+![](../graphics/stm_eqn08259.gif)"Abaqus Analysis User's Guide"第34.4.3节"分布载荷"

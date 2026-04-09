@@ -61,7 +61,7 @@ Cam-clay模型的基本概念在几何上如图[图4.4.3-1](04s04a115.md)到[图
 
 ![](../graphics/stm_eqn06199.gif)
 
-在此方程中，![](../graphics/stm_eqn06200)是用户指定的常数，可以是温度![](../graphics/stm_eqn01111)和其他预定义场变量![](../graphics/stm_eqn06201)的函数。该常数用于修改临界状态"湿润"侧屈服面的形状，因此在临界状态"湿润"侧的椭圆弧与"干燥"侧使用的椭圆弧具有不同的曲率：在临界状态"干燥"侧![](../graphics/stm_eqn06202)，而在大多数情况下"湿润"侧![](../graphics/stm_eqn06203)，如图[图4.4.3-4](04s04a115.md)所示。![](../graphics/stm_eqn06151)定义了塑性模型的硬化，它是*p*轴上椭圆弧与临界状态线交会的点的位置，如图[图4.4.3-4](04s04a115.md)所示。![](../graphics/stm_eqn06204)是*p*-*t*平面中临界状态线的斜率（临界状态下*t*与*p*的比值）；且![](../graphics/stm_eqn06205)，其中*g*用于在![](../graphics/stm_eqn06097)平面上形成屈服面，定义为
+![](../graphics/stm_eqn06200.gif)![](../graphics/stm_eqn01111.gif)![](../graphics/stm_eqn06201.gif)![](../graphics/stm_eqn06202.gif)![](../graphics/stm_eqn06203.gif)![](../graphics/stm_eqn06151.gif)![](../graphics/stm_eqn06204.gif)![](../graphics/stm_eqn06205.gif)![](../graphics/stm_eqn06097.gif)在此方程中，![](../graphics/stm_eqn06200)是用户指定的常数，可以是温度![](../graphics/stm_eqn01111)和其他预定义场变量![](../graphics/stm_eqn06201)的函数。该常数用于修改临界状态"湿润"侧屈服面的形状，因此在临界状态"湿润"侧的椭圆弧与"干燥"侧使用的椭圆弧具有不同的曲率：在临界状态"干燥"侧![](../graphics/stm_eqn06202)，而在大多数情况下"湿润"侧![](../graphics/stm_eqn06203)，如图[图4.4.3-4](04s04a115.md)所示。![](../graphics/stm_eqn06151)定义了塑性模型的硬化，它是*p*轴上椭圆弧与临界状态线交会的点的位置，如图[图4.4.3-4](04s04a115.md)所示。![](../graphics/stm_eqn06204)是*p*-*t*平面中临界状态线的斜率（临界状态下*t*与*p*的比值）；且![](../graphics/stm_eqn06205)，其中*g*用于在![](../graphics/stm_eqn06097)平面上形成屈服面，定义为
 
 ![](../graphics/stm_eqn06206.gif)其中![](../graphics/stm_eqn06207)是用户定义的常数。如果![](../graphics/stm_eqn06208)，屈服面不依赖于第三应力不变量，![](../graphics/stm_eqn06097)平面上屈服面截面是一个圆：这 choice gives the original form of the Cam-clay model. *K*的不同值对![](../graphics/stm_eqn06097)平面上屈服面形状的影响如图[图4.4.3-5](04s04a115.md)所示。为确保屈服面的凸性，![](../graphics/stm_eqn06121.gif)。
 
@@ -71,7 +71,7 @@ Cam-clay模型的基本概念在几何上如图[图4.4.3-1](04s04a115.md)到[图
 
 修正Cam-clay塑性模型使用相关流动。屈服面的大小由*a*定义；因此，这个变量的演化表征材料的硬化或软化。实验观察表明，在塑性变形期间，
 
-![](../graphics/stm_eqn06209.gif)其中![](../graphics/stm_eqn00280)是常数。积分这个方程，并利用[公式4.4.3-1](04s04a115.md)、[公式4.4.1-2](04s04a113.md)和[公式4.4.1-4](04s04a113.md)，我们得到
+![](../graphics/stm_eqn00280.gif)![](../graphics/stm_eqn06209.gif)其中![](../graphics/stm_eqn00280)是常数。积分这个方程，并利用[公式4.4.3-1](04s04a115.md)、[公式4.4.1-2](04s04a113.md)和[公式4.4.1-4](04s04a113.md)，我们得到
 
 ![](../graphics/stm_eqn06210.gif)其中![](../graphics/stm_eqn06211)定义了分析开始时*a*的位置——材料的初始超固结。![](../graphics/stm_eqn06211)的值可以直接由用户指定，也可以计算为
 
@@ -81,19 +81,19 @@ Cam-clay模型的基本概念在几何上如图[图4.4.3-1](04s04a115.md)到[图
 
 ![](../graphics/cclayplas-pure-comp-nls.png)
 
-屈服面的演化也可以定义为分 piecewise linear function relating the yield stress in hydrostatic compression, ![](../graphics/stm_eqn01917), and the corresponding volumetric plastic strain ![](../graphics/stm_eqn06213)（[图4.4.3-7](04s04a115.md)）：
+![](../graphics/stm_eqn01917.gif)![](../graphics/stm_eqn06213.gif)屈服面的演化也可以定义为分 piecewise linear function relating the yield stress in hydrostatic compression, ![](../graphics/stm_eqn01917), and the corresponding volumetric plastic strain ![](../graphics/stm_eqn06213)（[图4.4.3-7](04s04a115.md)）：
 
-![](../graphics/stm_eqn06214.gif) Then the evolution parameter, *a*, is given by
+![](../graphics/stm_eqn06197.gif)![](../graphics/stm_eqn00064.gif)![](../graphics/stm_eqn06214.gif) Then the evolution parameter, *a*, is given by
 
-![](../graphics/stm_eqn06215.gif)Note that the volumetric plastic strain axis has an arbitrary origin: ![](../graphics/stm_eqn06216)是体积塑性应变轴上对应于材料初始状态的位置上的值，从而定义了初始静水压力，![](../graphics/stm_eqn06217)和因此初始屈服面大小，![](../graphics/stm_eqn06211)。
+![](../graphics/stm_eqn06211.gif)![](../graphics/stm_eqn06217.gif)![](../graphics/stm_eqn06216.gif)![](../graphics/stm_eqn06215.gif)Note that the volumetric plastic strain axis has an arbitrary origin: ![](../graphics/stm_eqn06216)是体积塑性应变轴上对应于材料初始状态的位置上的值，从而定义了初始静水压力，![](../graphics/stm_eqn06217)和因此初始屈服面大小，![](../graphics/stm_eqn06211)。
 
 图4.4.3-7 分段线性硬化/软化曲线。
 
 ![](../graphics/cclayplas-hard-soft.png)
 
-Abaqus检查初始有效应力状态是否在初始屈服面内部或之上。在任何违反屈服函数的材料点上，![](../graphics/stm_eqn06211)被调整使得[公式4.4.3-3](04s04a115.md)被精确满足（因此初始应力状态位于屈服面上）。
+![](../graphics/stm_eqn06211.gif)Abaqus检查初始有效应力状态是否在初始屈服面内部或之上。在任何违反屈服函数的材料点上，![](../graphics/stm_eqn06211)被调整使得[公式4.4.3-3](04s04a115.md)被精确满足（因此初始应力状态位于屈服面上）。
 ### 参考
 
 ### 参考
 
-"Critical state (clay) plasticity model,"  Section 23.3.4 of the Abaqus Analysis User's Guide
+![](../graphics/stm_eqn06211.gif)![](../graphics/stm_eqn06210.gif)"Critical state (clay) plasticity model,"  Section 23.3.4 of the Abaqus Analysis User's Guide

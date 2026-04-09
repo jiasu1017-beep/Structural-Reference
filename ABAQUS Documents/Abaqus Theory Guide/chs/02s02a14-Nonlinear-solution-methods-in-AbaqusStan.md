@@ -32,7 +32,7 @@ Newton方法的收敛性最好通过确保 ![](../graphics/stm_eqn00706.gif) 中
 
 ![](../graphics/stm_eqn00708.gif)通过迭代过程获得逆Jacobian。
 
-有多种拟Newton方法。看起来更适合结构应用的方法在除最极端非线性情况外的所有情况下都表现良好——权衡是，与Newton方法相比，需要更多迭代才能收敛。虽然形成和求解Jacobian的 savings 看起来很大，但可能被残差评估（即计算 ![](../graphics/stm_eqn00709.gif）中涉及的额外算术以及与拟Newton迭代相关的级联向量变换所抵消。因此，对于某些实际情况，拟Newton方法比完整Newton更经济，但在其他情况下则更昂贵。Abaqus/Standard提供"BFGS"拟Newton方法：它在"拟Newton求解技术"第2.2.2节中描述。
+![](../graphics/stm_eqn00709.gif)有多种拟Newton方法。看起来更适合结构应用的方法在除最极端非线性情况外的所有情况下都表现良好——权衡是，与Newton方法相比，需要更多迭代才能收敛。虽然形成和求解Jacobian的 savings 看起来很大，但可能被残差评估（即计算 ![](../graphics/stm_eqn00709.gif）中涉及的额外算术以及与拟Newton迭代相关的级联向量变换所抵消。因此，对于某些实际情况，拟Newton方法比完整Newton更经济，但在其他情况下则更昂贵。Abaqus/Standard提供"BFGS"拟Newton方法：它在"拟Newton求解技术"第2.2.2节中描述。
 
 当任何迭代算法应用于历史相关问题时，迭代过程中获得的中间未收敛解通常不在实际解路径上；因此，必须在每次迭代中完全对增量执行历史相关变量的积分，而不是获得与每个Newton迭代相关的积分之和 ![](../graphics/stm_eqn00710.gif)。在Abaqus/Standard中，这是通过假设基本节点变量 ![](../graphics/stm_eqn00711.gif) 在增量上线性变化来实现的，所以
 

@@ -44,17 +44,17 @@ Abaqus/Standard中可用于动力学问题时间积分的隐式算子包括由 [
 
 ![](../graphics/stm_eqn00902.gif)
 
-以及
+![](../graphics/stm_eqn00903.gif)以及
 
 ![](../graphics/stm_eqn00903.gif)
 
 [Hilber, Hughes, and Taylor (1977)](07s01a01-References.md) 提出了令人信服的论据支持使用 [方程 2.4.1-2](02s04a19-Implicit-dynamic-analysis.md)–[方程 2.4.1-4](02s04a19-Implicit-dynamic-analysis.md) 积分结构动力学问题。该算子的主要吸引力是其可控数值阻尼以及这种阻尼采取的形式，在低频处缓慢增长，在高频处阻尼增长更快。数值阻尼量的控制由参数 ![](../graphics/stm_eqn00904.gif) 提供：随着 ![](../graphics/stm_eqn00905.gif)，没有阻尼，算子是梯形法则（Newmark，![](../graphics/stm_eqn00906.gif)）；而随着 ![](../graphics/stm_eqn00907.gif)，可以获得显著阻尼。使用此算子主要是因为它提供的轻微数值阻尼在自动时间步长方案中是需要的。每次时间步长变化都会在解中引入一些轻微的噪声或"振铃"；少量数值阻尼（![](../graphics/stm_eqn00908.gif) 看起来是个不错的选择）可以快速消除这种高频噪声，而不会对有意义的较低频率响应产生任何重大影响。提供能量内容输出，应该打印以监测整体能量平衡。这已在 [Abaqus Example Problems Guide](exa-link.md) 中的动力学示例中完成，并表明数值耗散始终相当小（不到总能量的1%）。
 
-在隐式动力学计算期间对旋转的积分是为了在旋转惯性在不同方向上不同的情况下保持精度而进行的。为此，加速度在身体轴系统中积分，使得 Newmark 公式给出速度变化为
+![](../graphics/stm_eqn00909.gif)![](../graphics/stm_eqn00910.gif)![](../graphics/stm_eqn00911.gif)![](../graphics/stm_eqn00904.gif)![](../graphics/stm_eqn00438.gif)![](../graphics/stm_eqn00883.gif)在隐式动力学计算期间对旋转的积分是为了在旋转惯性在不同方向上不同的情况下保持精度而进行的。为此，加速度在身体轴系统中积分，使得 Newmark 公式给出速度变化为
 
 ![](../graphics/stm_eqn00909.gif)其中 ![](../graphics/stm_eqn00910.gif) 是节点的角速度，![](../graphics/stm_eqn00911.gif) 是其角加速度，两者都在时间 *t* 或时间 ![](../graphics/stm_eqn00438.gif) 处 ![](../graphics/stm_eqn00904.gif) 身体轴的当前方向中取得；![](../graphics/stm_eqn00883.gif) 是时间增量。
 
-在全局系统中这是
+![](../graphics/stm_eqn00912.gif)![](../graphics/stm_eqn00913.gif)在全局系统中这是
 
 ![](../graphics/stm_eqn00912.gif)其中 ![](../graphics/stm_eqn00913.gif) 是定义身体轴系统的标准正交基向量。因为这些是标准正交向量，所以可以重写为
 
@@ -62,7 +62,7 @@ Abaqus/Standard中可用于动力学问题时间积分的隐式算子包括由 [
 
 ![](../graphics/stm_eqn00918.gif)其中 ![](../graphics/stm_eqn00919.gif) 是具有轴向量 ![](../graphics/stm_eqn00920.gif) 的斜对称矩阵。关于旋转变量、旋转矩阵和斜对称矩阵的指数映射的讨论，请参见"旋转变量"第1.3.1节。
 
-Newmark 关于身体轴系统中旋转增量的时间积分公式给出
+![](../graphics/stm_eqn00921.gif)![](../graphics/stm_eqn00922.gif)![](../graphics/stm_eqn00923.gif)![](../graphics/stm_eqn00917.gif)Newmark 关于身体轴系统中旋转增量的时间积分公式给出
 
 ![](../graphics/stm_eqn00921.gif)由于 ![](../graphics/stm_eqn00922.gif)，分量 ![](../graphics/stm_eqn00923.gif) 在时间 *t* 或 ![](../graphics/stm_eqn00917.gif) 相对于身体轴是相同的。在全局系统中这是
 
@@ -72,7 +72,7 @@ Newmark 关于身体轴系统中旋转增量的时间积分公式给出
 
 ![](../graphics/stm_eqn00926.gif)
 
-后向 Euler 算子求解时间步长结束时的平衡方程（[方程 2.4.1-1](02s04a19-Implicit-dynamic-analysis.md)）并使用
+![](../graphics/stm_eqn00927.gif)后向 Euler 算子求解时间步长结束时的平衡方程（[方程 2.4.1-1](02s04a19-Implicit-dynamic-analysis.md)）并使用
 
 ![](../graphics/stm_eqn00927.gif)和
 
@@ -82,7 +82,7 @@ Newmark 关于身体轴系统中旋转增量的时间积分公式给出
 
 Abaqus 中动力学问题的自动时间步长基于 [Hibbitt and Karlsson (1979)](07s01a01-References.md) 首次提出的半增量残差。这个概念在直觉上很有吸引力。在每个时间步长结束时满足 [方程 2.4.1-1](02s04a19-Implicit-dynamic-analysis.md)（或者实际上是 Hilber-Hughes-Taylor 形式，[方程 2.4.1-2](02s04a19-Implicit-dynamic-analysis.md)）确保在这些时间点的有限元模型的离散意义上平衡，但并没有说明中间时间点平衡质量的信息。半增量残差的思想是计算某个中间时间点（选择为 ![](../graphics/stm_eqn00885.gif)）处平衡残差误差（[方程 2.4.1-1](02s04a19-Implicit-dynamic-analysis.md) 的左边）的大小，并通过该误差的大小评估动力学响应预测的误差。
 
-半增量残差基于加速度在时间间隔上线性变化的假设（这是 Newmark 公式的基础），所以对于任何节点位移或旋转分量 *u*：
+![](../graphics/stm_eqn00438.gif)![](../graphics/stm_eqn00438.gif)半增量残差基于加速度在时间间隔上线性变化的假设（这是 Newmark 公式的基础），所以对于任何节点位移或旋转分量 *u*：
 
 ![](../graphics/stm_eqn00929.gif)
 
@@ -92,7 +92,7 @@ Abaqus 中动力学问题的自动时间步长基于 [Hibbitt and Karlsson (1979
 
 ![](../graphics/stm_eqn00931.gif)是时间为步长获得的位移增量，![](../graphics/stm_eqn00883.gif)。
 
-利用这些方程，可以评估步长内任何时间的平衡残差。显然，如果解是准确的，此残差将与问题中的重要力相比较小。时间步长结束时的残差为
+![](../graphics/stm_eqn00933.gif)![](../graphics/stm_eqn00934.gif)![](../graphics/stm_eqn00935.gif)![](../graphics/stm_eqn00885.gif)利用这些方程，可以评估步长内任何时间的平衡残差。显然，如果解是准确的，此残差将与问题中的重要力相比较小。时间步长结束时的残差为
 
 ![](../graphics/stm_eqn00932.gif)步长开始时的残差为
 
@@ -102,7 +102,7 @@ Abaqus 中动力学问题的自动时间步长基于 [Hibbitt and Karlsson (1979
 
 ![](../graphics/stm_eqn00938.gif)"半增量残差" ![](../graphics/stm_eqn00939.gif) 定义为 ![](../graphics/stm_eqn00940.gif) 中最大条目的大小，并提供时间步长解精度的度量。
 
-半增量残差计算背后的动机是提供给定时间步长解精度的度量。数值测试表明它提供了对动力学解的敏感精度检查，并表明如果 *P* 是无阻尼弹性系统（必须相当准确地模拟高频响应）中真实力的典型大小，那么
+![](../graphics/stm_eqn00942.gif)半增量残差计算背后的动机是提供给定时间步长解精度的度量。数值测试表明它提供了对动力学解的敏感精度检查，并表明如果 *P* 是无阻尼弹性系统（必须相当准确地模拟高频响应）中真实力的典型大小，那么
 
 如果 ![](../graphics/stm_eqn00941.gif) 持续地，时间步长解具有高精度；
 
@@ -110,7 +110,7 @@ Abaqus 中动力学问题的自动时间步长基于 [Hibbitt and Karlsson (1979
 
 如果 ![](../graphics/stm_eqn00943.gif) 持续地，时间步长解相当粗糙。
 
-具有大量自然能量耗散的问题，如弹塑性系统，通常对时间步长选择不如纯弹性问题敏感，因为出现在较高频率模式中的能量会快速耗散。在这种情况下，典型力 1-10 倍范围内的最大半增量残差表示对大多数研究来说精度相当可接受，甚至 10-100 倍典型力的值也可以为总体变形等主要效应提供有用的结果。因此，该方法可以为高度耗散系统提供相对经济高效的解决方案，而我们只需要对整体响应进行适度准确的预测。
+![](../graphics/stm_eqn00944.gif)具有大量自然能量耗散的问题，如弹塑性系统，通常对时间步长选择不如纯弹性问题敏感，因为出现在较高频率模式中的能量会快速耗散。在这种情况下，典型力 1-10 倍范围内的最大半增量残差表示对大多数研究来说精度相当可接受，甚至 10-100 倍典型力的值也可以为总体变形等主要效应提供有用的结果。因此，该方法可以为高度耗散系统提供相对经济高效的解决方案，而我们只需要对整体响应进行适度准确的预测。
 
 半增量残差是自适应时间增量方案的基础。如果半增量残差很小，则表明解的精度很高，可以安全地增加时间步长；相反，如果半增量计算显示解粗糙，则应减少所用时间步长。该算法在"Abaqus Analysis User's Guide"第7.2.4节"瞬态问题中的时间积分精度"中有详细描述。该算法本质上是经验性的，但经验表明它相当有效 [(Hibbitt and Karlsson, 1979)](07s01a01-References.md)，特别是在具有高耗散的初始激发问题中，如冲击加载问题（或短持续时间强迫问题）伴有广泛塑性。在这些情况下，该方案是经济的，因为时间步长随着求解的进行自然增加，而高频响应被耗散。
 

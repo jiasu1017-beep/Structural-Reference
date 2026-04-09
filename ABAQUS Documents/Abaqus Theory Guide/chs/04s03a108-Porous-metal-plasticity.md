@@ -53,7 +53,7 @@
 
 图4.3.6-3 形核函数![](../graphics/stm_eqn05805.gif)。
 
-![](../graphics/cpormetplas-nucleation-nls.png)
+![](../graphics/stm_eqn05805.gif)![](../graphics/cpormetplas-nucleation-nls.png)
 
 图4.3.6-4 （单轴拉伸中）作为![](../graphics/stm_eqn05802.gif)函数的软化。
 
@@ -110,4 +110,4 @@
 
 ### 参考
 
-"Porous metal plasticity,"  Section 23.2.9 of the Abaqus Analysis User's Guide
+![](../graphics/stm_eqn05782.gif)![](../graphics/stm_eqn00033.gif)"Porous metal plasticity,"  Section 23.2.9 of the Abaqus Analysis User's Guide

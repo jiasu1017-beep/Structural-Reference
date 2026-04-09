@@ -41,7 +41,7 @@ Abaqus支持单元类型S3R、S3RS、S4、S4R、S4RS、S4RSW、SC6R、SC8R和S8R
 
 ![](../graphics/stm_eqn04892.gif)
 
-将该方程在*x*方向上的梯度与平衡方程[公式3.6.8-1](03s06a86-Transverse-shear-stiffness-in-composite-.md)和[公式3.6.8-2](03s06a86-Transverse-shear-stiffness-in-composite-.md)结合，得到板厚度方向横向剪切应力变化的描述：
+![](../graphics/stm_eqn04895.gif)![](../graphics/stm_eqn04896.gif)![](../graphics/stm_eqn04897.gif)![](../graphics/stm_eqn04898.gif)![](../graphics/stm_eqn04899.gif)![](../graphics/stm_eqn04900.gif)![](../graphics/stm_eqn04901.gif)![](../graphics/stm_eqn04902.gif)![](../graphics/stm_eqn04903.gif)![](../graphics/stm_eqn04904.gif)![](../graphics/stm_eqn04905.gif)![](../graphics/stm_eqn04906.gif)![](../graphics/stm_eqn04907.gif)![](../graphics/stm_eqn04908.gif)![](../graphics/stm_eqn04909.gif)![](../graphics/stm_eqn04906.gif)![](../graphics/stm_eqn04910.gif)将该方程在*x*方向上的梯度与平衡方程[公式3.6.8-1](03s06a86-Transverse-shear-stiffness-in-composite-.md)和[公式3.6.8-2](03s06a86-Transverse-shear-stiffness-in-composite-.md)结合，得到板厚度方向横向剪切应力变化的描述：
 
 ![](../graphics/stm_eqn04893.gif)在计算![](../graphics/stm_eqn04894.gif)时，我们假设复合截面的弹性和厚度不随（或缓慢随）壳上的位置变化。
 

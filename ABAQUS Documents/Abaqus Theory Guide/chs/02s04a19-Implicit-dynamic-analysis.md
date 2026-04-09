@@ -98,7 +98,7 @@ Abaqus 中动力学问题的自动时间步长基于 [Hibbitt and Karlsson (1979
 
 ![](../graphics/stm_eqn00933.gif)其中 ![](../graphics/stm_eqn00934.gif) 是前一步长开始时的时间，或者如果是初始加速或冲击计算后的第一个增量，则为 ![](../graphics/stm_eqn00935.gif)。然后 ![](../graphics/stm_eqn00885.gif) 处的残差定义为
 
-![](../graphics/stm_eqn00936.gif)其中 ![](../graphics/stm_eqn00937.gif) 等是为时间 ![](../graphics/stm_eqn00717.gif] 处的条件计算的，
+![](../graphics/stm_eqn00936.gif)其中 ![](../graphics/stm_eqn00937.gif) 等是为时间 ![](../graphics/stm_eqn00717.gif) 处的条件计算的，
 
 ![](../graphics/stm_eqn00938.gif)"半增量残差" ![](../graphics/stm_eqn00939.gif) 定义为 ![](../graphics/stm_eqn00940.gif) 中最大条目的大小，并提供时间步长解精度的度量。
 

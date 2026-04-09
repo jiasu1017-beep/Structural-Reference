@@ -23,9 +23,7 @@
 
 ![](../graphics/stm_eqn03290.gif)
 
-当需要具有![](../graphics/stm_eqn03277.gif)和![](../graphics/stm_eqn03278.gif行为的单元时，我们将这个几何映射与相对于*s*的*u*的标准二次插值相结合，用其在节点1和节点2处的值写成：
-
-![](../graphics/stm_eqn03291.gif)（这在![](../graphics/stm_eqn03293.gif)处给出![](../graphics/stm_eqn03292.gif)，其中![](../graphics/stm_eqn03275.gif)）。使用反转几何映射定义![](../graphics/stm_eqn03294.gif)然后给出
+当需要具有![](../graphics/stm_eqn03277.gif)和![](../graphics/stm_eqn03278.gif)（这在![](../graphics/stm_eqn03293.gif)处给出![](../graphics/stm_eqn03292.gif)，其中![](../graphics/stm_eqn03275.gif)）。使用反转几何映射定义![](../graphics/stm_eqn03294.gif)然后给出
 
 ![](../graphics/stm_eqn03295.gif)这提供了所需的行为。类似地，当还需要![](../graphics/stm_eqn03279.gif)行为时，我们使用相对于*s*的*u*的三次插值，用其在节点1和节点2处的值以及我们选择放置在![](../graphics/stm_eqn03296.gif)的第三个节点的值写成：
 

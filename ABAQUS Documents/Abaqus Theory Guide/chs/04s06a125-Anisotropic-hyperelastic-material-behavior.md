@@ -70,14 +70,10 @@ Abaqus中的广义Fung应变能势基于[Fung等（1979）](07s01a01-References.
 
 ![](../graphics/stm_eqn07012.gif)其中![](../graphics/stm_eqn07013.gif)是各向异性材料常数的无量纲对称四阶张量，可以是温度依赖的，![](../graphics/stm_eqn07014.gif)是修正Green应变张量的分量。
 
-弹性体积比，![](../graphics/stm_eqn07010.gif)，将总体积比*J*和热体积比![](../graphics/stm_eqn07015.gif关联：
-
-![](../graphics/stm_eqn07016.gif)![](../graphics/stm_eqn07015.gif)由
+弹性体积比，![](../graphics/stm_eqn07010.gif)，将总体积比*J*和热体积比![](../graphics/stm_eqn07015.gif)![](../graphics/stm_eqn07015.gif)由
 
 ![](../graphics/stm_eqn07017.gif)给出，其中![](../graphics/stm_eqn07018.gif)是从温度和热膨胀系数获得的主热膨胀应变。
 
-初始偏量弹性张量，![](../graphics/stm_eqn07019.gif，和体积模量，![](../graphics/stm_eqn07020.gif，由
-
-![](../graphics/stm_eqn07021.gif)
+初始偏量弹性张量，![](../graphics/stm_eqn07019.gif)
 
 Abaqus支持广义Fung模型的两种形式：各向异性和正交各向异性。必须指定的独立分量![](../graphics/stm_eqn07013.gif)的数量取决于材料的各向异性程度：对于完全各向异性情况为21，对于正交各向异性情况为9。

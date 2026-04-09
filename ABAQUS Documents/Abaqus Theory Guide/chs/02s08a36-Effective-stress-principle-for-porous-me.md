@@ -16,7 +16,7 @@
 
 当系统中存在被困流体时，我们假设有效应力由两个分量组成，根据被困流体和多孔材料的相对体积进行加权：
 
-![](../graphics/stm_eqn01726.gif)其中![](../graphics/stm_eqn01727.gif)是多孔材料骨架中的有效应力，![](../graphics/stm_eqn01728.gif是被困液体中的平均压力应力，![](../graphics/stm_eqn01729.gif)是 trapped fluid 体积与总体积之比，详见本节下文。
+![](../graphics/stm_eqn01726.gif)其中![](../graphics/stm_eqn01727.gif)是多孔材料骨架中的有效应力，![](../graphics/stm_eqn01728.gif)是 trapped fluid 体积与总体积之比，详见本节下文。
 
 我们假设多孔介质的本构响应由液体和土颗粒的简单体弹性关系以及土骨架的本构理论组成，由此![](../graphics/stm_eqn01727.gif)定义为应变历史和土壤温度的函数：
 

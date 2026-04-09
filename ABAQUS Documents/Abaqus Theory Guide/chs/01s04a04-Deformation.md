@@ -70,7 +70,7 @@
 
 与变形梯度的定义 [方程 1.4.1-4](01s04a04-Deformation.md) 比较，
 
-![](../graphics/stm_eqn00318.gif)这就是极分解定理——任何运动都可以表示为纯刚体旋转，然后是三个正交方向的纯拉伸。极分解定理很重要，因为它允许我们区分运动的应变部分和刚体旋转。具体来说，![](../graphics/stm_eqn00319.gif) 完全定义了初始位于参考配置中 ![](../graphics/stm_eqn00141.gif) 的材料粒子邻域中材料粒子的相对运动；左拉伸矩阵 ![](../graphics/stm_eqn00320.gif) 完全定义了 ![](../graphics/stm_eqn00141.gif) 处材料粒子的变形。旋转矩阵 ![](../graphics/stm_eqn00304.gif) 定义了应变主方向（参考配置中的 ![](../graphics/stm_eqn00295.gif；当前配置中的 ![](../graphics/stm_eqn00298.gif)）的刚体旋转。![](../graphics/stm_eqn00304.gif) 仅以某种平均意义表示该点处材料的刚体旋转：在一般运动中，从材料粒子发出的每个无限小标距长度具有不同的旋转量。当我们必须讨论各向异性材料的大变形时，应变主方向的旋转 ![](../graphics/stm_eqn00304.gif) 与材料中个别方向的旋转之间的区别变得很重要。然而，我们已经建立了一个重要结果：如果仅 ![](../graphics/stm_eqn00321.gif)，我们知道在初始位于 ![](../graphics/stm_eqn00141.gif) 且当前位于 ![](../graphics/stm_eqn00322.gif) 的点附近材料没有变形，因为此时 ![](../graphics/stm_eqn00323.gif) 因此 ![](../graphics/stm_eqn00324.gif)。![](../graphics/stm_eqn00325.gif) 必须非零才能使该点处材料有任何变形：从这个意义上说，![](../graphics/stm_eqn00325.gif)（因此 ![](../graphics/stm_eqn00320.gif) 本身）足以定义运动中除点的纯刚体旋转外的变形部分（它包含除纯刚体旋转外的所有信息的完整内容）。出于这个原因——这样，在以后的推导中，我们将能够将运动学与材料应力联系起来——我们需要能够从 ![](../graphics/stm_eqn00319.gif) 中分离出 ![](../graphics/stm_eqn00320.gif)。很容易获得 ![](../graphics/stm_eqn00326.gif)，因为
+![](../graphics/stm_eqn00318.gif)这就是极分解定理——任何运动都可以表示为纯刚体旋转，然后是三个正交方向的纯拉伸。极分解定理很重要，因为它允许我们区分运动的应变部分和刚体旋转。具体来说，![](../graphics/stm_eqn00319.gif) 完全定义了初始位于参考配置中 ![](../graphics/stm_eqn00141.gif) 的材料粒子邻域中材料粒子的相对运动；左拉伸矩阵 ![](../graphics/stm_eqn00320.gif) 完全定义了 ![](../graphics/stm_eqn00141.gif) 处材料粒子的变形。旋转矩阵 ![](../graphics/stm_eqn00304.gif) 定义了应变主方向（参考配置中的 ![](../graphics/stm_eqn00295.gif)）的刚体旋转。![](../graphics/stm_eqn00304.gif) 仅以某种平均意义表示该点处材料的刚体旋转：在一般运动中，从材料粒子发出的每个无限小标距长度具有不同的旋转量。当我们必须讨论各向异性材料的大变形时，应变主方向的旋转 ![](../graphics/stm_eqn00304.gif) 与材料中个别方向的旋转之间的区别变得很重要。然而，我们已经建立了一个重要结果：如果仅 ![](../graphics/stm_eqn00321.gif)，我们知道在初始位于 ![](../graphics/stm_eqn00141.gif) 且当前位于 ![](../graphics/stm_eqn00322.gif) 的点附近材料没有变形，因为此时 ![](../graphics/stm_eqn00323.gif) 因此 ![](../graphics/stm_eqn00324.gif)。![](../graphics/stm_eqn00325.gif) 必须非零才能使该点处材料有任何变形：从这个意义上说，![](../graphics/stm_eqn00325.gif)（因此 ![](../graphics/stm_eqn00320.gif) 本身）足以定义运动中除点的纯刚体旋转外的变形部分（它包含除纯刚体旋转外的所有信息的完整内容）。出于这个原因——这样，在以后的推导中，我们将能够将运动学与材料应力联系起来——我们需要能够从 ![](../graphics/stm_eqn00319.gif) 中分离出 ![](../graphics/stm_eqn00320.gif)。很容易获得 ![](../graphics/stm_eqn00326.gif)，因为
 
 ![](../graphics/stm_eqn00327.gif)因为 ![](../graphics/stm_eqn00305.gif) 且 ![](../graphics/stm_eqn00320.gif) 是对称的。
 
@@ -100,7 +100,7 @@
 
 ![](../graphics/stm_eqn00345.gif)因此，写成 ![](../graphics/stm_eqn00346.gif) 定义
 
-![](../graphics/stm_eqn00347.gif)我们必须继续记住，![](../graphics/stm_eqn00348.gif) 的第一个索引与当前配置中沿基向量的分量相关联（在本例中为 ![](../graphics/stm_eqn00008.gif)），而其第二个索引与参考配置中沿基向量的分量相关联（![](../graphics/stm_eqn00349.gif]）。
+![](../graphics/stm_eqn00347.gif)我们必须继续记住，![](../graphics/stm_eqn00348.gif) 的第一个索引与当前配置中沿基向量的分量相关联（在本例中为 ![](../graphics/stm_eqn00008.gif)），而其第二个索引与参考配置中沿基向量的分量相关联（![](../graphics/stm_eqn00349.gif)）。
 
 ![](../graphics/stm_eqn00350.gif)![](../graphics/stm_eqn00351.gif)从 [方程 1.4.1-13](01s04a04-Deformation.md) 我们可以写出
 

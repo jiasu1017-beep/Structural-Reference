@@ -94,9 +94,7 @@
 
 ![](../graphics/stm_eqn04055.gif)厚度方向的拉伸比假定由参考表面上以下关系定义：
 
-![](../graphics/stm_eqn04056.gif)其中![](../graphics/stm_eqn04057.gif是由热膨胀引起的厚度拉伸比。
-
-从![](../graphics/stm_eqn04058.gif)的定义
+![](../graphics/stm_eqn04056.gif)其中![](../graphics/stm_eqn04057.gif)的定义
 
 ![](../graphics/stm_eqn04059.gif)横向剪切应变写成
 

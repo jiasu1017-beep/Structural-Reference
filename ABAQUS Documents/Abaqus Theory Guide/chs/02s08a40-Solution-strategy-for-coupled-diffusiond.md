@@ -12,9 +12,9 @@
 
 我们首先在孔隙流体流动方程中引入时间积分算子。选择的算子是简单的单步方法：
 
-![](../graphics/stm_eqn01897.gif)其中![](../graphics/stm_eqn01898)。实际上，为确保数值稳定性，我们选择![](../graphics/stm_eqn01899)（向后差分）使得
+![](../graphics/stm_eqn01897.gif)其中![](../graphics/stm_eqn01898.gif)实际上，为确保数值稳定性，我们选择![](../graphics/stm_eqn01899.gif)向后差分）使得
 
-![](../graphics/stm_eqn01900.gif)使用这个算子，时间![](../graphics/stm_eqn01901)处的孔隙流体流动方程可以重写为
+![](../graphics/stm_eqn01900.gif)使用这个算子，时间![](../graphics/stm_eqn01901.gif)的孔隙流体流动方程可以重写为
 
 ![](../graphics/stm_eqn01902.gif)使用Newton线性化，流动方程变为
 

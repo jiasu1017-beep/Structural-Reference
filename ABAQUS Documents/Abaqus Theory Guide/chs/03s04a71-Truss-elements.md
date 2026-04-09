@@ -15,12 +15,7 @@ Abaqus中有两个桁架单元：一个2节点线性插值桁架和一个3节点
 
 ![](../graphics/stm_eqn03451.gif)3节点单元为
 
-![](../graphics/stm_eqn03452.gif)其中![](../graphics/stm_eqn01385.gif)、![](../graphics/stm_eqn01386.gif)和![](../graphics/stm_eqn03453.gif)是变量在节点处的值，![](../graphics/stm_eqn03454.gif是该变量的插值。
-### 应变度量
-
-这些是一维单元，唯一考虑的应变是沿单元轴线的应变。沿轴线的拉伸比为
-
-![](../graphics/stm_eqn03455.gif)其中*l*测量当前配置中沿桁架轴线的长度：
+![](../graphics/stm_eqn03452.gif)其中![](../graphics/stm_eqn01385.gif)、![](../graphics/stm_eqn01386.gif)和![](../graphics/stm_eqn03453.gif)是变量在节点处的值，![](../graphics/stm_eqn03454.gif)其中*l*测量当前配置中沿桁架轴线的长度：
 
 ![](../graphics/stm_eqn03456.gif)![](../graphics/stm_eqn03457.gif)测量原始配置中沿轴线的长度。
 

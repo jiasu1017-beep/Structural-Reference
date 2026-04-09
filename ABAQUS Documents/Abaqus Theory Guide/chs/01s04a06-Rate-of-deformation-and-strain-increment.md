@@ -64,7 +64,7 @@
 
 ![](../graphics/stm_eqn00441.gif)由于
 
-![](../graphics/stm_eqn00442.gif)我们可以利用增量的变形极分解为增量开始时的轴上的拉伸然后是旋转（![](../graphics/stm_eqn00443.gif]）来写
+![](../graphics/stm_eqn00442.gif)我们可以利用增量的变形极分解为增量开始时的轴上的拉伸然后是旋转（![](../graphics/stm_eqn00443.gif)）来写
 
 ![](../graphics/stm_eqn00444.gif)所以应变增量定义中被积函数是
 

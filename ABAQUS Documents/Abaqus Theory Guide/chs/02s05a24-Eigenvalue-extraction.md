@@ -115,7 +115,7 @@ Lanczos 步骤数超过允许的最大数。
 
 在每个 Lanczos 运行终止后，使用向量块 ![](../graphics/stm_eqn01138.gif) 和特征向量 ![](../graphics/stm_eqn01136.gif) 恢复对称化问题（[方程 2.5.1-2](02s05a24-Eigenvalue-extraction.md)）的收敛特征向量。
 
-一旦移位 ![](../graphics/stm_eqn01139.gif) 的 Lanczos 运行完成，使用所有先前 Lanczos 运行的结果计算移位值 ![](../graphics/stm_eqn01140.gif]。为了描述移位更新策略，引入以下概念：
+一旦移位 ![](../graphics/stm_eqn01139.gif) 的 Lanczos 运行完成，使用所有先前 Lanczos 运行的结果计算移位值 ![](../graphics/stm_eqn01140.gif)。为了描述移位更新策略，引入以下概念：
 
 "计算区间"是感兴趣最小和最大特征值之间的区间。此区间可以是有限的（两端都有限）、半无限的（仅一端有限）或无限的（两端都无限）。"中心点"是计算区间中最接近期望特征值的点。
 

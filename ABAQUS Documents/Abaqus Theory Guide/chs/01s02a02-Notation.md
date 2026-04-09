@@ -221,7 +221,7 @@
 ![](../graphics/stm_eqn00139.gif)这是虚向量场 ![](../graphics/stm_eqn00140.gif) 的空间梯度的对称部分。如果 ![](../graphics/stm_eqn00140.gif) 是虚速度场，则此符号对应于虚变形率（应变率的一种度量）。
 ### 初始位置和当前位置
 
-大多数结构问题涉及描述结构在加载时的行为方式及其从参考配置开始的变形历史。最初位于空间中某位置 ![](../graphics/stm_eqn00141.gif) 的材料粒子将移动到新位置 ![](../graphics/stm_eqn00117.gif]：由于我们假设材料不能出现或消失，![](../graphics/stm_eqn00117.gif) 和 ![](../graphics/stm_eqn00141.gif) 之间将存在一对一对应关系，因此我们始终可以将粒子位置的历史写成
+大多数结构问题涉及描述结构在加载时的行为方式及其从参考配置开始的变形历史。最初位于空间中某位置 ![](../graphics/stm_eqn00141.gif) 的材料粒子将移动到新位置 ![](../graphics/stm_eqn00117.gif)：由于我们假设材料不能出现或消失，![](../graphics/stm_eqn00117.gif) 和 ![](../graphics/stm_eqn00141.gif) 之间将存在一对一对应关系，因此我们始终可以将粒子位置的历史写成
 
 ![](../graphics/stm_eqn00267.gif)并且这个关系可以反转——当我们知道 ![](../graphics/stm_eqn00117.gif) 和 *t* 时，我们知道 ![](../graphics/stm_eqn00141.gif)。现在考虑两个相邻粒子，位于初始配置中的 ![](../graphics/stm_eqn00141.gif) 和 ![](../graphics/stm_eqn00268.gif) 处。在当前配置中我们必须有
 
@@ -242,6 +242,4 @@
 
 在本指南的某些章节中，我们需要描述整个有限元方程系统的节点变量操作。在这些章节中，我们使用经典矩阵-向量表示法。在这种表示法中，![](../graphics/stm_eqn00004.gif) 表示包含节点变量的列向量，![](../graphics/stm_eqn00002.gif) 表示行向量，矩阵写为 ![](../graphics/stm_eqn00147.gif)。常见操作是两个向量之间的标量积，
 
-![](../graphics/stm_eqn00148.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00149.gif）以及矩阵-向量乘积
-
-![](../graphics/stm_eqn00150.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00151.gif）。
+![](../graphics/stm_eqn00148.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00149.gif)（在指标表示法中等价于 ![](../graphics/stm_eqn00151.gif）。

@@ -21,11 +21,7 @@ Abaqus支持单元类型S3R、S3RS、S4、S4R、S4RS、S4RSW、SC6R、SC8R和S8R
 
 对于弯曲行为，我们假设应变在截面上线性变化：
 
-![](../graphics/stm_eqn04878.gif)其中![](../graphics/stm_eqn04879.gif)是参考表面的膜应变，![](../graphics/stm_eqn04881.gif是该表面的曲率。
-
-如果壳的响应是线弹性的，则壳截面一点处的任何面内应力分量由
-
-![](../graphics/stm_eqn04882.gif)给出，其中平面应力弹性刚度![](../graphics/stm_eqn04883.gif)由该壳层材料的弹性和方向定义。希腊下标取范围![](../graphics/stm_eqn04884.gif)。
+![](../graphics/stm_eqn04878.gif)其中![](../graphics/stm_eqn04879.gif)是参考表面的膜应变，![](../graphics/stm_eqn04881.gif)给出，其中平面应力弹性刚度![](../graphics/stm_eqn04883.gif)由该壳层材料的弹性和方向定义。希腊下标取范围![](../graphics/stm_eqn04884.gif)。
 
 通过厚度积分并反转得到的截面刚度得到6×6截面柔度矩阵，![](../graphics/stm_eqn01154.gif)：
 
@@ -78,7 +74,7 @@ Abaqus支持单元类型S3R、S3RS、S4、S4R、S4RS、S4RSW、SC6R、SC8R和S8R
 
 在Abaqus中，壳的几何形状由存在于壳参考表面节点上的运动学变量定义。壳理论的运动学包括在参考表面上测量膜应变，以及从参考表面上单位法线向量的导数测量弯曲应变。默认参考表面是壳中面。然而，在许多情况下，更方便的是将参考表面定义为偏离中面。在这种情况下，我们假设任何材料点的面内应变在截面上线性变化：
 
-![](../graphics/stm_eqn04878.gif)其中![](../graphics/stm_eqn04927.gif)和![](../graphics/stm_eqn04928.gif)表示参考表面上的两个正交轴，![](../graphics/stm_eqn04879.gif)是参考表面的膜应变，![](../graphics/stm_eqn04929.gif)是从中面到参考表面的距离，![](../graphics/stm_eqn04881.gif是该表面的曲率。![](../graphics/stm_eqn04929.gif)的正值在正法线方向。当![](../graphics/stm_eqn04930.gif)时，壳的顶面是参考表面，其中*t*是壳厚度。当![](../graphics/stm_eqn04931.gif)时，壳的底面成为参考表面。当![](../graphics/stm_eqn04932.gif)时，中面表示参考表面。
+![](../graphics/stm_eqn04878.gif)其中![](../graphics/stm_eqn04927.gif)和![](../graphics/stm_eqn04928.gif)表示参考表面上的两个正交轴，![](../graphics/stm_eqn04879.gif)是参考表面的膜应变，![](../graphics/stm_eqn04929.gif)是从中面到参考表面的距离，![](../graphics/stm_eqn04881.gif)的正值在正法线方向。当![](../graphics/stm_eqn04930.gif)时，壳的顶面是参考表面，其中*t*是壳厚度。当![](../graphics/stm_eqn04931.gif)时，壳的底面成为参考表面。当![](../graphics/stm_eqn04932.gif)时，中面表示参考表面。
 
 如果壳的响应是线弹性的，则壳截面上一点处的任何面内应力分量，![](../graphics/stm_eqn04933.gif)，由
 

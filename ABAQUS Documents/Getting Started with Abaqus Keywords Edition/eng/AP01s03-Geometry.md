@@ -1,0 +1,85 @@
+# A.3 Skew plate
+
+## skew.inp
+
+```
+*HEADING
+Linear Elastic Skew Plate.  20 kPa Load.
+S.I. Units  (meters, Newtons, sec, kilograms)
+**
+** Nodal coordinates
+**
+*NODE, NSET=N1
+1,  0.0,  0.0,  0.0
+*NODE, NSET=N13
+9, 0.0, 40.0E-2,  0.0
+*NGEN, NSET=ENDA
+1,9,1
+*NCOPY, CHANGENUMBER=1200, OLDSET=ENDA, NEWSET=ENDB, SHIFT
+100.0E-2,  57.7E-2,  0.0
+0.0,0.0,0.0,1.0,0.0,0.0,0.0
+*NFILL, NSET=ALLNODES
+ENDA, ENDB, 24, 50
+*NSET, NSET=MIDSPAN, GENERATE
+601,609,1
+**
+** Element connectivity
+**
+*ELEMENT, TYPE=S8R5, ELSET=PLATE
+1, 1,101,103,3,51,102,53,2
+*ELGEN, ELSET=PLATE
+1, 4,2,1, 12,100,10
+**
+** Physical and material properties
+**
+*SHELL GENERAL SECTION, ELSET=PLATE, MATERIAL=MAT1,
+ORIENTATION=SKEW
+0.8E-2,
+*ORIENTATION, NAME=SKEW, SYSTEM=RECTANGULAR
+10.0E-2, 5.77E-2,0.0, -5.77E-2,10.0E-2,0.0
+3, 0.0
+*MATERIAL, NAME=MAT1
+*ELASTIC
+30.0E9,0.3
+**
+** Local coordinate system
+**
+*TRANSFORM, NSET=ENDB, TYPE=R
+10.0E-2, 5.77E-2,0.0,  -5.77E-2,10.0E-2,0.0
+**
+** History data
+**
+*STEP, PERTURBATION
+Uniform pressure (20.0 kPa) load
+*STATIC
+**
+** Boundary conditions
+**
+*BOUNDARY
+ENDA,ENCASTRE
+ENDB,2,6
+**
+** Pressure loads
+**
+*DLOAD
+PLATE,P,-20000.0
+**
+** Output requests
+**
+*OUTPUT, FIELD, OP=NEW
+*NODE OUTPUT
+U, RF
+*ELEMENT OUTPUT
+S, E
+*OUTPUT, HISTORY, OP=NEW
+*NODE OUTPUT, NSET=MIDSPAN
+U,
+*EL PRINT
+S,
+E,
+*NODE PRINT, SUMMARY=NO, TOTALS=YES, GLOBAL=YES
+RF,
+*NODE PRINT, NSET=MIDSPAN
+U,
+*END STEP
+```

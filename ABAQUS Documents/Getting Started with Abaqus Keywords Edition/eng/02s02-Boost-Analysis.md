@@ -1,0 +1,67 @@
+# 2.2 Format of the input file
+
+The input file is the means of communication between the preprocessor, usually Abaqus/CAE, and the analysis product, Abaqus/Standard or Abaqus/Explicit. It contains a complete description of the numerical model. The input file is a text file that has an intuitive, keyword-based format, so it is easy to modify using a text editor if necessary; if a preprocessor such as Abaqus/CAE is used, modifications should be made using it. Indeed, small analyses can be specified easily by typing the input file directly.
+
+The example of an overhead hoist, shown in [Figure 2-1](#gss-schematic-hoist), is used to illustrate the basic format of the Abaqus input file. The hoist is a simple, pin-jointed truss model that is constrained at the left-hand end and mounted on rollers at the right-hand end. The members can rotate freely at the joints. The frame is prevented from moving out of plane. A simulation is performed to determine the structure's deflection and the peak stress in its members when a 10 kN load is applied as shown in [Figure 2-1](#gss-schematic-hoist).
+
+**Figure 2-1** Schematic of an overhead hoist.
+
+![Schematic of an overhead hoist](../graphics/gsx-hoist-schematic-nls.png)
+
+Since this problem is very simple, the Abaqus input file is compact and easily understood. The complete Abaqus input file for this example, which is shown in [Figure 2-2](#gss-hoist-input) and also in ["Overhead hoist frame," Section A.1](../ap01s01.html), is split into two distinct parts. The first section contains *model data* and includes all the information required to define the structure being analyzed. The second section contains *history data* that define what happens to the model: the sequence of loading or events for which the response of the structure is required. This history is divided into a sequence of *steps*, each defining a separate part of the simulation. For example, the first step may define a static loading while the second step may define a dynamic loading, etc.
+
+**Figure 2-2** Input for overhead hoist model.
+
+![Input for overhead hoist model](../graphics/gss-hoist-input-nls.png)
+
+The input file is composed of a number of *option blocks* that contain data describing a part of the model. Each option block begins with a *keyword line*, which is usually followed by one or more *data lines*. These lines cannot exceed 256 characters.
+
+## 2.2.1 Keyword lines
+
+Keywords (or options) always begin with a star or asterisk (*). For example, `*NODE` is the keyword for specifying the nodal coordinates, and `*ELEMENT` is the keyword for specifying the element connectivity. Keywords are often followed by parameters, some of which may be required. The parameter `TYPE` is required with the `*ELEMENT` option because the element type must always be given when defining elements. For example, the following statement indicates that we are defining the connectivity of T2D2 elements (two-dimensional truss elements with two nodes):
+
+```
+*ELEMENT, TYPE=T2D2
+```
+
+Many parameters are optional and are defined only in certain circumstances. For example, the following statement indicates that all the nodes defined in this option block will be put into a set called `PART1`.
+
+```
+*NODE, NSET=PART1
+```
+
+It is not essential to put nodes into sets, although it is convenient in many instances.
+
+Keywords and parameters are case independent and must use enough characters to make them unique. Parameters are separated by commas. If a parameter has a value, an equal sign (=) is used to associate the value with the parameter.
+
+Occasionally, so many parameters are required that they will not fit on a single 256-character line. In this case a comma is placed at the end of the line to indicate that the next line is a continuation line. For example, the following keyword and parameters are a valid keyword line:
+
+```
+*ELEMENT, TYPE = T2D2,
+ELSET = FRAME
+```
+
+Details of the keywords are documented in the [Abaqus Keywords Reference Guide](../key/key-link.htm#key).
+
+## 2.2.2 Data lines
+
+Keyword lines are usually followed by data lines, which provide data that are more easily specified as lists than as parameters on the keyword line. Examples of such data include nodal coordinates; element connectivities; or tables of material properties, such as stress-strain curves. The data required for particular option blocks are specified in the [Abaqus Keywords Reference Guide](../key/key-link.htm#key). For example, the option block defining the nodes for the overhead hoist model is:
+
+```
+*NODE
+101, 0., 0., 0.
+102, 1., 0., 0.
+103, 2., 0., 0.
+104, 0.5, 0.866, 0.
+105, 1.5, 0.866, 0.
+```
+
+The first piece of data in each data line is an integer that defines the node number. The second, third, and fourth entries are floating-point numbers that specify the x, y, z coordinates of the node.
+
+The data can consist of a mixture of integer, floating point, or alphanumeric values. Floating point values can be entered in a variety of ways; for example, Abaqus interprets all of the following as the number four:
+
+| 4.0 | 4. | 4 |
+| --- | --- | --- |
+| 4.0E+0 | .4E+1 | 40.E-1 |
+
+Data items are separated by commas, as in [Figure 2-2](#gss-hoist-input), which allows fairly arbitrary spacing of the input values on the data line. If there is only one item on a data line, it must be followed by a comma.

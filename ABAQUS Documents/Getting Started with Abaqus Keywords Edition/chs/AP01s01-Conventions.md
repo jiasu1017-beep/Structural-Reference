@@ -1,0 +1,118 @@
+# A.1 悬挂起重机架
+
+---
+
+## frame.inp
+
+```abaqus
+*HEADING
+二维悬挂起重机架
+国际单位制（千克，米，秒，牛顿）
+1轴水平，2轴垂直
+*PREPRINT, ECHO=YES, MODEL=YES, HISTORY=YES
+**
+** 模型定义
+**
+*NODE, NSET=NALL
+101, 0.,  0.,    0.
+102, 1.,  0.,    0.
+103, 2.,  0.,    0.
+104, 0.5, 0.866, 0.
+105, 1.5, 0.866, 0.
+*ELEMENT, TYPE=T2D2, ELSET=FRAME
+11, 101, 102
+12, 102, 103
+13, 101, 104
+14, 102, 104
+15, 102, 105
+16, 103, 105
+17, 104, 105
+*SOLID SECTION, ELSET=FRAME, MATERIAL=STEEL
+** 直径 = 5mm --> 面积 = 1.963E-5 m^2
+1.963E-5,
+*MATERIAL, NAME=STEEL
+*ELASTIC
+200.E9, 0.3
+**
+** 历史数据
+**
+*STEP, PERTURBATION
+10kN中心载荷
+*STATIC
+*BOUNDARY
+101, ENCASTRE
+103, 2
+*CLOAD
+102, 2, -10.E3
+*NODE PRINT
+U,
+RF,
+*EL PRINT
+S,
+**********************************
+** ABAQUS QA输出
+**********************************
+*EL FILE
+S,
+*NODE FILE
+U, RF
+*END STEP
+```
+
+---
+
+## frame_xpl.inp
+
+```abaqus
+*HEADING
+二维悬挂起重机架
+国际单位制（千克，米，秒，牛顿）
+1轴水平，2轴垂直
+*PREPRINT, ECHO=YES, MODEL=YES, HISTORY=YES
+**
+** 模型定义
+**
+*NODE, NSET=NALL
+101, 0.,  0.,    0.
+102, 1.,  0.,    0.
+103, 2.,  0.,    0.
+104, 0.5, 0.866, 0.
+105, 1.5, 0.866, 0.
+*NSET, NSET=CENTER
+102,
+*ELEMENT, TYPE=T2D2, ELSET=FRAME
+11, 101, 102
+12, 102, 103
+13, 101, 104
+14, 102, 104
+15, 102, 105
+16, 103, 105
+17, 104, 105
+*SOLID SECTION, ELSET=FRAME, MATERIAL=STEEL
+** 直径 = 5mm --> 面积 = 1.963E-5 m^2
+1.963E-5,
+*MATERIAL, NAME=STEEL
+*ELASTIC
+200.E9, 0.3
+*DENSITY
+7800.,
+**
+** 历史数据
+**
+*STEP
+10kN中心载荷，突加
+*DYNAMIC, EXPLICIT
+, 0.01
+*BULK VISCOSITY
+0.06, 1.2
+*BOUNDARY
+101, ENCASTRE
+103, 2
+*CLOAD
+102, 2, -10.E3
+*OUTPUT, FIELD, VARIABLE=PRESELECT
+*OUTPUT, HISTORY, VARIABLE=PRESELECT, FREQUENCY=1
+*NODE OUTPUT, NSET=CENTER
+U,
+*END STEP
+```

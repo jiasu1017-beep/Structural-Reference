@@ -1,0 +1,38 @@
+# 7.9 Other dynamic procedures
+
+We now briefly review the other dynamic procedures available in Abaqus - namely linear modal dynamics and nonlinear dynamics.
+
+## 7.9.1 Linear modal dynamics
+
+There are several other linear, dynamic procedures in Abaqus/Standard that employ the modal superposition technique. Unlike `*MODAL DYNAMIC`, which calculates the response in the time domain, these procedures provide results in the frequency domain, which can give additional insight into the behavior of the structure.
+
+A complete description of these procedures is given in "Dynamic stress/displacement analysis," Section 6.3 of the Abaqus Analysis User's Guide.
+
+**Steady-state dynamics**
+
+The `*STEADY STATE DYNAMICS` option calculates the amplitude and phase of the structure's response caused by harmonic excitation over a user-specified range of frequencies. Typical examples include the following:
+
+- The response of car engine mounts over a range of engine operating speeds.
+- Rotating machinery in buildings.
+- Components on aircraft engines.
+
+**Response spectrum**
+
+The `*RESPONSE SPECTRUM` option provides an estimate of the peak response (displacement, stress, etc.) when a structure is subjected to dynamic motion of its fixed points. The motion of the fixed points is known as "base motion"; an example is a seismic event causing ground motion. Typically the method is used when an estimate of the peak response is required for design purposes.
+
+**Random response**
+
+The `*RANDOM RESPONSE` option predicts the response of a system subjected to random continuous excitation. The excitation is expressed in a statistical sense using a power spectral density function. Examples of random response analysis include the following:
+
+- The response of an airplane to turbulence.
+- The response of a structure to noise, such as that emitted by a jet engine.
+
+## 7.9.2 Nonlinear dynamics
+
+As mentioned earlier, the `*MODAL DYNAMIC` procedure is suitable only for linear problems. When nonlinear dynamic response is of interest, the equations of motion must be integrated directly. The direct-integration of the equations of motion is performed in Abaqus/Standard using an implicit dynamics procedure (`*DYNAMIC`). When this procedure is used, the mass, damping, and stiffness matrices are assembled and the equation of dynamic equilibrium is solved at each point in time. Since these operations are computationally intensive, direct-integration dynamics is more expensive than the modal methods.
+
+Since the nonlinear dynamic procedure in Abaqus/Standard uses implicit time integration, it is suitable for nonlinear structural dynamics problems, for example, in which a sudden event initiates the dynamic response, such as an impact, or when the structural response involves large amounts of energy being dissipated by plasticity or viscous damping. In such studies the high frequency response, which is important initially, is damped out rapidly by the dissipative mechanisms in the model.
+
+An alternative for nonlinear dynamic analyses is the explicit dynamics procedure available in Abaqus/Explicit. As discussed in Chapter 2, "Abaqus Basics," the explicit algorithm propagates the solution as a stress wave through the model, one element at a time. Thus, it is most suitable for applications in which stress wave effects are important and in which the event time being simulated is short (typically less than one second).
+
+Another advantage associated with the explicit algorithm is that it can model discontinuous nonlinearities such as contact and failure more easily than Abaqus/Standard. Large, highly discontinuous problems are often more easily modeled with Abaqus/Explicit, even if the response is quasi-static. Explicit dynamic analyses are discussed further in Chapter 9, "Nonlinear Explicit Dynamics."

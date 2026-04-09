@@ -1,0 +1,31 @@
+# 3.6.1 Shell element overview
+
+### 3.6.1 Shell element overview
+
+The Abaqus shell element library provides elements that allow the modeling of curved, intersecting shells that can exhibit nonlinear material response and undergo large overall motions (translations and rotations). Abaqus shell elements can also model the bending behavior of composites.
+
+The library is divided into three categories consisting of general-purpose, thin, and thick shell elements. Thin shell elements provide solutions to shell problems that are adequately described by classical (Kirchhoff) shell theory, thick shell elements yield solutions for structures that are best modeled by shear flexible (Mindlin) shell theory, and general-purpose shell elements can provide solutions to both thin and thick shell problems. All shell elements use bending strain measures that are approximations to those of Koiter-Sanders shell theory ([Budiansky and Sanders, 1963](07s01a01-References.md)). While Abaqus/Standard provides shell elements in all three categories, Abaqus/Explicit provides only general-purpose shell elements. For most applications the general-purpose shell elements should be the user's first choice from the element library. However, for specific applications it may be possible to obtain enhanced performance by choosing one of the thin or thick shell elements. It should also be noted that not all Abaqus shell elements are formulated for large-strain analysis.
+
+The general-purpose shell elements are axisymmetric elements SAX1, SAX2, and SAX2T and three-dimensional elements S3, S4, S3R, S4R, S4RS, S3RS, and S4RSW, where S4RS, S3RS, and S4RSW are small-strain elements that are available only in Abaqus/Explicit. The general-purpose elements provide robust and accurate solutions in all loading conditions for thin and thick shell problems. Thickness change as a function of in-plane deformation is allowed in their formulation. They do not suffer from transverse shear locking, nor do they have any unconstrained hourglass modes. With the exception of the small-strain elements, all of these elements consider finite membrane strains. No hourglass control is required for the axisymmetric general-purpose shells, nor in the bending and membrane response of the fully integrated element S4. The membrane kinematics of S4 are based on an assumed-strain formulation that provides accurate solutions for in-plane bending behavior. The Abaqus/Explicit elements S3RS, S4RS, and S4RSW are well-suited for many impact dynamics problems, including structures undergoing large-scale buckling behavior, which involve small-strains but large rotations and severe bending. These elements use simplified methods for strain calculation and hourglass control and offer significant advantages in computational speed.
+
+Thin shell elements are available only in Abaqus/Standard. STRI3 and STRI65 are triangular small-strain, thin shell elements; S4R5, S8R5, and S9R5 comprise the quadrilateral small-strain, thin shell elements, while SAXA is a finite-strain, thin shell element suitable for modeling axisymmetric geometries subjected to arbitrary loadings. Thin shell elements may provide enhanced performance for large problems where reducing the number of degrees of freedom through the use of five degree of freedom shells is desirable. However, they should be used only for the modeling of thin structures that exhibit at most weak nonlinearities in problems where rotation degree of freedom output is not required and for situations where the shell surface and the displacement field are smooth so that higher accuracy can be achieved with the use of second-order shells. SAXA elements very effectively model axisymmetric structures undergoing asymmetric deformation when only a few circumferential Fourier modes describe the circumferential variation of the deformation accurately.
+
+The Discrete Kirchhoff (DK) constraint, which refers to the satisfaction of the Kirchhoff constraint at discrete points on the shell surface, is imposed in all thin shell elements in Abaqus. For element type STRI3 the constraint is imposed analytically and involves no transverse shear strain energy calculation. Solutions obtained with these elements converge to those corresponding to classical shell theory. For element types STRI65, S4R5, S8R5, S9R5, and SAXA the discrete Kirchhoff constraint is imposed numerically where the transverse shear stiffness acts as a penalty that enforces the constraint.
+
+Shell behavior that can be properly described with shear flexible shell theory and results in smooth displacement fields can be analyzed accurately with the second-order Abaqus/Standard thick shell element S8R. Nonnegligible transverse shear flexibility is required for this element to function properly; hence, the element is suitable for the analysis of composite and sandwich shells. Irregular meshes of S8R elements converge very poorly because of severe transverse shear locking; therefore, this element is recommended for use in regular mesh geometries for thick shell applications.
+### Thickness change
+
+In geometrically nonlinear analyses in Abaqus/Standard the cross-section thickness of finite-strain shell elements changes as a function of the membrane strain based on a user-defined "effective section Poisson's ratio," ![](../graphics/stm_eqn01854.gif). In Abaqus/Explicit the thickness change is based on the "effective section Poisson's ratio" for all shell elements in large-deformation analyses, unless the user has specified that the thickness change should be based on the element material definition. The thickness change based on the "effective section Poisson's ratio" is calculated as follows.
+
+In plane stress ![](../graphics/stm_eqn03408.gif); linear elasticity gives
+
+![](../graphics/stm_eqn03409.gif)Treating these as logarithmic strains,
+
+![](../graphics/stm_eqn03410.gif)where *A* is the area on the shell's reference surface. This nonlinear analogy with linear elasticity leads to the thickness change relationship:
+
+![](../graphics/stm_eqn03411.gif)For ![](../graphics/stm_eqn03412.gif) the material is incompressible; for ![](../graphics/stm_eqn04023.gif) the section thickness does not change.
+### Reference
+
+### Reference
+
+"Shell elements: overview,"  Section 29.6.1 of the Abaqus Analysis User's Guide

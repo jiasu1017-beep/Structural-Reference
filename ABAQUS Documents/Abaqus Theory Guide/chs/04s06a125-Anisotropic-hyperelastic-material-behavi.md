@@ -36,7 +36,7 @@
 
 利用纤维增强复合材料的连续体理论（Spencer，[1984](07s01a01-References.md)），应变能函数可以直接用变形张量和纤维方向的不变量表示。例如，考虑一种由各向同性超弹性基体和 ![](../graphics/stm_eqn06990.gif) 族纤维组成的复合材料。纤维在参考构型中的方向由一组单位向量 ![](../graphics/stm_eqn06991.gif)（![](../graphics/stm_eqn06992.gif)）表征。假设应变能不仅依赖于变形，还依赖于纤维方向，提出以下形式：
 
-![](../graphics/stm_eqn06993.gif)材料的应变能必须保持不变，如果基体和纤维在参考构型中经历相同的刚体旋转。那么，按照 Spencer（[1984](07s01a01-References.md)），应变能可以表示为张量 ![](../graphics/stm_eqn00162.gif) 和向量 ![](../graphics/stm_eqn06991.md) 的不可约标量不变量集合的各向同性函数，这些不变量构成完整基：
+![](../graphics/stm_eqn06993.gif)材料的应变能必须保持不变，如果基体和纤维在参考构型中经历相同的刚体旋转。那么，按照 Spencer（[1984](07s01a01-References.md)），应变能可以表示为张量 ![](../graphics/stm_eqn00162.gif) 和向量 ![](../graphics/stm_eqn06991.gif) 的不可约标量不变量集合的各向同性函数，这些不变量构成完整基：
 
 ![](../graphics/stm_eqn06994.gif)其中 ![](../graphics/stm_eqn06995.gif) 和 ![](../graphics/stm_eqn06996.gif) 是第一和第二偏斜应变不变量；![](../graphics/stm_eqn02113.gif) 是体积比（或第三应变不变量）；![](../graphics/stm_eqn06997.gif) 和 ![](../graphics/stm_eqn06998.gif) 是 ![](../graphics/stm_eqn06999.gif)、![](../graphics/stm_eqn06991.gif) 和 ![](../graphics/stm_eqn07000.gif) 的*伪不变量*，定义为
 

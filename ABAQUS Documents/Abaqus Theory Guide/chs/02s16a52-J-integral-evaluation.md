@@ -31,18 +31,18 @@ following [Shih et al. (1986)](07s01a01-References.md)，我们将[方程2.16.1-
 
 ![](../graphics/stm_eqn02615.gif)![](../graphics/stm_eqn00480.gif)![](../graphics/stm_eqn02616.gif)![](../graphics/stm_eqn02615.gif)中![](../graphics/stm_eqn00480.gif)单位体积的体力，![](../graphics/stm_eqn02616.gif)热应变。将上述两个方程代入[方程2.16.1-3](02s16a52-J-integral-evaluation.md)给出
 
-![](../graphics/stm_eqn02617.gif)![](../graphics/stm_eqn02617)
+![](../graphics/stm_eqn02617.gif)![](../graphics/stm_eqn02617.gif)
 
 ![](../graphics/stm_eqn02603.gif)为了评估这些积分，Abaqus定义了一个由围绕裂纹尖端的单元环组成的域。创建不同的"轮廓"（域）。第一个轮廓由直接连接到裂纹尖端节点的单元组成。下一个轮廓由与第一个轮廓中的单元共享节点的单元环以及第一个轮廓中的单元组成。每个后续轮廓通过添加与上一个轮廓中的单元共享节点的下一个单元环来定义。![](../graphics/stm_eqn02603.gif)选择为在轮廓外部节点处具有零幅度，在裂纹方向上在轮廓内部的所有节点上为一，但外环单元的中节点（如果存在）除外。这些中节点根据节点在单元侧面的位置被分配介于零和一之间的值。
 ### 三维中的J积分
 
 ![](../graphics/stm_eqn02599.gif)J积分可以通过考虑具有切向连续前缘的裂纹扩展到三维，如图2.16.1-3所示。虚拟裂纹扩展的局部方向再次由![](../graphics/stm_eqn02599.gif)出，
 
-![](../graphics/stm_eqn01412.gif)![](../graphics/stm_eqn02618.gif)图2.16.1-3 在裂纹前缘点*s*处局部正交笛卡尔坐标的定义；裂纹位于![](../graphics/stm_eqn01412)![](../graphics/stm_eqn02618.gif)面。
+![](../graphics/stm_eqn01412.gif)![](../graphics/stm_eqn02618.gif)图2.16.1-3 在裂纹前缘点*s*处局部正交笛卡尔坐标的定义；裂纹位于![](../graphics/stm_eqn01412.gif)![](../graphics/stm_eqn02618.gif)面。
 
-![](../graphics/stm_eqn02619.gif)![](../graphics/stm_eqn01412.gif)![](../graphics/stm_eqn01413.gif)![](../graphics/stmjinter-crack-front-nls.png)它垂直于局部裂纹前缘，位于裂纹平面内。渐近地，当![](../graphics/stm_eqn02619.gif)路径无关的条件适用于在![](../graphics/stm_eqn01412)![](../graphics/stm_eqn01413.gif)面中任何轮廓，该平面在*s*处垂直于裂纹前缘。因此，在该平面中定义的J积分可以扩展为代表裂纹前缘上的逐点能量释放率
+![](../graphics/stm_eqn02619.gif)![](../graphics/stm_eqn01412.gif)![](../graphics/stm_eqn01413.gif)![](../graphics/stmjinter-crack-front-nls.png)它垂直于局部裂纹前缘，位于裂纹平面内。渐近地，当![](../graphics/stm_eqn02619.gif)路径无关的条件适用于在![](../graphics/stm_eqn01412.gif)![](../graphics/stm_eqn01413.gif)面中任何轮廓，该平面在*s*处垂直于裂纹前缘。因此，在该平面中定义的J积分可以扩展为代表裂纹前缘上的逐点能量释放率
 
-![](../graphics/stm_eqn02620.gif)![](../graphics/stm_eqn02620)
+![](../graphics/stm_eqn02620.gif)![](../graphics/stm_eqn02620.gif)
 
 ![](../graphics/stm_eqn02621.gif)对于三维裂纹平面中的虚拟裂纹前进![](../graphics/stm_eqn02621.gif)能量释放率为
 
@@ -52,13 +52,13 @@ following [Shih et al. (1986)](07s01a01-References.md)，我们将[方程2.16.1-
 
 ![](../graphics/stm_eqn02630.gif)![](../graphics/stm_eqn02603.gif)![](../graphics/stm_eqn02626.gif)![](../graphics/stm_eqn02631.gif)![](../graphics/stm_eqn02627.gif)![](../graphics/stm_eqn02603.gif)![](../graphics/stm_eqn02628.gif)![](../graphics/stm_eqn02599.gif)![](../graphics/stmjinter-domain-3d-nls.png)可以看到，![](../graphics/stm_eqn02630.gif)围了一个体积*V*。定义了一个加权函数![](../graphics/stm_eqn02603.gif)使得它在![](../graphics/stm_eqn02626.gif)具有零幅度，在![](../graphics/stm_eqn02603.gif)设在这些值之间在*A*内平滑变化。在外部表面![](../graphics/stm_eqn02628.gif)，其中![](../graphics/stm_eqn02599.gif)与表面相切，必须使其相切。这可以通过在Abaqus中明确指定表面法线来完成。然后，我们可以将[方程2.16.1-6](02s16a52-J-integral-evaluation.md)重写为
 
-![](../graphics/stm_eqn02632.gif)![](../graphics/stm_eqn02607.gif)![](../graphics/stm_eqn02608.gif)![](../graphics/stm_eqn02627.gif)![](../graphics/stm_eqn02609.gif)![](../graphics/stm_eqn02628.gif)![](../graphics/stm_eqn02629.gif)![](../graphics/stm_eqn02632.gif)中![](../graphics/stm_eqn02607.gif)*A*的外法线（且![](../graphics/stm_eqn02608.gif)![](../graphics/stm_eqn02609.gif)表面![](../graphics/stm_eqn02628.gif)裂纹表面![](../graphics/stm_eqn02633.gif)![](../graphics/stm_eqn02633)
+![](../graphics/stm_eqn02632.gif)![](../graphics/stm_eqn02607.gif)![](../graphics/stm_eqn02608.gif)![](../graphics/stm_eqn02627.gif)![](../graphics/stm_eqn02609.gif)![](../graphics/stm_eqn02628.gif)![](../graphics/stm_eqn02629.gif)![](../graphics/stm_eqn02632.gif)中![](../graphics/stm_eqn02607.gif)*A*的外法线（且![](../graphics/stm_eqn02608.gif)![](../graphics/stm_eqn02609.gif)表面![](../graphics/stm_eqn02628.gif)裂纹表面![](../graphics/stm_eqn02633.gif)![](../graphics/stm_eqn02633.gif)
 
 ![](../graphics/stm_eqn02634.gif)![](../graphics/stm_eqn02621.gif)为了获得裂纹前缘线上每个节点集*P*处的![](../graphics/stm_eqn02634.gif)![](../graphics/stm_eqn02621.gif)用与裂纹前缘沿线有限元中使用的相同的插值函数进行离散化：
 
 ![](../graphics/stm_eqn02635.gif)![](../graphics/stm_eqn02636.gif)![](../graphics/stm_eqn02637.gif)![](../graphics/stm_eqn02621.gif)![](../graphics/stm_eqn02635.gif)中![](../graphics/stm_eqn02636.gif)节点集*P*处，所有其他![](../graphics/stm_eqn02637.gif)零。[方程2.16.1-8](02s16a52-J-integral-evaluation.md)中代入![](../graphics/stm_eqn02621.gif)这个表达式。最后，裂纹前缘线上每个节点集*P*处的J积分值可以计算为
 
-![](../graphics/stm_eqn02638.gif)![](../graphics/stm_eqn02638)
+![](../graphics/stm_eqn02638.gif)![](../graphics/stm_eqn02638.gif)
 ### 参考
 
 ### 参考

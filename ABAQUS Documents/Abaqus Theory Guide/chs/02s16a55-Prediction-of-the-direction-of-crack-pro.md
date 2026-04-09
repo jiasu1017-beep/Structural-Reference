@@ -10,7 +10,7 @@
 
 对于裂纹段，我们也有关系
 
-![](../graphics/stm_eqn02723.gif)![](../graphics/stm_eqn02723)
+![](../graphics/stm_eqn02723.gif)![](../graphics/stm_eqn02723.gif)
 
 ![](../graphics/stm_eqn02724.gif)最大能量释放率准则假定主裂纹沿使![](../graphics/stm_eqn02724.gif)大化的方向初始扩展。
 ### KII = 0准则

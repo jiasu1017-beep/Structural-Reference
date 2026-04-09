@@ -28,7 +28,7 @@
 
 ![](../graphics/stm_eqn02523.gif)![](../graphics/stm_eqn02523.gif)加到子结构的子结构荷载情况的贡献为荷载向量
 
-![](../graphics/stm_eqn02524.gif)![](../graphics/stm_eqn02524)
+![](../graphics/stm_eqn02524.gif)![](../graphics/stm_eqn02524.gif)
 
 ![](../graphics/stm_eqn02525.gif)![](../graphics/stm_eqn02526.gif)![](../graphics/stm_eqn02527.gif)[方程2.14.1-1](02s14a50-Substructuring-and-substructure-analysis.md)定义的静态模态可能不足以准确描述子结构的动态响应。子结构的动态表示可以通过保留额外的自由度来改进，这些自由度不是连接子结构到模型其余部分所需的；即，一些![](../graphics/stm_eqn02525.gif)以移入![](../graphics/stm_eqn02526.gif)这项技术称为Guyan缩减。一种额外的且通常更有效的技术是通过包含与子结构固有模态相关的一些广义自由度![](../graphics/stm_eqn02527.gif)增强子结构内的响应。最简单的方法是从子结构中提取一些固有模态，同时约束所有保留自由度，使得[方程2.14.1-1](02s14a50-Substructuring-and-substructure-analysis.md)被增强为
 
@@ -36,7 +36,7 @@
 
 ![](../graphics/stm_eqn02529.gif)![](../graphics/stm_eqn02529.gif)间导数为
 
-![](../graphics/stm_eqn02530.gif)![](../graphics/stm_eqn02531.gif)![](../graphics/stm_eqn02527.gif)![](../graphics/stm_eqn02530)![](../graphics/stm_eqn02531.gif)子结构的特征模态，在所有保留自由度被约束时获得，![](../graphics/stm_eqn02527.gif)广义位移——这些正常模态中响应的幅度。
+![](../graphics/stm_eqn02530.gif)![](../graphics/stm_eqn02531.gif)![](../graphics/stm_eqn02527.gif)![](../graphics/stm_eqn02530.gif)![](../graphics/stm_eqn02531.gif)子结构的特征模态，在所有保留自由度被约束时获得，![](../graphics/stm_eqn02527.gif)广义位移——这些正常模态中响应的幅度。
 
 子结构对动态情况虚功方程的贡献为
 

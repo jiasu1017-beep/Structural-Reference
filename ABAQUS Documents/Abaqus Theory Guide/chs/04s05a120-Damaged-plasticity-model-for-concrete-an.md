@@ -61,7 +61,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 ![](../graphics/stm_eqn06497.gif)中![](../graphics/stm_eqn05794.gif)*F*服从Kuhn-Tucker条件：![](../graphics/stm_eqn06498.gif)auchy应力根据刚度退化变量![](../graphics/stm_eqn06499.gif)有效应力计算为
 ![](../graphics/stm_eqn06501.gif)![](../graphics/stm_eqn06492.gif)
-![](../graphics/stm_eqn06500)
+![](../graphics/stm_eqn06500.gif)
 
 弹塑性响应的本构关系（[公式4.5.2-1](04s05a120.md)）从刚度退化响应（[公式4.5.2-2](04s05a120.md)）解耦，这使得模型对有效数值实现具有吸引力。这里总结的无粘性模型可以通过使用粘塑性正则化来允许应力位于屈服面之外，从而容易地扩展以考虑粘塑性效应。
 ![](../graphics/stm_eqn06502.gif)![](../graphics/stm_eqn06503.gif)![](../graphics/stm_eqn06504.gif)![](../graphics/stm_eqn06505.gif)![](../graphics/stm_eqn06506.gif)![](../graphics/stm_eqn01111.gif)![](../graphics/stm_eqn06507.gif)### 损伤和刚度退化
@@ -79,7 +79,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 如图[图4.5.2-1](04s05a120.md)所示，当混凝土试样从应力-应变曲线应变软化分支上的任何点卸载时，卸载响应被观察到弱化：材料的弹性刚度似乎受损（或退化）。弹性刚度的退化在拉伸和压缩试验之间显著不同；在任一情况下，随着塑性应变的增加，效应更明显。混凝土的退化响应由两个独立的单轴损伤变量![](../graphics/stm_eqn06510.gif)![](../graphics/stm_eqn06511.gif)征，它们假定为塑性应变、温度和场变量的函数：
 ![](../graphics/stm_eqn06513.gif)
-![](../graphics/stm_eqn06512)
+![](../graphics/stm_eqn06512.gif)
 ![](../graphics/stm_eqn06514.gif)![](../graphics/stm_eqn06515.gif)![](../graphics/stm_eqn06516.gif)
 图4.5.2-1 混凝土对单轴加载在拉伸（a）和压缩（b）中的响应。
 ![](../graphics/stm_eqn06517.gif)
@@ -106,7 +106,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 ![](../graphics/stm_eqn06525.gif)重因子![](../graphics/stm_eqn06526.gif)![](../graphics/stm_eqn06527.gif)假定为材料属性，控制拉伸和压缩刚度在载荷反向时的恢复。为了说明这一点，考虑[图4.5.2-2](04s05a120.md)中的示例，其中载荷从拉伸变为压缩。假定材料先前没有压缩损伤（压碎）；即，![](../graphics/stm_eqn06528.gif)![](../graphics/stm_eqn06529.gif)那么
 
-![](../graphics/stm_eqn06540.gif)![](../graphics/stm_eqn06530.gif)拉伸中（![](../graphics/stm_eqn06531.gif)![](../graphics/stm_eqn06532.gif)因此，![](../graphics/stm_eqn06533) as expected. 在压缩中（![](../graphics/stm_eqn06534.gif)![](../graphics/stm_eqn06535.gif)且![](../graphics/stm_eqn06536.gif)如果![](../graphics/stm_eqn06537.gif)则![](../graphics/stm_eqn06487.gif)因此，材料完全恢复压缩刚度（在本例中是初始未损伤刚度，![](../graphics/stm_eqn06538.gif)另一方面，如果![](../graphics/stm_eqn06539.gif)则![](../graphics/stm_eqn06533.gif)没有刚度恢复。![](../graphics/stm_eqn06527.gif)中间值导致刚度部分恢复。
+![](../graphics/stm_eqn06540.gif)![](../graphics/stm_eqn06530.gif)拉伸中（![](../graphics/stm_eqn06531.gif)![](../graphics/stm_eqn06532.gif)因此，![](../graphics/stm_eqn06533.gif) as expected. 在压缩中（![](../graphics/stm_eqn06534.gif)![](../graphics/stm_eqn06535.gif)且![](../graphics/stm_eqn06536.gif)如果![](../graphics/stm_eqn06537.gif)则![](../graphics/stm_eqn06487.gif)因此，材料完全恢复压缩刚度（在本例中是初始未损伤刚度，![](../graphics/stm_eqn06538.gif)另一方面，如果![](../graphics/stm_eqn06539.gif)则![](../graphics/stm_eqn06533.gif)没有刚度恢复。![](../graphics/stm_eqn06527.gif)中间值导致刚度部分恢复。
 
 图4.5.2-2 压缩刚度恢复参数![](../graphics/stm_eqn06527.gif)应的说明。
 
@@ -129,7 +129,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 ![](../graphics/stm_eqn06556.gif)![](../graphics/stm_eqn06522.gif)![](../graphics/stm_eqn06523.gif)![](../graphics/stm_eqn06557.gif)
 ![](../graphics/stm_eqn06553.gif)
 ![](../graphics/stm_eqn06558.gif)
-![](../graphics/stm_eqn06554)
+![](../graphics/stm_eqn06554.gif)
 ### 弹性刚度退化
 
 ![](../graphics/stm_eqn06559.gif)![](../graphics/stm_eqn06537.gif)塑性-损伤混凝土模型假定弹性刚度退化是各向同性的，由单个标量变量*d*表征：
@@ -138,7 +138,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 ![](../graphics/stm_eqn06556.gif)似于单轴循环情况，只是![](../graphics/stm_eqn06522.gif)![](../graphics/stm_eqn06523.gif)在根据函数![](../graphics/stm_eqn06557.gif)给出为
 
-![](../graphics/stm_eqn06558)
+![](../graphics/stm_eqn06558.gif)
 
 可以容易地验证[公式4.5.2-10](04s05a120.md)中标量退化变量的定义与单轴响应一致。
 ![](../graphics/stm_eqn06560.gif)![](../graphics/stm_eqn00904.gif)![](../graphics/stm_eqn01256.gif)
@@ -167,21 +167,21 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 ![](../graphics/stm_eqn06590.gif)系数![](../graphics/stm_eqn01256.gif)在三轴压缩应力状态下进入屈服函数，当![](../graphics/stm_eqn06572.gif)。该系数可以通过比较拉伸和压缩子午线上的屈服条件来确定。*拉伸子午线*（TM）定义为满足条件![](../graphics/stm_eqn06573.gif)应力状态轨迹，*压缩子午线*（CM）是满足条件![](../graphics/stm_eqn06574.gif)应力状态轨迹，其中![](../graphics/stm_eqn06575.gif)![](../graphics/stm_eqn06576.gif)![](../graphics/stm_eqn06577.gif)有效应力张量的特征值。可以容易地表明，沿拉伸和压缩子午线分别有![](../graphics/stm_eqn06578.gif)![](../graphics/stm_eqn06579.gif)当![](../graphics/stm_eqn06580.gif)，相应的屈服条件为
 
-![](../graphics/stm_eqn06591.gif)![](../graphics/stm_eqn06581)
+![](../graphics/stm_eqn06591.gif)![](../graphics/stm_eqn06581.gif)
 
 ![](../graphics/stm_eqn06592.gif)![](../graphics/stm_eqn06593.gif)![](../graphics/stm_eqn06584.gif)![](../graphics/stm_eqn06590.gif)![](../graphics/stm_eqn06582.gif)对于任何给定的静水压力值![](../graphics/stm_eqn06584.gif)![](../graphics/stm_eqn06580.gif)![](../graphics/stm_eqn06583.gif)则
 
-![](../graphics/stm_eqn06594.gif)![](../graphics/stm_eqn06585)![](../graphics/stm_eqn06586.gif)常数这一事实似乎没有被实验证据反驳（[Lubliner等，1989](07s01a01-References.md)）。因此，系数![](../graphics/stm_eqn01256.gif)算为
+![](../graphics/stm_eqn06594.gif)![](../graphics/stm_eqn06585.gif)![](../graphics/stm_eqn06586.gif)常数这一事实似乎没有被实验证据反驳（[Lubliner等，1989](07s01a01-References.md)）。因此，系数![](../graphics/stm_eqn01256.gif)算为
 
-![](../graphics/stm_eqn06587.gif)为![](../graphics/stm_eqn06588.gif)对混凝土典型）给出![](../graphics/stm_eqn06589)
+![](../graphics/stm_eqn06587.gif)为![](../graphics/stm_eqn06588.gif)对混凝土典型）给出![](../graphics/stm_eqn06589.gif)
 
 ![](../graphics/stm_eqn06586.gif)如果![](../graphics/stm_eqn06590.gif)则沿拉伸和压缩子午线的屈服条件简化为
 
-![](../graphics/stm_eqn06591)
+![](../graphics/stm_eqn06591.gif)
 
 ![](../graphics/stm_eqn06592.gif)对于任何给定的静水压力值![](../graphics/stm_eqn06584.gif)![](../graphics/stm_eqn06590.gif)![](../graphics/stm_eqn06593.gif)则
 
-![](../graphics/stm_eqn06594)
+![](../graphics/stm_eqn06594.gif)
 
 典型屈服面在偏量平面中如图[图4.5.2-4](04s05a120.md)所示，平面应力条件下如图[图4.5.2-5](04s05a120.md)所示。
 
@@ -207,7 +207,7 @@ Abaqus中的塑性-损伤模型基于Lubliner等（[1989](07s01a01-References.md
 
 ![](../graphics/stm_eqn06601.gif)中*d*是在无粘性主干模型中评估的退化变量。粘塑性模型的应力-应变关系给出为
 
-![](../graphics/stm_eqn06602)
+![](../graphics/stm_eqn06602.gif)
 
 粘塑性系统的解在![](../graphics/stm_eqn06603.gif)其中*t*表示时间）时松弛到无粘性情况。当粘度参数取值较小（与特征时间增量相比）时，使用粘塑性正则化通常有助于提高模型在软化状态下的收敛率，而不会影响结果。
 ### 模型积分

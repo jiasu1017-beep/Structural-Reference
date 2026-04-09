@@ -40,7 +40,7 @@
 
 我们从应变率分解开始：
 
-![](../graphics/stm_eqn06361.gif)![](../graphics/stm_eqn00034.gif)![](../graphics/stm_eqn05909.gif)![](../graphics/stm_eqn06362.gif)![](../graphics/stm_eqn06361.gif)中![](../graphics/stm_eqn00034.gif)总机械应变率，![](../graphics/stm_eqn05909.gif)弹性应变率（包括裂缝检测应变——当我们描述弹性时，这个弹性应变将进一步分解），![](../graphics/stm_eqn06363.gif)![](../graphics/stm_eqn06363)
+![](../graphics/stm_eqn06361.gif)![](../graphics/stm_eqn00034.gif)![](../graphics/stm_eqn05909.gif)![](../graphics/stm_eqn06362.gif)![](../graphics/stm_eqn06361.gif)中![](../graphics/stm_eqn00034.gif)总机械应变率，![](../graphics/stm_eqn05909.gif)弹性应变率（包括裂缝检测应变——当我们描述弹性时，这个弹性应变将进一步分解），![](../graphics/stm_eqn06363.gif)![](../graphics/stm_eqn06363.gif)
 ### 压缩屈服
 
 "压缩"面为
@@ -59,16 +59,16 @@
 
 ![](../graphics/stm_eqn06377.gif)![](../graphics/stm_eqn06378.gif)![](../graphics/stm_eqn06379.gif)![](../graphics/stm_eqn06211.gif)![](../graphics/stm_eqn06377.gif)户指定为破坏面数据一部分的值![](../graphics/stm_eqn06378.gif)通常为![](../graphics/stm_eqn06379.gif)。![](../graphics/stm_eqn06211.gif)以从[公式4.5.1-4](04s05a119.md)和[公式4.5.1-5](04s05a119.md)计算为
 
-![](../graphics/stm_eqn06380.gif)![](../graphics/stm_eqn06380)
+![](../graphics/stm_eqn06380.gif)![](../graphics/stm_eqn06380.gif)
 
 "压缩"面如图[图4.5.1-2](04s05a119.md)和[图4.5.1-3](04s05a119.md)所示。
 ### 硬化
 
 ![](../graphics/stm_eqn06381.gif)![](../graphics/stm_eqn06382.gif)![](../graphics/stm_eqn06366.gif)用户通过指定单轴压缩试验中应力大小![](../graphics/stm_eqn06381.gif)为非弹性应变大小![](../graphics/stm_eqn06382.gif)函数来定义硬化。这些数据用于定义![](../graphics/stm_eqn06366.gif)系，如下所示。
 
-![](../graphics/stm_eqn06370.gif)![](../graphics/stm_eqn06371.gif)![](../graphics/stm_eqn05864.gif)![](../graphics/stm_eqn06372.gif)![](../graphics/stm_eqn05274.gif)![](../graphics/stm_eqn06367.gif)在单轴压缩中![](../graphics/stm_eqn06370.gif)![](../graphics/stm_eqn06371.gif)其中![](../graphics/stm_eqn05864.gif)应力大小。在活跃塑性加载期间![](../graphics/stm_eqn06372.gif)因此通过使用![](../graphics/stm_eqn05274.gif)定义（[公式4.5.1-4](04s05a119.md)），我们立即得到![](../graphics/stm_eqn06367)
+![](../graphics/stm_eqn06370.gif)![](../graphics/stm_eqn06371.gif)![](../graphics/stm_eqn05864.gif)![](../graphics/stm_eqn06372.gif)![](../graphics/stm_eqn05274.gif)![](../graphics/stm_eqn06367.gif)在单轴压缩中![](../graphics/stm_eqn06370.gif)![](../graphics/stm_eqn06371.gif)其中![](../graphics/stm_eqn05864.gif)应力大小。在活跃塑性加载期间![](../graphics/stm_eqn06372.gif)因此通过使用![](../graphics/stm_eqn05274.gif)定义（[公式4.5.1-4](04s05a119.md)），我们立即得到![](../graphics/stm_eqn06367.gif)
 
-![](../graphics/stm_eqn06383.gif)![](../graphics/stm_eqn06383)
+![](../graphics/stm_eqn06383.gif)![](../graphics/stm_eqn06383.gif)
 ### 流动
 
 ![](../graphics/stm_eqn06372.gif)![](../graphics/stm_eqn06384.gif)模型使用相关流动，因此如果![](../graphics/stm_eqn06372.gif)![](../graphics/stm_eqn06384.gif)
@@ -93,9 +93,9 @@
 
 ![](../graphics/stm_eqn06387.gif)![](../graphics/stm_eqn06399.gif)![](../graphics/stm_eqn06400.gif)![](../graphics/stm_eqn06398.gif)![](../graphics/stm_eqn06376.gif)![](../graphics/stm_eqn06401.gif)![](../graphics/stm_eqn06402.gif)![](../graphics/stm_eqn06403.gif)常数![](../graphics/stm_eqn06387.gif)用户定义的![](../graphics/stm_eqn06399.gif)![](../graphics/stm_eqn06400.gif)![](../graphics/stm_eqn06398.gif)比值）计算，这是单调加载双轴和单轴压缩试验中会发生的总塑性应变分量。在双轴压缩中，当两个非零主应力的大小为![](../graphics/stm_eqn06376.gif)，![](../graphics/stm_eqn06401.gif)![](../graphics/stm_eqn06402.gif)![](../graphics/stm_eqn06403.gif)因此流动规则给出
 
-![](../graphics/stm_eqn06404.gif)![](../graphics/stm_eqn06387.gif)![](../graphics/stm_eqn06399.gif)![](../graphics/stm_eqn06404.gif)用这个方程和[公式4.5.1-8](04s05a119.md)然后从![](../graphics/stm_eqn06399.gif)其他常数定义![](../graphics/stm_eqn06387)
+![](../graphics/stm_eqn06404.gif)![](../graphics/stm_eqn06387.gif)![](../graphics/stm_eqn06399.gif)![](../graphics/stm_eqn06404.gif)用这个方程和[公式4.5.1-8](04s05a119.md)然后从![](../graphics/stm_eqn06399.gif)其他常数定义![](../graphics/stm_eqn06387.gif)
 
-![](../graphics/stm_eqn06405.gif)![](../graphics/stm_eqn06405)
+![](../graphics/stm_eqn06405.gif)![](../graphics/stm_eqn06405.gif)
 ### 裂缝检测和损伤弹性
 
 当应力状态主要是拉伸时，裂缝主导材料行为。该模型使用应力空间中的"裂缝检测"塑性面来确定裂缝发生的时间和裂缝的方向。然后使用损伤弹性来描述混凝土与开裂裂缝的后破坏行为。
@@ -104,7 +104,7 @@
 
 ![](../graphics/stm_eqn06406.gif)后裂行为的基础是[Hilleborg（1976）](07s01a01-References.md)的脆性断裂概念。我们假定形成单位面积裂缝表面所需的断裂能![](../graphics/stm_eqn06406.gif)一个材料特性。这个值可以从测量裂缝张开位移作为应力的函数计算（[图4.5.1-4](04s05a119.md)），为
 
-![](../graphics/stm_eqn06407.gif)![](../graphics/stm_eqn06407)
+![](../graphics/stm_eqn06407.gif)![](../graphics/stm_eqn06407.gif)
 
 图4.5.1-4 基于断裂能的裂缝行为。
 
@@ -114,7 +114,7 @@
 
 ![](../graphics/stm_eqn06406.gif)![](../graphics/stm_eqn06409.gif)![](../graphics/stm_eqn06410.gif)![](../graphics/stm_eqn06411.gif)![](../graphics/stm_eqn06411.gif)假定![](../graphics/stm_eqn06406.gif)一个材料特性的含义是，当位移的弹性部分![](../graphics/stm_eqn06409.gif)消除后，应力和位移剩余部分![](../graphics/stm_eqn06410.gif)间的关系是固定的，与试样尺寸无关。例如，考虑一个试样在施加拉伸位移时在其横截面上形成一个裂缝：![](../graphics/stm_eqn06411.gif)跨裂缝的位移，通过在试验中使用更长或更短的试样不会改变（只要试样明显长于裂缝带宽度，这通常与骨料大小相当）。因此，裂缝混凝土拉伸行为的一个重要部分以应力/位移关系定义。在该模型的有限元实现中，我们必须因此计算积分点的相对位移以提供![](../graphics/stm_eqn06411.gif)我们在Abaqus中通过将应变乘以与积分点相关的特征长度来实现。特征裂缝长度基于单元几何和公式：对于一阶单元，它是跨越单元的线的典型长度；对于二阶单元，它是相同典型长度的一半。对于梁和桁架，它是沿单元轴的特征长度。对于膜和壳，它参考面的特征长度。对于轴对称单元，它只是*r*-*z*平面中的特征长度。对于内聚单元，它等于本构厚度。使用这个特征长度定义是因为我们不一定知道混凝土将在哪个方向开裂，因此无法先验地选择任何特定方向的长度测度。因此，如果模型中的单元具有大的纵横比，当以不同方向加载并在此类单元中发生裂缝时，模型可能会提供不同的结果。用户应在定义材料属性值时考虑这个效应。
 
-![](../graphics/stm_eqn01110.gif)![](../graphics/stm_eqn06411.gif)![](../graphics/stm_eqn06406.gif)在钢筋混凝土中，![](../graphics/stm_eqn01110)-![](../graphics/stm_eqn06411.gif)系还必须代表混凝土和钢筋之间粘结的作用，因为混凝土开裂。我们假定这是通过基于与钢筋材料实验的比较增加![](../graphics/stm_eqn06406.gif)值来容纳的。
+![](../graphics/stm_eqn01110.gif)![](../graphics/stm_eqn06411.gif)![](../graphics/stm_eqn06406.gif)在钢筋混凝土中，![](../graphics/stm_eqn01110.gif)-![](../graphics/stm_eqn06411.gif)系还必须代表混凝土和钢筋之间粘结的作用，因为混凝土开裂。我们假定这是通过基于与钢筋材料实验的比较增加![](../graphics/stm_eqn06406.gif)值来容纳的。
 
 我们首先描述裂缝检测塑性模型，然后讨论损伤弹性。
 ### 应变率分解
@@ -146,7 +146,7 @@
 
 ![](../graphics/stm_eqn06437.gif)![](../graphics/stm_eqn06437.gif)以
 
-![](../graphics/stm_eqn06438.gif)![](../graphics/stm_eqn06438)
+![](../graphics/stm_eqn06438.gif)![](../graphics/stm_eqn06438.gif)
 
 裂缝检测面如图[图4.5.1-2](04s05a119.md)和[图4.5.1-3](04s05a119.md)所示。
 ### 流动

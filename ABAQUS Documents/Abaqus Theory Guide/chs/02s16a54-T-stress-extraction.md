@@ -12,9 +12,9 @@
 
 为了提取*T*应力，我们使用辅助线载荷解，幅值为*f*，施加在裂纹扩展平面内并沿裂纹线：
 
-![](../graphics/stm_eqn02695.gif)![](../graphics/stm_eqn02695)
+![](../graphics/stm_eqn02695.gif)![](../graphics/stm_eqn02695.gif)
 
-![](../graphics/stm_eqn02696.gif)![](../graphics/stm_eqn02697.gif)![](../graphics/stm_eqn02696.gif)于平面应力的项![](../graphics/stm_eqn02698.gif)![](../graphics/stm_eqn01031.gif)![](../graphics/stm_eqn02698.gif)中![](../graphics/stm_eqn02699.gif)![](../graphics/stm_eqn02699)
+![](../graphics/stm_eqn02696.gif)![](../graphics/stm_eqn02697.gif)![](../graphics/stm_eqn02696.gif)于平面应力的项![](../graphics/stm_eqn02698.gif)![](../graphics/stm_eqn01031.gif)![](../graphics/stm_eqn02698.gif)中![](../graphics/stm_eqn02699.gif)![](../graphics/stm_eqn02699.gif)
 
 ![](../graphics/stm_eqn02619.gif)在极限![](../graphics/stm_eqn02700.gif)![](../graphics/stm_eqn02646.gif)![](../graphics/stm_eqn02701.gif)![](../graphics/stm_eqn02647.gif)![](../graphics/stm_eqn02702.gif)![](../graphics/stm_eqn02703.gif)![](../graphics/stm_eqn02704.gif)![](../graphics/stm_eqn02705.gif)![](../graphics/stm_eqn02700.gif)中平面应力为![](../graphics/stm_eqn02706.gif)![](../graphics/stm_eqn02706.gif)如果只建模结构的一半，则![](../graphics/stm_eqn02706.gif)翻倍。![](../graphics/stm_eqn02706.gif)可以通过与*J*积分计算和应力强度因子提取相同的域积分方法计算，这在"J积分评估"第2.16.1节和"应力强度因子提取"第2.16.2节中描述。
 ### 参考

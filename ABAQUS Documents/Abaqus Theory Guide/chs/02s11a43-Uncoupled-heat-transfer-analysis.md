@@ -62,9 +62,9 @@ Abaqus/Standard使用向后差分算法：
 
 对于膜和辐射条件，表面通量项给出Jacobian贡献：
 
-![](../graphics/stm_eqn02271.gif)对于膜条件，![](../graphics/stm_eqn02272)
+![](../graphics/stm_eqn02271.gif)对于膜条件，![](../graphics/stm_eqn02272.gif)
 
-![](../graphics/stm_eqn02273.gif)而对于辐射，![](../graphics/stm_eqn02274)
+![](../graphics/stm_eqn02273.gif)而对于辐射，![](../graphics/stm_eqn02274.gif)
 
 ![](../graphics/stm_eqn02271.gif)![](../graphics/stm_eqn02272.gif)![](../graphics/stm_eqn02275.gif)这些项以这种精确形式包含在Jacobian中。改进的Newton方法然后是
 

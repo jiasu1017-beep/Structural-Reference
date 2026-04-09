@@ -116,7 +116,7 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 在耦合系统中，如果结构上的流体载荷——![](../graphics/stm_eqn01984.gif)—相对于结构的其余力非常小，则可以"顺序耦合"的方式求解。结构方程可以在忽略![](../graphics/stm_eqn01984.gif)的情况下求解；即，在没有流体耦合的分析中。随后，可以求解流体方程，![](../graphics/stm_eqn01985.gif)为边界条件施加。这个两步分析成本较低，对于例如空气中的金属结构等系统是有利的。
 ![](../graphics/stm_eqn01989.gif)![](../graphics/stm_eqn01990.gif)![](../graphics/stm_eqn01991.gif)![](../graphics/stm_eqn01503.gif)![](../graphics/stm_eqn01992.gif)### 时间积分
 
-方程使用标准隐式（Abaqus/Standard）和显式（Abaqus/Explicit）动态积分选项进行时间积分。从隐式积分算子，我们获得解变量（这里表示为![](../graphics/stm_eqn01986])及其时间导数变分之间的关系：
+方程使用标准隐式（Abaqus/Standard）和显式（Abaqus/Explicit）动态积分选项进行时间积分。从隐式积分算子，我们获得解变量（这里表示为![](../graphics/stm_eqn01986.gif)及其时间导数变分之间的关系：
 
 ![](../graphics/stm_eqn01987.gif)自由度的演化方程可以为隐式情况写为
 
@@ -244,11 +244,11 @@ Abaqus中的声学介质可能具有速度依赖的耗散，由流体粘度或 r
 
 ![](../graphics/stm_eqn02081.gif)![](../graphics/stm_eqn02082.gif)原始方程组[方程2.9.1-25](02s09a41-Coupled-acoustic-structural-medium-analy.md)的左右特征向量可以从Lanczos解构造。如上所述，奇异模态对于构建准确的投影算子是必不可少的。容易验证Lanczos系统具有以下结构奇异模态：
 
-![](../graphics/stm_eqn02066.gif)然而，如果我们寻找非平凡的声学奇异模态（即，![](../graphics/stm_eqn02067.gif)使得![](../graphics/stm_eqn02068))，我们容易发现![](../graphics/stm_eqn02069.gif)但也
+![](../graphics/stm_eqn02066.gif)然而，如果我们寻找非平凡的声学奇异模态（即，![](../graphics/stm_eqn02067.gif)使得![](../graphics/stm_eqn02068.gif))，我们容易发现![](../graphics/stm_eqn02069.gif)但也
 
 ![](../graphics/stm_eqn02070.gif)如果存在非平凡![](../graphics/stm_eqn02071.gif)则![](../graphics/stm_eqn02065.gif)非奇异的；因此，为了使解![](../graphics/stm_eqn02072.gif)在，右端必须与![](../graphics/stm_eqn02065.gif)零空间正交。但我们很快观察到
 
-![](../graphics/stm_eqn02073.gif)因此，为了使用Lanczos公式找到声学奇异模态，我们构造一个扰动"力"![](../graphics/stm_eqn02074.gif)使得![](../graphics/stm_eqn02075) Lanczos公式将产生非平凡奇异声学模态
+![](../graphics/stm_eqn02073.gif)因此，为了使用Lanczos公式找到声学奇异模态，我们构造一个扰动"力"![](../graphics/stm_eqn02074.gif)使得![](../graphics/stm_eqn02075.gif) Lanczos公式将产生非平凡奇异声学模态
 
 ![](../graphics/stm_eqn02076.gif)原始非对称系统[方程2.9.1-25](02s09a41-Coupled-acoustic-structural-medium-analy.md)的左右特征向量，包括奇异模态，可以从Lanczos解![](../graphics/stm_eqn02077.gif)造：
 

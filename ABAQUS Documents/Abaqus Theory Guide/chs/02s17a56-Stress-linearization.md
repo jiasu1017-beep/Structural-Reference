@@ -64,7 +64,7 @@
 ![](../graphics/stm_eqn02739.gif)
 ![](../graphics/stm_eqn02736.gif)平均周向半径。子午线膜应力![](../graphics/stm_eqn02737.gif)过厚度除以获得：
 
-![](../graphics/stm_eqn02739)
+![](../graphics/stm_eqn02739.gif)
 ![](../graphics/stm_eqn02740.gif)
 用于计算子午线膜应力的数值方案为
 ![](../graphics/stm_eqn02741.gif)
@@ -77,13 +77,13 @@
 ![](../graphics/stm_eqn02746.gif)
 ![](../graphics/stm_eqn02745.gif)午线弯曲的惯性矩为
 
-![](../graphics/stm_eqn02746)
+![](../graphics/stm_eqn02746.gif)
 ![](../graphics/stm_eqn02747.gif)
 因此，端点A和B处的子午线弯曲应力通过以下获得
 ![](../graphics/stm_eqn02748.gif)
 ![](../graphics/stm_eqn02747.gif)于计算子午线弯矩的数值方案为
 ![](../graphics/stm_eqn02749.gif)
-![](../graphics/stm_eqn02748)
+![](../graphics/stm_eqn02748.gif)
 ![](../graphics/stm_eqn02750.gif)### 环向应力
 
 ![](../graphics/stm_eqn02751.gif)环向膜应力![](../graphics/stm_eqn02749.gif)过以下获得
@@ -102,7 +102,7 @@
 
 ![](../graphics/stm_eqn02756.gif)矩通过求和计算
 
-![](../graphics/stm_eqn02758.gif)![](../graphics/stm_eqn02757)
+![](../graphics/stm_eqn02758.gif)![](../graphics/stm_eqn02757.gif)
 ### 厚度应力
 ![](../graphics/stm_eqn02759.gif)
 厚度应力不传递任何力或弯矩。通常，应力是由施加的外压和热膨胀效应引起的，没有明显的首选方法来确定"膜"和"弯曲"应力。因此，我们选择厚度"膜"应力作为平均厚度应力：
@@ -118,7 +118,7 @@
 
 剪切应力分布假设为抛物线，在端点处为零。因此，弯曲剪切应力设置为0.0。用于计算膜剪切应力的数值方案为：
 
-![](../graphics/stm_eqn02762)
+![](../graphics/stm_eqn02762.gif)
 ### 曲率修正
 
 在轴对称结构中执行应力线性化时使用的方程包括应力线截面的面内和面外曲率半径。默认情况下，"曲率修正"对轴对称结构开启，对非轴对称结构关闭。当计算S22、S33和S12分量时，Abaqus/CAE允许在非轴对称结构的方程中包含这些曲率修正项。数值方案与在轴对称结构中执行应力线性化时使用的方案相同。用户必须选择一个坐标系来指定曲率修正项。当坐标系的*x*轴垂直于应力线时，会生成错误消息。
@@ -131,7 +131,7 @@
 ![](../graphics/stm_eqn02764.gif)![](../graphics/stm_eqn02765.gif)![](../graphics/stm_eqn02766.gif)![](../graphics/stm_eqn02767.gif)![](../graphics/stm_eqn02768.gif)![](../graphics/stm_eqn02769.gif)
 当为轴对称应力线性化执行时，局部坐标系的计算是一个 trivial 的过程。这种情况下的变换矩阵为
 ![](../graphics/stm_eqn02770.gif)
-![](../graphics/stm_eqn02763)
+![](../graphics/stm_eqn02763.gif)
 ![](../graphics/stm_eqn02771.gif)### 三维情况
 
 ![](../graphics/stm_eqn02772.gif)当执行三维应力线性化时，局部*x*轴将由应力线定义。局部*y*-和*z*-轴通过一系列叉乘计算。此过程如下所示。

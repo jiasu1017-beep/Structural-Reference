@@ -81,7 +81,7 @@ Cam-clay模型的基本概念在几何上如图[图4.4.3-1](04s04a115.md)到[图
 
 ![](../graphics/cclayplas-pure-comp-nls.png)
 
-![](../graphics/stm_eqn01917.gif)![](../graphics/stm_eqn06213.gif)屈服面的演化也可以定义为分 piecewise linear function relating the yield stress in hydrostatic compression, ![](../graphics/stm_eqn01917), and the corresponding volumetric plastic strain ![](../graphics/stm_eqn06213.gif)[图4.4.3-7](04s04a115.md)）：
+![](../graphics/stm_eqn01917.gif)![](../graphics/stm_eqn06213.gif)屈服面的演化也可以定义为分 piecewise linear function relating the yield stress in hydrostatic compression, ![](../graphics/stm_eqn01917.gif), and the corresponding volumetric plastic strain ![](../graphics/stm_eqn06213.gif)[图4.4.3-7](04s04a115.md)）：
 
 ![](../graphics/stm_eqn06197.gif)![](../graphics/stm_eqn00064.gif)![](../graphics/stm_eqn06214.gif) Then the evolution parameter, *a*, is given by
 

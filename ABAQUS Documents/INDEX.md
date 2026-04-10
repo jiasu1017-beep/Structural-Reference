@@ -26,7 +26,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Abaqus Example Problems Guide](./Abaqus%20Example%20Problems%20Guide/) | Abaqus 示例问题指南 | ⏳ 未转换 / Not converted |
+| [Abaqus Example Problems Guide](./Abaqus%20Example%20Problems%20Guide/) | Abaqus 示例问题指南 | ✅ 已转换 / Converted |
 | [Abaqus Benchmarks Guide](./Abaqus%20Benchmarks%20Guide/) | Abaqus 基准测试指南 | ⏳ 未转换 / Not converted |
 
 ---
@@ -99,8 +99,8 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已转换 / Converted | 3 |
-| ⏳ 未转换 / Not converted | 16 |
+| ✅ 已转换 / Converted | 4 |
+| ⏳ 未转换 / Not converted | 15 |
 | **总计 Total** | **19** |
 
 ---

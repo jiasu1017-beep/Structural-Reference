@@ -60,7 +60,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Abaqus Keywords Reference Guide](./Abaqus%20Keywords%20Reference%20Guide/) | Abaqus 关键词参考指南 | ⏳ 未转换 / Not converted |
+| [Abaqus Keywords Reference Guide](./Abaqus%20Keywords%20Reference%20Guide/) | Abaqus 关键词参考指南 | ✅ 已转换 / Converted |
 | [Abaqus Theory Guide](./Abaqus%20Theory%20Guide/) | Abaqus 理论指南 | ✅ 已转换 / Converted |
 | [Abaqus Verification Guide](./Abaqus%20Verification%20Guide/) | Abaqus 验证指南 | ⏳ 未转换 / Not converted |
 | [Abaqus User Subroutines Reference Guide](./Abaqus%20User%20Subroutines%20Reference%20Guide/) | Abaqus 用户子程序参考指南 | ⏳ 未转换 / Not converted |
@@ -99,8 +99,8 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已转换 / Converted | 4 |
-| ⏳ 未转换 / Not converted | 15 |
+| ✅ 已转换 / Converted | 5 |
+| ⏳ 未转换 / Not converted | 14 |
 | **总计 Total** | **19** |
 
 ---

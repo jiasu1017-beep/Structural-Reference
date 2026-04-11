@@ -1,14 +1,10 @@
-# Abaqus/Aqua
+# Abaqus/CAE
 
 
 
 
 
-
-
-
-
-| [4.1.41 节](ch04s01abv316.md) | [`VWAVE`](../sub/sub-link.md#sub-xsl-vwave) |
+| [第3.22.1节](ch03s22abv270.md) | 加压厚壁圆柱体 |
 | --- | --- |
 
 

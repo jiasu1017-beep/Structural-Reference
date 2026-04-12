@@ -1,86 +1,72 @@
-# 36.12 OptimizationConstraint object
+# 36.12 OptimizationConstraint 对象
 
+OptimizationConstraint 对象约束优化，使其不能改变模型的拓扑。
 
-
-
-
-
-
-         The OptimizationConstraint object constrains an optimization from making changes to the topology of the model.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].optimizationConstraints[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].optimizationConstraints[*name*]
 ```
 
 ### 36.12.1 OptimizationConstraint(...)
 
-           This method creates an OptimizationConstraint object.         
+此方法创建 OptimizationConstraint 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].OptimizationConstraint
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].OptimizationConstraint
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the optimization constraint repository key.
+一个字符串，指定优化约束仓库键。
 
 *designResponse*
 
-A String specifying the name of the design response to constrain.
+一个字符串，指定要约束的设计响应名称。
 
 *restrictionValue*
 
-A Float specifying the value to which the design response should be constrained.
+一个 Float，指定设计响应应被约束到的值。
 
-**Optional argument**
+**可选参数**
 
 *restrictionMethod*
 
-                 A SymbolicConstant specifying the method used to constrain the design response. Possible values are ABSOLUTE_EQUAL, ABSOLUTE_GREATER_THAN_EQUAL, ABSOLUTE_LESS_THAN_EQUAL, RELATIVE_EQUAL, RELATIVE_GREATER_THAN_EQUAL, and RELATIVE_LESS_THAN_EQUAL. The default value is ABSOLUTE_EQUAL.               
+一个 SymbolicConstant，指定用于约束设计响应的方法。可能的值为 ABSOLUTE_EQUAL、ABSOLUTE_GREATER_THAN_EQUAL、ABSOLUTE_LESS_THAN_EQUAL、RELATIVE_EQUAL、RELATIVE_GREATER_THAN_EQUAL 和 RELATIVE_LESS_THAN_EQUAL。默认值为 ABSOLUTE_EQUAL。
 
-**Return value**
+**返回值**
 
-           An OptimizationConstraint object.         
+OptimizationConstraint 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
 ### 36.12.2 setValues(...)
 
-           This method modifies the OptimizationConstraint object.         
+此方法修改 OptimizationConstraint 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [OptimizationConstraint](pt01ch36pyo12.md#ker-optimizationconstraint-optimizationconstraint-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [OptimizationConstraint](pt01ch36pyo12.md#ker-optimizationconstraint-optimizationconstraint-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 36.12.3 Members
+### 36.12.3 成员
 
-         The OptimizationConstraint object has members with the same names and descriptions as the arguments to the [OptimizationConstraint](pt01ch36pyo12.md#ker-optimizationconstraint-optimizationconstraint-pyc) method.       
-
-
-
-
+OptimizationConstraint 对象具有与 [OptimizationConstraint](pt01ch36pyo12.md#ker-optimizationconstraint-optimizationconstraint-pyc) 方法的参数名称和描述相同的成员。

@@ -1,82 +1,68 @@
-# 36.11 ObjectiveFunction object
+# 36.11 ObjectiveFunction 对象
 
+ObjectiveFunction 对象定义优化的目标。
 
-
-
-
-
-
-         The ObjectiveFunction object defines the objective of the optimization.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].objectiveFunctions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].objectiveFunctions[*name*]
 ```
 
 ### 36.11.1 ObjectiveFunction(...)
 
-           This method creates an ObjectiveFunction object.         
+此方法创建 ObjectiveFunction 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].ObjectiveFunction
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].ObjectiveFunction
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the objective function repository key.
+一个字符串，指定目标函数仓库键。
 
 *objectives*
 
-                 An [OptimizationObjectiveArray](pt01ch36pyo13.md) object.               
+一个 [OptimizationObjectiveArray](pt01ch36pyo13.md) 对象。
 
-**Optional argument**
+**可选参数**
 
 *target*
 
-                 A SymbolicConstant specifying the target of the objective function. Possible values are MINIMIZE, MAXIMIZE, and MINIMIZE_MAXIMUM. The default value is MINIMIZE.               
+一个 SymbolicConstant，指定目标函数的目标。可能的值为 MINIMIZE、MAXIMIZE 和 MINIMIZE_MAXIMUM。默认值为 MINIMIZE。
 
-**Return value**
+**返回值**
 
-           An ObjectiveFunction object.         
+ObjectiveFunction 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
 ### 36.11.2 setValues(...)
 
-           This method modifies the ObjectiveFunction object.         
+此方法修改 ObjectiveFunction 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [ObjectiveFunction](pt01ch36pyo11.md#ker-objectivefunction-objectivefunction-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [ObjectiveFunction](pt01ch36pyo11.md#ker-objectivefunction-objectivefunction-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 36.11.3 Members
+### 36.11.3 成员
 
-         The ObjectiveFunction object has members with the same names and descriptions as the arguments to the [ObjectiveFunction](pt01ch36pyo11.md#ker-objectivefunction-objectivefunction-pyc) method.       
-
-
-
-
+ObjectiveFunction 对象具有与 [ObjectiveFunction](pt01ch36pyo11.md#ker-objectivefunction-objectivefunction-pyc) 方法的参数名称和描述相同的成员。

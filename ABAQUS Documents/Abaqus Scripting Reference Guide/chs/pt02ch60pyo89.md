@@ -1,82 +1,58 @@
-# 60.89 ShearRetention object
+# 60.88 SaturationDependence 对象
 
+SaturationDependence 对象用于指定材料渗透率对润湿液体饱和度的依赖关系。
 
-
-
-
-
-
-The ShearRetention object defines the reduction of the shear modulus associated with crack surfaces in a [Concrete](pt02ch60pyo18.md) model as a function of the tensile strain across the crack.
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].concrete().shearRetention()
+materialApi.materials()[*name*].permeability().saturationDependence()
 ```
 
-### 60.89.1 ShearRetention(...)
+### 60.88.1 SaturationDependence(...)
 
-This method creates a ShearRetention object.
+此方法创建一个 SaturationDependence 对象。
 
-**Path**
-
-```
-materialApi.materials()[*name*].concrete().ShearRetention
-```
-
-**Prototype**
+**路径**
 
 ```
-odb_ShearRetention&
-ShearRetention(const odb_SequenceSequenceDouble& table,
-               bool temperatureDependency,
-               int dependencies);
+materialApi.materials()[*name*].permeability().SaturationDependence
 ```
 
-**Required argument**
+**原型**
+
+```
+odb_SaturationDependence&
+SaturationDependence(const odb_SequenceSequenceDouble& table);
+```
+
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
-*temperatureDependency*
+无。
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+**表数据**
 
-*dependencies*
+- ![](../graphics/ker_eqn00362.gif]。（无量纲。）
+- 饱和度，![](../graphics/ker_eqn00234.gif]。（无量纲。）
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+**返回值**
 
-**Table data**
+一个 SaturationDependence 对象。
 
-- ![](../graphics/ker_eqn00363.gif) for dry concrete. The default value is 1.0.
-- ![](../graphics/ker_eqn00364.gif) for dry concrete. The default value is a very large number (full shear retention).
-- ![](../graphics/ker_eqn00363.gif) for wet concrete. The default value is 1.0.
-- ![](../graphics/ker_eqn00364.gif) for wet concrete. The default value is a very large number (full shear retention).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+**异常**
 
-**Return value**
+RangeError。
 
-A ShearRetention object.
+### 60.88.2 成员
 
-**Exceptions**
+SaturationDependence 对象的成员与 [SaturationDependence](pt02ch60pyo88.md#ker-saturationdependence-saturationdependence-cpp) 方法的参数具有相同的名称和描述。
 
-RangeError.
+### 60.88.3 对应的分析关键字
 
-### 60.89.2 Members
-
-The ShearRetention object has members with the same names and descriptions as the arguments to the [ShearRetention](pt02ch60pyo89.md#ker-shearretention-shearretention-cpp) method.
-
-### 60.89.3 Corresponding analysis keywords
-
-| [*SHEAR RETENTION](../key/key-link.md#usb-kws-mshearretention) |
+| [*PERMEABILITY](../key/key-link.md#usb-kws-mpermeabil) |
 | --- |
-
-
-
-

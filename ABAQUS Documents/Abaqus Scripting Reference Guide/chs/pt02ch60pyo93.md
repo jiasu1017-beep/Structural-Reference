@@ -1,14 +1,8 @@
-# 60.93 SoretEffect object
+# 60.93 SoretEffect 对象
 
+SoretEffect 对象用于定义温度梯度驱动的质量扩散。
 
-
-
-
-
-
-The SoretEffect object defines temperature gradient driven mass diffusion.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].diffusivity().soretEffect()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].diffusivity().soretEffect()
 
 ### 60.93.1 SoretEffect(...)
 
-This method creates a SoretEffect object.
+此方法创建一个 SoretEffect 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].diffusivity().SoretEffect
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_SoretEffect&
@@ -33,48 +27,44 @@ SoretEffect(const odb_SequenceSequenceDouble& table,
             int dependencies);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-- Soret effect factor, ![](../graphics/ker_eqn00367.gif).
-- Concentration.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- Soret 效应因子，![](../graphics/ker_eqn00367.gif]。
+- 浓度。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A SoretEffect object.
+一个 SoretEffect 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.93.2 Members
+### 60.93.2 成员
 
-The SoretEffect object has members with the same names and descriptions as the arguments to the [SoretEffect](pt02ch60pyo93.md#ker-soreteffect-soreteffect-cpp) method.
+SoretEffect 对象的成员与 [SoretEffect](pt02ch60pyo93.md#ker-soreteffect-soreteffect-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.93.3 Corresponding analysis keywords
+### 60.93.3 对应的分析关键字
 
 | [*KAPPA](../key/key-link.md#usb-kws-mkappa) |
 | --- |
-
-
-
-

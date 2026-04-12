@@ -1,14 +1,8 @@
-# 29.95 SpecificHeat object
+# 29.95 SpecificHeat 对象
 
+SpecificHeat 对象指定材料的比热容。
 
-
-
-
-
-
-The SpecificHeat object specifies a material's specific heat.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,80 +13,76 @@ session.odbs[*name*].materials[*name*].specificHeat
 
 ### 29.95.1 SpecificHeat(...)
 
-This method creates a SpecificHeat object.
+此方法创建 SpecificHeat 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].SpecificHeat
 session.odbs[*name*].materials[*name*].SpecificHeat
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-**Optional arguments**
+**可选参数**
 
 *law*
 
-A SymbolicConstant specifying the specific heat behavior. Possible values are CONSTANTVOLUME and CONSTANTPRESSURE. The default value is CONSTANTVOLUME.
+SymbolicConstant，指定比热容行为。可能的值为 CONSTANTVOLUME 和 CONSTANTPRESSURE。默认值为 CONSTANTVOLUME。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is OFF.
+Boolean，指定数据是否依赖于温度。默认值为 OFF。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+Int，指定场变量依赖项的数量。默认值为 0。
 
-**Table data**
+**表格数据**
 
-- Specific heat per unit mass.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 单位质量的比热容。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 以此类推。
 
-**Return value**
+**返回值**
 
-A SpecificHeat object.
+SpecificHeat 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 29.95.2 setValues(...)
 
-This method modifies the SpecificHeat object.
+此方法修改 SpecificHeat 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [SpecificHeat](pt01ch29pyo95.md#ker-specificheat-specificheat-pyc) method.
+`setValues` 的可选参数与 [SpecificHeat](pt01ch29pyo95.md#ker-specificheat-specificheat-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 29.95.3 Members
+### 29.95.3 成员
 
-The SpecificHeat object has members with the same names and descriptions as the arguments to the [SpecificHeat](pt01ch29pyo95.md#ker-specificheat-specificheat-pyc) method.
+SpecificHeat 对象的成员与 [SpecificHeat](pt01ch29pyo95.md#ker-specificheat-specificheat-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.95.4 Corresponding analysis keywords
+### 29.95.4 对应的分析关键字
 
 | [*SPECIFIC HEAT](../key/key-link.md#usb-kws-mspecificheat) |
 | --- |
-
-
-
-

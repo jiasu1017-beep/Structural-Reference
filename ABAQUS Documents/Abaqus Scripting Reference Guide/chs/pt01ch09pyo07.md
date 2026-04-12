@@ -1,43 +1,37 @@
-# 9.7 AcousticPressureBCState object
+# 9.7 AcousticPressureBCState 对象
 
+AcousticPressureBCState 对象存储声压边界条件在步骤中的传播数据。系统为每个步骤由 [AcousticPressureBC](pt01ch09pyo06.md) 对象内部创建此对象的一个实例。该实例也由 [AcousticPressureBC](pt01ch09pyo06.md) 对象内部删除。
 
+AcousticPressureBCState 对象没有构造函数或方法。
 
+AcousticPressureBCState 对象派生自 [BoundaryConditionState](pt01ch09pyo08.md) 对象。
 
-
-
-
-The AcousticPressureBCState object stores the propagating data for an acoustic pressure boundary condition in a step. One instance of this object is created internally by the [AcousticPressureBC](pt01ch09pyo06.md) object for each step. The instance is also deleted internally by the [AcousticPressureBC](pt01ch09pyo06.md) object.
-
-The AcousticPressureBCState object has no constructor or methods.
-
-The AcousticPressureBCState object is derived from the [BoundaryConditionState](pt01ch09pyo08.md) object.
-
-**Access**
+**访问**
 
 ```
 import load
 mdb.models[*name*].steps[*name*].boundaryConditionStates[*name*]
 ```
 
-### 9.7.1 Members
+### 9.7.1 成员
 
-The AcousticPressureBCState object has the following members:
+AcousticPressureBCState 对象具有以下成员：
 
 *magnitude*
 
-A Float specifying the acoustic pressure magnitude.
+一个 Float，指定声压幅值。
 
 *magnitudeState*
 
-A SymbolicConstant specifying the propagation state of the acoustic pressure magnitude. Possible values are UNSET, SET, UNCHANGED, FREED, and MODIFIED.
+一个 SymbolicConstant，指定声压幅值的传播状态。可能的值为 UNSET、SET、UNCHANGED、FREED 和 MODIFIED。
 
 *amplitudeState*
 
-A SymbolicConstant specifying the propagation state of the amplitude reference. Possible values are UNSET, SET, UNCHANGED, FREED, and MODIFIED.
+一个 SymbolicConstant，指定振幅引用的传播状态。可能的值为 UNSET、SET、UNCHANGED、FREED 和 MODIFIED。
 
 *status*
 
-A SymbolicConstant specifying the propagation state of the [BoundaryConditionState](pt01ch09pyo08.md) object. Possible values are:
+一个 SymbolicConstant，指定 [BoundaryConditionState](pt01ch09pyo08.md) 对象的传播状态。可能的值为：
 - NOT_YET_ACTIVE
 - CREATED
 - PROPAGATED
@@ -53,13 +47,9 @@ A SymbolicConstant specifying the propagation state of the [BoundaryConditionSta
 
 *amplitude*
 
-A String specifying the name of the amplitude reference. The String is empty if the boundary condition has no amplitude reference.
+一个 String，指定振幅引用的名称。如果边界条件没有振幅引用，则该 String 为空。
 
-### 9.7.2 Corresponding analysis keywords
+### 9.7.2 对应的分析关键字
 
 | [*BOUNDARY](../key/key-link.md#usb-kws-hboundary) (degree of freedom: 8) |
 | --- |
-
-
-
-

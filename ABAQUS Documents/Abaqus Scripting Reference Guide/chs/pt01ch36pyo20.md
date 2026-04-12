@@ -1,250 +1,236 @@
-# 36.20 ShapeTask object
+# 36.20 ShapeTask 对象
 
+ShapeTask 对象定义形状任务。
 
+ShapeTask 对象派生自 [OptimizationTask](pt01ch36pyo01.md) 对象。
 
-
-
-
-
-The ShapeTask object defines a shape task.
-
-         The ShapeTask object is derived from the [OptimizationTask](pt01ch36pyo01.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*]
 ```
 
 ### 36.20.1 ShapeTask(...)
 
-           This method creates a ShapeTask object.         
+此方法创建 ShapeTask 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].ShapeTask
+**路径**
 
 ```
+mdb.models[*name*].ShapeTask
+```
 
-**Required argument**
+**必要参数**
 
 *name*
 
-A String specifying the optimization task repository key.
+一个字符串，指定优化任务仓库键。
 
-**Optional arguments**
+**可选参数**
 
 *absoluteStepSizeControl*
 
-                 A SymbolicConstant specifying whether to control the permitted absolute step size by the average optimization displacement or minimum optimization displacement. Possible values are MINIMUM and AVERAGE. The default value is MINIMUM.               
+一个 SymbolicConstant，指定是通过平均优化位移还是最小优化位移来控制允许的绝对步长。可能的值为 MINIMUM 和 AVERAGE。默认值为 MINIMUM。
 
 *constrainedLaplacianConvergenceLevel*
 
-                 A SymbolicConstant specifying the constrained Laplacian convergence level. Possible values are NORMAL, CONSERVATIVE, and AGGRESSIVE. The default value is NORMAL.               
+一个 SymbolicConstant，指定约束拉普拉斯收敛级别。可能的值为 NORMAL、CONSERVATIVE 和 AGGRESSIVE。默认值为 NORMAL。
 
 *curvatureSmoothingEdgeLength*
 
-A Float specifying the edge length for the movement vector. The default value is 5.0.
+一个 Float，指定移动向量的边长。默认值为 5.0。
 
 *equalityConstraintTolerance*
 
-                 A Float specifying the equality constraint tolerance. The default value is 10–3.               
+一个 Float，指定等式约束公差。默认值为 10–3。
 
 *featureRecognitionAngle*
 
-A Float specifying the mesh smoothing feature recognition angle for edges and corners. The default value is 30.0.
+一个 Float，指定用于边缘和角落的网格平滑特征识别角度。默认值为 30.0。
 
 *filterExponent*
 
-                 A Float specifying the weight depending on the radius, used when *filterMaxRadius* is specified. The default value is 1.0.               
+一个 Float，指定取决于半径的权重，当指定了 *filterMaxRadius* 时使用。默认值为 1.0。
 
 *filterMaxRadius*
 
- `None` or a Float specifying the maximum influence radius for equivalent stress. The default value is `None`.               
+`None` 或一个 Float，指定等效应力的最大影响半径。默认值为 `None`。
 
 *filterRadiusReduction*
 
- `None` or a Float specifying the reduction of the radius depending on surface bending, used when *filterMaxRadius* is specified. The default value is `None`.               
+`None` 或一个 Float，指定取决于表面弯曲的半径减少，当指定了 *filterMaxRadius* 时使用。默认值为 `None`。
 
 *firstCycleDeletedVolumeTechnique*
 
-                 A SymbolicConstant specifying the method of specifying volume that can be removed immediately in the first design cycle. Possible values are OFF, PERCENTAGE, and ABSOLUTE. The default value is OFF.               
+一个 SymbolicConstant，指定在第一个设计循环中可立即删除的体积的指定方法。可能的值为 OFF、PERCENTAGE 和 ABSOLUTE。默认值为 OFF。
 
 *freezeBoundaryConditionRegions*
 
-                 A Boolean specifying whether to exclude elements with boundary conditions from the optimization. The default value is OFF.               
+一个布尔值，指定是否将具有边界条件的单元排除在优化之外。默认值为 OFF。
 
 *frozenBoundaryConditionRegion*
 
-                 The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region in which to freeze boundary condition regions, or the SymbolicConstant MODEL, used with *freezeBoundaryConditionRegions*. The default value is MODEL.               
+SymbolicConstant MODEL 或 [Region](pt01ch45pyo03.md) 对象，指定冻结边界条件区域的区域，或 SymbolicConstant MODEL，与 *freezeBoundaryConditionRegions* 一起使用。默认值为 MODEL。
 
 *geometricRestrictionEvaluationFrequency*
 
-                 A SymbolicConstant specifying the frequency of evaluating geometric restrictions during mesh smoothing. Possible values are LOW, MEDIUM, and HIGH. The default value is LOW.               
+一个 SymbolicConstant，指定在网格平滑期间评估几何约束的频率。可能的值为 LOW、MEDIUM 和 HIGH。默认值为 LOW。
 
 *growthScaleFactor*
 
-A Float specifying the the scale factor to apply to optimization displacements for nodes with growth. The default value is 1.0.
+一个 Float，指定对具有生长的节点的优化位移应用的缩放因子。默认值为 1.0。
 
 *haltUponViolation*
 
-                 A Boolean specifying whether to halt the optimization if quality criteria are not satisified. The default value is OFF.               
+一个布尔值，指定当质量标准不满足时是否停止优化。默认值为 OFF。
 
 *layerReferenceRegion*
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the region specifying the first node layer for mesh smoothing, used when *meshSmoothingRegionMethod* is TASK_REGION_LAYERS. The default value is `None`.               
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定当 *meshSmoothingRegionMethod* 为 TASK_REGION_LAYERS 时用于指定网格平滑的第一个节点层的区域。默认值为 `None`。
 
 *meshSmoothingRegionMethod*
 
-                 A SymbolicConstant specifying the method used to determine the mesh smoothing region. The REGION value uses the *smoothingRegion*.  The NUMBER_OF_LAYERS value uses the *layerReferenceRegion*. The TASK_REGION_LAYERS value will smooth six layers using the task region. Possible values are TASK_REGION_LAYERS, REGION, and NUMBER_OF_LAYERS. The default value is TASK_REGION_LAYERS.               
+一个 SymbolicConstant，指定用于确定网格平滑区域的方法。REGION 值使用 *smoothingRegion*。NUMBER_OF_LAYERS 值使用 *layerReferenceRegion*。TASK_REGION_LAYERS 值将使用任务区域平滑六层。可能的值为 TASK_REGION_LAYERS、REGION 和 NUMBER_OF_LAYERS。默认值为 TASK_REGION_LAYERS。
 
 *meshSmoothingStrategy*
 
-                 A SymbolicConstant specifying the method smoothing strategy. Possible values are CONSTRAINED_LAPLACIAN and LOCAL_GRADIENT. The default value is CONSTRAINED_LAPLACIAN.               
+一个 SymbolicConstant，指定网格平滑策略方法。可能的值为 CONSTRAINED_LAPLACIAN 和 LOCAL_GRADIENT。默认值为 CONSTRAINED_LAPLACIAN。
 
 *midsideInterpolation*
 
-                 A SymbolicConstant specifying the approach used when treating midside node positions during optimization.  POSITIONS indicates midside node positions are interpolated linearly by position.  OPTIMIZATION_DISPLACEMENT indicates they are interpolated by optimization displacement of corner nodes. Possible values are POSITIONS and OPTIMIZATION_DISPLACEMENT. The default value is POSITIONS.               
+一个 SymbolicConstant，指定在优化期间处理中节点位置的方法。POSITIONS 表示中节点位置按位置线性插值。OPTIMIZATION_DISPLACEMENT 表示它们按角节点优化位移插值。可能的值为 POSITIONS 和 OPTIMIZATION_DISPLACEMENT。默认值为 POSITIONS。
 
 *numFreeNodeLayers*
 
-                 The SymbolicConstant FIX_NONE or an Int specifying the number of node layers adjoining the task region to remain free during mesh smoothing.  A value of 0 indicates that no layers are free and all layers are fixed. The default value is 0.               
+SymbolicConstant FIX_NONE 或 Int，指定与任务区域相邻的在网格平滑期间保持自由的节点层数。值为 0 表示没有层是自由的，所有层都是固定的。默认值为 0。
 
 *numSmoothedElementLayers*
 
- `None` or an Int specifying the number of layers for mesh smoothing when *meshSmoothingRegionMethod* is NUMBER_OF_LAYERS. The default value is `None`.               
+`None` 或 Int，当 *meshSmoothingRegionMethod* 为 NUMBER_OF_LAYERS 时指定网格平滑的层数。默认值为 `None`。
 
 *presumeFeasibleBCRegionAtStart*
 
-                 A Boolean specifying whether to ignore automatically frozen boundary condition regions in the first design cycle.  This is used with *freezeBoundaryConditionRegions*. The default value is ON.               
+一个布尔值，指定在第一个设计循环中是否忽略自动冻结的边界条件区域。此参数与 *freezeBoundaryConditionRegions* 一起使用。默认值为 ON。
 
 *quadMaxAngle*
 
-A Float specifying the maximum angle for quad elements during mesh smoothing. The default value is 160.0.
+一个 Float，指定网格平滑期间四边形单元的最大角度。默认值为 160.0。
 
 *quadMinAngle*
 
-A Float specifying the minimum angle for quad elements during mesh smoothing. The default value is 20.0.
+一个 Float，指定网格平滑期间四边形单元的最小角度。默认值为 20.0。
 
 *quadSkew*
 
-                 A Float specifying the skew angle for quad elements during mesh smoothing, used with *reportQualityViolation*. The default value is 30.0.               
+一个 Float，指定网格平滑期间四边形单元的偏斜角度，与 *reportQualityViolation* 一起使用。默认值为 30.0。
 
 *quadTaper*
 
-                 A Float specifying the taper for quad elements during mesh smoothing, used with *reportQualityViolation*. The default value is 0.5.               
+一个 Float，指定网格平滑期间四边形单元的锥度，与 *reportQualityViolation* 一起使用。默认值为 0.5。
 
 *region*
 
-                 The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region to which the optimization task is applied. The default value is MODEL.               
+SymbolicConstant MODEL 或 [Region](pt01ch45pyo03.md) 对象，指定应用优化任务的区域。默认值为 MODEL。
 
 *reportPoorQualityElements*
 
-                 A Boolean specifying whether to report poor quality elements during mesh smoothing. The default value is OFF.               
+一个布尔值，指定在网格平滑期间是否报告劣质单元。默认值为 OFF。
 
 *reportQualityViolation*
 
-                 A Boolean specifying whether to report a quality criteria violation during mesh smoothing. The default value is OFF.               
+一个布尔值，指定在网格平滑期间是否报告质量标准违反。默认值为 OFF。
 
 *shrinkScaleFactor*
 
-A Float specifying the scale factor to apply to optimization displacements for nodes with shrinkage. The default value is 1.0.
+一个 Float，指定对具有收缩的节点的优化位移应用的缩放因子。默认值为 1.0。
 
 *smoothingRegion*
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the mesh smoothing region, used when *meshSmoothingRegionMethod* is REGION. The default value is `None`.               
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定网格平滑区域，当 *meshSmoothingRegionMethod* 为 REGION 时使用。默认值为 `None`。
 
 *targetMeshQuality*
 
-                 A SymbolicConstant specifying the target mesh quality for mesh smoothing. Possible values are NONE, LOW, MEDIUM, and HIGH. The default value is LOW.               
+一个 SymbolicConstant，指定网格平滑的目标网格质量。可能的值为 NONE、LOW、MEDIUM 和 HIGH。默认值为 LOW。
 
 *tetAspectRatio*
 
-A Float specifying the tet element aspect ratio during mesh smoothing. The default value is 100.0.
+一个 Float，指定网格平滑期间四面体单元的纵横比。默认值为 100.0。
 
 *tetMaxAspect*
 
-A Float specifying the maximum tet element aspect ratio during mesh smoothing. The default value is 8.0.
+一个 Float，指定网格平滑期间最大四面体单元纵横比。默认值为 8.0。
 
 *tetMinAspect*
 
-A Float specifying the minimum tet element aspect ratio during mesh smoothing. The default value is 0.222.
+一个 Float，指定网格平滑期间最小四面体单元纵横比。默认值为 0.222。
 
 *tetSkew*
 
-A Float specifying the tet element skew value during mesh smoothing. The default value is 100.0.
+一个 Float，指定网格平滑期间四面体单元的偏斜值。默认值为 100.0。
 
 *triMaxAngle*
 
-A Float specifying the tri element maximum angle during mesh smoothing. The default value is 140.0.
+一个 Float，指定网格平滑期间三角形单元的最大角度。默认值为 140.0。
 
 *triMinAngle*
 
-A Float specifying the tri element maximum angle during mesh smoothing. The default value is 20.0.
+一个 Float，指定网格平滑期间三角形单元的最大角度。默认值为 20.0。
 
 *updateShapeBasisVectors*
 
-                 A SymbolicConstant specifying whether to update shape basis vectors in the first design cycle or every design cycle. Possible values are EVERY_CYCLE and FIRST_CYCLE. The default value is LOW.               
+一个 SymbolicConstant，指定是在第一个设计循环还是每个设计循环更新形状基向量。可能的值为 EVERY_CYCLE 和 FIRST_CYCLE。默认值为 LOW。
 
-**Return value**
+**返回值**
 
-           A ShapeTask object.         
+ShapeTask 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.20.2 setValues(...)
 
-           This method modifies the ShapeTask object.         
+此方法修改 ShapeTask 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [ShapeTask](pt01ch36pyo20.md#ker-shapetask-shapetask-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [ShapeTask](pt01ch36pyo20.md#ker-shapetask-shapetask-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.20.3 Members
+### 36.20.3 成员
 
-         The ShapeTask object has members with the same names and descriptions as the arguments to the [ShapeTask](pt01ch36pyo20.md#ker-shapetask-shapetask-pyc) method.       
+ShapeTask 对象具有与 [ShapeTask](pt01ch36pyo20.md#ker-shapetask-shapetask-pyc) 方法的参数名称和描述相同的成员。
 
-         In addition, the ShapeTask object can have the following members:       
+此外，ShapeTask 对象可以具有以下成员：
 
 *designResponses*
 
-               A repository of [DesignResponse](pt01ch36pyo04.md) objects.             
+[DesignResponse](pt01ch36pyo04.md) 对象的仓库。
 
 *objectiveFunctions*
 
-               A repository of [ObjectiveFunction](pt01ch36pyo11.md) objects.             
+[ObjectiveFunction](pt01ch36pyo11.md) 对象的仓库。
 
 *optimizationConstraints*
 
-               A repository of [OptimizationConstraint](pt01ch36pyo12.md) objects.             
+[OptimizationConstraint](pt01ch36pyo12.md) 对象的仓库。
 
 *geometricRestrictions*
 
-               A repository of [GeometricRestriction](pt01ch36pyo08.md) objects.             
+[GeometricRestriction](pt01ch36pyo08.md) 对象的仓库。
 
 *stopConditions*
 
-               A repository of [StopCondition](pt01ch36pyo34.md) objects.             
-
-
-
-
+[StopCondition](pt01ch36pyo34.md) 对象的仓库。

@@ -1,16 +1,10 @@
-# 63.3 AcousticInterfaceSection object
+# 63.3 AcousticInterfaceSection 对象
 
+AcousticInterfaceSection 对象定义声学截面的属性。
 
+AcousticInterfaceSection 对象派生自 [Section](pt02ch63pyo01.md) 对象。
 
-
-
-
-
-The AcousticInterfaceSection object defines the properties of an acoustic section.
-
-The AcousticInterfaceSection object is derived from the [Section](pt02ch63pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 sectionApi.sections()[*name*]
@@ -18,15 +12,15 @@ sectionApi.sections()[*name*]
 
 ### 63.3.1 AcousticInterfaceSection(...)
 
-This method creates an AcousticInterfaceSection object.
+此方法创建一个 AcousticInterfaceSection 对象。
 
-**Path**
+**路径**
 
 ```
 sectionApi.AcousticInterfaceSection
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_AcousticInterfaceSection&
@@ -34,35 +28,31 @@ AcousticInterfaceSection(const odb_String& name,
                          double thickness);
 ```
 
-**Required argument**
+**必需参数**
 
 *name*
 
-An odb_String specifying the repository key.
+一个 odb_String，指定存储库键。
 
-**Optional argument**
+**可选参数**
 
 *thickness*
 
-A Double specifying the thickness of the section. Possible values are *thickness* ![](../graphics/ker_eqn00060.gif) 0.0. The default value is 1.0.
+一个 Double，指定截面厚度。可能的值为 *thickness* ![](../graphics/ker_eqn00060.gif) 0.0。默认值为 1.0。
 
-**Return value**
+**返回值**
 
-An AcousticInterfaceSection object.
+一个 AcousticInterfaceSection 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
-### 63.3.2 Members
+### 63.3.2 成员
 
-The AcousticInterfaceSection object has members with the same names and descriptions as the arguments to the [AcousticInterfaceSection](pt02ch63pyo03.md#ker-acousticinterfacesection-acousticinterfacesection-cpp) method.
+AcousticInterfaceSection 对象具有与 [AcousticInterfaceSection](pt02ch63pyo03.md#ker-acousticinterfacesection-acousticinterfacesection-cpp) 方法参数相同名称和描述的成员。
 
-### 63.3.3 Corresponding analysis keywords
+### 63.3.3 对应的分析关键字
 
 | [*INTERFACE](../key/key-link.md#usb-kws-minterface) |
 | --- |
-
-
-
-

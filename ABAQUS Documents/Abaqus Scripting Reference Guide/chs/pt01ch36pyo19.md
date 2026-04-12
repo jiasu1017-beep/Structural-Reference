@@ -1,116 +1,102 @@
-# 36.19 ShapeRotationalSymmetry object
+# 36.19 ShapeRotationalSymmetry 对象
 
+ShapeRotationalSymmetry 对象定义形状旋转对称几何约束。
 
+ShapeRotationalSymmetry 对象派生自 [GeometricRestriction](pt01ch36pyo08.md) 对象。
 
-
-
-
-
-The ShapeRotationalSymmetry object defines a shape rotational symmetry geometric restriction.
-
-         The ShapeRotationalSymmetry object is derived from the [GeometricRestriction](pt01ch36pyo08.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
 ```
 
 ### 36.19.1 ShapeRotationalSymmetry(...)
 
-           This method creates a ShapeRotationalSymmetry object.         
+此方法创建 ShapeRotationalSymmetry 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].ShapeRotationalSymmetry
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].ShapeRotationalSymmetry
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the geometric restriction repository key.
+一个字符串，指定几何约束仓库键。
 
 *clientDirection*
 
-                 A [VertexArray](pt01ch07pyo15.md) object of length 2 specifying the vector positioned at the *csys* origin, used as the axis of symmetry.  Instead of through a [Vertex](pt01ch07pyo15.md), each point may be specified through a tuple of coordinates.               
+一个 [VertexArray](pt01ch07pyo15.md) 对象，长度为 2，指定位于 *csys* 原点处的向量，用作对称轴。每个点可以通过坐标元组指定，而不是通过 [Vertex](pt01ch07pyo15.md)。
 
 *region*
 
-                 A [Region](pt01ch45pyo03.md) object specifying the region to which the geometric restriction is applied.  When used with a [TopologyTask](pt01ch36pyo41.md), there is no default value.  When used with a [ShapeTask](pt01ch36pyo20.md), the default value is MODEL.               
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用几何约束的区域。当与 [TopologyTask](pt01ch36pyo41.md) 一起使用时，没有默认值。当与 [ShapeTask](pt01ch36pyo20.md) 一起使用时，默认值为 MODEL。
 
-**Optional arguments**
+**可选参数**
 
 *angle*
 
-                 A Float specifying the segment size of the repeating pattern in degrees.  If the *angle* value is 0, no repeating pattern is created. The default value is 0.0.               
+一个 Float，指定重复图案的段大小（度）。如果 *angle* 值为 0，则不创建重复图案。默认值为 0.0。
 
 *csys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system. If *csys*=`None`, the global coordinate system is used. When this member is queried, it returns an Int. The default value is `None`.               
+`None` 或 [DatumCsys](pt01ch15pyo03.md) 对象，指定局部坐标系。如果 *csys*=`None`，则使用全局坐标系。当查询此成员时，它返回一个 Int。默认值为 `None`。
 
 *masterPoint*
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the master point used when *masterPointDetermination* is SPECIFY. The default value is `None`.               
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定当 *masterPointDetermination* 为 SPECIFY 时使用的主点。默认值为 `None`。
 
 *masterPointDetermination*
 
-                 A SymbolicConstant specifying the rule for determining the master node. Possible values are MAXIMUM, MINIMUM, and SPECIFY. The default value is MAXIMUM.               
+一个 SymbolicConstant，指定确定主节点的规则。可能的值为 MAXIMUM、MINIMUM 和 SPECIFY。默认值为 MAXIMUM。
 
 *presumeFeasibleRegionAtStart*
 
-                 A Boolean specifying whether to ignore the geometric restriction in the first design cycle. The default value is ON.               
+一个布尔值，指定在第一个设计循环中是否忽略几何约束。默认值为 ON。
 
 *tolerance1*
 
-A Float specifying the geometric tolerance in the 1-direction. The default value is 0.01.
+一个 Float，指定 1 方向的几何公差。默认值为 0.01。
 
 *tolerance2*
 
-A Float specifying the geometric tolerance in the 2-direction. The default value is 0.01.
+一个 Float，指定 2 方向的几何公差。默认值为 0.01。
 
 *tolerance3*
 
-A Float specifying the geometric tolerance in the 3-direction. The default value is 0.01.
+一个 Float，指定 3 方向的几何公差。默认值为 0.01。
 
-**Return value**
+**返回值**
 
-           A ShapeRotationalSymmetry object.         
+ShapeRotationalSymmetry 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.19.2 setValues(...)
 
-           This method modifies the ShapeRotationalSymmetry object.         
+此方法修改 ShapeRotationalSymmetry 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [ShapeRotationalSymmetry](pt01ch36pyo19.md#ker-shaperotationalsymmetry-shaperotationalsymmetry-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [ShapeRotationalSymmetry](pt01ch36pyo19.md#ker-shaperotationalsymmetry-shaperotationalsymmetry-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.19.3 Members
+### 36.19.3 成员
 
-         The ShapeRotationalSymmetry object has members with the same names and descriptions as the arguments to the [ShapeRotationalSymmetry](pt01ch36pyo19.md#ker-shaperotationalsymmetry-shaperotationalsymmetry-pyc) method.       
-
-
-
-
+ShapeRotationalSymmetry 对象具有与 [ShapeRotationalSymmetry](pt01ch36pyo19.md#ker-shaperotationalsymmetry-shaperotationalsymmetry-pyc) 方法的参数名称和描述相同的成员。

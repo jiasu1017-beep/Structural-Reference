@@ -1,16 +1,10 @@
-# 63.4 BeamSection object
+# 63.4 BeamSection 对象
 
+BeamSection 对象定义梁截面的属性。
 
+BeamSection 对象派生自 [Section](pt02ch63pyo01.md) 对象。
 
-
-
-
-
-The BeamSection object defines the properties of a beam section.
-
-The BeamSection object is derived from the [Section](pt02ch63pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 sectionApi.sections()[*name*]
@@ -18,15 +12,15 @@ sectionApi.sections()[*name*]
 
 ### 63.4.1 BeamSection(...)
 
-This method creates a BeamSection object.
+此方法创建一个 BeamSection 对象。
 
-**Path**
+**路径**
 
 ```
 sectionApi.BeamSection
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_BeamSection&
@@ -58,140 +52,140 @@ BeamSection(const odb_String& name,
             const odb_SequenceDouble& shearCenter);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the repository key.
+一个 odb_String，指定存储库键。
 
 *integration*
 
-An odb_String specifying the integration method for the section. Possible values are "BEFORE_ANALYSIS" and "DURING_ANALYSIS".
+一个 odb_String，指定截面的积分方法。可能的值为 "BEFORE_ANALYSIS" 和 "DURING_ANALYSIS"。
 
 *profile*
 
-An odb_String specifying the name of the profile.
+一个 odb_String，指定轮廓名称。
 
-**Optional arguments**
+**可选参数**
 
 *poissonRatio*
 
-A Double specifying the Poisson's ratio of the section. The default value is 0.0.
+一个 Double，指定截面的泊松比。默认值为 0.0。
 
 *thermalExpansion*
 
-A Boolean specifying whether to use thermal expansion data. The default value is false.
+一个 Boolean，指定是否使用热膨胀数据。默认值为 false。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个 Boolean，指定数据是否依赖于温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个 Int，指定场变量依赖项的数量。默认值为 0。
 
 *density*
 
-The string "NONE" or a Double specifying the density of the section. The default value is "NONE".
+字符串 "NONE" 或 Double，指定截面的密度。默认值为 "NONE"。
 
 *referenceTemperature*
 
-The string "NONE" or a Double specifying the reference temperature of the section. The default value is "NONE".
+字符串 "NONE" 或 Double，指定截面的参考温度。默认值为 "NONE"。
 
 *temperatureVar*
 
-An odb_String specifying the temperature variation for the section. Possible values are "LINEAR" and "INTERPOLATED". The default value is "LINEAR".
+一个 odb_String，指定截面的温度变化。可能的值为 "LINEAR" 和 "INTERPOLATED"。默认值为 "LINEAR"。
 
 *alphaDamping*
 
-A Double specifying the ![](../graphics/ker_eqn00161.gif) factor to create mass proportional damping in direct-integration dynamics. The default value is 0.0.
+一个 Double，指定 ![](../graphics/ker_eqn00161.gif) 因子，用于在直接积分动力学中创建质量比例阻尼。默认值为 0.0。
 
 *betaDamping*
 
-A Double specifying the ![](../graphics/ker_eqn00162.gif) factor to create stiffness proportional damping in direct-integration dynamics. The default value is 0.0.
+一个 Double，指定 ![](../graphics/ker_eqn00162.gif) 因子，用于在直接积分动力学中创建刚度比例阻尼。默认值为 0.0。
 
 *compositeDamping*
 
-A Double specifying the fraction of critical damping to be used in calculating composite damping factors for the modes (for use in modal dynamics). The default value is 0.0.
+一个 Double，指定用于计算模态复合阻尼因子的临界阻尼分数（用于模态动力学）。默认值为 0.0。
 
 *useFluidInertia*
 
-A Boolean specifying whether added mass effects will be simulated. The default value is false.
+一个 Boolean，指定是否模拟附加质量效应。默认值为 false。
 
 *submerged*
 
-An odb_String specifying whether the section is either full submerged or half submerged. This argument applies only when *useFluidInertia* = True. Possible values are "FULLY" and "HALF". The default value is "FULLY".
+一个 odb_String，指定截面是完全浸没还是半浸没。此参数仅在 *useFluidInertia* = True 时适用。可能的值为 "FULLY" 和 "HALF"。默认值为 "FULLY"。
 
 *fluidMassDensity*
 
-The string "NONE" or a Double specifying the mass density of the fluid. This argument applies only when *useFluidInertia* = True and must be specified in that case. The default value is "NONE".
+字符串 "NONE" 或 Double，指定流体的质量密度。此参数仅在 *useFluidInertia* = True 时适用，且在这种情况下必须指定。默认值为 "NONE"。
 
 *crossSectionRadius*
 
-The string "NONE" or a Double specifying the radius of the cylindrical cross-section. This argument applies only when *useFluidInertia* = True and must be specified in that case. The default value is "NONE".
+字符串 "NONE" 或 Double，指定圆柱截面的半径。此参数仅在 *useFluidInertia* = True 时适用，且在这种情况下必须指定。默认值为 "NONE"。
 
 *lateralMassCoef*
 
-A Double specifying the added mass coefficient, ![](../graphics/ker_eqn00413.gif), for lateral motions of the beam. This argument applies only when*useFluidInertia* = True. The default value is 1.0.
+一个 Double，指定梁横向运动的附加质量系数 ![](../graphics/ker_eqn00413.gif)。此参数仅在 *useFluidInertia* = True 时适用。默认值为 1.0。
 
 *axialMassCoef*
 
-A Double specifying the added mass coefficient, ![](../graphics/ker_eqn00414.gif), for motions along the axis of the beam.  This argument affects only the term added to the free end(s) of the beam, and applies only when *useFluidInertia* = True. The default value is 0.0.
+一个 Double，指定沿梁轴线运动的附加质量系数 ![](../graphics/ker_eqn00414.gif)。此参数仅影响添加到梁自由端的项目，且仅在 *useFluidInertia* = True 时适用。默认值为 0.0。
 
 *massOffsetX*
 
-A Double specifying the local 1-coordinate of the center of the cylindrical cross-section with respect to the beam cross-section. This argument applies only when *useFluidInertia* = True. The default value is 0.0.
+一个 Double，指定圆柱截面中心相对于梁截面的局部 1 坐标。此参数仅在 *useFluidInertia* = True 时适用。默认值为 0.0。
 
 *massOffsetY*
 
-A Double specifying the local 2-coordinate of the center of the cylindrical cross-section with respect to the beam cross-section. This argument applies only when *useFluidInertia* = True. The default value is 0.0.
+一个 Double，指定圆柱截面中心相对于梁截面的局部 2 坐标。此参数仅在 *useFluidInertia* = True 时适用。默认值为 0.0。
 
 *material*
 
-An odb_String specifying the name of the material. The default value is an empty string. The material is required when *integration* is "DURING_ANALYSIS".                 
+一个 odb_String，指定材料名称。当 *integration* 为 "DURING_ANALYSIS" 时需要材料。默认值为空字符串。
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below. The default value is an empty sequence.
+一个 odb_SequenceSequenceDouble，指定下述项目。默认值为空序列。
 
 *outputPts*
 
-An odb_SequenceSequenceDouble specifying the positions at which output is requested. The default value is an empty sequence.
+一个 odb_SequenceSequenceDouble，指定请求输出的位置。默认值为空序列。
 
 *centroid*
 
-An odb_SequenceDouble specifying the *X–Y* coordinates of the centroid. The default value is (0.0, 0.0).
+一个 odb_SequenceDouble，指定质心的 *X–Y* 坐标。默认值为 (0.0, 0.0)。
 
 *shearCenter*
 
-An odb_SequenceDouble specifying the *X–Y* coordinates of the shear center. The default value is (0.0, 0.0).
+一个 odb_SequenceDouble，指定剪切中心的 *X–Y* 坐标。默认值为 (0.0, 0.0)。
 
-**Table data**
+**表数据**
 
-The table data specify the following:
-- E, the Young's modulus of the section.
-- G, the torsional shear modulus of the section.
-- Thermal expansion coefficient, if using thermal expansion.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+表数据指定以下内容：
+- E，截面的杨氏模量。
+- G，截面的扭转剪切模量。
+- 热膨胀系数（如果使用热膨胀）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 等等。
 
-**Return value**
+**返回值**
 
-A BeamSection object.
+一个 BeamSection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 63.4.2 Members
+### 63.4.2 成员
 
-The BeamSection object has members with the same names and descriptions as the arguments to the [BeamSection](pt02ch63pyo04.md#ker-beamsection-beamsection-cpp) method.
+BeamSection 对象具有与 [BeamSection](pt02ch63pyo04.md#ker-beamsection-beamsection-cpp) 方法参数相同名称和描述的成员。
 
-In addition, the BeamSection object can have the following member:
+此外，BeamSection 对象可以具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_TransverseShearBeam beamTransverseShear() const;
@@ -199,9 +193,9 @@ odb_TransverseShearBeam beamTransverseShear() const;
 
 *beamTransverseShear*
 
-A [TransverseShearBeam](pt02ch63pyo24.md) object specifying the transverse shear stiffness properties.
+一个 [TransverseShearBeam](pt02ch63pyo24.md) 对象，指定横向剪切刚度属性。
 
-### 63.4.3 Corresponding analysis keywords
+### 63.4.3 对应的分析关键字
 
 | [*BEAM GENERAL SECTION](../key/key-link.md#usb-kws-mbeamgensect) |
 | --- |
@@ -211,7 +205,3 @@ A [TransverseShearBeam](pt02ch63pyo24.md) object specifying the transverse shear
 | [*DAMPING](../key/key-link.md#usb-kws-mdamping) |
 | [*SHEAR CENTER](../key/key-link.md#usb-kws-mshearcenter) |
 | [*SECTION POINTS](../key/key-link.md#usb-kws-msectionpoints) |
-
-
-
-

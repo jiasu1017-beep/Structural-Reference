@@ -1,14 +1,8 @@
-# 60.92 Solubility object
+# 60.92 Solubility 对象
 
+Solubility 对象用于指定溶解度。
 
-
-
-
-
-
-The Solubility object specifies solubility.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].solubility()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].solubility()
 
 ### 60.92.1 Solubility(...)
 
-This method creates a Solubility object.
+此方法创建一个 Solubility 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].Solubility
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Solubility&
@@ -33,47 +27,43 @@ Solubility(const odb_SequenceSequenceDouble& table,
            int dependencies);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-- Solubility.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 溶解度。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A Solubility object.
+一个 Solubility 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.92.2 Members
+### 60.92.2 成员
 
-The Solubility object has members with the same names and descriptions as the arguments to the [Solubility](pt02ch60pyo92.md#ker-solubility-solubility-cpp) method.
+Solubility 对象的成员与 [Solubility](pt02ch60pyo92.md#ker-solubility-solubility-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.92.3 Corresponding analysis keywords
+### 60.92.3 对应的分析关键字
 
 | [*SOLUBILITY](../key/key-link.md#usb-kws-msolubility) |
 | --- |
-
-
-
-

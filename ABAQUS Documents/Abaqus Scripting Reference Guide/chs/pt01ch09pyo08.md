@@ -1,31 +1,25 @@
-# 9.8 BoundaryConditionState object
+# 9.8 BoundaryConditionState 对象
 
+BoundaryConditionState 对象是其他 BoundaryConditionState 对象的抽象基类型。BoundaryConditionState 对象没有显式构造函数或方法。BoundaryConditionState 对象的成员对所有派生自 BoundaryConditionState 对象的对象都是通用的。
 
-
-
-
-
-
-The BoundaryConditionState object is the abstract base type for other BoundaryConditionState objects. The BoundaryConditionState object has no explicit constructor or methods. The members of the BoundaryConditionState object are common to all objects derived from the BoundaryConditionState object.
-
-**Access**
+**访问**
 
 ```
 import load
 mdb.models[*name*].steps[*name*].boundaryConditionStates[*name*]
 ```
 
-### 9.8.1 Members
+### 9.8.1 成员
 
-The BoundaryConditionState object has the following members:
+BoundaryConditionState 对象具有以下成员：
 
 *amplitudeState*
 
-A SymbolicConstant specifying the propagation state of the amplitude reference. Possible values are UNSET, SET, UNCHANGED, FREED, and MODIFIED.
+一个 SymbolicConstant，指定振幅引用的传播状态。可能的值为 UNSET、SET、UNCHANGED、FREED 和 MODIFIED。
 
 *status*
 
-A SymbolicConstant specifying the propagation state of the BoundaryConditionState object. Possible values are:
+一个 SymbolicConstant，指定 BoundaryConditionState 对象的传播状态。可能的值为：
 - NOT_YET_ACTIVE
 - CREATED
 - PROPAGATED
@@ -41,8 +35,4 @@ A SymbolicConstant specifying the propagation state of the BoundaryConditionStat
 
 *amplitude*
 
-A String specifying the name of the amplitude reference. The String is empty if the boundary condition has no amplitude reference.
-
-
-
-
+一个 String，指定振幅引用的名称。如果边界条件没有振幅引用，则该 String 为空。

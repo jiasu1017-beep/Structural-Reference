@@ -1,14 +1,8 @@
-# 30.1 Mdb object
+# 30.1 Mdb 对象
 
+Mdb 对象是高级 Abaqus 模型数据库。模型数据库存储模型和分析控制。
 
-
-
-
-
-
-The Mdb                 object is the high-level Abaqus model database. A model database stores models and analysis controls.
-
-**Access**
+**访问**
 
 ```
 mdb
@@ -16,105 +10,105 @@ mdb
 
 ### 30.1.1 Mdb(...)
 
-This constructor creates an empty Mdb                     object.
+此构造函数创建一个空的 Mdb 对象。
 
-**Path**
+**路径**
 
 ```
 Mdb
 ```
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional argument**
+**可选参数**
 
 *pathName*
 
-A String specifying the path to be used when the model database is saved to a file. If you do not provide a file extension, `.cae`                       is appended automatically to the path.                    The default value is an empty string.
+String，指定保存模型数据库到文件时使用的路径。如果不提供文件扩展名，`.cae` 会自动附加到路径。默认值为空字符串。
 
-**Return value**
+**返回值**
 
-A Mdb object.
+Mdb 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 30.1.2 importDxf(...)
 
-This method creates a [ConstrainedSketch](pt01ch48pyo01.md)                     object from a file containing dxf-format (AutoCAD) geometry. Only a limited number of entities are supported. This format should be used only if no other formats are available.
+此方法从包含 dxf 格式（AutoCAD）几何体的文件创建 [ConstrainedSketch](pt01ch48pyo01.md) 对象。仅支持有限数量的实体。此格式仅在没有其他格式可用时使用。
 
-**Path**
+**路径**
 
 ```
 importDxf
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the dxf file to open.
+String，指定要打开的 dxf 文件的路径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A Mdb object.
+Mdb 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 30.1.3 openMdb(...)
 
-This method opens an existing model database file.
+此方法打开现有的模型数据库文件。
 
-**Path**
+**路径**
 
 ```
 openMdb
 ```
 
-**Required argument**
+**必需参数**
 
 *pathName*
 
-A String specifying the path to the model database file to open. If you do not provide a file extension, Abaqus/CAE attempts to open the file with `.cae`                              appended to the path.
+String，指定要打开的模型数据库文件的路径。如果不提供文件扩展名，Abaqus/CAE 会尝试打开附加了 `.cae` 的文件。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An Mdb                       object.
+Mdb 对象。
 
-**Exceptions**
+**异常**
 
-If the file is an invalid model database:
+如果文件是无效的模型数据库：
 
 ```
 MdbError: invalid model database.
 ```
 
-If the file contains a model database from an Abaqus release other than the Abaqus release you are currently running:
+如果文件包含的模型数据库来自当前运行的 Abaqus 版本以外的 Abaqus 版本：
 
 ```
 MdbError: incompatible release number, expected                             *<Abaqus release>*, got                            *<earlier or later Abaqus release>*                
 ```
 
-If the model database file is already opened in write mode:
+如果模型数据库文件已以写入模式打开：
 
 ```
 MdbError: cannot open file: May be in use by another CAE session
 ```
 
-If the command fails to open the model database file for reasons not mentioned above:
+如果命令因上述原因以外的原因未能打开模型数据库文件：
 
 ```
 MdbError: cannot open file...
@@ -122,39 +116,39 @@ MdbError: cannot open file...
 
 ### 30.1.4 openAcis(...)
 
-This method creates an [AcisFile](pt01ch37pyo03.md)                     object from a file containing ACIS-format geometry. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含 ACIS 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openAcis
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the ACIS file to open.
+String，指定要打开的 ACIS 文件的路径。
 
-**Optional argument**
+**可选参数**
 
 *scaleFromFile*
 
-A Boolean specifying whether to scale, rotate, and translate the part using the transform read from the ACIS file. The default value is OFF.
+Boolean，指定是否使用从 ACIS 文件读取的变换来缩放、旋转和平移部件。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-File is from a newer version of ACIS than the CAE kernel.
+文件来自比 CAE 内核更新的 ACIS 版本。
 
 ```
 Texterror: ACIS File version exceeds Kernel.
 ```
 
-The data in the ACIS file are corrupted.
+ACIS 文件中的数据已损坏。
 
 ```
 Texterror: Failed to read ACIS file.
@@ -162,134 +156,134 @@ Texterror: Failed to read ACIS file.
 
 ### 30.1.5 openCatia(...)
 
-This method creates an [AcisFile](pt01ch37pyo03.md)                     object from a file containing CATIA                     V4-format or V5–format geometry. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含 CATIA V4 格式或 V5 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openCatia
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the CATIA                              file to open.
+String，指定要打开的 CATIA 文件的路径。
 
-**Optional arguments**
+**可选参数**
 
 *topology*
 
-A SymbolicConstant specifying the topology of the data to be read from the file and of the part to be created. Possible values are SOLID, SHELL, and WIRE. If *topology*=SOLID, Abaqus/CAE attempts to attach cells to create a solid. If *topology*=SHELL, Abaqus/CAE builds the body as a shell entity and not as a solid entity. If a CATIA V4-format file contains different topologies, only the selected topology is imported from the file. The default value is SOLID.
+SymbolicConstant，指定要从文件读取的数据以及要创建的部件的拓扑。可能的值为 SOLID、SHELL 和 WIRE。如果 *topology*=SOLID，Abaqus/CAE 会尝试附加单元以创建实体。如果 *topology*=SHELL，Abaqus/CAE 将体构建为壳实体而不是实体实体。如果 CATIA V4 格式文件包含不同拓扑，则仅从文件导入所选拓扑。默认值为 SOLID。
 
 *convertUnits*
 
-A SymbolicConstant specifying whether the original units should be retained. Possible values are ON                              and OFF. The default value is OFF.
+SymbolicConstant，指定是否保留原始单位。可能的值为 ON 和 OFF。默认值为 OFF。
 
 *combineBodies*
 
-A Boolean specifying whether to combine the bodies in the CATPart file. If the bodies to be combined touch or overlap, invalid entities would result. For V4–format and CATProduct files, this option will be ignored.
+Boolean，指定是否合并 CATPart 文件中的体。如果要合并的体接触或重叠，将导致无效实体。对于 V4 格式和 CATProduct 文件，此选项将被忽略。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 30.1.6 openEnf(...)
 
-This method creates an[AcisFile](pt01ch37pyo03.md)                     object from a file containing Elysium Neutral File-format geometry that was created by CATIA V5, I-DEAS, or Pro/ENGINEER. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含由 CATIA V5、I-DEAS 或 Pro/ENGINEER 创建的 Elysium Neutral File 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openEnf
 ```
 
-**Required arguments**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the Elysium Neutral File that was created by I-DEAS, Pro/ENGINEER, or CATIA V5.
+String，指定由 I-DEAS、Pro/ENGINEER 或 CATIA V5 创建的 Elysium Neutral File 的路径。
 
 *fileType*
 
-A String specifying the type of CAD                              system that created the file. Possible values are “ideas”, “proe”, or “catiav5”.
+String，指定创建文件的 CAD 系统类型。可能的值为 "ideas"、"proe" 或 "catiav5"。
 
-**Optional arguments**
+**可选参数**
 
 *topology*
 
-A SymbolicConstant specifying the topology of the data to be read from the file and of the part to be created. Possible values are SOLID, SHELL, and WIRE. If *topology*=SOLID, Abaqus/CAE attempts to attach cells to create a solid. If *topology*=SHELL, Abaqus/CAE builds the body as a shell entity and not as a solid entity. The default value is SOLID.
+SymbolicConstant，指定要从文件读取的数据以及要创建的部件的拓扑。可能的值为 SOLID、SHELL 和 WIRE。如果 *topology*=SOLID，Abaqus/CAE 会尝试附加单元以创建实体。如果 *topology*=SHELL，Abaqus/CAE 将体构建为壳实体而不是实体实体。默认值为 SOLID。
 
 *convertUnits*
 
-A Boolean specifying if the dimensions of the part should be converted to millimeters. The default value is OFF.
+Boolean，指定部件尺寸是否应转换为毫米。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 30.1.7 openIges(...)
 
-This method creates an [AcisFile](pt01ch37pyo03.md)                     object from a file containing IGES-format geometry. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含 IGES 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openIges
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the IGES file to open.
+String，指定要打开的 IGES 文件的路径。
 
-**Optional arguments**
+**可选参数**
 
 *trimCurve*
 
-A SymbolicConstant specifying the method used to define the trim curves that bound parametric surfaces. Possible values are:
-- DEFAULT, use either of the following as specified by the contents of the IGES file.
-- PARAMETRIC_DATA, use the parameter space of the surface being trimmed.
-- THREED_DATA, use real space---the coordinate system of the part along with an indication that the trim curve lies on the parametric surface.
+SymbolicConstant，指定用于定义绑定参数曲面的修剪曲线的方法。可能的值为：
+- DEFAULT，根据 IGES 文件的内容指定其中之一。
+- PARAMETRIC_DATA，使用被修剪曲面的参数空间。
+- THREED_DATA，使用实空间——部件的坐标系以及修剪曲线位于参数曲面上的指示。
 
-                              The default value is DEFAULT.
+默认值为 DEFAULT。
 
 *scaleFromFile*
 
-A SymbolicConstant specifying whether the imported geometry needs to be scaled using the units information available in the IGES file. Possible values are ON and OFF. The default value is OFF. When the argument is set to ON, the geometry is scaled to millimeters with respect to the unit system specified in the IGES file.
+SymbolicConstant，指定导入的几何体是否需要使用 IGES 文件中可用的单位信息进行缩放。可能的值为 ON 和 OFF。默认值为 OFF。当此参数设置为 ON 时，几何体将根据 IGES 文件中指定的单位系统缩放到毫米。
 
 *msbo*
 
-A Boolean specifying if the IGES file contains MSBO (Manifold Solid B-Rep Object) entities. The default value is False.
+Boolean，指定 IGES 文件是否包含 MSBO（流形实体 B-Rep 对象）实体。默认值为 False。
 
 *includedLayers*
 
-A sequence of Ints specifying the levels or layers of entities that will be translated from the IGES file to build the part. The default is to include all the layers.
+Int 序列，指定将从 IGES 文件翻译以构建部件的实体所在的层级或图层。默认是包含所有图层。
 
 *topology*
 
-A SymbolicConstant specifying the topology of the data to be read from the file and of the part to be created. Possible values are SOLID, SHELL, and WIRE. If *topology*=SOLID, Abaqus/CAE attempts to attach cells to create a solid. If *topology*=SHELL, Abaqus/CAE builds the body as a shell entity and not as a solid entity. The default value is SOLID.
+SymbolicConstant，指定要从文件读取的数据以及要创建的部件的拓扑。可能的值为 SOLID、SHELL 和 WIRE。如果 *topology*=SOLID，Abaqus/CAE 会尝试附加单元以创建实体。如果 *topology*=SHELL，Abaqus/CAE 将体构建为壳实体而不是实体实体。默认值为 SOLID。
 
 *uniteWires*
 
-A SymbolicConstant specifying whether the imported wires need to be united or not. Possible values are ON andOFF. The default value is ON. When importing a sketch, this value is set to OFF.
+SymbolicConstant，指定导入的线是否需要合并。可能的值为 ON 和 OFF。默认值为 ON。导入草图时，此值设置为 OFF。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-The data in the IGES file are corrupted.
+IGES 文件中的数据已损坏。
 
 ```
 Texterror: Failed to read IGES file.
@@ -297,63 +291,63 @@ Texterror: Failed to read IGES file.
 
 ### 30.1.8 openParasolid(...)
 
-This method creates an[AcisFile](pt01ch37pyo03.md)                     object from a file containing Parasolid-format geometry. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含 Parasolid 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openParasolid
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the Parasolid file to open.
+String，指定要打开的 Parasolid 文件的路径。
 
-**Optional argument**
+**可选参数**
 
 *topology*
 
-A SymbolicConstant specifying the topology of the data to be read from the file and of the part to be created. Possible values are SOLID, SHELL, and WIRE. If *topology*=SOLID, Abaqus/CAE attempts to attach cells to create a solid. If *topology*=SHELL, Abaqus/CAE builds the body as a shell entity and not as a solid entity. The default value is SOLID.
+SymbolicConstant，指定要从文件读取的数据以及要创建的部件的拓扑。可能的值为 SOLID、SHELL 和 WIRE。如果 *topology*=SOLID，Abaqus/CAE 会尝试附加单元以创建实体。如果 *topology*=SHELL，Abaqus/CAE 将体构建为壳实体而不是实体实体。默认值为 SOLID。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 30.1.9 openStep(...)
 
-This method creates an [AcisFile](pt01ch37pyo03.md)                     object from a file containing STEP-format geometry. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含 STEP 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openStep
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the STEP file to open.
+String，指定要打开的 STEP 文件的路径。
 
-**Optional argument**
+**可选参数**
 
 *scale*
 
-A Float specifying the scaling factor to apply to the imported geometric entities. The default value is 1.0.
+Float，指定要应用于导入几何实体的缩放因子。默认值为 1.0。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-The data in the STEP file are corrupted.
+STEP 文件中的数据已损坏。
 
 ```
 Texterror: Failed to read STEP file.
@@ -361,31 +355,31 @@ Texterror: Failed to read STEP file.
 
 ### 30.1.10 openVda(...)
 
-This method creates an [AcisFile](pt01ch37pyo03.md)                     object from a file containing VDA-FS-format geometry. This object is subsequently used by the `PartFromGeometryFile`                     method.
+此方法从包含 VDA-FS 格式几何体的文件创建 [AcisFile](pt01ch37pyo03.md) 对象。此对象随后由 `PartFromGeometryFile` 方法使用。
 
-**Path**
+**路径**
 
 ```
 openVda
 ```
 
-**Required argument**
+**必需参数**
 
 *fileName*
 
-A String specifying the path to the VDA-FS file to open.
+String，指定要打开的 VDA-FS 文件的路径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An AcisFile object.
+AcisFile 对象。
 
-**Exceptions**
+**异常**
 
-The data in the VDA-FS file are corrupted.
+VDA-FS 文件中的数据已损坏。
 
 ```
 Texterror: Failed to read VDA file.
@@ -393,47 +387,47 @@ Texterror: Failed to read VDA file.
 
 ### 30.1.11 close()
 
-This method closes an open Mdb                       object but does not save the Mdb                       object to disk. After closing the Mdb                       object, this method creates a new unnamed empty Mdb                       object.
+此方法关闭打开的 Mdb 对象，但不将 Mdb 对象保存到磁盘。关闭 Mdb 对象后，此方法会创建一个新的未命名空 Mdb 对象。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 30.1.12 save()
 
-This method saves an Mdb                       object to disk at the location specified by *pathName* (*pathName* is a member of the Mdb                       object).
+此方法将 Mdb 对象保存到磁盘，位置由 *pathName* 指定（*pathName* 是 Mdb 对象的成员）。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-If *pathName*                             is empty:
+如果 *pathName* 为空：
 
 ```
 MdbError: cannot save file: pathname member is empty
 ```
 
-If *pathName*                             is `abaqus.cae`:
+如果 *pathName* 为 `abaqus.cae`：
 
 ```
-MdbError: “abaqus.cae” is an invalid CAE filename.
+MdbError: "abaqus.cae" is an invalid CAE filename.
 ```
 
-If the command fails to save the Mdb                             object to disk for reasons not mentioned above:
+如果命令因上述原因以外的原因未能将 Mdb 对象保存到磁盘：
 
 ```
 MdbError: cannot save file...
@@ -441,31 +435,31 @@ MdbError: cannot save file...
 
 ### 30.1.13 saveAs(...)
 
-This method saves an Mdb                       object to disk at the specified location.
+此方法将 Mdb 对象保存到磁盘的指定位置。
 
-**Required argument**
+**必需参数**
 
 *pathName*
 
-A String specifying the path to be used when the model database is saved to a file. If you do not provide a file extension, `.cae`                                is appended automatically to the path.
+String，指定保存模型数据库到文件时使用的路径。如果不提供文件扩展名，`.cae` 会自动附加到路径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-If *pathName*                             is `abaqus.cae`:
+如果 *pathName* 为 `abaqus.cae`：
 
 ```
-MdbError: “abaqus.cae” is an invalid CAE filename.
+MdbError: "abaqus.cae" is an invalid CAE filename.
 ```
 
-If the command fails to save the Mdb                             object to disk for reasons not mentioned above:
+如果命令因上述原因以外的原因未能将 Mdb 对象保存到磁盘：
 
 ```
 MdbError: cannot save file...
@@ -473,37 +467,37 @@ MdbError: cannot save file...
 
 ### 30.1.14 openAuxMdb(...)
 
-This method opens an auxiliary Mdb                       object on the disk at the specified location. This enables models from the auxiliary Mdb                       object to be copied into the current Mdb.
+此方法打开磁盘上指定位置的辅助 Mdb 对象。这使得辅助 Mdb 中的模型可以复制到当前 Mdb 中。
 
-**Required argument**
+**必需参数**
 
 *pathName*
 
-A String specifying the path to the auxiliary Mdb                                which is to be opened. If you do not provide a file extension, `.cae`                                is appended automatically to the path.
+String，指定要打开的辅助 Mdb 的路径。如果不提供文件扩展名，`.cae` 会自动附加到路径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-If the file is an invalid model database:
+如果文件是无效的模型数据库：
 
 ```
 MdbError: invalid model database.
 ```
 
-If the file contains a model database from an Abaqus release other than the Abaqus release you are currently running:
+如果文件包含的模型数据库来自当前运行的 Abaqus 版本以外的 Abaqus 版本：
 
 ```
-MdbError: incompatible release number, expected                             *<Abaqus release>*, got                             *<earlier or later Abaqus release>*.                         
+MdbError: incompatible release number, expected                             *<Abaxis release>*, got                             *<earlier or later Abaqus release>*.                         
 ```
 
-If the command fails to open the model database file for reasons not mentioned above:
+如果命令因上述原因以外的原因未能打开模型数据库文件：
 
 ```
 MdbError: cannot open file...
@@ -511,19 +505,19 @@ MdbError: cannot open file...
 
 ### 30.1.15 closeAuxMdb()
 
-This method closes the auxiliary Mdb                       which had been opened earlier using the `openAuxMdb`                       command.
+此方法关闭先前使用 `openAuxMdb` 命令打开的辅助 Mdb。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-If the auxiliary Mdb was not opened earlier.
+如果辅助 Mdb 之前未打开。
 
 ```
 MdbError: The auxiliary Mdb was not opened..
@@ -531,19 +525,19 @@ MdbError: The auxiliary Mdb was not opened..
 
 ### 30.1.16 getAuxMdbModelNames()
 
-This method returns a list of model names present in the auxiliary Mdb                       which had been opened earlier using the `openAuxMdb`                       command.
+此方法返回先前使用 `openAuxMdb` 命令打开的辅助 Mdb 中存在的模型名称列表。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A list of model names present in the auxiliaryMdb 
+辅助 Mdb 中存在的模型名称列表。
 
-**Exceptions**
+**异常**
 
-If the auxiliary Mdb was not opened earlier.
+如果辅助 Mdb 之前未打开。
 
 ```
 MdbError: The auxiliary Mdb was not opened..
@@ -551,84 +545,80 @@ MdbError: The auxiliary Mdb was not opened..
 
 ### 30.1.17 copyAuxMdbModel(...)
 
-This method copies a specified model from the auxiliary Mdb                       which had been opened earlier using the `openAuxMdb`                       command.
+此方法从先前使用 `openAuxMdb` 命令打开的辅助 Mdb 复制指定模型。
 
-**Required argument**
+**必需参数**
 
 *fromName*
 
-A String specifying the model name in the auxiliary Mdb                                which is to be copied.
+String，指定要复制的辅助 Mdb 中的模型名称。
 
-**Optional argument**
+**可选参数**
 
 *toName*
 
-A String specifying the name to be given to the model after it is copied into the Mdb. If this argument is not specified *toName*                                is assumed to be the same as *fromName*. If a model with name *toName*                                already exists in Mdb, it is overwritten.
+String，指定复制到 Mdb 后要赋予模型的名称。如果未指定此参数，则 *toName* 被假定为与 *fromName* 相同。如果 Mdb 中已存在名为 *toName* 的模型，它将被覆盖。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-If the auxiliary Mdb was not opened earlier.
+如果辅助 Mdb 之前未打开。
 
 ```
 MdbError: The auxiliary Mdb was not opened.
 ```
 
-If the model fromName does not exist in the auxiliary Mdb.
+如果模型 fromName 不存在于辅助 Mdb 中。
 
 ```
 KeyError: fromName does not exist.
 ```
 
-### 30.1.18 Members
+### 30.1.18 成员
 
-The Mdb object has members with the same names and descriptions as the arguments to the [Mdb](pt01ch30pyo01.md#ker-mdb-mdb-pyc) method.
+Mdb 对象的成员与 [Mdb](pt01ch30pyo01.md#ker-mdb-mdb-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the Mdb object can have the following members:
+此外，Mdb 对象可以具有以下成员：
 
 *version*
 
-An Int specifying the release number of the Mdb                    object in memory.
+Int，指定内存中 Mdb 对象的版本号。
 
 *lastChangedCount*
 
-A Float specifying the value of a counter associated with the Mdb                    object. The counter indicates when the Mdb                    object was last changed.
+Float，指定与 Mdb 对象关联的计数器的值。计数器指示 Mdb 对象上次更改的时间。
 
 *jobs*
 
-A repository of [Job](pt01ch26pyo01.md) objects.
+[Job](pt01ch26pyo01.md) 对象仓库。
 
 *adaptivityProcesses*
 
-A repository of [AdaptivityProcess](pt01ch02pyo06.md) objects.
+[AdaptivityProcess](pt01ch02pyo06.md) 对象仓库。
 
 *coexecutions*
 
-A repository of [Coexecution](pt01ch26pyo06.md) objects.
+[Coexecution](pt01ch26pyo06.md) 对象仓库。
 
 *optimizationProcesses*
 
-A repository of [OptimizationProcess](pt01ch26pyo07.md) objects.
+[OptimizationProcess](pt01ch26pyo07.md) 对象仓库。
 
 *meshEditOptions*
 
-A [MeshEditOptions](pt01ch18pyo03.md) object specifying the undo/redo behavior when editing meshes on parts or part instances.
+[MeshEditOptions](pt01ch18pyo03.md) 对象，指定编辑部件或部件实例上的网格时的撤销/重做行为。
 
 *models*
 
-A repository of [Model](pt01ch33pyo01.md) objects.
+[Model](pt01ch33pyo01.md) 对象仓库。
 
 *customData*
 
-A [RepositorySupport](pt01ch14pyo02.md) object.
+[RepositorySupport](pt01ch14pyo02.md) 对象。
 
 *annotations*
 
-A repository of [Annotation](pt01ch05pyo01.md) objects.
-
-
-
-
+[Annotation](pt01ch05pyo01.md) 对象仓库。

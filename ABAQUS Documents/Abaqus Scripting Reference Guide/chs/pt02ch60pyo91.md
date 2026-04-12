@@ -1,14 +1,8 @@
-# 60.91 SimpleShearTestData object
+# 60.91 SimpleShearTestData 对象
 
+SimpleShearTestData 对象提供简单剪切测试数据。
 
-
-
-
-
-
-The SimpleShearTestData object provides simple shear test data.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].hyperfoam().simpleShearTestData()
@@ -16,54 +10,50 @@ materialApi.materials()[*name*].hyperfoam().simpleShearTestData()
 
 ### 60.91.1 SimpleShearTestData(...)
 
-This method creates a SimpleShearTestData object.
+此方法创建一个 SimpleShearTestData 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].hyperfoam().SimpleShearTestData
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_SimpleShearTestData&
 SimpleShearTestData(const odb_SequenceSequenceDouble& table);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Table data**
+**表数据**
 
-- Nominal shear stress, ![](../graphics/ker_eqn00332.gif).
-- Nominal shear strain, ![](../graphics/ker_eqn00040.gif).
-- Nominal transverse stress, ![](../graphics/ker_eqn00366.gif) (normal to edge with shear stress). This stress value is optional.
+- 名义剪切应力，![](../graphics/ker_eqn00332.gif]。
+- 名义剪切应变，![](../graphics/ker_eqn00040.gif]。
+- 名义横向应力，![](../graphics/ker_eqn00366.gif]（垂直于剪切应力边缘）。此应力值是可选的。
 
-**Return value**
+**返回值**
 
-A SimpleShearTestData object.
+一个 SimpleShearTestData 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 60.91.2 Members
+### 60.91.2 成员
 
-The SimpleShearTestData object has members with the same names and descriptions as the arguments to the [SimpleShearTestData](pt02ch60pyo91.md#ker-simplesheartestdata-simplesheartestdata-cpp) method.
+SimpleShearTestData 对象的成员与 [SimpleShearTestData](pt02ch60pyo91.md#ker-simplesheartestdata-simplesheartestdata-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.91.3 Corresponding analysis keywords
+### 60.91.3 对应的分析关键字
 
 | [*SIMPLE SHEAR TEST DATA](../key/key-link.md#usb-kws-msimplesheartestdata) |
 | --- |
-
-
-
-

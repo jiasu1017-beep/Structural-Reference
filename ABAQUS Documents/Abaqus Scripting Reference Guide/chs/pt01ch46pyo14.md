@@ -1,16 +1,10 @@
-# 46.14 HomogeneousSolidSection object
+# 46.14 HomogeneousSolidSection 对象
 
+HomogeneousSolidSection 对象定义实体截面的属性。
 
+HomogeneousSolidSection 对象派生自 [SolidSection](pt01ch46pyo22.md) 对象。
 
-
-
-
-
-The HomogeneousSolidSection object defines the properties of a solid section.
-
-The HomogeneousSolidSection object is derived from the [SolidSection](pt01ch46pyo22.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.14.1 HomogeneousSolidSection(...)
 
-This method creates a HomogeneousSolidSection object.
+此方法创建 HomogeneousSolidSection 对象。
 
 **Path**
 
@@ -30,59 +24,55 @@ mdb.models[*name*].HomogeneousSolidSection
 session.odbs[*name*].HomogeneousSolidSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *material*
 
-A String specifying the name of the material.
+String，指定材料名称。
 
-**Optional argument**
+**可选参数**
 
 *thickness*
 
- `None` or a Float specifying the thickness of the section. Possible values are None or a floating point value such that*thickness* ![](../graphics/ker_eqn00060.gif) 0.0. The default value is None.
+`None` 或 Float，指定截面的厚度。可能的值为 None 或浮点值 such that *thickness* ![](../graphics/ker_eqn00060.gif) 0.0。默认值为 None。
 
-**Return value**
+**返回值**
 
-A HomogeneousSolidSection object.
+HomogeneousSolidSection 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
 ### 46.14.2 setValues(...)
 
-This method modifies the HomogeneousSolidSection object.
+此方法修改 HomogeneousSolidSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [HomogeneousSolidSection](pt01ch46pyo14.md#ker-homogeneoussolidsection-homogeneoussolidsection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [HomogeneousSolidSection](pt01ch46pyo14.md#ker-homogeneoussolidsection-homogeneoussolidsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 46.14.3 Members
+### 46.14.3 成员
 
-The HomogeneousSolidSection object has members with the same names and descriptions as the arguments to the [HomogeneousSolidSection](pt01ch46pyo14.md#ker-homogeneoussolidsection-homogeneoussolidsection-pyc) method.
+HomogeneousSolidSection 对象的成员与 [HomogeneousSolidSection](pt01ch46pyo14.md#ker-homogeneoussolidsection-homogeneoussolidsection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.14.4 Corresponding analysis keywords
+### 46.14.4 对应分析关键字
 
-| [*SOLID SECTION](../key/key-link.md#usb-kws-msolidsection) |
+| [*SOLID SECTION*](../key/key-link.md#usb-kws-msolidsection) |
 | --- |
-
-
-
-

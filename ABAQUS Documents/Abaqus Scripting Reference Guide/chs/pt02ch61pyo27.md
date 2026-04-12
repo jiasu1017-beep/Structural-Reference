@@ -1,16 +1,10 @@
-# 61.27 SectionCategory object
+# 61.27 SectionCategory 对象
 
+SectionCategory 对象用于将模型中具有相似截面的区域分组。具有相同数量截面点或积分点的截面定义被分组在一起。
 
+要访问特定截面定义的数据，请使用输出数据库中的各个 [Section](pt02ch63pyo01.md) 对象。有关更多信息，请参阅"第 8 章，'梁截面轮廓命令'"（[pt01ch08.md](pt01ch08.md)）和"第 46 章，'截面命令'"（[pt01ch46.md](pt01ch46.md)）。
 
-
-
-
-
-The SectionCategory object is used to group regions of the model with like sections. Section definitions that contain the same number of section points or integration points are grouped together.
-
-To access data for a particular section definition, use the individual [Section](pt02ch63pyo01.md) objects in the output database. For more information, see [Chapter 8, "Beam Section profile commands](pt01ch08.md),” and [Chapter 46, "Section commands](pt01ch46.md).”
-
-**Access**
+**访问**
 
 ```
 odb.parts()[*name*].elements(*i*).sectionCategory()
@@ -41,15 +35,15 @@ odb.steps()[*name*].frames(*i*).fieldOutputs()[*name*].values(*i*).instance()\
 
 ### 61.27.1 SectionCategory(...)
 
-This method creates a SectionCategory object.
+此方法创建一个 SectionCategory 对象。
 
-**Path**
+**路径**
 
 ```
 odb.SectionCategory
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_SectionCategory&
@@ -57,35 +51,35 @@ SectionCategory(const odb_String& name,
                 const odb_String& description);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the category.
+一个 odb_String，指定类别名称。
 
 *description*
 
-An odb_String specifying the description of the category.
+一个 odb_String，指定类别描述。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A SectionCategory object.
+一个 SectionCategory 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 61.27.2 Members
+### 61.27.2 成员
 
-The SectionCategory object has members with the same names and descriptions as the arguments to the [SectionCategory](pt02ch61pyo27.md#ker-sectioncategory-sectioncategory-cpp) method.
+SectionCategory 对象具有与 [SectionCategory](pt02ch61pyo27.md#ker-sectioncategory-sectioncategory-cpp) 方法参数相同名称和描述的成员。
 
-In addition, the SectionCategory object can have the following member:
+此外，SectionCategory 对象可以具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_String name() const;
@@ -96,8 +90,4 @@ const odb_SequenceSectionPoint& sectionPoints() const;
 
 *sectionPoints*
 
-A sequence of [SectionPoint](pt02ch61pyo28.md) objects.
-
-
-
-
+[SectionPoint](pt02ch61pyo28.md) 对象的序列。

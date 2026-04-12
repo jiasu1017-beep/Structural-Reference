@@ -1,95 +1,60 @@
-# 60.80 PorousElastic object
+# 60.81 PorousFailureCriteria 对象
 
+PorousFailureCriteria 对象用于指定多孔金属的材料失效准则。
 
-
-
-
-
-
-The PorousElastic object specifies elastic material properties for porous materials.
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].porousElastic()
+materialApi.materials()[*name*].porousMetalPlasticity()\
+.porousFailureCriteria()
 ```
 
-### 60.80.1 PorousElastic(...)
+### 60.81.1 PorousFailureCriteria(...)
 
-This method creates a PorousElastic object.
+此方法创建一个 PorousFailureCriteria 对象。
 
-**Path**
-
-```
-materialApi.materials()[*name*].PorousElastic
-```
-
-**Prototype**
+**路径**
 
 ```
-odb_PorousElastic&
-PorousElastic(const odb_SequenceSequenceDouble& table,
-              const odb_String& shear,
-              bool temperatureDependency,
-              int dependencies);
+materialApi.materials()[*name*].porousMetalPlasticity()\
+.PorousFailureCriteria
 ```
 
-**Required argument**
+**原型**
 
-*table*
+```
+odb_PorousFailureCriteria&
+PorousFailureCriteria(double fraction,
+                      double criticalFraction);
+```
 
-An odb_SequenceSequenceDouble specifying the items described below.
+**必需参数**
 
-**Optional arguments**
+无。
 
-*shear*
+**可选参数**
 
-An odb_String specifying the shear definition form. Possible values are "G" and "POISSON". The default value is "POISSON".
+*fraction*
 
-*temperatureDependency*
+一个 Double，指定完全失效时的孔隙体积分数，![](../graphics/ker_eqn00344.gif]。默认值为 1.0。
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+*criticalFraction*
 
-*dependencies*
+一个 Double，指定临界孔隙体积分数，![](../graphics/ker_eqn00345.gif]。默认值为 1.0。
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+**返回值**
 
-**Table data**
+一个 PorousFailureCriteria 对象。
 
-If *shear*=G, the table data specify the following:
-- The logarithmic bulk modulus, ![](../graphics/ker_eqn00342.gif). (Dimensionless.)
-- The shear modulus, ![](../graphics/ker_eqn00182.gif).
-- The elastic tensile limit, ![](../graphics/ker_eqn00343.gif). (This value cannot be negative.)
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+**异常**
 
-If *shear*=POISSON, the table data specify the following:- The logarithmic bulk modulus, ![](../graphics/ker_eqn00342.gif). (Dimensionless.)
-- The Poisson's ratio, ![](../graphics/ker_eqn00164.gif).
-- The elastic tensile limit, ![](../graphics/ker_eqn00343.gif). (This value cannot be negative.)
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+RangeError。
 
-**Return value**
+### 60.81.2 成员
 
-A PorousElastic object.
+PorousFailureCriteria 对象的成员与 [PorousFailureCriteria](pt02ch60pyo81.md#ker-porousfailurecriteria-porousfailurecriteria-cpp) 方法的参数具有相同的名称和描述。
 
-**Exceptions**
+### 60.81.3 对应的分析关键字
 
-RangeError.
-
-### 60.80.2 Members
-
-The PorousElastic object has members with the same names and descriptions as the arguments to the [PorousElastic](pt02ch60pyo80.md#ker-porouselastic-porouselastic-cpp) method.
-
-### 60.80.3 Corresponding analysis keywords
-
-| [*POROUS ELASTIC](../key/key-link.md#usb-kws-mporouselastic) |
+| [*POROUS FAILURE CRITERIA](../key/key-link.md#usb-kws-mporfailcriteria) |
 | --- |
-
-
-
-

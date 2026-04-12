@@ -1,14 +1,8 @@
-# 60.84 PressureEffect object
+# 60.84 PressureEffect 对象
 
+PressureEffect 对象用于定义等效压力应力驱动的质量扩散。
 
-
-
-
-
-
-The PressureEffect object defines equivalent pressure stress driven mass diffusion.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].diffusivity().pressureEffect()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].diffusivity().pressureEffect()
 
 ### 60.84.1 PressureEffect(...)
 
-This method creates a PressureEffect object.
+此方法创建一个 PressureEffect 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].diffusivity().PressureEffect
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_PressureEffect&
@@ -33,48 +27,44 @@ PressureEffect(const odb_SequenceSequenceDouble& table,
                int dependencies);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-- Pressure stress factor, ![](../graphics/ker_eqn00356.gif).
-- Concentration.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 压力应力因子，![](../graphics/ker_eqn00356.gif]。
+- 浓度。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A PressureEffect object.
+一个 PressureEffect 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.84.2 Members
+### 60.84.2 成员
 
-The PressureEffect object has members with the same names and descriptions as the arguments to the [PressureEffect](pt02ch60pyo84.md#ker-pressureeffect-pressureeffect-cpp) method.
+PressureEffect 对象的成员与 [PressureEffect](pt02ch60pyo84.md#ker-pressureeffect-pressureeffect-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.84.3 Corresponding analysis keywords
+### 60.84.3 对应的分析关键字
 
 | [*KAPPA](../key/key-link.md#usb-kws-mkappa) |
 | --- |
-
-
-
-

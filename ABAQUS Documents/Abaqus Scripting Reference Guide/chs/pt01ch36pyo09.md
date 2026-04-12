@@ -1,92 +1,78 @@
-# 36.9 Growth object
+# 36.9 Growth 对象
 
+Growth 对象定义生长几何约束。
 
+Growth 对象派生自 [GeometricRestriction](pt01ch36pyo08.md) 对象。
 
-
-
-
-
-The Growth object defines a growth geometric restriction.
-
-         The Growth object is derived from the [GeometricRestriction](pt01ch36pyo08.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
 ```
 
 ### 36.9.1 Growth(...)
 
-           This method creates a Growth object.         
+此方法创建 Growth 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].Growth
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].Growth
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the geometric restriction repository key.
+一个字符串，指定几何约束仓库键。
 
 *region*
 
-                 A [Region](pt01ch45pyo03.md) object specifying the region to which the geometric restriction is applied.  When used with a [TopologyTask](pt01ch36pyo41.md), there is no default value.  When used with a [ShapeTask](pt01ch36pyo20.md), the default value is MODEL.               
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用几何约束的区域。当与 [TopologyTask](pt01ch36pyo41.md) 一起使用时，没有默认值。当与 [ShapeTask](pt01ch36pyo20.md) 一起使用时，默认值为 MODEL。
 
-**Optional arguments**
+**可选参数**
 
 *growth*
 
-                 A Float specifying the maximum optimization displacement in the growth direction.  Either *growth* or *shrink* or both must be specified. The default value is 0.0.               
+一个 Float，指定生长方向的最大优化位移。必须指定 *growth* 或 *shrink* 或两者都指定。默认值为 0.0。
 
 *presumeFeasibleRegionAtStart*
 
-                 A Boolean specifying whether to ignore the geometric restriction in the first design cycle. The default value is ON.               
+一个布尔值，指定在第一个设计循环中是否忽略几何约束。默认值为 ON。
 
 *shrink*
 
-                 A Float specifying the maximum optimization displacement in the shrink direction.  Either *growth* or *shrink* or both must be specified The default value is 0.0.               
+一个 Float，指定收缩方向的最大优化位移。必须指定 *growth* 或 *shrink* 或两者都指定。默认值为 0.0。
 
-**Return value**
+**返回值**
 
-           A Growth object.         
+Growth 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.9.2 setValues(...)
 
-           This method modifies the Growth object.         
+此方法修改 Growth 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [Growth](pt01ch36pyo09.md#ker-growth-growth-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [Growth](pt01ch36pyo09.md#ker-growth-growth-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.9.3 Members
+### 36.9.3 成员
 
-         The Growth object has members with the same names and descriptions as the arguments to the [Growth](pt01ch36pyo09.md#ker-growth-growth-pyc) method.       
-
-
-
-
+Growth 对象具有与 [Growth](pt01ch36pyo09.md#ker-growth-growth-pyc) 方法的参数名称和描述相同的成员。

@@ -1,16 +1,10 @@
-# 46.9 EulerianSection object
+# 46.9 EulerianSection 对象
 
+EulerianSection 对象定义欧拉截面的属性。
 
+EulerianSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The EulerianSection object defines the properties of a Eulerian section.
-
-The EulerianSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.9.1 EulerianSection(...)
 
-This method creates a EulerianSection object.
+此方法创建 EulerianSection 对象。
 
 **Path**
 
@@ -30,57 +24,53 @@ mdb.models[*name*].EulerianSection
 session.odbs[*name*].EulerianSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *data*
 
-A String-to-String Dictionary specifying a dictionary mapping Material instance names to Material names. Internally the specified mapping gets sorted on Material instance name.
+String-to-String Dictionary，指定将材料实例名称映射到材料名称的字典。内部指定的映射按材料实例名称排序。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An EulerianSection object.
+EulerianSection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 46.9.2 setValues(...)
 
-This method modifies the EulerianSection object.
+此方法修改 EulerianSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [EulerianSection](pt01ch46pyo09.md#ker-euleriansection-euleriansection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [EulerianSection](pt01ch46pyo09.md#ker-euleriansection-euleriansection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 46.9.3 Members
+### 46.9.3 成员
 
-The EulerianSection object has members with the same names and descriptions as the arguments to the [EulerianSection](pt01ch46pyo09.md#ker-euleriansection-euleriansection-pyc) method.
+EulerianSection 对象的成员与 [EulerianSection](pt01ch46pyo09.md#ker-euleriansection-euleriansection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.9.4 Corresponding analysis keywords
+### 46.9.4 对应分析关键字
 
-| [*EULERIAN SECTION](../key/key-link.md#usb-kws-meulsection) |
+| [*EULERIAN SECTION*](../key/key-link.md#usb-kws-meulsection) |
 | --- |
-
-
-
-

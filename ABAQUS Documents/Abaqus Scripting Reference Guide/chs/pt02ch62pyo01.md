@@ -1,14 +1,8 @@
-# 62.1 SectionAssignment object
+# 62.1 SectionAssignment 对象
 
+SectionAssignment 对象用于指定装配、部件或部件实例上的截面分配。装配上的截面分配仅限于连接器单元。
 
-
-
-
-
-
-The SectionAssignment object is used to specify a section assignment on an assembly, part or part instance. Section assignments on the assembly are limited to connector elements only.
-
-**Access**
+**访问**
 
 ```
 odb.parts()[*name*].sectionAssignments(*i*)
@@ -18,25 +12,20 @@ odb.steps()[*name*].frames(*i*).fieldOutputs()[*name*].values(*i*).instance()\
 .sectionAssignments(*i*)
 ```
 
-### 62.1.1 Members
+### 62.1.1 成员
 
-The SectionAssignment object has members with the same names and descriptions as the arguments to the [SectionAssignment](pt02ch61pyo13.md#ker-odbassembly-sectionassignment-cpp) method.
+SectionAssignment 对象具有与 [SectionAssignment](pt02ch61pyo13.md#ker-odbassembly-sectionassignment-cpp) 方法参数相同名称和描述的成员。
 
-In addition, the SectionAssignment object has the following member:
+此外，SectionAssignment 对象具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
  odb_Set region() const;
             odb_String sectionName() const;
             double offset() const;
-
 ```
 
 *suppressed*
 
-A Boolean specifying whether the section assignment is suppressed or not. The default value is false.
-
-
-
-
+一个 Boolean，指定是否抑制截面分配。默认值为 false。

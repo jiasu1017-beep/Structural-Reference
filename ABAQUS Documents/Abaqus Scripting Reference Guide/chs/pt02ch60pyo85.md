@@ -1,100 +1,73 @@
-# 60.85 RateDependent object
+# 60.86 Ratios 对象
 
+Ratios 对象用于指定定义各向异性膨胀的比率。
 
-
-
-
-
-
-The RateDependent object defines a rate-dependent viscoplastic model.
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].crushableFoam().rateDependent()
-materialApi.materials()[*name*].druckerPrager().rateDependent()
-materialApi.materials()[*name*].plastic().rateDependent()
+materialApi.materials()[*name*].moistureSwelling().ratios()
+materialApi.materials()[*name*].swelling().ratios()
 ```
 
-### 60.85.1 RateDependent(...)
+### 60.86.1 Ratios(...)
 
-This method creates a RateDependent object.
+此方法创建一个 Ratios 对象。
 
-**Path**
-
-```
-materialApi.materials()[*name*].crushableFoam().RateDependent
-materialApi.materials()[*name*].druckerPrager().RateDependent
-materialApi.materials()[*name*].plastic().RateDependent
-```
-
-**Prototype**
+**路径**
 
 ```
-odb_RateDependent&
-RateDependent(const odb_SequenceSequenceDouble& table,
-              const odb_String& type,
-              bool temperatureDependency,
-              int dependencies);
+materialApi.materials()[*name*].moistureSwelling().Ratios
+materialApi.materials()[*name*].swelling().Ratios
 ```
 
-**Required argument**
+**原型**
+
+```
+odb_Ratios&
+Ratios(const odb_SequenceSequenceDouble& table,
+       bool temperatureDependency,
+       int dependencies);
+```
+
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
-
-*type*
-
-An odb_String specifying the type of rate-dependent data. Possible values are "POWER_LAW", "YIELD_RATIO", and "JOHNSON_COOK". The default value is "POWER_LAW".
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-If *type*=POWER_LAW, the table data specify the following:
-- ![](../graphics/ker_eqn00172.gif).
-- ![](../graphics/ker_eqn00088.gif).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- ![](../graphics/ker_eqn00359.gif]。
+- ![](../graphics/ker_eqn00360.gif]。
+- ![](../graphics/ker_eqn00361.gif]。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *type*=YIELD_RATIO, the table data specify the following:- Yield stress ratio, ![](../graphics/ker_eqn00357.gif).
-- Equivalent plastic strain rate, ![](../graphics/ker_eqn00337.gif).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+**返回值**
 
-If *type*=JOHNSON_COOK, the table data specify the following:- ![](../graphics/ker_eqn00039.gif).
-- ![](../graphics/ker_eqn00358.gif).
+一个 Ratios 对象。
 
-**Return value**
+**异常**
 
-A RateDependent object.
+RangeError。
 
-**Exceptions**
+### 60.86.2 成员
 
-RangeError.
+Ratios 对象的成员与 [Ratios](pt02ch60pyo86.md#ker-ratios-ratios-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.85.2 Members
+### 60.86.3 对应的分析关键字
 
-The RateDependent object has members with the same names and descriptions as the arguments to the [RateDependent](pt02ch60pyo85.md#ker-ratedependent-ratedependent-cpp) method.
-
-### 60.85.3 Corresponding analysis keywords
-
-| [*RATE DEPENDENT](../key/key-link.md#usb-kws-mratedependent) |
+| [*RATIOS](../key/key-link.md#usb-kws-mswellratios) |
 | --- |
-
-
-
-

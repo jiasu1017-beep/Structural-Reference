@@ -1,124 +1,125 @@
-# 60.75 Piezoelectric object
+# 60.74 Permeability 对象
 
+Permeability 对象用于定义孔隙流体渗透率。
 
-
-
-
-
-
-The Piezoelectric object specifies piezoelectric material properties.
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].piezoelectric()
+materialApi.materials()[*name*].permeability()
 ```
 
-### 60.75.1 Piezoelectric(...)
+### 60.74.1 Permeability(...)
 
-This method creates a Piezoelectric object.
+此方法创建一个 Permeability 对象。
 
-**Path**
-
-```
-materialApi.materials()[*name*].Piezoelectric
-```
-
-**Prototype**
+**路径**
 
 ```
-odb_Piezoelectric&
-Piezoelectric(const odb_SequenceSequenceDouble& table,
-              const odb_String& type,
-              bool temperatureDependency,
-              int dependencies);
+materialApi.materials()[*name*].Permeability
 ```
 
-**Required argument**
+**原型**
+
+```
+odb_Permeability&
+Permeability(double specificWeight,
+             double inertialDragCoefficient,
+             const odb_SequenceSequenceDouble& table,
+             const odb_String& type,
+             bool temperatureDependency,
+             int dependencies);
+```
+
+**必需参数**
+
+*specificWeight*
+
+一个 Double，指定润湿液体的比重，![](../graphics/ker_eqn00296.gif]。
+
+*inertialDragCoefficient*
+
+一个 Double，指定润湿液体的惯性拖曳系数，![](../graphics/ker_eqn00296.gif]。
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *type*
 
-An odb_String specifying the type of material coefficients for the piezoelectric property. Possible values are "STRAIN" and "STRESS". The default value is "STRESS".
+一个 odb_String，指定渗透率类型。可能的值为"ISOTROPIC"、"ORTHOTROPIC"、"ANISOTROPIC"、"ISOTROPIC-CFD"和"CARMAN_KOZENY"。默认值为"ISOTROPIC"。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-If *type*=STRESS, the table data specify the following:
-- ![](../graphics/ker_eqn00297.gif).
-- ![](../graphics/ker_eqn00298.gif).
-- ![](../graphics/ker_eqn00299.gif).
-- ![](../graphics/ker_eqn00300.gif).
-- ![](../graphics/ker_eqn00301.gif).
-- ![](../graphics/ker_eqn00302.gif).
-- ![](../graphics/ker_eqn00303.gif).
-- ![](../graphics/ker_eqn00304.gif).
-- ![](../graphics/ker_eqn00305.gif).
-- ![](../graphics/ker_eqn00306.gif).
-- ![](../graphics/ker_eqn00307.gif).
-- ![](../graphics/ker_eqn00308.gif).
-- ![](../graphics/ker_eqn00309.gif).
-- ![](../graphics/ker_eqn00310.gif).
-- ![](../graphics/ker_eqn00311.gif).
-- ![](../graphics/ker_eqn00312.gif).
-- ![](../graphics/ker_eqn00313.gif).
-- ![](../graphics/ker_eqn00314.gif).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *type*=ISOTROPIC，表数据指定以下内容：
+- ![](../graphics/ker_eqn00143.gif]。
+- 孔隙比，![](../graphics/ker_eqn00289.gif]。
+- 温度（如果数据依赖温度）。
 
-If *type*=STRAIN, the table data specify the following:- ![](../graphics/ker_eqn00315.gif).
-- ![](../graphics/ker_eqn00316.gif).
-- ![](../graphics/ker_eqn00317.gif).
-- ![](../graphics/ker_eqn00318.gif).
-- ![](../graphics/ker_eqn00319.gif).
-- ![](../graphics/ker_eqn00320.gif).
-- ![](../graphics/ker_eqn00321.gif).
-- ![](../graphics/ker_eqn00322.gif).
-- ![](../graphics/ker_eqn00323.gif).
-- ![](../graphics/ker_eqn00324.gif).
-- ![](../graphics/ker_eqn00325.gif).
-- ![](../graphics/ker_eqn00326.gif).
-- ![](../graphics/ker_eqn00327.gif).
-- ![](../graphics/ker_eqn00328.gif).
-- ![](../graphics/ker_eqn00329.gif).
-- ![](../graphics/ker_eqn00330.gif).
-- ![](../graphics/ker_eqn00331.gif).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *type*=ORTHOTROPIC，表数据指定以下内容：
+- ![](../graphics/ker_eqn00144.gif]。
+- ![](../graphics/ker_eqn00145.gif]。
+- ![](../graphics/ker_eqn00146.gif]。
+- 孔隙比，![](../graphics/ker_eqn00289.gif]。
+- 温度（如果数据依赖温度）。
 
-**Return value**
+如果 *type*=ANISOTROPIC，表数据指定以下内容：
+- ![](../graphics/ker_eqn00144.gif]。
+- ![](../graphics/ker_eqn00147.gif]。
+- ![](../graphics/ker_eqn00145.gif]。
+- ![](../graphics/ker_eqn00148.gif]。
+- ![](../graphics/ker_eqn00149.gif]。
+- ![](../graphics/ker_eqn00146.gif]。
+- 孔隙比，![](../graphics/ker_eqn00289.gif]。
+- 温度（如果数据依赖温度）。
 
-A Piezoelectric object.
+如果 *type*=ISOTROPIC_CFD，表数据指定以下内容：
+- ![](../graphics/ker_eqn00143.gif]。
+- 孔隙率，![](../graphics/ker_eqn00289.gif]。
 
-**Exceptions**
+如果 *type*=CARMAN_KOZENY，表数据指定以下内容：
+- Kozeny 常量![](../graphics/ker_eqn00289.gif]。
+- 孔隙粒子半径，![](../graphics/ker_eqn00289.gif]。
 
-None.
+**返回值**
 
-### 60.75.2 Members
+一个 Permeability 对象。
 
-The Piezoelectric object has members with the same names and descriptions as the arguments to the [Piezoelectric](pt02ch60pyo75.md#ker-piezoelectric-piezoelectric-cpp) method.
+**异常**
 
-### 60.75.3 Corresponding analysis keywords
+RangeError。
 
-| [*PIEZOELECTRIC](../key/key-link.md#usb-kws-mpiezoelect) |
+### 60.74.2 成员
+
+Permeability 对象的成员与 [Permeability](pt02ch60pyo74.md#ker-permeability-permeability-cpp) 方法的参数具有相同的名称和描述。
+
+此外，Permeability 对象可以具有以下成员：
+
+**原型**
+
+```
+odb_SaturationDependence saturationDependence() const;
+odb_VelocityDependence velocityDependence() const;
+```
+
+*saturationDependence*
+
+一个 [SaturationDependence](pt02ch60pyo88.md) 对象，指定材料渗透率对润湿液体饱和度的依赖关系。
+
+*velocityDependence*
+
+一个 [VelocityDependence](pt02ch60pyo105.md) 对象，指定材料渗透率对流体流速的依赖关系。
+
+### 60.74.3 对应的分析关键字
+
+| [*PERMEABILITY](../key/key-link.md#usb-kws-mpermeabil) |
 | --- |
-
-
-
-

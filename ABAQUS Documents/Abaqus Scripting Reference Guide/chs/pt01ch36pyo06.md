@@ -1,100 +1,86 @@
-# 36.6 FixedRegion object
+# 36.6 FixedRegion 对象
 
+FixedRegion 对象定义固定区域几何约束。
 
+FixedRegion 对象派生自 [GeometricRestriction](pt01ch36pyo08.md) 对象。
 
-
-
-
-
-The FixedRegion object defines a fixed region geometric restriction.
-
-         The FixedRegion object is derived from the [GeometricRestriction](pt01ch36pyo08.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
 ```
 
 ### 36.6.1 FixedRegion(...)
 
-           This method creates a FixedRegion object.         
+此方法创建 FixedRegion 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].FixedRegion
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].FixedRegion
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the geometric restriction repository key.
+一个字符串，指定几何约束仓库键。
 
 *region*
 
-                 A [Region](pt01ch45pyo03.md) object specifying the region to which the geometric restriction is applied.  When used with a [TopologyTask](pt01ch36pyo41.md), there is no default value.  When used with a [ShapeTask](pt01ch36pyo20.md), the default value is MODEL.               
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用几何约束的区域。当与 [TopologyTask](pt01ch36pyo41.md) 一起使用时，没有默认值。当与 [ShapeTask](pt01ch36pyo20.md) 一起使用时，默认值为 MODEL。
 
-**Optional arguments**
+**可选参数**
 
 *csys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system. If *csys*=`None`, the global coordinate system is used. When this member is queried, it returns an Int. The default value is `None`.               
+`None` 或 [DatumCsys](pt01ch15pyo03.md) 对象，指定局部坐标系。如果 *csys*=`None`，则使用全局坐标系。当查询此成员时，它返回一个 Int。默认值为 `None`。
 
 *presumeFeasibleRegionAtStart*
 
-                 A Boolean specifying whether to ignore the geometric restriction in the first design cycle. The default value is ON.               
+一个布尔值，指定在第一个设计循环中是否忽略几何约束。默认值为 ON。
 
 *u1*
 
-                 A Boolean specifying whether to fix the region in the 1-direction. The default value is OFF.               
+一个布尔值，指定是否在 1 方向上固定区域。默认值为 OFF。
 
 *u2*
 
-                 A Boolean specifying whether to fix the region in the 2-direction. The default value is OFF.               
+一个布尔值，指定是否在 2 方向上固定区域。默认值为 OFF。
 
 *u3*
 
-                 A Boolean specifying whether to fix the region in the 3-direction. The default value is OFF.               
+一个布尔值，指定是否在 3 方向上固定区域。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-           A FixedRegion object.         
+FixedRegion 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.6.2 setValues(...)
 
-           This method modifies the FixedRegion object.         
+此方法修改 FixedRegion 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [FixedRegion](pt01ch36pyo06.md#ker-fixedregion-fixedregion-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [FixedRegion](pt01ch36pyo06.md#ker-fixedregion-fixedregion-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.6.3 Members
+### 36.6.3 成员
 
-         The FixedRegion object has members with the same names and descriptions as the arguments to the [FixedRegion](pt01ch36pyo06.md#ker-fixedregion-fixedregion-pyc) method.       
-
-
-
-
+FixedRegion 对象具有与 [FixedRegion](pt01ch36pyo06.md#ker-fixedregion-fixedregion-pyc) 方法的参数名称和描述相同的成员。

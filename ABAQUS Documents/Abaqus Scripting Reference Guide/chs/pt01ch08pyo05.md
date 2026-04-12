@@ -1,16 +1,10 @@
-# 8.5 GeneralizedProfile object
+# 8.5 GeneralizedProfile 对象
 
+GeneralizedProfile 对象通过其面积、惯性矩等定义 profile 的属性。
 
+GeneralizedProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The GeneralizedProfile object defines the properties of a profile via its area, moment of inertia, etc.
-
-The GeneralizedProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,90 +15,86 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.5.1 GeneralizedProfile(...)
 
-This method creates a GeneralizedProfile object.
+此方法创建一个 GeneralizedProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].GeneralizedProfile
 session.odbs[*name*].GeneralizedProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *area*
 
-A Float specifying the cross-sectional area for the profile.
+一个 Float，指定 profile 的横截面积。
 
 *i11*
 
-A Float specifying the moment of inertia for bending about the 1-axis, ![](../graphics/ker_eqn00019.gif).
+一个 Float，指定关于 1 轴弯曲的惯性矩，![](../graphics/ker_eqn00019.gif)。
 
 *i12*
 
-A Float specifying the moment of inertia for cross bending, ![](../graphics/ker_eqn00020.gif).
+一个 Float，指定交叉弯曲的惯性矩，![](../graphics/ker_eqn00020.gif)。
 
 *i22*
 
-A Float specifying the moment of inertia for bending about the 2-axis, ![](../graphics/ker_eqn00021.gif).
+一个 Float，指定关于 2 轴弯曲的惯性矩，![](../graphics/ker_eqn00021.gif)。
 
 *j*
 
-A Float specifying the torsional constant, ![](../graphics/ker_eqn00022.gif).
+一个 Float，指定扭转常数，![](../graphics/ker_eqn00022.gif)。
 
 *gammaO*
 
-A Float specifying the sectorial moment, ![](../graphics/ker_eqn00023.gif).
+一个 Float，指定扇形矩，![](../graphics/ker_eqn00023.gif)。
 
 *gammaW*
 
-A Float specifying the warping constant, ![](../graphics/ker_eqn00024.gif).
+一个 Float，指定翘曲常数，![](../graphics/ker_eqn00024.gif)。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A GeneralizedProfile object.
+一个 GeneralizedProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.5.2 setValues(...)
 
-This method modifies the GeneralizedProfile object.
+此方法修改 GeneralizedProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [GeneralizedProfile](pt01ch08pyo05.md#ker-generalizedprofile-generalizedprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [GeneralizedProfile](pt01ch08pyo05.md#ker-generalizedprofile-generalizedprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.5.3 Members
+### 8.5.3 成员
 
-The GeneralizedProfile object has members with the same names and descriptions as the arguments to the [GeneralizedProfile](pt01ch08pyo05.md#ker-generalizedprofile-generalizedprofile-pyc) method.
+GeneralizedProfile 对象具有与 [GeneralizedProfile](pt01ch08pyo05.md#ker-generalizedprofile-generalizedprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.5.4 Corresponding analysis keywords
+### 8.5.4 对应的分析关键字
 
 | [*BEAM GENERAL SECTION](../key/key-link.md#usb-kws-mbeamgensect), SECTION=GENERAL or NONLINEAR GENERAL |
 | --- |
-
-
-
-

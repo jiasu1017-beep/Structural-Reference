@@ -1,14 +1,8 @@
-# 29.96 Swelling object
+# 29.96 Swelling 对象
 
+Swelling 对象指定材料的时间依赖性体积膨胀。
 
-
-
-
-
-
-The Swelling object specifies time-dependent volumetric swelling for a material.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,88 +13,84 @@ session.odbs[*name*].materials[*name*].swelling
 
 ### 29.96.1 Swelling(...)
 
-This method creates a Swelling object.
+此方法创建 Swelling 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].Swelling
 session.odbs[*name*].materials[*name*].Swelling
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-This argument is valid only when *law*=INPUT.
+此参数仅在 *law*=INPUT 时有效。
 
-**Optional arguments**
+**可选参数**
 
 *law*
 
-A SymbolicConstant specifying the type of data defining the swelling behavior. Possible values are INPUT and USER. The default value is INPUT.
+SymbolicConstant，指定定义膨胀行为的数据类型。可能的值为 INPUT 和 USER。默认值为 INPUT。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is OFF.
+Boolean，指定数据是否依赖于温度。默认值为 OFF。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+Int，指定场变量依赖项的数量。默认值为 0。
 
-**Table data**
+**表格数据**
 
-- Volumetric swelling strain rate.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 体积膨胀应变率。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 以此类推。
 
-**Return value**
+**返回值**
 
-A Swelling object.
+Swelling 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 29.96.2 setValues(...)
 
-This method modifies the Swelling object.
+此方法修改 Swelling 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [Swelling](pt01ch29pyo96.md#ker-swelling-swelling-pyc) method.
+`setValues` 的可选参数与 [Swelling](pt01ch29pyo96.md#ker-swelling-swelling-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 29.96.3 Members
+### 29.96.3 成员
 
-The Swelling object has members with the same names and descriptions as the arguments to the [Swelling](pt01ch29pyo96.md#ker-swelling-swelling-pyc) method.
+Swelling 对象的成员与 [Swelling](pt01ch29pyo96.md#ker-swelling-swelling-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the Swelling object can have the following member:
+此外，Swelling 对象可以具有以下成员：
 
 *ratios*
 
-A [Ratios](pt01ch29pyo86.md) object.
+[Ratios](pt01ch29pyo86.md) 对象。
 
-### 29.96.4 Corresponding analysis keywords
+### 29.96.4 对应的分析关键字
 
 | [*SWELLING](../key/key-link.md#usb-kws-mswelling) |
 | --- |
-
-
-
-

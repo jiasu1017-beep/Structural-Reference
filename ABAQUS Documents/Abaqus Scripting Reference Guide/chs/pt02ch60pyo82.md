@@ -1,14 +1,8 @@
-# 60.82 PorousMetalPlasticity object
+# 60.82 PorousMetalPlasticity 对象
 
+PorousMetalPlasticity 对象用于指定多孔金属塑性模型。
 
-
-
-
-
-
-The PorousMetalPlasticity object specifies a porous metal plasticity model.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].porousMetalPlasticity()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].porousMetalPlasticity()
 
 ### 60.82.1 PorousMetalPlasticity(...)
 
-This method creates a PorousMetalPlasticity object.
+此方法创建一个 PorousMetalPlasticity 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].PorousMetalPlasticity
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_PorousMetalPlasticity&
@@ -34,51 +28,51 @@ PorousMetalPlasticity(const odb_SequenceSequenceDouble& table,
                       int dependencies);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *relativeDensity*
 
-The string "NONE" or a Double specifying the initial relative density of the material, ![](../graphics/ker_eqn00346.gif). The default value is "NONE".
+字符串"NONE"或一个 Double，指定材料的初始相对密度，![](../graphics/ker_eqn00346.gif]。默认值为"NONE"。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-- ![](../graphics/ker_eqn00347.gif).
-- ![](../graphics/ker_eqn00348.gif).
-- ![](../graphics/ker_eqn00349.gif).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- ![](../graphics/ker_eqn00347.gif]。
+- ![](../graphics/ker_eqn00348.gif]。
+- ![](../graphics/ker_eqn00349.gif]。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A PorousMetalPlasticity object.
+一个 PorousMetalPlasticity 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.82.2 Members
+### 60.82.2 成员
 
-The PorousMetalPlasticity object has members with the same names and descriptions as the arguments to the [PorousMetalPlasticity](pt02ch60pyo82.md#ker-porousmetalplasticity-porousmetalplasticity-cpp) method.
+PorousMetalPlasticity 对象的成员与 [PorousMetalPlasticity](pt02ch60pyo82.md#ker-porousmetalplasticity-porousmetalplasticity-cpp) 方法的参数具有相同的名称和描述。
 
-In addition, the PorousMetalPlasticity object can have the following members:
+此外，PorousMetalPlasticity 对象可以具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_PorousFailureCriteria porousFailureCriteria() const;
@@ -87,17 +81,13 @@ odb_VoidNucleation voidNucleation() const;
 
 *porousFailureCriteria*
 
-A [PorousFailureCriteria](pt02ch60pyo81.md) object.
+一个 [PorousFailureCriteria](pt02ch60pyo81.md) 对象。
 
 *voidNucleation*
 
-A [VoidNucleation](pt02ch60pyo109.md) object.
+一个 [VoidNucleation](pt02ch60pyo109.md) 对象。
 
-### 60.82.3 Corresponding analysis keywords
+### 60.82.3 对应的分析关键字
 
 | [*POROUS METAL PLASTICITY](../key/key-link.md#usb-kws-mpormetalplas) |
 | --- |
-
-
-
-

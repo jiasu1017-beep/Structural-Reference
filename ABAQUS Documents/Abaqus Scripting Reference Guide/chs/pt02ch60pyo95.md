@@ -1,14 +1,8 @@
-# 60.95 SpecificHeat object
+# 60.95 SpecificHeat 对象
 
+SpecificHeat 对象用于指定材料的比热容。
 
-
-
-
-
-
-The SpecificHeat object specifies a material's specific heat.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].specificHeat()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].specificHeat()
 
 ### 60.95.1 SpecificHeat(...)
 
-This method creates a SpecificHeat object.
+此方法创建一个 SpecificHeat 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].SpecificHeat
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_SpecificHeat&
@@ -34,51 +28,47 @@ SpecificHeat(const odb_SequenceSequenceDouble& table,
              int dependencies);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *law*
 
-An odb_String specifying the specific heat behavior. Possible values are "CONSTANTVOLUME" and "CONSTANTPRESSURE". The default value is "CONSTANTVOLUME".
+一个 odb_String，指定比热容行为。可能的值为"CONSTANTVOLUME"和"CONSTANTPRESSURE"。默认值为"CONSTANTVOLUME"。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-- Specific heat per unit mass.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 单位质量比热容。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A SpecificHeat object.
+一个 SpecificHeat 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.95.2 Members
+### 60.95.2 成员
 
-The SpecificHeat object has members with the same names and descriptions as the arguments to the [SpecificHeat](pt02ch60pyo95.md#ker-specificheat-specificheat-cpp) method.
+SpecificHeat 对象的成员与 [SpecificHeat](pt02ch60pyo95.md#ker-specificheat-specificheat-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.95.3 Corresponding analysis keywords
+### 60.95.3 对应的分析关键字
 
 | [*SPECIFIC HEAT](../key/key-link.md#usb-kws-mspecificheat) |
 | --- |
-
-
-
-

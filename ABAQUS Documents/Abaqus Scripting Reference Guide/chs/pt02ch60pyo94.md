@@ -1,14 +1,8 @@
-# 60.94 Sorption object
+# 60.94 Sorption 对象
 
+Sorption 对象用于定义部分饱和多孔介质在耦合润湿液体流动和多孔介质应力分析中的吸收和解吸行为。
 
-
-
-
-
-
-The Sorption object defines absorption and exsorption behaviors of a partially saturated porous medium in the analysis of coupled wetting liquid flow and porous medium stress.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].sorption()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].sorption()
 
 ### 60.94.1 Sorption(...)
 
-This method creates a Sorption object.
+此方法创建一个 Sorption 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].Sorption
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Sorption&
@@ -36,63 +30,59 @@ Sorption(const odb_SequenceSequenceDouble& absorptionTable,
          const odb_SequenceSequenceDouble& exsorptionTable);
 ```
 
-**Required argument**
+**必需参数**
 
 *absorptionTable*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *lawAbsorption*
 
-An odb_String specifying absorption behavior. Possible values are "LOG" and "TABULAR". The default value is "TABULAR".
+一个 odb_String，指定吸收行为。可能的值为"LOG"和"TABULAR"。默认值为"TABULAR"。
 
 *exsorption*
 
-A Boolean specifying whether the exsorption data is specified. The default value is false.
+一个布尔值，指定是否指定了解吸数据。默认值为 false。
 
 *lawExsorption*
 
-An odb_String specifying exsorption behavior. Possible values are "LOG" and "TABULAR". The default value is "TABULAR".
+一个 odb_String，指定解吸行为。可能的值为"LOG"和"TABULAR"。默认值为"TABULAR"。
 
 *scanning*
 
-A Double specifying the slope of the scanning line, ![](../graphics/ker_eqn00368.gif). This slope must be positive and larger than the slope of the absorption or exsorption behaviors. The default value is 0.0.
+一个 Double，指定扫描线的斜率，![](../graphics/ker_eqn00368.gif]。此斜率必须为正且大于吸收或解吸行为的斜率。默认值为 0.0。
 
 *exsorptionTable*
 
-An odb_SequenceSequenceDouble specifying the items described below. The default value is an empty sequence.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。默认值为空序列。
 
-**Table data**
+**表数据**
 
-If *lawAbsorption*=TABULAR or *lawExsorption*=TABULAR, the *absorptionTable* and *exsorptionTable* data respectively specify the following: 
-- Pore pressure, ![](../graphics/ker_eqn00369.gif).
-- Saturation, ![](../graphics/ker_eqn00234.gif).
+如果 *lawAbsorption*=TABULAR 或 *lawExsorption*=TABULAR，则 *absorptionTable* 和 *exsorptionTable* 数据分别指定以下内容：
+- 孔隙压力，![](../graphics/ker_eqn00369.gif]。
+- 饱和度，![](../graphics/ker_eqn00234.gif]。
 
-If *lawAbsorption*=LOG or *lawExsorption*=LOG, the *absorptionTable* and *exsorptionTable* data respectively specify the following: 
-- A.
-- B.
-- ![](../graphics/ker_eqn00370.gif).
-- ![](../graphics/ker_eqn00371.gif).
+如果 *lawAbsorption*=LOG 或 *lawExsorption*=LOG，则 *absorptionTable* 和 *exsorptionTable* 数据分别指定以下内容：
+- A。
+- B。
+- ![](../graphics/ker_eqn00370.gif]。
+- ![](../graphics/ker_eqn00371.gif]。
 
-**Return value**
+**返回值**
 
-A Sorption object.
+一个 Sorption 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.94.2 Members
+### 60.94.2 成员
 
-The Sorption object has members with the same names and descriptions as the arguments to the [Sorption](pt02ch60pyo94.md#ker-sorption-sorption-cpp) method.
+Sorption 对象的成员与 [Sorption](pt02ch60pyo94.md#ker-sorption-sorption-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.94.3 Corresponding analysis keywords
+### 60.94.3 对应的分析关键字
 
 | [*SORPTION](../key/key-link.md#usb-kws-msorption) |
 | --- |
-
-
-
-

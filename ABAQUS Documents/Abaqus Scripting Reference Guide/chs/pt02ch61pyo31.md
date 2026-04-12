@@ -1,14 +1,8 @@
-# 61.31 UserXYData object
+# 61.31 UserXYData 对象
 
+UserXYData 对象存储数据对序列和关于轴的信息。
 
-
-
-
-
-
-The UserXYData object stores a sequence of pairs and information about the axes.
-
-**Access**
+**访问**
 
 ```
 Api.userData().xyDataObjects()[*name*]
@@ -16,61 +10,61 @@ Api.userData().xyDataObjects()[*name*]
 
 ### 61.31.1 addData(...)
 
-This method replaces the contents of the *data* member of the [XYData](#ker-xydata-cpp) object.
+此方法替换 [XYData](#ker-xydata-cpp) 对象 *data* 成员的内容。
 
-**Prototype**
+**原型**
 
 ```
 void
 addData(const odb_SequenceSequenceDouble& data);
 ```
 
-**Required argument**
+**必需参数**
 
 *data*
 
-An odb_SequenceSequenceDouble specifying the *X–Y* data pairs.
+一个 odb_SequenceSequenceDouble，指定 *X–Y* 数据对。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.31.2 getData()
 
-Returns the contents of the *data* member of the [XYData](#ker-xydata-cpp) object.
+返回 [XYData](#ker-xydata-cpp) 对象 *data* 成员的内容。
 
-**Prototype**
+**原型**
 
 ```
 odb_SequenceSequenceFloat
 getData();
 ```
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An odb_SequenceSequenceFloat.
+一个 odb_SequenceSequenceFloat。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 61.31.3 Members
+### 61.31.3 成员
 
-The UserXYData object can have the following members:
+UserXYData 对象可以具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_String name() const;
@@ -86,40 +80,36 @@ odb_SequenceSequenceDouble data() const;
 
 *name*
 
-An odb_String specifying the repository key.
+一个 odb_String，指定存储库键。
 
 *sourceDescription*
 
-An odb_String specifying the source of the *X–Y* data (e.g., “Entered from keyboard”, “Taken from ASCII file”, “Read from an ODB”, etc.). The default value is an empty string.
+一个 odb_String，指定 *X–Y* 数据的来源（例如，"Entered from keyboard"、"Taken from ASCII file"、"Read from an ODB" 等）。默认值为空字符串。
 
 *contentDescription*
 
-An odb_String specifying the content of the *X–Y* data (e.g., “field 1 vs. field 2”). The default value is an empty string.
+一个 odb_String，指定 *X–Y* 数据的内容（例如，"field 1 vs. field 2"）。默认值为空字符串。
 
 *positionDescription*
 
-An odb_String specifying additional information about the *X–Y* data (e.g., “for whole model”). The default value is an empty string.
+一个 odb_String，指定关于 *X–Y* 数据的附加信息（例如，"for whole model"）。默认值为空字符串。
 
 *xAxisLabel*
 
-An odb_String specifying the label for the X-values. This value may be overridden if the *X–Y* data are combined with other *X–Y* data.  The default value is an empty string.
+一个 odb_String，指定 X 值的标签。如果 *X–Y* 数据与其他 *X–Y* 数据组合，此值可能会被覆盖。默认值为空字符串。
 
 *yAxisLabel*
 
-An odb_String specifying the label for the Y-values. This value may be overridden if the *X–Y* data are combined with other *X–Y* data.  The default value is an empty string.
+一个 odb_String，指定 Y 值的标签。如果 *X–Y* 数据与其他 *X–Y* 数据组合，此值可能会被覆盖。默认值为空字符串。
 
 *legendLabel*
 
-An odb_String specifying the label to be used in the legend. The default value is the name of the XYData object.
+一个 odb_String，指定图例中使用的标签。默认值为 XYData 对象的名称。
 
 *description*
 
-An odb_String specifying the complete description of the XYData object.
+一个 odb_String，指定 XYData 对象的完整描述。
 
 *data*
 
-An odb_SequenceSequenceDouble specifying the *X–Y* data pairs.
-
-
-
-
+一个 odb_SequenceSequenceDouble，指定 *X–Y* 数据对。

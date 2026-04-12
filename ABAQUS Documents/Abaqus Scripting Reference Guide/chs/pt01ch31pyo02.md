@@ -1,14 +1,8 @@
-# 31.2 Part object
+# 31.2 Part 对象
 
+以下命令对 Part 对象进行操作。有关 Part 对象的更多信息，请参见 ["Part 对象，" 第 37.1 节](pt01ch37pyo01.md)。
 
-
-
-
-
-
-The following commands operate on Part objects. For more information about the Part object, see ["Part object," Section 37.1](pt01ch37pyo01.md).
-
-**Access**
+**访问**
 
 ```
 import mesh
@@ -16,483 +10,483 @@ import mesh
 
 ### 31.2.1 assignStackDirection(...)
 
-This method assigns a stack direction to geometric cells. The stack direction will be used to orient the elements during mesh generation.
+此方法为几何单元分配堆叠方向。堆叠方向将用于在网格生成期间定向单元。
 
-**Required arguments**
+**必需参数**
 
 *cells*
 
-A sequence of [Cell](pt01ch07pyo01.md) objects specifying regions where to assign the stack direction.
+[Cell](pt01ch07pyo01.md) 对象序列，指定要分配堆叠方向的区域。
 
 *referenceRegion*
 
-A [Face](pt01ch07pyo05.md) object specifying the top side of the stack direction.
+[Face](pt01ch07pyo05.md) 对象，指定堆叠方向的顶部。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.2 associateMeshWithGeometry(...)
 
-This method associates a geometric entity with mesh entities that are either orphan elements, bounds orphan elements, or were created using the bottom-up meshing technique.
+此方法将几何实体与网格实体关联，这些网格实体可以是孤儿单元、边界孤儿单元或使用自底向上网格技术创建的单元。
 
-**Required argument**
+**必需参数**
 
 *geometricEntity*
 
-A [Cell](pt01ch07pyo01.md), a [Face](pt01ch07pyo05.md), an [Edge](pt01ch07pyo03.md), or a [Vertex](pt01ch07pyo15.md) object specifying geometric entity to be associated with one or more mesh entities.
+[Cell](pt01ch07pyo01.md)、[Face](pt01ch07pyo05.md)、[Edge](pt01ch07pyo03.md) 或 [Vertex](pt01ch07pyo15.md) 对象，指定要与一个或多个网格实体关联的几何实体。
 
-If the geometric entity is a [Cell](pt01ch07pyo01.md) object then the argument *elements* must be specified.
+如果几何实体是 [Cell](pt01ch07pyo01.md) 对象，则必须指定 *elements* 参数。
 
-If the geometric entity is a [Face](pt01ch07pyo05.md) object then the argument *elemFaces* must be specified.
+如果几何实体是 [Face](pt01ch07pyo05.md) 对象，则必须指定 *elemFaces* 参数。
 
-If the geometric entity is an [Edge](pt01ch07pyo03.md) object then the argument *elemEdges* must be specified.
+如果几何实体是 [Edge](pt01ch07pyo03.md) 对象，则必须指定 *elemEdges* 参数。
 
-If the geometric entity is a [Vertex](pt01ch07pyo15.md) object then the argument *node* must be specified.
+如果几何实体是 [Vertex](pt01ch07pyo15.md) 对象，则必须指定 *node* 参数。
 
-**Optional arguments**
+**可选参数**
 
 *elements*
 
-A sequence of [MeshElement](pt01ch31pyo05.md) objects specifying the elements to be associated with the geometric cell.
+[MeshElement](pt01ch31pyo05.md) 对象序列，指定要与几何单元关联的单元。
 
 *elemFaces*
 
-A sequence of [MeshFace](pt01ch31pyo08.md) objects specifying the element faces to be associated with the geometric face.
+[MeshFace](pt01ch31pyo08.md) 对象序列，指定要与几何面关联的单元面。
 
 *elemEdges*
 
-A sequence of [MeshEdge](pt01ch31pyo04.md) objects specifying the element edges to be associated with the geometric edge.
+[MeshEdge](pt01ch31pyo04.md) 对象序列，指定要与几何边关联的单元边。
 
 *node*
 
-A [MeshNode](pt01ch31pyo09.md) object specifying the mesh node to be associated with the geometric vertex.
+[MeshNode](pt01ch31pyo09.md) 对象，指定要与几何顶点关联的网格节点。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.3 createVirtualTopology(...)
 
-This method creates a virtual topology feature by automatically merging faces and edges based on a set of geometric parameters. The edges and vertices that are being merged will be ignored during mesh generation.
+此方法通过基于一组几何参数自动合并面和边来创建虚拟拓扑特征。在网格生成期间将被忽略的边和顶点将被合并。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *regions*
 
-A sequence of [Face](pt01ch07pyo05.md) objects specifying the domain to search for geometric entities that need to be merged. Entities identified as candidates to be merged may be merged with entities from outside the specified region. If *regions* is not specified then the entire part is the domain for searching geometric entities that need to be merged.
+[Face](pt01ch07pyo05.md) 对象序列，指定要搜索需要合并的几何实体的域。识别为候选合并的实体可能会与指定区域外部的实体合并。如果未指定 *regions*，则整个部件是搜索需要合并的几何实体的域。
 
 *mergeShortEdges*
 
-A Boolean specifying whether to merge short edges. The default value is False.
+Boolean，指定是否合并短边。默认值为 False。
 
 *shortEdgeThreshold*
 
-A Float specifying a threshold that determines which edges are considered to be short. These edges are the candidate entities to be merged. This argument is a required argument if the argument*mergeShortEdges* equals True and it is ignored if the argument *mergeShortEdges* equals False.
+Float，指定确定哪些边被视为短边的阈值。这些边是要合并的候选实体。如果 *mergeShortEdges* 等于 True，则此参数是必需参数；如果 *mergeShortEdges* 等于 False，则此参数被忽略。
 
 *mergeSmallFaces*
 
-A Boolean specifying whether to merge faces with small area. The default value is False.
+Boolean，指定是否合并面积小的面。默认值为 False。
 
 *smallFaceAreaThreshold*
 
-A Float specifying a threshold that determines which faces are considered to have a small area. These faces are the candidate entities to be merged.  This argument is a required argument if the argument*mergeSmallFaces* equals True and it is ignored if the argument *mergeSmallFaces* equals False.
+Float，指定确定哪些面被视为小面积的阈值。这些面是要合并的候选实体。如果 *mergeSmallFaces* 等于 True，则此参数是必需参数；如果 *mergeSmallFaces* 等于 False，则此参数被忽略。
 
 *mergeSliverFaces*
 
-A Boolean specifying whether to merge faces with high aspect ratio. The default value is False.
+Boolean，指定是否合并高纵横比的面。默认值为 False。
 
 *faceAspectRatioThreshold*
 
-A Float specifying a threshold that determines which faces are considered to have high aspect ratio. These faces are the candidate entities to be merged. This argument is a required argument if the argument*mergeSliverFaces* equals True and it is ignored if the argument *mergeSliverFaces* equals False.
+Float，指定确定哪些面被视为高纵横比的阈值。这些面是要合并的候选实体。如果 *mergeSliverFaces* 等于 True，则此参数是必需参数；如果 *mergeSliverFaces* 等于 False，则此参数被忽略。
 
 *mergeSmallAngleFaces*
 
-A Boolean specifying whether to merge faces that have a sharp corner angle. The default value is False.
+Boolean，指定是否合并具有尖角的面。默认值为 False。
 
 *smallFaceCornerAngleThreshold*
 
-A Float specifying a threshold that determines which face corner angles are considered to be small. These faces will be candidate entities to be merged.  This argument is a required argument if the argument*mergeSmallAngleFaces* equals True and it is ignored if the argument *mergeSmallAngleFaces* equals False.
+Float，指定确定哪些面角被视为小角的阈值。这些面将是候选合并实体。如果 *mergeSmallAngleFaces* 等于 True，则此参数是必需参数；如果 *mergeSmallAngleFaces* 等于 False，则此参数被忽略。
 
 *mergeThinStairFaces*
 
-A Boolean specifying whether to merge faces that represent a thin stair-like feature. The default value is False.
+Boolean，指定是否合并表示薄楼梯状特征的面。默认值为 False。
 
 *thinStairFaceThreshold*
 
-A Float specifying a threshold that determines which faces representing small stair-like features are considered thin. These faces will be candidate entities to be merged. This argument is required if the argument *mergeThinStairFaces* is True and it is ignored if *mergeThinStairFaces* is False.
+Float，指定确定哪些表示小楼梯状特征的面被视为薄面的阈值。这些面将是候选合并实体。如果 *mergeThinStairFaces* 为 True，则此参数是必需的；如果 *mergeThinStairFaces* 为 False，则此参数被忽略。
 
 *ignoreRedundantEntities*
 
-A Boolean specifying whether to abstract away redundant edges and vertices. The default value is False.
+Boolean，指定是否移除冗余边和顶点。默认值为 False。
 
 *cornerAngleTolerance*
 
-A Float specifying the angle deviation from 180 degrees at a vertex or at an edge such that the two edges radiating from the vertex or the two faces bounded by the edge can be merged. The default value is 30.0 degrees.
+Float，指定顶点或边处与 180 度偏差的角度，使得从顶点辐射的两条边或边界的两个面可以合并。默认值为 30.0 度。
 
 *applyBlendControls*
 
-A Boolean specifying whether to verify that blend faces can be merged with neighboring faces. If *applyBlendControls* is true then all faces that have angle larger than *blendSubtendedAngleTolerance* and a radius smaller than *blendRadiusTolerance* will not be merged with neighboring faces unless the neighboring faces are also blend faces with similar geometric characteristics. The default value is False.
+Boolean，指定是否验证混合面可以与相邻面合并。如果 *applyBlendControls* 为 True，则所有具有大于 *blendSubtendedAngleTolerance* 的角度且半径小于 *blendRadiusTolerance* 的混合面将不会与相邻面合并，除非相邻面也是具有相似几何特征的混合面。默认值为 False。
 
 *blendSubtendedAngleTolerance*
 
-A Float specifying the largest subtended angle of blend faces that can be merged with neighboring faces. This argument is a required argument if the argument *applyBlendControls* equals True and it is ignored if the argument *applyBlendControls* equals False. 
+Float，指定可以与相邻面合并的混合面的最大圆周角。如果 *applyBlendControls* 等于 True，则此参数是必需参数；如果 *applyBlendControls* 等于 False，则此参数被忽略。
 
 *blendRadiusTolerance*
 
-A Float specifying the smallest radius of curvature of blend faces that can be merged with neighboring faces. This argument is a required argument if the argument *applyBlendControls* equals True and it is ignored if the argument *applyBlendControls* equals False. 
+Float，指定可以与相邻面合并的混合面的最小曲率半径。如果 *applyBlendControls* 等于 True，则此参数是必需参数；如果 *applyBlendControls* 等于 False，则此参数被忽略。
 
-**Return value**
+**返回值**
 
-A Feature object.
+Feature 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.4 deleteBoundaryLayerControls(...)
 
-This method deletes the control parameters for boundary layer mesh for all the specified regions.
+此方法删除所有指定区域的边界层网格控制参数。
 
-**Required argument**
+**必需参数**
 
 *regions*
 
-A sequence of [Cell](pt01ch07pyo01.md) objects specifying the regions for which to set the boundary layer mesh control parameters.
+[Cell](pt01ch07pyo01.md) 对象序列，指定要设置边界层网格控制参数的区域。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.5 deleteMesh(...)
 
-This method deletes a subset of the mesh that contains the native elements from the given parts or regions.
+此方法删除包含给定部件或区域的本机单元的网格子集。
 
-**Required argument**
+**必需参数**
 
 *regions*
 
-A sequence of Part objects or [Region](pt01ch45pyo03.md) objects specifying the parts or regions from which the native mesh is to be deleted.
+Part 对象序列或 [Region](pt01ch45pyo03.md) 对象序列，指定要从中删除本机网格的部件或区域。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.6 deleteMeshAssociationWithGeometry(...)
 
-This method deletes the association of geometric entities with mesh entities.
+此方法删除几何实体与网格实体的关联。
 
-**Required argument**
+**必需参数**
 
 *geometricEntities*
 
-A sequence of [Cell](pt01ch07pyo01.md) objects, [Face](pt01ch07pyo05.md) objects, [Edge](pt01ch07pyo03.md) objects, or [Vertex](pt01ch07pyo15.md) objects specifying the geometric entities that will be disassociated from the mesh.
+[Cell](pt01ch07pyo01.md) 对象序列、[Face](pt01ch07pyo05.md) 对象序列、[Edge](pt01ch07pyo03.md) 对象序列或 [Vertex](pt01ch07pyo15.md) 对象序列，指定将与网格分离的几何实体。
 
-**Optional argument**
+**可选参数**
 
 *addBoundingEntities*
 
-A Boolean specifying whether the mesh will also be disassociated from the geometric entities that bounds the given *geometricEntities*. For example, if the argument *geometricEntities* contains a face, this boolean indicates whether the edges and vertices that bound the face will also be disassociated from the mesh. The default value is False.
+Boolean，指定网格是否也将与给定 *geometricEntities* 边界上的几何实体分离。例如，如果 *geometricEntities* 包含一个面，则此布尔值指示边界该面的边和顶点是否也将与网格分离。默认值为 False。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.7 deletePreviewMesh()
 
-This method deletes all boundary meshes in the parts. See the *boundaryPreview* argument of `generateMesh` for information about generating boundary meshes.
+此方法删除部件中的所有边界网格。请参阅 `generateMesh` 的 *boundaryPreview* 参数以获取有关生成边界网格的信息。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.8 deleteSeeds(...)
 
-This method deletes the global edge seeds from the given parts or deletes the local edge seeds from the given edges.
+此方法从给定部件删除全局边种子，或从给定边删除局部边种子。
 
-**Required argument**
+**必需参数**
 
 *regions*
 
-A sequence of Part objects or Edge objects specifying the parts or edges from which the seeds are to be deleted.
+Part 对象序列或 Edge 对象序列，指定要从中删除种子的部件或边。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.9 generateMesh(...)
 
-This method generates a mesh in the given parts or regions.
+此方法在给定部件或区域中生成网格。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *regions*
 
-A sequence of Part objects or [Region](pt01ch45pyo03.md) objects specifying the parts or regions where the mesh is to be generated.
+Part 对象序列或 [Region](pt01ch45pyo03.md) 对象序列，指定要生成网格的部件或区域。
 
 *seedConstraintOverride*
 
-A Boolean specifying whether mesh generation is allowed to modify seed constraints. The default value is OFF.
+Boolean，指定是否允许网格生成修改种子约束。默认值为 OFF。
 
 *meshTechniqueOverride*
 
-A Boolean specifying whether mesh generation is allowed to modify the existing mesh techniques so that a compatible mesh can be generated. The default value is OFF.
+Boolean，指定是否允许网格生成修改现有网格技术，以便可以生成兼容的网格。默认值为 OFF。
 
 *boundaryPreview*
 
-A Boolean specifying whether the generated mesh should be a boundary preview mesh. This option will only have an effect if any of the specified regions are to be meshed with tetrahedral elements or using the bottom-up technique with hexahedral or wedge elements. The default value is OFF.
+Boolean，指定生成的网格是否为边界预览网格。此选项仅在任何指定区域使用四面体单元或使用自底向上技术与六面体或楔形单元网格划分时有效。默认值为 OFF。
 
 *boundaryMeshOverride*
 
-A Boolean specifying whether mesh generation is allowed to modify an existing boundary preview mesh. This option will only have an effect if any of the specified regions are to be meshed with tetrahedral elements and a boundary preview mesh already exists. The default value is OFF.
+Boolean，指定是否允许网格生成修改现有边界预览网格。此选项仅在任何指定区域使用四面体单元且已存在边界预览网格时有效。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.10 generateBottomUpExtrudedMesh(...)
 
-This method generates solid elements by extruding a 2D mesh along a vector, either on an orphan mesh or within a cell region using a bottom-up technique.
+此方法通过沿矢量挤压 2D 网格来生成实体单元，适用于孤儿网格或使用自底向上技术在单元区域内生成。
 
-**Required arguments**
+**必需参数**
 
 *cell*
 
-A [Cell](pt01ch07pyo01.md) object specifying the geometric region where the mesh is to be generated. This argument is valid only for native parts.
+[Cell](pt01ch07pyo01.md) 对象，指定要生成网格的几何区域。此参数仅对本机部件有效。
 
 *numberOfLayers*
 
-An Int specifying the number of layers to be generated along the extrusion vector.
+Int，指定沿挤压矢量生成的层数。
 
 *extrudeVector*
 
-A sequence of sequences of Floats specifying the start point and end point of a vector. Each point is defined by a tuple of three coordinates indicating its position. The direction of the mesh extrusion operation is from the first point to the second point.
+Float 元组序列，指定矢量的起点和终点。每个点由三个坐标的元组定义，指示其位置。网格挤压操作的方向是从第一个点到第二个点。
 
-**Optional arguments**
+**可选参数**
 
-At least one of the three optional "SourceSide" arguments must be specified.
+必须指定三个可选"SourceSide"参数中的至少一个。
 
 *geometrySourceSide*
 
-A [Region](pt01ch45pyo03.md) of [Face](pt01ch07pyo05.md) objects specifying the geometric domain to be used as the source for the extrude meshing operation.
+[Face](pt01ch07pyo05.md) 对象的 [Region](pt01ch45pyo03.md)，指定要用作挤压网格操作源的几何域。
 
 *elemFacesSourceSide*
 
-A sequence of [MeshFace](pt01ch31pyo08.md) objects specifying the faces of 3D elements to be used as the source for the extrude meshing operation.
+[MeshFace](pt01ch31pyo08.md) 对象序列，指定要用作挤压网格操作源的 3D 单元的面。
 
 *elemSourceSide*
 
-A sequence of 2D [MeshElement](pt01ch31pyo05.md) objects specifying the elements to be used as the source for the extrude meshing operation.
+2D [MeshElement](pt01ch31pyo05.md) 对象序列，指定要用作挤压网格操作源的单元。
 
 *depth*
 
-A Float specifying the distance of the mesh extrusion. If unspecified, the vector length of the *extrudeVector* argument is assumed.
+Float，指定网格挤压的距离。如果未指定，则假定使用 *extrudeVector* 参数的矢量长度。
 
 *targetSide*
 
-A datum plane, a sequence of [Face](pt01ch07pyo05.md) objects, a sequence of [MeshFace](pt01ch31pyo08.md) objects, or a sequence of 2D [MeshElement](pt01ch31pyo05.md) objects specifying the target of the extrude meshing operation. If specified, this argument overrides the *depth* argument, and all points on the source will be extruded in the direction of the extrusion vector until meeting the target.
+datum 平面、[Face](pt01ch07pyo05.md) 对象序列、[MeshFace](pt01ch31pyo08.md) 对象序列或 2D [MeshElement](pt01ch31pyo05.md) 对象序列，指定挤压网格操作的目标。如果指定，此参数将覆盖 *depth* 参数，源上的所有点将沿挤压矢量方向挤压直到遇到目标。
 
 *biasRatio*
 
-A Float specifying a ratio of the element size in the extrusion direction between the source and the target sides of the extrusion. The default is 1.0, meaning no bias.
+Float，指定源和目标两侧之间挤压方向上单元尺寸的比率。默认值为 1.0，表示无偏置。
 
 *extendElementSets*
 
-A Boolean specifying whether existing element sets that include source elements will be extended to also include extruded elements. This argument is ignored for native parts. The default value is False.
+Boolean，指定是否将包含源单元的现有单元集扩展到也包含挤压单元。此参数对本机部件被忽略。默认值为 False。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.11 generateBottomUpSweptMesh(...)
 
-This method generates solid elements by sweeping a 2D mesh, either on an orphan mesh or within a cell region using a bottom-up technique.
+此方法通过扫掠 2D 网格来生成实体单元，适用于孤儿网格或使用自底向上技术在单元区域内生成。
 
-**Required argument**
+**必需参数**
 
 *cell*
 
-A [Cell](pt01ch07pyo01.md) object specifying the geometric region where the mesh is to be generated. This argument is valid only for native parts.
+[Cell](pt01ch07pyo01.md) 对象，指定要生成网格的几何区域。此参数仅对本机部件有效。
 
-**Optional arguments**
+**可选参数**
 
-At least one of the following three arguments must be specified: *geometrySourceSide*, *elemFacesSourceSide*, or *elemSourceSide*.
+必须指定以下三个参数中的至少一个：*geometrySourceSide*、*elemFacesSourceSide* 或 *elemSourceSide*。
 
-In addition one of the following two sets of arguments must also be specified:
-- One of the following three arguments: *geometryConnectingSides*, *elemFacesConnectingSides*, or *elemConnectingSides*. In this case the targetSide is an optional argument.
-- *targetSide* and *numberOfLayers*.
+此外，还必须指定以下两组参数之一：
+- 以下三个参数之一：*geometryConnectingSides*、*elemFacesConnectingSides* 或 *elemConnectingSides*。在这种情况下，targetSide 是可选参数。
+- *targetSide* 和 *numberOfLayers*。
 
 *geometrySourceSide*
 
-  A [Region](pt01ch45pyo03.md) of [Face](pt01ch07pyo05.md) objects specifying the geometric domain to be used as the source for the sweep meshing operation.
+[Face](pt01ch07pyo05.md) 对象的 [Region](pt01ch45pyo03.md)，指定要用作扫掠网格操作源的几何域。
 
 *elemFacesSourceSide*
 
-A sequence of [MeshFace](pt01ch31pyo08.md) objects specifying the faces of 3D elements to be used as the source for the sweep meshing operation.
+[MeshFace](pt01ch31pyo08.md) 对象序列，指定要用作扫掠网格操作源的 3D 单元的面。
 
 *elemSourceSide*
 
-A sequence of 2D [MeshElement](pt01ch31pyo05.md) objects specifying the elements to be used as the source for the sweep meshing operation.
+2D [MeshElement](pt01ch31pyo05.md) 对象序列，指定要用作扫掠网格操作源的单元。
 
 *geometryConnectingSides*
 
-  A [Region](pt01ch45pyo03.md) of [Face](pt01ch07pyo05.md) objects specifying connecting sides of the sweep meshing operation.
+[Face](pt01ch07pyo05.md) 对象的 [Region](pt01ch45pyo03.md)，指定扫掠网格操作的连接侧。
 
 *elemFacesConnectingSides*
 
-A sequence of [MeshFace](pt01ch31pyo08.md) objects specifying connecting sides of the sweep meshing operation.
+[MeshFace](pt01ch31pyo08.md) 对象序列，指定扫掠网格操作的连接侧。
 
 *elemConnectingSides*
 
-A sequence of 2D [MeshElement](pt01ch31pyo05.md) objects specifying connecting sides of the sweep meshing operation.
+2D [MeshElement](pt01ch31pyo05.md) 对象序列，指定扫掠网格操作的连接侧。
 
 *targetSide*
 
-A [Face](pt01ch07pyo05.md) object specifying the target side of the sweep meshing operation.
+[Face](pt01ch07pyo05.md) 对象，指定扫掠网格操作的目标侧。
 
 *numberOfLayers*
 
-An Int specifying the number of layers to be generated along the sweep direction.
+Int，指定沿扫掠方向生成的层数。
 
 *extendElementSets*
 
-A Boolean specifying whether existing element sets that include source elements will be extended to also include swept elements. This argument is ignored for native parts. The default value is False.
+Boolean，指定是否将包含源单元的现有单元集扩展到也包含扫掠单元。此参数对本机部件被忽略。默认值为 False。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.12 generateBottomUpRevolvedMesh(...)
 
-This method generates solid elements by revolving a 2D mesh around an axis, either on an orphan mesh or within a cell region using a bottom-up technique.
+此方法通过绕轴旋转 2D 网格来生成实体单元，适用于孤儿网格或使用自底向上技术在单元区域内生成。
 
-**Required arguments**
+**必需参数**
 
 *cell*
 
-A [Cell](pt01ch07pyo01.md) object specifying the geometric region where the mesh is to be generated. This argument is valid only for native parts.
+[Cell](pt01ch07pyo01.md) 对象，指定要生成网格的几何区域。此参数仅对本机部件有效。
 
 *numberOfLayers*
 
-An Int specifying the number of layers of elements to be generated around the axis of revolution.
+Int，指定沿旋转轴生成的单元层数。
 
 *axisOfRevolution*
 
-A sequence of sequences of Floats specifying the two points of the vector that describes the axis of revolution. Each point is defined by a tuple of three coordinates indicating its position. The direction of the axis of revolution is from the first point to the second point. The orientation of the revolution operation follows the right-hand-rule about the axis of revolution.
+Float 元组序列，指定描述旋转轴的矢量的两个点。每个点由三个坐标的元组定义，指示其位置。旋转轴的方向是从第一个点到第二个点。旋转操作的方向遵循右手定则。
 
 *angleOfRevolution*
 
-A Float specifying the angle of revolution.
+Float，指定旋转角度。
 
-**Optional arguments**
+**可选参数**
 
-At least one of the three optional "SourceSide" arguments must be specified.
+必须指定三个可选"SourceSide"参数中的至少一个。
 
 *geometrySourceSide*
 
-A [Region](pt01ch45pyo03.md) of [Face](pt01ch07pyo05.md) objects specifying the geometric domain to be used as the source for the revolve meshing operation.
+[Face](pt01ch07pyo05.md) 对象的 [Region](pt01ch45pyo03.md)，指定要用作旋转网格操作源的几何域。
 
 *elemFacesSourceSide*
 
-A sequence of [MeshFace](pt01ch31pyo08.md) objects specifying the faces of 3D elements to be used as the source for the revolve meshing operation.
+[MeshFace](pt01ch31pyo08.md) 对象序列，指定要用作旋转网格操作源的 3D 单元的面。
 
 *elemSourceSide*
 
-A sequence of 2D [MeshElement](pt01ch31pyo05.md) objects specifying the elements to be used as the source for the revolve meshing operation.
+2D [MeshElement](pt01ch31pyo05.md) 对象序列，指定要用作旋转网格操作源的单元。
 
 *extendElementSets*
 
-A Boolean specifying whether existing element sets that include source elements will be extended to also include extruded elements. This argument is ignored for native parts. The default value is False.
+Boolean，指定是否将包含源单元的现有单元集扩展到也包含挤压单元。此参数对本机部件被忽略。默认值为 False。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.13 getEdgeSeeds(...)
 
-This method returns an edge seed parameter for a specified edge of a part.
+此方法返回部件指定边上的边种子参数。
 
-**Required arguments**
+**必需参数**
 
 *edge*
 
-An [Edge](pt01ch07pyo03.md) object specifying the edge to be queried.
+[Edge](pt01ch07pyo03.md) 对象，指定要查询的边。
 
 *attribute*
 
-A SymbolicConstant specifying the type of edge seed attribute to return. Possible values are:
+SymbolicConstant，指定要返回的边种子属性类型。可能的值为：
 - EDGE_SEEDING_METHOD
 - BIAS_METHOD
 - NUMBER
@@ -506,44 +500,61 @@ A SymbolicConstant specifying the type of edge seed attribute to return. Possibl
 - SMALLEST_ELEM_LOCATION
 - CONSTRAINT
 
-The return value is dependent on the *attribute* argument.- If *attribute*=EDGE_SEEDING_METHOD, the return value is a SymbolicConstant specifying the edge seeding method used to create the seeds along the edge. Possible values are: - UNIFORM_BY_NUMBER - UNIFORM_BY_SIZE - CURVATURE_BASED_BY_SIZE - BIASED - NONE
-- If *attribute*=BIAS_METHOD, the return value is a SymbolicConstant specifying the bias type used to create the seeds along the edge. Possible values are: - SINGLE - DOUBLE - NONE
-- If *attribute*=NUMBER, the return value is an Int specifying the number of element seeds along the edge.
-- If *attribute*=AVERAGE_SIZE, the return value is a Float specifying the average element size along the edge.
-- If *attribute*=DEVIATION_FACTOR, the return value is a Float specifying the deviation factor ![](../graphics/ker_eqn00403.gif), where ![](../graphics/ker_eqn00069.gif) is the chordal deviation and ![](../graphics/ker_eqn00404.gif) is the element length. If edge seeds are not defined, the return value is zero.
-- If *attribute*=MIN_SIZE_FACTOR, the return value is a Float specifying the size of the smallest allowable element as a fraction of the specified global element size. If edge seeds are not defined, the return value is zero.
-- If *attribute*=BIAS_RATIO, the return value is a Float specifying the length ratio of the largest element to the smallest element.
-- If *attribute*=BIAS_MIN_SIZE, the return value is a Float specifying the length of the largest element; only applicable if the EDGE_SEEDING_METHOD is BIASED and seeds were specified by minimum and maximum sizes.
-- If *attribute*=BIAS_MAX_SIZE, the return value is a Float specifying the length of the largest element; only applicable if the EDGE_SEEDING_METHOD is BIASED and seeds were specified by minimum and maximum sizes.
-- If *attribute*=VERTEX_ADJ_TO_SMALLEST_ELEM, the return value is an Int specifying the ID of the vertex next to the smallest element; only applicable if the EDGE_SEEDING_METHOD is BIASED.
-- If *attribute*=SMALLEST_ELEM_LOCATION, the return value is a SymbolicConstant specifying the location of smallest elements for double bias seeds; only applicable if the EDGE_SEEDING_METHOD is BIASED and BIAS_METHOD is DOUBLE. Possible values are: - SMALLEST_ELEM_AT_CENTER - SMALLEST_ELEM_AT_ENDS - NONE
-- If *attribute*=CONSTRAINT, the return value is a SymbolicConstant specifying how close the seeds must be matched by the mesh. Possible values are: - FREE - FINER - FIXED - NONE A value of NONE indicates that the edge is not seeded.
+返回值取决于 *attribute* 参数。
+- 如果 *attribute*=EDGE_SEEDING_METHOD，返回值是 SymbolicConstant，指定用于沿边创建种子的边播种方法。可能的值为：
+  - UNIFORM_BY_NUMBER
+  - UNIFORM_BY_SIZE
+  - CURVATURE_BASED_BY_SIZE
+  - BIASED
+  - NONE
+- 如果 *attribute*=BIAS_METHOD，返回值是 SymbolicConstant，指定用于沿边创建种子的偏置类型。可能的值为：
+  - SINGLE
+  - DOUBLE
+  - NONE
+- 如果 *attribute*=NUMBER，返回值是 Int，指定沿边的单元种子数量。
+- 如果 *attribute*=AVERAGE_SIZE，返回值是 Float，指定沿边的平均单元尺寸。
+- 如果 *attribute*=DEVIATION_FACTOR，返回值是 Float，指定偏离因子，其中是弦偏差，是单元长度。如果未定义边种子，返回值为零。
+- 如果 *attribute*=MIN_SIZE_FACTOR，返回值是 Float，指定最小允许单元尺寸作为指定全局单元尺寸的分数。如果未定义边种子，返回值为零。
+- 如果 *attribute*=BIAS_RATIO，返回值是 Float，指定最大单元与最小单元的长度比率。
+- 如果 *attribute*=BIAS_MIN_SIZE，返回值是 Float，指定最大单元的长度；仅在 EDGE_SEEDING_METHOD 为 BIASED 且种子由最小和最大尺寸指定时适用。
+- 如果 *attribute*=BIAS_MAX_SIZE，返回值是 Float，指定最大单元的长度；仅在 EDGE_SEEDING_METHOD 为 BIASED 且种子由最小和最大尺寸指定时适用。
+- 如果 *attribute*=VERTEX_ADJ_TO_SMALLEST_ELEM，返回值是 Int，指定最小单元相邻顶点的 ID；仅在 EDGE_SEEDING_METHOD 为 BIASED 时适用。
+- 如果 *attribute*=SMALLEST_ELEM_LOCATION，返回值是 SymbolicConstant，指定双偏置种子最小单元的位置；仅在 EDGE_SEEDING_METHOD 为 BIASED 且 BIAS_METHOD 为 DOUBLE 时适用。可能的值为：
+  - SMALLEST_ELEM_AT_CENTER
+  - SMALLEST_ELEM_AT_ENDS
+  - NONE
+- 如果 *attribute*=CONSTRAINT，返回值是 SymbolicConstant，指定网格必须与种子的匹配程度。可能的值为：
+  - FREE
+  - FINER
+  - FIXED
+  - NONE
+  NONE 值表示边未播种。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-The return value is a Float, an Int, or a SymbolicConstant depending on the value of the *attribute* argument.
+返回值是 Float、Int 或 SymbolicConstant，取决于 *attribute* 参数的值。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.14 getElementType(...)
 
-This method returns the [ElemType](pt01ch31pyo03.md) object of a given element shape assigned to a region of a part.
+此方法返回分配给部件区域的给定元素形状的 [ElemType](pt01ch31pyo03.md) 对象。
 
-**Required arguments**
+**必需参数**
 
 *region*
 
-A [Cell](pt01ch07pyo01.md), a [Face](pt01ch07pyo05.md), or an [Edge](pt01ch07pyo03.md) object specifying the region to be queried.
+[Cell](pt01ch07pyo01.md)、[Face](pt01ch07pyo05.md) 或 [Edge](pt01ch07pyo03.md) 对象，指定要查询的区域。
 
 *elemShape*
 
-A SymbolicConstant specifying the shape of the element for which to return the element type. Possible values are:
+SymbolicConstant，指定要返回单元类型的元素形状。可能的值为：
 - LINE
 - QUAD
 - TRI
@@ -551,135 +562,158 @@ A SymbolicConstant specifying the shape of the element for which to return the e
 - WEDGE
 - TET
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
- [ElemType](pt01ch31pyo03.md) object.
+[ElemType](pt01ch31pyo03.md) 对象。
 
-**Exceptions**
+**异常**
 
 TypeError
 
 ```
-The region cannot be associated with element types or the *elemShape* is not consistent with the dimension of the *region*.
+区域无法与单元类型关联，或者 *elemShape* 与 *region* 的维度不一致。
 ```
 
 ### 31.2.15 getIncompatibleMeshInterfaces(...)
 
-This method returns a sequence of face objects that are meshed with incompatible elements. 
+此方法返回用不兼容单元网格化的面对象序列。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional argument**
+**可选参数**
 
 *cells*
 
-A sequence of cell objects which will be used to search the incompatible faces.
+单元对象序列，将用于搜索不兼容面。
 
-**Return value**
+**返回值**
 
-A sequence of [Face](pt01ch07pyo05.md) objects.
+[Face](pt01ch07pyo05.md) 对象序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.16 getMeshControl(...)
 
-This method returns a mesh control parameter for the specified region of a part.
+此方法返回部件指定区域的网格控制参数。
 
-**Required arguments**
+**必需参数**
 
 *region*
 
-A [Cell](pt01ch07pyo01.md), a [Face](pt01ch07pyo05.md), or an [Edge](pt01ch07pyo03.md) object specifying the region to be queried.
+[Cell](pt01ch07pyo01.md)、[Face](pt01ch07pyo05.md) 或 [Edge](pt01ch07pyo03.md) 对象，指定要查询的区域。
 
 *attribute*
 
-A SymbolicConstant specifying the mesh control attribute to return. Possible values are:
+SymbolicConstant，指定要返回的网格控制属性。可能的值为：
 - ELEM_SHAPE
 - TECHNIQUE
 - ALGORITHM
 - MIN_TRANSITION
 
-The return value depends on the value of the *attribute* argument.- If *attribute*=ELEM_SHAPE, the return value is a SymbolicConstant specifying the element shape used during meshing. Possible values are: - LINE - QUAD - TRI - QUAD_DOMINATED - HEX - TET - WEDGE - HEX_DOMINATED
-- If *attribute*=TECHNIQUE, the return value is a SymbolicConstant specifying the meshing technique to be used during meshing. Possible values are: - FREE - STRUCTURED - SWEEP - UNMESHABLE Where UNMESHABLE indicates that no meshing technique is applicable with the currently assigned element shape.
-- If *attribute*=ALGORITHM, the return value is a SymbolicConstant specifying the meshing algorithm to be used during meshing. Possible values are: - MEDIAL_AXIS - ADVANCING_FRONT - DEFAULT - NON_DEFAULT - NONE Where NONE indicates that no algorithm is applicable.
-- If *attribute*=MIN_TRANSITION, the return value is a Boolean indicating whether minimum transition will be used during meshing. This option is applicable only to the following: - Free quadrilateral meshing or sweep hexahedral meshing with *algorithm*=MEDIAL_AXIS. - Structured quadrilateral meshing.
+返回值取决于 *attribute* 参数。
+- 如果 *attribute*=ELEM_SHAPE，返回值是 SymbolicConstant，指定网格化期间使用的元素形状。可能的值为：
+  - LINE
+  - QUAD
+  - TRI
+  - QUAD_DOMINATED
+  - HEX
+  - TET
+  - WEDGE
+  - HEX_DOMINATED
+- 如果 *attribute*=TECHNIQUE，返回值是 SymbolicConstant，指定网格化期间使用的网格技术。可能的值为：
+  - FREE
+  - STRUCTURED
+  - SWEEP
+  - UNMESHABLE
+  UNMESHABLE 表示当前分配的元素形状没有适用的网格技术。
+- 如果 *attribute*=ALGORITHM，返回值是 SymbolicConstant，指定网格化期间使用的网格算法。可能的值为：
+  - MEDIAL_AXIS
+  - ADVANCING_FRONT
+  - DEFAULT
+  - NON_DEFAULT
+  - NONE
+  NONE 表示没有适用的算法。
+- 如果 *attribute*=MIN_TRANSITION，返回值是 Boolean，指示网格化期间是否使用最小过渡。此选项仅适用于以下情况：
+  - 使用 *algorithm*=MEDIAL_AXIS 的自由四边形网格化或六面体扫掠网格化。
+  - 结构化四边形网格化。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-The return value is a SymbolicConstant or a Boolean depending on the value of the *attribute* argument.
+返回值是 SymbolicConstant 或 Boolean，取决于 *attribute* 参数的值。
 
-**Exceptions**
+**异常**
 
 TypeError
 
 ```
-The region cannot carry mesh controls.
+区域不能承载网格控制。
 ```
 
 ### 31.2.17 getMeshStats(...)
 
-This method returns the mesh statistics for the given regions.
+此方法返回给定区域的网格统计信息。
 
-**Required argument**
+**必需参数**
 
 *regions*
 
-A sequence or tuple of Geometry regions for which mesh statistics should be returned.
+应返回其网格统计信息的几何区域序列或元组。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A MeshStats object.
+MeshStats 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.18 getPartSeeds(...)
 
-This method returns a part seed parameter for the part.
+此方法返回部件的部件种子参数。
 
-**Required argument**
+**必需参数**
 
 *attribute*
 
-A SymbolicConstant specifying the type of part seed attribute to return. Possible values are:
+SymbolicConstant，指定要返回的部件种子属性类型。可能的值为：
 - SIZE
 - DEFAULT_SIZE
 - DEVIATION_FACTOR
 - MIN_SIZE_FACTOR
 
-The return value depends on the value of the *attribute* argument.- If *attribute*=SIZE, the return value is a Float specifying the assigned global element size. If part seeds are not defined, the return value is zero.
-- If *attribute*=DEFAULT_SIZE, the return value is a Float specifying a suggested default global element size based upon the part geometry.
-- If *attribute*=DEVIATION_FACTOR, the return value is a Float specifying the deviation factor ![](../graphics/ker_eqn00403.gif), where ![](../graphics/ker_eqn00069.gif) is the chordal deviation and ![](../graphics/ker_eqn00404.gif) is the element length. If part seeds are not defined, the return value is zero.
-- If *attribute*=MIN_SIZE_FACTOR, the return value is a Float specifying the size of the smallest allowable element as a fraction of the specified global element size. If part seeds are not defined, the return value is zero.
+返回值取决于 *attribute* 参数的值。
+- 如果 *attribute*=SIZE，返回值是 Float，指定分配的全局单元尺寸。如果未定义部件种子，返回值为零。
+- 如果 *attribute*=DEFAULT_SIZE，返回值是 Float，基于部件几何建议的默认全局单元尺寸。
+- 如果 *attribute*=DEVIATION_FACTOR，返回值是 Float，指定偏离因子，其中是弦偏差，是单元长度。如果未定义部件种子，返回值为零。
+- 如果 *attribute*=MIN_SIZE_FACTOR，返回值是 Float，指定最小允许单元尺寸作为指定全局单元尺寸的分数。如果未定义部件种子，返回值为零。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-The return value is a Float that depends on the value of the *attribute* argument.
+返回值是 Float，其值取决于 *attribute* 参数的值。
 
-**Exceptions**
+**异常**
 
-An exception occurs if the part does not contain native geometry.
+如果部件不包含本机几何，则会发生异常。
 
 ```
 Error: Part does not contain native geometry
@@ -687,501 +721,498 @@ Error: Part does not contain native geometry
 
 ### 31.2.19 getUnmeshedRegions()
 
-This method returns all geometric regions in the part that require a mesh for submitting an analysis but are either unmeshed or are meshed incompletely.
+此方法返回部件中需要网格进行提交分析但未网格化或网格化不完整的所有几何区域。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A Region object, or None.
+Region 对象或 None。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.20 ignoreEntity(...)
 
-This method creates a virtual topology feature. Virtual topology allows unimportant entities to be ignored during mesh generation. You can combine two adjacent faces by specifying a common edge to ignore. Similarly, you can combine two adjacent edges by specifying a common vertex to ignore. 
+此方法创建虚拟拓扑特征。虚拟拓扑允许在网格生成期间忽略不重要的实体。您可以通过指定要忽略的公共边来合并两个相邻面。同样，您可以通过指定要忽略的公共顶点来合并两个相邻边。
 
-**Required argument**
+**必需参数**
 
 *entities*
 
-A sequence of vertices and edges specifying the entities to be ignored during meshing.
+顶点序列和边序列，指定在网格生成期间要忽略的实体。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A Feature object.
+Feature 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.21 restoreIgnoredEntity(...)
 
-This method restores vertices and edges that have been merged using a virtual topology feature.
+此方法恢复使用虚拟拓扑特征合并的顶点和边。
 
-**Required argument**
+**必需参数**
 
 *entities*
 
-A sequence of [IgnoredVertex](pt01ch07pyo09.md) objects and [IgnoredEdge](pt01ch07pyo07.md) objects specifying the entities to be restored.
+[IgnoredVertex](pt01ch07pyo09.md) 对象序列和 [IgnoredEdge](pt01ch07pyo07.md) 对象序列，指定要恢复的实体。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A Feature object.
+Feature 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.22 seedEdgeByBias(...)
 
-This method seeds the given edges nonuniformly using the specified number of elements and bias ratio or the specified minimum and maximum element sizes.
+此方法使用指定的单元数量和偏置比或指定的最小和最大单元尺寸对给定边进行非均匀播种。
 
-**Required arguments**
+**必需参数**
 
 *biasMethod*
 
-A SymbolicConstant specifying whether single- or double-biased seed distribution will be applied. If unspecified, single-biased seed distribution will be applied. Possible values are:
-- SINGLE: Single-biased seed distribution will be applied.
-- DOUBLE: Double-biased seed distribution will be applied.
+SymbolicConstant，指定是应用单偏置还是双偏置种子分布。如果未指定，将应用单偏置种子分布。可能的值为：
+- SINGLE：将应用单偏置种子分布。
+- DOUBLE：将应用双偏置种子分布。
 
 *end1Edges*
 
-A sequence of [Edge](pt01ch07pyo03.md) objects specifying the edges to seed. The smallest elements will be positioned near the end where the normalized curve parameter=0.0. You must provide either the *end1Edges* or the *end2Edges* argument or both when *biasMethod*=SINGLE and omit both of them when *biasMethod*=DOUBLE.
+[Edge](pt01ch07pyo03.md) 对象序列，指定要播种的边。最小单元将位于归一化曲线参数=0.0 的端点附近。当 *biasMethod*=SINGLE 时，必须提供 *end1Edges* 或 *end2Edges* 参数或两者；当 *biasMethod*=DOUBLE 时省略两者。
 
-**Note:**You can determine which end is which by the order of the vertex indices returned by                                   ["getVertices," Section 7.3.9](pt01ch07pyo03.md#ker-edge-getvertices-pyc).
+**注意：**您可以通过 ["getVertices，" 第 7.3.9 节](pt01ch07pyo03.md#ker-edge-getvertices-pyc) 返回的顶点索引顺序来确定哪一端是哪一端。
 
 *end2Edges*
 
-A sequence of [Edge](pt01ch07pyo03.md) objects specifying the edges to seed. The smallest elements will be positioned near the end where the normalized curve parameter=1.0.
+[Edge](pt01ch07pyo03.md) 对象序列，指定要播种的边。最小单元将位于归一化曲线参数=1.0 的端点附近。
 
 *centerEdges*
 
-A sequence of [Edge](pt01ch07pyo03.md) objects specifying the edges to seed. The smallest elements will be positioned near edge center. You must provide either the *centerEdges* or the *endEdges* argument or both when *biasMethod*=DOUBLE and omit both of them when *biasMethod*=SINGLE.
+[Edge](pt01ch07pyo03.md) 对象序列，指定要播种的边。最小单元将位于边中心附近。当 *biasMethod*=DOUBLE 时，必须提供 *centerEdges* 或 *endEdges* 参数或两者；当 *biasMethod*=SINGLE 时省略两者。
 
 *endEdges*
 
-A sequence of [Edge](pt01ch07pyo03.md) objects specifying the edges to seed. The smallest elements will be positioned near edge ends.
+[Edge](pt01ch07pyo03.md) 对象序列，指定要播种的边。最小单元将位于边端点附近。
 
 *ratio*
 
-A Float specifying the ratio of the largest element to the smallest element. Possible values are 1.0 ![](../graphics/ker_eqn00013.gif) *ratio* ![](../graphics/ker_eqn00013.gif) 106.
+Float，指定最大单元与最小单元的比率。可能的值为 1.0 ≤ *ratio* ≤ 10^6。
 
 *number*
 
-An Int specifying the number of elements along each edge. Possible values are 1 ![](../graphics/ker_eqn00013.gif) *number* ![](../graphics/ker_eqn00013.gif) 104.
+Int，指定沿每条边的单元数量。可能的值为 1 ≤ *number* ≤ 10^4。
 
 *minSize*
 
-A Float specifying the desired smallest element size.
+Float，指定所需最小单元尺寸。
 
 *maxSize*
 
-A Float specifying the desired largest element size.
+Float，指定所需最大单元尺寸。
 
-**Note:**You must specify either the *ratio* and *number* or *minSize* and *maxSize* pair of arguments.
+**注意：**必须指定 *ratio* 和 *number* 或 *minSize* 和 *maxSize* 参数对。
 
-**Optional argument**
+**可选参数**
 
 *constraint*
 
-A SymbolicConstant specifying how closely the seeds must be matched by the mesh. The default value is FREE. If unspecified, the existing constraint will remain unchanged. Possible values are:
-- FREE: The resulting mesh can be finer or coarser than the specified seeds.
-- FINER: The resulting mesh can be finer than the specified seeds.
-- FIXED: The seeds must be exactly matched by the mesh (only with respect to the number of elements, not to the nodal positioning).
+SymbolicConstant，指定网格必须与种子匹配的程度。默认值为 FREE。如果未指定，现有约束将保持不变。可能的值为：
+- FREE：生成的网格可以比指定的种子更细或更粗。
+- FINER：生成的网格可以比指定的种子更细。
+- FIXED：网格必须与种子完全匹配（仅关于单元数量，而不是节点定位）。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.23 seedEdgeByNumber(...)
 
-This method seeds the given edges uniformly based on the number of elements along the edges. 
+此方法基于沿边的单元数量对给定边进行均匀播种。
 
-**Required arguments**
+**必需参数**
 
 *edges*
 
-A sequence of [Edge](pt01ch07pyo03.md) objects specifying the edges to seed.
+[Edge](pt01ch07pyo03.md) 对象序列，指定要播种的边。
 
 *number*
 
-An Int specifying the number of elements along each edge. Possible values are 1 ![](../graphics/ker_eqn00013.gif) *number* ![](../graphics/ker_eqn00013.gif) 104.
+Int，指定沿每条边的单元数量。可能的值为 1 ≤ *number* ≤ 10^4。
 
-**Optional argument**
+**可选参数**
 
 *constraint*
 
-A SymbolicConstant specifying how closely the seeds must be matched by the mesh. The default value is FREE. If unspecified, the existing constraint will remain unchanged. Possible values are:
-- FREE: The resulting mesh can be finer or coarser than the specified seeds.
-- FINER: The resulting mesh can be finer than the specified seeds.
-- FIXED: The seeds must be exactly matched by the mesh (only with respect to the number of elements, not to the nodal positioning).
+SymbolicConstant，指定网格必须与种子匹配的程度。默认值为 FREE。如果未指定，现有约束将保持不变。可能的值为：
+- FREE：生成的网格可以比指定的种子更细或更粗。
+- FINER：生成的网格可以比指定的种子更细。
+- FIXED：网格必须与种子完全匹配（仅关于单元数量，而不是节点定位）。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.24 seedEdgeBySize(...)
 
-This method seeds the given edges either uniformly or following edge curvature distribution, based on the desired element size. 
+此方法基于所需单元尺寸对给定边进行均匀播种或沿边曲率分布播种。
 
-**Required arguments**
+**必需参数**
 
 *edges*
 
-A sequence of [Edge](pt01ch07pyo03.md) objects specifying the edges to seed.
+[Edge](pt01ch07pyo03.md) 对象序列，指定要播种的边。
 
 *size*
 
-A Float specifying the desired element size.
+Float，指定所需单元尺寸。
 
-**Optional arguments**
+**可选参数**
 
 *deviationFactor*
 
-A Float specifying the deviation factor ![](../graphics/ker_eqn00403.gif), where ![](../graphics/ker_eqn00069.gif) is the chordal deviation and ![](../graphics/ker_eqn00404.gif) is the element length.
+Float，指定偏离因子，其中是弦偏差，是单元长度。
 
 *minSizeFactor*
 
-A Float specifying the size of the smallest allowable element as a fraction of the specified global element size.
+Float，指定最小允许单元尺寸作为指定全局单元尺寸的分数。
 
 *constraint*
 
-A SymbolicConstant specifying how closely the seeds must be matched by the mesh. The default value is FREE. If unspecified, the existing constraint will remain unchanged. Possible values are:
-- FREE: The resulting mesh can be finer or coarser than the specified seeds.
-- FINER: The resulting mesh can be finer than the specified seeds.
-- FIXED: The seeds must be exactly matched by the mesh (only with respect to the number of elements, not to the nodal positioning).
+SymbolicConstant，指定网格必须与种子匹配的程度。默认值为 FREE。如果未指定，现有约束将保持不变。可能的值为：
+- FREE：生成的网格可以比指定的种子更细或更粗。
+- FINER：生成的网格可以比指定的种子更细。
+- FIXED：网格必须与种子完全匹配（仅关于单元数量，而不是节点定位）。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.25 seedPart(...)
 
-This method assigns global edge seeds to the given parts.
+此方法向给定部件分配全局边种子。
 
-**Required argument**
+**必需参数**
 
 *size*
 
-A Float specifying the desired global element size for the edges.
+Float，指定边的所需全局单元尺寸。
 
-**Optional arguments**
+**可选参数**
 
 *deviationFactor*
 
-A Float specifying the deviation factor ![](../graphics/ker_eqn00403.gif), where ![](../graphics/ker_eqn00069.gif) is the chordal deviation and ![](../graphics/ker_eqn00404.gif) is the element length.
+Float，指定偏离因子，其中是弦偏差，是单元长度。
 
 *minSizeFactor*
 
-A Float specifying the size of the smallest allowable element as a fraction of the specified global element size.
+Float，指定最小允许单元尺寸作为指定全局单元尺寸的分数。
 
 *constraint*
 
-A SymbolicConstant specifying how closely the seeds must be matched by the mesh. The default value is FREE. If unspecified, the existing constraint will remain unchanged. Possible values are:
-- FREE: The resulting mesh can be finer or coarser than the specified seeds.
-- FINER: The resulting mesh can be finer than the specified seeds.
+SymbolicConstant，指定网格必须与种子匹配的程度。默认值为 FREE。如果未指定，现有约束将保持不变。可能的值为：
+- FREE：生成的网格可以比指定的种子更细或更粗。
+- FINER：生成的网格可以比指定的种子更细。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.26 setBoundaryLayerControls(...)
 
-This method sets the control parameters for boundary layer mesh for the specified regions.
+此方法为指定区域设置边界层网格的控制参数。
 
-**Required arguments**
+**必需参数**
 
 *regions*
 
-A sequence of [Cell](pt01ch07pyo01.md) objects specifying the regions for which to set the boundary layer mesh control parameters.
+[Cell](pt01ch07pyo01.md) 对象序列，指定要设置边界层网格控制参数的区域。
 
 *firstElemSize*
 
-A Float specifying the height of the first element layer off boundary. Possible values are 0.0 ![](../graphics/ker_eqn00048.gif) *firstElemSize* ![](../graphics/ker_eqn00013.gif) 106.
+Float，指定边界外第一层单元的高度。可能的值为 0.0 ≤ *firstElemSize* ≤ 10^6。
 
 *growthFactor*
 
-A Float specifying the ratio of heights of any two consecutive element layers. Possible values are 1.0 ![](../graphics/ker_eqn00013.gif) *growthFactor* ![](../graphics/ker_eqn00013.gif) 10.0.
+Float，指定任意两个连续单元层的高度比率。可能的值为 1.0 ≤ *growthFactor* ≤ 10.0。
 
 *numLayers*
 
-An Int specifying the number of element layers to be generated. Possible values are 1 ![](../graphics/ker_eqn00013.gif) *numLayers* ![](../graphics/ker_eqn00013.gif) 104.
+Int，指定要生成的单元层数。可能的值为 1 ≤ *numLayers* ≤ 10^4。
 
-**Optional arguments**
+**可选参数**
 
 *inactiveFaces*
 
-A sequence of [Face](pt01ch07pyo05.md) objects specifying the faces where boundary layer should not be generated.  By default, boundary layer mesh will be generated on all faces of the selected regions.
+[Face](pt01ch07pyo05.md) 对象序列，指定不应生成边界层的面。默认情况下，边界层网格将在所选区域的所有面上生成。
 
 *setName*
 
-A String specifying a unique name for a set that will contain boundary layer elements.
+String，指定将包含边界层单元的集合的唯一名称。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.27 setElementType(...)
 
-This method assigns element types to the specified regions.
+此方法向指定区域分配单元类型。
 
-**Required arguments**
+**必需参数**
 
 *regions*
 
-A sequence of Geometry regions or [MeshElement](pt01ch31pyo05.md) objects, or a Set object containing either geometry regions or elements, specifying the regions to which element types are to be assigned.
+几何区域序列、[MeshElement](pt01ch31pyo05.md) 对象序列或包含几何区域或单元的 Set 对象，指定要分配单元类型的区域。
 
 *elemTypes*
 
-A sequence of ElemType objects, one for each element shape applicable to the regions.
+ElemType 对象序列，每个适用于区域的元素形状一个。
 
-**Note:**If an ElemType object has an UNKNOWN_*xxx* value for *elemCode*, its order will be deduced from the order of other valid ElemType objects within the same `setElementType` command. If no valid ElemType objects can be found, the order will remain unchanged.
+**注意：**如果 ElemType 对象对于 *elemCode* 具有 UNKNOWN_*xxx* 值，则其顺序将从同一 `setElementType` 命令中其他有效 ElemType 对象的顺序推断。如果找不到有效的 ElemType 对象，则顺序将保持不变。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-As a result of the element assignment, a region must have the same library, family, and order for all its assigned element types. Otherwise, an exception will be thrown.
+由于元素分配的结果，区域必须对其所有分配的单元类型具有相同的库族和阶。否则将抛出异常。
 
-For example, suppose the Hex, Wedge, and Tet elements previously assigned to a cell are all linear. The user now constructs an ElemType object with a quadratic Hex element and includes only this object in the `setElementType` command. An exception will be thrown because the Wedge and Tet elements will remain linear (i.e., As Is) and become incompatible with the newly assigned quadratic Hex element.
+例如，假设先前分配给单元的 Hex、Wedge 和 Tet 单元都是线性的。用户现在使用二次 Hex 单元构造一个 ElemType 对象，并仅在此 `setElementType` 命令中包含此对象。由于 Wedge 和 Tet 单元将保持线性（即 As Is）并与新分配的四次 Hex 单元不兼容，因此将抛出异常。
 
 ### 31.2.28 setLogicalCorners(...)
 
-This method sets the logical corners for a mappable face region.
+此方法为可映射面区域设置逻辑角点。
 
-**Required arguments**
+**必需参数**
 
 *region*
 
-A Face region.
+Face 区域。
 
 *corners*
 
-Three, four, or five Vertex objects defining the logical corners for a given mappable face region.
+三个、四个或五个 Vertex 对象，定义给定可映射面区域的逻辑角点。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.29 setMeshControls(...)
 
-This method sets the mesh control parameters for the specified regions.
+此方法为指定区域设置网格控制参数。
 
-**Required argument**
+**必需参数**
 
 *regions*
 
-A sequence of Face or Cell regions specifying the regions for which to set the mesh control parameters.
+Face 或 Cell 区域序列，指定要设置网格控制参数的区域。
 
-**Optional arguments**
+**可选参数**
 
 *elemShape*
 
-A SymbolicConstant specifying the element shape to be used for meshing. The default value is QUAD for Face regions and HEX for Cell regions. If unspecified, the existing element shape will remain unchanged. Possible values are:
-- QUAD: Quadrilateral mesh.
-- QUAD_DOMINATED: Quadrilateral-dominated mesh.
-- TRI: Triangular mesh.
-- HEX: Hexahedral mesh.
-- HEX_DOMINATED: Hex-dominated mesh.
-- TET: Tetrahedral mesh.
-- WEDGE: Wedge mesh.
+SymbolicConstant，指定用于网格化的元素形状。Face 区域的默认值为 QUAD，Cell 区域的默认值为 HEX。如果未指定，现有元素形状将保持不变。可能的值为：
+- QUAD：四边形网格。
+- QUAD_DOMINATED：四边形主导网格。
+- TRI：三角形网格。
+- HEX：六面体网格。
+- HEX_DOMINATED：六面体主导网格。
+- TET：四面体网格。
+- WEDGE：楔形网格。
 
 *technique*
 
-A SymbolicConstant specifying the mesh technique to be used. The default value is FREE for Face regions. For Cell regions the initial value depends on the geometry of the regions and can be STRUCTURED, SWEEP, or “unmeshable.” If unspecified, the existing mesh technique(s) will remain unchanged. Possible values are:
-- FREE: Free mesh technique.
-- STRUCTURED: Structured mesh technique.
-- SWEEP: Sweep mesh technique.
-- BOTTOM_UP: Bottom-up mesh technique. Only applicable for cell regions.
-- SYSTEM_ASSIGN: Allow the system to assign a suitable technique. The actual technique assigned can be STRUCTURED, SWEEP, or "unmeshable."
+SymbolicConstant，指定要使用的网格技术。Face 区域的默认值为 FREE。对于 Cell 区域，初始值取决于区域的几何形状，可以是 STRUCTURED、SWEEP 或"unmeshable"。如果未指定，现有网格技术将保持不变。可能的值为：
+- FREE：自由网格技术。
+- STRUCTURED：结构化网格技术。
+- SWEEP：扫掠网格技术。
+- BOTTOM_UP：自底向上网格技术。仅适用于单元区域。
+- SYSTEM_ASSIGN：允许系统分配合适的技术。实际分配的技术可以是 STRUCTURED、SWEEP 或"unmeshable"。
 
 *algorithm*
 
-A SymbolicConstant specifying the algorithm used to generate the mesh for the specified regions. Possible values are MEDIAL_AXIS, ADVANCING_FRONT, and NON_DEFAULT. If unspecified, the existing value will remain unchanged. This option is applicable only to the following:
-- Free quadrilateral or quadrilateral-dominated meshing. In this case the possible values are MEDIAL_AXIS and ADVANCING_FRONT.
-- Sweep hexahedral or hexahedral-dominated meshing. In this case the possible values are MEDIAL_AXIS and ADVANCING_FRONT.
-- Free tetrahedral meshing. In this case the only possible value is NON_DEFAULT, and it indicates that the free tetrahedral-meshing technique available in Abaqus 6.4 or earlier will be used. If algorithm is not specified, the default tetrahedral-meshing technique will be used.
+SymbolicConstant，指定用于为指定区域生成网格的算法。可能的值为 MEDIAL_AXIS、ADVANCING_FRONT 和 NON_DEFAULT。如果未指定，现有值将保持不变。此选项仅在以下情况下适用：
+- 自由四边形或四边形主导网格化。在这种情况下，可能的值为 MEDIAL_AXIS 和 ADVANCING_FRONT。
+- 扫掠六面体或六面体主导网格化。在这种情况下，可能的值为 MEDIAL_AXIS 和 ADVANCING_FRONT。
+- 自由四面体网格化。在这种情况下，唯一可能的值为 NON_DEFAULT，它表示将使用 Abaqus 6.4 或更早版本中可用的自由四面体网格技术。如果未指定算法，将使用默认四面体网格技术。
 
 *minTransition*
 
-A Boolean specifying whether minimum transition is to be applied. The default value is ON. If unspecified, the existing value will remain unchanged. This option is applicable only in the following cases:
-- Free quadrilateral meshing or hexahedral sweep meshing with *algorithm*=MEDIAL_AXIS.
-- Structured quadrilateral meshing.
+Boolean，指定是否应用最小过渡。默认值为 ON。如果未指定，现有值将保持不变。此选项仅在以下情况下适用：
+- 使用 *algorithm*=MEDIAL_AXIS 的自由四边形网格化或六面体扫掠网格化。
+- 结构化四边形网格化。
 
 *sizeGrowth*
 
-A SymbolicConstant specifying element size growth to be applied when generating the interior of a tetrahedral mesh. Possible values are MODERATE and MAXIMUM. If unspecified, the existing value will remain unchanged. This option only applies to the default tetrahedral mesher.
+SymbolicConstant，指定生成四面体网格内部时应用的单元尺寸增长。可能的值为 MODERATE 和 MAXIMUM。如果未指定，现有值将保持不变。此选项仅适用于默认四面体网格器。
 
 *allowMapped*
 
-A Boolean specifying whether mapped meshing can be used to replace the selected mesh technique. The *allowMapped* argument is applicable only in the following cases:
-- Free triangular meshing.
-- Free quadrilateral or quadrilateral-dominated meshing with *algorithm*=ADVANCING_FRONT.
-- Hexahedral or hexahedral-dominated sweep meshing with *algorithm*=ADVANCING_FRONT.
-- Free tetrahedral meshing. *allowMapped*=True implies that mapped triangular meshing can be used on faces that bound three-dimensional *regions*.
+Boolean，指定是否可以使用映射网格化来替换所选网格技术。*allowMapped* 参数仅在以下情况下适用：
+- 自由三角形网格化。
+- 使用 *algorithm*=ADVANCING_FRONT 的自由四边形或四边形主导网格化。
+- 使用 *algorithm*=ADVANCING_FRONT 的六面体或六面体主导扫掠网格化。
+- 自由四面体网格化。*allowMapped*=True 意味着可以在限定三维 *regions* 的面上使用映射三角形网格化。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.30 setSweepPath(...)
 
-This method sets the sweep path for a sweepable region or the revolve path for a revolvable region.
+此方法设置可扫掠区域的扫掠路径或可旋转区域的旋转路径。
 
-**Required arguments**
+**必需参数**
 
 *region*
 
-A sweepable region.
+可扫掠区域。
 
 *edge*
 
-An [Edge](pt01ch07pyo03.md) object specifying the sweep or revolve path.
+[Edge](pt01ch07pyo03.md) 对象，指定扫掠或旋转路径。
 
 *sense*
 
-A SymbolicConstant specifying the sweep sense. The sense will affect only how gasket elements will be created; it will have no effect if gasket elements are not used. Possible values are FORWARD or REVERSE. 
+SymbolicConstant，指定扫掠方向。该方向只会影响如何创建垫片单元；如果不使用垫片单元，则不会有影响。可能的值为 FORWARD 或 REVERSE。
 
-If *sense*=FORWARD, the sense of the given edge's underlying curve will be used.
+如果 *sense*=FORWARD，则将使用给定边底层曲线的方向。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 31.2.31 verifyMeshQuality(...)
 
-This method tests the mesh quality of a part and returns poor-quality elements.
+此方法测试部件的网格质量并返回劣质单元。
 
-**Required argument**
+**必需参数**
 
 *criterion*
 
-A SymbolicConstant specifying the criterion used for the quality check. Possible values are:
+SymbolicConstant，指定用于质量检查的标准。可能的值为：
 
 ** ANALYSIS_CHECKS **
 
-When this criterion is specified Abaqus/CAE will invoke the element quality checks included with the input file processor for Abaqus/Standard and Abaqus/Explicit.
+指定此标准时，Abaqus/CAE 将调用随 Abaqus/Standard 和 Abaqus/Explicit 的输入文件处理器一起包含的单元质量检查。
 
 ** ANGULAR_DEVIATION **
 
-The maximum amount (in degrees) that an element's face corner angles deviate from the ideal angle. The ideal angle is 90 for quadrilateral element faces and 60 for triangular element faces. Elements with an angular deviation larger than the specified threshold will fail this test.
+元素面角从理想角度偏离的最大量（以度为单位）。理想角度是四边形元素面为 90 度，三角形元素面为 60 度。角度偏差大于指定阈值的元素将无法通过此测试。
 
 ** ASPECT_RATIO **
 
-The ratio between the lengths of the longest and shortest edges of an element. Elements with an aspect ratio larger than the specified threshold will fail this test.
+元素最长边与最短边长度的比率。纵横比大于指定阈值的元素将无法通过此测试。
 
 ** GEOM_DEVIATION_FACTOR **
 
-The largest geometric deviation factor evaluated along any of the element edges associated with geometric edges or faces. The geometric deviation factor along an element edge is calculated by dividing the maximum gap between the element edge and its associated geometry by the length of the element edge. Elements with a geometric deviation factor larger than the specified threshold will fail this test.
+与几何边或面关联的任何元素边沿评估的最大几何偏离因子。元素边的几何偏离因子是通过将元素边与其关联几何之间的最大间隙除以元素边的长度来计算的。几何偏离因子大于指定阈值的元素将无法通过此测试。
 
 ** LARGE_ANGLE **
 
-The largest corner angle on any of an element's faces. Elements with face angles larger than the specified threshold (in degrees) will fail this test.
+元素任意面上最大的角角度。面角大于指定阈值（度）的元素将无法通过此测试。
 
 ** LONGEST_EDGE **
 
-The length of an element's longest edge. Elements with an edge longer than the specified threshold will fail this test.
+元素最长边的长度。边长于指定阈值的元素将无法通过此测试。
 
 ** MAX_FREQUENCY **
 
-An estimate of an element's contribution to the initial maximum allowable frequency for Abaqus/Standard analyses. This calculation requires appropriate section assignments and material definitions. Elements whose maximum allowable frequency is smaller than the given value will fail this test.
+元素对 Abaqus/Standard 分析的初始最大允许频率的贡献的估计。此计算需要适当的截面分配和材料定义。最大允许频率小于给定值的元素将无法通过此测试。
 
 ** SHAPE_FACTOR **
 
-The shape factor for triangular and tetrahedral elements. This is the ratio between the element area or volume and the optimal element area or volume. Elements with a shape factor smaller than the specified threshold will fail this test.
+三角形和四面体元素的形状因子。这是元素面积或体积与最佳元素面积或体积的比率。形状因子小于指定阈值的元素将无法通过此测试。
 
 ** SHORTEST_EDGE **
 
-The length of an element's shortest edge. Elements with an edge shorter than the specified threshold will fail this test.
+元素最短边的长度。边短于指定阈值的元素将无法通过此测试。
 
 ** SMALL_ANGLE **
 
-The smallest corner angle on any of an element's faces. Elements with face angles smaller than the given value (in degrees) will fail this test.
+元素任意面上最小的角角度。面角小于给定值（度）的元素将无法通过此测试。
 
 ** STABLE_TIME_INCREMENT **
 
-An estimate of an element's contribution to the initial maximum stable time increment for Abaqus/Explicit analyses. This calculation requires appropriate section assignments and material definitions. Elements that require a time increment smaller than the given value will fail this test.
+元素对 Abaqus/Explicit 分析的初始最大稳定时间增量的贡献的估计。此计算需要适当的截面分配和材料定义。需要时间增量小于给定值的元素将无法通过此测试。
 
-**Optional arguments**
+**可选参数**
 
 *threshold*
 
-A Float value used to determine low quality elements according to the specified criterion. This argument is ignored when the ANALYSIS_CHECKS criterion is used. For other criterion, if this argument is unspecified then no list of failed elements will be returned.
+Float 值，根据指定标准用于确定低质量元素。当使用 ANALYSIS_CHECKS 标准时，将忽略此参数。对于其他标准，如果未指定此参数，则不会返回失败元素列表。
 
 *elemShape*
 
-A SymbolicConstant specifying an element shape for limiting the query. Possible values are LINE, QUAD, TRI, HEX, WEDGE, and TET.
+SymbolicConstant，指定用于限制查询的元素形状。可能的值为 LINE、QUAD、TRI、HEX、WEDGE 和 TET。
 
 *regions*
 
-A sequence of [Region](pt01ch45pyo03.md) or [MeshElement](pt01ch31pyo05.md) objects. If you do not specify the *regions* argument, the entire part mesh is considered.
+[Region](pt01ch45pyo03.md) 或 [MeshElement](pt01ch31pyo05.md) 对象序列。如果未指定 *regions* 参数，则考虑整个部件网格。
 
-**Return value**
+**返回值**
 
-A Dictionary object containing values for some number of the following keys: failedElements, warningElements, naElements (sequences of [MeshElement](pt01ch31pyo05.md) objects); numElements (Int); average, worst (Float); worstElement ([MeshElement](pt01ch31pyo05.md) object)
+Dictionary 对象，包含以下一些键的值：failedElements、warningElements、naElements（[MeshElement](pt01ch31pyo05.md) 对象序列）；numElements（Int）；average、worst（Float）；worstElement（[MeshElement](pt01ch31pyo05.md) 对象）
 
-**Exceptions**
+**异常**
 
-None.
-
-
-
+无。

@@ -1,131 +1,61 @@
-# 60.74 Permeability object
+# 60.72 MullinsEffect 对象
 
+MullinsEffect 用于指定 Mullins 数据的属性。
 
-
-
-
-
-
-The Permeability object defines permeability for pore fluid flow.
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].permeability()
+materialApi.materials()[*name*].mullinsEffect()
 ```
 
-### 60.74.1 Permeability(...)
+### 60.72.1 成员
 
-This method creates a Permeability object.
+MullinsEffect 对象可以具有以下成员：
 
-**Path**
-
-```
-materialApi.materials()[*name*].Permeability
-```
-
-**Prototype**
+**原型**
 
 ```
-odb_Permeability&
-Permeability(double specificWeight,
-             double inertialDragCoefficient,
-             const odb_SequenceSequenceDouble& table,
-             const odb_String& type,
-             bool temperatureDependency,
-             int dependencies);
+odb_String definition() const;
+bool temperatureDependency() const;
+int dependencies() const;
+int properties() const;
+odb_SequenceSequenceDouble table() const;
+odb_SequenceUniaxialTestData uniaxialTests() const;
+odb_UniaxialTestData uniaxialTests(int index) const;
+odb_SequenceBiaxialTestData biaxialTests() const;
+odb_BiaxialTestData biaxialTests(int index) const;
+odb_SequencePlanarTestData planarTests() const;
+odb_PlanarTestData planarTests(int index) const;
 ```
 
-**Required arguments**
+*definition*
 
-*specificWeight*
-
-A Double specifying the specific weight of the wetting liquid, ![](../graphics/ker_eqn00296.gif).
-
-*inertialDragCoefficient*
-
-A Double specifying                   The inertial drag coefficient of the wetting liquid, ![](../graphics/ker_eqn00296.gif).
-
-*table*
-
-An odb_SequenceSequenceDouble specifying the items described below.
-
-**Optional arguments**
-
-*type*
-
-An odb_String specifying the type of permeability. Possible values are "ISOTROPIC", "ORTHOTROPIC", "ANISOTROPIC", "ISOTROPIC-CFD", and "CARMAN_KOZENY". The default value is "ISOTROPIC".
+一个 odb_String，指定数据定义方法。可能的值为"USER"、"CONSTANTS"和"TEST_DATA"。默认值为"CONSTANTS"。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+*properties*
 
-If *type*=ISOTROPIC, the table data specify the following:
-- ![](../graphics/ker_eqn00143.gif).
-- Void ratio, ![](../graphics/ker_eqn00289.gif).
-- Temperature, if the data depend on temperature.
+一个整数，指定作为用户定义超弹性材料数据所需的属性值数量。默认值为 0。
 
-If *type*=ORTHOTROPIC, the table data specify the following:- ![](../graphics/ker_eqn00144.gif).
-- ![](../graphics/ker_eqn00145.gif).
-- ![](../graphics/ker_eqn00146.gif).
-- Void ratio, ![](../graphics/ker_eqn00289.gif).
-- Temperature, if the data depend on temperature.
+*table*
 
-If *type*=ANISOTROPIC, the table data specify the following:- ![](../graphics/ker_eqn00144.gif).
-- ![](../graphics/ker_eqn00147.gif).
-- ![](../graphics/ker_eqn00145.gif).
-- ![](../graphics/ker_eqn00148.gif).
-- ![](../graphics/ker_eqn00149.gif).
-- ![](../graphics/ker_eqn00146.gif).
-- Void ratio, ![](../graphics/ker_eqn00289.gif).
-- Temperature, if the data depend on temperature.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。默认值为空序列。
 
-If *type*=ISOTROPIC_CFD, the table data specify the following:- ![](../graphics/ker_eqn00143.gif).
-- Porosity, ![](../graphics/ker_eqn00289.gif).
+*uniaxialTests*
 
-If *type*=CARMAN_KOZENY, the table data specify the following:- Kozeny constant![](../graphics/ker_eqn00289.gif).
-- Pore particle radius, ![](../graphics/ker_eqn00289.gif).
+一个 [UniaxialTestData](pt02ch60pyo101.md) 对象序列。
 
-**Return value**
+*biaxialTests*
 
-A Permeability object.
+一个 [BiaxialTestData](pt02ch60pyo04.md) 对象序列。
 
-**Exceptions**
+*planarTests*
 
-RangeError.
-
-### 60.74.2 Members
-
-The Permeability object has members with the same names and descriptions as the arguments to the [Permeability](pt02ch60pyo74.md#ker-permeability-permeability-cpp) method.
-
-In addition, the Permeability object can have the following members:
-
-**Prototype**
-
-```
-odb_SaturationDependence saturationDependence() const;
-odb_VelocityDependence velocityDependence() const;
-```
-
-*saturationDependence*
-
-A [SaturationDependence](pt02ch60pyo88.md) object specifying the dependence of the permeability of a material on the saturation of the wetting liquid.
-
-*velocityDependence*
-
-A [VelocityDependence](pt02ch60pyo105.md) object specifying the dependence of the permeability of a material on the velocity of fluid flow.
-
-### 60.74.3 Corresponding analysis keywords
-
-| [*PERMEABILITY](../key/key-link.md#usb-kws-mpermeabil) |
-| --- |
-
-
-
-
+一个 [PlanarTestData](pt02ch60pyo76.md) 对象序列。

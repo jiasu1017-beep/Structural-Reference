@@ -1,16 +1,10 @@
-# 8.7 IProfile object
+# 8.7 IProfile 对象
 
+IProfile 对象定义 I 形 profile 的属性。
 
+IProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The IProfile object defines the properties of an I profile.
-
-The IProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,90 +15,86 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.7.1 IProfile(...)
 
-This method creates an IProfile object.
+此方法创建一个 IProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].IProfile
 session.odbs[*name*].IProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *l*
 
-A Float specifying the *l* dimension (offset of 1–axis from the bottom flange surface) of the I profile. For more information, see ["Beam cross-section library," Section 29.3.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-ebeamcrosssectlib).
+一个 Float，指定 I 形 profile 的 *l* 尺寸（从下翼缘表面到 1 轴的偏移量）。有关详细信息，请参阅《Abaqus Analysis User's Guide》的"Beam cross-section library," Section 29.3.9。
 
 *h*
 
-A Float specifying the *h* dimension (height) of the I profile.
+一个 Float，指定 I 形 profile 的 *h* 尺寸（高度）。
 
 *b1*
 
-A Float specifying the *b1* dimension (bottom flange width) of the I profile.
+一个 Float，指定 I 形 profile 的 *b1* 尺寸（下翼缘宽度）。
 
 *b2*
 
-A Float specifying the *b2* dimension (top flange width) of the I profile.
+一个 Float，指定 I 形 profile 的 *b2* 尺寸（上翼缘宽度）。
 
 *t1*
 
-A Float specifying the *t1* dimension (bottom flange thickness) of the I profile.
+一个 Float，指定 I 形 profile 的 *t1* 尺寸（下翼缘厚度）。
 
 *t2*
 
-A Float specifying the *t2* dimension (top flange thickness) of the I profile.
+一个 Float，指定 I 形 profile 的 *t2* 尺寸（上翼缘厚度）。
 
 *t3*
 
-A Float specifying the *t3* dimension (web thickness) of the I profile.
+一个 Float，指定 I 形 profile 的 *t3* 尺寸（腹板厚度）。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An IProfile object.
+一个 IProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.7.2 setValues(...)
 
-This method modifies the IProfile object.
+此方法修改 IProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [IProfile](pt01ch08pyo07.md#ker-iprofile-iprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [IProfile](pt01ch08pyo07.md#ker-iprofile-iprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.7.3 Members
+### 8.7.3 成员
 
-The IProfile object has members with the same names and descriptions as the arguments to the [IProfile](pt01ch08pyo07.md#ker-iprofile-iprofile-pyc) method.
+IProfile 对象具有与 [IProfile](pt01ch08pyo07.md#ker-iprofile-iprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.7.4 Corresponding analysis keywords
+### 8.7.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=I |
 | --- |
-
-
-
-

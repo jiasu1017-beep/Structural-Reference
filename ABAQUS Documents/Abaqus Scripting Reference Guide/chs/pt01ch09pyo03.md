@@ -1,35 +1,29 @@
-# 9.3 AccelerationBaseMotionBCState object
+# 9.3 AccelerationBaseMotionBCState 对象
 
+AccelerationBaseMotionBCState 对象存储速度基准运动边界条件在步骤中的传播数据。系统为每个步骤由 [AccelerationBaseMotionBC](pt01ch09pyo02.md) 对象内部创建此对象的一个实例。该实例也由 [AccelerationBaseMotionBC](pt01ch09pyo02.md) 对象内部删除。
 
+AccelerationBaseMotionBCState 对象没有构造函数或方法。
 
+AccelerationBaseMotionBCState 对象派生自 [BoundaryConditionState](pt01ch09pyo08.md) 对象。
 
-
-
-
-The AccelerationBaseMotionBCState object stores the propagating data for a velocity base motion boundary condition in a step. One instance of this object is created internally by the [AccelerationBaseMotionBC](pt01ch09pyo02.md) object for each step. The instance is also deleted internally by the [AccelerationBaseMotionBC](pt01ch09pyo02.md) object.
-
-The AccelerationBaseMotionBCState object has no constructor or methods.
-
-The AccelerationBaseMotionBCState object is derived from the [BoundaryConditionState](pt01ch09pyo08.md) object.
-
-**Access**
+**访问**
 
 ```
 import load
 mdb.models[*name*].steps[*name*].boundaryConditionStates[*name*]
 ```
 
-### 9.3.1 Members
+### 9.3.1 成员
 
-The AccelerationBaseMotionBCState object has the following members:
+AccelerationBaseMotionBCState 对象具有以下成员：
 
 *amplitudeState*
 
-A SymbolicConstant specifying the propagation state of the amplitude reference. Possible values are UNSET, SET, UNCHANGED, FREED, and MODIFIED.
+一个 SymbolicConstant，指定振幅引用的传播状态。可能的值为 UNSET、SET、UNCHANGED、FREED 和 MODIFIED。
 
 *status*
 
-A SymbolicConstant specifying the propagation state of the [BoundaryConditionState](pt01ch09pyo08.md) object. Possible values are:
+一个 SymbolicConstant，指定 [BoundaryConditionState](pt01ch09pyo08.md) 对象的传播状态。可能的值为：
 - NOT_YET_ACTIVE
 - CREATED
 - PROPAGATED
@@ -45,13 +39,9 @@ A SymbolicConstant specifying the propagation state of the [BoundaryConditionSta
 
 *amplitude*
 
-A String specifying the name of the amplitude reference. The String is empty if the boundary condition has no amplitude reference.
+一个 String，指定振幅引用的名称。如果边界条件没有振幅引用，则该 String 为空。
 
-### 9.3.2 Corresponding analysis keywords
+### 9.3.2 对应的分析关键字
 
 | [*BASE MOTION](../key/key-link.md#usb-kws-hbasemotion) |
 | --- |
-
-
-
-

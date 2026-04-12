@@ -1,14 +1,8 @@
-# 60.73 Ornl object
+# 60.73 Ornl 对象
 
+Ornl 对象用于指定由橡树岭国家实验室开发的本构模型。
 
-
-
-
-
-
-The Ornl object specifies the constitutive model developed by Oak Ridge National Laboratory.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].creep().ornl()
@@ -17,16 +11,16 @@ materialApi.materials()[*name*].plastic().ornl()
 
 ### 60.73.1 Ornl(...)
 
-This method creates an Ornl object.
+此方法创建一个 Ornl 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].creep().Ornl
 materialApi.materials()[*name*].plastic().Ornl
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Ornl&
@@ -35,41 +29,37 @@ Ornl(double a,
      bool reset);
 ```
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *a*
 
-A Double specifying the saturation rates for kinematic shift caused by creep strain, as defined by Equation (15) of Section 4.3.3–3 of the Nuclear Standard. The default value corresponds to that section of the Standard. Set *a*=0.0 to use the 1986 revision of the Standard. The default value is 0.3.
+一个 Double，指定由蠕变应变引起的运动学偏移的饱和率，如核标准第 4.3.3-3 节的公式（15）所定义。默认值为该标准的相应值。设置 *a*=0.0 以使用 1986 年修订版的标准。默认值为 0.3。
 
 *h*
 
-The string "NONE" or a Double specifying the rate of kinematic shift with respect to creep strain [Equation (7) of Section 4.3.2–1 of the Nuclear Standard]. If *h*="NONE", the value of *h* is determined according to Section 4.3.3–3 of the 1981 revision of the Standard. Set *h*=0.0 to use the 1986 revision of the Standard. The default value is "NONE".
+字符串"NONE"或一个 Double，指定相对于蠕变应变的运动学偏移率[核标准第 4.3.2-1 节的公式（7）]。如果 *h*="NONE"，则 *h* 的值根据 1981 年修订版标准的第 4.3.3-3 节确定。设置 *h*=0.0 以使用 1986 年修订版的标准。默认值为"NONE"。
 
 *reset*
 
-A Boolean specifying whether to invoke the optional ![](../graphics/ker_eqn00090.gif) reset procedure described in Section 4.3.5 of the Nuclear Standard. The default value is false.
+一个布尔值，指定是否调用核标准第 4.3.5 节中描述的可选 ![](../graphics/ker_eqn00090.gif) 重置过程。默认值为 false。
 
-**Return value**
+**返回值**
 
-An Ornl object.
+一个 Ornl 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.73.2 Members
+### 60.73.2 成员
 
-The Ornl object has members with the same names and descriptions as the arguments to the [Ornl](pt02ch60pyo73.md#ker-ornl-ornl-cpp) method.
+Ornl 对象的成员与 [Ornl](pt02ch60pyo73.md#ker-ornl-ornl-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.73.3 Corresponding analysis keywords
+### 60.73.3 对应的分析关键字
 
 | [*ORNL](../key/key-link.md#usb-kws-mornl) |
 | --- |
-
-
-
-

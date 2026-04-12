@@ -1,14 +1,12 @@
-# 48.1 ConstrainedSketch object
+# 48.1 ConstrainedSketch 对象
 
 
 
 
 
+ConstrainedSketch 对象包含用于创建草图的实体。这些对象包括几何存储库中的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，如 Line、Arc 和 Spline。Vertex、Dimension、Constraint 和 Parameter 对象包含在各自的存储库中。
 
-
-A ConstrainedSketch               object contains the entities that are used to create a sketch. The objects include [ConstrainedSketchGeometry](pt01ch48pyo05.md)               objects contained in the Geometry Repository, such as Line, Arc, and Spline. Vertex, Dimension, Constraint, and Parameter objects are contained in their respective repositories.
-
-**Access**
+**访问**
 
 ```
 import sketch
@@ -17,496 +15,499 @@ mdb.models[*name*].sketches[*name*]
 
 ### 48.1.1 ConstrainedSketch(...)
 
-This method creates a ConstrainedSketch                     object. If the sketch cannot be created, the method returns `None`.
+此方法创建 ConstrainedSketch 对象。如果无法创建草图，则该方法返回 `None`。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ConstrainedSketch
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *sheetSize*
 
-A Float specifying the sheet size.
+Float，指定图纸大小。
 
-**Optional arguments**
+**可选参数**
 
 *gridSpacing*
 
-A Float specifying the spacing between gridlines. Possible values are Floats ![](../graphics/ker_eqn00060.gif)                              0. The default value is approximately 2 percent of *sheetSize*.
+Float，指定网格线之间的间距。可能的值为 Floats ![](../graphics/ker_eqn00060.gif) 0。默认值为 *sheetSize* 的约 2%。
 
 *transform*
 
-A sequence of sequences of Floats specifying the three-dimensional orientation of the sketch. The sequence is a 3  4 transformation matrix specifying the axis of rotation and the translation vector. Possible values are any Floats.
+Floats 序列的序列，指定草图的三维方向。该序列是一个 3×4 变换矩阵，指定旋转轴和平移向量。可能的值为任何 Floats。
 
-The default value for the axis of rotation is the identity matrix
+旋转轴的默认值是单位矩阵
 
 ```
 (1.0, 0.0, 0.0),  (0.0, 1.0, 0.0),  (0.0, 0.0, 1.0)
 ```
-                              The default value for the translation vector is
+
+平移向量的默认值是
+
 ```
 (0.0, 0.0, 0.0)
 ```
-                              The default values position the sketch on the *X–Y* plane centered at the origin.
 
-**Return value**
+默认值将草图定位在原点中心的 X–Y 平面上。
 
-A ConstrainedSketch object.
+**返回值**
 
-**Exceptions**
+ConstrainedSketch 对象。
 
-None.
+**异常**
+
+无。
 
 ### 48.1.2 ConstrainedSketch(...)
 
-This method copies one ConstrainedSketch                     object to a new ConstrainedSketch                     object.
+此方法将一个 ConstrainedSketch 对象复制到一个新的 ConstrainedSketch 对象。
 
-**Note:**If the name of the sketch to be copied to is `__edit__`, Abaqus creates an exact copy that contains both reference geometry and a non-identity transform matrix. Otherwise, the `Sketch`                           copy constructor strips the reference geometry from the copied sketch and sets the transform matrix to identity, creating a standalone copy.
+**注意：**如果要被复制的草图名称是 `__edit__`，Abaqus 会创建一个包含参考几何和非恒等变换矩阵的精确副本。否则，`Sketch` 复制构造函数会从复制的草图中剥离参考几何，并将变换矩阵设置为恒等矩阵，创建一个独立副本。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ConstrainedSketch
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *objectToCopy*
 
-A ConstrainedSketch                              object to be copied.
+要被复制的 ConstrainedSketch 对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A ConstrainedSketch object.
+ConstrainedSketch 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
 ### 48.1.3 ConstrainedSketchFromGeometryFile(...)
 
-This method creates a ConstrainedSketch                     object and places it in the `sketches`                     repository.
+此方法创建 ConstrainedSketch 对象并将其放入 `sketches` 存储库。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ConstrainedSketchFromGeometryFile
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *geometryFile*
 
-An [AcisFile](pt01ch37pyo03.md)                              object specifying a file containing geometry. The geometry in the file is converted to two-dimensional sketch geometry in the *X–Y* plane.
+[AcisFile](pt01ch37pyo03.md) 对象，指定包含几何的文件。文件中的几何被转换为 X–Y 平面中的二维草图几何。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A ConstrainedSketch                     object.
+ConstrainedSketch 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
 ### 48.1.4 print()
 
-This method prints the following statistics about a sketch:
-- The sketch Id (a positive integer).
-- The number of geometry curves (the number of [ConstrainedSketchGeometry](pt01ch48pyo05.md) objects).
-- The number of dimensions (the number of [ConstrainedSketchDimension](pt01ch48pyo03.md) objects).
-- The number of vertices (the number of [ConstrainedSketchVertex](pt01ch48pyo10.md) objects).
+此方法打印有关草图的以下统计信息：
+- 草图 Id（一个正整数）。
+- 几何曲线数（[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象数）。
+- 尺寸数（[ConstrainedSketchDimension](pt01ch48pyo03.md) 对象数）。
+- 顶点数（[ConstrainedSketchVertex](pt01ch48pyo10.md) 对象数）。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.5 assignCenterline(...)
 
-This method indicates the construction line that will be used as a centerline for revolved features.
+此方法指示将用作旋转特征中心线的构造线。
 
-**Required argument**
+**必要参数**
 
 *line*
 
-A [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object specifying a construction line that indicates the centerline of revolved features.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，指定指示旋转特征中心线的构造线。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.6 assignCenterOfTwist(...)
 
-This method indicates the isolated point that will be used as the center of twist when an extruded feature is created with twist.
+此方法指示当使用扭曲创建拉伸特征时将使用的孤立点作为扭曲中心。
 
-**Required argument**
+**必要参数**
 
 *point*
 
-A [ConstrainedSketchVertex](pt01ch48pyo10.md)                              object specifying an isolated point that indicates the center of twist for extruded features that use a twist angle.
+[ConstrainedSketchVertex](pt01ch48pyo10.md) 对象，指定指示使用扭曲角度的拉伸特征的扭曲中心的孤立点。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.7 autoDimension(...)
 
-This method applies dimensions to the selected [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects in an effort to make the ConstrainedSketch                     well defined.
+此方法对所选的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象应用尺寸，努力使 ConstrainedSketch 明确定义。
 
-**Required argument**
+**必要参数**
 
 *objectList*
 
-A sequence specifying the [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to dimension.
+序列，指定要标注尺寸的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.8 autoTrimCurve(...)
 
-This method automatically trims a selected [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     object at the specified location. If the object does not intersect other [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects, the entire selected object will be deleted.
+此方法在指定位置自动修剪所选的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象。如果对象不与其他 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象相交，则整个所选对象将被删除。
 
-**Required arguments**
+**必要参数**
 
 *curve1*
 
-The [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object to be trimmed.
+要被修剪的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象。
 
 *point1*
 
-A pair of Floats specifying the location on [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              where the trimming should be applied. *point1*                              and *parameter1*                              are mutually exclusive.
+Floats 对，指定要应用修剪的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 上的位置。*point1* 和 *parameter1* 互斥。
 
 *parameter1*
 
-A Float specifying the parameter location on the [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              where the trimming should be applied. *point1*                              and *parameter1*                              are mutually exclusive.
+Float，指定要应用修剪的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 上的参数位置。*point1* 和 *parameter1* 互斥。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.9 breakCurve(...)
 
-This method breaks a specified [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     object (*curve1*) using another specified [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     object (*curve2*). If the selected [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects intersect, then only *curve1*                     will be broken; *curve2*                     is not affected by the operation. The location for the break is determined by the specified point values.
+此方法使用另一个指定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象（*curve2*）断开指定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象（*curve1*）。如果所选的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象相交，则只会断开 *curve1*；*curve2* 不受操作影响。断点位置由指定的点值决定。
 
-**Required arguments**
+**必要参数**
 
 *curve1*
 
-A [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object specifying the object to be broken.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，指定要被断开的对象。
 
 *point1*
 
-A pair of Floats specifying the location on *curve1*                              near where the break should be applied.
+Floats 对，指定 *curve1* 上要应用断开的大致位置。
 
 *curve2*
 
-A [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object specifying where *curve1*                              should be broken.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，指定 *curve1* 应该在何处断开。
 
 *point2*
 
-A pair of Floats specifying the location on *curve2*                              near where *curve1*                              should be broken.
+Floats 对，指定 *curve2* 上 *curve1* 应该断开的大致位置。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.10 copyMirror(...)
 
-This method creates copies of the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects, mirrors them about a selected line, and inserts them into the appropriate repositories of the ConstrainedSketch                     object.
+此方法创建给定 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象的副本，关于所选线镜像，并将它们插入 ConstrainedSketch 对象的相应存储库中。
 
-**Required arguments**
+**必要参数**
 
 *mirrorLine*
 
-A [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object specifying the line about which Abaqus will mirror the sketch.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，指定 Abaqus 将围绕其镜像草图的线。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects specifying the sketch to be copied and mirrored.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列，指定要被复制和镜像的草图。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.11 copyMove(...)
 
-This method creates copies of the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects, moves them from their original position, and inserts them into the appropriate repositories of the ConstrainedSketch                     object.
+此方法创建给定 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象的副本，从原始位置移动它们，并将它们插入 ConstrainedSketch 对象的相应存储库中。
 
-**Required arguments**
+**必要参数**
 
 *vector*
 
-A sequence of two Floats specifying the translation vector.
+两个 Floats 的序列，指定平移向量。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to be copied and moved.
+要被复制和移动的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.12 copyRotate(...)
 
-This method creates copies of the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects, rotates them, and inserts them into the appropriate repositories of the ConstrainedSketch                     object.
+此方法创建给定 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象的副本，旋转它们，并将它们插入 ConstrainedSketch 对象的相应存储库中。
 
-**Required arguments**
+**必要参数**
 
 *centerPoint*
 
-A pair of Floats specifying the center of rotation.
+Floats 对，指定旋转中心。
 
 *angle*
 
-A Float specifying the angle of rotation in degrees.
+Float，指定旋转角度（度）。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to be copied and moved.
+要被复制和移动的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.13 copyScale(...)
 
-This method creates copies of the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects, scales them by the specified value about a selected point, and inserts them into the appropriate repositories of the ConstrainedSketch                     object.
+此方法创建给定 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象的副本，关于所选点按指定值缩放它们，并将它们插入 ConstrainedSketch 对象的相应存储库中。
 
-**Required arguments**
+**必要参数**
 
 *scaleValue*
 
-A Float specifying the value for scaling.
+Float，指定缩放值。
 
 *scaleCenter*
 
-A pair of Floats specifying the center of scaling.
+Floats 对，指定缩放中心。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to be copied and scaled.
+要被复制和缩放的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.14 delete(...)
 
-This method deletes the given [ConstrainedSketchGeometry](pt01ch48pyo05.md), [ConstrainedSketchDimension](pt01ch48pyo03.md), or [ConstrainedSketchConstraint](pt01ch48pyo02.md)                     objects.
+此方法删除给定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md)、[ConstrainedSketchDimension](pt01ch48pyo03.md) 或 [ConstrainedSketchConstraint](pt01ch48pyo02.md) 对象。
 
-**Required argument**
+**必要参数**
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md), [ConstrainedSketchDimension](pt01ch48pyo03.md), or [ConstrainedSketchConstraint](pt01ch48pyo02.md)                              objects to be deleted.
+要被删除的 [ConstrainedSketchGeometry](pt01ch48pyo05.md)、[ConstrainedSketchDimension](pt01ch48pyo03.md) 或 [ConstrainedSketchConstraint](pt01ch48pyo02.md) 对象序列。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.15 deleteParameter(...)
 
-The command deletes a specified parameter.
+此命令删除指定参数。
 
-**Required argument**
+**必要参数**
 
 *name*
 
-A String specifying the name of the parameter to delete.
+String，指定要删除的参数名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.16 dragEntity(...)
 
-This method drags a specified [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     or [ConstrainedSketchVertex](pt01ch48pyo10.md)                     object to a specific location.
+此方法将指定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 或 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象拖动到特定位置。
 
-**Required arguments**
+**必要参数**
 
 *entity*
 
-A [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              or [ConstrainedSketchVertex](pt01ch48pyo10.md)                              object specifying the object to drag.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 或 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象，指定要拖动的对象。
 
 *points*
 
-A sequence of sequences of three Floats specifying a sequence of points along which to drag the entity. The order of points in the sequence defines a path that determines the solution.
+三个 Floats 序列的序列，指定沿其拖动实体的点序列。序列中点的顺序定义了一条路径，该路径决定解。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.17 linearPattern(...)
 
-This method copies [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects in a linear pattern along one or two directions. This method also copies any associated dimension or constraint objects that exist between the given objects.
+此方法沿一个或两个方向以线性图案复制 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象。此方法还复制所选对象之间存在的任何关联尺寸或约束对象。
 
-**Required arguments**
+**必要参数**
 
 *number1*
 
-An Integer specifying the total number of copies, including the original objects, that appear along the first direction in the pattern. Possible values are 1 ![](../graphics/ker_eqn00013.gif)                               *number1*                               ![](../graphics/ker_eqn00013.gif)                              1000.
+Integer，指定沿图案第一个方向出现的副本总数（包括原始对象）。可能的值为 1 ![](../graphics/ker_eqn00013.gif) *number1* ![](../graphics/ker_eqn00013.gif) 1000。
 
 *spacing1*
 
-A Float specifying the spacing between copies along the first direction in the pattern. Possible values are 0.0 ![](../graphics/ker_eqn00419.gif)                               *spacing1*                              .
+Float，指定沿图案第一个方向副本之间的间距。可能的值为 0.0 ![](../graphics/ker_eqn00419.gif) *spacing1*。
 
 *angle1*
 
-A Float specifying the angle in degrees of the first direction in the pattern. Possible values are –360.0 ![](../graphics/ker_eqn00013.gif)                               *angle1*                               ![](../graphics/ker_eqn00013.gif)                              360.0.
+Float，指定图案第一个方向的角度（度）。可能的值为 –360.0 ![](../graphics/ker_eqn00013.gif) *angle1* ![](../graphics/ker_eqn00013.gif) 360.0。
 
-**Optional arguments**
+**可选参数**
 
 *vertexList*
 
-A sequence of [ConstrainedSketchVertex](pt01ch48pyo10.md)                              objects to copy.
+要复制的 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象序列。
 
 *geomList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to copy.
+要复制的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列。
 
 *number2*
 
-An integer specifying the total number of copies, including the original objects, that appear along the second direction in the pattern. Possible values are 1 ![](../graphics/ker_eqn00013.gif)                               *number2*                               ![](../graphics/ker_eqn00013.gif)                              1000. The default value is 1. The value of either *number1*                              or *number2*                              must be greater than one.
+Integer，指定沿图案第二个方向出现的副本总数（包括原始对象）。可能的值为 1 ![](../graphics/ker_eqn00013.gif) *number2* ![](../graphics/ker_eqn00013.gif) 1000。默认值为 1。*number1* 或 *number2* 中至少有一个必须大于一。
 
 *spacing2*
 
-A Float specifying the spacing between copies along the first direction in the pattern. Possible values are 0.0 ![](../graphics/ker_eqn00419.gif)                               *spacing2*. The default value is *spacing1*.
+Float，指定沿图案第一个方向副本之间的间距。可能的值为 0.0 ![](../graphics/ker_eqn00419.gif) *spacing2*。默认值为 *spacing1*。
 
 *angle2*
 
-A Float specifying the angle in degrees of the first direction in the pattern. Possible values are –360.0 ![](../graphics/ker_eqn00013.gif)                               *angle2*                               ![](../graphics/ker_eqn00013.gif)                              360.0. The default value is 90 beyond the value of *angle1*.
+Float，指定图案第一个方向的角度（度）。可能的值为 –360.0 ![](../graphics/ker_eqn00013.gif) *angle2* ![](../graphics/ker_eqn00013.gif) 360.0。默认值为比 *angle1* 大 90 度。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
 AbaqusException
 
@@ -516,468 +517,466 @@ Number must be greater than 1 for at least one direction
 
 ### 48.1.18 mergeVertices(...)
 
-This method merges the [ConstrainedSketchVertex](pt01ch48pyo10.md)                     objects that lie within the specified distance of each other. If only one [ConstrainedSketchVertex](pt01ch48pyo10.md)                     object is selected, it will merge all [ConstrainedSketchVertex](pt01ch48pyo10.md)                     objects that lie within the specified distance of that vertex. If more than one vertex is selected, the search will be restricted to only the selected [ConstrainedSketchVertex](pt01ch48pyo10.md)                     objects.
+此方法合并位于彼此指定距离内的 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象。如果只选择一个 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象，它将合并位于该顶点指定距离内的所有 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象。如果选择多个顶点，搜索将仅限制在所选的 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象内。
 
-**Required arguments**
+**必要参数**
 
 *value*
 
-A Float specifying the search radius.
+Float，指定搜索半径。
 
 *vertexList*
 
-A sequence of [ConstrainedSketchVertex](pt01ch48pyo10.md)                              objects to be merged.
+要被合并的 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象序列。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.19 move(...)
 
-This method translates the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects by the given vector.
+此方法通过给定向量平移给定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象。
 
-**Required arguments**
+**必要参数**
 
 *vector*
 
-A sequence of two Floats specifying the translation vector.
+两个 Floats 的序列，指定平移向量。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects specifying the objects to be translated.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列，指定要被平移的对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.20 offset(...)
 
-This method creates copies of the selected [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects, offsets them by the specified distance in the specified direction, and inserts them into the ConstrainedSketch                     object's appropriate repositories. If connected objects are selected, trim or extend is carried out to complete the offset.
+此方法创建所选 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象的副本，按指定距离在指定方向偏移它们，并将它们插入 ConstrainedSketch 对象的相应存储库中。如果选择了连接的对象，则执行修剪或延伸以完成偏移。
 
-**Required arguments**
+**必要参数**
 
 *distance*
 
-A Float specifying the distance to be offset.
+Float，指定偏移距离。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to be copied and offset.
+要被复制和偏移的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列。
 
 *side*
 
-A SymbolicConstant specifying which side the offset should occur. Possible values are LEFT                              and RIGHT.
+SymbolicConstant，指定偏移发生的侧。可能的值为 LEFT 和 RIGHT。
 
-**Optional argument**
+**可选参数**
 
 *filletCorners*
 
-A Boolean specifying whether the corners need to be rounded instead of being extended.
+Boolean，指定角落是否需要倒圆而不是延伸。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.21 radialPattern(...)
 
-This method copies [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects in a radial pattern about a specified center point.
+此方法关于指定中心点以径向图案复制 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象。
 
-**Required arguments**
+**必要参数**
 
 *number*
 
-An Int specifying the total number of copies, including the original objects, that appear in the radial pattern. Possible values are 2 ![](../graphics/ker_eqn00013.gif)                               *number2*                               ![](../graphics/ker_eqn00013.gif)                              1000.
+Int，指定径向图案中出现的副本总数（包括原始对象）。可能的值为 2 ![](../graphics/ker_eqn00013.gif) *number2* ![](../graphics/ker_eqn00013.gif) 1000。
 
 *totalAngle*
 
-A Float specifying the total angle in degrees between the first and  last instance in the pattern. A positive angle corresponds to a  counter-clockwise direction. The values 360 and -360 represent a special case where the pattern makes a full circle. In this case, because the copy would overlay the original, the copy is not placed at the last position. Possible values are –360.0 ![](../graphics/ker_eqn00013.gif)                               *totalAngle*                               ![](../graphics/ker_eqn00013.gif)                              360.0.
+Float，指定图案中第一个和最后一个实例之间的总角度（度）。正角度对应逆时针方向。值 360 和 -360 代表一种特殊情况，即图案完整一圈。在这种情况下，由于副本将覆盖原始对象，因此不会放置在最后位置。可能的值为 –360.0 ![](../graphics/ker_eqn00013.gif) *totalAngle* ![](../graphics/ker_eqn00013.gif) 360.0。
 
 *centerPoint*
 
-A pair of Floats specifying the center of the radial pattern.
+Floats 对，指定径向图案的中心。
 
-**Optional arguments**
+**可选参数**
 
 *vertexList*
 
-A sequence of [ConstrainedSketchVertex](pt01ch48pyo10.md)                              objects to copy.
+要复制的 [ConstrainedSketchVertex](pt01ch48pyo10.md) 对象序列。
 
 *geomList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects to copy.
+要复制的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.22 resetView()
 
-This method resets the view to be perpendicular to the sketching plane.
+此方法将视图重置为垂直于绘图平面。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.23 rectangle(...)
 
-This method creates four lines that form a rectangle with diagonal corners defined by the given points and inserts them into the `geometry`                     repository of the ConstrainedSketch                     object.
+此方法创建四条线，形成由给定点的对角角定义的矩形，并将它们插入 ConstrainedSketch 对象的 `geometry` 存储库中。
 
-**Required arguments**
+**必要参数**
 
 *point1*
 
-A pair of Floats specifying the first corner of the rectangle.
+Floats 对，指定矩形的第一个角。
 
 *point2*
 
-A pair of Floats specifying the second corner of the rectangle.
+Floats 对，指定矩形的第二个角。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An Int specifying the success or failure of the method. A value of 0 indicates failure.
+Int，指定方法的成功或失败。值 0 表示失败。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.24 removeGapsAndOverlaps(...)
 
-This method removes gaps and overlaps between sketch geometries specified by the user. This method is particularly useful when cleaning up imported sketches
+此方法移除用户指定的草图几何之间的间隙和重叠。此方法在清理导入的草图时特别有用。
 
-**Required arguments**
+**必要参数**
 
 *tolerance*
 
-A float value which specifies the largest size of the gap or overlap between entities that is to be removed. Typically this value is small and is used to close gaps and overlaps which may not exist in the originating program but exist in the sketch because of mismatched tolerances between the two programs.
+Float 值，指定要移除的实体之间间隙或重叠的最大尺寸。通常此值很小，用于关闭可能在原始程序中不存在但由于两个程序之间的公差不匹配而存在于草图中的间隙和重叠。
 
 *geomList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects where the gaps and overlaps are to be removed.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列，指定要移除间隙和重叠的位置。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.25 repairShortEdges(...)
 
-This method deletes the short edges specified, optionally selecting only those short edges whose lengths are smaller than the specified tolerance and healing the resultant gap in the sketch. This method is particularly useful in conjunction with `removeGapsAndOverlap`                     when cleaning up imported sketches.
+此方法删除指定的短边，可选地仅选择长度小于指定公差的那些短边，并修复草图中由此产生的间隙。此方法在清理导入的草图时与 `removeGapsAndOverlap` 结合使用特别有用。
 
-**Required argument**
+**必要参数**
 
 *geomList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects where the short edges are to be removed.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列，指定要移除短边的位置。
 
-**Optional argument**
+**可选参数**
 
 *tolerance*
 
-A float value that is used to select and delete only those edges specified in *geomList*                              whose lengths are smaller than the given value. The default value is –1.0. This value implies that all edges specified in *geomList*                              will be removed and the sketch healed to remove gaps left by their removal.
+Float 值，用于选择和删除 *geomList* 中长度小于给定值的那些边。默认值为 –1.0。此值意味着 *geomList* 中指定的所有边都将被移除，并修复草图以移除由其移除留下的间隙。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.26 retrieveSketch(...)
 
-This method copies all [ConstrainedSketchGeometry](pt01ch48pyo05.md), [ConstrainedSketchDimension](pt01ch48pyo03.md), [ConstrainedSketchConstraint](pt01ch48pyo02.md), and [ConstrainedSketchParameter](pt01ch48pyo09.md)                     objects from the specified ConstrainedSketch                     object. The new objects are added to the existing objects (if any). The objects in the specified ConstrainedSketch                     object are not modified by the retrieve operation.
+此方法从指定的 ConstrainedSketch 对象复制所有 [ConstrainedSketchGeometry](pt01ch48pyo05.md)、[ConstrainedSketchDimension](pt01ch48pyo03.md)、[ConstrainedSketchConstraint](pt01ch48pyo02.md) 和 [ConstrainedSketchParameter](pt01ch48pyo09.md) 对象。新对象被添加到现有对象（如果有）。指定 ConstrainedSketch 对象中的对象不会被检索操作修改。
 
-**Required argument**
+**必要参数**
 
 *sketch*
 
-A ConstrainedSketch                              object specifying the object from which to copy.
+ConstrainedSketch 对象，指定要从中复制的对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.27 rotate(...)
 
-This method rotates the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects by the given angle and about the given point.
+此方法将给定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象围绕给定点和给定角度旋转。
 
-**Required arguments**
+**必要参数**
 
 *centerPoint*
 
-A pair of Floats specifying the center of rotation.
+Floats 对，指定旋转中心。
 
 *angle*
 
-A Float specifying the angle of rotation in degrees.
+Float，指定旋转角度（度）。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              specifying the objects to be rotated.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 序列，指定要被旋转的对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.28 scale(...)
 
-This method scales the given [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     objects by the given scale factor and about the given point.
+此方法将给定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象关于给定点和给定比例因子进行缩放。
 
-**Required arguments**
+**必要参数**
 
 *scaleValue*
 
-A Float specifying the value of scale.
+Float，指定缩放值。
 
 *scaleCenter*
 
-A pair of Floats specifying the center of scale.
+Floats 对，指定缩放中心。
 
 *objectList*
 
-A sequence of [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              objects specifying the objects to be scaled.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象序列，指定要被缩放的对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.29 setPrimaryObject(...)
 
-This method makes the ConstrainedSketch                     object the primary object in the current viewport. The sketch remains the primary object in the current viewport until an `unsetPrimaryobject`                     command is issued.
+此方法使 ConstrainedSketch 对象成为当前视口中的主对象。草图保持作为当前视口中的主对象，直到发出 `unsetPrimaryobject` 命令。
 
-**Required argument**
+**必要参数**
 
 *option*
 
-A SymbolicConstant specifying how the sketch is displayed. Possible values are:
-- STANDALONE: Indicates a new stand-alone sketch. The current viewport is cleared and is replaced by the stand-alone sketch. The view direction is set to ![](../graphics/ker_eqn00085.gif).
-- SUPERIMPOSE: Indicates that the sketch is superimposed on the current viewport. The view direction is changed to be perpendicular to the sketch plane. The change is effected smoothly as an animated sequence of many small viewing steps.
+SymbolicConstant，指定如何显示草图。可能的值为：
+- STANDALONE：指示新的独立草图。当前视口被清除并被独立草图取代。视图方向设置为 ![](../graphics/ker_eqn00085.gif)。
+- SUPERIMPOSE：指示草图叠加在当前视口上。视图方向变为垂直于草图平面。更改以动画序列的许多小视图步骤平滑生效。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.30 trimExtendCurve(...)
 
-This method trims or extends a specified [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     object (*curve1*) using another specified [ConstrainedSketchGeometry](pt01ch48pyo05.md)                     object (*curve2*). *curve2*                     is not affected by the operation. The location for the trim or extend is determined by the specified point values.
+此方法使用另一个指定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象（*curve2*）修剪或延伸指定的 [ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象（*curve1*）。*curve2* 不受操作影响。修剪或延伸的位置由指定的点值决定。
 
-**Required arguments**
+**必要参数**
 
 *curve1*
 
-The [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object specifying the object to be trimmed or extended.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，指定要被修剪或延伸的对象。
 
 *point1*
 
-A pair of Floats specifying the location on *curve1*                              where trim or extend should be applied.
+Floats 对，指定 *curve1* 上要应用修剪或延伸的位置。
 
 *curve2*
 
-The [ConstrainedSketchGeometry](pt01ch48pyo05.md)                              object specifying the object to which *curve1*                              is trimmed or extended. *curve2*                              is not trimmed or extended.
+[ConstrainedSketchGeometry](pt01ch48pyo05.md) 对象，指定 *curve1* 被修剪或延伸到的对象。*curve2* 不会被修剪或延伸。
 
 *point2*
 
-A pair of Floats specifying the location on *curve2*                              near where *curve1*                              should be trimmed or extended.
+Floats 对，指定 *curve2* 上 *curve1* 应该被修剪或延伸的大致位置。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.31 undo()
 
-This method undoes the effects of the last ConstrainedSketch                     object method.
+此方法撤销最后一个 ConstrainedSketch 对象方法的效果。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.32 unsetPrimaryObject()
 
-This method removes the ConstrainedSketch                     object from the current viewport, reversing the effects of the `setPrimaryobject`                     command. If the *option*                     argument was set to SUPERIMPOSE, the viewport will be returned to the view orientation that was in place when the `setPrimaryobject`                     command was issued. If the *option*                     argument was set to STANDALONE, the viewport will be left empty.
+此方法从当前视口移除 ConstrainedSketch 对象，逆转 `setPrimaryobject` 命令的效果。如果 *option* 参数设置为 SUPERIMPOSE，则视口将返回到发出 `setPrimaryobject` 命令时存在的视图方向。如果 *option* 参数设置为 STANDALONE，则视口将留空。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 48.1.33 writeAcisFile(...)
 
-This method exports the geometry of the sketch to a named file in ACIS format.
+此方法将草图的几何导出为 ACIS 格式的命名文件。
 
-**Required argument**
+**必要参数**
 
 *fileName*
 
-A String specifying the file name.
+String，指定文件名。
 
-**Optional argument**
+**可选参数**
 
 *version*
 
-A Float specifying the ACIS version. For example, the Float “12.0”                              corresponds to ACIS Version 12.0. The default value is the current version of ACIS.
+Float，指定 ACIS 版本。例如，Float "12.0" 对应 ACIS Version 12.0。默认值为当前版本的 ACIS。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
 ### 48.1.34 writeIgesFile(...)
 
-This method exports the geometry of the sketch to a named file in IGES format.
+此方法将草图的几何导出为 IGES 格式的命名文件。
 
-**Required argument**
+**必要参数**
 
 *filename*
 
-A String specifying the file name.
+String，指定文件名。
 
-**Optional argument**
+**可选参数**
 
 *flavor*
 
-A SymbolicConstant specifying a particular flavor of IGES to export. Possible values areSTANDARD, AUTOCAD, SOLIDWORKS, JAMA, and MSBO.
+SymbolicConstant，指定要导出的特定 IGES 风格。可能的值为 STANDARD、AUTOCAD、SOLIDWORKS、JAMA 和 MSBO。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
-### 48.1.35 Members
+### 48.1.35 成员
 
-The ConstrainedSketch object can have the following members:
+ConstrainedSketch 对象可以具有以下成员：
 
 *constraints*
 
-A repository of [ConstrainedSketchConstraint](pt01ch48pyo02.md) objects.
+[ConstrainedSketchConstraint](pt01ch48pyo02.md) 对象存储库。
 
 *dimensions*
 
-A repository of [ConstrainedSketchDimension](pt01ch48pyo03.md) objects.
+[ConstrainedSketchDimension](pt01ch48pyo03.md) 对象存储库。
 
 *geometry*
 
-A [ConstrainedSketchGeometryArray](pt01ch48pyo05.md) object specifying the sketch geometry, such as lines, arcs, circles, and splines.
+[ConstrainedSketchGeometryArray](pt01ch48pyo05.md) 对象，指定草图几何，如线、弧、圆和样条曲线。
 
 *parameters*
 
-A repository of [ConstrainedSketchParameter](pt01ch48pyo09.md) objects specifying sketch parameters, which may be associated with dimensions.
+[ConstrainedSketchParameter](pt01ch48pyo09.md) 对象存储库，指定草图参数，这些参数可以与尺寸关联。
 
 *sketchOptions*
 
-A [ConstrainedSketchOptions](pt01ch48pyo08.md) object specifying the sketch option settings.
+[ConstrainedSketchOptions](pt01ch48pyo08.md) 对象，指定草图选项设置。
 
 *vertices*
 
-A [ConstrainedSketchVertexArray](pt01ch48pyo10.md) object.
+[ConstrainedSketchVertexArray](pt01ch48pyo10.md) 对象。
 
 *imageOptions*
 
-A [ConstrainedSketchImageOptions](pt01ch48pyo07.md) object.
-
-
+[ConstrainedSketchImageOptions](pt01ch48pyo07.md) 对象。
 
 

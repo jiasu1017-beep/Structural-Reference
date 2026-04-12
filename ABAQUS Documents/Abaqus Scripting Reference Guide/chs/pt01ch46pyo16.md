@@ -1,16 +1,10 @@
-# 46.16 MembraneSection object
+# 46.16 MembraneSection 对象
 
+MembraneSection 对象定义薄膜截面的属性。
 
+MembraneSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The MembraneSection object defines the properties of a membrane section.
-
-The MembraneSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.16.1 MembraneSection(...)
 
-This method creates a MembraneSection object.
+此方法创建 MembraneSection 对象。
 
 **Path**
 
@@ -30,85 +24,81 @@ mdb.models[*name*].MembraneSection
 session.odbs[*name*].MembraneSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *material*
 
-A String specifying the name of the material.
+String，指定材料名称。
 
-**Optional arguments**
+**可选参数**
 
 *thickness*
 
-A Float specifying the thickness for the section. Possible values are *thickness* ![](../graphics/ker_eqn00060.gif) 0.0. The default value is 1.0.
+Float，指定截面的厚度。可能的值为 *thickness* ![](../graphics/ker_eqn00060.gif) 0.0。默认值为 1.0。
 
 *thicknessType*
 
-A SymbolicConstant specifying the distribution used for defining the thickness of the elements. Possible values are UNIFORM, ANALYTICAL_FIELD, and DISCRETE_FIELD. The default value is UNIFORM.
+SymbolicConstant，指定用于定义单元厚度的分布。可选值为 UNIFORM、ANALYTICAL_FIELD 和 DISCRETE_FIELD。默认值为 UNIFORM。
 
 *poissonDefinition*
 
-A SymbolicConstant specifying whether to use the default value for the Poisson's ratio. Possible values are:
-- DEFAULT, specifying that the default value for the Poisson's ratio is 0.5 in an Abaqus/Standard analysis and is obtained from the material definition in an Abaqus/Explicit analysis.
-- VALUE, specifying that the Poisson's ratio used in the analysis is the value provided in *poisson*.
+SymbolicConstant，指定是否使用泊松比的默认值。可选值为：
+- DEFAULT，指定在 Abaqus/Standard 分析中泊松比的默认值为 0.5，在 Abaqus/Explicit 分析中从材料定义获取。
+- VALUE，指定分析中使用的泊松比是 *poisson* 提供的值。
 
-The default value is DEFAULT.
+默认值为 DEFAULT。
 
 *poisson*
 
-A Float specifying the section Poisson's ratio. Possible values are 1.0 ![](../graphics/ker_eqn00013.gif) *poisson* ![](../graphics/ker_eqn00013.gif) 0.5. This argument is valid only when *poissonDefinition*=VALUE. The default value is 0.5.
+Float，指定截面泊松比。可能的值为 1.0 ![](../graphics/ker_eqn00013.gif) *poisson* ![](../graphics/ker_eqn00013.gif) 0.5。此参数仅在 *poissonDefinition*=VALUE 时有效。默认值为 0.5。
 
 *thicknessField*
 
-A String specifying the name of the [AnalyticalField](pt01ch21pyo02.md) or [DiscreteField](pt01ch21pyo04.md) object used to define the thickness of the shell elements. The *thicknessField* argument applies only when *thicknessType*=ANALYTICAL_FIELD or *thicknessType*=DISCRETE_FIELD. The default value is an empty string.
+String，指定 [AnalyticalField](pt01ch21pyo02.md) 或 [DiscreteField](pt01ch21pyo04.md) 对象的名称，用于定义壳单元的厚度。*thicknessField* 参数仅在 *thicknessType*=ANALYTICAL_FIELD 或 *thicknessType*=DISCRETE_FIELD 时适用。默认值为空字符串。
 
-**Return value**
+**返回值**
 
-A MembraneSection object.
+MembraneSection 对象。
 
-**Exceptions**
+**异常**
 
-RangeError and InvalidNameError.
+RangeError 和 InvalidNameError。
 
 ### 46.16.2 setValues(...)
 
-This method modifies the MembraneSection object.
+此方法修改 MembraneSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [MembraneSection](pt01ch46pyo16.md#ker-membranesection-membranesection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [MembraneSection](pt01ch46pyo16.md#ker-membranesection-membranesection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 46.16.3 Members
+### 46.16.3 成员
 
-The MembraneSection object has members with the same names and descriptions as the arguments to the [MembraneSection](pt01ch46pyo16.md#ker-membranesection-membranesection-pyc) method.
+MembraneSection 对象的成员与 [MembraneSection](pt01ch46pyo16.md#ker-membranesection-membranesection-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the MembraneSection object can have the following member:
+此外，MembraneSection 对象可以具有以下成员：
 
 *rebarLayers*
 
-A [RebarLayers](pt01ch46pyo19.md) object specifying reinforcement properties.
+[RebarLayers](pt01ch46pyo19.md) 对象，指定增强属性。
 
-### 46.16.4 Corresponding analysis keywords
+### 46.16.4 对应分析关键字
 
-| [*MEMBRANE SECTION](../key/key-link.md#usb-kws-mmembranesection) |
+| [*MEMBRANE SECTION*](../key/key-link.md#usb-kws-mmembranesection) |
 | --- |
-
-
-
-

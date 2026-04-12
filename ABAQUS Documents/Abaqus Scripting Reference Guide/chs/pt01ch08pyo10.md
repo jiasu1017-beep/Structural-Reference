@@ -1,16 +1,10 @@
-# 8.10 RectangularProfile object
+# 8.10 RectangularProfile 对象
 
+RectangularProfile 对象定义实心矩形 profile 的属性。
 
+RectangularProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The RectangularProfile object defines the properties of a solid rectangular profile.
-
-The RectangularProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,70 +15,66 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.10.1 RectangularProfile(...)
 
-This method creates a RectangularProfile object.
+此方法创建一个 RectangularProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].RectangularProfile
 session.odbs[*name*].RectangularProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *a*
 
-A positive Float specifying the *a* dimension of the rectangular profile. For more information, see ["Beam cross-section library," Section 29.3.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-ebeamcrosssectlib).
+一个正 Float，指定矩形 profile 的 *a* 尺寸。有关详细信息，请参阅《Abaqus Analysis User's Guide》的"Beam cross-section library," Section 29.3.9。
 
 *b*
 
-A positive Float specifying the *b* dimension of the rectangular profile.
+一个正 Float，指定矩形 profile 的 *b* 尺寸。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A RectangularProfile object.
+一个 RectangularProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.10.2 setValues(...)
 
-This method modifies the RectangularProfile object.
+此方法修改 RectangularProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [RectangularProfile](pt01ch08pyo10.md#ker-rectangularprofile-rectangularprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [RectangularProfile](pt01ch08pyo10.md#ker-rectangularprofile-rectangularprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.10.3 Members
+### 8.10.3 成员
 
-The RectangularProfile object has members with the same names and descriptions as the arguments to the [RectangularProfile](pt01ch08pyo10.md#ker-rectangularprofile-rectangularprofile-pyc) method.
+RectangularProfile 对象具有与 [RectangularProfile](pt01ch08pyo10.md#ker-rectangularprofile-rectangularprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.10.4 Corresponding analysis keywords
+### 8.10.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=RECT |
 | --- |
-
-
-
-

@@ -1,14 +1,8 @@
-# 29.97 TensionCutOff object
+# 29.97 TensionCutOff 对象
 
+TensionCutOff 对象为不同材料模型（例如摩尔-库仑塑性模型）指定张力截止。
 
-
-
-
-
-
-The TensionCutOff object specifies tension cutoff for different material models for example the Mohr-Coulomb plasticity model.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,77 +13,73 @@ session.odbs[*name*].materials[*name*].mohrCoulombPlasticity.tensionCutOff
 
 ### 29.97.1 TensionCutOff(...)
 
-This method creates a TensionCutOff object.
+此方法创建 TensionCutOff 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].mohrCoulombPlasticity.TensionCutOff
 session.odbs[*name*].materials[*name*].mohrCoulombPlasticity.TensionCutOff
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-**Optional arguments**
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is OFF.
+Boolean，指定数据是否依赖于温度。默认值为 OFF。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+Int，指定场变量依赖项的数量。默认值为 0。
 
-**Table data**
+**表格数据**
 
-- Tension cutoff stress.
-- The value of the corresponding tensile plastic strain.(The first tabular value entered must always be zero.)
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 张力截止应力。
+- 对应拉伸塑性应变的值。（输入的第一个表格值必须始终为零。）
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 以此类推。
 
-**Return value**
+**返回值**
 
-A TensionCutOff object.
+TensionCutOff 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 29.97.2 setValues(...)
 
-This method modifies the TensionCutOff object.
+此方法修改 TensionCutOff 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [TensionCutOff](pt01ch29pyo97.md#ker-tensioncutoff-tensioncutoff-pyc) method.
+`setValues` 的可选参数与 [TensionCutOff](pt01ch29pyo97.md#ker-tensioncutoff-tensioncutoff-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 29.97.3 Members
+### 29.97.3 成员
 
-The TensionCutOff object has members with the same names and descriptions as the arguments to the [TensionCutOff](pt01ch29pyo97.md#ker-tensioncutoff-tensioncutoff-pyc) method.
+TensionCutOff 对象的成员与 [TensionCutOff](pt01ch29pyo97.md#ker-tensioncutoff-tensioncutoff-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.97.4 Corresponding analysis keywords
+### 29.97.4 对应的分析关键字
 
 | [*TENSION CUTOFF](../key/key-link.md#usb-kws-mtensioncutoff) |
 | --- |
-
-
-
-

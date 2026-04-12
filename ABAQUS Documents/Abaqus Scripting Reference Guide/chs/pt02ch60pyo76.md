@@ -1,95 +1,115 @@
-# 60.76 PlanarTestData object
+# 60.75 Piezoelectric 对象
 
+Piezoelectric 对象用于指定压电材料属性。
 
-
-
-
-
-
-The PlanarTestData object specifies planar test (or pure shear) data (compression and/or tension).
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].hyperelastic().planarTestData()
-materialApi.materials()[*name*].hyperfoam().planarTestData()
-materialApi.materials()[*name*].mullinsEffect().planarTests(*i*)
+materialApi.materials()[*name*].piezoelectric()
 ```
 
-### 60.76.1 PlanarTestData(...)
+### 60.75.1 Piezoelectric(...)
 
-This method creates a PlanarTestData object.
+此方法创建一个 Piezoelectric 对象。
 
-**Path**
-
-```
-materialApi.materials()[*name*].hyperelastic().PlanarTestData
-materialApi.materials()[*name*].hyperfoam().PlanarTestData
-materialApi.materials()[*name*].mullinsEffect().PlanarTestData
-```
-
-**Prototype**
+**路径**
 
 ```
-odb_PlanarTestData&
-PlanarTestData(const odb_SequenceSequenceDouble& table,
-               odb_Union smoothing,
-               bool lateralNominalStrain,
-               bool temperatureDependency,
-               int dependencies);
+materialApi.materials()[*name*].Piezoelectric
 ```
 
-**Required argument**
+**原型**
+
+```
+odb_Piezoelectric&
+Piezoelectric(const odb_SequenceSequenceDouble& table,
+              const odb_String& type,
+              bool temperatureDependency,
+              int dependencies);
+```
+
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
-*smoothing*
+*type*
 
-The string "NONE" or an Int specifying the value for smoothing. If *smoothing*="NONE", no smoothing is employed. The default value is "NONE".
-
-*lateralNominalStrain*
-
-A Boolean specifying whether to include lateral nominal strain. The default value is false.
+一个 odb_String，指定压电属性的材料系数类型。可能的值为"STRAIN"和"STRESS"。默认值为"STRESS"。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-For a hyperelastic material model, the table data specify the following:
-- Nominal stress, ![](../graphics/ker_eqn00332.gif).
-- Nominal strain in the direction of loading, ![](../graphics/ker_eqn00333.gif).
+如果 *type*=STRESS，表数据指定以下内容：
+- ![](../graphics/ker_eqn00297.gif]。
+- ![](../graphics/ker_eqn00298.gif]。
+- ![](../graphics/ker_eqn00299.gif]。
+- ![](../graphics/ker_eqn00300.gif]。
+- ![](../graphics/ker_eqn00301.gif]。
+- ![](../graphics/ker_eqn00302.gif]。
+- ![](../graphics/ker_eqn00303.gif]。
+- ![](../graphics/ker_eqn00304.gif]。
+- ![](../graphics/ker_eqn00305.gif]。
+- ![](../graphics/ker_eqn00306.gif]。
+- ![](../graphics/ker_eqn00307.gif]。
+- ![](../graphics/ker_eqn00308.gif]。
+- ![](../graphics/ker_eqn00309.gif]。
+- ![](../graphics/ker_eqn00310.gif]。
+- ![](../graphics/ker_eqn00311.gif]。
+- ![](../graphics/ker_eqn00312.gif]。
+- ![](../graphics/ker_eqn00313.gif]。
+- ![](../graphics/ker_eqn00314.gif]。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-For a hyperfoam material model, the table data specify the following:- Nominal stress, ![](../graphics/ker_eqn00334.gif).
-- Nominal strain in the direction of loading, ![](../graphics/ker_eqn00335.gif).
-- Nominal transverse strain, ![](../graphics/ker_eqn00336.gif). The default value is 0.
+如果 *type*=STRAIN，表数据指定以下内容：
+- ![](../graphics/ker_eqn00315.gif]。
+- ![](../graphics/ker_eqn00316.gif]。
+- ![](../graphics/ker_eqn00317.gif]。
+- ![](../graphics/ker_eqn00318.gif]。
+- ![](../graphics/ker_eqn00319.gif]。
+- ![](../graphics/ker_eqn00320.gif]。
+- ![](../graphics/ker_eqn00321.gif]。
+- ![](../graphics/ker_eqn00322.gif]。
+- ![](../graphics/ker_eqn00323.gif]。
+- ![](../graphics/ker_eqn00324.gif]。
+- ![](../graphics/ker_eqn00325.gif]。
+- ![](../graphics/ker_eqn00326.gif]。
+- ![](../graphics/ker_eqn00327.gif]。
+- ![](../graphics/ker_eqn00328.gif]。
+- ![](../graphics/ker_eqn00329.gif]。
+- ![](../graphics/ker_eqn00330.gif]。
+- ![](../graphics/ker_eqn00331.gif]。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A PlanarTestData object.
+一个 Piezoelectric 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 60.76.2 Members
+### 60.75.2 成员
 
-The PlanarTestData object has members with the same names and descriptions as the arguments to the [PlanarTestData](pt02ch60pyo76.md#ker-planartestdata-planartestdata-cpp) method.
+Piezoelectric 对象的成员与 [Piezoelectric](pt02ch60pyo75.md#ker-piezoelectric-piezoelectric-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.76.3 Corresponding analysis keywords
+### 60.75.3 对应的分析关键字
 
-| [*PLANAR TEST DATA](../key/key-link.md#usb-kws-mplanartestdata) |
+| [*PIEZOELECTRIC](../key/key-link.md#usb-kws-mpiezoelect) |
 | --- |
-
-
-
-

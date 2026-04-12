@@ -1,44 +1,38 @@
-# 30.2 Mdb commands
+# 30.2 Mdb 命令
 
-
-
-
-
-
-
-         The following command upgrades a model database (`.cae`) to the current release and writes the upgraded model database to a new file.       
+以下命令将模型数据库（`.cae`）升级到当前版本，并将升级后的模型数据库写入新文件。
 
 ### 30.2.1 upgradeMdb(...)
 
-           This method upgrades an existing Mdb object to the current release and writes the upgraded version of the Mdb object to a file. In addition, Abaqus/CAE writes information about the status of the upgrade to the log file (` *upgradedMdbPath*.log           `).         
+此方法将现有 Mdb 对象升级到当前版本，并将升级后的 Mdb 对象写入文件。此外，Abaqus/CAE 将有关升级状态的信息写入日志文件（` *upgradedMdbPath*.log`）。
 
-**Path**
+**路径**
 
 ```
 upgradeMdb
 ```
 
-**Required arguments**
+**必需参数**
 
 *existingMdbPath*
 
-A String specifying the path to the file containing the model database to be upgraded.
+String，指定包含要升级的模型数据库的文件路径。
 
 *upgradedMdbPath*
 
-A String specifying the path to the file that will contain the upgraded model database.
+String，指定将包含升级模型数据库的文件路径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-If the model database upgrade fails:
+如果模型数据库升级失败：
 
 ```
 MdbError: cannot convert file
@@ -46,62 +40,58 @@ MdbError: cannot convert file
 
 ### 30.2.2 CombineOptResults(...)
 
-           This method combines the results from existing ODB files for each optimization cycle and writes a merged ODB file.         
+此方法组合现有 ODB 文件中每个优化周期的结果，并写入合并后的 ODB 文件。
 
-**Path**
+**路径**
 
 ```
 CombineOptResults
 ```
 
-**Required arguments**
+**必需参数**
 
 *optResultLocation*
 
-A String specifying the path to the folder in which optimization results are present.
+String，指定存在优化结果的文件夹路径。
 
-**Optional arguments**
+**可选参数**
 
 *optIter*
 
-                 A Symbolic Constant to specify the optimization cycles from which the results should be merged. The possible values are INITIAL_AND_LAST, NONE, ALL, LAST, EVERY_NCYCLES, SPECIFY.               
+SymbolicConstant，指定应合并结果的优化周期。可能的值为 INITIAL_AND_LAST、NONE、ALL、LAST、EVERY_NCYCLES、SPECIFY。
 
-                 The default value is INITIAL_AND_LAST.               
+默认值为 INITIAL_AND_LAST。
 
 *nValues*
 
-                 An Int or a tuple of Ints specifying  the optimization cycles from which the results should be merged. This argument is used only when EVERY_NCYCLES or SPECIFY is selected for *optIter*.               
+Int 或 Int 元组，指定应合并结果的优化周期。此参数仅在 *optIter* 选择 EVERY_NCYCLES 或 SPECIFY 时使用。
 
-                 The default value is ALL.               
+默认值为 ALL。
 
 *models*
 
-                 A tuple of strings specifying the list of *models* for which the merging of results is performed.               
+字符串元组，指定执行结果合并的 *models* 列表。
 
-                 The default value is ALL.               
+默认值为 ALL。
 
 *steps*
 
-                 A tuple of strings specifying the list of steps from the selected *models* to be included in the odb merge.               
+字符串元组，指定从所选 *models* 中要包含在 odb 合并中的步骤列表。
 
-                 The default value is ALL.               
+默认值为 ALL。
 
 *analysisFieldVariables*
 
-                 A tuple of strings specifying the list of *analysisFieldVariables* to be included in the odb merge.               
+字符串元组，指定要包含在 odb 合并中的 *analysisFieldVariables* 列表。
 
-                 The default value is ALL.               
+默认值为 ALL。
 
 *includeResultsFrom*
 
-                 A Symbolic Constant to specify the target odb to which the results will be merged. The possible values are ORIGINAL_MODEL, FIRST or LAST.               
+SymbolicConstant，指定结果将合并到的目标 odb。可能的值为 ORIGINAL_MODEL、FIRST 或 LAST。
 
-                 The default value is FIRST.               
+默认值为 FIRST。
 
 *originalModel*
 
-                 A String to specify the path of target odb if *includeResultsFrom* is set to ORIGINAL_MODEL.               
-
-
-
-
+String，如果 *includeResultsFrom* 设置为 ORIGINAL_MODEL，则指定目标 odb 的路径。

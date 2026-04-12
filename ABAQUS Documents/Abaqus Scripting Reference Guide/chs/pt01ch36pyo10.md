@@ -1,55 +1,45 @@
-# 36.10 LocalStopCondition object
+# 36.10 LocalStopCondition 对象
 
+LocalStopCondition 对象定义局部停止条件。
 
+LocalStopCondition 对象派生自 [StopCondition](pt01ch36pyo34.md) 对象。
 
-
-
-
-
-The LocalStopCondition object defines a local stop condition.
-
-         The LocalStopCondition object is derived from the [StopCondition](pt01ch36pyo34.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].stopConditions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].stopConditions[*name*]
 ```
 
 ### 36.10.1 LocalStopCondition(...)
 
-           This method creates a LocalStopCondition object.         
+此方法创建 LocalStopCondition 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].LocalStopCondition
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].LocalStopCondition
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the stop condition repository key.
+一个字符串，指定停止条件仓库键。
 
 *referenceFactor*
 
-A Float specifying the factor used to modify the reference value.
+一个 Float，指定用于修改参考值的因子。
 
-**Optional arguments**
+**可选参数**
 
 *comparisonOperation*
 
-                 A SymbolicConstant specifying the operation used to compare the selected value to the reference value. Possible values are LESS_THAN, LESS_THAN_EQUAL, EQUAL, GREATER_THAN_EQUAL, and GREATER_THAN. The default value is LESS_THAN.               
+一个 SymbolicConstant，指定用于将所选值与参考值进行比较的操作。可能的值为 LESS_THAN、LESS_THAN_EQUAL、EQUAL、GREATER_THAN_EQUAL 和 GREATER_THAN。默认值为 LESS_THAN。
 
 *identifier*
 
-                 A SymbolicConstant specifying the variable identifier of the compared value. Possible values are:
+一个 SymbolicConstant，指定比较值的变量标识符。可能的值为：
 - ABSOLUTE_GROWTH_MOVEMENT
 - ABSOLUTE_SHRINK_MOVEMENT
 - GROWTH_MOVEMENT
@@ -62,56 +52,52 @@ A Float specifying the factor used to modify the reference value.
 - SURFACE_POINT_EQUIV_STRESS
 - TASK_REGION_EQUIV_STRESS
 
-The default value is MOVEMENT.               
+默认值为 MOVEMENT。
 
 *identifierOperation*
 
-                 A SymbolicConstant specifying the operation used to evaluate values in the region. Possible values are MAXIMUM, MINIMUM, and SUM. The default value is MAXIMUM.               
+一个 SymbolicConstant，指定用于评估区域中值的操作。可能的值为 MAXIMUM、MINIMUM 和 SUM。默认值为 MAXIMUM。
 
 *referenceDesignCycle*
 
-                 A SymbolicConstant specifying the iteration from which a value is compared to the reference value. Possible values are FIRST and PREVIOUS. The default value is PREVIOUS.               
+一个 SymbolicConstant，指定从哪个迭代中比较值与参考值。可能的值为 FIRST 和 PREVIOUS。默认值为 PREVIOUS。
 
 *referenceOperation*
 
-                 A SymbolicConstant specifying the operation used to modify the reference value by the reference factor. Possible values are ADD, DIVIDE, MULTIPLY, and SUBTRACT. The default value is ADD.               
+一个 SymbolicConstant，指定用于通过参考因子修改参考值的操作。可能的值为 ADD、DIVIDE、MULTIPLY 和 SUBTRACT。默认值为 ADD。
 
 *region*
 
-                 The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region to which the stop condition is applied. The default value is MODEL.               
+SymbolicConstant MODEL 或 [Region](pt01ch45pyo03.md) 对象，指定应用停止条件的区域。默认值为 MODEL。
 
-**Return value**
+**返回值**
 
-           A LocalStopCondition object.         
+LocalStopCondition 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.10.2 setValues(...)
 
-           This method modifies the LocalStopCondition object.         
+此方法修改 LocalStopCondition 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [LocalStopCondition](pt01ch36pyo10.md#ker-localstopcondition-localstopcondition-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [LocalStopCondition](pt01ch36pyo10.md#ker-localstopcondition-localstopcondition-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.10.3 Members
+### 36.10.3 成员
 
-         The LocalStopCondition object has members with the same names and descriptions as the arguments to the [LocalStopCondition](pt01ch36pyo10.md#ker-localstopcondition-localstopcondition-pyc) method.       
-
-
-
-
+LocalStopCondition 对象具有与 [LocalStopCondition](pt01ch36pyo10.md#ker-localstopcondition-localstopcondition-pyc) 方法的参数名称和描述相同的成员。

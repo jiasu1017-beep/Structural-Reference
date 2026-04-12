@@ -1,16 +1,10 @@
-# 63.2 AcousticInfiniteSection object
+# 63.2 AcousticInfiniteSection 对象
 
+AcousticInfiniteSection 对象定义声学截面的属性。
 
+AcousticInfiniteSection 对象派生自 [Section](pt02ch63pyo01.md) 对象。
 
-
-
-
-
-The AcousticInfiniteSection object defines the properties of an acoustic section.
-
-The AcousticInfiniteSection object is derived from the [Section](pt02ch63pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 sectionApi.sections()[*name*]
@@ -18,15 +12,15 @@ sectionApi.sections()[*name*]
 
 ### 63.2.1 AcousticInfiniteSection(...)
 
-This method creates an AcousticInfiniteSection object.
+此方法创建个 AcousticInfiniteSection 对象。
 
-**Path**
+**路径**
 
 ```
 sectionApi.AcousticInfiniteSection
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_AcousticInfiniteSection&
@@ -36,43 +30,39 @@ AcousticInfiniteSection(const odb_String& name,
                         int order);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the repository key.
+一个 odb_String，指定存储库键。
 
 *material*
 
-An odb_String specifying the name of the material.
+一个 odb_String，指定材料名称。
 
-**Optional arguments**
+**可选参数**
 
 *thickness*
 
-A Double specifying the thickness of the section. Possible values are *thickness* ![](../graphics/ker_eqn00060.gif) 0.0. The default value is 1.0.
+一个 Double，指定截面厚度。可能的值为 *thickness* ![](../graphics/ker_eqn00060.gif) 0.0。默认值为 1.0。
 
 *order*
 
-An Int specifying the number of ninth-order polynomials that will be used to resolve the variation of the acoustic field in the infinite direction. Possible values are 0 ![](../graphics/ker_eqn00048.gif) *order* ![](../graphics/ker_eqn00013.gif) 10. The default value is 10.
+一个 Int，指定将用于解析无限方向声场变化的九阶多项式数量。可能的值为 0 ![](../graphics/ker_eqn00048.gif) *order* ![](../graphics/ker_eqn00013.gif) 10。默认值为 10。
 
-**Return value**
+**返回值**
 
-An AcousticInfiniteSection object.
+一个 AcousticInfiniteSection 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
-### 63.2.2 Members
+### 63.2.2 成员
 
-The AcousticInfiniteSection object has members with the same names and descriptions as the arguments to the [AcousticInfiniteSection](pt02ch63pyo02.md#ker-acousticinfinitesection-acousticinfinitesection-cpp) method.
+AcousticInfiniteSection 对象具有与 [AcousticInfiniteSection](pt02ch63pyo02.md#ker-acousticinfinitesection-acousticinfinitesection-cpp) 方法参数相同名称和描述的成员。
 
-### 63.2.3 Corresponding analysis keywords
+### 63.2.3 对应的分析关键字
 
 | [*SOLID SECTION](../key/key-link.md#usb-kws-msolidsection) |
 | --- |
-
-
-
-

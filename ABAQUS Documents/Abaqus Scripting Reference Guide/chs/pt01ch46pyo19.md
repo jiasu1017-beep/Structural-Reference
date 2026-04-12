@@ -1,14 +1,8 @@
-# 46.19 RebarLayers object
+# 46.19 RebarLayers 对象
 
+RebarLayers 对象定义截面的钢筋属性。
 
-
-
-
-
-
-The RebarLayers object defines the rebar properties of a section.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -20,7 +14,7 @@ session.odbs[*name*].sections[*name*].rebarLayers
 
 ### 46.19.1 RebarLayers(...)
 
-This method creates a RebarLayers object.
+此方法创建 RebarLayers 对象。
 
 **Path**
 
@@ -30,57 +24,53 @@ mdb.models[*name*].sections[*name*].RebarLayers
 session.odbs[*name*].sections[*name*].RebarLayers
 ```
 
-**Required arguments**
+**必需参数**
 
 *rebarSpacing*
 
-A SymbolicConstant specifying the type of rebar geometry. Possible values are CONSTANT, ANGULAR, and LIFT_EQUATION.
+SymbolicConstant，指定钢筋几何形状的类型。可选值为 CONSTANT、ANGULAR 和 LIFT_EQUATION。
 
 *layerTable*
 
-A [LayerPropertiesArray](pt01ch46pyo15.md) object specifying the layers of reinforcement.
+[LayerPropertiesArray](pt01ch46pyo15.md) 对象，指定增强层。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A RebarLayers object.
+RebarLayers 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 46.19.2 setValues(...)
 
-This method modifies the RebarLayers object.
+此方法修改 RebarLayers 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [RebarLayers](pt01ch46pyo19.md#ker-rebarlayers-rebarlayers-pyc) method.
+`setValues` 的可选参数与 [RebarLayers](pt01ch46pyo19.md#ker-rebarlayers-rebarlayers-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 46.19.3 Members
+### 46.19.3 成员
 
-The RebarLayers object has members with the same names and descriptions as the arguments to the [RebarLayers](pt01ch46pyo19.md#ker-rebarlayers-rebarlayers-pyc) method.
+RebarLayers 对象的成员与 [RebarLayers](pt01ch46pyo19.md#ker-rebarlayers-rebarlayers-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.19.4 Corresponding analysis keywords
+### 46.19.4 对应分析关键字
 
-| [*REBAR LAYER](../key/key-link.md#usb-kws-mrebarlayer) |
+| [*REBAR LAYER*](../key/key-link.md#usb-kws-mrebarlayer) |
 | --- |
-
-
-
-

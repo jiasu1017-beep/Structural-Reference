@@ -1,14 +1,8 @@
-# 29.94 Sorption object
+# 29.94 Sorption 对象
 
+Sorption 对象定义在耦合润湿液体流动和多孔介质应力分析中部分饱和多孔介质的吸收和解吸行为。
 
-
-
-
-
-
-The Sorption object defines absorption and exsorption behaviors of a partially saturated porous medium in the analysis of coupled wetting liquid flow and porous medium stress.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,92 +13,88 @@ session.odbs[*name*].materials[*name*].sorption
 
 ### 29.94.1 Sorption(...)
 
-This method creates a Sorption object.
+此方法创建 Sorption 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].Sorption
 session.odbs[*name*].materials[*name*].Sorption
 ```
 
-**Required argument**
+**必需参数**
 
 *absorptionTable*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-**Optional arguments**
+**可选参数**
 
 *lawAbsorption*
 
-A SymbolicConstant specifying absorption behavior. Possible values are LOG and TABULAR. The default value is TABULAR.
+SymbolicConstant，指定吸收行为。可能的值为 LOG 和 TABULAR。默认值为 TABULAR。
 
 *exsorption*
 
-A Boolean specifying whether the exsorption data is specified. The default value is OFF.
+Boolean，指定是否指定解吸数据。默认值为 OFF。
 
 *lawExsorption*
 
-A SymbolicConstant specifying exsorption behavior. Possible values are LOG and TABULAR. The default value is TABULAR.
+SymbolicConstant，指定解吸行为。可能的值为 LOG 和 TABULAR。默认值为 TABULAR。
 
 *scanning*
 
-A Float specifying the slope of the scanning line, ![](../graphics/ker_eqn00368.gif). This slope must be positive and larger than the slope of the absorption or exsorption behaviors. The default value is 0.0.
+Float，指定扫描线斜率，![](../graphics/ker_eqn00368.gif)。此斜率必须为正且大于吸收或解吸行为的斜率。默认值为 0.0。
 
 *exsorptionTable*
 
-A sequence of sequences of Floats specifying the items described below. The default value is an empty sequence.
+Float 元组序列，指定下述项目。默认值为空序列。
 
-**Table data**
+**表格数据**
 
-If *lawAbsorption*=TABULAR or *lawExsorption*=TABULAR, the *absorptionTable* and *exsorptionTable* data respectively specify the following: 
-- Pore pressure, ![](../graphics/ker_eqn00369.gif).
-- Saturation, ![](../graphics/ker_eqn00234.gif).
+如果 *lawAbsorption*=TABULAR 或 *lawExsorption*=TABULAR，则 *absorptionTable* 和 *exsorptionTable* 数据分别指定以下内容：
+- 孔隙压力，![](../graphics/ker_eqn00369.gif)。
+- 饱和度，![](../graphics/ker_eqn00234.gif)。
 
-If *lawAbsorption*=LOG or *lawExsorption*=LOG, the *absorptionTable* and *exsorptionTable* data respectively specify the following: 
-- A.
-- B.
-- ![](../graphics/ker_eqn00370.gif).
-- ![](../graphics/ker_eqn00371.gif).
+如果 *lawAbsorption*=LOG 或 *lawExsorption*=LOG，则 *absorptionTable* 和 *exsorptionTable* 数据分别指定以下内容：
+- A。
+- B。
+- ![](../graphics/ker_eqn00370.gif)。
+- ![](../graphics/ker_eqn00371.gif)。
 
-**Return value**
+**返回值**
 
-A Sorption object.
+Sorption 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 29.94.2 setValues(...)
 
-This method modifies the Sorption object.
+此方法修改 Sorption 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [Sorption](pt01ch29pyo94.md#ker-sorption-sorption-pyc) method.
+`setValues` 的可选参数与 [Sorption](pt01ch29pyo94.md#ker-sorption-sorption-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 29.94.3 Members
+### 29.94.3 成员
 
-The Sorption object has members with the same names and descriptions as the arguments to the [Sorption](pt01ch29pyo94.md#ker-sorption-sorption-pyc) method.
+Sorption 对象的成员与 [Sorption](pt01ch29pyo94.md#ker-sorption-sorption-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.94.4 Corresponding analysis keywords
+### 29.94.4 对应的分析关键字
 
 | [*SORPTION](../key/key-link.md#usb-kws-msorption) |
 | --- |
-
-
-
-

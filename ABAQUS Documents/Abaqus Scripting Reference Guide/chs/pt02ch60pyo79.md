@@ -1,14 +1,8 @@
-# 60.79 PorousBulkModuli object
+# 60.79 PorousBulkModuli 对象
 
+PorousBulkModuli 对象用于定义土壤和岩石的体积模量。
 
-
-
-
-
-
-The PorousBulkModuli object defines bulk moduli for soils and rocks.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].porousBulkModuli()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].porousBulkModuli()
 
 ### 60.79.1 PorousBulkModuli(...)
 
-This method creates a PorousBulkModuli object.
+此方法创建一个 PorousBulkModuli 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].PorousBulkModuli
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_PorousBulkModuli&
@@ -32,41 +26,37 @@ PorousBulkModuli(const odb_SequenceSequenceDouble& table,
                  bool temperatureDependency);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional argument**
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
-**Table data**
+**表数据**
 
-- Bulk modulus of solid grains.
-- Bulk modulus of permeating fluid.
-- Temperature, if the data depend on temperature.
+- 固体颗粒的体积模量。
+- 渗透流体的体积模量。
+- 温度（如果数据依赖温度）。
 
-**Return value**
+**返回值**
 
-A PorousBulkModuli object.
+一个 PorousBulkModuli 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 60.79.2 Members
+### 60.79.2 成员
 
-The PorousBulkModuli object has members with the same names and descriptions as the arguments to the [PorousBulkModuli](pt02ch60pyo79.md#ker-porousbulkmoduli-porousbulkmoduli-cpp) method.
+PorousBulkModuli 对象的成员与 [PorousBulkModuli](pt02ch60pyo79.md#ker-porousbulkmoduli-porousbulkmoduli-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.79.3 Corresponding analysis keywords
+### 60.79.3 对应的分析关键字
 
 | [*POROUS BULK MODULI](../key/key-link.md#usb-kws-mporousbulkmod) |
 | --- |
-
-
-
-

@@ -1,16 +1,10 @@
-# 46.10 GasketSection object
+# 46.10 GasketSection 对象
 
+GasketSection 对象定义垫片截面的属性。
 
+GasketSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The GasketSection object defines the properties of a gasket section.
-
-The GasketSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.10.1 GasketSection(...)
 
-This method creates a GasketSection object.
+此方法创建 GasketSection 对象。
 
 **Path**
 
@@ -30,75 +24,71 @@ mdb.models[*name*].GasketSection
 session.odbs[*name*].GasketSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *material*
 
-A String specifying the name of the material of which the gasket is made or material that defines gasket behavior.
+String，指定制造垫片的材料名称或定义垫片行为的材料。
 
-**Optional arguments**
+**可选参数**
 
 *crossSection*
 
-A Float specifying the cross-sectional area, width, or out-of-plane thickness, if applicable, depending on the gasket element type. The default value is 1.0.
+Float，指定横截面积、宽度或面外厚度（如果适用），具体取决于垫片单元类型。默认值为 1.0。
 
 *initialGap*
 
-A Float specifying the initial gap. The default value is 0.0.
+Float，指定初始间隙。默认值为 0.0。
 
 *initialThickness*
 
-The SymbolicConstant DEFAULT or a Float specifying the initial gasket thickness. If DEFAULT is specified, the initial thickness is determined using nodal coordinates. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或 Float，指定初始垫片厚度。如果指定了 DEFAULT，则使用节点坐标确定初始厚度。默认值为 DEFAULT。
 
 *initialVoid*
 
-A Float specifying the initial void. The default value is 0.0.
+Float，指定初始孔隙。默认值为 0.0。
 
 *stabilizationStiffness*
 
-The SymbolicConstant DEFAULT or a Float specifying the default stabilization stiffness used in all but link elements to stabilize gasket elements that are not supported at all nodes, such as those that extend outside neighboring components. If DEFAULT is specified, a value is used equal to 10–9 times the initial compressive stiffness in the thickness direction. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或 Float，指定用于所有链接元素之外的垫片元素的默认稳定刚度，以稳定在所有节点都未支撑的垫片元素，例如延伸出相邻组件的元素。如果指定了 DEFAULT，则使用等于厚度方向初始压缩刚度 10–9 倍的值。默认值为 DEFAULT。
 
-**Return value**
+**返回值**
 
-A GasketSection object.
+GasketSection 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and ValueError.
+InvalidNameError 和 ValueError。
 
 ### 46.10.2 setValues(...)
 
-This method modifies the GasketSection object.
+此方法修改 GasketSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [GasketSection](pt01ch46pyo10.md#ker-gasketsection-gasketsection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [GasketSection](pt01ch46pyo10.md#ker-gasketsection-gasketsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-ValueError.
+ValueError。
 
-### 46.10.3 Members
+### 46.10.3 成员
 
-The GasketSection object has members with the same names and descriptions as the arguments to the [GasketSection](pt01ch46pyo10.md#ker-gasketsection-gasketsection-pyc) method.
+GasketSection 对象的成员与 [GasketSection](pt01ch46pyo10.md#ker-gasketsection-gasketsection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.10.4 Corresponding analysis keywords
+### 46.10.4 对应分析关键字
 
-| [*GASKET SECTION](../key/key-link.md#usb-kws-mgasketsection) |
+| [*GASKET SECTION*](../key/key-link.md#usb-kws-mgasketsection) |
 | --- |
-
-
-
-

@@ -1,16 +1,10 @@
-# 8.9 PipeProfile object
+# 8.9 PipeProfile 对象
 
+PipeProfile 对象定义圆形管 profile 的属性。
 
+PipeProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The PipeProfile object defines the properties of a circular pipe profile.
-
-The PipeProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,75 +15,71 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.9.1 PipeProfile(...)
 
-This method creates a PipeProfile object.
+此方法创建一个 PipeProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].PipeProfile
 session.odbs[*name*].PipeProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *r*
 
-A Float specifying the outer radius of the pipe. For more information, see ["Beam cross-section library," Section 29.3.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-ebeamcrosssectlib).
+一个 Float，指定管的外半径。有关详细信息，请参阅《Abaqus Analysis User's Guide》的"Beam cross-section library," Section 29.3.9。
 
 *t*
 
-A Float specifying the wall thickness of the pipe.
+一个 Float，指定管的壁厚。
 
-**Optional argument**
+**可选参数**
 
 *formulation*
 
-A SymbolicConstant specifying                       the formulation. Possible values are THIN_WALL and THICK_WALL. The default value is THIN_WALL.
+一个 SymbolicConstant，指定公式。可能的值为 THIN_WALL 和 THICK_WALL。默认值为 THIN_WALL。
 
-**Return value**
+**返回值**
 
-A PipeProfile object.
+一个 PipeProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.9.2 setValues(...)
 
-This method modifies the PipeProfile object.
+此方法修改 PipeProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [PipeProfile](pt01ch08pyo09.md#ker-pipeprofile-pipeprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [PipeProfile](pt01ch08pyo09.md#ker-pipeprofile-pipeprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.9.3 Members
+### 8.9.3 成员
 
-The PipeProfile object has members with the same names and descriptions as the arguments to the [PipeProfile](pt01ch08pyo09.md#ker-pipeprofile-pipeprofile-pyc) method.
+PipeProfile 对象具有与 [PipeProfile](pt01ch08pyo09.md#ker-pipeprofile-pipeprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.9.4 Corresponding analysis keywords
+### 8.9.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=PIPE |
 | --- |
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=THICK PIPE |
 | --- |
-
-
-
-

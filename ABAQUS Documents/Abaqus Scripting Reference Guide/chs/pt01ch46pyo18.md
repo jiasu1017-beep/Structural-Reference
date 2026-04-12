@@ -1,16 +1,10 @@
-# 46.18 PEGSection object
+# 46.18 PEGSection 对象
 
+PEGSection 对象定义实体截面的属性。
 
+PEGSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The PEGSection object defines the properties of a solid section.
-
-The PEGSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.18.1 PEGSection(...)
 
-This method creates a PEGSection object.
+此方法创建 PEGSection 对象。
 
 **Path**
 
@@ -30,67 +24,63 @@ mdb.models[*name*].PEGSection
 session.odbs[*name*].PEGSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *material*
 
-A String specifying the name of the material.
+String，指定材料名称。
 
-**Optional arguments**
+**可选参数**
 
 *thickness*
 
-A Float specifying the thickness of the section. Possible values are *thickness* ![](../graphics/ker_eqn00060.gif) 0.0. The default value is 1.0.
+Float，指定截面的厚度。可能的值为 *thickness* ![](../graphics/ker_eqn00060.gif) 0.0。默认值为 1.0。
 
 *wedgeAngle1*
 
-A Float specifying the value of the x component of the angle between the bounding planes, ![](../graphics/ker_eqn00415.gif). The default value is 0.0.
+Float，指定边界平面之间角度的 x 分量，![](../graphics/ker_eqn00415.gif)。默认值为 0.0。
 
 *wedgeAngle2*
 
-A Float specifying the value of the y component of the angle between the bounding planes, ![](../graphics/ker_eqn00416.gif). The default value is 0.0.
+Float，指定边界平面之间角度的 y 分量，![](../graphics/ker_eqn00416.gif)。默认值为 0.0。
 
-**Return value**
+**返回值**
 
-A PEGSection object.
+PEGSection 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
 ### 46.18.2 setValues(...)
 
-This method modifies the PEGSection object.
+此方法修改 PEGSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [PEGSection](pt01ch46pyo18.md#ker-pegsection-pegsection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [PEGSection](pt01ch46pyo18.md#ker-pegsection-pegsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 46.18.3 Members
+### 46.18.3 成员
 
-The PEGSection object has members with the same names and descriptions as the arguments to the [PEGSection](pt01ch46pyo18.md#ker-pegsection-pegsection-pyc) method.
+PEGSection 对象的成员与 [PEGSection](pt01ch46pyo18.md#ker-pegsection-pegsection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.18.4 Corresponding analysis keywords
+### 46.18.4 对应分析关键字
 
-| [*SOLID SECTION](../key/key-link.md#usb-kws-msolidsection) |
+| [*SOLID SECTION*](../key/key-link.md#usb-kws-msolidsection) |
 | --- |
-
-
-
-

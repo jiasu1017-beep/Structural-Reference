@@ -1,16 +1,10 @@
-# 8.2 ArbitraryProfile object
+# 8.2 ArbitraryProfile 对象
 
+ArbitraryProfile 对象定义任意 profile 的属性。
 
+ArbitraryProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The ArbitraryProfile object defines the properties of an arbitrary profile.
-
-The ArbitraryProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,76 +15,73 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.2.1 ArbitraryProfile(...)
 
-This method creates a ArbitraryProfile object.
+此方法创建一个 ArbitraryProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ArbitraryProfile
 session.odbs[*name*].ArbitraryProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+一个 Float 序列的序列，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Table data**
+**表数据**
 
-The first sequence in the table specifies the following:
-- 1-coordinate of the first point defining the profile.
-- 2-coordinate of the first point defining the profile.
+表中的第一个序列指定以下内容：
+- 定义 profile 的第一个点的 1 坐标。
+- 定义 profile 的第一个点的 2 坐标。
 
-All other sequences in the table specify the following:- 1--coordinate of the next point defining the profile.
-- 2--coordinate of the next point defining the profile.
-- The thickness of the segment ending at that point.
+表中的所有其他序列指定以下内容：
+- 定义 profile 的下一个点的 1 坐标。
+- 定义 profile 的下一个点的 2 坐标。
+- 在该点结束的线段的厚度。
 
-**Return value**
+**返回值**
 
-An ArbitraryProfile object.
+一个 ArbitraryProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.2.2 setValues(...)
 
-This method modifies the ArbitraryProfile object.
+此方法修改 ArbitraryProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ArbitraryProfile](pt01ch08pyo02.md#ker-arbitraryprofile-arbitraryprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [ArbitraryProfile](pt01ch08pyo02.md#ker-arbitraryprofile-arbitraryprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.2.3 Members
+### 8.2.3 成员
 
-The ArbitraryProfile object has members with the same names and descriptions as the arguments to the [ArbitraryProfile](pt01ch08pyo02.md#ker-arbitraryprofile-arbitraryprofile-pyc) method.
+ArbitraryProfile 对象具有与 [ArbitraryProfile](pt01ch08pyo02.md#ker-arbitraryprofile-arbitraryprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.2.4 Corresponding analysis keywords
+### 8.2.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=ARBITRARY |
 | --- |
-
-
-
-

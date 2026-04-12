@@ -1,16 +1,10 @@
-# 9.2 AccelerationBaseMotionBC object
+# 9.2 AccelerationBaseMotionBC 对象
 
+AccelerationBaseMotionBC 对象存储加速度基准运动边界条件的数据。
 
+AccelerationBaseMotionBC 对象派生自 [BoundaryCondition](pt01ch09pyo01.md) 对象。
 
-
-
-
-
-The AccelerationBaseMotionBC object stores the data for an acceleration base motion boundary condition.
-
-The AccelerationBaseMotionBC object is derived from the [BoundaryCondition](pt01ch09pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import load
@@ -19,146 +13,142 @@ mdb.models[*name*].boundaryConditions[*name*]
 
 ### 9.2.1 AccelerationBaseMotionBC(...)
 
-This method creates a AccelerationBaseMotionBC object.
+此方法创建一个 AccelerationBaseMotionBC 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].AccelerationBaseMotionBC
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the boundary condition repository key.
+一个 String，指定边界条件存储库键。
 
 *createStepName*
 
-A String specifying the name of the step in which the boundary condition is created.
+一个 String，指定创建边界条件的步骤名称。
 
 *dof*
 
-A SymbolicConstant specifying the constrained degree-of-freedom. Possible values for the SymbolicConstant are U1, U2, U3, UR1, UR2, UR3. The default value is U1.
+一个 SymbolicConstant，指定约束的自由度。SymbolicConstant 的可能值为 U1、U2、U3、UR1、UR2、UR3。默认值为 U1。
 
-**Optional arguments**
+**可选参数**
 
 *amplitudeScaleFactor*
 
-A Float specifying the scale factor for the amplitude curve. The default value is 1.0.
+一个 Float，指定振幅曲线的缩放因子。默认值为 1.0。
 
 *centerOfRotation*
 
-A [ModelDot](pt01ch07pyo12.md) object specifying a tuple containing one center of rotation.  The default value is the global origin. This argument applies only when *dof*=UR1, UR2, or UR3.
+一个 [ModelDot](pt01ch07pyo12.md) 对象，指定包含一个旋转中心的元组。默认值为全局原点。此参数仅适用于 *dof*=UR1、UR2 或 UR3 时。
 
 *correlation*
 
-A [CorrelationArray](pt01ch03pyo04.md) object.
+一个 [CorrelationArray](pt01ch03pyo04.md) 对象。
 
 *secondaryBase*
 
-A String specifying the name of the [SecondaryBaseBC](pt01ch09pyo39.md) object associated with this boundary condition. The default value is an empty string.
+一个 String，指定与此边界条件关联的 [SecondaryBaseBC](pt01ch09pyo39.md) 对象的名称。默认值为空字符串。
 
 *useComplex*
 
-A Boolean specifying whether to define the imaginary (out-of-plane) portion of the base motion record given by amplitude definition. The default value is OFF.
+一个 Boolean，指定是否定义由振幅定义给出的基准运动记录的虚部（平面外）部分。默认值为 OFF。
 
 *amplitude*
 
-A String or the SymbolicConstant UNSET specifying the name of the amplitude reference. UNSET should be used if the boundary condition has no amplitude reference. The default value is UNSET. You should provide the *amplitude* argument only if it is valid for the specified step.
+一个 String 或 SymbolicConstant UNSET，指定振幅引用的名称。如果边界条件没有振幅引用，应使用 UNSET。默认值为 UNSET。只有当该参数对指定步骤有效时，才应提供 *amplitude* 参数。
 
-**Return value**
+**返回值**
 
-An AccelerationBaseMotionBC object.
+一个 AccelerationBaseMotionBC 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 9.2.2 setValues(...)
 
-This method modifies the data for an existing AccelerationBaseMotionBC object in the step where it is created.
+此方法修改现有 AccelerationBaseMotionBC 对象在创建它的步骤中的数据。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [AccelerationBaseMotionBC](pt01ch09pyo02.md#ker-accelerationbasemotionbc-accelerationbasemotionbc-pyc) method, except for the *name* and *createStepName* arguments.
+`setValues` 的可选参数与 [AccelerationBaseMotionBC](pt01ch09pyo02.md#ker-accelerationbasemotionbc-accelerationbasemotionbc-pyc) 方法的参数相同，但 *name* 和 *createStepName* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 9.2.3 setValuesInStep(...)
 
-This method modifies the propagating data for an existing AccelerationBaseMotionBC object in the specified step.
+此方法修改指定步骤中现有 AccelerationBaseMotionBC 对象的传播数据。
 
-**Required argument**
+**必需参数**
 
 *stepName*
 
-A String specifying the name of the step in which the boundary condition is modified.
+一个 String，指定要修改边界条件的步骤名称。
 
-**Optional argument**
+**可选参数**
 
 *amplitude*
 
-A String or a SymbolicConstant specifying the name of the amplitude reference. Possible values for the SymbolicConstant are UNCHANGED and FREED. UNCHANGED should be used if the amplitude is propagated from the previous analysis step. FREED should be used if the boundary condition is changed to have no amplitude reference. You should provide the *amplitude* argument only if it is valid for the specified step.
+一个 String 或 SymbolicConstant，指定振幅引用的名称。SymbolicConstant 的可能值为 UNCHANGED 和 FREED。UNCHANGED 应在振幅从先前的分析步骤传播时使用。如果边界条件要改为没有振幅引用，应使用 FREED。只有当该参数对指定步骤有效时，才应提供 *amplitude* 参数。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 9.2.4 Members
+### 9.2.4 成员
 
-The AccelerationBaseMotionBC object can have the following members:
+AccelerationBaseMotionBC 对象可以具有以下成员：
 
 *name*
 
-A String specifying the boundary condition repository key.
+一个 String，指定边界条件存储库键。
 
 *amplitudeScaleFactor*
 
-A Float specifying the scale factor for the amplitude curve. The default value is 1.0.
+一个 Float，指定振幅曲线的缩放因子。默认值为 1.0。
 
 *useComplex*
 
-A Boolean specifying whether to define the imaginary (out-of-plane) portion of the base motion record given by amplitude definition. The default value is OFF.
+一个 Boolean，指定是否定义由振幅定义给出的基准运动记录的虚部（平面外）部分。默认值为 OFF。
 
 *centerOfRotation*
 
-A [ModelDot](pt01ch07pyo12.md) object specifying a tuple containing one center of rotation.  The default value is the global origin. This argument applies only when *dof*=UR1, UR2, or UR3.
+一个 [ModelDot](pt01ch07pyo12.md) 对象，指定包含一个旋转中心的元组。默认值为全局原点。此参数仅适用于 *dof*=UR1、UR2 或 UR3 时。
 
 *correlation*
 
-A [CorrelationArray](pt01ch03pyo04.md) object.
+一个 [CorrelationArray](pt01ch03pyo04.md) 对象。
 
 *secondaryBase*
 
-A String specifying the name of the [SecondaryBaseBC](pt01ch09pyo39.md) object associated with this boundary condition. The default value is an empty string.
+一个 String，指定与此边界条件关联的 [SecondaryBaseBC](pt01ch09pyo39.md) 对象的名称。默认值为空字符串。
 
 *category*
 
-A SymbolicConstant specifying the category of the boundary condition. Possible values are MECHANICAL and THERMAL.
+一个 SymbolicConstant，指定边界条件的类别。可能的值为 MECHANICAL 和 THERMAL。
 
 *region*
 
-A [Region](pt01ch45pyo03.md) object specifying the region to which the boundary condition is applied.
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用边界条件的区域。
 
 *localCsys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system of the boundary condition's degrees of freedom. If *localCsys*=`None`, the degrees of freedom are defined in the global coordinate system. The default value is `None`.
-
-
-
-
+`None` 或一个 [DatumCsys](pt01ch15pyo03.md) 对象，指定边界条件自由度的局部坐标系。如果 *localCsys*=`None`，则自由度在全局坐标系中定义。默认值为 `None`。

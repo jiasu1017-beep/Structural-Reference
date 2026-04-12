@@ -1,24 +1,18 @@
-# 63.1 Section object
+# 63.1 Section 对象
 
+Section 对象定义截面的属性。Section 对象是其他 Section 对象的抽象基类。Section 对象没有显式构造函数。Section 对象的方法和成员对从 Section 派生的所有对象都是通用的。
 
-
-
-
-
-
-The Section object defines the properties of a section. The Section object is the abstract base type for other Section objects. The Section object has no explicit constructor. The methods and members of the Section object are common to all objects derived from the Section.
-
-**Access**
+**访问**
 
 ```
 sectionApi.sections()[*name*]
 ```
 
-### 63.1.1 Members
+### 63.1.1 成员
 
-The Section object has the following member:
+Section 对象具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_String name() const;
@@ -26,8 +20,4 @@ odb_String name() const;
 
 *name*
 
-An odb_String specifying the repository key.
-
-
-
-
+一个 odb_String，指定存储库键。

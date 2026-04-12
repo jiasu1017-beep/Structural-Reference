@@ -1,16 +1,10 @@
-# 46.11 GeneralStiffnessSection object
+# 46.11 GeneralStiffnessSection 对象
 
+GeneralStiffnessSection 对象通过刚度矩阵定义壳截面的属性。
 
+GeneralStiffnessSection 对象派生自 [ShellSection](pt01ch46pyo21.md) 对象。
 
-
-
-
-
-The GeneralStiffnessSection object defines the properties of a shell section via the stiffness matrix.
-
-The GeneralStiffnessSection object is derived from the [ShellSection](pt01ch46pyo21.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.11.1 GeneralStiffnessSection(...)
 
-This method creates a GeneralStiffnessSection object.
+此方法创建 GeneralStiffnessSection 对象。
 
 **Path**
 
@@ -30,109 +24,105 @@ mdb.models[*name*].GeneralStiffnessSection
 session.odbs[*name*].GeneralStiffnessSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *stiffnessMatrix*
 
-A sequence of Floats specifying the stiffness matrix for the section in the order D11, D12, D22, D13, D23, D33, ...., D66. Twenty-one entries must be given.
+Float 序列，指定截面刚度矩阵，顺序为 D11、D12、D22、D13、D23、D33、...、D66。必须给出 21 个条目。
 
-**Optional arguments**
+**可选参数**
 
 *referenceTemperature*
 
- `None` or a Float specifying the reference temperature for thermal expansion. The default value is `None`.
+`None` 或 Float，指定热膨胀的参考温度。默认值为 `None`。
 
 *applyThermalStress*
 
-A Boolean specifying whether or not the section stiffness varies with thermal stresses. The default value is OFF.
+Boolean，指定截面刚度是否随热应力变化。默认值为 OFF。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is OFF.
+Boolean，指定数据是否依赖温度。默认值为 OFF。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+Int，指定场变量依赖项的数量。默认值为 0。
 
 *poissonDefinition*
 
-A SymbolicConstant specifying whether to use the default value for the Poisson's ratio. Possible values are:
-- DEFAULT, specifying that the default value for the Poisson's ratio is 0.5 in an Abaqus/Standard analysis and is obtained from the material definition in an Abaqus/Explicit analysis.
-- VALUE, specifying that the Poisson's ratio used in the analysis is the value provided in *poisson*.
+SymbolicConstant，指定是否使用泊松比的默认值。可选值为：
+- DEFAULT，指定在 Abaqus/Standard 分析中泊松比的默认值为 0.5，在 Abaqus/Explicit 分析中从材料定义获取。
+- VALUE，指定分析中使用的泊松比是 *poisson* 提供的值。
 
-The default value is DEFAULT.
+默认值为 DEFAULT。
 
 *poisson*
 
-A Float specifying the Poisson's ratio. Possible values are 1.0 ![](../graphics/ker_eqn00013.gif) *poisson* ![](../graphics/ker_eqn00013.gif) 0.5. This argument is valid only when *poissonDefinition*=VALUE. The default value is 0.5.
+Float，指定泊松比。可能的值为 1.0 ![](../graphics/ker_eqn00013.gif) *poisson* ![](../graphics/ker_eqn00013.gif) 0.5。此参数仅在 *poissonDefinition*=VALUE 时有效。默认值为 0.5。
 
 *useDensity*
 
-A Boolean specifying whether or not to use the value of *density*. The default value is OFF.
+Boolean，指定是否使用 *density* 的值。默认值为 OFF。
 
 *density*
 
-A Float specifying the value of density to apply to this section. The default value is 0.0.
+Float，指定要应用于此截面的密度值。默认值为 0.0。
 
 *thermalStresses*
 
-A sequence of Floats specifying the generalized stress values caused by a unit temperature rise. Six entries must be given if the value of *applyThermalStress* is set to True. The default value is ("").
+Float 序列，指定单位温升引起的广义应力值。如果 *applyThermalStress* 设置为 True，则必须给出 6 个条目。默认值为 ("")。
 
 *scalingData*
 
-A sequence of sequences of Floats specifying the scaling factors for given temperatures and/or field data. Each row should contain (Y, alpha, T, F1,...,Fn). The default value is an empty sequence.
+Float 序列的序列，指定给定温度和/或场数据的缩放因子。每一行应包含 (Y, alpha, T, F1,...,Fn)。默认值为空序列。
 
-**Return value**
+**返回值**
 
-A GeneralStiffnessSection object.
+GeneralStiffnessSection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 46.11.2 setValues(...)
 
-This method modifies the GeneralStiffnessSection object.
+此方法修改 GeneralStiffnessSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [GeneralStiffnessSection](pt01ch46pyo11.md#ker-generalstiffnesssection-generalstiffnesssection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [GeneralStiffnessSection](pt01ch46pyo11.md#ker-generalstiffnesssection-generalstiffnesssection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 46.11.3 Members
+### 46.11.3 成员
 
-The GeneralStiffnessSection object has members with the same names and descriptions as the arguments to the [GeneralStiffnessSection](pt01ch46pyo11.md#ker-generalstiffnesssection-generalstiffnesssection-pyc) method.
+GeneralStiffnessSection 对象的成员与 [GeneralStiffnessSection](pt01ch46pyo11.md#ker-generalstiffnesssection-generalstiffnesssection-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the GeneralStiffnessSection object can have the following members:
+此外，GeneralStiffnessSection 对象可以具有以下成员：
 
 *rebarLayers*
 
-A [RebarLayers](pt01ch46pyo19.md) object specifying reinforcement properties.
+[RebarLayers](pt01ch46pyo19.md) 对象，指定增强属性。
 
 *transverseShear*
 
-A [TransverseShearShell](pt01ch46pyo25.md) object specifying the transverse shear stiffness properties.
+[TransverseShearShell](pt01ch46pyo25.md) 对象，指定横向剪切刚度属性。
 
-### 46.11.4 Corresponding analysis keywords
+### 46.11.4 对应分析关键字
 
-| [*SHELL GENERAL SECTION](../key/key-link.md#usb-kws-mshellgensect) |
+| [*SHELL GENERAL SECTION*](../key/key-link.md#usb-kws-mshellgensect) |
 | --- |
-
-
-
-

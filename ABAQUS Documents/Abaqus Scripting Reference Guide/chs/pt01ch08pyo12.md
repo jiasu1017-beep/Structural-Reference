@@ -1,16 +1,10 @@
-# 8.12 TrapezoidalProfile object
+# 8.12 TrapezoidalProfile 对象
 
+TrapezoidalProfile 对象定义梯形 profile 的属性。
 
+TrapezoidalProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The TrapezoidalProfile object defines the properties of a trapezoidal profile.
-
-The TrapezoidalProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,78 +15,74 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.12.1 TrapezoidalProfile(...)
 
-This method creates a TrapezoidalProfile object.
+此方法创建一个 TrapezoidalProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].TrapezoidalProfile
 session.odbs[*name*].TrapezoidalProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *a*
 
-A positive Float specifying the *a* dimension of the Trapezoidal profile. For more information, see ["Beam cross-section library," Section 29.3.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-ebeamcrosssectlib).
+一个正 Float，指定梯形 profile 的 *a* 尺寸。有关详细信息，请参阅《Abaqus Analysis User's Guide》的"Beam cross-section library," Section 29.3.9。
 
 *b*
 
-A positive Float specifying the *b* dimension of the Trapezoidal profile.
+一个正 Float，指定梯形 profile 的 *b* 尺寸。
 
 *c*
 
-A positive Float specifying the *c* dimension of the Trapezoidal profile.
+一个正 Float，指定梯形 profile 的 *c* 尺寸。
 
 *d*
 
-A Float specifying the *d* dimension of the Trapezoidal profile.
+一个 Float，指定梯形 profile 的 *d* 尺寸。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A TrapezoidalProfile object.
+一个 TrapezoidalProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.12.2 setValues(...)
 
-This method modifies the TrapezoidalProfile object.
+此方法修改 TrapezoidalProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [TrapezoidalProfile](pt01ch08pyo12.md#ker-trapezoidalprofile-trapezoidalprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [TrapezoidalProfile](pt01ch08pyo12.md#ker-trapezoidalprofile-trapezoidalprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.12.3 Members
+### 8.12.3 成员
 
-The TrapezoidalProfile object has members with the same names and descriptions as the arguments to the [TrapezoidalProfile](pt01ch08pyo12.md#ker-trapezoidalprofile-trapezoidalprofile-pyc) method.
+TrapezoidalProfile 对象具有与 [TrapezoidalProfile](pt01ch08pyo12.md#ker-trapezoidalprofile-trapezoidalprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.12.4 Corresponding analysis keywords
+### 8.12.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=TRAPEZOID |
 | --- |
-
-
-
-

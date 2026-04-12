@@ -1,92 +1,78 @@
-# 36.16 ShapeMemberSize object
+# 36.16 ShapeMemberSize 对象
 
+ShapeMemberSize 对象定义形状成员尺寸几何约束。
 
+ShapeMemberSize 对象派生自 [GeometricRestriction](pt01ch36pyo08.md) 对象。
 
-
-
-
-
-The ShapeMemberSize object defines a shape member size geometric restriction.
-
-         The ShapeMemberSize object is derived from the [GeometricRestriction](pt01ch36pyo08.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
 ```
 
 ### 36.16.1 ShapeMemberSize(...)
 
-           This method creates a ShapeMemberSize object.         
+此方法创建 ShapeMemberSize 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].ShapeMemberSize
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].ShapeMemberSize
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the geometric restriction repository key.
+一个字符串，指定几何约束仓库键。
 
 *region*
 
-                 A [Region](pt01ch45pyo03.md) object specifying the region to which the geometric restriction is applied.  When used with a [TopologyTask](pt01ch36pyo41.md), there is no default value.  When used with a [ShapeTask](pt01ch36pyo20.md), the default value is MODEL.               
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用几何约束的区域。当与 [TopologyTask](pt01ch36pyo41.md) 一起使用时，没有默认值。当与 [ShapeTask](pt01ch36pyo20.md) 一起使用时，默认值为 MODEL。
 
-**Optional arguments**
+**可选参数**
 
 *maxThickness*
 
-A Float specifying the maximum thickness. The default value is 0.0.
+一个 Float，指定最大厚度。默认值为 0.0。
 
 *minThickness*
 
-A Float specifying the minimum thickness. The default value is 0.0.
+一个 Float，指定最小厚度。默认值为 0.0。
 
 *sizeRestriction*
 
-                 A SymbolicConstant specifying whether to restrict the minimum or maximum thickness. Possible values are MAXIMUM and MINIMUM. The default value is MINIMUM.               
+一个 SymbolicConstant，指定是限制最小厚度还是最大厚度。可能的值为 MAXIMUM 和 MINIMUM。默认值为 MINIMUM。
 
-**Return value**
+**返回值**
 
-           A ShapeMemberSize object.         
+ShapeMemberSize 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.16.2 setValues(...)
 
-           This method modifies the ShapeMemberSize object.         
+此方法修改 ShapeMemberSize 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [ShapeMemberSize](pt01ch36pyo16.md#ker-shapemembersize-shapemembersize-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [ShapeMemberSize](pt01ch36pyo16.md#ker-shapemembersize-shapemembersize-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.16.3 Members
+### 36.16.3 成员
 
-         The ShapeMemberSize object has members with the same names and descriptions as the arguments to the [ShapeMemberSize](pt01ch36pyo16.md#ker-shapemembersize-shapemembersize-pyc) method.       
-
-
-
-
+ShapeMemberSize 对象具有与 [ShapeMemberSize](pt01ch36pyo16.md#ker-shapemembersize-shapemembersize-pyc) 方法的参数名称和描述相同的成员。

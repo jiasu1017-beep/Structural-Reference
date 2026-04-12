@@ -1,14 +1,8 @@
-# 60.98 TensionStiffening object
+# 60.98 TensionStiffening 对象
 
+TensionStiffening 对象用于定义 [Concrete](pt02ch60pyo18.md) 模型中裂纹法向保留的拉伸应力。
 
-
-
-
-
-
-The TensionStiffening object defines the retained tensile stress normal to a crack in a [Concrete](pt02ch60pyo18.md) model.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].concrete().tensionStiffening()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].concrete().tensionStiffening()
 
 ### 60.98.1 TensionStiffening(...)
 
-This method creates a TensionStiffening object.
+此方法创建一个 TensionStiffening 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].concrete().TensionStiffening
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_TensionStiffening&
@@ -34,59 +28,56 @@ TensionStiffening(const odb_SequenceSequenceDouble& table,
                   int dependencies);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *type*
 
-An odb_String specifying how the postcracking behavior is defined. Possible values are "DISPLACEMENT" and "STRAIN". The default value is "STRAIN".
+一个 odb_String，指定开裂后行为如何定义。可能的值为"DISPLACEMENT"和"STRAIN"。默认值为"STRAIN"。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-If *type*=STRAIN, the table data specify the following:
-- Fraction of remaining stress to stress at cracking.
-- Absolute value of the direct strain minus the direct strain at cracking.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *type*=STRAIN，表数据指定以下内容：
+- 剩余应力与开裂时应力的比值。
+- 直接应变减去开裂时直接应变的绝对值。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *type*=DISPLACEMENT, the table data specify the following:- Displacement, ![](../graphics/ker_eqn00372.gif), at which a linear loss of strength after cracking gives zero stress.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *type*=DISPLACEMENT，表数据指定以下内容：
+- 开裂后线性强度损失为零应力时的位移，![](../graphics/ker_eqn00372.gif]。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A TensionStiffening object.
+一个 TensionStiffening 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.98.2 Members
+### 60.98.2 成员
 
-The TensionStiffening object has members with the same names and descriptions as the arguments to the [TensionStiffening](pt02ch60pyo98.md#ker-tensionstiffening-tensionstiffening-cpp) method.
+TensionStiffening 对象的成员与 [TensionStiffening](pt02ch60pyo98.md#ker-tensionstiffening-tensionstiffening-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.98.3 Corresponding analysis keywords
+### 60.98.3 对应的分析关键字
 
 | [*TENSION STIFFENING](../key/key-link.md#usb-kws-mtensionstiff) |
 | --- |
-
-
-
-

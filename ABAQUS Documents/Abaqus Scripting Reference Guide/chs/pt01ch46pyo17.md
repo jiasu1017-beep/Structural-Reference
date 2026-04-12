@@ -1,16 +1,10 @@
-# 46.17 MPCSection object
+# 46.17 MPCSection 对象
 
+MPCSection 对象定义多点约束截面的属性。
 
+MPCSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The MPCSection object defines the properties of a multi-point constraint section.
-
-The MPCSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.17.1 MPCSection(...)
 
-This method creates a MPCSection object.
+此方法创建 MPCSection 对象。
 
 **Path**
 
@@ -30,47 +24,43 @@ mdb.models[*name*].MPCSection
 session.odbs[*name*].MPCSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *mpcType*
 
-A SymbolicConstant specifying the MPC type of the section. Possible values are BEAM_MPC, ELBOW_MPC, PIN_MPC, LINK_MPC, TIE_MPC, and USER_DEFINED.
+SymbolicConstant，指定截面的 MPC 类型。可选值为 BEAM_MPC、ELBOW_MPC、PIN_MPC、LINK_MPC、TIE_MPC 和 USER_DEFINED。
 
-**Optional arguments**
+**可选参数**
 
 *userMode*
 
-A SymbolicConstant specifying the mode of the MPC when it is user-defined. Possible values are DOF_MODE and NODE_MODE. The default value is DOF_MODE.
+SymbolicConstant，指定用户定义的 MPC 的模式。可选值为 DOF_MODE 和 NODE_MODE。默认值为 DOF_MODE。
 
-The *userMode* argument applies only when *mpcType*=USER_DEFINED.
+*userMode* 参数仅在 *mpcType*=USER_DEFINED 时适用。
 
 *userType*
 
-An Int specifying to differentiate between different constraint types in a user-defined MPCSection. The default value is 0.
+Int，指定用于区分用户定义的 MPCSection 中不同约束类型的值。默认值为 0。
 
-The *userType* argument applies only when *mpcType*=USER_DEFINED.
+*userType* 参数仅在 *mpcType*=USER_DEFINED 时适用。
 
-**Return value**
+**返回值**
 
-A MPCSection object.
+MPCSection 对象。
 
-**Exceptions**
+**异常**
 
-RangeError and InvalidNameError.
+RangeError 和 InvalidNameError。
 
-### 46.17.2 Members
+### 46.17.2 成员
 
-The MPCSection object has members with the same names and descriptions as the arguments to the [MPCSection](pt01ch46pyo17.md#ker-mpcsection-mpcsection-pyc) method.
+MPCSection 对象的成员与 [MPCSection](pt01ch46pyo17.md#ker-mpcsection-mpcsection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.17.3 Corresponding analysis keywords
+### 46.17.3 对应分析关键字
 
-| [*MPC](../key/key-link.md#usb-kws-mmpc) |
+| [*MPC*](../key/key-link.md#usb-kws-mmpc) |
 | --- |
-
-
-
-

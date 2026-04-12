@@ -1,14 +1,8 @@
-# 29.99 TriaxialTestData object
+# 29.99 TriaxialTestData 对象
 
+TriaxialTestData 对象提供三轴测试数据。
 
-
-
-
-
-
-The TriaxialTestData object provides triaxial test data.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,77 +13,73 @@ session.odbs[*name*].materials[*name*].druckerPrager.triaxialTestData
 
 ### 29.99.1 TriaxialTestData(...)
 
-This method creates a TriaxialTestData object.
+此方法创建 TriaxialTestData 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].druckerPrager.TriaxialTestData
 session.odbs[*name*].materials[*name*].druckerPrager.TriaxialTestData
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-**Optional arguments**
+**可选参数**
 
 *a*
 
- `None` or a Float specifying the value of the material constant ![](../graphics/ker_eqn00278.gif). `None` is used when the value is unknown or it is not held fixed at the input value. The default value is `None`.
+`None` 或 Float，指定材料常数 ![](../graphics/ker_eqn00278.gif) 的值。当值未知或未固定在输入值时使用 `None`。默认值为 `None`。
 
 *b*
 
- `None` or a Float specifying the value of the material constant ![](../graphics/ker_eqn00038.gif). `None` is used when the value is unknown or it is not held fixed at the input value. The default value is `None`.
+`None` 或 Float，指定材料常数 ![](../graphics/ker_eqn00038.gif) 的值。当值未知或未固定在输入值时使用 `None`。默认值为 `None`。
 
 *pt*
 
- `None` or a Float specifying the value of the material constant ![](../graphics/ker_eqn00373.gif). `None` is used when the value is unknown or it is not held fixed at the input value. The default value is `None`.
+`None` 或 Float，指定材料常数 ![](../graphics/ker_eqn00373.gif) 的值。当值未知或未固定在输入值时使用 `None`。默认值为 `None`。
 
-**Table data**
+**表格数据**
 
-- Sign and magnitude of confining stress, ![](../graphics/ker_eqn00374.gif).
-- Sign and magnitude of the stress in loading direction, ![](../graphics/ker_eqn00375.gif).
+- 围压的符号和大小，![](../graphics/ker_eqn00374.gif)。
+- 加载方向应力的符号和大小，![](../graphics/ker_eqn00375.gif)。
 
-**Return value**
+**返回值**
 
-A TriaxialTestData object.
+TriaxialTestData 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 29.99.2 setValues(...)
 
-This method modifies the TriaxialTestData object.
+此方法修改 TriaxialTestData 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [TriaxialTestData](pt01ch29pyo99.md#ker-triaxialtestdata-triaxialtestdata-pyc) method.
+`setValues` 的可选参数与 [TriaxialTestData](pt01ch29pyo99.md#ker-triaxialtestdata-triaxialtestdata-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 29.99.3 Members
+### 29.99.3 成员
 
-The TriaxialTestData object has members with the same names and descriptions as the arguments to the [TriaxialTestData](pt01ch29pyo99.md#ker-triaxialtestdata-triaxialtestdata-pyc) method.
+TriaxialTestData 对象的成员与 [TriaxialTestData](pt01ch29pyo99.md#ker-triaxialtestdata-triaxialtestdata-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.99.4 Corresponding analysis keywords
+### 29.99.4 对应的分析关键字
 
 | [*TRIAXIAL TEST DATA](../key/key-link.md#usb-kws-mtritestdata) |
 | --- |
-
-
-
-

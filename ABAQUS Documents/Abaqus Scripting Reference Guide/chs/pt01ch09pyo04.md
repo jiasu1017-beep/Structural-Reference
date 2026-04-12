@@ -1,16 +1,10 @@
-# 9.4 AccelerationBC object
+# 9.4 AccelerationBC 对象
 
+AccelerationBC 对象存储加速度边界条件的数据。
 
+AccelerationBC 对象派生自 [BoundaryCondition](pt01ch09pyo01.md) 对象。
 
-
-
-
-
-The AccelerationBC object stores the data for an acceleration boundary condition.
-
-The AccelerationBC object is derived from the [BoundaryCondition](pt01ch09pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import load
@@ -19,176 +13,172 @@ mdb.models[*name*].boundaryConditions[*name*]
 
 ### 9.4.1 AccelerationBC(...)
 
-This method creates an AccelerationBC object.
+此方法创建一个 AccelerationBC 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].AccelerationBC
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the boundary condition repository key.
+一个 String，指定边界条件存储库键。
 
 *createStepName*
 
-A String specifying the name of the step in which the boundary condition is created.
+一个 String，指定创建边界条件的步骤名称。
 
 *region*
 
-A [Region](pt01ch45pyo03.md) object specifying the region to which the boundary condition is applied.
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用边界条件的区域。
 
-**Optional arguments**
+**可选参数**
 
 *fieldName*
 
-A String specifying the name of the [AnalyticalField](pt01ch21pyo02.md) object associated with this boundary condition. The *fieldName* argument applies only when *distributionType*=FIELD. The default value is an empty string.
+一个 String，指定与此边界条件关联的 [AnalyticalField](pt01ch21pyo02.md) 对象的名称。*fieldName* 参数仅在 *distributionType*=FIELD 时适用。默认值为空字符串。
 
 *a1*
 
-A Float or a SymbolicConstant specifying the acceleration component in the 1-direction. Possible values for the SymbolicConstant are UNSET and SET. The default value is UNSET.
+一个 Float 或 SymbolicConstant，指定 1 方向上的加速度分量。SymbolicConstant 的可能值为 UNSET 和 SET。默认值为 UNSET。
 
-**Note:**Although *a1*, *a2*, *a3*, *ar1*, *ar2*, and *ar3* are optional arguments, at least one of them must be specified.
+**注：**虽然 *a1*、*a2*、*a3*、*ar1*、*ar2* 和 *ar3* 是可选参数，但必须至少指定其中一个。
 
 *a2*
 
-A Float or a SymbolicConstant specifying the acceleration component in the 2-direction. Possible values for the SymbolicConstant are UNSET and SET. The default value is UNSET.
+一个 Float 或 SymbolicConstant，指定 2 方向上的加速度分量。SymbolicConstant 的可能值为 UNSET 和 SET。默认值为 UNSET。
 
 *a3*
 
-A Float or a SymbolicConstant specifying the acceleration component in the 3-direction. Possible values for the SymbolicConstant are UNSET and SET. The default value is UNSET.
+一个 Float 或 SymbolicConstant，指定 3 方向上的加速度分量。SymbolicConstant 的可能值为 UNSET 和 SET。默认值为 UNSET。
 
 *ar1*
 
-A Float or a SymbolicConstant specifying the rotational acceleration component about the 1-direction. Possible values for the SymbolicConstant are UNSET and SET. The default value is UNSET.
+一个 Float 或 SymbolicConstant，指定关于 1 方向的旋转加速度分量。SymbolicConstant 的可能值为 UNSET 和 SET。默认值为 UNSET。
 
 *ar2*
 
-A Float or a SymbolicConstant specifying the rotational acceleration component about the 2-direction. Possible values for the SymbolicConstant are UNSET and SET. The default value is UNSET.
+一个 Float 或 SymbolicConstant，指定关于 2 方向的旋转加速度分量。SymbolicConstant 的可能值为 UNSET 和 SET。默认值为 UNSET。
 
 *ar3*
 
-A Float or a SymbolicConstant specifying the rotational acceleration component about the 3-direction. Possible values for the SymbolicConstant are UNSET and SET. The default value is UNSET.
+一个 Float 或 SymbolicConstant，指定关于 3 方向的旋转加速度分量。SymbolicConstant 的可能值为 UNSET 和 SET。默认值为 UNSET。
 
 *amplitude*
 
-A String or the SymbolicConstant UNSET specifying the name of the amplitude reference. UNSET should be used if the boundary condition has no amplitude reference. The default value is UNSET. You should provide the *amplitude* argument only if it is valid for the specified step.
+一个 String 或 SymbolicConstant UNSET，指定振幅引用的名称。如果边界条件没有振幅引用，应使用 UNSET。默认值为 UNSET。只有当该参数对指定步骤有效时，才应提供 *amplitude* 参数。
 
 *localCsys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system of the boundary condition's degrees of freedom. If *localCsys*=`None`, the degrees of freedom are defined in the global coordinate system. The default value is `None`.
+`None` 或一个 [DatumCsys](pt01ch15pyo03.md) 对象，指定边界条件自由度的局部坐标系。如果 *localCsys*=`None`，则自由度在全局坐标系中定义。默认值为 `None`。
 
 *distributionType*
 
-A SymbolicConstant specifying how the boundary condition is distributed spatially. Possible values are UNIFORM, USER_DEFINED, and FIELD. The default value is UNIFORM.
+一个 SymbolicConstant，指定边界条件在空间上的分布方式。可能的值为 UNIFORM、USER_DEFINED 和 FIELD。默认值为 UNIFORM。
 
-**Return value**
+**返回值**
 
-An AccelerationBC object.
+一个 AccelerationBC 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 9.4.2 setValues(...)
 
-This method modifies the data for an existing AccelerationBC object in the step where it is created.
+此方法修改现有 AccelerationBC 对象在创建它的步骤中的数据。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [AccelerationBC](pt01ch09pyo04.md#ker-accelerationbc-accelerationbc-pyc) method, except for the *name* and *createStepName* arguments.
+`setValues` 的可选参数与 [AccelerationBC](pt01ch09pyo04.md#ker-accelerationbc-accelerationbc-pyc) 方法的参数相同，但 *name* 和 *createStepName* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 9.4.3 setValuesInStep(...)
 
-This method modifies the propagating data for an existing AccelerationBC object in the specified step.
+此方法修改指定步骤中现有 AccelerationBC 对象的传播数据。
 
-**Required argument**
+**必需参数**
 
 *stepName*
 
-A String specifying the name of the step in which the boundary condition is modified.
+一个 String，指定要修改边界条件的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
 *a1*
 
-A Float or a SymbolicConstant specifying the acceleration component in the 1-direction. Possible values for the SymbolicConstant are SET, UNCHANGED, and FREED.
+一个 Float 或 SymbolicConstant，指定 1 方向上的加速度分量。SymbolicConstant 的可能值为 SET、UNCHANGED 和 FREED。
 
 *a2*
 
-A Float or a SymbolicConstant specifying the acceleration component in the 2-direction. Possible values for the SymbolicConstant are SET, UNCHANGED, and FREED.
+一个 Float 或 SymbolicConstant，指定 2 方向上的加速度分量。SymbolicConstant 的可能值为 SET、UNCHANGED 和 FREED。
 
 *a3*
 
-A Float or a SymbolicConstant specifying the acceleration component in the 3-direction. Possible values for the SymbolicConstant are SET, UNCHANGED, and FREED.
+一个 Float 或 SymbolicConstant，指定 3 方向上的加速度分量。SymbolicConstant 的可能值为 SET、UNCHANGED 和 FREED。
 
 *ar1*
 
-A Float or a SymbolicConstant specifying the rotational acceleration component about the 1-direction. Possible values for the SymbolicConstant are SET, UNCHANGED, and FREED.
+一个 Float 或 SymbolicConstant，指定关于 1 方向的旋转加速度分量。SymbolicConstant 的可能值为 SET、UNCHANGED 和 FREED。
 
 *ar2*
 
-A Float or a SymbolicConstant specifying the rotational acceleration component about the 2-direction. Possible values for the SymbolicConstant are SET, UNCHANGED, and FREED.
+一个 Float 或 SymbolicConstant，指定关于 2 方向的旋转加速度分量。SymbolicConstant 的可能值为 SET、UNCHANGED 和 FREED。
 
 *ar3*
 
-A Float or a SymbolicConstant specifying the rotational acceleration component about the 3-direction. Possible values for the SymbolicConstant are SET, UNCHANGED, and FREED.
+一个 Float 或 SymbolicConstant，指定关于 3 方向的旋转加速度分量。SymbolicConstant 的可能值为 SET、UNCHANGED 和 FREED。
 
 *amplitude*
 
-A String or a SymbolicConstant specifying the name of the amplitude reference. Possible values for the SymbolicConstant are UNCHANGED and FREED. UNCHANGED should be used if the amplitude is propagated from the previous analysis step. FREED should be used if the boundary condition is changed to have no amplitude reference. You should provide the *amplitude* argument only if it is valid for the specified step.
+一个 String 或 SymbolicConstant，指定振幅引用的名称。SymbolicConstant 的可能值为 UNCHANGED 和 FREED。UNCHANGED 应在振幅从先前的分析步骤传播时使用。如果边界条件要改为没有振幅引用，应使用 FREED。只有当该参数对指定步骤有效时，才应提供 *amplitude* 参数。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 9.4.4 Members
+### 9.4.4 成员
 
-The AccelerationBC object can have the following members:
+AccelerationBC 对象可以具有以下成员：
 
 *name*
 
-A String specifying the boundary condition repository key.
+一个 String，指定边界条件存储库键。
 
 *distributionType*
 
-A SymbolicConstant specifying how the boundary condition is distributed spatially. Possible values are UNIFORM, USER_DEFINED, and FIELD. The default value is UNIFORM.
+一个 SymbolicConstant，指定边界条件在空间上的分布方式。可能的值为 UNIFORM、USER_DEFINED 和 FIELD。默认值为 UNIFORM。
 
 *fieldName*
 
-A String specifying the name of the [AnalyticalField](pt01ch21pyo02.md) object associated with this boundary condition. The *fieldName* argument applies only when *distributionType*=FIELD. The default value is an empty string.
+一个 String，指定与此边界条件关联的 [AnalyticalField](pt01ch21pyo02.md) 对象的名称。*fieldName* 参数仅在 *distributionType*=FIELD 时适用。默认值为空字符串。
 
 *category*
 
-A SymbolicConstant specifying the category of the boundary condition. Possible values are MECHANICAL and THERMAL.
+一个 SymbolicConstant，指定边界条件的类别。可能的值为 MECHANICAL 和 THERMAL。
 
 *region*
 
-A [Region](pt01ch45pyo03.md) object specifying the region to which the boundary condition is applied.
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用边界条件的区域。
 
 *localCsys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system of the boundary condition's degrees of freedom. If *localCsys*=`None`, the degrees of freedom are defined in the global coordinate system. The default value is `None`.
-
-
-
-
+`None` 或一个 [DatumCsys](pt01ch15pyo03.md) 对象，指定边界条件自由度的局部坐标系。如果 *localCsys*=`None`，则自由度在全局坐标系中定义。默认值为 `None`。

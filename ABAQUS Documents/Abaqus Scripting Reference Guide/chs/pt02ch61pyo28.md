@@ -1,14 +1,8 @@
-# 61.28 SectionPoint object
+# 61.28 SectionPoint 对象
 
+SectionPoint 对象描述截面类别内截面点位置。
 
-
-
-
-
-
-The SectionPoint object describes the location of a section point within a section category.
-
-**Access**
+**访问**
 
 ```
 odb.parts()[*name*].elements(*i*).sectionCategory().sectionPoints(*i*)
@@ -49,15 +43,15 @@ odb.steps()[*name*].frames(*i*).fieldOutputs()[*name*].values(*i*).sectionPoint(
 
 ### 61.28.1 SectionPoint(...)
 
-This method creates a SectionPoint object.
+此方法创建一个 SectionPoint 对象。
 
-**Path**
+**路径**
 
 ```
 odb.sectionCategories()[*name*].SectionPoint
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_SectionPoint&
@@ -65,39 +59,35 @@ SectionPoint(int number,
              const odb_String& description);
 ```
 
-**Required arguments**
+**必需参数**
 
 *number*
 
-An Int specifying the number of the section point. See ["Beam elements," Section 29.3 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usbebeam), and ["Shell elements," Section 29.6 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usbeshell), for the numbering convention.
+一个 Int，指定截面点的编号。关于编号约定，请参阅"Abaqus Analysis User's Guide"的"梁单元"第 29.3 节（[../usb/usb-link.md#usbebeam](../usb/usb-link.md#usbebeam)）和"壳单元"第 29.6 节（[../usb/usb-link.md#usbeshell](../usb/usb-link.md#usbeshell)）。
 
 *description*
 
-An odb_String specifying the description of the section point.
+一个 odb_String，指定截面点的描述。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A SectionPoint object.
+一个 SectionPoint 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 61.28.2 Members
+### 61.28.2 成员
 
-The SectionPoint object has members with the same names and descriptions as the arguments to the [SectionPoint](pt02ch61pyo28.md#ker-sectionpoint-sectionpoint-cpp) method.
+SectionPoint 对象具有与 [SectionPoint](pt02ch61pyo28.md#ker-sectionpoint-sectionpoint-cpp) 方法参数相同名称和描述的成员。
 
-**Prototype**
+**原型**
 
 ```
 int number() const;
 const odb_String description() const;
 ```
-
-
-
-

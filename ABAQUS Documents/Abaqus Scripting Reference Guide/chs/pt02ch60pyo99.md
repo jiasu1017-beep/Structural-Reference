@@ -1,14 +1,8 @@
-# 60.99 TriaxialTestData object
+# 60.99 TriaxialTestData 对象
 
+TriaxialTestData 对象提供三轴测试数据。
 
-
-
-
-
-
-The TriaxialTestData object provides triaxial test data.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].druckerPrager().triaxialTestData()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].druckerPrager().triaxialTestData()
 
 ### 60.99.1 TriaxialTestData(...)
 
-This method creates a TriaxialTestData object.
+此方法创建一个 TriaxialTestData 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].druckerPrager().TriaxialTestData
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_TriaxialTestData&
@@ -34,48 +28,44 @@ TriaxialTestData(const odb_SequenceSequenceDouble& table,
                  odb_Union pt);
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
 *a*
 
-The string "NONE" or a Double specifying the value of the material constant ![](../graphics/ker_eqn00278.gif). "NONE" is used when the value is unknown or it is not held fixed at the input value. The default value is "NONE".
+字符串"NONE"或一个 Double，指定材料常数 ![](../graphics/ker_eqn00278.gif] 的值。当值未知或不安保持在输入值时使用"NONE"。默认值为"NONE"。
 
 *b*
 
-The string "NONE" or a Double specifying the value of the material constant ![](../graphics/ker_eqn00038.gif). "NONE" is used when the value is unknown or it is not held fixed at the input value. The default value is "NONE".
+字符串"NONE"或一个 Double，指定材料常数 ![](../graphics/ker_eqn00038.gif] 的值。当值未知或不安保持在输入值时使用"NONE"。默认值为"NONE"。
 
 *pt*
 
-The string "NONE" or a Double specifying the value of the material constant ![](../graphics/ker_eqn00373.gif). "NONE" is used when the value is unknown or it is not held fixed at the input value. The default value is "NONE".
+字符串"NONE"或一个 Double，指定材料常数 ![](../graphics/ker_eqn00373.gif] 的值。当值未知或不安保持在输入值时使用"NONE"。默认值为"NONE"。
 
-**Table data**
+**表数据**
 
-- Sign and magnitude of confining stress, ![](../graphics/ker_eqn00374.gif).
-- Sign and magnitude of the stress in loading direction, ![](../graphics/ker_eqn00375.gif).
+- 围压应力的符号和大小，![](../graphics/ker_eqn00374.gif]。
+- 加载方向应力的符号和大小，![](../graphics/ker_eqn00375.gif]。
 
-**Return value**
+**返回值**
 
-A TriaxialTestData object.
+一个 TriaxialTestData 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.99.2 Members
+### 60.99.2 成员
 
-The TriaxialTestData object has members with the same names and descriptions as the arguments to the [TriaxialTestData](pt02ch60pyo99.md#ker-triaxialtestdata-triaxialtestdata-cpp) method.
+TriaxialTestData 对象的成员与 [TriaxialTestData](pt02ch60pyo99.md#ker-triaxialtestdata-triaxialtestdata-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.99.3 Corresponding analysis keywords
+### 60.99.3 对应的分析关键字
 
 | [*TRIAXIAL TEST DATA](../key/key-link.md#usb-kws-mtritestdata) |
 | --- |
-
-
-
-

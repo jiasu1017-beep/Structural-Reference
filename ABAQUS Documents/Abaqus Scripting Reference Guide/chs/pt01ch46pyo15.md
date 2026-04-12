@@ -1,19 +1,12 @@
-# 46.15 LayerProperties object
+# 46.15 LayerProperties 对象
 
+LayerProperties 对象定义膜、壳和表面截面增强层属性。
 
-
-
-
-
-
-The LayerProperties object defines the properties of a layer of reinforcement for membrane, shell, and surface sections.
-
-**Access**
+**访问**
 
 ```
 import section
-mdb.models[*name*].parts[*name*].compositeLayups[*i*].section.rebarLayers\
-.layerTable[*i*]
+mdb.models[*name*].parts[*name*].compositeLayups[*i*].section.rebarLayers.layerTable[*i*]
 mdb.models[*name*].sections[*name*].rebarLayers.layerTable[*i*]
 import odbSection
 session.odbs[*name*].sections[*name*].rebarLayers.layerTable[*i*]
@@ -21,7 +14,7 @@ session.odbs[*name*].sections[*name*].rebarLayers.layerTable[*i*]
 
 ### 46.15.1 LayerProperties(...)
 
-This method creates a LayerProperties object.
+此方法创建 LayerProperties 对象。
 
 **Path**
 
@@ -33,63 +26,59 @@ section.LayerProperties
 odbSection.LayerProperties
 ```
 
-**Required arguments**
+**必需参数**
 
 *barArea*
 
-A Float specifying the area per bar.
+Float，指定每根钢筋的面积。
 
 *orientationAngle*
 
-A Float or a String specifying the orientation of the rebar. A Float specifies the angular orientation; a String specifies an orientation name.
+Float 或 String，指定钢筋的方向。Float 指定角度方向；String 指定方向名称。
 
 *layerName*
 
-A String specifying the name of the rebar layer.
+String，指定钢筋层的名称。
 
 *material*
 
-A String specifying the name of the rebar material.
+String，指定钢筋材料的名称。
 
-**Optional arguments**
+**可选参数**
 
 *barSpacing*
 
-A Float specifying the spacing of the rebar. This argument is only valid if the *rebarSpacing* argument on the parent [RebarLayers](pt01ch46pyo19.md) object is set to CONSTANT. The default value is 0.0.
+Float，指定钢筋的间距。此参数仅在父 [RebarLayers](pt01ch46pyo19.md) 对象的 *rebarSpacing* 参数设置为 CONSTANT 时有效。默认值为 0.0。
 
 *layerPosition*
 
-A Float specifying the position of the rebar from the middle surface of the shell. *layerPosition* applies only for homogeneous shell sections and composite shell sections. The default value is 0.0.
+Float，指定钢筋从壳中面算起的位置。*layerPosition* 仅适用于均匀壳截面和复合壳截面。默认值为 0.0。
 
 *spacingAngle*
 
-A Float specifying the spacing angle of the rebar. This argument is only valid if the *rebarSpacing* argument on the parent [RebarLayers](pt01ch46pyo19.md) object is set to ANGULAR. The default value is 0.0.
+Float，指定钢筋的间距角度。此参数仅在父 [RebarLayers](pt01ch46pyo19.md) 对象的 *rebarSpacing* 参数设置为 ANGULAR 时有效。默认值为 0.0。
 
 *extensionRatio*
 
-A Float specifying the extension ratio for the rebar. This argument is only valid if the *rebarSpacing* argument on the parent [RebarLayers](pt01ch46pyo19.md) object is set to LIFT_EQUATION. The default value is 0.0.
+Float，指定钢筋的延伸比。此参数仅在父 [RebarLayers](pt01ch46pyo19.md) 对象的 *rebarSpacing* 参数设置为 LIFT_EQUATION 时有效。默认值为 0.0。
 
 *radius*
 
-A Float specifying the radius of the rebar. This argument is only valid if the *rebarSpacing* argument on the parent [RebarLayers](pt01ch46pyo19.md) object is set to LIFT_EQUATION. The default value is 0.0.
+Float，指定钢筋的半径。此参数仅在父 [RebarLayers](pt01ch46pyo19.md) 对象的 *rebarSpacing* 参数设置为 LIFT_EQUATION 时有效。默认值为 0.0。
 
-**Return value**
+**返回值**
 
-A LayerProperties object.
+LayerProperties 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 46.15.2 Members
+### 46.15.2 成员
 
-The LayerProperties object has members with the same names and descriptions as the arguments to the [LayerProperties](pt01ch46pyo15.md#ker-layerproperties-layerproperties-pyc) method.
+LayerProperties 对象的成员与 [LayerProperties](pt01ch46pyo15.md#ker-layerproperties-layerproperties-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.15.3 Corresponding analysis keywords
+### 46.15.3 对应分析关键字
 
-| [*REBAR LAYER](../key/key-link.md#usb-kws-mrebarlayer) |
+| [*REBAR LAYER*](../key/key-link.md#usb-kws-mrebarlayer) |
 | --- |
-
-
-
-

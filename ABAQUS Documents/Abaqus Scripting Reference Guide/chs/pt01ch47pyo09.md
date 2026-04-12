@@ -1,14 +1,12 @@
-# 47.9 NumberFormat object
+# 47.9 NumberFormat 对象
 
 
 
 
 
+NumberFormat 对象是用于定义某些数字输出格式选项的格式化模板。
 
-
-The NumberFormat               object is a formatting template used to define formatting options for certain numeric output.
-
-**Access**
+**访问**
 
 ```
 import visualization
@@ -21,9 +19,9 @@ session.journalOptions.geometryFormat
 
 ### 47.9.1 NumberFormat(...)
 
-This method creates a NumberFormat object.
+此方法创建 NumberFormat 对象。
 
-**Path**
+**路径**
 
 ```
 session.defaultFieldReportOptions.NumberFormat
@@ -31,40 +29,38 @@ session.fieldReportOptions.NumberFormat
 session.journalOptions.NumberFormat
 ```
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *blankPad*
 
-A Boolean specifying whether the printed digits should be padded with blank characters to ensure equal sized fields. The *blankPad*                  argument is useful when your printed output includes columns.                 The default value is ON.
+Boolean，指定是否应用空白字符填充打印数字以确保字段大小相等。*blankPad* 参数在打印输出包含列时很有用。默认值为 ON。
 
 *format*
 
-A SymbolicConstant specifying the formatting type. Possible values are ENGINEERING, SCIENTIFIC, and AUTOMATIC. The default value is ENGINEERING.
+SymbolicConstant，指定格式类型。可能的值为 ENGINEERING、SCIENTIFIC 和 AUTOMATIC。默认值为 ENGINEERING。
 
 *numDigits*
 
-An Int specifying the number of digits to be displayed in the result. *numDigits*                   ![](../graphics/ker_eqn00417.gif).                 The default value is 6.
+Int，指定结果显示的位数。*numDigits* ![](../graphics/ker_eqn00417.gif)。默认值为 6。
 
 *precision*
 
-An Int specifying the number of decimal places to which the number is to be truncated for display. *precision*                   ![](../graphics/ker_eqn00418.gif). If *precision*                  =0, no truncation is applied.                 The default value is 0.
+Int，指定数字截断显示的小数位数。*precision* ![](../graphics/ker_eqn00418.gif)。如果 *precision* =0，则不应用截断。默认值为 0。
 
-**Return value**
+**返回值**
 
-A NumberFormat object.
+NumberFormat 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 47.9.2 Members
+### 47.9.2 成员
 
-The NumberFormat object has members with the same names and descriptions as the arguments to the [NumberFormat](pt01ch47pyo09.md#ker-numberformat-numberformat-pyc) method.
-
-
+NumberFormat 对象的成员与 [NumberFormat](pt01ch47pyo09.md#ker-numberformat-numberformat-pyc) 方法的参数具有相同的名称和描述。
 
 

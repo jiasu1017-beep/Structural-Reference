@@ -1,24 +1,18 @@
-# 61.29 SectorDefinition object
+# 61.29 SectorDefinition 对象
 
+SectorDefinition 对象描述循环对称模型的对称扇区数量和对称轴。
 
-
-
-
-
-
-The SectorDefinition object describes the number of symmetry sectors and axis of symmetry for a cyclic symmetry model.
-
-**Access**
+**访问**
 
 ```
 odb.sectorDefinition()
 ```
 
-### 61.29.1 Members
+### 61.29.1 成员
 
-The SectorDefinition object has the following members:
+SectorDefinition 对象具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 int numSectors();
@@ -27,12 +21,8 @@ const odb_SequenceSequenceFloat symmetryAxis();
 
 *numSectors*
 
-An Int specifying the number of sectors in the cyclic symmetry model.
+一个 Int，指定循环对称模型中的扇区数量。
 
 *symmetryAxis*
 
-An odb_SequenceSequenceFloat specifying the coordinates of two points on the axis of symmetry.
-
-
-
-
+一个 odb_SequenceSequenceFloat，指定对称轴上两点的坐标。

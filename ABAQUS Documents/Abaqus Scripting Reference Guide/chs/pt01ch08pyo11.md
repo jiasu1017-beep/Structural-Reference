@@ -1,16 +1,10 @@
-# 8.11 TProfile object
+# 8.11 TProfile 对象
 
+TProfile 对象定义 T 形 profile 的属性。
 
+TProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The TProfile object defines the properties of a T profile.
-
-The TProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,82 +15,78 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.11.1 TProfile(...)
 
-This method creates a TProfile object.
+此方法创建一个 TProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].TProfile
 session.odbs[*name*].TProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *b*
 
-A positive Float specifying the *b* dimension (flange width) of the T profile. For more information, see ["Beam cross-section library," Section 29.3.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-ebeamcrosssectlib).
+一个正 Float，指定 T 形 profile 的 *b* 尺寸（翼缘宽度）。有关详细信息，请参阅《Abaqus Analysis User's Guide》的"Beam cross-section library," Section 29.3.9。
 
 *h*
 
-A positive Float specifying the *h* dimension (height) of the T profile.
+一个正 Float，指定 T 形 profile 的 *h* 尺寸（高度）。
 
 *l*
 
-A positive Float specifying the *l* dimension (offset of 1–axis from the edge of web) of the T profile.
+一个正 Float，指定 T 形 profile 的 *l* 尺寸（从腹板边缘到 1 轴的偏移量）。
 
 *tf*
 
-A positive Float specifying the *tf* dimension (flange thickness) of the T profile (*tf < h*).
+一个正 Float，指定 T 形 profile 的 *tf* 尺寸（翼缘厚度），*tf < h*。
 
 *tw*
 
-A positive Float specifying the *tw* dimension (web thickness) of the T profile (*tw< b*).
+一个正 Float，指定 T 形 profile 的 *tw* 尺寸（腹板厚度），*tw < b*。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A TProfile object.
+一个 TProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.11.2 setValues(...)
 
-This method modifies the TProfile object.
+此方法修改 TProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [TProfile](pt01ch08pyo11.md#ker-tprofile-tprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [TProfile](pt01ch08pyo11.md#ker-tprofile-tprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.11.3 Members
+### 8.11.3 成员
 
-The TProfile object has members with the same names and descriptions as the arguments to the [TProfile](pt01ch08pyo11.md#ker-tprofile-tprofile-pyc) method.
+TProfile 对象具有与 [TProfile](pt01ch08pyo11.md#ker-tprofile-tprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.11.4 Corresponding analysis keywords
+### 8.11.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=I |
 | --- |
-
-
-
-

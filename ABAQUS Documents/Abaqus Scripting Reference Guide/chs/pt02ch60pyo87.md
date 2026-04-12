@@ -1,14 +1,8 @@
-# 60.87 Regularization object
+# 60.87 Regularization 对象
 
+Regularization 对象用于定义用于正则化材料数据的容差。
 
-
-
-
-
-
-The Regularization object defines the tolerance to be used for regularizing material data.
-
-**Access**
+**访问**
 
 ```
 materialApi.materials()[*name*].regularization()
@@ -16,15 +10,15 @@ materialApi.materials()[*name*].regularization()
 
 ### 60.87.1 Regularization(...)
 
-This method creates a Regularization object.
+此方法创建一个 Regularization 对象。
 
-**Path**
+**路径**
 
 ```
 materialApi.materials()[*name*].Regularization
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Regularization&
@@ -32,37 +26,33 @@ Regularization(double rtol,
                const odb_String& strainRateRegularization);
 ```
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *rtol*
 
-A Double specifying the tolerance to be used for regularizing material data. The default value is 0.03.
+一个 Double，指定用于正则化材料数据的容差。默认值为 0.03。
 
 *strainRateRegularization*
 
-An odb_String specifying the form of regularization of strain-rate-dependent material data. Possible values are "LOGARITHMIC" and "LINEAR". The default value is "LOGARITHMIC".
+一个 odb_String，指定应变率相关材料数据正则化的形式。可能的值为"LOGARITHMIC"和"LINEAR"。默认值为"LOGARITHMIC"。
 
-**Return value**
+**返回值**
 
-A Regularization object.
+一个 Regularization 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 60.87.2 Members
+### 60.87.2 成员
 
-The Regularization object has members with the same names and descriptions as the arguments to the [Regularization](pt02ch60pyo87.md#ker-regularization-regularization-cpp) method.
+Regularization 对象的成员与 [Regularization](pt02ch60pyo87.md#ker-regularization-regularization-cpp) 方法的参数具有相同的名称和描述。
 
-### 60.87.3 Corresponding analysis keywords
+### 60.87.3 对应的分析关键字
 
 | [*DASHPOT](../key/key-link.md#usb-kws-mdashpot) |
 | --- |
-
-
-
-

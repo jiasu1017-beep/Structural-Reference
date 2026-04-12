@@ -1,14 +1,8 @@
-# 61.30 UserData object
+# 61.30 UserData 对象
 
+UserData 对象包含用户定义的 XY 数据。UserData 对象没有构造函数；当创建 [Odb](pt02ch61pyo01.md) 对象时会自动创建它。
 
-
-
-
-
-
-The UserData object contains user-defined XY data. The UserData object has no constructor; it is created automatically when an [Odb](pt02ch61pyo01.md) object is created. 
-
-**Access**
+**访问**
 
 ```
 odb.userData()
@@ -16,15 +10,15 @@ odb.userData()
 
 ### 61.30.1 XYData(...)
 
-This method creates an [XYData](#ker-xydata-cpp) object from a sequence of *X–Y* data pairs.
+此方法从 *X–Y* 数据对序列创建 [XYData](#ker-xydata-cpp) 对象。
 
-**Path**
+**路径**
 
 ```
 odb.userData().XYData
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_UserData&
@@ -40,114 +34,109 @@ XYData(const odb_String& name,
        const odb_QuantityType& axis2QuantityType);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the repository key.
+一个 odb_String，指定存储库键。
 
 *data*
 
-An odb_SequenceSequenceDouble specifying the *X–Y* data pairs.
+一个 odb_SequenceSequenceDouble，指定 *X–Y* 数据对。
 
-**Optional arguments**
+**可选参数**
 
 *sourceDescription*
 
-An odb_String specifying the source of the *X–Y* data (e.g., “Entered from keyboard”, “Taken from ASCII file”, “Read from an ODB”, etc.). The default value is an empty string.
+一个 odb_String，指定 *X–Y* 数据的来源（例如，"Entered from keyboard"、"Taken from ASCII file"、"Read from an ODB" 等）。默认值为空字符串。
 
 *contentDescription*
 
-An odb_String specifying the content of the *X–Y* data (e.g., “field 1 vs. field 2”). The default value is an empty string.
+一个 odb_String，指定 *X–Y* 数据的内容（例如，"field 1 vs. field 2"）。默认值为空字符串。
 
 *positionDescription*
 
-An odb_String specifying additional information about the *X–Y* data (e.g., “for whole model”). The default value is an empty string.
+一个 odb_String，指定关于 *X–Y* 数据的附加信息（例如，"for whole model"）。默认值为空字符串。
 
 *legendLabel*
 
-An odb_String specifying the label to be used in the legend. The default value is the name of the XYData object.
+一个 odb_String，指定图例中使用的标签。默认值为 XYData 对象的名称。
 
 *xValuesLabel*
 
-An odb_String specifying the label for the X-values. This value may be overridden if the *X–Y* data are combined with other *X–Y* data.  The default value is an empty string.
+一个 odb_String，指定 X 值的标签。如果 *X–Y* 数据与其他 *X–Y* 数据组合，此值可能会被覆盖。默认值为空字符串。
 
 *yValuesLabel*
 
-An odb_String specifying the label for the Y-values. This value may be overridden if the *X–Y* data are combined with other *X–Y* data.  The default value is an empty string.
+一个 odb_String，指定 Y 值的标签。如果 *X–Y* 数据与其他 *X–Y* 数据组合，此值可能会被覆盖。默认值为空字符串。
 
 *axis1QuantityType*
 
-A [QuantityType](#ker-quantitytype-cpp) object specifying the [QuantityType](#ker-quantitytype-cpp) object associated to the X -axis1- values.
+一个 [QuantityType](#ker-quantitytype-cpp) 对象，指定与 X 轴1值关联的 [QuantityType](#ker-quantitytype-cpp) 对象。
 
 *axis2QuantityType*
 
-A [QuantityType](#ker-quantitytype-cpp) object specifying the [QuantityType](#ker-quantitytype-cpp) object associated to the Y -axis2- values.
+一个 [QuantityType](#ker-quantitytype-cpp) 对象，指定与 Y 轴2值关联的 [QuantityType](#ker-quantitytype-cpp) 对象。
 
-**Return value**
+**返回值**
 
-An [XYData](#ker-xydata-cpp) object.
+一个 [XYData](#ker-xydata-cpp) 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
-### 61.30.2 Members
+### 61.30.2 成员
 
-The UserData object can have the following members:
+UserData 对象可以具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_UserXYDataRepository& xyDataObjects();
 odb_UserXYData& xyDataObjects(const odb_String& xyName);
-
 ```
 
 *name*
 
-An odb_String specifying the repository key.
+一个 odb_String，指定存储库键。
 
 *sourceDescription*
 
-An odb_String specifying the source of the *X–Y* data (e.g., “Entered from keyboard”, “Taken from ASCII file”, “Read from an ODB”, etc.). The default value is an empty string.
+一个 odb_String，指定 *X–Y* 数据的来源（例如，"Entered from keyboard"、"Taken from ASCII file"、"Read from an ODB" 等）。默认值为空字符串。
 
 *contentDescription*
 
-An odb_String specifying the content of the *X–Y* data (e.g., “field 1 vs. field 2”). The default value is an empty string.
+一个 odb_String，指定 *X–Y* 数据的内容（例如，"field 1 vs. field 2"）。默认值为空字符串。
 
 *positionDescription*
 
-An odb_String specifying additional information about the *X–Y* data (e.g., “for whole model”). The default value is an empty string.
+一个 odb_String，指定关于 *X–Y* 数据的附加信息（例如，"for whole model"）。默认值为空字符串。
 
 *xValuesLabel*
 
-An odb_String specifying the label for the X-values. This value may be overridden if the *X–Y* data are combined with other *X–Y* data.  The default value is an empty string.
+一个 odb_String，指定 X 值的标签。如果 *X–Y* 数据与其他 *X–Y* 数据组合，此值可能会被覆盖。默认值为空字符串。
 
 *yValuesLabel*
 
-An odb_String specifying the label for the Y-values. This value may be overridden if the *X–Y* data are combined with other *X–Y* data.  The default value is an empty string.
+一个 odb_String，指定 Y 值的标签。如果 *X–Y* 数据与其他 *X–Y* 数据组合，此值可能会被覆盖。默认值为空字符串。
 
 *axis1QuantityType*
 
-A [QuantityType](#ker-quantitytype-cpp) object specifying the [QuantityType](#ker-quantitytype-cpp) object associated to the X -axis1- values.
+一个 [QuantityType](#ker-quantitytype-cpp) 对象，指定与 X 轴1值关联的 [QuantityType](#ker-quantitytype-cpp) 对象。
 
 *axis2QuantityType*
 
-A [QuantityType](#ker-quantitytype-cpp) object specifying the [QuantityType](#ker-quantitytype-cpp) object associated to the Y -axis2- values.
+一个 [QuantityType](#ker-quantitytype-cpp) 对象，指定与 Y 轴2值关联的 [QuantityType](#ker-quantitytype-cpp) 对象。
 
 *legendLabel*
 
-An odb_String specifying the label to be used in the legend. The default value is the name of the XYData object.
+一个 odb_String，指定图例中使用的标签。默认值为 XYData 对象的名称。
 
 *xyDataObjects*
 
-A repository of [UserXYData](pt02ch61pyo31.md) objects.
+[UserXYData](pt02ch61pyo31.md) 对象的存储库。
 
 *data*
 
-An odb_SequenceSequenceDouble specifying the *X–Y* data pairs.
-
-
-
-
+一个 odb_SequenceSequenceDouble，指定 *X–Y* 数据对。

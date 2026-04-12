@@ -1,176 +1,74 @@
-# 60.77 Plastic object
+# 60.78 PoreFluidExpansion 对象
 
+PoreFluidExpansion 对象用于指定液压流体的热膨胀系数。
 
-
-
-
-
-
-The Plastic object specifies a metal plasticity model.
-
-**Access**
+**访问**
 
 ```
-materialApi.materials()[*name*].plastic()
+materialApi.materials()[*name*].poreFluidExpansion()
 ```
 
-### 60.77.1 Plastic(...)
+### 60.78.1 PoreFluidExpansion(...)
 
-This method creates a Plastic object.
+此方法创建一个 PoreFluidExpansion 对象。
 
-**Path**
-
-```
-materialApi.materials()[*name*].Plastic
-```
-
-**Prototype**
+**路径**
 
 ```
-odb_Plastic&
-Plastic(const odb_SequenceSequenceDouble& table,
-        const odb_String& hardening,
-        bool rate,
-        const odb_String& dataType,
-        bool strainRangeDependency,
-        int numBackstresses,
-        bool temperatureDependency,
-        int dependencies);
+materialApi.materials()[*name*].PoreFluidExpansion
 ```
 
-**Required argument**
+**原型**
+
+```
+odb_PoreFluidExpansion&
+PoreFluidExpansion(const odb_SequenceSequenceDouble& table,
+                   double zero,
+                   bool temperatureDependency,
+                   int dependencies);
+```
+
+**必需参数**
 
 *table*
 
-An odb_SequenceSequenceDouble specifying the items described below.
+一个 odb_SequenceSequenceDouble，指定如下所述的项目。
 
-**Optional arguments**
+**可选参数**
 
-*hardening*
+*zero*
 
-An odb_String specifying the type of hardening. Possible values are "ISOTROPIC", "KINEMATIC", "COMBINED", "JOHNSON_COOK", and "USER". The default value is "ISOTROPIC".
-
-*rate*
-
-A Boolean specifying whether the data depend on rate. The default value is false.
-
-*dataType*
-
-An odb_String specifying the type of combined hardening. This argument is only valid if *hardening*="COMBINED". Possible values are "HALF_CYCLE", "PARAMETERS", and "STABILIZED". The default value is "HALF_CYCLE".
-
-*strainRangeDependency*
-
-A Boolean specifying whether the data depend on strain range. This argument is only valid if *hardening*="COMBINED" and *dataType*="STABILIZED". The default value is false.
-
-*numBackstresses*
-
-An Int specifying the number of backstresses. This argument is only valid if *hardening*="COMBINED".                 The default value is 1.
+一个 Double，指定 ![](../graphics/ker_eqn00061.gif] 的值。默认值为 0.0。
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is false.
+一个布尔值，指定数据是否依赖温度。默认值为 false。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+一个整数，指定场变量依赖数量。默认值为 0。
 
-**Table data**
+**表数据**
 
-If *hardening*=ISOTROPIC, or if *hardening*=COMBINED and *dataType*=HALF_CYCLE, the table data specify the following:
-- Yield stress.
-- Plastic strain.
-- Equivalent plastic strain rate, ![](../graphics/ker_eqn00337.gif).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 平均热膨胀系数，![](../graphics/ker_eqn00239.gif]。
+- 温度（如果数据依赖温度）。
+- 第一个场变量的值（如果数据依赖场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *hardening*=COMBINED and *dataType*=STABILIZED, the table data specify the following:- Yield stress.
-- Plastic strain.
-- Strain range, if the data depend on strain range.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+**返回值**
 
-If *hardening*=COMBINED and *dataType*=PARAMETERS, the table data specify the following:- Yield stress at zero plastic strain.
-- The first kinematic hardening parameter, ![](../graphics/ker_eqn00338.gif).
-- The first kinematic hardening parameter, ![](../graphics/ker_eqn00339.gif).
-- If applicable, the second kinematic hardening parameter, ![](../graphics/ker_eqn00340.gif).
-- If applicable, the second kinematic hardening parameter, ![](../graphics/ker_eqn00341.gif).
-- Etc.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+一个 PoreFluidExpansion 对象。
 
-If *hardening*=KINEMATIC, the table data specify the following:- Yield stress.
-- Plastic strain.
-- Temperature, if the data depend on temperature.
+**异常**
 
-If *hardening*=JOHNSON_COOK, the table data specify the following:- A.
-- B.
-- n.
-- m.
-- Melting temperature.
-- Transition temperature.
+RangeError。
 
-If *hardening*=USER, the table data specify the following:- Hardening properties.
+### 60.78.2 成员
 
-**Return value**
+PoreFluidExpansion 对象的成员与 [PoreFluidExpansion](pt02ch60pyo78.md#ker-porefluidexpansion-porefluidexpansion-cpp) 方法的参数具有相同的名称和描述。
 
-A Plastic object.
+### 60.78.3 对应的分析关键字
 
-**Exceptions**
-
-RangeError.
-
-### 60.77.2 Members
-
-The Plastic object has members with the same names and descriptions as the arguments to the [Plastic](pt02ch60pyo77.md#ker-plastic-plastic-cpp) method.
-
-In addition, the Plastic object can have the following members:
-
-**Prototype**
-
-```
-odb_RateDependent rateDependent() const;
-odb_Potential potential() const;
-odb_CyclicHardening cyclicHardening() const;
-odb_Ornl ornl() const;
-odb_CycledPlastic cycledPlastic() const;
-odb_AnnealTemperature annealTemperature() const;
-```
-
-*rateDependent*
-
-A [RateDependent](pt02ch60pyo85.md) object.
-
-*potential*
-
-A [Potential](pt02ch60pyo83.md) object.
-
-*cyclicHardening*
-
-A [CyclicHardening](pt02ch60pyo30.md) object.
-
-*ornl*
-
-An [Ornl](pt02ch60pyo73.md) object.
-
-*cycledPlastic*
-
-A [CycledPlastic](pt02ch60pyo29.md) object.
-
-*annealTemperature*
-
-An [AnnealTemperature](pt02ch60pyo03.md) object.
-
-### 60.77.3 Corresponding analysis keywords
-
-| [*PLASTIC](../key/key-link.md#usb-kws-mplastic) |
+| [*EXPANSION](../key/key-link.md#usb-kws-mexpansion) |
 | --- |
-
-
-
-

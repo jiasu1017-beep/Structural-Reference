@@ -1,16 +1,10 @@
-# 8.3 BoxProfile object
+# 8.3 BoxProfile 对象
 
+BoxProfile 对象定义箱形 profile 的属性。
 
+BoxProfile 对象派生自 [Profile](pt01ch08pyo01.md) 对象。
 
-
-
-
-
-The BoxProfile object defines the properties of a box profile.
-
-The BoxProfile object is derived from the [Profile](pt01ch08pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,88 +15,84 @@ session.odbs[*name*].profiles[*name*]
 
 ### 8.3.1 BoxProfile(...)
 
-This method creates a BoxProfile object.
+此方法创建一个 BoxProfile 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].BoxProfile
 session.odbs[*name*].BoxProfile
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定存储库键。
 
 *a*
 
-A Float specifying the *a* dimension of the box profile. For more information, see ["Beam cross-section library," Section 29.3.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-ebeamcrosssectlib).
+一个 Float，指定箱形 profile 的 *a* 尺寸。有关详细信息，请参阅《Abaqus Analysis User's Guide》的"Beam cross-section library," Section 29.3.9。
 
 *b*
 
-A Float specifying the *b* dimension of the box profile.
+一个 Float，指定箱形 profile 的 *b* 尺寸。
 
 *uniformThickness*
 
-A Boolean specifying whether the thickness is uniform.
+一个 Boolean，指定厚度是否均匀。
 
 *t1*
 
-A Float specifying the uniform wall thickness if *uniformThickness*=ON, and the wall thickness of the first segment if *uniformThickness*=OFF.
+一个 Float，指定均匀壁厚（如果 *uniformThickness*=ON），或者第一段壁厚（如果 *uniformThickness*=OFF）。
 
-**Optional arguments**
+**可选参数**
 
 *t2*
 
-A Float specifying the wall thickness of the second segment. *t2* is required only when *uniformThickness*=OFF. The default value is 0.0.
+一个 Float，指定第二段壁厚。*t2* 仅在 *uniformThickness*=OFF 时需要。默认值为 0.0。
 
 *t3*
 
-A Float specifying the wall thickness of the third segment. *t3* is required only when *uniformThickness*=OFF. The default value is 0.0.
+一个 Float，指定第三段壁厚。*t3* 仅在 *uniformThickness*=OFF 时需要。默认值为 0.0。
 
 *t4*
 
-A Float specifying the wall thickness of the fourth segment. *t4* is required only when *uniformThickness*=OFF. The default value is 0.0.
+一个 Float，指定第四段壁厚。*t4* 仅在 *uniformThickness*=OFF 时需要。默认值为 0.0。
 
-**Return value**
+**返回值**
 
-A BoxProfile object.
+一个 BoxProfile 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 8.3.2 setValues(...)
 
-This method modifies the BoxProfile object.
+此方法修改 BoxProfile 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [BoxProfile](pt01ch08pyo03.md#ker-boxprofile-boxprofile-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [BoxProfile](pt01ch08pyo03.md#ker-boxprofile-boxprofile-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 8.3.3 Members
+### 8.3.3 成员
 
-The BoxProfile object has members with the same names and descriptions as the arguments to the [BoxProfile](pt01ch08pyo03.md#ker-boxprofile-boxprofile-pyc) method.
+BoxProfile 对象具有与 [BoxProfile](pt01ch08pyo03.md#ker-boxprofile-boxprofile-pyc) 方法参数具有相同名称和描述的成员。
 
-### 8.3.4 Corresponding analysis keywords
+### 8.3.4 对应的分析关键字
 
 | [*BEAM SECTION](../key/key-link.md#usb-kws-mbeamsection), SECTION=BOX |
 | --- |
-
-
-
-

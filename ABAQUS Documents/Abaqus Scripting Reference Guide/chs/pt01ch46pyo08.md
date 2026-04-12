@@ -1,16 +1,10 @@
-# 46.8 ConnectorSection object
+# 46.8 ConnectorSection 对象
 
+ConnectorSection 对象描述连接器的连接类型和行为。
 
+ConnectorSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-A ConnectorSection object describes the connection type and the behavior of a connector.
-
-The ConnectorSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.8.1 ConnectorSection(...)
 
-This method creates a ConnectorSection object.
+此方法创建 ConnectorSection 对象。
 
 **Path**
 
@@ -30,17 +24,17 @@ mdb.models[*name*].ConnectorSection
 session.odbs[*name*].ConnectorSection
 ```
 
-**Required argument**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
-**Optional arguments**
+**可选参数**
 
 *assembledType*
 
-A SymbolicConstant specifying the assembled connection type. Possible values are:
+SymbolicConstant，指定组装连接类型。可选值为：
 - NONE
 - BEAM
 - BUSHING
@@ -54,13 +48,13 @@ A SymbolicConstant specifying the assembled connection type. Possible values are
 - UJOINT
 - WELD
 
-The default value is NONE.
+默认值为 NONE。
 
-You cannot include the *assembledType* argument if *translationalType* or *rotationalType* are given a value other than NONE. At least one of the arguments *assembledType*, *translationalType*, or *rotationalType* must be given a value other than NONE.
+如果 *translationalType* 或 *rotationalType* 被赋予 NONE 以外的值，则不能包含 *assembledType* 参数。*assembledType*、*translationalType* 或 *rotationalType* 中至少有一个必须被赋予 NONE 以外的值。
 
 *rotationalType*
 
-A SymbolicConstant specifying the basic rotational connection type. Possible values are:
+SymbolicConstant，指定基本旋转连接类型。可选值为：
 - NONE
 - ALIGN
 - CARDAN
@@ -74,13 +68,13 @@ A SymbolicConstant specifying the basic rotational connection type. Possible val
 - ROTATION_ACCELEROMETER
 - UNIVERSAL
 
-The default value is NONE.
+默认值为 NONE。
 
-You cannot include the *rotationalType* argument if *assembledType* is given a value other than NONE. At least one of the arguments *assembledType*, *translationalType*, or *rotationalType* must be given an value other than NONE.
+如果 *assembledType* 被赋予 NONE 以外的值，则不能包含 *rotationalType* 参数。*assembledType*、*translationalType* 或 *rotationalType* 中至少有一个必须被赋予 NONE 以外的值。
 
 *translationalType*
 
-A SymbolicConstant specifying the basic translational connection type. Possible values are:
+SymbolicConstant，指定基本平移连接类型。可选值为：
 - NONE
 - ACCELEROMETER
 - AXIAL
@@ -92,109 +86,105 @@ A SymbolicConstant specifying the basic translational connection type. Possible 
 - SLIDE_PLANE
 - SLOT
 
-The default value is NONE.
+默认值为 NONE。
 
-You cannot include the *translationalType* argument if *assembledType* is given a value other than NONE. At least one of the arguments *assembledType*, *translationalType*, or *rotationalType* must be given an value other than NONE.
+如果 *assembledType* 被赋予 NONE 以外的值，则不能包含 *translationalType* 参数。*assembledType*、*translationalType* 或 *rotationalType* 中至少有一个必须被赋予 NONE 以外的值。
 
 *integration*
 
-A SymbolicConstant specifying the time integration scheme to use for analysis. This argument is applicable only to an Abaqus/Explicit analysis. Possible values are UNSPECIFIED, IMPLICIT, and EXPLICIT. The default value is UNSPECIFIED.
+SymbolicConstant，指定分析使用的时间积分方案。此参数仅适用于 Abaqus/Explicit 分析。可选值为 UNSPECIFIED、IMPLICIT 和 EXPLICIT。默认值为 UNSPECIFIED。
 
 *u1ReferenceLength*
 
- `None` or a Float specifying the reference length associated with constitutive response for the first component of relative motion. The default value is `None`.
+`None` 或 Float，指定与相对运动第一分量本构响应相关的参考长度。默认值为 `None`。
 
 *u2ReferenceLength*
 
- `None` or a Float specifying the reference length associated with constitutive response for the second component of relative motion. The default value is `None`.
+`None` 或 Float，指定与相对运动第二分量本构响应相关的参考长度。默认值为 `None`。
 
 *u3ReferenceLength*
 
- `None` or a Float specifying the reference length associated with constitutive response for the third component of relative motion. The default value is `None`.
+`None` 或 Float，指定与相对运动第三分量本构响应相关的参考长度。默认值为 `None`。
 
 *ur1ReferenceAngle*
 
- `None` or a Float specifying the reference angle in degrees associated with constitutive response for the fourth component of relative motion. The default value is `None`.
+`None` 或 Float，指定与相对运动第四分量本构响应相关的参考角度（度）。默认值为 `None`。
 
 *ur2ReferenceAngle*
 
- `None` or a Float specifying the reference angle in degrees associated with constitutive response for the fifth component of relative motion. The default value is `None`.
+`None` 或 Float，指定与相对运动第五分量本构响应相关的参考角度（度）。默认值为 `None`。
 
 *ur3ReferenceAngle*
 
- `None` or a Float specifying the reference angle in degrees associated with constitutive response for the sixth component of relative motion. The default value is `None`.
+`None` 或 Float，指定与相对运动第六分量本构响应相关的参考角度（度）。默认值为 `None`。
 
 *massPerLength*
 
- `None` or a Float specifying the mass per unit reference length of belt material. This argument is applicable only when *assembledType*=SLIPRING, and must be specified in that case. The default value is `None`.
+`None` 或 Float，指定皮带材料每单位参考长度的质量。此参数仅在 *assembledType*=SLIPRING 时适用，且在这种情况下必须指定。默认值为 `None`。
 
 *contactAngle*
 
- `None` or a Float specifying the contact angle made by the belt wrapping around node b. This argument is applicable only to an Abaqus/Explicit analysis, and only when *assembledType*=SLIPRING. The default value is `None`.
+`None` 或 Float，指定皮带缠绕在节点 b 处的接触角度。此参数仅适用于 Abaqus/Explicit 分析，且仅在 *assembledType*=SLIPRING 时适用。默认值为 `None`。
 
 *materialFlowFactor*
 
-A Float specifying the scaling factor for material flow at node b. This argument is applicable only when *assembledType*=RETRACTOR or *rotationalType*=FLOW_CONVERTER. The default value is 1.0.
+Float，指定在节点 b 处的材料流动缩放因子。此参数仅在 *assembledType*=RETRACTOR 或 *rotationalType*=FLOW_CONVERTER 时适用。默认值为 1.0。
 
 *regularize*
 
-A Boolean specifying whether or not all tabular data associated with the *behaviorOptions* will be regularized. This argument is applicable only for an Abaqus/Explicit analysis. The default value is ON.
+Boolean，指定是否对与 *behaviorOptions* 关联的所有表格数据进行正则化。此参数仅适用于 Abaqus/Explicit 分析。默认值为 ON。
 
 *defaultTolerance*
 
-A Boolean specifying whether or not the default regularization tolerance will be used for all tabular data associated with the *behaviorOptions*. This argument is applicable only for an Abaqus/Explicit analysis and only if *regularize*=ON. The default value is ON.
+Boolean，指定是否为所有与 *behaviorOptions* 关联的表格数据使用默认正则化容差。此参数仅在 Abaqus/Explicit 分析中适用，且仅在 *regularize*=ON 时适用。默认值为 ON。
 
 *regularization*
 
-A Float specifying the regularization increment to be used for all tabular data associated with the *behaviorOptions*. This argument is applicable only for an Abaqus/Explicit analysis and only if *regularize*=ON and *defaultTolerance*=OFF. The default value is 0.03.
+Float，指定与所有与 *behaviorOptions* 关联的表格数据一起使用的正则化增量。此参数仅在 Abaqus/Explicit 分析中适用，且仅在 *regularize*=ON 和 *defaultTolerance*=OFF 时适用。默认值为 0.03。
 
 *extrapolation*
 
-A SymbolicConstant specifying the extrapolation technique to be used for all tabular data associated with the *behaviorOptions*. Possible values are CONSTANT and LINEAR. The default value is CONSTANT.
+SymbolicConstant，指定用于所有与 *behaviorOptions* 关联的表格数据的外推技术。可选值为 CONSTANT 和 LINEAR。默认值为 CONSTANT。
 
 *behaviorOptions*
 
-A [ConnectorBehaviorOptionArray](pt01ch12pyo01.md) object.
+[ConnectorBehaviorOptionArray](pt01ch12pyo01.md) 对象。
 
-**Return value**
+**返回值**
 
-A ConnectorSection object.
+ConnectorSection 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
 ### 46.8.2 setValues(...)
 
-This method modifies the ConnectorSection object.
+此方法修改 ConnectorSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ConnectorSection](pt01ch46pyo08.md#ker-connectorsection-connectorsection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [ConnectorSection](pt01ch46pyo08.md#ker-connectorsection-connectorsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 46.8.3 Members
+### 46.8.3 成员
 
-The ConnectorSection object has members with the same names and descriptions as the arguments to the [ConnectorSection](pt01ch46pyo08.md#ker-connectorsection-connectorsection-pyc) method.
+ConnectorSection 对象的成员与 [ConnectorSection](pt01ch46pyo08.md#ker-connectorsection-connectorsection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.8.4 Corresponding analysis keywords
+### 46.8.4 对应分析关键字
 
-| [*CONNECTOR SECTION](../key/key-link.md#usb-kws-mconnectorsection) |
+| [*CONNECTOR SECTION*](../key/key-link.md#usb-kws-mconnectorsection) |
 | --- |
-| [*CONNECTOR BEHAVIOR](../key/key-link.md#usb-kws-mconnectorbehavior) |
-| [*CONNECTOR CONSTITUTIVE REFERENCE](../key/key-link.md#usb-kws-mconnectorconstref) |
-
-
-
-
+| [*CONNECTOR BEHAVIOR*](../key/key-link.md#usb-kws-mconnectorbehavior) |
+| [*CONNECTOR CONSTITUTIVE REFERENCE*](../key/key-link.md#usb-kws-mconnectorconstref) |

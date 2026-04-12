@@ -1,112 +1,98 @@
-# 36.3 DesignDirection object
+# 36.3 DesignDirection 对象
 
+DesignDirection 对象定义设计方向几何约束。
 
+DesignDirection 对象派生自 [GeometricRestriction](pt01ch36pyo08.md) 对象。
 
-
-
-
-
-The DesignDirection object defines a design direction geometric restriction.
-
-         The DesignDirection object is derived from the [GeometricRestriction](pt01ch36pyo08.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].geometricRestrictions[*name*]
 ```
 
 ### 36.3.1 DesignDirection(...)
 
-           This method creates a DesignDirection object.         
+此方法创建 DesignDirection 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].DesignDirection
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].DesignDirection
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the geometric restriction repository key.
+一个字符串，指定几何约束仓库键。
 
 *region*
 
-                 A [Region](pt01ch45pyo03.md) object specifying the region to which the geometric restriction is applied.  When used with a [TopologyTask](pt01ch36pyo41.md), there is no default value.  When used with a [ShapeTask](pt01ch36pyo20.md), the default value is MODEL.               
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用几何约束的区域。当与 [TopologyTask](pt01ch36pyo41.md) 一起使用时，没有默认值。当与 [ShapeTask](pt01ch36pyo20.md) 一起使用时，默认值为 MODEL。
 
-**Optional arguments**
+**可选参数**
 
 *csys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system. If *csys*=`None`, the global coordinate system is used. When this member is queried, it returns an Int. The default value is `None`.               
+`None` 或 [DatumCsys](pt01ch15pyo03.md) 对象，指定局部坐标系。如果 *csys*=`None`，则使用全局坐标系。当查询此成员时，它返回一个 Int。默认值为 `None`。
 
 *masterPoint*
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the master point used when *masterPointDetermination* is SPECIFY. The default value is `None`.               
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定当 *masterPointDetermination* 为 SPECIFY 时使用的主点。默认值为 `None`。
 
 *masterPointDetermination*
 
-                 A SymbolicConstant specifying the rule for assigning point priority. Possible values are MAXIMUM, MINIMUM, and SPECIFY. The default value is MAXIMUM.               
+一个 SymbolicConstant，指定分配点优先级的规则。可能的值为 MAXIMUM、MINIMUM 和 SPECIFY。默认值为 MAXIMUM。
 
 *movementRestriction*
 
-                 A SymbolicConstant specifying whether movement in the region should follow only the direction of the *masterPoint*, only the magnitude, or both the magnitude of the *masterPoint* and the directions specified by *u1*, *u2* and *u3*. Possible values are DIRECTION, MAGNITUDE, and VECTOR. The default value is VECTOR.               
+一个 SymbolicConstant，指定区域中的移动是否应仅跟随 *masterPoint* 的方向、仅跟随幅值，或同时跟随 *masterPoint* 的幅值和 *u1*、*u2* 及 *u3* 指定的方向。可能的值为 DIRECTION、MAGNITUDE 和 VECTOR。默认值为 VECTOR。
 
 *presumeFeasibleRegionAtStart*
 
-                 A Boolean specifying whether to ignore the geometric restriction in the first design cycle. The default value is ON.               
+一个布尔值，指定在第一个设计循环中是否忽略几何约束。默认值为 ON。
 
 *u1*
 
-                 A Boolean specifying whether movement in the region should follow the *masterPoint* in the 1-direction.  This is used when *movementRestriction* is VECTOR. The default value is ON.               
+一个布尔值，指定区域中的移动是否应跟随 *masterPoint* 在 1 方向上的移动。当 *movementRestriction* 为 VECTOR 时使用此参数。默认值为 ON。
 
 *u2*
 
-                 A Boolean specifying whether movement in the region should follow the *masterPoint* in the 2-direction.  This is used when *movementRestriction* is VECTOR. The default value is ON.               
+一个布尔值，指定区域中的移动是否应跟随 *masterPoint* 在 2 方向上的移动。当 *movementRestriction* 为 VECTOR 时使用此参数。默认值为 ON。
 
 *u3*
 
-                 A Boolean specifying whether movement in the region should follow the *masterPoint* in the 3-direction.  This is used when *movementRestriction* is VECTOR. The default value is ON.               
+一个布尔值，指定区域中的移动是否应跟随 *masterPoint* 在 3 方向上的移动。当 *movementRestriction* 为 VECTOR 时使用此参数。默认值为 ON。
 
-**Return value**
+**返回值**
 
-           A DesignDirection object.         
+DesignDirection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.3.2 setValues(...)
 
-           This method modifies the DesignDirection object.         
+此方法修改 DesignDirection 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [DesignDirection](pt01ch36pyo03.md#ker-designdirection-designdirection-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [DesignDirection](pt01ch36pyo03.md#ker-designdirection-designdirection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.3.3 Members
+### 36.3.3 成员
 
-         The DesignDirection object has members with the same names and descriptions as the arguments to the [DesignDirection](pt01ch36pyo03.md#ker-designdirection-designdirection-pyc) method.       
-
-
-
-
+DesignDirection 对象具有与 [DesignDirection](pt01ch36pyo03.md#ker-designdirection-designdirection-pyc) 方法的参数名称和描述相同的成员。

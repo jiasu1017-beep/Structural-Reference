@@ -1,16 +1,10 @@
-# 46.13 HomogeneousShellSection object
+# 46.13 HomogeneousShellSection 对象
 
+HomogeneousShellSection 对象定义壳截面的属性。
 
+HomogeneousShellSection 对象派生自 [GeometryShellSection](pt01ch46pyo12.md) 对象。
 
-
-
-
-
-The HomogeneousShellSection object defines the properties of a shell section.
-
-The HomogeneousShellSection object is derived from the [GeometryShellSection](pt01ch46pyo12.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -22,143 +16,138 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.13.1 HomogeneousShellSection(...)
 
-This method creates a HomogeneousShellSection object.
+此方法创建 HomogeneousShellSection 对象。
 
 **Path**
 
 ```
-mdb.models[*name*].parts[*name*].compositeLayups[*i*]\
-.HomogeneousShellSection
+mdb.models[*name*].parts[*name*].compositeLayups[*i*].HomogeneousShellSection
 mdb.models[*name*].HomogeneousShellSection
 session.odbs[*name*].HomogeneousShellSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+String，指定存储库键。
 
 *material*
 
-A String specifying the name of the section material.
+String，指定截面材料的名称。
 
-**Optional arguments**
+**可选参数**
 
 *thickness*
 
-A Float specifying the thickness of the section. The *thickness* argument applies only when *thicknessType*=UNIFORM. The default value is 0.0.
+Float，指定截面的厚度。*thickness* 参数仅在 *thicknessType*=UNIFORM 时适用。默认值为 0.0。
 
 *numIntPts*
 
-An Int specifying the number of integration points to be used through the section. Possible values are *numIntPts* ![](../graphics/ker_eqn00060.gif) 0. The default value is 5.
+Int，指定通过截面使用的积分点数量。可能的值为 *numIntPts* ![](../graphics/ker_eqn00060.gif) 0。默认值为 5。
 
-To use the default settings of the analysis products, set *numIntPts* to 5 if *integrationRule*=SIMPSON or set *numIntPts* to 7 if *integrationRule*=GAUSS.
+要使用分析产品的默认设置，如果 *integrationRule*=SIMPSON，则将 *numIntPts* 设置为 5；如果 *integrationRule*=GAUSS，则将 *numIntPts* 设置为 7。
 
 *thicknessType*
 
-A SymbolicConstant specifying the distribution used for defining the thickness of the elements. Possible values are UNIFORM, ANALYTICAL_FIELD, DISCRETE_FIELD, NODAL_ANALYTICAL_FIELD, and NODAL_DISCRETE_FIELD. The default value is UNIFORM.
+SymbolicConstant，指定用于定义单元厚度的分布。可选值为 UNIFORM、ANALYTICAL_FIELD、DISCRETE_FIELD、NODAL_ANALYTICAL_FIELD 和 NODAL_DISCRETE_FIELD。默认值为 UNIFORM。
 
 *preIntegrate*
 
-A Boolean specifying whether the shell section properties are specified by the user prior to the analysis (ON) or integrated during the analysis (OFF). The default value is OFF.
+Boolean，指定壳截面属性是由用户在分析前指定（ON）还是在分析期间积分（OFF）。默认值为 OFF。
 
 *poissonDefinition*
 
-A SymbolicConstant specifying whether to use the default value for the Poisson's ratio. Possible values are:
-- DEFAULT, specifying that the default value for the Poisson's ratio is 0.5 in an Abaqus/Standard analysis and is obtained from the material definition in an Abaqus/Explicit analysis.
-- VALUE, specifying that the Poisson's ratio used in the analysis is the value provided in *poisson*.
+SymbolicConstant，指定是否使用泊松比的默认值。可选值为：
+- DEFAULT，指定在 Abaqus/Standard 分析中泊松比的默认值为 0.5，在 Abaqus/Explicit 分析中从材料定义获取。
+- VALUE，指定分析中使用的泊松比是 *poisson* 提供的值。
 
-The default value is DEFAULT.
+默认值为 DEFAULT。
 
 *poisson*
 
-A Float specifying the Poisson's ratio. Possible values are 1.0 ![](../graphics/ker_eqn00013.gif) *poisson* ![](../graphics/ker_eqn00013.gif) 0.5. This argument is valid only when *poissonDefinition*=VALUE. The default value is 0.5.
+Float，指定泊松比。可能的值为 1.0 ![](../graphics/ker_eqn00013.gif) *poisson* ![](../graphics/ker_eqn00013.gif) 0.5。此参数仅在 *poissonDefinition*=VALUE 时有效。默认值为 0.5。
 
 *integrationRule*
 
-A SymbolicConstant specifying the shell section integration rule. Possible values are SIMPSON and GAUSS. The default value is SIMPSON.
+SymbolicConstant，指定壳截面积分规则。可选值为 SIMPSON 和 GAUSS。默认值为 SIMPSON。
 
 *temperature*
 
-A SymbolicConstant specifying the mode used for temperature and field variable input across the section thickness. Possible values are GRADIENT and POINTWISE. The default value is GRADIENT.
+SymbolicConstant，指定通过截面厚度输入温度和场变量的模式。可选值为 GRADIENT 和 POINTWISE。默认值为 GRADIENT。
 
 *idealization*
 
-A SymbolicConstant specifying the mechanical idealization used for the section calculations. This member is only                            applicable when *preIntegrate* is set to ON. Possible values are NO_IDEALIZATION, SMEAR_ALL_LAYERS, MEMBRANE, and BENDING. The default value is NO_IDEALIZATION.
+SymbolicConstant，指定用于截面计算的机械理想化。此成员仅在 *preIntegrate* 设置为 ON 时适用。可选值为 NO_IDEALIZATION、SMEAR_ALL_LAYERS、MEMBRANE 和 BENDING。默认值为 NO_IDEALIZATION。
 
 *nTemp*
 
- `None` or an Int specifying the number of temperature points to be input. This argument is valid only when *temperature*=POINTWISE. The default value is `None`.
+`None` 或 Int，指定要输入的温度点数量。此参数仅在 *temperature*=POINTWISE 时有效。默认值为 `None`。
 
 *thicknessModulus*
 
- `None` or a Float specifying the effective thickness modulus. This argument is relevant only for continuum shells and must be used in conjunction with the argument *poisson*. The default value is `None`.
+`None` 或 Float，指定有效厚度模量。此参数仅与连续壳相关，必须与 *poisson* 参数一起使用。默认值为 `None`。
 
 *useDensity*
 
-A Boolean specifying whether or not to use the value of *density*. The default value is OFF.
+Boolean，指定是否使用 *density* 的值。默认值为 OFF。
 
 *density*
 
-A Float specifying the value of density to apply to this section. The default value is 0.0.
+Float，指定要应用于此截面的密度值。默认值为 0.0。
 
 *thicknessField*
 
-A String specifying the name of the [AnalyticalField](pt01ch21pyo02.md) or [DiscreteField](pt01ch21pyo04.md) object used to define the thickness of the shell elements. The *thicknessField* argument applies only when *thicknessType*=ANALYTICAL_FIELD or *thicknessType*=DISCRETE_FIELD. The default value is an empty string.
+String，指定 [AnalyticalField](pt01ch21pyo02.md) 或 [DiscreteField](pt01ch21pyo04.md) 对象的名称，用于定义壳单元的厚度。*thicknessField* 参数仅在 *thicknessType*=ANALYTICAL_FIELD 或 *thicknessType*=DISCRETE_FIELD 时适用。默认值为空字符串。
 
 *nodalThicknessField*
 
-A String specifying the name of the [AnalyticalField](pt01ch21pyo02.md) or [DiscreteField](pt01ch21pyo04.md) object used to define the thickness of the shell elements at each node. The *nodalThicknessField* argument applies only when *thicknessType*=NODAL_ANALYTICAL_FIELD or *thicknessType*=NODAL_DISCRETE_FIELD. The default value is an empty string.
+String，指定 [AnalyticalField](pt01ch21pyo02.md) 或 [DiscreteField](pt01ch21pyo04.md) 对象的名称，用于定义每个节点处壳单元的厚度。*nodalThicknessField* 参数仅在 *thicknessType*=NODAL_ANALYTICAL_FIELD 或 *thicknessType*=NODAL_DISCRETE_FIELD 时适用。默认值为空字符串。
 
-**Return value**
+**返回值**
 
-A HomogeneousShellSection object.
+HomogeneousShellSection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 46.13.2 setValues(...)
 
-This method modifies the HomogeneousShellSection object.
+此方法修改 HomogeneousShellSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [HomogeneousShellSection](pt01ch46pyo13.md#ker-homogeneousshellsection-homogeneousshellsection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [HomogeneousShellSection](pt01ch46pyo13.md#ker-homogeneousshellsection-homogeneousshellsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 46.13.3 Members
+### 46.13.3 成员
 
-The HomogeneousShellSection object has members with the same names and descriptions as the arguments to the [HomogeneousShellSection](pt01ch46pyo13.md#ker-homogeneousshellsection-homogeneousshellsection-pyc) method.
+HomogeneousShellSection 对象的成员与 [HomogeneousShellSection](pt01ch46pyo13.md#ker-homogeneousshellsection-homogeneousshellsection-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the HomogeneousShellSection object can have the following members:
+此外，HomogeneousShellSection 对象可以具有以下成员：
 
 *rebarLayers*
 
-A [RebarLayers](pt01ch46pyo19.md) object specifying reinforcement properties.
+[RebarLayers](pt01ch46pyo19.md) 对象，指定增强属性。
 
 *transverseShear*
 
-A [TransverseShearShell](pt01ch46pyo25.md) object specifying the transverse shear stiffness properties.
+[TransverseShearShell](pt01ch46pyo25.md) 对象，指定横向剪切刚度属性。
 
-### 46.13.4 Corresponding analysis keywords
+### 46.13.4 对应分析关键字
 
-| [*SHELL SECTION](../key/key-link.md#usb-kws-mshellsection) |
+| [*SHELL SECTION*](../key/key-link.md#usb-kws-mshellsection) |
 | --- |
-| [*SHELL GENERAL SECTION](../key/key-link.md#usb-kws-mshellgensect) |
-
-
-
-
+| [*SHELL GENERAL SECTION*](../key/key-link.md#usb-kws-mshellgensect) |

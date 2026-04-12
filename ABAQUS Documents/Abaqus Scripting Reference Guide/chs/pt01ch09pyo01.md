@@ -1,14 +1,8 @@
-# 9.1 BoundaryCondition object
+# 9.1 BoundaryCondition 对象
 
+BoundaryCondition 对象是其他 BoundaryCondition 对象的抽象基类型。BoundaryCondition 对象没有显式构造函数。BoundaryCondition 对象的方法和成员对所有派生自 BoundaryCondition 的对象都是通用的。
 
-
-
-
-
-
-The BoundaryCondition object is the abstract base type for other BoundaryCondition objects. The BoundaryCondition object has no explicit constructor. The methods and members of the BoundaryCondition object are common to all objects derived from the BoundaryCondition.
-
-**Access**
+**访问**
 
 ```
 import load
@@ -17,148 +11,144 @@ mdb.models[*name*].boundaryConditions[*name*]
 
 ### 9.1.1 deactivate(...)
 
-This method deactivates the boundary condition in the specified step and all subsequent steps.
+此方法在指定步骤及所有后续步骤中停用边界条件。
 
-**Required argument**
+**必需参数**
 
 *stepName*
 
-A String specifying the name of the step in which the boundary condition is deactivated.
+一个 String，指定要停用边界条件的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 9.1.2 move(...)
 
-This method moves the boundary condition state from one step to a different step.
+此方法将边界条件状态从一个步骤移动到不同的步骤。
 
-**Required arguments**
+**必需参数**
 
 *fromStepName*
 
-A String specifying the name of the step from which the boundary condition state is moved.
+一个 String，指定要移出边界条件状态的步骤名称。
 
 *toStepName*
 
-A String specifying the name of the step to which the boundary condition state is moved.
+一个 String，指定要移入边界条件状态的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 9.1.3 reset(...)
 
-This method resets the boundary condition state of the specified step to the state of the previous analysis step.
+此方法将指定步骤的边界条件状态重置为前一个分析步骤的状态。
 
-**Required argument**
+**必需参数**
 
 *stepName*
 
-A String specifying the name of the step in which the boundary condition state is reset.
+一个 String，指定要重置边界条件状态的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 9.1.4 resume()
 
-This method resumes the boundary condition that was previously suppressed.
+此方法恢复先前被抑制的边界条件。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 9.1.5 suppress()
 
-This method suppresses the boundary condition.
+此方法抑制边界条件。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 9.1.6 delete(...)
 
-This method allows you to delete existing boundary conditions.
+此方法允许删除现有边界条件。
 
-**Required argument**
+**必需参数**
 
 *indices*
 
-A sequence of Ints specifying the index of each boundary condition to delete.
+一个 Int 序列，指定要删除的每个边界条件的索引。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 9.1.7 Members
+### 9.1.7 成员
 
-The BoundaryCondition object can have the following members:
+BoundaryCondition 对象可以具有以下成员：
 
 *name*
 
-A String specifying the boundary condition repository key.
+一个 String，指定边界条件存储库键。
 
 *category*
 
-A SymbolicConstant specifying the category of the boundary condition. Possible values are MECHANICAL and THERMAL.
+一个 SymbolicConstant，指定边界条件的类别。可能的值为 MECHANICAL 和 THERMAL。
 
 *region*
 
-A [Region](pt01ch45pyo03.md) object specifying the region to which the boundary condition is applied.
+一个 [Region](pt01ch45pyo03.md) 对象，指定应用边界条件的区域。
 
 *localCsys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system of the boundary condition's degrees of freedom. If *localCsys*=`None`, the degrees of freedom are defined in the global coordinate system. The default value is `None`.
-
-
-
-
+`None` 或一个 [DatumCsys](pt01ch15pyo03.md) 对象，指定边界条件自由度的局部坐标系。如果 *localCsys*=`None`，则自由度在全局坐标系中定义。默认值为 `None`。

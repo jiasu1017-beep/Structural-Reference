@@ -1,16 +1,10 @@
-# 12.4 ConnectorDamping object
+# 12.4 ConnectorDamping 对象
 
+ConnectorDamping 对象为连接器相对运动的一个或多个分量定义阻尼行为。
 
+ConnectorDamping 对象派生自 [ConnectorBehaviorOption](pt01ch12pyo01.md) 对象。
 
-
-
-
-
-The ConnectorDamping object defines damping behavior for one or more components of a connector's relative motion.
-
-The ConnectorDamping object is derived from the [ConnectorBehaviorOption](pt01ch12pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,132 +15,130 @@ session.odbs[*name*].sections[*name*].behaviorOptions[*i*]
 
 ### 12.4.1 ConnectorDamping(...)
 
-This method creates a connector damping behavior option for a [ConnectorSection](pt01ch46pyo08.md) object.
+此方法为 [ConnectorSection](pt01ch46pyo08.md) 对象创建连接器阻尼行为选项。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].sections[*name*].ConnectorDamping
 session.odbs[*name*].sections[*name*].ConnectorDamping
 ```
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *behavior*
 
-A SymbolicConstant specifying if the damping behavior is linear or nonlinear. Possible values are LINEAR and NONLINEAR. The default value is LINEAR.
+SymbolicConstant，指定阻尼行为是线性还是非线性。可能的值为 LINEAR 和 NONLINEAR。默认值为 LINEAR。
 
 *coupling*
 
-A SymbolicConstant specifying whether the damping behavior is coupled between the connector's components of relative motion. If *behavior*=LINEAR, then possible values are UNCOUPLED and COUPLED. If *behavior*=NONLINEAR, then possible values are UNCOUPLED, COUPLED_POSITION, and COUPLED_MOTION. Possible values are UNCOUPLED, COUPLED, COUPLED_POSITION, and COUPLED_MOTION. The default value is UNCOUPLED.
+SymbolicConstant，指定阻尼行为是否在连接器的相对运动分量之间耦合。如果 *behavior*=LINEAR，则可能的值为 UNCOUPLED 和 COUPLED。如果 *behavior*=NONLINEAR，则可能的值为 UNCOUPLED、COUPLED_POSITION 和 COUPLED_MOTION。可能的值为 UNCOUPLED、COUPLED、COUPLED_POSITION 和 COUPLED_MOTION。默认值为 UNCOUPLED。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+Int，指定场变量依赖数量。默认值为 0。
 
 *temperatureDependency*
 
-A Boolean specifying whether the behavior data depend on temperature. The default value is OFF.
+Boolean，指定行为数据是否依赖于温度。默认值为 OFF。
 
 *frequencyDependency*
 
-A Boolean specifying whether the behavior data depend on frequency. This value is applicable only if *behavior*= LINEAR and *coupling*=UNCOUPLED. The default value is OFF.
+Boolean，指定行为数据是否依赖于频率。此值仅在 *behavior*=LINEAR 且 *coupling*=UNCOUPLED 时适用。默认值为 OFF。
 
 *table*
 
-A sequence of sequences of Floats specifying damping properties. Items in the table data are described below. The default value is an empty sequence.
+Float 的序列的序列，指定阻尼属性。表格数据中的项如下所述。默认值为空序列。
 
 *independentComponents*
 
-A sequence of Ints specifying the list of independent components that are included in the definition of the connector damping data. This argument is applicable only if *behavior*=NONLINEAR and *coupling*=COUPLED_POSITION or COUPLED_MOTION. When this argument is applicable, at least one value must be specified. Only available components can be specified. The default value is an empty sequence.
+Int 的序列，指定包含在连接器阻尼数据定义中的独立分量列表。此参数仅在 *behavior*=NONLINEAR 且 *coupling*=COUPLED_POSITION 或 COUPLED_MOTION 时适用。当此参数适用时，必须指定至少一个值。只能指定可用的分量。默认值为空序列。
 
 *components*
 
-A sequence of Ints specifying the components of relative motion for which the behavior is defined.  Possible values are 1 ![](../graphics/ker_eqn00013.gif) *components* ![](../graphics/ker_eqn00013.gif) 6. Only available components can be specified. The default value is an empty sequence.
+Int 的序列，指定定义行为的相对运动分量。可能的值为 1 ![](../graphics/ker_eqn00013.gif) *components* ![](../graphics/ker_eqn00013.gif) 6。只能指定可用的分量。默认值为空序列。
 
-**Table data**
+**表格数据**
 
-If *behavior*=LINEAR and *coupling*=UNCOUPLED, then each sequence of the table data specifies the following:
-- Damping coefficient (force or moment per relative velocity).
-- Frequency (cycles/time), if the data depend on frequency.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *behavior*=LINEAR 且 *coupling*=UNCOUPLED，则表格数据的每个序列指定以下内容：
+- 阻尼系数（相对速度的力或力矩）。
+- 频率（周期/时间）（如果数据依赖于频率）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *behavior*=NONLINEAR and *coupling*=UNCOUPLED, then each sequence of the table data specifies the following:- Force or moment.
-- Relative displacement or rotation.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *behavior*=NONLINEAR 且 *coupling*=UNCOUPLED，则表格数据的每个序列指定以下内容：
+- 力或力矩。
+- 相对位移或旋转。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *behavior*=LINEAR and *coupling*=COUPLED, the table data specify the symmetric portion of the damping matrix for the specified components followed by any temperature data and then any field data. For example, if components 2, 3, and 5 are specified, the table portion of the command is as follows: 
+如果 *behavior*=LINEAR 且 *coupling*=COUPLED，则表格数据为指定分量指定阻尼矩阵的对称部分，然后是任何温度数据，最后是任何场数据。例如，如果指定了分量 2、3 和 5，则命令的表格部分如下：
 ```
 table=( (![](../graphics/ker_eqn00025.gif), ![](../graphics/ker_eqn00026.gif), ![](../graphics/ker_eqn00027.gif), ![](../graphics/ker_eqn00028.gif), ![](../graphics/ker_eqn00029.gif), ![](../graphics/ker_eqn00030.gif),), )
 ```
-The following items should then be specified as comma-separated data:- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+然后应将以下项指定为逗号分隔的数据：
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *behavior*=NONLINEAR and *coupling*=COUPLED_POSITION or COUPLED_MOTION, each sequence of the table data specifies the following:- Force or moment for the directions in the *components* list.
-- Relative velocity for the directions in the *components* list.
-- Relative position or angle for the first *independentComponents* direction if *coupling*=COUPLED_POSITION. Relative displacement or rotation for the first *independentComponents* direction if *coupling*=COUPLED_MOTION.
-- Relative position or angle for the second *independentComponents* direction if *coupling*=COUPLED_POSITION. Relative displacement or rotation for the second *independentComponents* direction if *coupling*=COUPLED_MOTION.
-- Etc. up to the Nth *independentComponents* direction.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *behavior*=NONLINEAR 且 *coupling*=COUPLED_POSITION 或 COUPLED_MOTION，则表格数据的每个序列指定以下内容：
+- *components* 列表中方向的力或力矩。
+- 如果 *coupling*=COUPLED_POSITION，则为第一个 *independentComponents* 方向的相对位置或角度。如果 *coupling*=COUPLED_MOTION，则为第一个 *independentComponents* 方向的相对位移或旋转。
+- 如果 *coupling*=COUPLED_POSITION，则为第二个 *independentComponents* 方向的相对位置或角度。如果 *coupling*=COUPLED_MOTION，则为第二个 *independentComponents* 方向的相对位移或旋转。
+- 依此类推，直到第 N 个 *independentComponents* 方向。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A ConnectorDamping object.
+ConnectorDamping 对象。
 
-**Exceptions**
+**异常**
 
-ValueError and TextError.
+ValueError 和 TextError。
 
 ### 12.4.2 setValues(...)
 
-This method modifies the ConnectorDamping object.
+此方法修改 ConnectorDamping 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ConnectorDamping](pt01ch12pyo04.md#ker-connectordamping-connectordamping-pyc) method.
+`setValues` 的可选参数与 [ConnectorDamping](pt01ch12pyo04.md#ker-connectordamping-connectordamping-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-ValueError.
+ValueError。
 
-### 12.4.3 Members
+### 12.4.3 成员
 
-The ConnectorDamping object has members with the same names and descriptions as the arguments to the [ConnectorDamping](pt01ch12pyo04.md#ker-connectordamping-connectordamping-pyc) method.
+ConnectorDamping 对象的成员与 [ConnectorDamping](pt01ch12pyo04.md#ker-connectordamping-connectordamping-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the ConnectorDamping object can have the following member:
+此外，ConnectorDamping 对象可以具有以下成员：
 
 *options*
 
-A [ConnectorOptions](pt01ch12pyo09.md) object specifying the [ConnectorOptions](pt01ch12pyo09.md) used         to define tabular options for this [ConnectorBehaviorOption](pt01ch12pyo01.md).
+[ConnectorOptions](pt01ch12pyo09.md) 对象，指定用于定义此 [ConnectorBehaviorOption](pt01ch12pyo01.md) 的表格选项的 [ConnectorOptions](pt01ch12pyo09.md)。
 
-### 12.4.4 Corresponding analysis keywords
+### 12.4.4 对应的分析关键字
 
 | [*CONNECTOR DAMPING](../key/key-link.md#usb-kws-mconnectordamping) |
 | --- |
-
-
-
-

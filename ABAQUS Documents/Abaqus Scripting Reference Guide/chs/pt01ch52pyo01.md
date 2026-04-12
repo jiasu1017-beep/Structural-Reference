@@ -1,25 +1,19 @@
-# 52.1 redentABQ module
+# 52.1 redentABQ 模块
 
+Python 模块 redentABQ 是 Python redent 模块的包装器。该模块使 Python 文本文件中的缩进保持一致。
 
+该模块可以使用以下语句从命令提示符作为脚本运行：
 
+`abaqus Python -m redentABQ [options] pathToFile`
 
+其中，以下选项可用于自定义 redentABQ 过程：
+- `-b`：如果进行了任何修改，则创建所选文件的备份。
+- `-i`：指定要使用的空格数。
+- `-t`：在任何更改后测试新缩进的文件。
 
+有关运行 **abaqus Python** 执行过程的更多信息，请参阅《Abaqus Analysis User's Guide》第 3.2.9 节"Python execution"。
 
-
-The Python module redentABQ is a wrapper around the Python redent module. The module makes the indentation in a Python text file consistent.
-
-The module can be run as a script from a command prompt using the following statement:
-
-`abaqus Python -m redentABQ [options] pathToFile` 
-
-where the following options are available to customize the redentABQ process:
-- `-b`: Create a backup of the selected file if any modifications are made.
-- `-i`: Specify a number of spaces to be used for indentation.
-- `-t`: Test the newly indented file after any changes are made.
-
-For more information on running the **abaqus Python** execution procedure, see ["Python execution," Section 3.2.9 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-int-dpythonproc).
-
-**Access**
+**访问**
 
 ```
 import redentABQ
@@ -27,35 +21,32 @@ import redentABQ
 
 ### 52.1.1 indentFile(...)
 
-This method outputs the indented file to the terminal window or backs up the specified file and replaces it.
+此方法将缩进后的文件输出到终端窗口，或备份指定文件并替换它。
 
-**Required argument**
+**必要参数**
 
 *path*
 
-A String specifying the file to be processed.
+一个 String，指定要处理的文件。
 
-**Optional arguments**
+**可选参数**
 
 *indent*
 
-A String specifying the amount of indentation to be used. The default value is four spaces of indentation. Custom indentation strings must be flanked by quotation marks (`" "`).
+一个 String，指定要使用的缩进量。默认值为四个空格的缩进。自定义缩进字符串必须用引号（`" "`）括起来。
 
 *backup*
 
-A Boolean specifying whether to back up the file specified in the *path* argument if changes are made. The default value is False. 
+一个 Boolean，指定如果在 *path* 参数中指定的文件进行了更改，是否备份该文件。默认值为 False。
 
 *runTest*
 
-A Boolean specifying whether to test the newly indented file to ensure that it is semantically the same after any changes. The default value is False. 
+一个 Boolean，指定是否测试新缩进的文件以确保其在任何更改后语义相同。默认值为 False。
 
-**Return value**
+**返回的值**
 
-A Boolean. True, if the indentation is successful; otherwise, False.
+一个 Boolean。如果缩进成功，则为 True；否则为 False。
 
-**Exceptions**
+**异常**
 
-None.
-
-
-
+无。

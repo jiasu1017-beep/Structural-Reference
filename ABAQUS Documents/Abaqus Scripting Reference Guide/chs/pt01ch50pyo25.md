@@ -1,36 +1,26 @@
-# 50.25 SubstructureGenerateModes object
+# 50.23 StructuralDampingComponent 对象
 
+StructuralDampingComponent 对象用于定义一系列模态的结构阻尼。
 
-
-
-
-
-
-A SubstructureGenerateModes               object is used to define the modes to be used in a modal dynamic analysis.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].modeRange[*i*]
+mdb.models[*name*].steps[*name*].structuralDamping.components[*i*]
 ```
 
-### 50.25.1 Members
+### 50.23.1 成员
 
-The SubstructureGenerateModes object has the following members:
+StructuralDampingComponent 对象具有以下成员：
 
 *start*
 
-An Int specifying the mode number of the lowest mode of a range.
+一个 Int，指定范围最低模态的模态号。
 
 *end*
 
-An Int specifying the mode number of the highest mode of a range.
+一个 Int，指定范围最高模态的模态号。
 
-*increment*
+*factor*
 
-An Int specifying the increment used to define the intermediate mode numbers beginning from the lowest mode to the highest mode.
-
-
-
-
+一个 Float，指定阻尼因子 ![](../graphics/ker_eqn00234.gif)。

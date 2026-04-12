@@ -1,29 +1,60 @@
-# 15.1 Datum object
+# 14.5 RegisteredTuple 对象
 
+此类允许您创建一个元组，该元组可从 GUI 查询，并能够在元组任何成员的内容更改时通知 GUI。
 
+RegisteredTuple 对象派生自 [CommandRegister](pt01ch14pyo01.md) 对象。
 
-
-
-
-
-The Datum object is the abstract base type for other Datum objects. The Datum object has no explicit constructor. The methods and members of the Datum object are common to all objects derived from the Datum.
-
-**Access**
+**访问权限**
 
 ```
-import part
-mdb.models[*name*].parts[*name*].datums[*i*]
-import assembly
-mdb.models[*name*].rootAssembly.allinstances.datums[*i*]
-mdb.models[*name*].rootAssembly.datums[*i*]
-mdb.models[*name*].rootAssembly.instances[*name*].datums[*i*]
-mdb.models[*name*].rootAssembly.modelInstances[*i*].datums[*i*]
+import customKernel
 ```
 
-### 15.1.1 Members
+### 14.5.1 RegisteredTuple(...)
 
-The Datum object has no members.
+此方法创建一个 RegisteredTuple 对象。
 
+**路径**
 
+```
+customKernel.RegisteredTuple
+```
 
+**必需参数**
+
+*tuple*
+
+对象元组。这些对象必须派生自 CommandRegister 类。
+
+**可选参数**
+
+无。
+
+**返回值**
+
+RegisteredTuple 对象。
+
+**异常**
+
+无。
+
+### 14.5.2 方法()
+
+RegisteredTuple 对象支持与标准 Python 列表对象相同的方法。
+
+**参数**
+
+无。
+
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 14.5.3 成员
+
+RegisteredTuple 对象没有成员。
 

@@ -1,14 +1,8 @@
-# 49.1 Step object
+# 49.1 Step 对象
 
+Step 对象存储决定步骤上下文的参数。Step 对象是其他 Step 对象的抽象基类型。Step 对象没有显式构造函数。Step 对象的方法和成员对所有派生自 Step 的对象都是通用的。
 
-
-
-
-
-
-The Step object stores the parameters that determine the context of the step. The Step object is the abstract base type for other Step objects. The Step object has no explicit constructor. The methods and members of the Step object are common to all objects derived from the Step. 
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,59 +11,59 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.1.1 resume()
 
-This method resumes the step that was previously suppressed.
+此方法恢复之前抑制的步骤。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 49.1.2 suppress()
 
-This method suppresses the step.
+此方法抑制该步骤。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 49.1.3 Members
+### 49.1.3 成员
 
-The Step object can have the following members:
+Step 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -100,64 +94,60 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
-
-
-
-
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。

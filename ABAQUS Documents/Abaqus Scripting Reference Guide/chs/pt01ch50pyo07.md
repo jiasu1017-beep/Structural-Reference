@@ -1,36 +1,26 @@
-# 50.7 DirectDampingComponent object
+# 50.7 DirectDampingComponent 对象
 
+DirectDampingComponent 对象用于定义一系列模态的直接阻尼。
 
-
-
-
-
-
-A DirectDampingComponent object is used to define direct damping over a range of modes.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*].directDamping.components[*i*]
 ```
 
-### 50.7.1 Members
+### 50.7.1 成员
 
-The DirectDampingComponent object has the following members:
+DirectDampingComponent 对象具有以下成员：
 
 *start*
 
-An Int specifying the mode number of the lowest mode of a range.
+一个 Int，指定范围最低模态的模态号。
 
 *end*
 
-An Int specifying the mode number of the highest mode of a range.
+一个 Int，指定范围最高模态的模态号。
 
 *fraction*
 
-A Float specifying the fraction of critical damping.
-
-
-
-
+一个 Float，指定临界阻尼比。

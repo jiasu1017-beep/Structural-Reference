@@ -1,50 +1,30 @@
-# 50.15 ResponseSpectrumComponent object
+# 50.14 RayleighDampingComponent 对象
 
+RayleighDampingComponent 对象用于定义一系列模态的 Rayleigh 阻尼。
 
-
-
-
-
-
-A ResponseSpectrumComponent is an element of the ResponseSpectrumComponentArray.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].components[*i*]
+mdb.models[*name*].steps[*name*].rayleighDamping.components[*i*]
 ```
 
-### 50.15.1 Members
+### 50.14.1 成员
 
-The ResponseSpectrumComponent object has the following members:
+RayleighDampingComponent 对象具有以下成员：
 
-*x*
+*start*
 
-A Float specifying the *X*-direction cosine.
+一个 Int，指定范围最低模态的模态号。
 
-*y*
+*end*
 
-A Float specifying the *Y*-direction cosine.
+一个 Int，指定范围最高模态的模态号。
 
-*z*
+*alpha*
 
-A Float specifying the *Z*-direction cosine.
+一个 Float，指定质量比例阻尼 ![](../graphics/ker_eqn00423.gif)。
 
-*scale*
+*beta*
 
-A Float specifying the scale factor.
-
-*timeDuration*
-
-A Float specifying the time duration of the dynamic event, from which this spectrum was created.
-
-**Note:**This parameter is ignored unless used with the DSC modal summation rule.
-
-*respSpectrum*
-
-A String specifying the name of the response spectrum specified with the keyword [*SPECTRUM](../key/key-link.md#usb-kws-mspectrum).
-
-
-
-
+一个 Float，指定刚度比例阻尼 ![](../graphics/ker_eqn00424.gif)。

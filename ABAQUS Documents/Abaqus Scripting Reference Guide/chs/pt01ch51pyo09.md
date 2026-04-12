@@ -1,14 +1,8 @@
-# 51.9 TimePoint object
+# 51.9 TimePoint 对象
 
+TimePoint 对象定义将数据写入输出数据库或重启文件的时间点。
 
-
-
-
-
-
-The TimePoint object defines time points at which data are written to the output database or restart files.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,65 +11,61 @@ mdb.models[*name*].timePoints[*name*]
 
 ### 51.9.1 TimePoint(...)
 
-This method creates a TimePoint object.
+此方法创建一个 TimePoint 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].TimePoint
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定仓库键。
 
 *points*
 
-A sequence of sequences of Floats specifying time points at which data are written to the output database or restart files.
+一个 Float 序列的序列，指定将数据写入输出数据库或重启文件的时间点。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-A TimePoint object.
+一个 TimePoint 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError and RangeError.
+InvalidNameError 和 RangeError。
 
 ### 51.9.2 setValues(...)
 
-This method modifies the TimePoint object.
+此方法修改 TimePoint 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [TimePoint](pt01ch51pyo09.md#ker-timepoint-timepoint-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [TimePoint](pt01ch51pyo09.md#ker-timepoint-timepoint-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 51.9.3 Members
+### 51.9.3 成员
 
-The TimePoint object has members with the same names and descriptions as the arguments to the [TimePoint](pt01ch51pyo09.md#ker-timepoint-timepoint-pyc) method.
+TimePoint 对象的成员与 [TimePoint](pt01ch51pyo09.md#ker-timepoint-timepoint-pyc) 方法的参数具有相同的名称和描述。
 
-### 51.9.4 Corresponding analysis keywords
+### 51.9.4 对应的分析关键字
 
 | [*TIME POINTS](../key/key-link.md#usb-kws-htimepoints) |
 | --- |
-
-
-
-

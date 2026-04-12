@@ -1,16 +1,10 @@
-# 49.12 FlowStep object
+# 49.12 FlowStep 对象
 
+FlowStep 对象用于创建用于 CFD 分析的分析步骤。
 
+FlowStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The FlowStep object is used to create an analysis step for use in a CFD analysis.
-
-The FlowStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -19,275 +13,275 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.12.1 FlowStep(...)
 
-This method creates a FlowStep object.
+此方法创建一个 FlowStep 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].FlowStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *timePeriod*
 
-A Float specifying the total time period for the step. The default value is 1.0.
+一个 Float，指定步骤的总时间周期。默认值为 1.0。
 
 *energyEquation*
 
-A SymbolicConstant specifying the energy equation method to be used. Possible values are ENERGY_NONE and TEMPERATURE. The default value is ENERGY_NONE.
+一个 SymbolicConstant，指定要使用的能量方程方法。可选值为 ENERGY_NONE 和 TEMPERATURE。默认值为 ENERGY_NONE。
 
 *incrementation*
 
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED_TIME and FIXED_CFL. The default value is FIXED_TIME.
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED_TIME 和 FIXED_CFL。默认值为 FIXED_TIME。
 
 *initialInc*
 
-A Float specifying the time increment for the step, or the initial time increment when *incrementation*=FIXED_CFL. The default value is 0.01.
+一个 Float，指定步骤的时间增量，或当 *incrementation*=FIXED_CFL 时的初始时间增量。默认值为 0.01。
 
 *divergenceTol*
 
-A Float specifying the divergence tolerance.. The default value is 10–10.
+一个 Float，指定发散容差。默认值为 10-10。
 
 *maximumCFL*
 
-A Float specifying the maximum Courant-Friedrichs-Levy increment. This member is applicable only when *incrementation*=FIXED_CFL. The default value is 0.45.
+一个 Float，指定最大 Courant-Friedrichs-Levy 增量。此成员仅在 *incrementation*=FIXED_CFL 时适用。默认值为 0.45。
 
 *incAdjustmentFreq*
 
-An Int specifying the increment adjustment frequency. This member is applicable only when *incrementation*=FIXED_CFL. The default value is 1.
+一个 Int，指定增量调整频率。此成员仅在 *incrementation*=FIXED_CFL 时适用。默认值为 1。
 
 *stepGrowthFactor*
 
-A Float specifying the time step growth scale factor. This member is applicable only when *incrementation*=FIXED_CFL. The default value is 0.025.
+一个 Float，指定时间步长增长比例因子。此成员仅在 *incrementation*=FIXED_CFL 时适用。默认值为 0.025。
 
 *viscousFactor*
 
-A SymbolicConstant specifying the viscous time integration parameter. Possible values are TRAPEZOID, GALERKIN, and BACKWARD_EULER. The default value is TRAPEZOID.
+一个 SymbolicConstant，指定粘性时间积分参数。可选值为 TRAPEZOID、GALERKIN 和 BACKWARD_EULER。默认值为 TRAPEZOID。
 
 *boundaryFactor*
 
-A SymbolicConstant specifying the load and boundary condition time integration parameter. Possible values are TRAPEZOID, GALERKIN, and BACKWARD_EULER. The default value is TRAPEZOID.
+一个 SymbolicConstant，指定载荷和边界条件时间积分参数。可选值为 TRAPEZOID、GALERKIN 和 BACKWARD_EULER。默认值为 TRAPEZOID。
 
 *advectionFactor*
 
-A SymbolicConstant specifying the advection parameter. Possible values are TRAPEZOID, GALERKIN, and BACKWARD_EULER. The default value is TRAPEZOID.
+一个 SymbolicConstant，指定平流参数。可选值为 TRAPEZOID、GALERKIN 和 BACKWARD_EULER。默认值为 TRAPEZOID。
 
 *momOutputDiagnostics*
 
-A Boolean specifying whether or not to output diagnostics for the momentum equation solver. The default value is OFF.
+一个布尔值，指定是否输出动量方程求解器的诊断信息。默认值为 OFF。
 
 *momOutputConvergence*
 
-A Boolean specifying whether or not to output convergence data for the momentum equation solver. The default value is OFF.
+一个布尔值，指定是否输出动量方程求解器的收敛数据。默认值为 OFF。
 
 *momIterationLimit*
 
-An Int specifying the iteration limit for the momentum equation solver. The default value is 50.
+一个 Int，指定动量方程求解器的迭代限制。默认值为 50。
 
 *momCheckingFreq*
 
-An Int specifying the momentum equation solver checking frequency. The default value is 2.
+一个 Int，指定动量方程求解器的检查频率。默认值为 2。
 
 *momConvergenceLimit*
 
-A Float specifying the linear convergence limit for the momentum equation solver. The default value is 10–5.
+一个 Float，指定动量方程求解器的线性收敛极限。默认值为 10-5。
 
 *pressureType*
 
-A SymbolicConstant specifying the pressure equation preconditioner type. Possible values are AMG and SSOR. The default value is AMG.
+一个 SymbolicConstant，指定压力方程预处理程序类型。可选值为 AMG 和 SSOR。默认值为 AMG。
 
 *pressSolverType*
 
-A SymbolicConstant specifying the pressure equation solver type. This member cannot be changed from the default value when *pressureType*=SSOR. Possible values are CG, BCGS, and FGMRES. The default value is CG.
+一个 SymbolicConstant，指定压力方程求解器类型。当 *pressureType*=SSOR 时，此成员不能从默认值更改。可选值为 CG、BCGS 和 FGMRES。默认值为 CG。
 
 *pressSmootherType*
 
-A SymbolicConstant specifying the pressure equation residual smoother type. This member is applicable only when *pressureType*=AMG. Possible values are ICC and CHEBYCHEV. The default value is ICC.
+一个 SymbolicConstant，指定压力方程残差平滑器类型。此成员仅在 *pressureType*=AMG 时适用。可选值为 ICC 和 CHEBYCHEV。默认值为 ICC。
 
 *pressPreSweeps*
 
-An Int specifying the pre-sweeps used by the residual smoother. This member is applicable only when *pressureType*=AMG. The default value is 1.
+一个 Int，指定残差平滑器使用的预扫描次数。此成员仅在 *pressureType*=AMG 时适用。默认值为 1。
 
 *pressPostSweeps*
 
-An Int specifying the post-sweeps used by the residual smoother. This member is applicable only when *pressureType*=AMG. The default value is 1.
+一个 Int，指定残差平滑器使用的后扫描次数。此成员仅在 *pressureType*=AMG 时适用。默认值为 1。
 
 *pressOutputDiagnostics*
 
-A Boolean specifying whether or not to output diagnostics for the pressure equation solver. The default value is OFF.
+一个布尔值，指定是否输出压力方程求解器的诊断信息。默认值为 OFF。
 
 *pressOutputConvergence*
 
-A Boolean specifying whether or not to output convergence data for the pressure equation solver. The default value is OFF.
+一个布尔值，指定是否输出压力方程求解器的收敛数据。默认值为 OFF。
 
 *pressIterationLimit*
 
-An Int specifying the iteration limit for the pressure equation solver. This default value is 250 when *pressureType*=AMG and 1000 when *pressureType*=SSOR.
+一个 Int，指定压力方程求解器的迭代限制。当 *pressureType*=AMG 时默认值为 250，当 *pressureType*=SSOR 时默认值为 1000。
 
 *pressCheckingFreq*
 
-An Int specifying the pressure equation solver checking frequency. The default value is 2.
+一个 Int，指定压力方程求解器的检查频率。默认值为 2。
 
 *pressConvergenceLimit*
 
-A Float specifying the linear convergence limit for the pressure equation solver. The default value is 10–5.
+一个 Float，指定压力方程求解器的线性收敛极限。默认值为 10-5。
 
 *transOutputDiagnostics*
 
-A Boolean specifying whether or not to output diagnostics for the transport equation solver. The default value is OFF.
+一个布尔值，指定是否输出输运方程求解器的诊断信息。默认值为 OFF。
 
 *transOutputConvergence*
 
-A Boolean specifying whether or not to output convergence data for the transport equation solver. The default value is OFF.
+一个布尔值，指定是否输出输运方程求解器的收敛数据。默认值为 OFF。
 
 *transIterationLimit*
 
-An Int specifying the iteration limit for the transport equation solver. The default value is 50.
+一个 Int，指定输运方程求解器的迭代限制。默认值为 50。
 
 *transCheckingFreq*
 
-An Int specifying the transport equation solver checking frequency. The default value is 2.
+一个 Int，指定输运方程求解器的检查频率。默认值为 2。
 
 *transConvergenceLimit*
 
-A Float specifying the linear convergence limit for the transport equation solver. The default value is 10–5.
+一个 Float，指定输运方程求解器的线性收敛极限。默认值为 10-5。
 
 *turbulenceModel*
 
-A SymbolicConstant specifying the turbulence model. Possible values are TURB_NONE, SPALART, and KEPS_RNG. The default value is TURB_NONE.
+一个 SymbolicConstant，指定湍流模型。可选值为 TURB_NONE、SPALART 和 KEPS_RNG。默认值为 TURB_NONE。
 
 *turbPrandtlNumber*
 
-A Float specifying the turbulent Prandtl number. This member is applicable only when *energyEquation*=TEMPERATURE and when *turbulenceModel*!=TURB_NONE. The default value is 0.8889.
+一个 Float，指定湍流 Prandtl 数。此成员仅在 *energyEquation*=TEMPERATURE 且 *turbulenceModel*!=TURB_NONE 时适用。默认值为 0.8889。
 
 *turbCb1*
 
-A Float specifying the turbulence constant Cb1. This member is applicable only when *turbulenceModel*=SPALART. The default value is 0.1355.
+一个 Float，指定湍流常数 Cb1。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 0.1355。
 
 *turbCb2*
 
-A Float specifying the turbulence constant Cb2. This member is applicable only when *turbulenceModel*=SPALART. The default value is 0.622.
+一个 Float，指定湍流常数 Cb2。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 0.622。
 
 *turbCv1*
 
-A Float specifying the turbulence constant Cv1. This member is applicable only when *turbulenceModel*=SPALART. The default value is 7.1.
+一个 Float，指定湍流常数 Cv1。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 7.1。
 
 *turbCv2*
 
-A Float specifying the turbulence constant Cv2. This member is applicable only when *turbulenceModel*=SPALART. The default value is 5.0.
+一个 Float，指定湍流常数 Cv2。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 5.0。
 
 *turbCw1*
 
-A Float specifying the turbulence constant Cw1. This member is applicable only when *turbulenceModel*=SPALART. The default value is 3.2391.
+一个 Float，指定湍流常数 Cw1。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 3.2391。
 
 *turbCw2*
 
-A Float specifying the turbulence constant Cw2. This member is applicable only when *turbulenceModel*=SPALART. The default value is 0.3.
+一个 Float，指定湍流常数 Cw2。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 0.3。
 
 *turbCw3*
 
-A Float specifying the turbulence constant Cw3. This member is applicable only when *turbulenceModel*=SPALART. The default value is 2.0.
+一个 Float，指定湍流常数 Cw3。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 2.0。
 
 *turbSigma*
 
-A Float specifying the turbulence constant Sigma. This member is applicable only when *turbulenceModel*=SPALART. The default value is 0.6667.
+一个 Float，指定湍流常数 Sigma。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 0.6667。
 
 *turbKappa*
 
-A Float specifying the turbulence constant Kappa. This member is applicable only when *turbulenceModel*=SPALART. The default value is 0.41.
+一个 Float，指定湍流常数 Kappa。此成员仅在 *turbulenceModel*=SPALART 时适用。默认值为 0.41。
 
 *turbCmu*
 
-A Float specifying the turbulence constant Cmu. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 0.085.
+一个 Float，指定湍流常数 Cmu。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 0.085。
 
 *turbCeps1*
 
-A Float specifying the turbulence constant cps1. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 1.42.
+一个 Float，指定湍流常数 cps1。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 1.42。
 
 *turbCeps2t*
 
-A Float specifying the turbulence constant cps2t. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 1.68.
+一个 Float，指定湍流常数 cps2t。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 1.68。
 
 *turbSigma_k*
 
-A Float specifying the turbulence constant sigma_k. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 0.72.
+一个 Float，指定湍流常数 sigma_k。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 0.72。
 
 *turbSigma_eps*
 
-A Float specifying the turbulence constant sigma_eps. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 0.72.
+一个 Float，指定湍流常数 sigma_eps。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 0.72。
 
 *turbBeta*
 
-A Float specifying the turbulence constant beta. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 0.012.
+一个 Float，指定湍流常数 beta。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 0.012。
 
 *turbLambda0*
 
-A Float specifying the turbulence constant lambda0. This member is applicable only when *turbulenceModel*=KEPS_RNG. The default value is 4.38.
+一个 Float，指定湍流常数 lambda0。此成员仅在 *turbulenceModel*=KEPS_RNG 时适用。默认值为 4.38。
 
-**Return value**
+**返回值**
 
-A FlowStep object.
+一个 FlowStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 49.12.2 setValues(...)
 
-This method modifies the FlowStep object.
+此方法修改 FlowStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [FlowStep](pt01ch49pyo12.md#ker-flowstep-flowstep-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [FlowStep](pt01ch49pyo12.md#ker-flowstep-flowstep-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.12.3 Members
+### 49.12.3 成员
 
-The FlowStep object has members with the same names and descriptions as the arguments to the [FlowStep](pt01ch49pyo12.md#ker-flowstep-flowstep-pyc) method.
+FlowStep 对象具有与 [FlowStep](pt01ch49pyo12.md#ker-flowstep-flowstep-pyc) 方法参数相同名称和描述的成员。
 
-In addition, the FlowStep object can have the following members:
+此外，FlowStep 对象可以具有以下成员：
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -318,70 +312,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.12.4 Corresponding analysis keywords
+### 49.12.4 对应的分析关键字
 
 | [*CFD](../key/key-link.md#usb-kws-hcfd) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

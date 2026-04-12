@@ -1,11 +1,5 @@
 # 55.4 Axis 对象
 
-
-
-
-
-
-
 Axis 对象用于存储轴的显示属性。将 [XYCurve](pt01ch55pyo15.md) 对象添加到 [Chart](pt01ch55pyo06.md) 对象时，会自动创建 Axis 对象。
 
 **访问**
@@ -26,7 +20,7 @@ session.xyPlots[*name*].charts[*name*].axes2[*i*]
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -89,11 +83,11 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.4.2 成员
 
@@ -155,4 +149,3 @@ Axis 对象可以具有以下成员：
 *tickStyle*
 
 一个 [LineStyle](pt01ch55pyo10.md) 对象，指定显示轴刻度线时要使用的线条属性。
-

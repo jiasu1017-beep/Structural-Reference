@@ -1,14 +1,8 @@
-# 51.6 IntegratedOutputSection object
+# 51.6 IntegratedOutputSection 对象
 
+IntegratedOutputSection 对象指定用于集成输出的参数。
 
-
-
-
-
-
-The IntegratedOutputSection object specifies parameters used for integrated output.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,80 +11,76 @@ mdb.models[*name*].integratedOutputSections[*name*]
 
 ### 51.6.1 IntegratedOutputSection(...)
 
-This method creates an IntegratedOutputSection object.
+此方法创建一个 IntegratedOutputSection 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].IntegratedOutputSection
 ```
 
-**Required argument**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定仓库键。
 
-**Optional arguments**
+**可选参数**
 
 *surface*
 
-A [Region](pt01ch45pyo03.md) object specifying the surface over which the output is based.
+一个 [Region](pt01ch45pyo03.md) 对象，指定输出所基于的表面。
 
 *refPoint*
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the anchor point about which the integrated moment over the output region is computed or the SymbolicConstant None representing the global origin. The default value is `None`.
+ `None` 或一个 [Region](pt01ch45pyo03.md) 对象，指定计算输出区域积分力矩的锚点，或 SymbolicConstant None（代表全局原点）。默认值为 `None`。
 
 *refPointAtCenter*
 
-A Boolean specifying that the *refPoint* be adjusted so that it coincides with the center of the output region in the initial configuration. This argument is valid only when you include the *refPoint* argument. The default value is OFF.
+一个 Boolean，指定是否调整 *refPoint* 使其与输出区域在初始配置中的中心重合。此参数仅在包含 *refPoint* 参数时有效。默认值为 OFF。
 
 *refPointMotion*
 
-A SymbolicConstant specifying how to relate the motion of *refPoint* to the average motion of the output region. A value of INDEPENDENT will allow the *refPoint* to move independent of the output region. A value of AVERAGE_TRANSLATION will set the displacement of the *refPoint* equal to the average translation of the output region. A value of AVERAGE will set the displacement and rotation of the *refPoint* equal to the average translation of the output region. The default value is INDEPENDENT.
+一个 SymbolicConstant，指定如何将 *refPoint* 的运动与输出区域的平均运动相关联。INDEPENDENT 值允许 *refPoint* 独立于输出区域运动。AVERAGE_TRANSLATION 值将 *refPoint* 的位移设置为等于输出区域的平均平移。AVERAGE 值将 *refPoint* 的位移和旋转设置为等于输出区域的平均平移。默认值为 INDEPENDENT。
 
-This argument is valid only when you include the *refPoint* argument.
+此参数仅在包含 *refPoint* 参数时有效。
 
 *localCsys*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the local coordinate system used to express vector output. If *localCsys*=`None`, the degrees of freedom are defined in the global coordinate system. The default value is `None`.
+ `None` 或一个 [DatumCsys](pt01ch15pyo03.md) 对象，指定用于表示向量输出的局部坐标系。如果 *localCsys*=`None`，则自由度在全局坐标系中定义。默认值为 `None`。
 
 *projectOrientation*
 
-A Boolean specifying that the coordinate system be projected onto the *surface* such that the 1–axis is normal to the *surface*. Projection onto a planar *surface* is such that the 1-axis is normal to the surface, and a projection onto a nonplanar *surface* is such that a least-squares fit surface will be used. The default value is OFF.
+一个 Boolean，指定将坐标系投影到 *surface* 上，使1轴垂直于 *surface*。投影到平面 *surface* 时，1轴垂直于表面；投影到非平面 *surface* 时，将使用最小二乘法拟合表面。默认值为 OFF。
 
-**Return value**
+**返回的值**
 
-An IntegratedOutputSection object.
+一个 IntegratedOutputSection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 51.6.2 setValues(...)
 
-This method modifies the IntegratedOutputSection object.
+此方法修改 IntegratedOutputSection 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [IntegratedOutputSection](pt01ch51pyo06.md#ker-integratedoutputsection-integratedoutputsection-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [IntegratedOutputSection](pt01ch51pyo06.md#ker-integratedoutputsection-integratedoutputsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 51.6.3 Members
+### 51.6.3 成员
 
-The IntegratedOutputSection object has members with the same names and descriptions as the arguments to the [IntegratedOutputSection](pt01ch51pyo06.md#ker-integratedoutputsection-integratedoutputsection-pyc) method.
-
-
-
-
+IntegratedOutputSection 对象的成员与 [IntegratedOutputSection](pt01ch51pyo06.md#ker-integratedoutputsection-integratedoutputsection-pyc) 方法的参数具有相同的名称和描述。

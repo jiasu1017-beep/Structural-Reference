@@ -1,127 +1,177 @@
-# 49.23 StaticLinearPerturbationStep object
+# 49.21 ResponseSpectrumStep 对象
 
+ResponseSpectrumStep 对象用于基于用户提供的响应谱和系统的固有模态计算位移和应力的峰值估计。
 
+ResponseSpectrumStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The StaticLinearPerturbationStep object is used to indicate that the static step should be analyzed as a linear perturbation load step.
-
-The StaticLinearPerturbationStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*]
 ```
 
-### 49.23.1 StaticLinearPerturbationStep(...)
+### 49.21.1 ResponseSpectrumStep(...)
 
-This method creates a StaticLinearPerturbationStep object. 
+此方法创建一个 ResponseSpectrumStep 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].StaticLinearPerturbationStep
+mdb.models[*name*].ResponseSpectrumStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+*components*
+
+一个 [ResponseSpectrumComponentArray](pt01ch50pyo15.md) 对象。
+
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
-*matrixSolver*
+*comp*
 
-A SymbolicConstant specifying the type of solver. Possible values are DIRECT and ITERATIVE. The default value is DIRECT.
+一个 SymbolicConstant，指定求和分量的顺序和方法。可选值为 SINGLE_DIRECTION、MULTIPLE_DIRECTION_ABSOLUTE_SUM、MULTIPLE_DIRECTION_SRSS_SUM、MULTIPLE_DIRECTION_THIRTY_PERCENT_RULE 和 MULTIPLE_DIRECTION_FORTY_PERCENT_RULE。默认值为 SINGLE_DIRECTION。
 
-*matrixStorage*
+*sum*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定用于求和分量的方法。可选值为 ABS、CQC、NRL、SRSS、TENP、DSC 和 GRP。默认值为 ABS。
+
+*directDamping*
+
+一个 [DirectDamping](pt01ch50pyo04.md) 对象。
+
+*compositeDamping*
+
+一个 [CompositeDamping](pt01ch50pyo01.md) 对象。
+
+*rayleighDamping*
+
+一个 [RayleighDamping](pt01ch50pyo11.md) 对象。
+
+*directDampingByFrequency*
+
+一个 [DirectDampingByFrequency](pt01ch50pyo05.md) 对象。
+
+*rayleighDampingByFrequency*
+
+一个 [RayleighDampingByFrequency](pt01ch50pyo12.md) 对象。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
-**Return value**
+**返回值**
 
-A StaticLinearPerturbationStep object.
+一个 ResponseSpectrumStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.23.2 setValues(...)
+### 49.21.2 setValues(...)
 
-This method modifies the StaticLinearPerturbationStep object.
+此方法修改 ResponseSpectrumStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [StaticLinearPerturbationStep](pt01ch49pyo23.md#ker-staticlinearperturbationstep-staticlinearperturbatio-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+`setValues` 的可选参数与 [ResponseSpectrumStep](pt01ch49pyo21.md#ker-responsespectrumstep-responsespectrumstep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.23.3 Members
+### 49.21.3 成员
 
-The StaticLinearPerturbationStep object can have the following members:
+ResponseSpectrumStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
-*matrixSolver*
+*comp*
 
-A SymbolicConstant specifying the type of solver. Possible values are DIRECT and ITERATIVE. The default value is DIRECT.
+一个 SymbolicConstant，指定求和分量的顺序和方法。可选值为 SINGLE_DIRECTION、MULTIPLE_DIRECTION_ABSOLUTE_SUM、MULTIPLE_DIRECTION_SRSS_SUM、MULTIPLE_DIRECTION_THIRTY_PERCENT_RULE 和 MULTIPLE_DIRECTION_FORTY_PERCENT_RULE。默认值为 SINGLE_DIRECTION。
 
-*matrixStorage*
+*sum*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定用于求和分量的方法。可选值为 ABS、CQC、NRL、SRSS、TENP、DSC 和 GRP。默认值为 ABS。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
+
+*components*
+
+一个 [ResponseSpectrumComponentArray](pt01ch50pyo15.md) 对象。
+
+*directDamping*
+
+一个 [DirectDamping](pt01ch50pyo04.md) 对象。
+
+*compositeDamping*
+
+一个 [CompositeDamping](pt01ch50pyo01.md) 对象。
+
+*rayleighDamping*
+
+一个 [RayleighDamping](pt01ch50pyo11.md) 对象。
+
+*directDampingByFrequency*
+
+一个 [DirectDampingByFrequency](pt01ch50pyo05.md) 对象。
+
+*rayleighDampingByFrequency*
+
+一个 [RayleighDampingByFrequency](pt01ch50pyo12.md) 对象。
+
+*structuralDamping*
+
+一个 [StructuralDamping](pt01ch50pyo20.md) 对象。
+
+*structuralDampingByFrequency*
+
+一个 [StructuralDampingByFrequency](pt01ch50pyo21.md) 对象。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -152,70 +202,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.23.4 Corresponding analysis keywords
+### 49.21.4 对应的分析关键字
 
-| [*STATIC](../key/key-link.md#usb-kws-hstatic) |
+| [*RESPONSE SPECTRUM](../key/key-link.md#usb-kws-hresponspec) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

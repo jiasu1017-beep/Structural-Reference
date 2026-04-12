@@ -1,111 +1,88 @@
-# 13.8 RigidBody object
+# 13.6 Equation 对象
 
+Equation 对象定义了一组自由度之间的线性多点约束。
 
+Equation 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The RigidBody object constrains all the degrees of freedom on the specified regions to the degree of freedom of its associated reference point.
-
-The RigidBody object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
 mdb.models[*name*].constraints[*name*]
 ```
 
-### 13.8.1 RigidBody(...)
+### 13.6.1 Equation(...)
 
-This method creates a RigidBody object.
+此方法创建一个 Equation 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].RigidBody
+mdb.models[*name*].Equation
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
-*refPointRegion*
+*terms*
 
-A [Region](pt01ch45pyo03.md) object specifying the reference point.
+（浮点数、字符串、整数、整数）序列的序列，指定系数、Set 名称、自由度和坐标系 ID。坐标系 ID 是可选的。
 
-**Optional arguments**
+**可选参数**
 
-*bodyRegion*
+无。
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the elements constrained to the movement of the reference point. The default value is `None`.
+**返回值**
 
-*tieRegion*
+Equation 对象。
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the nodes tied to the movement of the reference point. The default value is `None`.
+**异常**
 
-*pinRegion*
+如果 *terms* 不包含多个条目：
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the nodes pinned to the movement of the reference point. The default value is `None`.
+```
+Equation must have two or more terms.
+```
 
-*surfaceRegion*
+### 13.6.2 setValues(...)
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying the analytic surface constrained to the movement of the reference point. The default value is `None`.
+此方法修改 Equation 对象。
 
-*refPointAtCOM*
+**必需参数**
 
-A Boolean specifying whether the analysis product should recompute the reference point position to be at the center of mass. The default value is OFF.
+无。
 
-*isothermal*
+**可选参数**
 
-A Boolean specifying whether the temperature degree of freedom should be constrained. The default value is OFF.
+`setValues` 的可选参数与 [Equation](pt01ch13pyo06.md#ker-equation-equation-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-A RigidBody object.
+无。
 
-**Exceptions**
+**异常**
 
-None.
+如果 *terms* 不包含多个条目：
 
-### 13.8.2 setValues(...)
+```
+Equation must have two or more terms.
+```
 
-This method modifies the RigidBody object.
+### 13.6.3 成员
 
-**Required arguments**
+Equation 对象的成员与 [Equation](pt01ch13pyo06.md#ker-equation-equation-pyc) 方法的参数具有相同的名称和描述。
 
-None.
-
-**Optional arguments**
-
-The optional arguments to `setValues` are the same as the arguments to the [RigidBody](pt01ch13pyo08.md#ker-rigidbody-rigidbody-pyc) method, except for the *name* argument.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 13.8.3 Members
-
-The RigidBody object has members with the same names and descriptions as the arguments to the [RigidBody](pt01ch13pyo08.md#ker-rigidbody-rigidbody-pyc) method.
-
-In addition, the RigidBody object has the following member:
+此外，Equation 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.8.4 Corresponding analysis keywords
+### 13.6.4 对应的分析关键字
 
-| [*RIGID BODY](../key/key-link.md#usb-kws-mrigidbody) |
+| [*EQUATION](../key/key-link.md#usb-kws-mequation) |
 | --- |
-
-
-
 

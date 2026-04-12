@@ -1,319 +1,217 @@
-# 49.13 FrequencyStep object
+# 49.14 GeostaticStep 对象
 
+GeostaticStep 对象用于验证地应力场是否与模型上的施加载荷和边界条件平衡，并在需要时迭代以获得平衡。
 
+GeostaticStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The FrequencyStep object is used to perform eigenvalue extraction to calculate the natural frequencies and corresponding mode shapes of a system.
-
-The FrequencyStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*]
 ```
 
-### 49.13.1 FrequencyStep(...)
+### 49.14.1 GeostaticStep(...)
 
-This method creates a FrequencyStep object. 
+此方法创建一个 GeostaticStep 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].FrequencyStep
+mdb.models[*name*].GeostaticStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-*eigensolver*
-
-A SymbolicConstant specifying the eigensolver. Possible values are LANCZOS, SUBSPACE, and AMS.
-
-The following optional arguments are ignored unless *eigensolver*=LANCZOS: *blockSize*, *maxBlocks*, *normalization*, *propertyEvaluationFrequency*.
-
-The following optional arguments are ignored unless *eigensolver*=LANCZOS or AMS: *minEigen*, *maxEigen*, and *acousticCoupling*.
-
-The following optional arguments are ignored unless *eigensolver*=AMS: *projectDamping*, *acousticRangeFactor*, *substructureCutoffMultiplier*, *firstCutoffMultiplier*, *secondCutoffMultiplier*, *residualModeRegion*, *regionalModeDof*, and *limitSavedEigenvectorRegion*.
-
-**Optional arguments**
-
-*numEigen*
-
-The SymbolicConstant ALL or an Int specifying the number of eigenvalues to be calculated or ALL. The default value is ALL.
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
-*shift*
+*nlgeom*
 
-A Float specifying the shift point in cycles per time. The default value is 0.0.
+一个布尔值，指定是否在步骤期间考虑几何非线性。默认值为 OFF。
 
-*minEigen*
+*matrixSolver*
 
- `None` or a Float specifying the minimum frequency of interest in cycles per time. The default value is `None`.
-
-*maxEigen*
-
- `None` or a Float specifying the maximum frequency of interest in cycles per time. The default value is `None`.
-
-*vectors*
-
- `None` or an Int specifying the number of vectors used in the iteration. The default is the minimum of (2*n*, *n* + 8), where *n* is the number of eigenvalues requested. The default value is `None`.
-
-*maxIterations*
-
-An Int specifying the maximum number of iterations. The default value is 30.
-
-*blockSize*
-
-A SymbolicConstant specifying the size of the Lanczos block steps. The default value is DEFAULT.
-
-*maxBlocks*
-
-A SymbolicConstant specifying the maximum number of Lanczos block steps within each Lanczos run. The default value is DEFAULT.
-
-*normalization*
-
-A SymbolicConstant specifying the method for normalizing eigenvectors. Possible values are DISPLACEMENT and MASS. The default value is DISPLACEMENT.
-
-A value of DISPLACEMENT indicates normalizing the eigenvectors so that the largest displacement entry in each vector is unity. A value of MASS indicates normalizing the eigenvectors with respect to the structure's mass matrix, which results in scaling the eigenvectors so that the generalized mass for each vector is unity.
-
-*propertyEvaluationFrequency*
-
- `None` or a Float specifying the frequency at which to evaluate frequency-dependent properties for viscoelasticity, springs, and dashpots during the eigenvalue extraction. If the value is `None`, the analysis product will evaluate the stiffness associated with frequency-dependent springs and dashpots at zero frequency and will not consider the stiffness contributions from frequency-domain viscoelasticity in the step. The default value is `None`.
-
-*projectDamping*
-
-A Boolean specifying whether to include projection of viscous and structural damping operators during *AMS* eigenvalue extraction.  Valid only when *eigenSolver*=AMS. The default value is ON.
-
-*acousticCoupling*
-
-A SymbolicConstant specifying the type of acoustic-structural coupling in models with acoustic and structural elements coupled using the [*TIE](../key/key-link.md#usb-kws-mtie) option or in models with ASI-type elements. Possible values are AC_ON, AC_OFF, and AC_PROJECTION. The default value is AC_ON.
-
-*acousticRangeFactor*
-
-A Float specifying the ratio of the maximum acoustic frequency to the maximum structural frequency. The default value is 1.0.
-
-*frictionDamping*
-
-A Boolean specifying whether to add to the damping matrix contributions due to friction effects. The default value is OFF.
+一个 SymbolicConstant，指定求解器类型。可选值为 DIRECT 和 ITERATIVE。默认值为 DIRECT。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
-*simLinearDynamics*
+*solutionTechnique*
 
-A Boolean specifying whether to activate the SIM-based linear dynamics procedures. The default value is OFF.
+一个 SymbolicConstant，指定用于求解非线性方程的技术。可选值为 FULL_NEWTON 和 QUASI_NEWTON。默认值为 FULL_NEWTON。
 
-*residualModes*
+*reformKernel*
 
-A Boolean specifying whether to include residual modes from an immediately preceding Static, Linear Perturbation step. The default value is OFF.
+一个 Int，指定在核矩阵重新形成之前允许的准牛顿迭代次数。默认值为 8。
 
-*substructureCutoffMultiplier*
+*convertSDI*
 
-A Float specifying the cutoff frequency for substructure eigenproblems, defined as a multiplier of the maximum frequency of interest. The default value is 5.0.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
-*firstCutoffMultiplier*
+*utol*
 
-A Float specifying the first cutoff frequency for a reduced eigenproblem, defined as a multiplier of the maximum frequency of interest. The default value is 1.7.
+`None` 或一个 Float，指定位移最大变化的容差。默认值为 `None`。
 
-*secondCutoffMultiplier*
+*timePeriod*
 
-A Float specifying the second cutoff frequency for a reduced eigenproblem defined as a multiplier of the maximum frequency of interest. The default value is 1.1.
+一个 Float，指定总时间周期。默认值为 1.0。
 
-*residualModeRegion*
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
 
- `None` or a sequence of Strings specifying the name of a region for which residual modes are requested. The default value is `None`.
+*timeIncrementationMethod*
 
-*residualModeDof*
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
 
- `None` or a sequence of Ints specifying the degree of freedom for which residual modes are requested. The default value is `None`.
+*initialInc*
 
-*limitSavedEigenvectorRegion*
+一个 Float，指定初始时间增量。默认值为步骤的总时间周期。
 
- `None` or a [Region](pt01ch45pyo03.md) object specifying a region for which eigenvectors should be saved or the SymbolicConstant None representing the whole model. The default value is `None`.
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
 
-**Return value**
+*minInc*
 
-A FrequencyStep object.
+一个 Float，指定允许的最小时间增量。默认值为建议的初始时间增量或总时间周期的 105 倍中的较小值。
 
-**Exceptions**
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
 
-RangeError.
+*maxInc*
 
-### 49.13.2 setValues(...)
+一个 Float，指定允许的最大时间增量。默认值为步骤的总时间周期。
 
-This method modifies the FrequencyStep object.
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
 
-**Required arguments**
+**返回值**
 
-None.
+一个 GeostaticStep 对象。
 
-**Optional arguments**
+**异常**
 
-The optional arguments to `setValues` are the same as the arguments to the [FrequencyStep](pt01ch49pyo13.md#ker-frequencystep-frequencystep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+RangeError。
 
-**Return value**
+### 49.14.2 setValues(...)
 
-None
+此方法修改 GeostaticStep 对象。
 
-**Exceptions**
+**必需参数**
 
-RangeError.
+无。
 
-### 49.13.3 Members
+**可选参数**
 
-The FrequencyStep object can have the following members:
+`setValues` 的可选参数与 [GeostaticStep](pt01ch49pyo14.md#ker-geostaticstep-geostaticstep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
+
+**返回值**
+
+无
+
+**异常**
+
+RangeError。
+
+### 49.14.3 成员
+
+GeostaticStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
-*eigensolver*
+*nlgeom*
 
-A SymbolicConstant specifying the eigensolver. Possible values are LANCZOS, SUBSPACE, and AMS.
+一个布尔值，指定是否在步骤期间考虑几何非线性。默认值为 OFF。
 
-The following optional arguments are ignored unless *eigensolver*=LANCZOS: *blockSize*, *maxBlocks*, *normalization*, *propertyEvaluationFrequency*.
+*matrixSolver*
 
-The following optional arguments are ignored unless *eigensolver*=LANCZOS or AMS: *minEigen*, *maxEigen*, and *acousticCoupling*.
-
-The following optional arguments are ignored unless *eigensolver*=AMS: *projectDamping*, *acousticRangeFactor*, *substructureCutoffMultiplier*, *firstCutoffMultiplier*, *secondCutoffMultiplier*, *residualModeRegion*, *regionalModeDof*, and *limitSavedEigenvectorRegion*.
-
-*numEigen*
-
-The SymbolicConstant ALL or an Int specifying the number of eigenvalues to be calculated or ALL. The default value is ALL.
-
-*shift*
-
-A Float specifying the shift point in cycles per time. The default value is 0.0.
-
-*minEigen*
-
- `None` or a Float specifying the minimum frequency of interest in cycles per time. The default value is `None`.
-
-*maxEigen*
-
- `None` or a Float specifying the maximum frequency of interest in cycles per time. The default value is `None`.
-
-*vectors*
-
- `None` or an Int specifying the number of vectors used in the iteration. The default is the minimum of (2*n*, *n* + 8), where *n* is the number of eigenvalues requested. The default value is `None`.
-
-*maxIterations*
-
-An Int specifying the maximum number of iterations. The default value is 30.
-
-*blockSize*
-
-A SymbolicConstant specifying the size of the Lanczos block steps. The default value is DEFAULT.
-
-*maxBlocks*
-
-A SymbolicConstant specifying the maximum number of Lanczos block steps within each Lanczos run. The default value is DEFAULT.
-
-*normalization*
-
-A SymbolicConstant specifying the method for normalizing eigenvectors. Possible values are DISPLACEMENT and MASS. The default value is DISPLACEMENT.
-
-A value of DISPLACEMENT indicates normalizing the eigenvectors so that the largest displacement entry in each vector is unity. A value of MASS indicates normalizing the eigenvectors with respect to the structure's mass matrix, which results in scaling the eigenvectors so that the generalized mass for each vector is unity.
-
-*propertyEvaluationFrequency*
-
- `None` or a Float specifying the frequency at which to evaluate frequency-dependent properties for viscoelasticity, springs, and dashpots during the eigenvalue extraction. If the value is `None`, the analysis product will evaluate the stiffness associated with frequency-dependent springs and dashpots at zero frequency and will not consider the stiffness contributions from frequency-domain viscoelasticity in the step. The default value is `None`.
-
-*projectDamping*
-
-A Boolean specifying whether to include projection of viscous and structural damping operators during *AMS* eigenvalue extraction.  Valid only when *eigenSolver*=AMS. The default value is ON.
-
-*acousticCoupling*
-
-A SymbolicConstant specifying the type of acoustic-structural coupling in models with acoustic and structural elements coupled using the [*TIE](../key/key-link.md#usb-kws-mtie) option or in models with ASI-type elements. Possible values are AC_ON, AC_OFF, and AC_PROJECTION. The default value is AC_ON.
-
-*acousticRangeFactor*
-
-A Float specifying the ratio of the maximum acoustic frequency to the maximum structural frequency. The default value is 1.0.
-
-*frictionDamping*
-
-A Boolean specifying whether to add to the damping matrix contributions due to friction effects. The default value is OFF.
+一个 SymbolicConstant，指定求解器类型。可选值为 DIRECT 和 ITERATIVE。默认值为 DIRECT。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
-*simLinearDynamics*
+*solutionTechnique*
 
-A Boolean specifying whether to activate the SIM-based linear dynamics procedures. The default value is OFF.
+一个 SymbolicConstant，指定用于求解非线性方程的技术。可选值为 FULL_NEWTON 和 QUASI_NEWTON。默认值为 FULL_NEWTON。
 
-*residualModes*
+*reformKernel*
 
-A Boolean specifying whether to include residual modes from an immediately preceding Static, Linear Perturbation step. The default value is OFF.
+一个 Int，指定在核矩阵重新形成之前允许的准牛顿迭代次数。默认值为 8。
 
-*substructureCutoffMultiplier*
+*convertSDI*
 
-A Float specifying the cutoff frequency for substructure eigenproblems, defined as a multiplier of the maximum frequency of interest. The default value is 5.0.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
-*firstCutoffMultiplier*
+*utol*
 
-A Float specifying the first cutoff frequency for a reduced eigenproblem, defined as a multiplier of the maximum frequency of interest. The default value is 1.7.
+`None` 或一个 Float，指定位移最大变化的容差。默认值为 `None`。
 
-*secondCutoffMultiplier*
+*timePeriod*
 
-A Float specifying the second cutoff frequency for a reduced eigenproblem defined as a multiplier of the maximum frequency of interest. The default value is 1.1.
+一个 Float，指定总时间周期。默认值为 1.0。
+
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
+
+*timeIncrementationMethod*
+
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
+
+*initialInc*
+
+一个 Float，指定初始时间增量。默认值为步骤的总时间周期。
+
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
+
+*minInc*
+
+一个 Float，指定允许的最小时间增量。默认值为建议的初始时间增量或总时间周期的 105 倍中的较小值。
+
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
+
+*maxInc*
+
+一个 Float，指定允许的最大时间增量。默认值为步骤的总时间周期。
+
+**注意：**除非 *timeIncrementationMethod*=AUTOMATIC，否则忽略此参数。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
-
-*residualModeRegion*
-
- `None` or a tuple of Strings specifying the name of a region for which residual modes are requested. The default value is `None`.
-
-*residualModeDof*
-
- `None` or a tuple of Ints specifying the degree of freedom for which residual modes are requested. The default value is `None`.
-
-*limitSavedEigenvectorRegion*
-
- `None` or a [Region](pt01ch45pyo03.md) object specifying a region for which eigenvectors should be saved or the SymbolicConstant None representing the whole model. The default value is `None`.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -344,70 +242,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.13.4 Corresponding analysis keywords
+### 49.14.4 对应的分析关键字
 
-| [*FREQUENCY](../key/key-link.md#usb-kws-hfrequency) |
+| [*GEOSTATIC](../key/key-link.md#usb-kws-hgeostatic) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

@@ -1,111 +1,102 @@
-# 13.7 MultipointConstraint object
+# 13.8 RigidBody 对象
 
+RigidBody 对象将指定区域上的所有自由度约束到其关联参考点的自由度。
 
+RigidBody 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The MultipointConstraint object defines a constraint between a group of MultipointConstraint nodes located on a region and a reference point.
-
-The MultipointConstraint object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
 mdb.models[*name*].constraints[*name*]
 ```
 
-### 13.7.1 MultipointConstraint(...)
+### 13.8.1 RigidBody(...)
 
-This method creates a MultipointConstraint object.
+此方法创建一个 RigidBody 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].MultipointConstraint
+mdb.models[*name*].RigidBody
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
-*surface*
+*refPointRegion*
 
-A [Region](pt01ch45pyo03.md) object specifying the surface on which the MultipointConstraint nodes are located.
+[Region](pt01ch45pyo03.md) 对象，指定参考点。
 
-*controlPoint*
+**可选参数**
 
-A [Region](pt01ch45pyo03.md) object specifying the constraint control point.
+*bodyRegion*
 
-*mpcType*
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定约束到参考点运动的单元。默认值为 `None`。
 
-A SymbolicConstant specifying the MPC type of the constraint. Possible values are BEAM_MPC, ELBOW_MPC, PIN_MPC, LINK_MPC, TIE_MPC, and USER_MPC.
+*tieRegion*
 
-**Optional arguments**
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定绑定到参考点运动的节点。默认值为 `None`。
 
-*csys*
+*pinRegion*
 
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the initial orientation of the local coordinate system for the MultipointConstraint's degrees of freedom. If *localCsys*=`None`, the MultipointConstraint is defined in the global coordinate system. The default value is `None`.
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定固定到参考点运动的节点。默认值为 `None`。
 
-*userType*
+*surfaceRegion*
 
-An Int specifying to differentiate between different constraint types in a user-defined MultipointConstraint. The default value is 0.
+`None` 或 [Region](pt01ch45pyo03.md) 对象，指定约束到参考点运动的分析曲面。默认值为 `None`。
 
-The *userType* argument applies only when *mpcType*=USER_MPC.
+*refPointAtCOM*
 
-*userMode*
+布尔值，指定分析产品是否应重新计算参考点位置到质心处。默认值为 OFF。
 
-A SymbolicConstant specifying the mode of the constraint when it is user-defined. Possible values are DOF_MODE_MPC and NODE_MODE_MPC. The default value is DOF_MODE_MPC.
+*isothermal*
 
-The *userMode* argument applies only when *mpcType*=USER_MPC.
+布尔值，指定是否应约束温度自由度。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-A MultipointConstraint object.
+RigidBody 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 13.7.2 setValues(...)
+### 13.8.2 setValues(...)
 
-This method modifies the MultipointConstraint object.
+此方法修改 RigidBody 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [MultipointConstraint](pt01ch13pyo07.md#ker-multipointconstraint-multipointconstraint-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [RigidBody](pt01ch13pyo08.md#ker-rigidbody-rigidbody-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 13.7.3 Members
+### 13.8.3 成员
 
-The MultipointConstraint object has members with the same names and descriptions as the arguments to the [MultipointConstraint](pt01ch13pyo07.md#ker-multipointconstraint-multipointconstraint-pyc) method.
+RigidBody 对象的成员与 [RigidBody](pt01ch13pyo08.md#ker-rigidbody-rigidbody-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the MultipointConstraint object has the following member:
+此外，RigidBody 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.7.4 Corresponding analysis keywords
+### 13.8.4 对应的分析关键字
 
-| [*MPC](../key/key-link.md#usb-kws-mmpc) |
+| [*RIGID BODY](../key/key-link.md#usb-kws-mrigidbody) |
 | --- |
-
-
-
 

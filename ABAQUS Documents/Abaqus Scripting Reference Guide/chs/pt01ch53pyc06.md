@@ -1,11 +1,5 @@
 # 53.10 升级脚本命令
 
-
-
-
-
-
-
 `upgradeScript` 模块允许您将脚本从一个版本的 Abaqus 升级到后续版本。`upgradeScript` 模块允许您一次升级多个版本。它还允许您仅升级内核命令、仅升级 GUI 命令，或两者都升级。
 
 **访问**
@@ -16,7 +10,7 @@ import upgradeScript
 
 ### 53.10.1 upgradeScript(...)
 
-此函数可用于升级目录、文件或目录和文件的列表。您可以在选择升级文件之前预览更改。此函数的用户界面可通过 Plug-ins 菜单访问。有关更多信息，请参阅《Abaqus/CAE User's Guide》第 82.5 节["升级脚本"](../usi/usi-link.md#usi-plg-example-upgradescript)。您也可以从命令行使用更简单的界面来升级脚本。有关更多信息，请参阅本指南末尾的命令更改摘要。
+此函数可用于升级目录、文件或目录和文件的列表。您可以在选择升级文件之前预览更改。此函数的用户界面可通过 Plug-ins 菜单访问。您也可以从命令行使用更简单的界面来升级脚本。
 
 **路径**
 
@@ -72,5 +66,4 @@ upgradeScript.upgradeScript
 
 **异常**
 
-None。
-
+无。

@@ -1,11 +1,5 @@
 # 55.5 AxisData 对象
 
-
-
-
-
-
-
 AxisData 对象用于存储轴的数据属性。创建 [Axis](pt01ch55pyo04.md) 对象时，会自动创建 AxisData 对象。
 
 **访问**
@@ -26,7 +20,7 @@ session.xyPlots[*name*].charts[*name*].axes2[*i*].axisData
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -83,15 +77,15 @@ None。
 
 *tickIncrement*
 
-一个 Float，指定当 *tickMode* = INCREMENT 时轴上主刻度线的增量。有效值为 0 ![](../graphics/ker_eqn00048.gif) *tickIncrement*。默认基于自动方法和所绘制范围的结果计算。当 *scale* 设置为 LOG 时，tickIncrement 被解释为每十年的值，应在 0.05 到 1 之间。
+一个 Float，指定当 *tickMode* = INCREMENT 时轴上主刻度线的增量。有效值为 0  ![](../graphics/ker_eqn00048.gif) *tickIncrement*。默认基于自动方法和所绘制范围的结果计算。当 *scale* 设置为 LOG 时，tickIncrement 被解释为每十年的值，应在 0.05 到 1 之间。
 
 *tickCount*
 
-一个 Int，指定当 *tickMode* =TOTAL_NUMBER 时轴上的主刻度线数。可能的值为 0 ![](../graphics/ker_eqn00013.gif) *tickCount* ![](../graphics/ker_eqn00013.gif) 30。默认基于轴的范围计算。当 *scale* 设置为 LOG 时，tickCount 被解释为每十年的刻度数，可接受的值为 1、4、8 和 17。
+一个 Int，指定当 *tickMode* =TOTAL_NUMBER 时轴上的主刻度线数。可能的值为 0  ![](../graphics/ker_eqn00013.gif) *tickCount*  ![](../graphics/ker_eqn00013.gif) 30。默认基于轴的范围计算。当 *scale* 设置为 LOG 时，tickCount 被解释为每十年的刻度数，可接受的值为 1、4、8 和 17。
 
 *minorTickCount*
 
-一个 Int，指定主刻度线之间的次刻度线数。可能的值为 0 ![](../graphics/ker_eqn00013.gif) *minorTickCount* ![](../graphics/ker_eqn00013.gif) 20。当 *scale* 设置为 LOG 时，minorTickCount 被解释为每十年的刻度数，限制为 0、1、4、8 和 17。默认值为 1。
+一个 Int，指定主刻度线之间的次刻度线数。可能的值为 0  ![](../graphics/ker_eqn00013.gif) *minorTickCount*  ![](../graphics/ker_eqn00013.gif) 20。当 *scale* 设置为 LOG 时，minorTickCount 被解释为每十年的刻度数，限制为 0、1、4、8 和 17。默认值为 1。
 
 *title*
 
@@ -103,7 +97,7 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
@@ -163,7 +157,7 @@ AxisData 对象可以具有以下成员：
 
 *minorTickCount*
 
-一个 Int，指定主刻度线之间的次刻度线数。可能的值为 0 ![](../graphics/ker_eqn00013.gif) *minorTickCount* ![](../graphics/ker_eqn00013.gif) 20。当 *scale* 设置为 LOG 时，minorTickCount 被解释为每十年的刻度数，限制为 0、1、4、8 和 17。默认值为 1。
+一个 Int，指定主刻度线之间的次刻度线数。可能的值为 0  ![](../graphics/ker_eqn00013.gif) *minorTickCount*  ![](../graphics/ker_eqn00013.gif) 20。当 *scale* 设置为 LOG 时，minorTickCount 被解释为每十年的刻度数，限制为 0、1、4、8 和 17。默认值为 1。
 
 *scale*
 
@@ -186,7 +180,7 @@ AxisData 对象可以具有以下成员：
 
 *tickCount*
 
-一个 Int，指定当 *tickMode* =TOTAL_NUMBER 时轴上的主刻度线数。可能的值为 0 ![](../graphics/ker_eqn00013.gif) *tickCount* ![](../graphics/ker_eqn00013.gif) 30。默认基于轴的范围计算。当 *scale* 设置为 LOG 时，tickCount 被解释为每十年的刻度数，可接受的值为 1、4、8 和 17。
+一个 Int，指定当 *tickMode* =TOTAL_NUMBER 时轴上的主刻度线数。可能的值为 0  ![](../graphics/ker_eqn00013.gif) *tickCount*  ![](../graphics/ker_eqn00013.gif) 30。默认基于轴的范围计算。当 *scale* 设置为 LOG 时，tickCount 被解释为每十年的刻度数，可接受的值为 1、4、8 和 17。
 
 *tickCountShown*
 
@@ -194,7 +188,7 @@ AxisData 对象可以具有以下成员：
 
 *tickIncrement*
 
-一个 Float，指定当 *tickMode* = INCREMENT 时轴上主刻度线的增量。有效值为 0 ![](../graphics/ker_eqn00048.gif) *tickIncrement*。默认基于自动方法和所绘制范围的结果计算。当 *scale* 设置为 LOG 时，tickIncrement 被解释为每十年的值，应在 0.05 到 1 之间。
+一个 Float，指定当 *tickMode* = INCREMENT 时轴上主刻度线的增量。有效值为 0  ![](../graphics/ker_eqn00048.gif) *tickIncrement*。默认基于自动方法和所绘制范围的结果计算。当 *scale* 设置为 LOG 时，tickIncrement 被解释为每十年的值，应在 0.05 到 1 之间。
 
 *tickIncrementShown*
 
@@ -227,4 +221,3 @@ AxisData 对象可以具有以下成员：
 *title*
 
 一个 String，指定轴的标题。默认情况下，标题设置为 *systemTitle*。
-

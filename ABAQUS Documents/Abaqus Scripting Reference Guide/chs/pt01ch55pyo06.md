@@ -1,11 +1,5 @@
 # 55.6 Chart 对象
 
-
-
-
-
-
-
 Chart 对象用于显示 [XYCurve](pt01ch55pyo15.md) 对象。创建 [XYPlot](pt01ch55pyo16.md) 对象时会自动创建 Chart 对象。
 
 **访问**
@@ -22,7 +16,7 @@ session.xyPlots[*name*].charts[*name*]
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -36,11 +30,11 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.6.2 autoSymbol()
 
@@ -48,15 +42,15 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.6.3 fitCurves()
 
@@ -64,15 +58,15 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.6.4 getAxis1(...)
 
@@ -90,7 +84,7 @@ None。
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
@@ -130,7 +124,7 @@ ValueError: QuantityType not found
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
@@ -166,15 +160,15 @@ ValueError: QuantityType not found
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.6.7 moveAxisDown(...)
 
@@ -188,15 +182,15 @@ None。
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.6.8 removeCurve(...)
 
@@ -210,15 +204,15 @@ None。
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.6.9 setValues(...)
 
@@ -226,7 +220,7 @@ None。
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -259,7 +253,7 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
@@ -336,4 +330,3 @@ Chart 对象可以具有以下成员：
 *transform*
 
 一个 Float 元组，指定用于沿 Chart 轴缩放或平移的变换矩阵。
-

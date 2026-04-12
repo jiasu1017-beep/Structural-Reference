@@ -1,14 +1,8 @@
-# 14.1 CommandRegister object
+# 14.1 CommandRegister 对象
 
+此类允许您派生一个可从 GUI 查询的通用类，并能够在类内容更改时通知 GUI。
 
-
-
-
-
-
-This class allows you to derive a general class that can be queried from the GUI and is capable of notifying the GUI when the contents of the class change.
-
-**Access**
+**访问权限**
 
 ```
 import customKernel
@@ -16,26 +10,23 @@ import customKernel
 
 ### 14.1.1 CommandRegister()
 
-This class allows you to derive a general class that can be queried from the GUI and is capable of notifying the GUI when the contents of the class change.
+此类允许您派生一个可从 GUI 查询的通用类，并能够在类内容更改时通知 GUI。
 
-**Path**
+**路径**
 
 ```
 customKernel.CommandRegister
 ```
 
-**Return value**
+**返回值**
 
-A CommandRegister object.
+CommandRegister 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 14.1.2 Members
+### 14.1.2 成员
 
-The CommandRegister object has no members.
-
-
-
+CommandRegister 对象没有成员。
 

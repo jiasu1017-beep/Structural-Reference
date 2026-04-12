@@ -1,18 +1,12 @@
 # 53.7 回调命令
 
-
-
-
-
-
-
 这些函数用于执行 Python 命令或函数。
 
 ### 53.7.1 addImportCallback(...)
 
 此函数定义一个在导入指定 Abaqus/CAE 模块时被调用的函数。您不能指定自定义模块。
 
-有关更多信息，请参阅《Abaqus Scripting User's Guide》第 6.8.3 节["回调函数示例"](../cmd/cmd-link.md#cmd-int-acl-callback)。
+有关更多信息，请参阅《Abaqus Scripting User's Guide》第 6.8.3 节["回调函数示例"]。
 
 **路径**
 
@@ -44,11 +38,11 @@ def functionName(*moduleName*, *userData*)
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 53.7.2 removeImportCallback(...)
 
@@ -72,13 +66,12 @@ removeImportCallback
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
-
+无。

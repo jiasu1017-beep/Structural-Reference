@@ -1,62 +1,30 @@
-# 50.16 SolverControl object
+# 50.17 SteadyStateDirectFrequency 对象
 
+SteadyStateDirectFrequency 是一个用于定义模态范围频率的对象。
 
-
-
-
-
-
-The SolverControl object is used to provide additional optional solver controls.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].solverControl
+mdb.models[*name*].steps[*name*].frequencyRange[*i*]
 ```
 
-### 50.16.1 setValues(...)
+### 50.17.1 成员
 
-This method modifies the SolverControl object.
+SteadyStateDirectFrequency 对象具有以下成员：
 
-**Required arguments**
+*lower*
 
-None.
+一个 Float，指定频率范围的下限或单个频率（以周期/时间计）。
 
-**Optional arguments**
+*upper*
 
-*allowPropagation*
+一个 Float，指定频率范围的上限（以周期/时间计）。
 
-A Boolean specifying whether to allow all solver control values to propagate from a previous step. Setting this argument to ON automatically sets *resetDefaultValues* to OFF. The default value is ON.
+*nPoints*
 
-*resetDefaultValues*
+一个 Int，指定应给出结果的频率范围内的点数。
 
-A Boolean specifying whether to use all default solver control values. Setting this argument to ON automatically sets *allowPropagation*to OFF. The default value is OFF.
+*bias*
 
-*relativeTolerance*
-
-The SymbolicConstant DEFAULT or a Float specifying the relative tolerance for convergence of the domain decomposition iterative solver. The default value is DEFAULT.
-
-*maxIterations*
-
-The SymbolicConstant DEFAULT or an Int specifying the maximum number of linear solver iterations. The default value is DEFAULT.
-
-*fillInLevel*
-
-The SymbolicConstant DEFAULT or an Int specifying the incomplete LU factorization fill-in level (for geostatic and soil analysis only). The default value is DEFAULT.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-RangeError.
-
-### 50.16.2 Members
-
-The SolverControl object has members with the same names and descriptions as the arguments to the [setValues](pt01ch50pyo16.md#ker-solvercontrol-setvalues-pyc) method.
-
-
-
-
+一个 Float，指定偏置参数。当请求在四个或更多频率点给出结果时，Abaqus 会将结果偏向间隔的端点，以获得更好的分辨率。默认值为 3.0。

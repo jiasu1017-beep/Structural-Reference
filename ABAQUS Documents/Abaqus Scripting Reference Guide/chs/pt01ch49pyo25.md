@@ -1,291 +1,261 @@
-# 49.25 StaticStep object
+# 49.24 StaticRiksStep 对象
 
+StaticRiksStep 对象用于指示该步骤应使用修正 Riks 方法作为静态载荷步骤进行分析，适用于比例加载情况。
 
+StaticRiksStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The StaticStep object is used to indicate that the step should be analyzed as a static load step.
-
-The StaticStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*]
 ```
 
-### 49.25.1 StaticStep(...)
+### 49.24.1 StaticRiksStep(...)
 
-This method creates a StaticStep object.
+此方法创建一个 StaticRiksStep 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].StaticStep
+mdb.models[*name*].StaticRiksStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
-
-*timePeriod*
-
-A Float specifying the total time period. The default value is 1.0.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *nlgeom*
 
-A Boolean specifying whether to allow for geometric nonlinearity. The default value is OFF.
-
-*stabilizationMethod*
-
-A SymbolicConstant specifying the stabilization type. Possible values are NONE, DISSIPATED_ENERGY_FRACTION, and DAMPING_FACTOR. The default value is NONE.
-
-*stabilizationMagnitude*
-
-A Float specifying the damping intensity of the automatic damping algorithm if the problem is expected to be unstable, and *stabilizationMethod* is not NONE. The default value is 210–4.
+一个布尔值，指定是否允许几何非线性。默认值为 OFF。
 
 *adiabatic*
 
-A Boolean specifying whether to perform an adiabatic stress analysis. The default value is OFF.
+一个布尔值，指定是否执行绝热应力分析。默认值为 OFF。
+
+*maxLPF*
+
+`None` 或一个 Float，指定载荷比例系数的最大值。默认值为 `None`。
+
+*nodeOn*
+
+一个布尔值，指定是否监测节点的最终位移值。默认值为 OFF。
+
+*maximumDisplacement*
+
+一个 Float，指定节点处和自由度处的总位移（或旋转）值，如果在增量期间越过该值，则在当前增量结束步骤。当 *nodeOn*=ON 时需要此参数。默认值为 0.0。
+
+*dof*
+
+一个 Int，指定被监测的自由度。当 *nodeOn*=ON 时需要此参数。默认值为 0。
+
+*region*
+
+一个 [Region](pt01ch45pyo03.md) 对象，指定正在监测最终位移值的顶点。当 *nodeOn*=ON 时需要此参数。
 
 *timeIncrementationMethod*
 
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED and AUTOMATIC. The default value is AUTOMATIC.
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
 
 *maxNumInc*
 
-An Int specifying the maximum number of increments in a step. The default value is 100.
+一个 Int，指定步骤中的最大增量数。默认值为 100。
 
-*initialInc*
+*totalArcLength*
 
-A Float specifying the initial time increment. The default value is the total time period for the step.
+一个 Float，指定与此步骤中的载荷相关的总载荷比例系数。默认值为 1.0。
 
-*minInc*
+*initialArcInc*
 
-A Float specifying the minimum time increment allowed. The default value is the smaller of the suggested initial time increment or 10–5 times the total time period.
+一个 Float，指定初始载荷比例系数。默认值为步骤的总载荷比例系数。
 
-*maxInc*
+*minArcInc*
 
-A Float specifying the maximum time increment allowed. The default value is the total time period for the step.
+一个 Float，指定允许的最小弧长增量。默认值为建议的初始载荷比例系数或步骤的总载荷比例系数乘以 105 中的较小值。
 
-*matrixSolver*
+*maxArcInc*
 
-A SymbolicConstant specifying the type of solver. Possible values are DIRECT and ITERATIVE. The default value is DIRECT.
+一个 Float，指定允许的最大弧长增量。默认值为步骤的总载荷比例系数。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
-
-*amplitude*
-
-A SymbolicConstant specifying the amplitude variation for loading magnitudes during the step. Possible values are STEP and RAMP. The default value is RAMP.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *extrapolation*
 
-A SymbolicConstant specifying the type of extrapolation to use in determining the incremental solution for a nonlinear analysis. Possible values are NONE, LINEAR, and PARABOLIC. The default value is LINEAR.
+一个 SymbolicConstant，指定用于确定非线性分析的增量解的外推类型。可选值为 NONE、LINEAR 和 PARABOLIC。默认值为 LINEAR。
 
 *fullyPlastic*
 
-A String specifying the region being monitored for fully plastic behavior. The default value is an empty string.
+一个字符串，指定被监测完全塑性行为的区域名称。默认值为空字符串。
 
 *noStop*
 
-A Boolean specifying whether to accept the solution to an increment after the maximum number of iterations allowed has been completed, even if the equilibrium tolerances are not satisfied. The default value is OFF.
+一个布尔值，指定在完成允许的最大迭代次数后，即使未满足平衡容差，是否接受增量的解。默认值为 OFF。
 
-**Warning:**You should set *noStop*=ON only in special cases when you have a thorough understanding of how to interpret the results.
+**警告：**仅在您对如何解释结果有充分理解的特殊情况下，才应将 *noStop* 设置为 ON。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
 *useLongTermSolution*
 
-A Boolean specifying wether to obtain the fully relaxed long-term elastic solution with time-domain viscoelasticity or the long-term elastic-plastic solution for two-layer viscoplasticity. The default value is OFF.
-
-*solutionTechnique*
-
-A SymbolicConstant specifying the technique used to for solving nonlinear equations. Possible values are FULL_NEWTON and QUASI_NEWTON. The default value is FULL_NEWTON.
-
-*reformKernel*
-
-An Int specifying the number of quasi-Newton iterations allowed before the kernel matrix is reformed.. The default value is 8.
+一个布尔值，指定是否获取时域粘弹性或双层粘塑性的完全松弛长期弹性解或长期弹塑性解。默认值为 OFF。
 
 *convertSDI*
 
-A SymbolicConstant specifying whether to force a new iteration if severe discontinuities occur during an iteration. Possible values are PROPAGATED, CONVERT_SDI_OFF, and CONVERT_SDI_ON. The default value is PROPAGATED.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
-*adaptiveDampingRatio*
+**返回值**
 
-A Float specifying the maximum allowable ratio of the stabilization energy to the total strain energy and can be used only if *stabilizationMethod* is not NONE. The default value is 0.05.
+一个 StaticRiksStep 对象。
 
-*continueDampingFactors*
+**异常**
 
-A Boolean specifying whether this step will carry over the damping factors from the results of the preceding general step. This parameter must be used in conjunction with the *adaptiveDampingRatio* parameter. The default value is OFF.
+RangeError。
 
-**Return value**
+### 49.24.2 setValues(...)
 
-A StaticStep object.
+此方法修改 StaticRiksStep 对象。
 
-**Exceptions**
+**必需参数**
 
-RangeError.
+无。
 
-### 49.25.2 setValues(...)
+**可选参数**
 
-This method modifies the StaticStep object.
+`setValues` 的可选参数与 [StaticRiksStep](pt01ch49pyo24.md#ker-staticriksstep-staticriksstep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Required arguments**
+**返回值**
 
-None.
+无
 
-**Optional arguments**
+**异常**
 
-The optional arguments to `setValues` are the same as the arguments to the [StaticStep](pt01ch49pyo25.md#ker-staticstep-staticstep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+RangeError。
 
-**Return value**
+### 49.24.3 成员
 
-None
-
-**Exceptions**
-
-RangeError.
-
-### 49.25.3 Members
-
-The StaticStep object can have the following members:
+StaticRiksStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
-
-*timePeriod*
-
-A Float specifying the total time period. The default value is 1.0.
+一个字符串，指定存储库键。
 
 *nlgeom*
 
-A Boolean specifying whether to allow for geometric nonlinearity. The default value is OFF.
-
-*stabilizationMethod*
-
-A SymbolicConstant specifying the stabilization type. Possible values are NONE, DISSIPATED_ENERGY_FRACTION, and DAMPING_FACTOR. The default value is NONE.
-
-*stabilizationMagnitude*
-
-A Float specifying the damping intensity of the automatic damping algorithm if the problem is expected to be unstable, and *stabilizationMethod* is not NONE. The default value is 210–4.
+一个布尔值，指定是否允许几何非线性。默认值为 OFF。
 
 *adiabatic*
 
-A Boolean specifying whether to perform an adiabatic stress analysis. The default value is OFF.
+一个布尔值，指定是否执行绝热应力分析。默认值为 OFF。
+
+*maxLPF*
+
+`None` 或一个 Float，指定载荷比例系数的最大值。默认值为 `None`。
+
+*nodeOn*
+
+一个布尔值，指定是否监测节点的最终位移值。默认值为 OFF。
+
+*maximumDisplacement*
+
+一个 Float，指定节点处和自由度处的总位移（或旋转）值，如果在增量期间越过该值，则在当前增量结束步骤。当 *nodeOn*=ON 时需要此参数。默认值为 0.0。
+
+*dof*
+
+一个 Int，指定被监测的自由度。当 *nodeOn*=ON 时需要此参数。默认值为 0。
 
 *timeIncrementationMethod*
 
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED and AUTOMATIC. The default value is AUTOMATIC.
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
 
 *maxNumInc*
 
-An Int specifying the maximum number of increments in a step. The default value is 100.
+一个 Int，指定步骤中的最大增量数。默认值为 100。
 
-*initialInc*
+*totalArcLength*
 
-A Float specifying the initial time increment. The default value is the total time period for the step.
+一个 Float，指定与此步骤中的载荷相关的总载荷比例系数。默认值为 1.0。
 
-*minInc*
+*initialArcInc*
 
-A Float specifying the minimum time increment allowed. The default value is the smaller of the suggested initial time increment or 10–5 times the total time period.
+一个 Float，指定初始载荷比例系数。默认值为步骤的总载荷比例系数。
 
-*maxInc*
+*minArcInc*
 
-A Float specifying the maximum time increment allowed. The default value is the total time period for the step.
+一个 Float，指定允许的最小弧长增量。默认值为建议的初始载荷比例系数或步骤的总载荷比例系数乘以 105 中的较小值。
 
-*matrixSolver*
+*maxArcInc*
 
-A SymbolicConstant specifying the type of solver. Possible values are DIRECT and ITERATIVE. The default value is DIRECT.
+一个 Float，指定允许的最大弧长增量。默认值为步骤的总载荷比例系数。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
-
-*amplitude*
-
-A SymbolicConstant specifying the amplitude variation for loading magnitudes during the step. Possible values are STEP and RAMP. The default value is RAMP.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *extrapolation*
 
-A SymbolicConstant specifying the type of extrapolation to use in determining the incremental solution for a nonlinear analysis. Possible values are NONE, LINEAR, and PARABOLIC. The default value is LINEAR.
+一个 SymbolicConstant，指定用于确定非线性分析的增量解的外推类型。可选值为 NONE、LINEAR 和 PARABOLIC。默认值为 LINEAR。
 
 *noStop*
 
-A Boolean specifying whether to accept the solution to an increment after the maximum number of iterations allowed has been completed, even if the equilibrium tolerances are not satisfied. The default value is OFF.
+一个布尔值，指定在完成允许的最大迭代次数后，即使未满足平衡容差，是否接受增量的解。默认值为 OFF。
 
-**Warning:**You should set *noStop*=ON only in special cases when you have a thorough understanding of how to interpret the results.
+**警告：**仅在您对如何解释结果有充分理解的特殊情况下，才应将 *noStop* 设置为 ON。
 
 *useLongTermSolution*
 
-A Boolean specifying wether to obtain the fully relaxed long-term elastic solution with time-domain viscoelasticity or the long-term elastic-plastic solution for two-layer viscoplasticity. The default value is OFF.
-
-*solutionTechnique*
-
-A SymbolicConstant specifying the technique used to for solving nonlinear equations. Possible values are FULL_NEWTON and QUASI_NEWTON. The default value is FULL_NEWTON.
-
-*reformKernel*
-
-An Int specifying the number of quasi-Newton iterations allowed before the kernel matrix is reformed.. The default value is 8.
+一个布尔值，指定是否获取时域粘弹性或双层粘塑性的完全松弛长期弹性解或长期弹塑性解。默认值为 OFF。
 
 *convertSDI*
 
-A SymbolicConstant specifying whether to force a new iteration if severe discontinuities occur during an iteration. Possible values are PROPAGATED, CONVERT_SDI_OFF, and CONVERT_SDI_ON. The default value is PROPAGATED.
-
-*adaptiveDampingRatio*
-
-A Float specifying the maximum allowable ratio of the stabilization energy to the total strain energy and can be used only if *stabilizationMethod* is not NONE. The default value is 0.05.
-
-*continueDampingFactors*
-
-A Boolean specifying whether this step will carry over the damping factors from the results of the preceding general step. This parameter must be used in conjunction with the *adaptiveDampingRatio* parameter. The default value is OFF.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *fullyPlastic*
 
-A String specifying the region being monitored for fully plastic behavior. The default value is an empty string.
+一个字符串，指定被监测完全塑性行为的区域名称。默认值为空字符串。
+
+*region*
+
+一个 [Region](pt01ch45pyo03.md) 对象，指定正在监测最终位移值的顶点。当 *nodeOn*=ON 时需要此参数。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -316,70 +286,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.25.4 Corresponding analysis keywords
+### 49.24.4 对应的分析关键字
 
 | [*STATIC](../key/key-link.md#usb-kws-hstatic) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

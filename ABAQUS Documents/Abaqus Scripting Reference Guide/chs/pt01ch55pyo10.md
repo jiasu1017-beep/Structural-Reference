@@ -1,11 +1,5 @@
 # 55.10 LineStyle 对象
 
-
-
-
-
-
-
 LineStyle 对象用于定义绘制 XY 绘图对象时要使用的线条样式。
 
 LineStyle 对象可以使用下面描述的方法创建。
@@ -85,7 +79,7 @@ xyPlot.LineStyle
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -119,7 +113,7 @@ ColorError
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -141,13 +135,12 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.10.3 成员
 
 LineStyle 对象具有与 [setValues](pt01ch55pyo10.md#ker-linestyle-setvalues-pyc) 方法的参数具有相同名称和描述的成员。
-

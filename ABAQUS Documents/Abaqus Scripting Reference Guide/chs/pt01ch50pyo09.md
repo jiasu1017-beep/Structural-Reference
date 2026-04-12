@@ -1,72 +1,26 @@
-# 50.9 MassScaling object
+# 50.8 EmagTimeHarmonicFrequency 对象
 
+EmagTimeHarmonicFrequency 是一个用于定义模态范围频率的对象。
 
-
-
-
-
-
-A MassScaling object defines the region and controls that govern mass scaling.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].massScaling[*i*]
+mdb.models[*name*].steps[*name*].frequencyRange[*i*]
 ```
 
-### 50.9.1 Members
+### 50.8.1 成员
 
-The MassScaling object can have the following members:
+EmagTimeHarmonicFrequency 对象具有以下成员：
 
-*objective*
+*lower*
 
-A SymbolicConstant specifying the objective of the mass scaling definition. Possible values are SEMI_AUTOMATIC, AUTOMATIC, and REINITIALIZE. The default value is SEMI_AUTOMATIC.
+一个 Float，指定频率范围的下限或单个频率（以周期/时间计）。
 
-*occurs*
+*upper*
 
-A SymbolicConstant specifying whether mass scaling should be performed at the beginning of the step or throughout the step. Possible values are AT_BEGINNING and THROUGHOUT_STEP.
+一个 Float，指定频率范围的上限（以周期/时间计）。
 
-*type*
+*nPoints*
 
-A SymbolicConstant specifying the type of scaling. Possible values are UNIFORM, BELOW_MIN, SET_EQUAL_DT, and ROLLING. The default value is BELOW_MIN.
-
-*factor*
-
-A Float specifying a scaling factor.
-
-*dt*
-
-A Float specifying a target time increment.
-
-*frequency*
-
-An Int specifying the frequency at which mass scaling calculations are performed.
-
-*numberInterval*
-
-An Int specifying the number of intervals at which mass scaling calculations are performed.
-
-*feedRate*
-
-A Float specifying the estimated average velocity of the workpiece in the rolling direction at steady-state conditions.
-
-*extrudedLength*
-
-A Float specifying the average element length in the extruded direction.
-
-*crossSection*
-
-An Int specifying the number of nodes in the cross-section of the workpiece.
-
-*direction*
-
-A SymbolicConstant specifying the rolling direction. Possible values are GLOBAL_X, GLOBAL_Y, GLOBAL_Z, and GLOBAL_NONE. The default value is GLOBAL_X.
-
-*region*
-
-The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying where the mass scaling is applied. The default value is MODEL.
-
-
-
-
+一个 Int，指定应给出结果的频率范围内的点数。

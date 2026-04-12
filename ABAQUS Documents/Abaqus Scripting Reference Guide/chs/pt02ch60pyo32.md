@@ -237,7 +237,1281 @@ DuctileDamageInitiation(const odb_SequenceSequenceDouble& table,
 
 RangeError。
 
-### 60.32.2 成员
+### 60.32.2 FldDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].FldDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+FldDamageInitiation(const odb_SequenceSequenceDouble& table,
+                    const odb_String& definition,
+                    double feq,
+                    double fnn,
+                    double fnt,
+                    int frequency,
+                    double ks,
+                    int numberImperfections,
+                    bool temperatureDependency,
+                    int dependencies,
+                    double alpha,
+                    double omega,
+                    double tolerance,
+                    const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.3 FlsdDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].FlsdDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+FlsdDamageInitiation(const odb_SequenceSequenceDouble& table,
+                     const odb_String& definition,
+                     double feq,
+                     double fnn,
+                     double fnt,
+                     int frequency,
+                     double ks,
+                     int numberImperfections,
+                     bool temperatureDependency,
+                     int dependencies,
+                     double alpha,
+                     double omega,
+                     double tolerance,
+                     const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.4 JohnsonCookDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].JohnsonCookDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+JohnsonCookDamageInitiation(const odb_SequenceSequenceDouble& table,
+                            const odb_String& definition,
+                            double feq,
+                            double fnn,
+                            double fnt,
+                            int frequency,
+                            double ks,
+                            int numberImperfections,
+                            bool temperatureDependency,
+                            int dependencies,
+                            double alpha,
+                            double omega,
+                            double tolerance,
+                            const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.5 MaxeDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].MaxeDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+MaxeDamageInitiation(const odb_SequenceSequenceDouble& table,
+                     const odb_String& definition,
+                     double feq,
+                     double fnn,
+                     double fnt,
+                     int frequency,
+                     double ks,
+                     int numberImperfections,
+                     bool temperatureDependency,
+                     int dependencies,
+                     double alpha,
+                     double omega,
+                     double tolerance,
+                     const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.6 MaxsDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].MaxsDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+MaxsDamageInitiation(const odb_SequenceSequenceDouble& table,
+                     const odb_String& definition,
+                     double feq,
+                     double fnn,
+                     double fnt,
+                     int frequency,
+                     double ks,
+                     int numberImperfections,
+                     bool temperatureDependency,
+                     int dependencies,
+                     double alpha,
+                     double omega,
+                     double tolerance,
+                     const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.7 MkDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].MkDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+MkDamageInitiation(const odb_SequenceSequenceDouble& table,
+                   const odb_String& definition,
+                   double feq,
+                   double fnn,
+                   double fnt,
+                   int frequency,
+                   double ks,
+                   int numberImperfections,
+                   bool temperatureDependency,
+                   int dependencies,
+                   double alpha,
+                   double omega,
+                   double tolerance,
+                   const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.8 MsfldDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].MsfldDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+MsfldDamageInitiation(const odb_SequenceSequenceDouble& table,
+                      const odb_String& definition,
+                      double feq,
+                      double fnn,
+                      double fnt,
+                      int frequency,
+                      double ks,
+                      int numberImperfections,
+                      bool temperatureDependency,
+                      int dependencies,
+                      double alpha,
+                      double omega,
+                      double tolerance,
+                      const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.9 QuadeDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].QuadeDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+QuadeDamageInitiation(const odb_SequenceSequenceDouble& table,
+                      const odb_String& definition,
+                      double feq,
+                      double fnn,
+                      double fnt,
+                      int frequency,
+                      double ks,
+                      int numberImperfections,
+                      bool temperatureDependency,
+                      int dependencies,
+                      double alpha,
+                      double omega,
+                      double tolerance,
+                      const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.10 QuadsDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].QuadsDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+QuadsDamageInitiation(const odb_SequenceSequenceDouble& table,
+                      const odb_String& definition,
+                      double feq,
+                      double fnn,
+                      double fnt,
+                      int frequency,
+                      double ks,
+                      int numberImperfections,
+                      bool temperatureDependency,
+                      int dependencies,
+                      double alpha,
+                      double omega,
+                      double tolerance,
+                      const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.11 MaxpeDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].MaxpeDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+MaxpeDamageInitiation(const odb_SequenceSequenceDouble& table,
+                      const odb_String& definition,
+                      double feq,
+                      double fnn,
+                      double fnt,
+                      int frequency,
+                      double ks,
+                      int numberImperfections,
+                      bool temperatureDependency,
+                      int dependencies,
+                      double alpha,
+                      double omega,
+                      double tolerance,
+                      const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.12 MaxpsDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].MaxpsDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+MaxpsDamageInitiation(const odb_SequenceSequenceDouble& table,
+                      const odb_String& definition,
+                      double feq,
+                      double fnn,
+                      double fnt,
+                      int frequency,
+                      double ks,
+                      int numberImperfections,
+                      bool temperatureDependency,
+                      int dependencies,
+                      double alpha,
+                      double omega,
+                      double tolerance,
+                      const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.13 ShearDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].ShearDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+ShearDamageInitiation(const odb_SequenceSequenceDouble& table,
+                      const odb_String& definition,
+                      double feq,
+                      double fnn,
+                      double fnt,
+                      int frequency,
+                      double ks,
+                      int numberImperfections,
+                      bool temperatureDependency,
+                      int dependencies,
+                      double alpha,
+                      double omega,
+                      double tolerance,
+                      const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.14 HashinDamageInitiation(...)
+
+此方法创建一个 DamageInitiation 对象。
+
+**路径**
+
+```
+materialApi.materials()[*name*].HashinDamageInitiation
+```
+
+**原型**
+
+```
+odb_DamageInitiation&
+HashinDamageInitiation(const odb_SequenceSequenceDouble& table,
+                       const odb_String& definition,
+                       double feq,
+                       double fnn,
+                       double fnt,
+                       int frequency,
+                       double ks,
+                       int numberImperfections,
+                       bool temperatureDependency,
+                       int dependencies,
+                       double alpha,
+                       double omega,
+                       double tolerance,
+                       const odb_String& direction);
+```
+
+**必需参数**
+
+*table*
+
+一个 odb_SequenceSequenceDouble，指定"表数据"部分中描述的项目。
+
+**可选参数**
+
+*definition*
+
+一个 odb_String，指定损伤起始定义。可能的值为"FLD"和"MSFLD"。默认值为"MSFLD"。
+
+*feq*
+
+一个 Double，指定等效塑性应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnn*
+
+一个 Double，指定与凹槽方向垂直的应变变形严重度指数的临界值。默认值为 10.0。
+
+*fnt*
+
+一个 Double，指定剪切应变变形严重度指数的临界值。默认值为 10.0。
+
+*frequency*
+
+一个整数，指定执行 Marciniak-Kuczynski 分析的频率（以增量为单位）。默认值为 1。
+
+*ks*
+
+一个 Double，指定 Ks 的值。默认值为 0.0。
+
+*numberImperfections*
+
+一个整数，指定用于 Marciniak-Kuczynski 分析评估的缺陷数量。这些缺陷假定在角方向上等距分布。默认值为 4。
+
+*temperatureDependency*
+
+一个布尔值，指定数据是否依赖温度。默认值为 false。
+
+*dependencies*
+
+一个整数，指定场变量依赖数量。默认值为 0。
+
+*alpha*
+
+一个 Double，指定将乘以 Hashin 纤维起始准则中剪切贡献的系数值。默认值为 0.0。
+
+*omega*
+
+一个 Double，指定用于过滤主应变率比值的因子，用于 MSFLD 损伤起始准则的评估。默认值为 1.0。
+
+*tolerance*
+
+一个 Double，指定损伤起始准则必须满足的容差。默认值为 0.05。
+
+*direction*
+
+一个 odb_String，指定损伤起始方向。可能的值为"NMORI"和"TMORI"。默认值为"NMORI"。
+
+**返回值**
+
+一个 DamageInitiation 对象。
+
+**异常**
+
+RangeError。
+
+### 60.32.15 成员
 
 DamageInitiation 对象可以具有以下成员：
 
@@ -331,7 +1605,7 @@ odb_DamageStabilizationCohesive damageStabilizationCohesive() const;
 
 一个 [DamageStabilizationCohesive](pt02ch60pyo34.md) 对象。
 
-### 60.32.3 对应的分析关键字
+### 60.32.16 对应的分析关键字
 
 | [*DAMAGE INITIATION](../key/key-link.md#usb-kws-mdamageinitiation) |
 | --- |

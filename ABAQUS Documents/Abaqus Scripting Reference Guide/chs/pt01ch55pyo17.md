@@ -1,11 +1,5 @@
 # 55.17 XYReportOptions 对象
 
-
-
-
-
-
-
 XYReportOptions 对象存储在将 [XYData](pt01ch55pyo01.md) 对象写入 ASCII 文件时 `writeXYReport` 方法使用的设置。XYReportOptions 对象没有构造函数。当您导入 Visualization 模块时，Abaqus 会创建 *xyReportOptions* 成员。
 
 **访问**
@@ -22,17 +16,17 @@ session.xyReportOptions
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
 *pageWidth*
 
-一个 Int，指定当 *pageWidthLimited*=ON 时报表文件每行的字符数。可能的值为 *pageWidth* ![](../graphics/ker_eqn00060.gif) 0。默认值为 80。
+一个 Int，指定当 *pageWidthLimited*=ON 时报表文件每行的字符数。可能的值为 *pageWidth*  ![](../graphics/ker_eqn00060.gif) 0。默认值为 80。
 
 *numDigits*
 
-一个 Int，指定报表文件中每个数据值要包含的有效数字位数。可能的值为 0 ![](../graphics/ker_eqn00013.gif) *numDigits* ![](../graphics/ker_eqn00013.gif) 9。默认值为 6。
+一个 Int，指定报表文件中每个数据值要包含的有效数字位数。可能的值为 0  ![](../graphics/ker_eqn00013.gif) *numDigits*  ![](../graphics/ker_eqn00013.gif) 9。默认值为 6。
 
 *interpolation*
 
@@ -64,7 +58,7 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
@@ -79,4 +73,3 @@ At least one of the data print methods must be selected
 ### 55.17.2 成员
 
 XYReportOptions 对象具有与 [setValues](pt01ch55pyo17.md#ker-xyreportoptions-setvalues-pyc) 方法的参数具有相同名称和描述的成员。
-

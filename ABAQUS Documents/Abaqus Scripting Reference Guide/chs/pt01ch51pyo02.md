@@ -1,14 +1,8 @@
-# 51.2 FieldOutputRequest object
+# 51.2 FieldOutputRequest 对象
 
+FieldOutputRequest 对象用于定义场输出请求。
 
-
-
-
-
-
-The FieldOutputRequest object defines a field output request.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,293 +11,293 @@ mdb.models[*name*].fieldOutputRequests[*name*]
 
 ### 51.2.1 FieldOutputRequest(...)
 
-This method creates a FieldOutputRequest object.
+此方法创建一个 FieldOutputRequest 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].FieldOutputRequest
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定仓库键。
 
 *createStepName*
 
-A String specifying the name of the step in which the object is created.
+一个 String，指定创建该对象的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
 *region*
 
-The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region from which output is requested. The SymbolicConstant MODEL represents the whole model. The default value is MODEL.
+ SymbolicConstant MODEL 或一个 [Region](pt01ch45pyo03.md) 对象，指定请求输出的区域。SymbolicConstant MODEL 代表整个模型。默认值为 MODEL。
 
 *variables*
 
-A sequence of Strings specifying output request variable or component names, or the SymbolicConstant PRESELECT or ALL. PRESELECT represents all default output variables for the given step. ALL represents all valid output variables. The default value is PRESELECT.
+一个 String 序列，指定输出请求的变量或分量名称，或 SymbolicConstant PRESELECT 或 ALL。PRESELECT 代表给定步骤的所有默认输出变量。ALL 代表所有有效的输出变量。默认值为 PRESELECT。
 
 *frequency*
 
-The SymbolicConstant LAST_INCREMENT or an Int specifying the output frequency in increments. The default value is 1.
+SymbolicConstant LAST_INCREMENT 或一个 Int，指定输出频率（以增量计）。默认值为 1。
 
 *modes*
 
-The SymbolicConstant ALL or a sequence of Ints specifying a list of eigenmodes for which output is desired. The default value is ALL.
+SymbolicConstant ALL 或一个 Int 序列，指定需要输出的特征模态列表。默认值为 ALL。
 
 *timeInterval*
 
-The SymbolicConstant EVERY_TIME_INCREMENT or a Float specifying the time interval at which the output states are to be written. The default value is EVERY_TIME_INCREMENT.
+SymbolicConstant EVERY_TIME_INCREMENT 或一个 Float，指定写入输出状态的时间间隔。默认值为 EVERY_TIME_INCREMENT。
 
 *numIntervals*
 
-An Int specifying the number of intervals during the step at which output database states are to be written. The default value is 20.
+一个 Int，指定在步骤期间写入输出数据库状态的间隔数。默认值为 20。
 
 *timeMarks*
 
-A Boolean specifying when to write results to the output database. OFF indicates that output is written immediately after the time dictated by the specified number of intervals. ON indicates that output is written at the exact times dictated by the specified number of intervals. The default value is OFF.
+一个 Boolean，指定何时将结果写入输出数据库。OFF 表示在指定间隔数规定的时间之后立即写入输出。ON 表示在指定间隔数规定的确切时间写入输出。默认值为 OFF。
 
 *boltLoad*
 
-A String specifying a bolt load from which output is requested.
+一个 String，指定请求输出的螺栓载荷。
 
 *sectionPoints*
 
-The SymbolicConstant DEFAULT or a sequence of Ints specifying the section points for which output requested. The default is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int 序列，指定请求输出的截面点。默认值为 DEFAULT。
 
 *interactions*
 
- `None` or a sequence of Strings specifying the interaction names. The default value is `None`.
+ `None` 或一个 String 序列，指定相互作用名称。默认值为 `None`。
 
-The sequence can contain only one String.
+该序列只能包含一个 String。
 
 *rebar*
 
-A SymbolicConstant specifying whether output is requested for rebar. Possible values are EXCLUDE, INCLUDE, and ONLY. The default value is EXCLUDE.
+一个 SymbolicConstant，指定是否为钢筋请求输出。可选值为 EXCLUDE、INCLUDE 和 ONLY。默认值为 EXCLUDE。
 
 *filter*
 
-The SymbolicConstant ANTIALIASING or a String specifying the name of an output filter object. The default value is `None`.
+SymbolicConstant ANTIALIASING 或一个 String，指定输出过滤器对象的名称。默认值为 `None`。
 
 *directions*
 
-A Boolean specifying whether to output directions of the local material coordinate system. The default value is ON.
+一个 Boolean，指定是否输出局部材料坐标系的方向。默认值为 ON。
 
 *fasteners*
 
-A String specifying the fastener name.  The default value is an empty string.
+一个 String，指定紧固件名称。默认值为空字符串。
 
 *assembledFastener*
 
-A String specifying the assembled fastener name.  The default value is an empty string.
+一个 String，指定组装紧固件名称。默认值为空字符串。
 
 *assembledFastenerSet*
 
-A String specifying the set name from the model referenced by the assembled fastener, *assembledFastener*.  The default value is an empty string.
+一个 String，指定由组装紧固件 *assembledFastener* 引用的模型中的集合名称。默认值为空字符串。
 
 *exteriorOnly*
 
-A Boolean specifying whether the output domain is restricted to the exterior of the model.  This argument is only valid if *region*=MODEL.  The default value is OFF.
+一个 Boolean，指定输出域是否限制在模型的外表面。此参数仅在 *region*=MODEL 时有效。默认值为 OFF。
 
-**Return value**
+**返回的值**
 
-A FieldOutputRequest object.
+一个 FieldOutputRequest 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 51.2.2 deactivate(...)
 
-This method deactivates the field output request in the specified step and all its subsequent steps.
+此方法在指定步骤及其所有后续步骤中停用场输出请求。
 
-**Required argument**
+**必要参数**
 
 *stepName*
 
-A String specifying the name of the step in which the field output request is deactivated.
+一个 String，指定停用场输出请求的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.2.3 move(...)
 
-This method moves the field output request state object from one step to a different step.
+此方法将场输出请求状态对象从一个步骤移动到另一个步骤。
 
-**Required arguments**
+**必要参数**
 
 *fromStepName*
 
-A String specifying the name of the step from which the field output request state is moved.
+一个 String，指定从中移动场输出请求状态的步骤名称。
 
 *toStepName*
 
-A String specifying the name of the step to which the field output request state is moved.
+一个 String，指定场输出请求状态要移动到的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.2.4 reset(...)
 
-This method resets the field output request state of the specified step to the state of the previous step.
+此方法将指定步骤的场输出请求状态重置为前一步骤的状态。
 
-**Required argument**
+**必要参数**
 
 *stepName*
 
-A String specifying the name of the step in which the field output request state is reset.
+一个 String，指定重置场输出请求状态的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.2.5 resume()
 
-This method resumes the field output request that was previously suppressed.
+此方法恢复之前被抑制的场输出请求。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.2.6 suppress()
 
-This method suppresses the field output request.
+此方法抑制场输出请求。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.2.7 setValues(...)
 
-This method modifies the data for an existing FieldOutputRequest object in the step where it is created.
+此方法修改创建 FieldOutputRequest 对象的步骤中现有对象的数据。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [FieldOutputRequest](pt01ch51pyo02.md#ker-fieldoutputrequest-fieldoutputrequest-pyc) method, except for the *name* and *createStepName* arguments.
+`setValues` 的可选参数与 [FieldOutputRequest](pt01ch51pyo02.md#ker-fieldoutputrequest-fieldoutputrequest-pyc) 方法的参数相同，但 *name* 和 *createStepName* 参数除外。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 51.2.8 setValuesInStep(...)
 
-This method modifies the propagating data for an existing FieldOutputRequest object in the specified step.
+此方法修改指定步骤中现有 FieldOutputRequest 对象的传播数据。
 
-**Required argument**
+**必要参数**
 
 *stepName*
 
-A String specifying the name of the step in which the field output request is modified.
+一个 String，指定修改场输出请求的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
 *variables*
 
-A sequence of Strings specifying output request variable or component names, or the SymbolicConstant PRESELECT or ALL. PRESELECT represents all default output variables for the given step. ALL represents all valid output variables.
+一个 String 序列，指定输出请求的变量或分量名称，或 SymbolicConstant PRESELECT 或 ALL。PRESELECT 代表给定步骤的所有默认输出变量。ALL 代表所有有效的输出变量。
 
 *frequency*
 
-The SymbolicConstant LAST_INCREMENT or an Int specifying the output frequency in increments. The default value is 1.
+SymbolicConstant LAST_INCREMENT 或一个 Int，指定输出频率（以增量计）。默认值为 1。
 
 *modes*
 
-The SymbolicConstant ALL or a sequence of Ints specifying a list of eigenmodes for which output is desired. The default value is ALL.
+SymbolicConstant ALL 或一个 Int 序列，指定需要输出的特征模态列表。默认值为 ALL。
 
 *timeInterval*
 
-The SymbolicConstant EVERY_TIME_INCREMENT or a Float specifying the time interval at which the output states are to be written. The default value is EVERY_TIME_INCREMENT.
+SymbolicConstant EVERY_TIME_INCREMENT 或一个 Float，指定写入输出状态的时间间隔。默认值为 EVERY_TIME_INCREMENT。
 
 *numIntervals*
 
-An Int equal to the number of intervals during the step at which output database states are to be written. The default value is 20.
+一个 Int，等于在步骤期间写入输出数据库状态的间隔数。默认值为 20。
 
 *timePoints*
 
-A String specifying the name of a time point object. The default value is equal to the number of intervals during the step at which output database states are to be written. The default value is `None`.
+一个 String，指定时间点对象的名称。默认值为在步骤期间写入输出数据库状态的间隔数。默认值为 `None`。
 
 *timeMarks*
 
-A Boolean specifying when to write results to the output database. The default value is OFF.
+一个 Boolean，指定何时将结果写入输出数据库。默认值为 OFF。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 51.2.9 Members
+### 51.2.9 成员
 
-The FieldOutputRequest object can have the following members:
+FieldOutputRequest 对象可以具有以下成员：
 
 *boltLoad*
 
-A String specifying a bolt load from which output is requested.
+一个 String，指定请求输出的螺栓载荷。
 
 *region*
 
-The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region from which output is requested. The SymbolicConstant MODEL represents the whole model. The default value is MODEL.
+ SymbolicConstant MODEL 或一个 [Region](pt01ch45pyo03.md) 对象，指定请求输出的区域。SymbolicConstant MODEL 代表整个模型。默认值为 MODEL。
 
 *interactions*
 
- `None` or a tuple of Strings specifying the interaction names. The default value is `None`.
+ `None` 或一个 String 元组，指定相互作用名称。默认值为 `None`。
 
-The sequence can contain only one String.
+该序列只能包含一个 String。
 
-### 51.2.10 Corresponding analysis keywords
+### 51.2.10 对应的分析关键字
 
 | [*CONTACT OUTPUT](../key/key-link.md#usb-kws-hcontactoutput) |
 | --- |
@@ -314,7 +308,3 @@ The sequence can contain only one String.
 | [*NODE OUTPUT](../key/key-link.md#usb-kws-hnodeoutput) |
 | [*OUTPUT](../key/key-link.md#usb-kws-houtput) |
 | [*RADIATION OUTPUT](../key/key-link.md#usb-kws-hradiationoutput) |
-
-
-
-

@@ -1,28 +1,18 @@
-# 50.20 StructuralDamping object
+# 50.21 StructuralDampingByFrequency 对象
 
+StructuralDampingByFrequency 对象包含结构阻尼参数。
 
-
-
-
-
-
-A StructuralDamping object contains structural damping parameters.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].structuralDamping
+mdb.models[*name*].steps[*name*].structuralDampingByFrequency
 ```
 
-### 50.20.1 Members
+### 50.21.1 成员
 
-The StructuralDamping object can have the following member:
+StructuralDampingByFrequency 对象可以具有以下成员：
 
 *components*
 
-A [StructuralDampingComponentArray](pt01ch50pyo23.md) object.
-
-
-
-
+一个 [StructuralDampingByFrequencyComponentArray](pt01ch50pyo22.md) 对象。

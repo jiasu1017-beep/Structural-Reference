@@ -1,287 +1,107 @@
-# 49.9 DirectCyclicStep object
+# 49.10 EmagTimeHarmonicStep 对象
 
+EmagTimeHarmonicStep 对象用于计算系统对模型谐波激励的电磁响应。
 
+EmagTimeHarmonicStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The DirectCyclicStep object is used to provide a direct cyclic procedure for nonlinear, non-isothermal quasi-static analysis. It can also be used to predict progressive damage and failure for ductile bulk materials and/or to predict delamination/debonding growth at the interfaces in laminated composites in a low-cycle fatigue analysis.
-
-The DirectCyclicStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*]
 ```
 
-### 49.9.1 DirectCyclicStep(...)
+### 49.10.1 EmagTimeHarmonicStep(...)
 
-This method creates a DirectCyclicStep object.
+此方法创建一个 EmagTimeHarmonicStep 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].DirectCyclicStep
+mdb.models[*name*].EmagTimeHarmonicStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+*frequencyRange*
+
+一个 [EmagTimeHarmonicFrequencyArray](pt01ch50pyo08.md) 对象。
+
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
-*timePeriod*
+*factorization*
 
-A Float specifying the time of single loading cycle. The default value is 1.0.
+一个 SymbolicConstant，指定是否忽略阻尼项以便对实数（而非复数）系统矩阵进行分解。可选值为 REAL_ONLY 和 COMPLEX。默认值为 COMPLEX。
 
-*timeIncrementationMethod*
+**返回值**
 
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED and AUTOMATIC. The default value is AUTOMATIC.
+一个 EmagTimeHarmonicStep 对象。
 
-*maxNumInc*
+**异常**
 
-An Int specifying the maximum number of increments in a step. The default value is 100.
+RangeError。
 
-*initialInc*
+### 49.10.2 setValues(...)
 
-A Float specifying the initial time increment. The default value is the total time period for the step.
+此方法修改 EmagTimeHarmonicStep 对象。
 
-*minInc*
+**必需参数**
 
-A Float specifying the minimum time increment allowed. The default value is the smaller of the suggested initial time increment or 105 times the total time period.
+无。
 
-*maxInc*
+**可选参数**
 
-A Float specifying the maximum time increment allowed. The default value is the total time period for the step.
+`setValues` 的可选参数与 [EmagTimeHarmonicStep](pt01ch49pyo10.md#ker-emagtimeharmonicstep-emagtimeharmonicstep-pyc) 方法的参数相同，但 *name* 参数除外。
 
-*maxNumIterations*
+**返回值**
 
-An Int specifying the maximum number of iterations in a step. The default value is 200.
+无
 
-*initialTerms*
+**异常**
 
-An Int specifying the initial number of terms in the Fourier series. The default value is 11.
+RangeError。
 
-*maxTerms*
+### 49.10.3 成员
 
-An Int specifying the maximum number of terms in the Fourier series. The default value is 25.
+EmagTimeHarmonicStep 对象具有与 [EmagTimeHarmonicStep](pt01ch49pyo10.md#ker-emagtimeharmonicstep-emagtimeharmonicstep-pyc) 方法参数相同名称和描述的成员。
 
-*termsIncrement*
-
-An Int specifying the increment in number of terms in the Fourier series. The default value is 5.
-
-*deltmx*
-
-A Float specifying the maximum temperature change to be allowed in an increment. The default value is 0.0.
-
-*cetol*
-
-A Float specifying the maximum difference in the creep strain increment calculated from the creep strain rates at the beginning and end of the increment. The default value is 0.0.
-
-*timePoints*
-
- `None` or a String specifying a String specifying the name of a time point object used to determine at which times the response of the structure will be evaluated. The default value is NONE.
-
-*fatigue*
-
-A Boolean specifying whether to include low-cycle fatigue analysis. The default value is OFF.
-
-*continueAnalysis*
-
-A Boolean specifying whether the displacement solution in the Fourier series obtained in the previous direct cyclic step is used as the starting values for the current step. The default value is OFF.
-
-*minCycleInc*
-
-An Int specifying the minimum number of cycles over which the damage is extrapolated forward. The default value is 100.
-
-*maxCycleInc*
-
-An Int specifying the maximum number of cycles over which the damage is extrapolated forward. The default value is 1000.
-
-*maxNumCycles*
-
-The SymbolicConstant DEFAULT or an Int specifying the maximum number of cycles allowed in a step or DEFAULT.  A value of 1 plus half of the maximum number of cycles will be used if DEFAULT is specified. The default value is DEFAULT.
-
-*damageExtrapolationTolerance*
-
-A Float specifying the maximum extrapolated damage increment. The default value is 1.0.
+此外，EmagTimeHarmonicStep 对象可以具有以下成员：
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
-*extrapolation*
+*subdivideUsingEigenfrequencies*
 
-A SymbolicConstant specifying the type of extrapolation to use in determining the incremental solution for a nonlinear analysis. Possible values are NONE, LINEAR, and PARABOLIC. The default value is LINEAR.
-
-*maintainAttributes*
-
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
-
-*convertSDI*
-
-A SymbolicConstant specifying whether to force a new iteration if severe discontinuities occur during an iteration. Possible values are PROPAGATED, CONVERT_SDI_OFF, and CONVERT_SDI_ON. The default value is PROPAGATED.
-
-**Return value**
-
-A DirectCyclicStep object.
-
-**Exceptions**
-
-RangeError.
-
-### 49.9.2 setValues(...)
-
-This method modifies the DirectCyclicStep object.
-
-**Required arguments**
-
-None.
-
-**Optional arguments**
-
-The optional arguments to `setValues` are the same as the arguments to the [DirectCyclicStep](pt01ch49pyo09.md#ker-directcyclicstep-directcyclicstep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-RangeError.
-
-### 49.9.3 Members
-
-The DirectCyclicStep object can have the following members:
-
-*name*
-
-A String specifying the repository key.
-
-*timePeriod*
-
-A Float specifying the time of single loading cycle. The default value is 1.0.
-
-*timeIncrementationMethod*
-
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED and AUTOMATIC. The default value is AUTOMATIC.
-
-*maxNumInc*
-
-An Int specifying the maximum number of increments in a step. The default value is 100.
-
-*initialInc*
-
-A Float specifying the initial time increment. The default value is the total time period for the step.
-
-*minInc*
-
-A Float specifying the minimum time increment allowed. The default value is the smaller of the suggested initial time increment or 105 times the total time period.
-
-*maxInc*
-
-A Float specifying the maximum time increment allowed. The default value is the total time period for the step.
-
-*maxNumIterations*
-
-An Int specifying the maximum number of iterations in a step. The default value is 200.
-
-*initialTerms*
-
-An Int specifying the initial number of terms in the Fourier series. The default value is 11.
-
-*maxTerms*
-
-An Int specifying the maximum number of terms in the Fourier series. The default value is 25.
-
-*termsIncrement*
-
-An Int specifying the increment in number of terms in the Fourier series. The default value is 5.
-
-*deltmx*
-
-A Float specifying the maximum temperature change to be allowed in an increment. The default value is 0.0.
-
-*cetol*
-
-A Float specifying the maximum difference in the creep strain increment calculated from the creep strain rates at the beginning and end of the increment. The default value is 0.0.
-
-*fatigue*
-
-A Boolean specifying whether to include low-cycle fatigue analysis. The default value is OFF.
-
-*continueAnalysis*
-
-A Boolean specifying whether the displacement solution in the Fourier series obtained in the previous direct cyclic step is used as the starting values for the current step. The default value is OFF.
-
-*minCycleInc*
-
-An Int specifying the minimum number of cycles over which the damage is extrapolated forward. The default value is 100.
-
-*maxCycleInc*
-
-An Int specifying the maximum number of cycles over which the damage is extrapolated forward. The default value is 1000.
-
-*maxNumCycles*
-
-The SymbolicConstant DEFAULT or an Int specifying the maximum number of cycles allowed in a step or DEFAULT.  A value of 1 plus half of the maximum number of cycles will be used if DEFAULT is specified. The default value is DEFAULT.
-
-*damageExtrapolationTolerance*
-
-A Float specifying the maximum extrapolated damage increment. The default value is 1.0.
-
-*matrixStorage*
-
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
-
-*extrapolation*
-
-A SymbolicConstant specifying the type of extrapolation to use in determining the incremental solution for a nonlinear analysis. Possible values are NONE, LINEAR, and PARABOLIC. The default value is LINEAR.
-
-*convertSDI*
-
-A SymbolicConstant specifying whether to force a new iteration if severe discontinuities occur during an iteration. Possible values are PROPAGATED, CONVERT_SDI_OFF, and CONVERT_SDI_ON. The default value is PROPAGATED.
-
-*previous*
-
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
-
-*description*
-
-A String specifying a description of the new step. The default value is an empty string.
-
-*timePoints*
-
- `None` or a String specifying a String specifying the name of a time point object used to determine at which times the response of the structure will be evaluated. The default value is NONE.
+一个布尔值，指定是否使用系统的特征频率细分每个频率范围。默认值为 OFF。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -312,70 +132,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.9.4 Corresponding analysis keywords
+### 49.10.4 对应的分析关键字
 
-| [*DIRECT CYCLIC](../key/key-link.md#usb-kws-hdirectcyclic) |
+| [*ELECTROMAGNETIC TIME HARMONIC](#) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

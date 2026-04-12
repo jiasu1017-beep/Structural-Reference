@@ -1,85 +1,50 @@
-# 14.3 RegisteredDictionary object
+# 14.4 RegisteredList 对象
 
+此类允许您创建一个可从 GUI 查询的列表，并能够在列表内容更改时通知 GUI。
 
+RegisteredList 对象派生自 [CommandRegister](pt01ch14pyo01.md) 对象。
 
-
-
-
-
-This class allows you to create a dictionary that can be queried from the GUI and is capable of notifying the GUI when the contents of the dictionary change. The keys to a RegisteredDictionary must be either strings or integers.
-
-The RegisteredDictionary object is derived from the [CommandRegister](pt01ch14pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import customKernel
 ```
 
-### 14.3.1 RegisteredDictionary()
+### 14.4.1 RegisteredList()
 
-This method creates a RegisteredDictionary object.
+此方法创建一个 RegisteredList 对象。
 
-**Path**
+**路径**
 
 ```
-customKernel.RegisteredDictionary
+customKernel.RegisteredList
 ```
 
-**Return value**
+**返回值**
 
-A RegisteredDictionary object.
+RegisteredList 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 14.3.2 Methods()
+### 14.4.2 方法()
 
-The RegisteredDictionary object supports the same methods as a Python dictionary. In addition, the RegisteredDictionary object supports the `changeKey`                       method.
+RegisteredList 对象支持与标准 Python 列表对象相同的方法。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 14.3.3 changeKey(...)
+### 14.4.3 成员
 
-This method changes the name of a key in the dictionary.
-
-**Required arguments**
-
-*fromName*
-
-A String or an integer specifying the name of the key to be changed.
-
-*toName*
-
-A String or an integer specifying the new name for the key.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 14.3.4 Members
-
-The RegisteredDictionary object has no members.
-
-
-
+RegisteredList 对象没有成员。
 

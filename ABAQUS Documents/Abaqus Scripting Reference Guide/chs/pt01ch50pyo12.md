@@ -1,28 +1,18 @@
-# 50.12 RayleighDampingByFrequency object
+# 50.12 RayleighDampingByFrequency 对象
 
+RayleighDampingByFrequency 对象包含 Rayleigh 阻尼参数。
 
-
-
-
-
-
-A RayleighDampingByFrequency object contains Rayleigh Damping parameters.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*].rayleighDampingByFrequency
 ```
 
-### 50.12.1 Members
+### 50.12.1 成员
 
-The RayleighDampingByFrequency object can have the following member:
+RayleighDampingByFrequency 对象可以具有以下成员：
 
 *components*
 
-A [RayleighDampingByFrequencyComponentArray](pt01ch50pyo13.md) object.
-
-
-
-
+一个 [RayleighDampingByFrequencyComponentArray](pt01ch50pyo13.md) 对象。

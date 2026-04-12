@@ -1,20 +1,19 @@
 # 53.4 BackwardCompatibility 对象
 
-
-
-
-
-
-
 BackwardCompatibility 对象使用户能够控制对 Abaqus Scripting Interface 中已弃用命令的访问，并收集有关使用了哪些已弃用命令的数据。这使用户能够检查是否使用了已弃用的方法、成员或参数。任何已弃用的成员、方法或参数的使用都会被记录。
 
 BackwardCompatibility 对象没有构造函数。abaqus 模块和 odbAccess 模块都有一个名为 backwardCompatibility 的成员。
 
 默认情况下，*includeDeprecated* 成员值为 ON，Abaqus 将执行包含已弃用命令的脚本，而不会指示您应该更新脚本。您可以执行以下任一操作来更改 *includeDeprecated* 成员的值并确定哪些命令已被弃用：
 - 从 Abaqus/CAE 中的命令行界面或从 Abaqus/CAE 内部运行的 Abaqus Scripting Interface 脚本，使用以下命令：
-``` backwardCompatibility.setValues(includeDeprecated=OFF) ```
+```
+backwardCompatibility.setValues(includeDeprecated=OFF)
+```
 - 使用 `abaqus python` 在系统提示符下运行的 Abaqus Scripting Interface 脚本，使用以下两个命令：
-``` from odbAccess import * backwardCompatibility.setValues(includeDeprecated=OFF) ```
+```
+from odbAccess import *
+backwardCompatibility.setValues(includeDeprecated=OFF)
+```
 
 此外，BackwardCompatibility 对象提供了工具来帮助您确定已使用的已弃用命令。例如，要确定脚本 `createLug.py` 中使用的已弃用命令，请使用以下命令：
 
@@ -40,7 +39,7 @@ backwardCompatibility
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
@@ -48,7 +47,7 @@ None。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.2 getDeprecatedMembersUsed()
 
@@ -56,7 +55,7 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
@@ -64,7 +63,7 @@ None。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.3 getDeprecatedArgsUsed()
 
@@ -72,7 +71,7 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
@@ -80,7 +79,7 @@ None。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.4 resetDeprecatedMethodsUsed()
 
@@ -88,15 +87,15 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.5 resetDeprecatedMembersUsed()
 
@@ -104,15 +103,15 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.6 resetDeprecatedArgsUsed()
 
@@ -120,15 +119,15 @@ None。
 
 **参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.7 setValues(...)
 
@@ -136,7 +135,7 @@ None。
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -154,11 +153,11 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 53.4.8 成员
 
@@ -175,4 +174,3 @@ BackwardCompatibility 对象具有以下成员：
 *showKeysInReport*
 
 一个 Boolean，指定当 *reportDeprecated* 为 True 时，报告中是否包含键和索引。默认值为 False。
-

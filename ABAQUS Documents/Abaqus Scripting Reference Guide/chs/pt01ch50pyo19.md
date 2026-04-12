@@ -1,40 +1,52 @@
-# 50.19 SteadyStateSubspaceFrequency object
+# 50.16 SolverControl 对象
 
+SolverControl 对象用于提供额外的可选求解器控制。
 
-
-
-
-
-
-A SteadyStateSubspaceFrequency is an object used to define frequency over range of modes.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].frequencyRange[*i*]
+mdb.models[*name*].steps[*name*].solverControl
 ```
 
-### 50.19.1 Members
+### 50.16.1 setValues(...)
 
-The SteadyStateSubspaceFrequency object has the following members:
+此方法修改 SolverControl 对象。
 
-*lower*
+**必需参数**
 
-A Float specifying the lower limit of frequency range or a single frequency, in cycles/time.
+无。
 
-*upper*
+**可选参数**
 
-A Float specifying the upper limit of frequency range, in cycles/time.
+*allowPropagation*
 
-*nPoints*
+一个布尔值，指定是否允许所有求解器控制值从前一步传播。将此参数设置为 ON 会自动将 *resetDefaultValues* 设置为 OFF。默认值为 ON。
 
-An Int specifying the number of points in the frequency range at which results should be given.
+*resetDefaultValues*
 
-*bias*
+一个布尔值，指定是否使用所有默认求解器控制值。将此参数设置为 ON 会自动将 *allowPropagation* 设置为 OFF。默认值为 OFF。
 
-A Float specifying the Bias parameter. When results are requested at four or more frequency points, Abaqus biases the results toward the ends of the intervals to obtain better resolution. The default value is 3.0.
+*relativeTolerance*
 
+SymbolicConstant DEFAULT 或一个 Float，指定域分解迭代求解器收敛的相对容差。默认值为 DEFAULT。
 
+*maxIterations*
 
+SymbolicConstant DEFAULT 或一个 Int，指定线性求解器迭代的最大次数。默认值为 DEFAULT。
 
+*fillInLevel*
+
+SymbolicConstant DEFAULT 或一个 Int，指定不完全 LU 分解的填充水平（仅适用于静力学和土壤分析）。默认值为 DEFAULT。
+
+**返回值**
+
+无
+
+**异常**
+
+RangeError。
+
+### 50.16.2 成员
+
+SolverControl 对象具有与 [setValues](pt01ch50pyo16.md#ker-solvercontrol-setvalues-pyc) 方法参数相同名称和描述的成员。

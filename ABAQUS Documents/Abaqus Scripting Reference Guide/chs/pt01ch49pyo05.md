@@ -1,16 +1,10 @@
-# 49.5 ComplexFrequencyStep object
+# 49.5 ComplexFrequencyStep 对象
 
+ComplexFrequencyStep 对象用于执行特征值提取，以计算系统的复特征值和相应的复模态形状。
 
+ComplexFrequencyStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The ComplexFrequencyStep object is used to perform eigenvalue extraction to calculate the complex eigenvalues and corresponding complex mode shapes of a system.
-
-The ComplexFrequencyStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -19,149 +13,149 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.5.1 ComplexFrequencyStep(...)
 
-This method creates a ComplexFrequencyStep object. 
+此方法创建一个 ComplexFrequencyStep 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ComplexFrequencyStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+**可选参数**
 
 *numEigen*
 
-The SymbolicConstant ALL or an Int specifying the number of complex eigenmodes to be calculated or a SymbolicConstant ALL. The default value is ALL.
+SymbolicConstant ALL 或一个 Int，指定要计算的复特征模态数量或 SymbolicConstant ALL。默认值为 ALL。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *shift*
 
- `None` or a Float specifying the shift point in cycles per time. The default value is `None`.
+`None` 或一个 Float，指定以每时间周期计的位移点。默认值为 `None`。
 
 *frictionDamping*
 
-A Boolean specifying whether to add to the damping matrix contributions due to friction effects. The default value is OFF.
+一个布尔值，指定是否向阻尼矩阵添加摩擦效应引起的贡献。默认值为 OFF。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
 *minEigen*
 
- `None` or a Float specifying the minimum frequency of interest in cycles per time. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最小频率（以每时间周期计）。默认值为 `None`。
 
 *maxEigen*
 
- `None` or a Float specifying the maximum frequency of interest in cycles per time. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最大频率（以每时间周期计）。默认值为 `None`。
 
 *propertyEvaluationFrequency*
 
- `None` or a Float specifying the frequency at which to evaluate frequency-dependent properties for viscoelasticity, springs, and dashpots during the eigenvalue extraction. If the value is `None`, the analysis product will evaluate the stiffness associated with frequency-dependent springs and dashpots at zero frequency and will not consider the stiffness contributions from frequency-domain viscoelasticity in the step. The default value is `None`.
+`None` 或一个 Float，指定在特征值提取过程中评估粘弹性、弹簧和阻尼器频率相关属性的频率。如果值为 `None`，分析产品将在零频率下评估与频率相关弹簧和阻尼器相关的刚度，并且不会考虑步骤中频域粘弹性的刚度贡献。默认值为 `None`。
 
-**Return value**
+**返回值**
 
-A ComplexFrequencyStep object.
+一个 ComplexFrequencyStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 49.5.2 setValues(...)
 
-This method modifies the ComplexFrequencyStep object.
+此方法修改 ComplexFrequencyStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ComplexFrequencyStep](pt01ch49pyo05.md#ker-complexfrequencystep-complexfrequencystep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+`setValues` 的可选参数与 [ComplexFrequencyStep](pt01ch49pyo05.md#ker-complexfrequencystep-complexfrequencystep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.5.3 Members
+### 49.5.3 成员
 
-The ComplexFrequencyStep object can have the following members:
+ComplexFrequencyStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *numEigen*
 
-The SymbolicConstant ALL or an Int specifying the number of complex eigenmodes to be calculated or a SymbolicConstant ALL. The default value is ALL.
+SymbolicConstant ALL 或一个 Int，指定要计算的复特征模态数量或 SymbolicConstant ALL。默认值为 ALL。
 
 *shift*
 
- `None` or a Float specifying the shift point in cycles per time. The default value is `None`.
+`None` 或一个 Float，指定以每时间周期计的位移点。默认值为 `None`。
 
 *frictionDamping*
 
-A Boolean specifying whether to add to the damping matrix contributions due to friction effects. The default value is OFF.
+一个布尔值，指定是否向阻尼矩阵添加摩擦效应引起的贡献。默认值为 OFF。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *minEigen*
 
- `None` or a Float specifying the minimum frequency of interest in cycles per time. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最小频率（以每时间周期计）。默认值为 `None`。
 
 *maxEigen*
 
- `None` or a Float specifying the maximum frequency of interest in cycles per time. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最大频率（以每时间周期计）。默认值为 `None`。
 
 *propertyEvaluationFrequency*
 
- `None` or a Float specifying the frequency at which to evaluate frequency-dependent properties for viscoelasticity, springs, and dashpots during the eigenvalue extraction. If the value is `None`, the analysis product will evaluate the stiffness associated with frequency-dependent springs and dashpots at zero frequency and will not consider the stiffness contributions from frequency-domain viscoelasticity in the step. The default value is `None`.
+`None` 或一个 Float，指定在特征值提取过程中评估粘弹性、弹簧和阻尼器频率相关属性的频率。如果值为 `None`，分析产品将在零频率下评估与频率相关弹簧和阻尼器相关的刚度，并且不会考虑步骤中频域粘弹性的刚度贡献。默认值为 `None`。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -192,70 +186,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.5.4 Corresponding analysis keywords
+### 49.5.4 对应的分析关键字
 
 | [*COMPLEX FREQUENCY](../key/key-link.md#usb-kws-hcomplexfrequency) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

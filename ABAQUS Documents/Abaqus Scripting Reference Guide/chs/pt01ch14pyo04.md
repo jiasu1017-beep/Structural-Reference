@@ -1,59 +1,76 @@
-# 14.4 RegisteredList object
+# 14.3 RegisteredDictionary 对象
 
+此类允许您创建一个可从 GUI 查询的字典，并能够在字典内容更改时通知 GUI。RegisteredDictionary 的键必须是字符串或整数。
 
+RegisteredDictionary 对象派生自 [CommandRegister](pt01ch14pyo01.md) 对象。
 
-
-
-
-
-This class allows you to create a list that can be queried from the GUI and is capable of notifying the GUI when the contents of the list change.
-
-The RegisteredList object is derived from the [CommandRegister](pt01ch14pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import customKernel
 ```
 
-### 14.4.1 RegisteredList()
+### 14.3.1 RegisteredDictionary()
 
-This method creates a RegisteredList object.
+此方法创建一个 RegisteredDictionary 对象。
 
-**Path**
+**路径**
 
 ```
-customKernel.RegisteredList
+customKernel.RegisteredDictionary
 ```
 
-**Return value**
+**返回值**
 
-A RegisteredList object.
+RegisteredDictionary 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 14.4.2 Methods()
+### 14.3.2 方法()
 
-The RegisteredList object supports the same methods as a standard Python list object.
+RegisteredDictionary 对象支持与 Python 字典相同的方法。此外，RegisteredDictionary 对象支持 `changeKey` 方法。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 14.4.3 Members
+### 14.3.3 changeKey(...)
 
-The RegisteredList object has no members.
+此方法更改字典中键的名称。
 
+**必需参数**
 
+*fromName*
 
+字符串或整数，指定要更改的键的名称。
+
+*toName*
+
+字符串或整数，指定键的新名称。
+
+**可选参数**
+
+无。
+
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 14.3.4 成员
+
+RegisteredDictionary 对象没有成员。
 

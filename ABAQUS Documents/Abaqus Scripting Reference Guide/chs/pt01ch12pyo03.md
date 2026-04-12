@@ -1,16 +1,10 @@
-# 12.3 ConnectorDamage object
+# 12.3 ConnectorDamage 对象
 
+ConnectorDamage 对象为连接器相对运动的一个或多个分量定义损伤行为。
 
+ConnectorDamage 对象派生自 [ConnectorBehaviorOption](pt01ch12pyo01.md) 对象。
 
-
-
-
-
-The ConnectorDamage object defines damage behavior for one or more components of a connector's relative motion.
-
-The ConnectorDamage object is derived from the [ConnectorBehaviorOption](pt01ch12pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,241 +15,237 @@ session.odbs[*name*].sections[*name*].behaviorOptions[*i*]
 
 ### 12.3.1 ConnectorDamage(...)
 
-This method creates a connector damage behavior option for a [ConnectorSection](pt01ch46pyo08.md) object.
+此方法为 [ConnectorSection](pt01ch46pyo08.md) 对象创建连接器损伤行为选项。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].sections[*name*].ConnectorDamage
 session.odbs[*name*].sections[*name*].ConnectorDamage
 ```
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *coupling*
 
-A SymbolicConstant specifying whether or not the behavior is coupled. Possible values are UNCOUPLED and COUPLED. The default value is UNCOUPLED.
+SymbolicConstant，指定行为是否耦合。可能的值为 UNCOUPLED 和 COUPLED。默认值为 UNCOUPLED。
 
 *criterion*
 
-A SymbolicConstant specifying the damage initiation criterion to be used. Possible values are FORCE, MOTION, and PLASTIC_MOTION. The default value is FORCE.
+SymbolicConstant，指定要使用的损伤起始准则。可能的值为 FORCE、MOTION 和 PLASTIC_MOTION。默认值为 FORCE。
 
 *initiationTemperature*
 
-A Boolean specifying whether the initiation data depend on temperature. The default value is OFF.
+Boolean，指定起始数据是否依赖于温度。默认值为 OFF。
 
 *initiationPotentialOperator*
 
-A SymbolicConstant specifying the contribution operator for the initiation potential contributions. Possible values are SUM and MAXIMUM. The default value is SUM.
+SymbolicConstant，指定起始势贡献的运算符。可能的值为 SUM 和 MAXIMUM。默认值为 SUM。
 
-This argument is only if *coupling*=COUPLED and if *criterion*=FORCE or MOTION.
+仅在 *coupling*=COUPLED 且 *criterion*=FORCE 或 MOTION 时适用。
 
 *initiationPotentialExponent*
 
-A Float specifying the number equal to the inverse of the overall exponent in the initiation potential definition. The default value is 2.0.
+Float，指定起始势定义中总体指数的倒数。默认值为 2.0。
 
-This argument is applicable only if *coupling*=COUPLED, when *initiationPotentialOperator*=SUM,  and when *criterion*=FORCE or MOTION.
+此参数仅在 *coupling*=COUPLED、*initiationPotentialOperator*=SUM 且 *criterion*=FORCE 或 MOTION 时适用。
 
 *initiationDependencies*
 
-An Int specifying the number of field variable dependencies for the initiation data. The default value is 0.
+Int，指定起始数据的场变量依赖数量。默认值为 0。
 
 *evolution*
 
-A Boolean specifying whether damage evolution data will be used. The default value is ON.
+Boolean，指定是否使用损伤演化数据。默认值为 ON。
 
 *evolutionType*
 
-A SymbolicConstant specifying the type of damage evolution to be specified. Possible values are MOTION_TYPE and ENERGY_TYPE. The default value is MOTION_TYPE.
+SymbolicConstant，指定要指定的损伤演化类型。可能的值为 MOTION_TYPE 和 ENERGY_TYPE。默认值为 MOTION_TYPE。
 
-This argument is applicable only if *evolution*=ON.
+此参数仅在 *evolution*=ON 时适用。
 
 *softening*
 
-A SymbolicConstant specifying the damage evolution law to be specified. Possible values are LINEAR, EXPONENTIAL, and TABULAR. The default value is LINEAR.
+SymbolicConstant，指定要指定的损伤演化定律。可能的值为 LINEAR、EXPONENTIAL 和 TABULAR。默认值为 LINEAR。
 
-This argument is applicable only if *evolution*=ON and when *evolutionType*=MOTION_TYPE.
+此参数仅在 *evolution*=ON 且 *evolutionType*=MOTION_TYPE 时适用。
 
 *useAffected*
 
-A Boolean specifying whether or not *affectedComponents* will be specified. If *useAffected*=OFF, then only the components of relative motion specified by *components* will undergo damage. The default value is OFF.
+Boolean，指定是否要指定 *affectedComponents*。如果 *useAffected*=OFF，则只有 *components* 指定的相对运动分量会发生损伤。默认值为 OFF。
 
-This argument is applicable only if *evolution*=ON.
+此参数仅在 *evolution*=ON 时适用。
 
 *degradation*
 
-A SymbolicConstant specifying the contribution of each damage mechanism when more than one damage mechanism is defined. Possible values are MAXIMUM and MULTIPLICATIVE. The default value is MAXIMUM.
+SymbolicConstant，指定当定义多个损伤机制时每个损伤机制的贡献。可能的值为 MAXIMUM 和 MULTIPLICATIVE。默认值为 MAXIMUM。
 
-This argument is applicable if *evolution*=ON.
+此参数在 *evolution*=ON 时适用。
 
 *evolutionTemperature*
 
-A Boolean specifying whether the evolution data depend on temperature. The default value is OFF.
+Boolean，指定演化数据是否依赖于温度。默认值为 OFF。
 
-This argument is applicable only if *evolution*=ON.
+此参数仅在 *evolution*=ON 时适用。
 
 *evolutionDependencies*
 
-An Int specifying the number of field variable dependencies for the evolution data. The default value is 0.
+Int，指定演化数据的场变量依赖数量。默认值为 0。
 
-This argument is applicable only if *evolution*=ON.
+此参数仅在 *evolution*=ON 时适用。
 
 *evolutionPotentialOperator*
 
-A SymbolicConstant specifying the contribution operator for the evolution potential contributions. Possible values are SUM and MAXIMUM. The default value is SUM.
+SymbolicConstant，指定演化势贡献的运算符。可能的值为 SUM 和 MAXIMUM。默认值为 SUM。
 
-This argument is applicable only if *coupling*=COUPLED, when *evolution*=ON, when *evolutionType*=MOTION_TYPE, and when *criterion*=FORCE or MOTION.
+此参数仅在 *coupling*=COUPLED、*evolution*=ON、*evolutionType*=MOTION_TYPE 且 *criterion*=FORCE 或 MOTION 时适用。
 
 *evolutionPotentialExponent*
 
-A Float specifying the number equal to the inverse of the overall exponent in the evolution potential definition. The default value is 2.0.
+Float，指定演化势定义中总体指数的倒数。默认值为 2.0。
 
-This argument is applicable only if *coupling*=COUPLED, when *evolution*=ON, when *evolutionPotentialOperator*=SUM, when *evolutionType*=MOTION, and when *criterion*=FORCE or MOTION.
+此参数仅在 *coupling*=COUPLED、*evolution*=ON、*evolutionPotentialOperator*=SUM、*evolutionType*=MOTION 且 *criterion*=FORCE 或 MOTION 时适用。
 
 *initiationPotentials*
 
-A [ConnectorPotentialArray](pt01ch12pyo11.md) object specifying one [ConnectorPotential](pt01ch12pyo11.md) object for each initiation potential contribution. This member can be specified only if *coupling*=COUPLED and if *criterion*=FORCE or MOTION.
+[ConnectorPotentialArray](pt01ch12pyo11.md) 对象，为每个起始势贡献指定一个 [ConnectorPotential](pt01ch12pyo11.md) 对象。此成员仅在 *coupling*=COUPLED 且 *criterion*=FORCE 或 MOTION 时可以指定。
 
 *evolutionPotentials*
 
-A [ConnectorPotentialArray](pt01ch12pyo11.md) object specifying one [ConnectorPotential](pt01ch12pyo11.md) object for each evolution potential contribution). This member can be specified only if *coupling*=COUPLED, if *evolution*=ON, if *evolutionType*=MOTION, and if *criterion*=FORCE or MOTION.
+[ConnectorPotentialArray](pt01ch12pyo11.md) 对象，为每个演化势贡献指定一个 [ConnectorPotential](pt01ch12pyo11.md) 对象。此成员仅在 *coupling*=COUPLED、*evolution*=ON、*evolutionType*=MOTION 且 *criterion*=FORCE 或 MOTION 时可以指定。
 
 *initiationTable*
 
-A sequence of sequences of Floats specifying the initiation properties. The default value is an empty sequence.
+Float 的序列的序列，指定起始属性。默认值为空序列。
 
-Items in the *initiationTable* data are described below.
+*initiationTable* 数据中的项如下所述。
 
 *evolutionTable*
 
-A sequence of sequences of Floats specifying the evolution properties. The default value is an empty sequence.
+Float 的序列的序列，指定演化属性。默认值为空序列。
 
-Items in the *evolutionTable* data are described below. This argument is only applicable if *evolution*=ON.
+*evolutionTable* 数据中的项如下所述。此参数仅在 *evolution*=ON 时适用。
 
 *affectedComponents*
 
-A sequence of Ints specifying the components of relative motion that will be damaged. Possible values are 1 ![](../graphics/ker_eqn00013.gif) *components* ![](../graphics/ker_eqn00013.gif) 6. Only available components can be specified. This argument is applicable only if *evolution*=ON and *useAffected*=ON. The default value is an empty sequence.
+Int 的序列，指定将发生损伤的相对运动分量。可能的值为 1 ![](../graphics/ker_eqn00013.gif) *components* ![](../graphics/ker_eqn00013.gif) 6。只能指定可用的分量。此参数仅在 *evolution*=ON 且 *useAffected*=ON 时适用。默认值为空序列。
 
 *components*
 
-A sequence of Ints specifying the components of relative motion for which the behavior is defined.  Possible values are 1 ![](../graphics/ker_eqn00013.gif) *components* ![](../graphics/ker_eqn00013.gif) 6. Only available components can be specified. This argument can be specified only if *coupling*=UNCOUPLED. The default value is an empty sequence.
+Int 的序列，指定定义行为的相对运动分量。可能的值为 1 ![](../graphics/ker_eqn00013.gif) *components* ![](../graphics/ker_eqn00013.gif) 6。只能指定可用的分量。此参数仅在 *coupling*=UNCOUPLED 时可以指定。默认值为空序列。
 
-**Table data**
+**表格数据**
 
-Table data for *initiationTable*:
+*initiationTable* 的表格数据：
 
-If *criterion*=FORCE, then each sequence of the table data specifies the following:
-- Lower (compression) limiting force or moment. Use -1.0E+36 to indicate an unspecified lower limit.
-- Upper (tension) limiting force or moment. Use 1.0E+36 to indicate an unspecified upper limit. At least one limit, lower or upper, must be specified.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *criterion*=FORCE，则表格数据的每个序列指定以下内容：
+- 下限（压缩）约束力或力矩。使用 -1.0E+36 表示未指定的下限。
+- 上限（拉伸）约束力或力矩。使用 1.0E+36 表示未指定的上限。必须指定下限或上限之一。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *criterion*=MOTION, then each sequence of the table data specifies the following:
-- Lower (compression) limiting connector constitutive relative displacement or rotation. Use -1.0E+36 to indicate an unspecified lower limit.
-- Upper (tension) limiting connector constitutive relative displacement or rotation. Use 1.0E+36 to indicate an unspecified upper limit. At least one limit, lower or upper, must be specified.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *criterion*=MOTION，则表格数据的每个序列指定以下内容：
+- 下限（压缩）约束连接器相对位移或旋转。使用 -1.0E+36 表示未指定的下限。
+- 上限（拉伸）约束连接器相对位移或旋转。使用 1.0E+36 表示未指定的上限。必须指定下限或上限之一。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *criterion*=PLASTIC_MOTION, then each sequence of the table data specifies the following:
-- Relative equivalent plastic displacement/rotation at which damage will be initiated.
-- Mode-mix ratio (only if *coupling*=COUPLED).
-- Relative equivalent plastic displacement/rotation rate.
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *criterion*=PLASTIC_MOTION，则表格数据的每个序列指定以下内容：
+- 将发生损伤的相对等效塑性位移/旋转。
+- 模式混合比（仅在 *coupling*=COUPLED 时）。
+- 相对等效塑性位移/旋转速率。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-Table data for *evolutionTable*:
+*evolutionTable* 的表格数据：
 
-If *evolutionType*=MOTION and *softening*=LINEAR, then each sequence of the table data specifies the following:
-- Post-initiation equivalent relative plastic motion at ultimate failure if *criterion*=PLASTIC_MOTION. Otherwise, post-initiation constitutive relative motion (displacement/rotation) at ultimate failure.
-- Mode-mix ratio (only if *coupling*=COUPLED and *criterion*=PLASTIC_MOTION).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *evolutionType*=MOTION 且 *softening*=LINEAR，则表格数据的每个序列指定以下内容：
+- 如果 *criterion*=PLASTIC_MOTION，则为最终失效时的失效后相对塑性运动。否则，为最终失效时的失效后结构相对运动（位移/旋转）。
+- 模式混合比（仅在 *coupling*=COUPLED 且 *criterion*=PLASTIC_MOTION 时）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *evolutionType*=MOTION and *softening*=EXPONENTIAL, then each sequence of the table data specifies the following:
-- Post-initiation equivalent relative plastic motion at ultimate failure if *criterion*=PLASTIC_MOTION. Otherwise, post-initiation constitutive relative motion (displacement/rotation) at ultimate failure.
-- Exponential law parameter.
-- Mode-mix ratio (only if *coupling*=COUPLED and *criterion*=PLASTIC_MOTION).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *evolutionType*=MOTION 且 *softening*=EXPONENTIAL，则表格数据的每个序列指定以下内容：
+- 如果 *criterion*=PLASTIC_MOTION，则为最终失效时的失效后相对塑性运动。否则，为最终失效时的失效后结构相对运动（位移/旋转）。
+- 指数律参数。
+- 模式混合比（仅在 *coupling*=COUPLED 且 *criterion*=PLASTIC_MOTION 时）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *evolutionType*=MOTION and *softening*=TABULAR, then each sequence of the table data specifies the following:
-- Damage variable (cannot be less than 0 or greater than 1).
-- Post-initiation equivalent relative plastic motion if *criterion*=PLASTIC_MOTION. Otherwise, post-initiation constitutive relative motion (displacement/rotation).
-- Mode-mix ratio (only if *coupling*=COUPLED and *criterion*=PLASTIC_MOTION).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *evolutionType*=MOTION 且 *softening*=TABULAR，则表格数据的每个序列指定以下内容：
+- 损伤变量（不能小于 0 或大于 1）。
+- 如果 *criterion*=PLASTIC_MOTION，则为失效后相对等效塑性运动。否则，为失效后结构相对运动（位移/旋转）。
+- 模式混合比（仅在 *coupling*=COUPLED 且 *criterion*=PLASTIC_MOTION 时）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-If *evolutionType*=ENERGY, then each sequence of the table data specifies the following:
-- Total energy dissipated by damage at ultimate failure.
-- Mode-mix ratio (only if *coupling*=COUPLED and *criterion*=PLASTIC_MOTION).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+如果 *evolutionType*=ENERGY，则表格数据的每个序列指定以下内容：
+- 最终失效时损伤消耗的总能量。
+- 模式混合比（仅在 *coupling*=COUPLED 且 *criterion*=PLASTIC_MOTION 时）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 依此类推。
 
-**Return value**
+**返回值**
 
-A ConnectorDamage object.
+ConnectorDamage 对象。
 
-**Exceptions**
+**异常**
 
-ValueError and TextError.
+ValueError 和 TextError。
 
 ### 12.3.2 setValues(...)
 
-This method modifies the ConnectorDamage object.
+此方法修改 ConnectorDamage 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ConnectorDamage](pt01ch12pyo03.md#ker-connectordamage-connectordamage-pyc) method.
+`setValues` 的可选参数与 [ConnectorDamage](pt01ch12pyo03.md#ker-connectordamage-connectordamage-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-ValueError.
+ValueError。
 
-### 12.3.3 Members
+### 12.3.3 成员
 
-The ConnectorDamage object has members with the same names and descriptions as the arguments to the [ConnectorDamage](pt01ch12pyo03.md#ker-connectordamage-connectordamage-pyc) method.
+ConnectorDamage 对象的成员与 [ConnectorDamage](pt01ch12pyo03.md#ker-connectordamage-connectordamage-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the ConnectorDamage object can have the following members:
+此外，ConnectorDamage 对象可以具有以下成员：
 
 *initiationOptions*
 
-A [ConnectorOptions](pt01ch12pyo09.md) object specifying the [ConnectorOptions](pt01ch12pyo09.md) used to define tabular options for the damage initiation table.
+[ConnectorOptions](pt01ch12pyo09.md) 对象，指定用于定义损伤起始表格选项的 [ConnectorOptions](pt01ch12pyo09.md)。
 
 *evolutionOptions*
 
-A [ConnectorOptions](pt01ch12pyo09.md) object specifying the [ConnectorOptions](pt01ch12pyo09.md) used to define tabular options for the damage evolution table.
+[ConnectorOptions](pt01ch12pyo09.md) 对象，指定用于定义损伤演化表格选项的 [ConnectorOptions](pt01ch12pyo09.md)。
 
-### 12.3.4 Corresponding analysis keywords
+### 12.3.4 对应的分析关键字
 
 | [*CONNECTOR DAMAGE INITIATION](../key/key-link.md#usb-kws-mconnectordamageinit), [*CONNECTOR DAMAGE EVOLUTION](../key/key-link.md#usb-kws-mconnectordamageevol), [*CONNECTOR POTENTIAL](../key/key-link.md#usb-kws-mconnectorpotential) |
 | --- |
-
-
-
-

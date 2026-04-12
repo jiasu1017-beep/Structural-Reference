@@ -1,16 +1,10 @@
-# 13.4 DisplayBody object
+# 13.4 DisplayBody 对象
 
+DisplayBody 对象定义了一种约束，使得指定的实例仅用于显示，不参与分析。然而，它在后处理过程中仍然可见，其在任何帧的位置由指定控制点的平移和旋转定义。
 
+DisplayBody 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The DisplayBody object defines a constraint such that the specified instance is used for display only and does not take part in the analysis. However it will still be visible during postprocessing and its position at any frame will be defined by the translation and rotation of the specified control points.
-
-The DisplayBody object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
@@ -19,75 +13,72 @@ mdb.models[*name*].constraints[*name*]
 
 ### 13.4.1 DisplayBody(...)
 
-This method creates a DisplayBody object.
+此方法创建一个 DisplayBody 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].DisplayBody
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
 *instance*
 
-A [PartInstance](pt01ch06pyo04.md) object specifying the part instance that is to be used for display only.
+[PartInstance](pt01ch06pyo04.md) 对象，指定仅用于显示的部件实例。
 
 *controlPoints*
 
-A [ModelDotArray](pt01ch07pyo12.md) object specifying the motion of the [PartInstance](pt01ch06pyo04.md). The control points may be Vertex, ReferencePoint, or MeshNode objects. Their motion will control the motion of the PartInstance. If this argument is set to an empty sequence, the PartInstance will remain fixed in space during the analysis. The sequence can have either one object or three objects.
+[ModelDotArray](pt01ch07pyo12.md) 对象，指定 [PartInstance](pt01ch06pyo04.md) 的运动。控制点可以是 Vertex、ReferencePoint 或 MeshNode 对象。它们的运动将控制 PartInstance 的运动。如果此参数设置为空序列，则 PartInstance 在分析过程中将保持固定在空间中。该序列可以有一个对象或三个对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A DisplayBody object.
+DisplayBody 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 13.4.2 setValues(...)
 
-This method modifies the DisplayBody object.
+此方法修改 DisplayBody 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [DisplayBody](pt01ch13pyo04.md#ker-displaybody-displaybody-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [DisplayBody](pt01ch13pyo04.md#ker-displaybody-displaybody-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 13.4.3 Members
+### 13.4.3 成员
 
-The DisplayBody object has members with the same names and descriptions as the arguments to the [DisplayBody](pt01ch13pyo04.md#ker-displaybody-displaybody-pyc) method.
+DisplayBody 对象的成员与 [DisplayBody](pt01ch13pyo04.md#ker-displaybody-displaybody-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the DisplayBody object has the following member:
+此外，DisplayBody 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.4.4 Corresponding analysis keywords
+### 13.4.4 对应的分析关键字
 
 | [*DISPLAY BODY](../key/key-link.md#usb-kws-mdisplaybody) |
 | --- |
-
-
-
 

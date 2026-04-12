@@ -1,11 +1,5 @@
 # 55.3 AreaStyle 对象
 
-
-
-
-
-
-
 AreaStyle 对象用于定义绘制 XY 绘图对象时区域的填充方式。
 
 每当创建 [Area](pt01ch55pyo02.md) 对象时，都会自动创建 AreaStyle 对象。AreaStyle 对象可以使用下面描述的方法创建。
@@ -48,7 +42,7 @@ xyPlot.AreaStyle
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -78,7 +72,7 @@ ColorError
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -96,13 +90,12 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.3.3 成员
 
 AreaStyle 对象具有与 [setValues](pt01ch55pyo03.md#ker-areastyle-setvalues-pyc) 方法的参数具有相同名称和描述的成员。
-

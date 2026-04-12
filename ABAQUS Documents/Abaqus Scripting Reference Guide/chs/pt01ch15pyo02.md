@@ -1,16 +1,10 @@
-# 15.2 DatumAxis object
+# 15.2 DatumAxis 对象
 
+DatumAxis 对象没有直接构造函数；它在创建 [Feature](pt01ch20pyo01.md) 对象时创建。例如，`DatumAxisByCylFace` 方法创建一个 Feature 对象，该对象创建 DatumAxis 对象。
 
+DatumAxis 对象派生自 [Datum](pt01ch15pyo01.md) 对象。
 
-
-
-
-
-The DatumAxis object has no direct constructor; it is created when a [Feature](pt01ch20pyo01.md) object is created. For example, the `DatumAxisByCylFace` method creates a Feature object that creates a DatumAxis object. 
-
-The DatumAxis object is derived from the [Datum](pt01ch15pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import part
@@ -21,18 +15,15 @@ mdb.models[*name*].rootAssembly.datums[*i*]
 mdb.models[*name*].rootAssembly.instances[*name*].datums[*i*]
 ```
 
-### 15.2.1 Members
+### 15.2.1 成员
 
-The DatumAxis object has the following members:
+DatumAxis 对象具有以下成员：
 
 *pointOn*
 
-A tuple of Floats specifying the *X*-, *Y*-, and *Z*-coordinates of a point located on the datum.
+浮点数元组，指定位于 datum 上的点的 X、Y 和 Z 坐标。
 
 *direction*
 
-A tuple of Floats specifying a sequence of three Floats specifying the direction of the axis.
-
-
-
+浮点数元组，指定三个浮点数序列，指定轴的方向。
 

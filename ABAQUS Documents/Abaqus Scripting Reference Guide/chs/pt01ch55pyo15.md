@@ -1,123 +1,125 @@
-# 55.13 TextStyle 对象
+# 55.15 XYCurve 对象
 
-
-
-
-
-
-
-TextStyle 对象用于存储绘制 XY 绘图文本对象时要使用的文本属性。
-
-创建图表时会自动创建 TextStyle 对象，也可以使用下面描述的方法创建。
+XYCurve 对象用于绘制 *X–Y* 数据并存储其显示属性。
 
 **访问**
 
 ```
 import visualization
-session.charts[*name*].axes1[*i*].labelStyle
-session.charts[*name*].axes1[*i*].titleStyle
-session.charts[*name*].axes2[*i*].labelStyle
-session.charts[*name*].axes2[*i*].titleStyle
-session.charts[*name*].legend.textStyle
-session.charts[*name*].legend.titleStyle
-session.charts[*name*].tagTextStyle
-session.defaultChartOptions.defaultAxis1Options.labelStyle
-session.defaultChartOptions.defaultAxis1Options.titleStyle
-session.defaultChartOptions.defaultAxis2Options.labelStyle
-session.defaultChartOptions.defaultAxis2Options.titleStyle
-session.defaultChartOptions.legend.textStyle
-session.defaultChartOptions.legend.titleStyle
-session.defaultChartOptions.tagTextStyle
-session.defaultPlot.title.titleStyle
-session.xyPlots[*name*].charts[*name*].axes1[*i*].labelStyle
-session.xyPlots[*name*].charts[*name*].axes1[*i*].titleStyle
-session.xyPlots[*name*].charts[*name*].axes2[*i*].labelStyle
-session.xyPlots[*name*].charts[*name*].axes2[*i*].titleStyle
-session.xyPlots[*name*].charts[*name*].legend.textStyle
-session.xyPlots[*name*].charts[*name*].legend.titleStyle
-session.xyPlots[*name*].charts[*name*].tagTextStyle
-session.xyPlots[*name*].title.titleStyle
+session.charts[*name*].axes1[*i*].axisData.curves[*i*]
+session.charts[*name*].axes2[*i*].axisData.curves[*i*]
+session.charts[*name*].curves[*name*]
+session.curves[*name*]
+session.defaultChartOptions.defaultAxis1Options.axisData.curves[*i*]
+session.defaultChartOptions.defaultAxis2Options.axisData.curves[*i*]
+session.xyPlots[*name*].charts[*name*].axes1[*i*].axisData.curves[*i*]
+session.xyPlots[*name*].charts[*name*].axes2[*i*].axisData.curves[*i*]
+session.xyPlots[*name*].charts[*name*].curves[*name*]
+session.xyPlots[*name*].curves[*name*]
 ```
 
-### 55.13.1 TextStyle(...)
+### 55.15.1 Curve(...)
 
-此方法创建 TextStyle。
+此方法从 [XYData](pt01ch55pyo01.md) 对象创建 XYCurve 对象。
 
 **路径**
 
 ```
-session.TextStyle
-```
-
-```
-xyPlot.TextStyle
+session.Curve
 ```
 
 **必需参数**
 
-None。
+*name*
+
+一个 String，指定 repository 键。
+
+*data*
+
+一个 [XYData](pt01ch55pyo01.md) 对象，指定曲线的数据。
 
 **可选参数**
 
-*color*
-
-一个 String，指定使用此 TextStyle 对象绘制文本时要使用的颜色。默认值为 "White"。
-
-*show*
-
-一个 Boolean，指定使用此 TextStyle 对象时是否绘制文本。默认值为 ON。
-
-*font*
-
-一个 String，指定使用此 TextStyle 对象绘制文本时要使用的字体名称。默认值为 "-*-arial-medium-r-normal-*-*-140-*-*-p-*-*-*"。
-
-*rotationAngle*
-
-一个 Float，指定用于显示文本的角度（度）。默认值为 0.0。
+无。
 
 **返回值**
 
-TextStyle 对象。
+XYCurve 对象。
 
 **异常**
 
-ColorError
+InvalidNameError。
 
-### 55.13.2 setValues(...)
+### 55.15.2 setValues(...)
 
-此方法修改 TextStyle 对象。
+此方法修改 XYCurve 对象。
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
-*color*
+*displayTypes*
 
-一个 String，指定使用此 TextStyle 对象绘制文本时要使用的颜色。默认值为 "White"。
+一个 SymbolicConstants 序列，指定如何显示曲线。可能的值为 LINE 和 SYMBOL。默认值为 (LINE)。
 
-*show*
+*legendLabel*
 
-一个 Boolean，指定使用此 TextStyle 对象时是否绘制文本。默认值为 ON。
+一个 String，指定在图例中显示的标签。默认情况下，标签是系统定义的。
 
-*font*
+*symbolFrequency*
 
-一个 String，指定使用此 TextStyle 对象绘制文本时要使用的字体名称。默认值为 "-*-arial-medium-r-normal-*-*-140-*-*-p-*-*-*"。
+一个 Int，指定绘制标记的频率。可能的值为 *symbolFrequency*  ![](../graphics/ker_eqn00060.gif) 0。如果 *symbolFrequency*=1，则在每个点绘制标记。默认值为 1。
 
-*rotationAngle*
+*useDefault*
 
-一个 Float，指定用于显示文本的角度（度）。默认值为 0.0。
+一个 Boolean，指定是否使用系统提供的图例标签。默认值为 ON。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
-### 55.13.3 成员
+### 55.15.3 成员
 
-TextStyle 对象具有与 [setValues](pt01ch55pyo13.md#ker-textstyle-setvalues-pyc) 方法的参数具有相同名称和描述的成员。
+XYCurve 对象可以具有以下成员：
 
+*name*
+
+一个 String，指定 repository 键。
+
+*symbolFrequency*
+
+一个 Int，指定绘制标记的频率。可能的值为 *symbolFrequency*  ![](../graphics/ker_eqn00060.gif) 0。如果 *symbolFrequency*=1，则在每个点绘制标记。默认值为 1。
+
+*useDefault*
+
+一个 Boolean，指定是否使用系统提供的图例标签。默认值为 ON。
+
+*legendSource*
+
+一个 SymbolicConstant，指定系统提供的默认图例标签的生成方式。可能的值为 CURVE_LEGEND、CURVE_NAME 和 CURVE_NAME_LEGEND。默认值为 CURVE_LEGEND。
+
+*data*
+
+一个 [XYData](pt01ch55pyo01.md) 对象，指定曲线的数据。
+
+*lineStyle*
+
+一个 [LineStyle](pt01ch55pyo10.md) 对象，指定显示曲线时要使用的线条属性。
+
+*symbolStyle*
+
+一个 [SymbolStyle](pt01ch55pyo12.md) 对象，指定显示曲线时要使用的符号属性。
+
+*legendLabel*
+
+一个 String，指定在图例中显示的标签。默认情况下，标签是系统定义的。
+
+*displayTypes*
+
+一个 SymbolicConstants 元组，指定如何显示曲线。可能的值为 LINE 和 SYMBOL。默认值为 (LINE)。

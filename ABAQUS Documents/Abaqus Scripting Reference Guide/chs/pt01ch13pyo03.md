@@ -1,149 +1,77 @@
-# 13.3 Coupling object
+# 13.1 Constraint 对象
 
+Constraint 对象是其他约束对象的抽象基类型。Constraint 对象没有显式构造函数。Constraint 对象的成员是所有派生自 Constraint 的对象共有的。
 
-
-
-
-
-
-The Coupling object defines a constraint between a group of coupling nodes located on a region and a reference point.
-
-The Coupling object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
 mdb.models[*name*].constraints[*name*]
 ```
 
-### 13.3.1 Coupling(...)
+### 13.1.1 resume()
 
-This method creates a Coupling object.
+此方法恢复先前被抑制的约束。
 
-**Path**
+**参数**
 
-```
-mdb.models[*name*].Coupling
-```
+无。
 
-**Required arguments**
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 13.1.2 suppress()
+
+此方法抑制约束。
+
+**参数**
+
+无。
+
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 13.1.3 delete(...)
+
+此方法允许您删除现有约束。
+
+**必需参数**
+
+*indices*
+
+整数序列，指定要删除的每个约束的索引。
+
+**可选参数**
+
+无。
+
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 13.1.4 成员
+
+Constraint 对象具有以下成员：
 
 *name*
 
-A String specifying the constraint repository key.
-
-*surface*
-
-A [Region](pt01ch45pyo03.md) object specifying the surface on which the coupling nodes are located.
-
-*controlPoint*
-
-A [Region](pt01ch45pyo03.md) object specifying the constraint control point.
-
-*influenceRadius*
-
-The SymbolicConstant WHOLE_SURFACE or a Float specifying the influence radius.
-
-*couplingType*
-
-A SymbolicConstant specifying the coupling constraint type. Possible values are KINEMATIC, DISTRIBUTING, and STRUCTURAL.
-
-**Optional arguments**
-
-*adjust*
-
-A Boolean specifying if the control point will be adjusted (moved) to the surface. The point will be adjusted in the direction normal to the specified surface. The default value is OFF.
-
-*localCsys*
-
- `None` or a [DatumCsys](pt01ch15pyo03.md) object specifying the initial orientation of the local coordinate system for the coupling's degrees of freedom. If *localCsys*=`None`, the coupling is defined in the global coordinate system. The default value is `None`.
-
-*u1*
-
-A Boolean specifying if the displacement component in the 1-direction is constrained to the reference node for a kinematic coupling constraint. The default value is ON.
-
-The *u1* argument applies only when *couplingType*=KINEMATIC.
-
-*u2*
-
-A Boolean specifying if the displacement component in the 2-direction is constrained to the reference node for a kinematic coupling constraint. The default value is ON.
-
-The *u2* argument applies only when *couplingType*=KINEMATIC.
-
-*u3*
-
-A Boolean specifying if the displacement component in the 3-direction is constrained to the reference node for a kinematic coupling constraint. The default value is ON.
-
-The *u3* argument applies only when *couplingType*=KINEMATIC.
-
-*ur1*
-
-A Boolean specifying if the rotational displacement component about the 1-direction is constrained to the reference node for a kinematic coupling constraint. The default value is ON.
-
-The *ur1* argument applies only when *couplingType*=KINEMATIC.
-
-*ur2*
-
-A Boolean specifying if the rotational displacement component about the 2-direction is constrained to the reference node for a kinematic coupling constraint. The default value is ON.
-
-The *ur2* argument applies only when *couplingType*=KINEMATIC.
-
-*ur3*
-
-A Boolean specifying if the rotational displacement component about the 3-direction is constrained to the reference node for a kinematic coupling constraint. The default value is ON.
-
-The *ur3* argument applies only when *couplingType*=KINEMATIC.
-
-*weightingMethod*
-
-A SymbolicConstant specifying an optional weighting method used for calculating the distributing weight factors. Possible values are UNIFORM, LINEAR, QUADRATIC, and CUBIC. The default value is UNIFORM.
-
-The *weightingMethod* argument applies only when *couplingType*=DISTRIBUTING.
-
-**Return value**
-
-A Coupling object.
-
-**Exceptions**
-
-None.
-
-### 13.3.2 setValues(...)
-
-This method modifies the Coupling object.
-
-**Required arguments**
-
-None.
-
-**Optional arguments**
-
-The optional arguments to `setValues` are the same as the arguments to the [Coupling](pt01ch13pyo03.md#ker-coupling-coupling-pyc) method, except for the *name* argument.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 13.3.3 Members
-
-The Coupling object has members with the same names and descriptions as the arguments to the [Coupling](pt01ch13pyo03.md#ker-coupling-coupling-pyc) method.
-
-In addition, the Coupling object has the following member:
+字符串，指定约束存储库键。
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
-
-### 13.3.4 Corresponding analysis keywords
-
-| [*COUPLING](../key/key-link.md#usb-kws-mcoupling) |
-| --- |
-
-
-
+布尔值，指定约束是否被抑制。默认值为 OFF。
 

@@ -1,16 +1,10 @@
-# 49.8 CoupledThermalElectricStep object
+# 49.8 CoupledThermalElectricStep 对象
 
+CoupledThermalElectricStep 对象用于分析必须同时求解电势和温度场的问题。
 
+CoupledThermalElectricStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The CoupledThermalElectricStep object is used to analyze problems where the electrical potential and temperature fields must be solved simultaneously.
-
-The CoupledThermalElectricStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -19,213 +13,213 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.8.1 CoupledThermalElectricStep(...)
 
-This method creates a CoupledThermalElectricStep object. 
+此方法创建一个 CoupledThermalElectricStep 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].CoupledThermalElectricStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *response*
 
-A SymbolicConstant specifying the analysis type. Possible values are STEADY_STATE and TRANSIENT. The default value is TRANSIENT.
+一个 SymbolicConstant，指定分析类型。可选值为 STEADY_STATE 和 TRANSIENT。默认值为 TRANSIENT。
 
 *timePeriod*
 
-A Float specifying the total time period for the step. The default value is 1.0.
+一个 Float，指定步骤的总时间周期。默认值为 1.0。
 
 *timeIncrementationMethod*
 
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED and AUTOMATIC. The default value is AUTOMATIC.
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
 
 *maxNumInc*
 
-An Int specifying the maximum number of increments in a step. The default value is 100.
+一个 Int，指定步骤中的最大增量数。默认值为 100。
 
 *initialInc*
 
-A Float specifying the initial time increment. The default value is the total time period for the step.
+一个 Float，指定初始时间增量。默认值为步骤的总时间周期。
 
 *minInc*
 
-A Float specifying the minimum time increment allowed. The default value is the smaller of the suggested initial time increment or 105 times the total time period.
+一个 Float，指定允许的最小时间增量。默认值为建议的初始时间增量或总时间周期的 105 倍中的较小值。
 
 *maxInc*
 
-A Float specifying the maximum time increment allowed. The default value is the total time period for the step.
+一个 Float，指定允许的最大时间增量。默认值为步骤的总时间周期。
 
 *end*
 
-A SymbolicConstant specifying the time period to be analyzed in a transient analysis. Possible values are PERIOD and SS. The default value is PERIOD.
+一个 SymbolicConstant，指定瞬态分析中要分析的时间周期。可选值为 PERIOD 和 SS。默认值为 PERIOD。
 
 *deltmx*
 
-A Float specifying the maximum temperature change to be allowed in an increment in a transient analysis. The default value is 0.0.
+一个 Float，指定瞬态分析中允许的增量中的最大温度变化。默认值为 0.0。
 
 *mxdem*
 
-A Float specifying the maximum allowable emissivity change with temperature and field variables during an increment. The default value is 0.1.
+一个 Float，指定增量过程中允许的发射率随温度和场变量的最大变化。默认值为 0.1。
 
 *solutionTechnique*
 
-A SymbolicConstant specifying the type of solution technique. Possible values are FULL_NEWTON and SEPARATED. The default value is FULL_NEWTON.
+一个 SymbolicConstant，指定解技术类型。可选值为 FULL_NEWTON 和 SEPARATED。默认值为 FULL_NEWTON。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *amplitude*
 
-A SymbolicConstant specifying the amplitude variation for loading magnitudes during the step. The default value is STEP. Possible values are STEP and RAMP.
+一个 SymbolicConstant，指定步骤中载荷幅值的变化。默认值为 STEP。可选值为 STEP 和 RAMP。
 
 *extrapolation*
 
-A SymbolicConstant specifying the type of extrapolation to use in determining the incremental solution for a nonlinear analysis. Possible values are NONE, LINEAR, and PARABOLIC. The default value is LINEAR.
+一个 SymbolicConstant，指定用于确定非线性分析的增量解的外推类型。可选值为 NONE、LINEAR 和 PARABOLIC。默认值为 LINEAR。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
 *convertSDI*
 
-A SymbolicConstant specifying whether to force a new iteration if severe discontinuities occur during an iteration. Possible values are PROPAGATED, CONVERT_SDI_OFF, and CONVERT_SDI_ON. The default value is PROPAGATED.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
-**Return value**
+**返回值**
 
-A CoupledThermalElectricStep object.
+一个 CoupledThermalElectricStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 49.8.2 setValues(...)
 
-This method modifies the CoupledThermalElectricStep object.
+此方法修改 CoupledThermalElectricStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [CoupledThermalElectricStep](pt01ch49pyo08.md#ker-coupledthermalelectricstep-coupledthermalelectricste-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+`setValues` 的可选参数与 [CoupledThermalElectricStep](pt01ch49pyo08.md#ker-coupledthermalelectricstep-coupledthermalelectricste-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.8.3 Members
+### 49.8.3 成员
 
-The CoupledThermalElectricStep object can have the following members:
+CoupledThermalElectricStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *response*
 
-A SymbolicConstant specifying the analysis type. Possible values are STEADY_STATE and TRANSIENT. The default value is TRANSIENT.
+一个 SymbolicConstant，指定分析类型。可选值为 STEADY_STATE 和 TRANSIENT。默认值为 TRANSIENT。
 
 *timePeriod*
 
-A Float specifying the total time period for the step. The default value is 1.0.
+一个 Float，指定步骤的总时间周期。默认值为 1.0。
 
 *timeIncrementationMethod*
 
-A SymbolicConstant specifying the time incrementation method to be used. Possible values are FIXED and AUTOMATIC. The default value is AUTOMATIC.
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
 
 *maxNumInc*
 
-An Int specifying the maximum number of increments in a step. The default value is 100.
+一个 Int，指定步骤中的最大增量数。默认值为 100。
 
 *initialInc*
 
-A Float specifying the initial time increment. The default value is the total time period for the step.
+一个 Float，指定初始时间增量。默认值为步骤的总时间周期。
 
 *minInc*
 
-A Float specifying the minimum time increment allowed. The default value is the smaller of the suggested initial time increment or 105 times the total time period.
+一个 Float，指定允许的最小时间增量。默认值为建议的初始时间增量或总时间周期的 105 倍中的较小值。
 
 *maxInc*
 
-A Float specifying the maximum time increment allowed. The default value is the total time period for the step.
+一个 Float，指定允许的最大时间增量。默认值为步骤的总时间周期。
 
 *end*
 
-A SymbolicConstant specifying the time period to be analyzed in a transient analysis. Possible values are PERIOD and SS. The default value is PERIOD.
+一个 SymbolicConstant，指定瞬态分析中要分析的时间周期。可选值为 PERIOD 和 SS。默认值为 PERIOD。
 
 *deltmx*
 
-A Float specifying the maximum temperature change to be allowed in an increment in a transient analysis. The default value is 0.0.
+一个 Float，指定瞬态分析中允许的增量中的最大温度变化。默认值为 0.0。
 
 *mxdem*
 
-A Float specifying the maximum allowable emissivity change with temperature and field variables during an increment. The default value is 0.1.
+一个 Float，指定增量过程中允许的发射率随温度和场变量的最大变化。默认值为 0.1。
 
 *solutionTechnique*
 
-A SymbolicConstant specifying the type of solution technique. Possible values are FULL_NEWTON and SEPARATED. The default value is FULL_NEWTON.
+一个 SymbolicConstant，指定解技术类型。可选值为 FULL_NEWTON 和 SEPARATED。默认值为 FULL_NEWTON。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *amplitude*
 
-A SymbolicConstant specifying the amplitude variation for loading magnitudes during the step. The default value is STEP. Possible values are STEP and RAMP.
+一个 SymbolicConstant，指定步骤中载荷幅值的变化。默认值为 STEP。可选值为 STEP 和 RAMP。
 
 *extrapolation*
 
-A SymbolicConstant specifying the type of extrapolation to use in determining the incremental solution for a nonlinear analysis. Possible values are NONE, LINEAR, and PARABOLIC. The default value is LINEAR.
+一个 SymbolicConstant，指定用于确定非线性分析的增量解的外推类型。可选值为 NONE、LINEAR 和 PARABOLIC。默认值为 LINEAR。
 
 *convertSDI*
 
-A SymbolicConstant specifying whether to force a new iteration if severe discontinuities occur during an iteration. Possible values are PROPAGATED, CONVERT_SDI_OFF, and CONVERT_SDI_ON. The default value is PROPAGATED.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -256,71 +250,67 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.8.4 Corresponding analysis keywords
+### 49.8.4 对应的分析关键字
 
 | [*COUPLED THERMAL-ELECTRICAL](../key/key-link.md#usb-kws-hthermalelectric) |
 | --- |
 | [*SOLUTION TECHNIQUE](../key/key-link.md#usb-kws-hsolutiontech) |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

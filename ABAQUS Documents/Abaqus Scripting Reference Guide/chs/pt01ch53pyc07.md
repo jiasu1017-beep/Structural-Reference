@@ -1,11 +1,5 @@
 # 53.11 自定义命令
 
-
-
-
-
-
-
 以下命令用于在 Abaqus 日志文件中记录用户定义的命令。
 
 ### 53.11.1 journalMethodCall(...)
@@ -52,13 +46,12 @@ journalMethodCall
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
-
+无。

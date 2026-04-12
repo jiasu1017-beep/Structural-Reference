@@ -1,16 +1,10 @@
-# 49.19 ModalDynamicsStep object
+# 49.19 ModalDynamicsStep 对象
 
+ModalDynamicsStep 对象用于使用模态叠加作为线性扰动过程提供动态时程响应。
 
+ModalDynamicsStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The ModalDynamicsStep object is used to provide dynamic time history response as a linear perturbation procedure using modal superposition.
-
-The ModalDynamicsStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -19,165 +13,165 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.19.1 ModalDynamicsStep(...)
 
-This method creates a ModalDynamicsStep object. 
+此方法创建一个 ModalDynamicsStep 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ModalDynamicsStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *continueAnalysis*
 
-A Boolean specifying that the step starts with zero initial conditions. The default value is OFF.
+一个布尔值，指定该步骤从零初始条件开始。默认值为 OFF。
 
 *timePeriod*
 
-A Float specifying the total time period. The default value is 1.0.
+一个 Float，指定总时间周期。默认值为 1.0。
 
 *incSize*
 
-A Float specifying the time increment to be used. The default value is 1.0.
+一个 Float，指定要使用的时间增量。默认值为 1.0。
 
 *directDamping*
 
-A [DirectDamping](pt01ch50pyo04.md) object.
+一个 [DirectDamping](pt01ch50pyo04.md) 对象。
 
 *compositeDamping*
 
-A [CompositeDamping](pt01ch50pyo01.md) object.
+一个 [CompositeDamping](pt01ch50pyo01.md) 对象。
 
 *rayleighDamping*
 
-A [RayleighDamping](pt01ch50pyo11.md) object.
+一个 [RayleighDamping](pt01ch50pyo11.md) 对象。
 
 *amplitude*
 
-A SymbolicConstant specifying the amplitude variation for loading magnitudes during the step. Possible values are STEP and RAMP. The default value is STEP.
+一个 SymbolicConstant，指定步骤中载荷幅值的变化。可选值为 STEP 和 RAMP。默认值为 STEP。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
 *directDampingByFrequency*
 
-A [DirectDampingByFrequency](pt01ch50pyo05.md) object.
+一个 [DirectDampingByFrequency](pt01ch50pyo05.md) 对象。
 
 *rayleighDampingByFrequency*
 
-A [RayleighDampingByFrequency](pt01ch50pyo12.md) object.
+一个 [RayleighDampingByFrequency](pt01ch50pyo12.md) 对象。
 
-**Return value**
+**返回值**
 
-A ModalDynamicsStep object.
+一个 ModalDynamicsStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 49.19.2 setValues(...)
 
-This method modifies the ModalDynamicsStep object.
+此方法修改 ModalDynamicsStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ModalDynamicsStep](pt01ch49pyo19.md#ker-modaldynamicsstep-modaldynamicsstep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+`setValues` 的可选参数与 [ModalDynamicsStep](pt01ch49pyo19.md#ker-modaldynamicsstep-modaldynamicsstep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.19.3 Members
+### 49.19.3 成员
 
-The ModalDynamicsStep object can have the following members:
+ModalDynamicsStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *continueAnalysis*
 
-A Boolean specifying that the step starts with zero initial conditions. The default value is OFF.
+一个布尔值，指定该步骤从零初始条件开始。默认值为 OFF。
 
 *timePeriod*
 
-A Float specifying the total time period. The default value is 1.0.
+一个 Float，指定总时间周期。默认值为 1.0。
 
 *incSize*
 
-A Float specifying the time increment to be used. The default value is 1.0.
+一个 Float，指定要使用的时间增量。默认值为 1.0。
 
 *amplitude*
 
-A SymbolicConstant specifying the amplitude variation for loading magnitudes during the step. Possible values are STEP and RAMP. The default value is STEP.
+一个 SymbolicConstant，指定步骤中载荷幅值的变化。可选值为 STEP 和 RAMP。默认值为 STEP。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *directDamping*
 
-A [DirectDamping](pt01ch50pyo04.md) object.
+一个 [DirectDamping](pt01ch50pyo04.md) 对象。
 
 *compositeDamping*
 
-A [CompositeDamping](pt01ch50pyo01.md) object.
+一个 [CompositeDamping](pt01ch50pyo01.md) 对象。
 
 *rayleighDamping*
 
-A [RayleighDamping](pt01ch50pyo11.md) object.
+一个 [RayleighDamping](pt01ch50pyo11.md) 对象。
 
 *directDampingByFrequency*
 
-A [DirectDampingByFrequency](pt01ch50pyo05.md) object.
+一个 [DirectDampingByFrequency](pt01ch50pyo05.md) 对象。
 
 *rayleighDampingByFrequency*
 
-A [RayleighDampingByFrequency](pt01ch50pyo12.md) object.
+一个 [RayleighDampingByFrequency](pt01ch50pyo12.md) 对象。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -208,72 +202,68 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.19.4 Corresponding analysis keywords
+### 49.19.4 对应的分析关键字
 
 | [*DAMPING](../key/key-link.md#usb-kws-mdamping) |
 | --- |
 | [*MODAL DAMPING](../key/key-link.md#usb-kws-hmodaldamp) |
 | [*MODAL DYNAMIC](../key/key-link.md#usb-kws-hmodaldyn) |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

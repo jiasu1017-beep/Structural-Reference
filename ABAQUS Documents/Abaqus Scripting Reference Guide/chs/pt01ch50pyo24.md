@@ -1,32 +1,26 @@
-# 50.24 SubstructureGenerateFrequency object
+# 50.25 SubstructureGenerateModes 对象
 
+SubstructureGenerateModes 对象用于定义在模态动力学分析中使用的模态。
 
-
-
-
-
-
-A SubstructureGenerateFrequency               object is used to define the modes to be used in a modal dynamic analysis. These modes are selected from the specified frequency range including the frequency boundary.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].frequencyRange[*i*]
+mdb.models[*name*].steps[*name*].modeRange[*i*]
 ```
 
-### 50.24.1 Members
+### 50.25.1 成员
 
-The SubstructureGenerateFrequency object has the following members:
+SubstructureGenerateModes 对象具有以下成员：
 
-*lower*
+*start*
 
-A Float specifying the lower limit of the frequency range, in cycles/time.
+一个 Int，指定范围最低模态的模态号。
 
-*upper*
+*end*
 
-A Float specifying the upper limit of the frequency range, in cycles/time.
+一个 Int，指定范围最高模态的模态号。
 
+*increment*
 
-
-
+一个 Int，指定用于从最低模态到最高模态定义中间模态号的增量。

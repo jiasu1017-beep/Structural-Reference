@@ -1,42 +1,42 @@
-# 53.3 Repository 对象
+# 53.2 AbaqusBoolean 对象
 
+AbaqusBoolean 对象的用法与 SymbolicConstant 对象类似。如果将 AbaqusBoolean 对象传递给 Python `repr()` 函数，该函数返回不带引号的文本。实际上，该文本是变量，按照惯例，该变量引用 AbaqusBoolean 对象。
 
+AbaqusBoolean 对象的值为 0 或 1，并且可以在 `if` 语句中测试 AbaqusBoolean 对象。您可以将 AbaqusBoolean 对象用作方法的参数来替代 1 或 0。相反，如果您将 0 或 1 传递给期望 Boolean 参数的 Abaqus Scripting Interface 方法，0 或 1 将被强制转换为适当的 AbaqusBoolean 值。
 
+AbaqusBoolean 对象只有两个可能的值：1 和 0。您可以从 symbolicConstants 模块或 abaqus 模块导入这两个值。期望 AbaqusBoolean 对象的 Abaqus Scripting Interface 命令也将接受 Python bool（True、False）或 Python int（1、0）。
 
+**访问**
 
+```
+from symbolicConstants import *
+from abaqusConstants import *
+```
 
+### 53.2.1 AbaqusBoolean(...)
 
-Repository 是存储特定类型对象的容器；例如，steps repository 包含模型中定义的所有步骤。Abaqus Scripting Interface Repository 将键映射到值。键通常是 String，值是任何 Python 对象，通常是 Abaqus 对象。repository 类似于 Python 字典；但是，只有构造函数可以向 repository 添加对象。此外，repository 中的所有对象都属于相同的基础类型。有关更多信息，请参阅《Abaqus Scripting User's Guide》第 5.3.3 节["Repository"](../cmd/cmd-link.md#cmd-int-acl-types-repositories)。Repository 没有构造函数。当您导入模块时，Abaqus 会创建空的 repository。例如，当您导入 `part` 模块时，Abaqus 会创建一个空的 `parts` repository。
+`AbaqusBoolean` 方法创建一个 AbaqusBoolean 对象。
 
-以下是 Repository 对象的标准 Python 字典方法的标准方法，此处不再描述：
-- `has_key`
-- `items`
-- `keys`
-- `values`
+**路径**
 
-### 53.3.1 changeKey(...)
-
-此方法更改 repository 中键的名称以及值对象的 *name* 成员。
+```
+AbaqusBoolean
+```
 
 **必需参数**
 
-*fromName*
+*value*
 
-一个 String，指定 repository 键的旧名称。
-
-*toName*
-
-一个 String，指定 repository 键的新名称。
+一个 Int，指定 AbaqusBoolean 对象将为 true 还是 false 进行测试。可能的值为 0 和 1，它们将分别创建 `AbaqusBoolean` 方法 OFF 和 ON。
 
 **可选参数**
 
-None。
+无。
 
 **返回值**
 
-None
+一个 AbaqusBoolean 对象。
 
 **异常**
 
-None。
-
+无。

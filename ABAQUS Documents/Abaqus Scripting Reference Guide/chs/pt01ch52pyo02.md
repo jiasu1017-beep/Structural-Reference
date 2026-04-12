@@ -1,11 +1,5 @@
 # 52.2 textRepr 模块
 
-
-
-
-
-
-
 `textRepr` Python 模块包含用于打印 Abaqus 对象以及将 `str()` 函数的输出转换为格式化字符串的函数，该字符串为 Python 对象递归列表中的每个对象都进行了缩进。
 
 **访问**
@@ -38,7 +32,7 @@ import textRepr
 
 *significantDigits*
 
-一个 Int，指定输出中 Float 的有效数字位数。可能的值为 0 ![](../graphics/ker_eqn00048.gif) *significantDigits* ![](../graphics/ker_eqn00425.gif) 15。默认值为 6。
+一个 Int，指定输出中 Float 的有效数字位数。可能的值为 0  ![](../graphics/ker_eqn00048.gif) *significantDigits*  ![](../graphics/ker_eqn00425.gif) 15。默认值为 6。
 
 **返回值**
 
@@ -46,7 +40,7 @@ import textRepr
 
 **异常**
 
-None。
+无。
 
 ### 52.2.2 getPaths(...)
 
@@ -80,7 +74,7 @@ None。
 
 **异常**
 
-None。
+无。
 
 ### 52.2.3 getTypes(...)
 
@@ -114,7 +108,7 @@ None。
 
 **异常**
 
-None。
+无。
 
 ### 52.2.4 prettyPrint(...)
 
@@ -140,15 +134,15 @@ None。
 
 *significantDigits*
 
-一个 Int，指定输出中 Float 的有效数字位数。可能的值为 0 ![](../graphics/ker_eqn00048.gif) *significantDigits* ![](../graphics/ker_eqn00425.gif) 15。默认值为 6。
+一个 Int，指定输出中 Float 的有效数字位数。可能的值为 0  ![](../graphics/ker_eqn00048.gif) *significantDigits*  ![](../graphics/ker_eqn00425.gif) 15。默认值为 6。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 52.2.5 printPaths(...)
 
@@ -178,11 +172,11 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 52.2.6 printTypes(...)
 
@@ -212,9 +206,8 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
-
+无。

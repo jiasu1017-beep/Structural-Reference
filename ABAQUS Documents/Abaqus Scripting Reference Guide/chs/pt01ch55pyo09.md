@@ -1,11 +1,5 @@
 # 55.9 Legend 对象
 
-
-
-
-
-
-
 Legend 对象用于存储图表图例的显示属性。创建 [Chart](pt01ch55pyo06.md) 对象时会自动创建 Legend 对象。
 
 **访问**
@@ -23,7 +17,7 @@ session.xyPlots[*name*].charts[*name*].legend
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -61,11 +55,11 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.9.2 成员
 
@@ -102,4 +96,3 @@ Legend 对象可以具有以下成员：
 *titleStyle*
 
 一个 [TextStyle](pt01ch55pyo13.md) 对象，指定用于显示图例标题的文本属性。
-

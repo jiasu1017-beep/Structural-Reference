@@ -1,230 +1,29 @@
-# 16.1 DisplayGroup object
+# 15.4 DatumPlane 对象
 
+DatumPlane 对象没有直接构造函数；它在创建 [Feature](pt01ch20pyo01.md) 对象时创建。例如，`DatumPlaneByPrincipalPlane` 方法创建一个 Feature 对象，该对象创建 DatumPlane 对象。
 
+DatumPlane 对象派生自 [Datum](pt01ch15pyo01.md) 对象。
 
-
-
-
-
- DisplayGroup objects are used to select a subset of the entities displayed in the viewport. 
-
-**Access**
+**访问权限**
 
 ```
-session.displayGroups[*name*]
-import assembly
-session.viewports[*name*].assemblyDisplay.displayGroup
-session.viewports[*name*].layers[*name*].assemblyDisplay.displayGroup
-import visualization
-session.viewports[*name*].layers[*name*].odbDisplay.displayGroup
 import part
-session.viewports[*name*].layers[*name*].partDisplay.displayGroup
-session.viewports[*name*].odbDisplay.displayGroup
-session.viewports[*name*].partDisplay.displayGroup
+mdb.models[*name*].parts[*name*].datums[*i*]
+import assembly
+mdb.models[*name*].rootAssembly.allinstances.datums[*i*]
+mdb.models[*name*].rootAssembly.datums[*i*]
+mdb.models[*name*].rootAssembly.instances[*name*].datums[*i*]
 ```
 
-### 16.1.1 DisplayGroup(...)
+### 15.4.1 成员
 
-This method creates a DisplayGroup object.
+DatumPlane 对象具有以下成员：
 
-**Path**
+*pointOn*
 
-```
-session.DisplayGroup
-```
+浮点数元组，指定位于 datum 上的点的 X、Y 和 Z 坐标。
 
-**Required arguments**
+*normal*
 
-*name*
-
-A String specifying the repository key.
-
-*leaf*
-
-A [Leaf](pt01ch16pyo04.md) object specifying the items in the display group.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-A DisplayGroup object.
-
-**Exceptions**
-
-InvalidNameError.
-
-### 16.1.2 add(...)
-
-This method adds the specified items to the display group.
-
-**Required argument**
-
-*leaf*
-
-A [Leaf](pt01ch16pyo04.md) object specifying the items to add to the display group.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.3 either(...)
-
-This method redefines the display group to be only those items that are not shared by the *leaf* argument and by the display group.
-
-**Required argument**
-
-*leaf*
-
-A [Leaf](pt01ch16pyo04.md) object specifying the items to be excluded from the display group.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.4 intersect(...)
-
-This method redefines the display group to be only those items that are shared by the *leaf* argument and the display group.
-
-**Required argument**
-
-*leaf*
-
-A [Leaf](pt01ch16pyo04.md) object specifying the items to be included in the display group.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.5 redoLast()
-
-This method redoes the last undone operation on the display group.
-
-**Arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.6 remove(...)
-
-This method removes the specified items from the display group.
-
-**Required argument**
-
-*leaf*
-
-A [Leaf](pt01ch16pyo04.md) object specifying the items to remove from the display group.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.7 replace(...)
-
-This method replaces the contents of the display group with the specified items.
-
-**Required argument**
-
-*leaf*
-
-A [Leaf](pt01ch16pyo04.md) object specifying the items with which to replace the current display group contents.
-
-**Optional arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.8 undoLast()
-
-This method undoes the last operation performed on the display group.
-
-**Arguments**
-
-None.
-
-**Return value**
-
-None
-
-**Exceptions**
-
-None.
-
-### 16.1.9 Members
-
-The DisplayGroup object has the following members:
-
-*canUndo*
-
-A Boolean specifying whether Undo is possible or not.
-
-*canRedo*
-
-A Boolean specifying whether Redo is possible or not.
-
-*name*
-
-A String specifying the repository key.
-
-*module*
-
-A SymbolicConstant specifying the module in which the display group has been created. The possible values are PART, ASSEMBLY, PART_ASSEMBLY, ODB, and ALL.
-
-*modelName*
-
-A String specifying the name of the model to which the display group belongs when the module is part- or assembly-based.
-
-*partName*
-
-A String specifying the name of the part to which the display group belongs when the module is part-based.
-
-
-
+浮点数元组，指定三个浮点数序列，指定法线。
 

@@ -1,11 +1,5 @@
 # 53.9 删除对象回调命令
 
-
-
-
-
-
-
 `deleteObjectCallback` 模块提供的方法允许您注册一个回调，该回调将在指定的 Abaqus Scripting Interface 对象即将被删除时被调用。此回调允许您在对象被删除之前检查它。
 
 例如，在以下脚本中，当任何 `Job` 对象即将被删除时，`myCallback` 函数被执行：
@@ -72,9 +66,8 @@ path='mdb.models[*].materials[*]'
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
-
+无。

@@ -1,16 +1,10 @@
-# 13.9 ShellSolidCoupling object
+# 13.9 ShellSolidCoupling 对象
 
+ShellSolidCoupling 对象定义两个曲面在模拟期间绑在一起。
 
+ShellSolidCoupling 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The ShellSolidCoupling object defines two surfaces to be tied together for the duration of a simulation.
-
-The ShellSolidCoupling object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
@@ -19,93 +13,90 @@ mdb.models[*name*].constraints[*name*]
 
 ### 13.9.1 ShellSolidCoupling(...)
 
-This method creates a ShellSolidCoupling object.
+此方法创建一个 ShellSolidCoupling 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].ShellSolidCoupling
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
 *shellEdge*
 
-A [Region](pt01ch45pyo03.md) object specifying the name of the shell edge surface.
+[Region](pt01ch45pyo03.md) 对象，指定壳边缘曲面的名称。
 
 *solidFace*
 
-A [Region](pt01ch45pyo03.md) object specifying the name of the solid surface.
+[Region](pt01ch45pyo03.md) 对象，指定实体曲面的名称。
 
-**Optional arguments**
+**可选参数**
 
 *positionToleranceMethod*
 
-A SymbolicConstant specifying the method used to determine the position tolerance. Possible values are COMPUTED and SPECIFIED. The default value is COMPUTED.
+符号常量，指定用于确定位置容差的方法。可能的值为 COMPUTED 和 SPECIFIED。默认值为 COMPUTED。
 
 *positionTolerance*
 
-A Float specifying the position tolerance. The default value is 0.0.
+浮点数，指定位置容差。默认值为 0.0。
 
-The *positionTolerance* argument applies only when *positionToleranceMethod*=SPECIFIED.
+*positionTolerance* 参数仅在 *positionToleranceMethod*=SPECIFIED 时适用。
 
-**Note:**                         Abaqus will not constrain nodes on the solid face region outside the position tolerance.
+**注意：** Abaqus 不会约束位于位置容差之外的实体面部区域上的节点。
 
 *influenceDistanceMethod*
 
-A SymbolicConstant specifying the method used to determine the influence distance. Possible values are DEFAULT and SPECIFIED. The default value is DEFAULT.
+符号常量，指定用于确定影响距离的方法。可能的值为 DEFAULT 和 SPECIFIED。默认值为 DEFAULT。
 
 *influenceDistance*
 
-A Float specifying the influence distance. The *influenceDistance* argument applies only when *influenceDistanceMethod*=SPECIFIED. The default value is 0.0.
+浮点数，指定影响距离。*influenceDistance* 参数仅在 *influenceDistanceMethod*=SPECIFIED 时适用。默认值为 0.0。
 
-**Return value**
+**返回值**
 
-A ShellSolidCoupling object.
+ShellSolidCoupling 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 13.9.2 setValues(...)
 
-This method modifies the ShellSolidCoupling object.
+此方法修改 ShellSolidCoupling 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ShellSolidCoupling](pt01ch13pyo09.md#ker-shellsolidcoupling-shellsolidcoupling-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [ShellSolidCoupling](pt01ch13pyo09.md#ker-shellsolidcoupling-shellsolidcoupling-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 13.9.3 Members
+### 13.9.3 成员
 
-The ShellSolidCoupling object has members with the same names and descriptions as the arguments to the [ShellSolidCoupling](pt01ch13pyo09.md#ker-shellsolidcoupling-shellsolidcoupling-pyc) method.
+ShellSolidCoupling 对象的成员与 [ShellSolidCoupling](pt01ch13pyo09.md#ker-shellsolidcoupling-shellsolidcoupling-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the ShellSolidCoupling object has the following member:
+此外，ShellSolidCoupling 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.9.4 Corresponding analysis keywords
+### 13.9.4 对应的分析关键字
 
 | [*SHELL TO SOLID COUPLING](../key/key-link.md#usb-kws-mshelltosolidcoupling) |
 | --- |
-
-
-
 

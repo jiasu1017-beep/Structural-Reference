@@ -1,16 +1,10 @@
-# 14.2 RepositorySupport object
+# 14.2 RepositorySupport 对象
 
+`RepositorySupport` 是一个基类，您可以从中派生自己的类，这些类旨在包含自定义存储库。此类的实例可以从 GUI 查询，并能够在实例内容更改时通知 GUI。
 
+RepositorySupport 对象派生自 [CommandRegister](pt01ch14pyo01.md) 对象。
 
-
-
-
-
-The `RepositorySupport`                 is a base class from which you can derive your own classes that are designed to contain custom repositories. Instances of this class can be queried from the GUI and are capable of notifying the GUI when the contents of the instance change.
-
-The RepositorySupport object is derived from the [CommandRegister](pt01ch14pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import customKernel
@@ -21,54 +15,51 @@ session.odbs[*name*].customData
 
 ### 14.2.1 RepositorySupport()
 
-This method creates a RepositorySupport object.
+此方法创建一个 RepositorySupport 对象。
 
-**Path**
+**路径**
 
 ```
 customKernel.RepositorySupport
 ```
 
-**Return value**
+**返回值**
 
-A RepositorySupport object.
+RepositorySupport 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 14.2.2 Repository(...)
 
-This method installs a repository on the class. The repository is an instance of a `RegisteredDictionary`                       class. Refer to [RegisteredDictionary](pt01ch14pyo03.md)                       for details on its methods.
+此方法在类上安装一个存储库。该存储库是 `RegisteredDictionary` 类的实例。关于其方法的详细信息，请参阅 [RegisteredDictionary](pt01ch14pyo03.md)。
 
-The objects stored in the repository are assumed to have an attribute called *name*                       that stores the key used to access the object in the repository. The name attribute will be modified by the `changeKey`                       method.
+存储在存储库中的对象假定有一个名为 *name* 的属性，用于存储在存储库中访问对象的键。name 属性将由 `changeKey` 方法修改。
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the name of the repository.
+字符串，指定存储库的名称。
 
 *constructors*
 
-A constructor or sequence of constructors specifying which classes will store their instances in the repository.
+构造函数或构造函数序列，指定哪些类将把它们的对象存储在存储库中。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 14.2.3 Members
+### 14.2.3 成员
 
-The RepositorySupport object has no members.
-
-
-
+RepositorySupport 对象没有成员。
 

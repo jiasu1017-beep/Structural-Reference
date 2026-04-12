@@ -1,76 +1,116 @@
-# 55.14 Title 对象
+# 55.13 TextStyle 对象
 
+TextStyle 对象用于存储绘制 XY 绘图文本对象时要使用的文本属性。
 
-
-
-
-
-
-Title 对象用于存储 XYPlot 标题的显示属性。创建 [XYPlot](pt01ch55pyo16.md) 对象时会自动创建 Title 对象。
+创建图表时会自动创建 TextStyle 对象，也可以使用下面描述的方法创建。
 
 **访问**
 
 ```
 import visualization
-session.defaultPlot.title
-session.xyPlots[*name*].title
+session.charts[*name*].axes1[*i*].labelStyle
+session.charts[*name*].axes1[*i*].titleStyle
+session.charts[*name*].axes2[*i*].labelStyle
+session.charts[*name*].axes2[*i*].titleStyle
+session.charts[*name*].legend.textStyle
+session.charts[*name*].legend.titleStyle
+session.charts[*name*].tagTextStyle
+session.defaultChartOptions.defaultAxis1Options.labelStyle
+session.defaultChartOptions.defaultAxis1Options.titleStyle
+session.defaultChartOptions.defaultAxis2Options.labelStyle
+session.defaultChartOptions.defaultAxis2Options.titleStyle
+session.defaultChartOptions.legend.textStyle
+session.defaultChartOptions.legend.titleStyle
+session.defaultChartOptions.tagTextStyle
+session.defaultPlot.title.titleStyle
+session.xyPlots[*name*].charts[*name*].axes1[*i*].labelStyle
+session.xyPlots[*name*].charts[*name*].axes1[*i*].titleStyle
+session.xyPlots[*name*].charts[*name*].axes2[*i*].labelStyle
+session.xyPlots[*name*].charts[*name*].axes2[*i*].titleStyle
+session.xyPlots[*name*].charts[*name*].legend.textStyle
+session.xyPlots[*name*].charts[*name*].legend.titleStyle
+session.xyPlots[*name*].charts[*name*].tagTextStyle
+session.xyPlots[*name*].title.titleStyle
 ```
 
-### 55.14.1 setValues(...)
+### 55.13.1 TextStyle(...)
 
-此方法修改 Title 对象。
+此方法创建 TextStyle。
+
+**路径**
+
+```
+session.TextStyle
+```
+
+```
+xyPlot.TextStyle
+```
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
-*title*
+*color*
 
-一个 Title 对象，从中复制属性。
+一个 String，指定使用此 TextStyle 对象绘制文本时要使用的颜色。默认值为 "White"。
 
-*text*
+*show*
 
-一个 String，指定作为标题显示的文本。默认情况下，标题设置为 [XYPlot](pt01ch55pyo16.md) 对象名称。默认值为空字符串。
+一个 Boolean，指定使用此 TextStyle 对象时是否绘制文本。默认值为 ON。
 
-*area*
+*font*
 
-一个 [Area](pt01ch55pyo02.md) 对象，指定标题的区域。
+一个 String，指定使用此 TextStyle 对象绘制文本时要使用的字体名称。默认值为 "-*-arial-medium-r-normal-*-*-140-*-*-p-*-*-*"。
 
-*useDefault*
+*rotationAngle*
 
-一个 Boolean，指定是否显示默认标题。默认值为 OFF。
-
-*titleStyle*
-
-一个 [TextStyle](pt01ch55pyo13.md) 对象，指定用于显示图例标题的文本属性。
+一个 Float，指定用于显示文本的角度（度）。默认值为 0.0。
 
 **返回值**
 
-None
+TextStyle 对象。
 
 **异常**
 
-None。
+ColorError
 
-### 55.14.2 成员
+### 55.13.2 setValues(...)
 
-Title 对象可以具有以下成员：
+此方法修改 TextStyle 对象。
 
-*useDefault*
+**必需参数**
 
-一个 Boolean，指定是否显示默认标题。默认值为 OFF。
+无。
 
-*area*
+**可选参数**
 
-一个 [Area](pt01ch55pyo02.md) 对象，指定标题的区域。
+*color*
 
-*text*
+一个 String，指定使用此 TextStyle 对象绘制文本时要使用的颜色。默认值为 "White"。
 
-一个 String，指定作为标题显示的文本。默认情况下，标题设置为 [XYPlot](pt01ch55pyo16.md) 对象名称。默认值为空字符串。
+*show*
 
-*titleStyle*
+一个 Boolean，指定使用此 TextStyle 对象时是否绘制文本。默认值为 ON。
 
-一个 [TextStyle](pt01ch55pyo13.md) 对象，指定用于显示图例标题的文本属性。
+*font*
 
+一个 String，指定使用此 TextStyle 对象绘制文本时要使用的字体名称。默认值为 "-*-arial-medium-r-normal-*-*-140-*-*-p-*-*-*"。
+
+*rotationAngle*
+
+一个 Float，指定用于显示文本的角度（度）。默认值为 0.0。
+
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 55.13.3 成员
+
+TextStyle 对象具有与 [setValues](pt01ch55pyo13.md#ker-textstyle-setvalues-pyc) 方法的参数具有相同名称和描述的成员。

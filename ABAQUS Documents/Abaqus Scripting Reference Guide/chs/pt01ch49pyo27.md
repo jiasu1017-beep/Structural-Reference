@@ -1,191 +1,177 @@
-# 49.27 SteadyStateModalStep object
+# 49.28 SteadyStateSubspaceStep 对象
 
+SteadyStateSubspaceStep 对象用于基于子空间投影方法计算系统对谐波激励的线性化稳态响应。
 
+SteadyStateSubspaceStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The SteadyStateModalStep object is used to calculate the linearized steady-state response of the system to harmonic excitation. 
-
-The SteadyStateModalStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*]
 ```
 
-### 49.27.1 SteadyStateModalStep(...)
+### 49.28.1 SteadyStateSubspaceStep(...)
 
-This method creates a SteadyStateModalStep object. 
+此方法创建一个 SteadyStateSubspaceStep 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].SteadyStateModalStep
+mdb.models[*name*].SteadyStateSubspaceStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *frequencyRange*
 
-A [SteadyStateModalFrequencyArray](pt01ch50pyo18.md) object.
+一个 [SteadyStateSubspaceFrequencyArray](pt01ch50pyo19.md) 对象。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
+
+*factorization*
+
+一个 SymbolicConstant，指定是否忽略阻尼项以便对实数（而非复数）系统矩阵进行分解。可选值为 REAL_ONLY 和 COMPLEX。默认值为 COMPLEX。
 
 *scale*
 
-A SymbolicConstant specifying whether a logarithmic or linear scale is used for output. Possible values are LOGARITHMIC and LINEAR. The default value is LOGARITHMIC.
+一个 SymbolicConstant，指定输出使用的是对数标度还是线性标度。可选值为 LOGARITHMIC 和 LINEAR。默认值为 LOGARITHMIC。
 
-*directDamping*
+*matrixStorage*
 
-A [DirectDamping](pt01ch50pyo04.md) object.
-
-*compositeDamping*
-
-A [CompositeDamping](pt01ch50pyo01.md) object.
-
-*rayleighDamping*
-
-A [RayleighDamping](pt01ch50pyo11.md) object.
-
-*structuralDamping*
-
-A [StructuralDamping](pt01ch50pyo20.md) object.
-
-*directDampingByFrequency*
-
-A [DirectDampingByFrequency](pt01ch50pyo05.md) object.
-
-*rayleighDampingByFrequency*
-
-A [RayleighDampingByFrequency](pt01ch50pyo12.md) object.
-
-*structuralDampingByFrequency*
-
-A [StructuralDampingByFrequency](pt01ch50pyo21.md) object.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
 *subdivideUsingEigenfrequencies*
 
-A Boolean specifying whether to subdivide each frequency range using the eigenfrequencies of the system. The default value is ON.
+一个布尔值，指定是否使用系统的特征频率细分每个频率范围。默认值为 ON。
 
-**Return value**
+*projection*
 
-A SteadyStateModalStep object.
+一个 SymbolicConstant，指定执行子空间投影到模态子空间的频率。可选值为 ALL_FREQUENCIES、CONSTANT、EIGENFREQUENCY、PROPERTY_CHANGE 和 RANGE。默认值为 ALL_FREQUENCIES。
 
-**Exceptions**
+*maxDampingChange*
 
-RangeError.
+一个 Float，指定在执行新投影之前阻尼材料属性的最大相对变化。默认值为 0.1。
 
-### 49.27.2 setValues(...)
+*maxStiffnessChange*
 
-This method modifies the SteadyStateModalStep object.
+一个 Float，指定在执行新投影之前刚度材料属性的最大相对变化。默认值为 0.1。
 
-**Required arguments**
+*frictionDamping*
 
-None.
+一个布尔值，指定是否向阻尼矩阵添加摩擦效应引起的贡献。默认值为 OFF。
 
-**Optional arguments**
+**返回值**
 
-The optional arguments to `setValues` are the same as the arguments to the [SteadyStateModalStep](pt01ch49pyo27.md#ker-steadystatemodalstep-steadystatemodalstep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+一个 SteadyStateSubspaceStep 对象。
 
-**Return value**
+**异常**
 
-None
+RangeError。
 
-**Exceptions**
+### 49.28.2 setValues(...)
 
-RangeError.
+此方法修改 SteadyStateSubspaceStep 对象。
 
-### 49.27.3 Members
+**必需参数**
 
-The SteadyStateModalStep object can have the following members:
+无。
+
+**可选参数**
+
+`setValues` 的可选参数与 [SteadyStateSubspaceStep](pt01ch49pyo28.md#ker-steadystatesubspacestep-steadystatesubspacestep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
+
+**返回值**
+
+无
+
+**异常**
+
+RangeError。
+
+### 49.28.3 成员
+
+SteadyStateSubspaceStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
+
+*factorization*
+
+一个 SymbolicConstant，指定是否忽略阻尼项以便对实数（而非复数）系统矩阵进行分解。可选值为 REAL_ONLY 和 COMPLEX。默认值为 COMPLEX。
 
 *scale*
 
-A SymbolicConstant specifying whether a logarithmic or linear scale is used for output. Possible values are LOGARITHMIC and LINEAR. The default value is LOGARITHMIC.
+一个 SymbolicConstant，指定输出使用的是对数标度还是线性标度。可选值为 LOGARITHMIC 和 LINEAR。默认值为 LOGARITHMIC。
+
+*matrixStorage*
+
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *subdivideUsingEigenfrequencies*
 
-A Boolean specifying whether to subdivide each frequency range using the eigenfrequencies of the system. The default value is ON.
+一个布尔值，指定是否使用系统的特征频率细分每个频率范围。默认值为 ON。
+
+*projection*
+
+一个 SymbolicConstant，指定执行子空间投影到模态子空间的频率。可选值为 ALL_FREQUENCIES、CONSTANT、EIGENFREQUENCY、PROPERTY_CHANGE 和 RANGE。默认值为 ALL_FREQUENCIES。
+
+*maxDampingChange*
+
+一个 Float，指定在执行新投影之前阻尼材料属性的最大相对变化。默认值为 0.1。
+
+*maxStiffnessChange*
+
+一个 Float，指定在执行新投影之前刚度材料属性的最大相对变化。默认值为 0.1。
+
+*frictionDamping*
+
+一个布尔值，指定是否向阻尼矩阵添加摩擦效应引起的贡献。默认值为 OFF。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *frequencyRange*
 
-A [SteadyStateModalFrequencyArray](pt01ch50pyo18.md) object.
-
-*directDamping*
-
-A [DirectDamping](pt01ch50pyo04.md) object.
-
-*compositeDamping*
-
-A [CompositeDamping](pt01ch50pyo01.md) object.
-
-*rayleighDamping*
-
-A [RayleighDamping](pt01ch50pyo11.md) object.
-
-*structuralDamping*
-
-A [StructuralDamping](pt01ch50pyo20.md) object.
-
-*directDampingByFrequency*
-
-A [DirectDampingByFrequency](pt01ch50pyo05.md) object.
-
-*rayleighDampingByFrequency*
-
-A [RayleighDampingByFrequency](pt01ch50pyo12.md) object.
-
-*structuralDampingByFrequency*
-
-A [StructuralDampingByFrequency](pt01ch50pyo21.md) object.
+一个 [SteadyStateSubspaceFrequencyArray](pt01ch50pyo19.md) 对象。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -216,72 +202,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.27.4 Corresponding analysis keywords
+### 49.28.4 对应的分析关键字
 
-| [*DAMPING](../key/key-link.md#usb-kws-mdamping) |
-| --- |
-| [*MODAL DAMPING](../key/key-link.md#usb-kws-hmodaldamp) |
 | [*STEADY STATE DYNAMICS](../key/key-link.md#usb-kws-hsteadystdyn) |
+| --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

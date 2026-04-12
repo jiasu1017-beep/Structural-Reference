@@ -1,11 +1,5 @@
 # 55.12 SymbolStyle 对象
 
-
-
-
-
-
-
 SymbolStyle 对象用于定义绘制曲线时要使用的标记属性。
 
 SymbolStyle 对象可以使用下面描述的方法创建。
@@ -46,7 +40,7 @@ xyPlot.SymbolStyle
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -93,7 +87,7 @@ ColorError
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -128,13 +122,12 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.12.3 成员
 
 SymbolStyle 对象具有与 [setValues](pt01ch55pyo12.md#ker-symbolstyle-setvalues-pyc) 方法的参数具有相同名称和描述的成员。
-

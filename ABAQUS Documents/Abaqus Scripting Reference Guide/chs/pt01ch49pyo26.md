@@ -1,16 +1,10 @@
-# 49.26 SteadyStateDirectStep object
+# 49.26 SteadyStateDirectStep 对象
 
+SteadyStateDirectStep 对象用于根据模型的物理自由度计算系统对谐波激励的线性化稳态响应。
 
+SteadyStateDirectStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The SteadyStateDirectStep object is used to calculate the linearized steady-state response of the system to harmonic excitation in terms of the physical degrees of freedom of the model. 
-
-The SteadyStateDirectStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -19,141 +13,141 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.26.1 SteadyStateDirectStep(...)
 
-This method creates a SteadyStateDirectStep object.
+此方法创建一个 SteadyStateDirectStep 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].SteadyStateDirectStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *frequencyRange*
 
-A [SteadyStateDirectFrequencyArray](pt01ch50pyo17.md) object.
+一个 [SteadyStateDirectFrequencyArray](pt01ch50pyo17.md) 对象。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *factorization*
 
-A SymbolicConstant specifying whether damping terms are to be ignored so that a real, rather than a complex, system matrix is factored. Possible values are REAL_ONLY and COMPLEX. The default value is COMPLEX.
+一个 SymbolicConstant，指定是否忽略阻尼项以便对实数（而非复数）系统矩阵进行分解。可选值为 REAL_ONLY 和 COMPLEX。默认值为 COMPLEX。
 
 *scale*
 
-A SymbolicConstant specifying whether a logarithmic or linear scale is used for output. Possible values are LOGARITHMIC and LINEAR. The default value is LOGARITHMIC.
+一个 SymbolicConstant，指定输出使用的是对数标度还是线性标度。可选值为 LOGARITHMIC 和 LINEAR。默认值为 LOGARITHMIC。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
 *subdivideUsingEigenfrequencies*
 
-A Boolean specifying whether to subdivide each frequency range using the eigenfrequencies of the system. The default value is OFF.
+一个布尔值，指定是否使用系统的特征频率细分每个频率范围。默认值为 OFF。
 
 *frictionDamping*
 
-A Boolean specifying whether to add to the damping matrix contributions due to friction effects. The default value is OFF.
+一个布尔值，指定是否向阻尼矩阵添加摩擦效应引起的贡献。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-A SteadyStateDirectStep object.
+一个 SteadyStateDirectStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 49.26.2 setValues(...)
 
-This method modifies the SteadyStateDirectStep object.
+此方法修改 SteadyStateDirectStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [SteadyStateDirectStep](pt01ch49pyo26.md#ker-steadystatedirectstep-steadystatedirectstep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+`setValues` 的可选参数与 [SteadyStateDirectStep](pt01ch49pyo26.md#ker-steadystatedirectstep-steadystatedirectstep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.26.3 Members
+### 49.26.3 成员
 
-The SteadyStateDirectStep object can have the following members:
+SteadyStateDirectStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *factorization*
 
-A SymbolicConstant specifying whether damping terms are to be ignored so that a real, rather than a complex, system matrix is factored. Possible values are REAL_ONLY and COMPLEX. The default value is COMPLEX.
+一个 SymbolicConstant，指定是否忽略阻尼项以便对实数（而非复数）系统矩阵进行分解。可选值为 REAL_ONLY 和 COMPLEX。默认值为 COMPLEX。
 
 *scale*
 
-A SymbolicConstant specifying whether a logarithmic or linear scale is used for output. Possible values are LOGARITHMIC and LINEAR. The default value is LOGARITHMIC.
+一个 SymbolicConstant，指定输出使用的是对数标度还是线性标度。可选值为 LOGARITHMIC 和 LINEAR。默认值为 LOGARITHMIC。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *subdivideUsingEigenfrequencies*
 
-A Boolean specifying whether to subdivide each frequency range using the eigenfrequencies of the system. The default value is OFF.
+一个布尔值，指定是否使用系统的特征频率细分每个频率范围。默认值为 OFF。
 
 *frictionDamping*
 
-A Boolean specifying whether to add to the damping matrix contributions due to friction effects. The default value is OFF.
+一个布尔值，指定是否向阻尼矩阵添加摩擦效应引起的贡献。默认值为 OFF。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *frequencyRange*
 
-A [SteadyStateDirectFrequencyArray](pt01ch50pyo17.md) object.
+一个 [SteadyStateDirectFrequencyArray](pt01ch50pyo17.md) 对象。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -184,70 +178,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.26.4 Corresponding analysis keywords
+### 49.26.4 对应的分析关键字
 
 | [*STEADY STATE DYNAMICS](../key/key-link.md#usb-kws-hsteadystdyn) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

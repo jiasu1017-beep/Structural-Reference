@@ -1,14 +1,8 @@
-# 51.8 Restart object
+# 51.8 Restart 对象
 
+Restart 对象用于定义重启请求。
 
-
-
-
-
-
-The Restart object defines a restart request.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,75 +11,71 @@ mdb.models[*name*].steps[*name*].restart
 
 ### 51.8.1 Restart(...)
 
-This method creates a restart request.
+此方法创建一个重启请求。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].steps[*name*].Restart
 ```
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *numberIntervals*
 
-An Int specifying the number of intervals during the step at which restart information will be written. The default value is 0. The default value is 1.
+一个 Int，指定在步骤期间写入重启信息的间隔数。默认值为 0。默认值为 1。
 
 *timeMarks*
 
-A Boolean specifying whether to use exact time marks for writing during an analysis. The default value is OFF. The default value is OFF.
+一个 Boolean，指定在分析期间写入时是否使用精确时间标记。默认值为 OFF。默认值为 OFF。
 
 *overlay*
 
-A Boolean specifying that only one increment per step should be retained on the restart file, thus minimizing the size of the restart file. The default value is OFF. The default value is ON.
+一个 Boolean，指定是否仅在重启文件中保留每个步骤的一个增量，从而最小化重启文件的大小。默认值为 OFF。默认值为 ON。
 
 *frequency*
 
-An Int specifying the increments at which restart information will be written. The default value is 0. The default value is 0.
+一个 Int，指定写入重启信息的增量间隔。默认值为 0。默认值为 0。
 
-This argument applies only to Abaqus/Standard analyses.
+此参数仅适用于 Abaqus/Standard 分析。
 
-**Return value**
+**返回的值**
 
-A Restart object.
+一个 Restart 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 51.8.2 setValues(...)
 
-This method modifies the Restart object.
+此方法修改 Restart 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [Restart](pt01ch51pyo08.md#ker-restart-restart-pyc) method.
+`setValues` 的可选参数与 [Restart](pt01ch51pyo08.md#ker-restart-restart-pyc) 方法的参数相同。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 51.8.3 Members
+### 51.8.3 成员
 
-The Restart object has members with the same names and descriptions as the arguments to the [Restart](pt01ch51pyo08.md#ker-restart-restart-pyc) method.
+Restart 对象的成员与 [Restart](pt01ch51pyo08.md#ker-restart-restart-pyc) 方法的参数具有相同的名称和描述。
 
-### 51.8.4 Corresponding analysis keywords
+### 51.8.4 对应的分析关键字
 
 | [*RESTART](../key/key-link.md#usb-kws-mrestart) |
 | --- |
-
-
-
-

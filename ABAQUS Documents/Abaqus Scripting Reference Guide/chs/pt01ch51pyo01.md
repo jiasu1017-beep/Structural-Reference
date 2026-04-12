@@ -1,14 +1,8 @@
-# 51.1 DiagnosticPrint object
+# 51.1 DiagnosticPrint 对象
 
+DiagnosticPrint 对象用于请求详细的诊断输出或禁用特定的诊断检查。
 
-
-
-
-
-
-The DiagnosticPrint object is used to request detailed diagnostic output or to disable specific diagnostic checks.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,101 +11,97 @@ mdb.models[*name*].steps[*name*].diagnosticPrint
 
 ### 51.1.1 DiagnosticPrint(...)
 
-This method creates a DiagnosticPrint object.
+此方法创建一个 DiagnosticPrint 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].steps[*name*].DiagnosticPrint
 ```
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *allke*
 
-A Boolean specifying a request for a column containing the total kinetic energy. This argument is valid only for an Abaqus/Explicit analysis. The default value is ON.
+一个 Boolean，指定是否请求包含总动能的列。此参数仅对 Abaqus/Explicit 分析有效。默认值为 ON。
 
 *criticalElement*
 
-A Boolean specifying a request for a column containing the element that has the smallest stable time increment and a column listing the value. This argument is valid only for an Abaqus/Explicit analysis. The default value is ON.
+一个 Boolean，指定是否请求包含最小稳定时间增量的单元的列以及列出该值的列。此参数仅对 Abaqus/Explicit 分析有效。默认值为 ON。
 
 *dmass*
 
-A Boolean specifying a request for a column containing the percent change in total mass of the model as a result of mass scaling. This argument is valid only for an Abaqus/Explicit analysis. The default value is OFF unless mass scaling is present in the model.
+一个 Boolean，指定是否请求包含由于质量缩放导致的模型总质量变化百分比的列。此参数仅对 Abaqus/Explicit 分析有效。除非模型中存在质量缩放，否则默认值为 OFF。
 
 *etotal*
 
-A Boolean specifying a request for a column containing the energy balance of the model. This argument is valid only for an Abaqus/Explicit analysis. The default value is OFF.
+一个 Boolean，指定是否请求包含模型能量平衡的列。此参数仅对 Abaqus/Explicit 分析有效。默认值为 OFF。
 
 *contact*
 
-A Boolean specifying a request for detailed output of points that are contacting or separating in interface and gap problems. This argument is valid only for an Abaqus/Standard analysis. The default value is ON.
+一个 Boolean，指定是否请求界面和间隙问题中接触或分离点的详细输出。此参数仅对 Abaqus/Standard 分析有效。默认值为 ON。
 
 *modelChange*
 
-A Boolean specifying a request for detailed output of which elements are being removed or reactivated in the step.  This argument is valid only for an Abaqus/Standard analysis. The default value is OFF.
+一个 Boolean，指定是否请求在步骤中被移除或重新激活的单元的详细输出。此参数仅对 Abaqus/Standard 分析有效。默认值为 OFF。
 
 *plasticity*
 
-A Boolean specifying a request for detailed output of element and integration point numbers for which the plasticity algorithms have failed to converge in the material routines. This argument is valid only for an Abaqus/Standard analysis. The default value is OFF.
+一个 Boolean，指定是否请求材料例程中塑性算法未能收敛的单元和积分点编号的详细输出。此参数仅对 Abaqus/Standard 分析有效。默认值为 OFF。
 
 *residual*
 
-A Boolean specifying a request for output of equilibrium residuals during the equilibrium iterations. This argument is valid only for an Abaqus/Standard analysis. The default value is ON.
+一个 Boolean，指定是否在平衡迭代期间输出平衡残差。此参数仅对 Abaqus/Standard 分析有效。默认值为 ON。
 
 *frequency*
 
-An Int specifying the frequency of output, in increments. The default value is 1.
+一个 Int，指定输出频率（以增量计）。默认值为 1。
 
 *solve*
 
-A Boolean specifying a request for information regarding the actual number of equations and the wavefront in each iteration. This argument is valid only for an Abaqus/Standard analysis. The default value is ON.
+一个 Boolean，指定是否请求每次迭代中实际方程数量和波前的相关信息。此参数仅对 Abaqus/Standard 分析有效。默认值为 ON。
 
 *mass*
 
-A Boolean specifying a request for a column containing the total mass of the model as a result of mass scaling. This argument is valid only for an Abaqus/Explicit analysis. The default value is OFF.
+一个 Boolean，指定是否请求包含由于质量缩放导致的模型总质量的列。此参数仅对 Abaqus/Explicit 分析有效。默认值为 OFF。
 
-**Return value**
+**返回的值**
 
-A DiagnosticPrint object.
+一个 DiagnosticPrint 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 51.1.2 setValues(...)
 
-This method modifies the DiagnosticPrint object.
+此方法修改 DiagnosticPrint 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [DiagnosticPrint](pt01ch51pyo01.md#ker-diagnosticprint-diagnosticprint-pyc) method.
+`setValues` 的可选参数与 [DiagnosticPrint](pt01ch51pyo01.md#ker-diagnosticprint-diagnosticprint-pyc) 方法的参数相同。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 51.1.3 Members
+### 51.1.3 成员
 
-The DiagnosticPrint object has members with the same names and descriptions as the arguments to the [DiagnosticPrint](pt01ch51pyo01.md#ker-diagnosticprint-diagnosticprint-pyc) method.
+DiagnosticPrint 对象的成员与 [DiagnosticPrint](pt01ch51pyo01.md#ker-diagnosticprint-diagnosticprint-pyc) 方法的参数具有相同的名称和描述。
 
-### 51.1.4 Corresponding analysis keywords
+### 51.1.4 对应的分析关键字
 
 | [*DIAGNOSTICS](../key/key-link.md#usb-kws-hdiagnostics) |
 | --- |
-
-
-
-

@@ -1,16 +1,10 @@
-# 49.4 BuckleStep object
+# 49.4 BuckleStep 对象
 
+BuckleStep 对象控制特征值屈曲估计。
 
+BuckleStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The BuckleStep object controls eigenvalue buckling estimation.
-
-The BuckleStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -19,169 +13,169 @@ mdb.models[*name*].steps[*name*]
 
 ### 49.4.1 BuckleStep(...)
 
-This method creates a BuckleStep object.
+此方法创建一个 BuckleStep 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].BuckleStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *numEigen*
 
-An Int specifying the number of eigenvalues to be estimated.
+一个 Int，指定要估计的特征值数量。
 
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *eigensolver*
 
-A SymbolicConstant specifying the eigensolver. Possible values are SUBSPACE and LANCZOS. The default value is SUBSPACE.
+一个 SymbolicConstant，指定特征值求解器。可选值为 SUBSPACE 和 LANCZOS。默认值为 SUBSPACE。
 
 *minEigen*
 
- `None` or a Float specifying the minimum eigenvalue of interest. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最小特征值。默认值为 `None`。
 
 *maxEigen*
 
- `None` or a Float specifying the maximum eigenvalue of interest. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最大特征值。默认值为 `None`。
 
 *vectors*
 
-An Int specifying the number of vectors used in the iteration. The default value is the minimum of (2*n*, *n* + 8), where *n* is the number of eigenvalues requested.
+一个 Int，指定迭代中使用的向量数。默认值为 (2*n*, *n* + 8) 中的最小值，其中 *n* 是请求的特征值数量。
 
 *maxIterations*
 
-An Int specifying the maximum number of iterations. The default value is 30.
+一个 Int，指定最大迭代次数。默认值为 30。
 
 *blockSize*
 
-The SymbolicConstant DEFAULT or an Int specifying the size of the Lanczos block steps. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int，指定 Lanczos 块步骤的大小。默认值为 DEFAULT。
 
 *maxBlocks*
 
-The SymbolicConstant DEFAULT or an Int specifying the maximum number of Lanczos block steps within each Lanczos run. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int，指定每个 Lanczos 运行中 Lanczos 块步骤的最大数量。默认值为 DEFAULT。
 
-**Note:** *minEigen*, *blockSize*, and *maxBlocks* are ignored unless *eigensolver*=LANCZOS.
+**注意：**除非 *eigensolver*=LANCZOS，否则忽略 *minEigen*、*blockSize* 和 *maxBlocks*。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
-**Return value**
+**返回值**
 
-A BuckleStep object.
+一个 BuckleStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 49.4.2 setValues(...)
 
-This method modifies the BuckleStep object.
+此方法修改 BuckleStep 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [BuckleStep](pt01ch49pyo04.md#ker-bucklestep-bucklestep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+`setValues` 的可选参数与 [BuckleStep](pt01ch49pyo04.md#ker-bucklestep-bucklestep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.4.3 Members
+### 49.4.3 成员
 
-The BuckleStep object can have the following members:
+BuckleStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *numEigen*
 
-An Int specifying the number of eigenvalues to be estimated.
+一个 Int，指定要估计的特征值数量。
 
 *eigensolver*
 
-A SymbolicConstant specifying the eigensolver. Possible values are SUBSPACE and LANCZOS. The default value is SUBSPACE.
+一个 SymbolicConstant，指定特征值求解器。可选值为 SUBSPACE 和 LANCZOS。默认值为 SUBSPACE。
 
 *minEigen*
 
- `None` or a Float specifying the minimum eigenvalue of interest. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最小特征值。默认值为 `None`。
 
 *maxEigen*
 
- `None` or a Float specifying the maximum eigenvalue of interest. The default value is `None`.
+`None` 或一个 Float，指定感兴趣的最大特征值。默认值为 `None`。
 
 *vectors*
 
-An Int specifying the number of vectors used in the iteration. The default value is the minimum of (2*n*, *n* + 8), where *n* is the number of eigenvalues requested.
+一个 Int，指定迭代中使用的向量数。默认值为 (2*n*, *n* + 8) 中的最小值，其中 *n* 是请求的特征值数量。
 
 *maxIterations*
 
-An Int specifying the maximum number of iterations. The default value is 30.
+一个 Int，指定最大迭代次数。默认值为 30。
 
 *blockSize*
 
-The SymbolicConstant DEFAULT or an Int specifying the size of the Lanczos block steps. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int，指定 Lanczos 块步骤的大小。默认值为 DEFAULT。
 
 *maxBlocks*
 
-The SymbolicConstant DEFAULT or an Int specifying the maximum number of Lanczos block steps within each Lanczos run. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int，指定每个 Lanczos 运行中 Lanczos 块步骤的最大数量。默认值为 DEFAULT。
 
-**Note:** *minEigen*, *blockSize*, and *maxBlocks* are ignored unless *eigensolver*=LANCZOS.
+**注意：**除非 *eigensolver*=LANCZOS，否则忽略 *minEigen*、*blockSize* 和 *maxBlocks*。
 
 *matrixStorage*
 
-A SymbolicConstant specifying the type of matrix storage. Possible values are SYMMETRIC, UNSYMMETRIC, and SOLVER_DEFAULT. The default value is SOLVER_DEFAULT.
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -212,70 +206,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.4.4 Corresponding analysis keywords
+### 49.4.4 对应的分析关键字
 
 | [*BUCKLE](../key/key-link.md#usb-kws-hbuckle) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

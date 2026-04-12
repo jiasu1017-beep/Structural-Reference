@@ -1,36 +1,26 @@
-# 50.13 RayleighDampingByFrequencyComponent object
+# 50.13 RayleighDampingByFrequencyComponent 对象
 
+RayleighDampingByFrequencyComponent 对象用于定义一系列频率的 Rayleigh 阻尼。
 
-
-
-
-
-
-A RayleighDampingByFrequencyComponent object is used to define Rayleigh damping over a range of frequencies.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*].rayleighDampingByFrequency.components[*i*]
 ```
 
-### 50.13.1 Members
+### 50.13.1 成员
 
-The RayleighDampingByFrequencyComponent object has the following members:
+RayleighDampingByFrequencyComponent 对象具有以下成员：
 
 *frequency*
 
-A Float specifying the frequency value in cycles/time.
+一个 Float，指定频率值（周期/时间）。
 
 *alpha*
 
-A Float specifying the mass proportional damping, ![](../graphics/ker_eqn00423.gif).
+一个 Float，指定质量比例阻尼 ![](../graphics/ker_eqn00423.gif)。
 
 *beta*
 
-A Float specifying the stiffness proportional damping, ![](../graphics/ker_eqn00424.gif).
-
-
-
-
+一个 Float，指定刚度比例阻尼 ![](../graphics/ker_eqn00424.gif)。

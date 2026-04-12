@@ -1,16 +1,10 @@
-# 16.4 Leaf object
+# 16.4 Leaf 对象
 
+Leaf 对象用于指定显示组中的项。Leaf 对象被构造为临时对象，然后用作 [DisplayGroup](pt01ch16pyo01.md) 命令的参数。
 
+Leaf 对象与 Set 对象有相似之处；但是，Leaf 对象在评估 DisplayGroup 表达式时进行评估，并且它们可以具有符号常量值（这些值也在评估 DisplayGroup 表达式时进行评估）。
 
-
-
-
-
- Leaf objects are used to specify the items in a display group. Leaf objects are constructed as temporary objects, which are then used as arguments to [DisplayGroup](pt01ch16pyo01.md) commands. 
-
-Leaf objects have similarities to Set objects; however, Leaf objects are evaluated when the DisplayGroup expression is evaluated, and they can have SymbolicConstant values (which are also evaluated when the DisplayGroup expression is evaluated).
-
-**Access**
+**访问权限**
 
 ```
 import displayGroupMdbToolset
@@ -19,36 +13,33 @@ import displayGroupOdbToolset
 
 ### 16.4.1 Leaf(...)
 
-This method creates a Leaf object.
+此方法创建一个 Leaf 对象。
 
-**Path**
+**路径**
 
 ```
 Leaf
 ```
 
-**Required argument**
+**必需参数**
 
 *leafType*
 
-A SymbolicConstant specifying the leaf type. Possible values are EMPTY, DEFAULT_MODEL, ALL_ELEMENTS, ALL_NODES, and ALL_SURFACES.
+符号常量，指定叶子类型。可能的值为 EMPTY、DEFAULT_MODEL、ALL_ELEMENTS、ALL_NODES 和 ALL_SURFACES。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A Leaf object.
+Leaf 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 16.4.2 Members
+### 16.4.2 成员
 
-The Leaf object has members with the same names and descriptions as the arguments to the [Leaf](pt01ch16pyo04.md#ker-leaf-leaf-pyc) method.
-
-
-
+Leaf 对象的成员与 [Leaf](pt01ch16pyo04.md#ker-leaf-leaf-pyc) 方法的参数具有相同的名称和描述。
 

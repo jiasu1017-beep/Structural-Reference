@@ -1,14 +1,8 @@
-# 51.4 HistoryOutputRequest object
+# 51.4 HistoryOutputRequest 对象
 
+HistoryOutputRequest 对象用于定义历史输出请求。
 
-
-
-
-
-
-The HistoryOutputRequest object defines a history output request.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,325 +11,325 @@ mdb.models[*name*].historyOutputRequests[*name*]
 
 ### 51.4.1 HistoryOutputRequest(...)
 
-This method creates a HistoryOutputRequest object.
+此方法创建一个 HistoryOutputRequest 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].HistoryOutputRequest
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+一个 String，指定仓库键。
 
 *createStepName*
 
-A String specifying the name of the step in which the object is created.
+一个 String，指定创建该对象的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
 *region*
 
-The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region from which output is requested. The SymbolicConstant MODEL represents the whole model. The default value is MODEL.
+ SymbolicConstant MODEL 或一个 [Region](pt01ch45pyo03.md) 对象，指定请求输出的区域。SymbolicConstant MODEL 代表整个模型。默认值为 MODEL。
 
-If the region is a surface region, the surface must lie within the general contact surface domain.
+如果该区域是表面区域，则该表面必须位于通用接触表面域内。
 
 *variables*
 
-A sequence of Strings specifying output request variable or component names, or the SymbolicConstant PRESELECT or ALL. PRESELECT represents all default output variables for the given step. ALL represents all valid output variables. The default value is PRESELECT.
+一个 String 序列，指定输出请求的变量或分量名称，或 SymbolicConstant PRESELECT 或 ALL。PRESELECT 代表给定步骤的所有默认输出变量。ALL 代表所有有效的输出变量。默认值为 PRESELECT。
 
 *frequency*
 
-The SymbolicConstant LAST_INCREMENT or an Int specifying the output frequency in increments. The default value is 1.
+SymbolicConstant LAST_INCREMENT 或一个 Int，指定输出频率（以增量计）。默认值为 1。
 
 *modes*
 
-The SymbolicConstant ALL or a sequence of Ints specifying a list of eigenmodes for which output is desired. The default value is ALL.
+SymbolicConstant ALL 或一个 Int 序列，指定需要输出的特征模态列表。默认值为 ALL。
 
 *timeInterval*
 
-The SymbolicConstant EVERY_TIME_INCREMENT or a Float specifying the time interval at which the output states are to be written. The default value is EVERY_TIME_INCREMENT.
+SymbolicConstant EVERY_TIME_INCREMENT 或一个 Float，指定写入输出状态的时间间隔。默认值为 EVERY_TIME_INCREMENT。
 
 *numIntervals*
 
-An Int specifying the number of intervals during the step at which output database states are to be written. The default value is 20.
+一个 Int，指定在步骤期间写入输出数据库状态的间隔数。默认值为 20。
 
 *boltLoad*
 
-A String specifying a bolt load from which output is requested. The default value is an empty string.
+一个 String，指定请求输出的螺栓载荷。默认值为空字符串。
 
 *sectionPoints*
 
-The SymbolicConstant DEFAULT or a sequence of Ints specifying the section points for which output is requested. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int 序列，指定请求输出的截面点。默认值为 DEFAULT。
 
 *stepName*
 
-A String specifying the name of the step. The default value is an empty string.
+一个 String，指定步骤名称。默认值为空字符串。
 
 *interactions*
 
- `None` or a sequence of Strings specifying the interaction names. The default value is `None`.
+ `None` 或一个 String 序列，指定相互作用名称。默认值为 `None`。
 
-The sequence can contain only one String.
+该序列只能包含一个 String。
 
 *contourIntegral*
 
-A String specifying the contour integral name. The default value is `None`.
+一个 String，指定轮廓积分名称。默认值为 `None`。
 
 *numberOfContours*
 
-An Int specifying the number of contour integrals to output for the contour integral object. The default value is 0.
+一个 Int，指定为轮廓积分对象输出的轮廓积分数量。默认值为 0。
 
 *stressInitializationStep*
 
-A String specifying the name of the stress initialization step. The default value is `None`.
+一个 String，指定应力初始化步骤的名称。默认值为 `None`。
 
 *contourType*
 
-A SymbolicConstant specifying the type of contour integral. Possible values are J_INTEGRAL, C_INTEGRAL, T_STRESS, and K_FACTORS. The default value is J_INTEGRAL.
+一个 SymbolicConstant，指定轮廓积分的类型。可选值为 J_INTEGRAL、C_INTEGRAL、T_STRESS 和 K_FACTORS。默认值为 J_INTEGRAL。
 
 *kFactorDirection*
 
-A SymbolicConstant specifying the stress intensity factor direction. Possible values are MTS, MERR, and K110. The *kFactorDirection* argument is valid only if *contourType*=K_FACTORS. The default value is MTS.
+一个 SymbolicConstant，指定应力强度因子方向。可选值为 MTS、MERR 和 K110。*kFactorDirection* 参数仅在 *contourType*=K_FACTORS 时有效。默认值为 MTS。
 
 *rebar*
 
-A SymbolicConstant specifying whether output is requested for rebar. Possible values are EXCLUDE, INCLUDE, and ONLY. The default value is EXCLUDE.
+一个 SymbolicConstant，指定是否为钢筋请求输出。可选值为 EXCLUDE、INCLUDE 和 ONLY。默认值为 EXCLUDE。
 
 *integratedOutputSection*
 
-A String specifying the integrated output section.  The default value is an empty string.
+一个 String，指定集成输出截面。默认值为空字符串。
 
 *springs*
 
-A sequence of Strings specifying the springs/dashpots names. The default value is `None`. The sequence can contain only one String.
+一个 String 序列，指定弹簧/阻尼器名称。默认值为 `None`。该序列只能包含一个 String。
 
 *filter*
 
-The SymbolicConstant ANTIALIASING or a String specifying the name of an output filter object. The default value is `None`.
+SymbolicConstant ANTIALIASING 或一个 String，指定输出过滤器对象的名称。默认值为 `None`。
 
 *fasteners*
 
-A String specifying the fastener name.  The default value is an empty string.
+一个 String，指定紧固件名称。默认值为空字符串。
 
 *assembledFastener*
 
-A String specifying the assembled fastener name.  The default value is an empty string.
+一个 String，指定组装紧固件名称。默认值为空字符串。
 
 *assembledFastenerSet*
 
-A String specifying the set name from the model referenced by the assembled fastener, *assembledFastener*.  The default value is an empty string.
+一个 String，指定由组装紧固件 *assembledFastener* 引用的模型中的集合名称。默认值为空字符串。
 
 *sensor*
 
-A Boolean specifying whether to associate the output request with a sensor definition.  The default value is OFF.
+一个 Boolean，指定是否将输出请求与传感器定义关联。默认值为 OFF。
 
 *useGlobal*
 
-A Boolean specifying whether to output vector-valued nodal variables in the global directions. The default value is True.
+一个 Boolean，指定是否在全局方向上输出向量值节点变量。默认值为 True。
 
-**Return value**
+**返回的值**
 
-A HistoryOutputRequest object.
+一个 HistoryOutputRequest 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 51.4.2 deactivate(...)
 
-This method deactivates the history output request in the specified step and all subsequent steps.
+此方法在指定步骤及其所有后续步骤中停用历史输出请求。
 
-**Required argument**
+**必要参数**
 
 *stepName*
 
-A String specifying the name of the step in which the history output request is deactivated.
+一个 String，指定停用历史输出请求的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.4.3 move(...)
 
-This method moves the history output request state object from one step to a different step.
+此方法将历史输出请求状态对象从一个步骤移动到另一个步骤。
 
-**Required arguments**
+**必要参数**
 
 *fromStepName*
 
-A String specifying the name of the step from which the history output request state is moved.
+一个 String，指定从中移动历史输出请求状态的步骤名称。
 
 *toStepName*
 
-A String specifying the name of the step to which the history output request state is moved.
+一个 String，指定历史输出请求状态要移动到的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.4.4 reset(...)
 
-This method resets the history output request state of the specified step to the state of the previous step.
+此方法将指定步骤的历史输出请求状态重置为前一步骤的状态。
 
-**Required argument**
+**必要参数**
 
 *stepName*
 
-A String specifying the name of the step in which the history output request state is reset.
+一个 String，指定重置历史输出请求状态的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.4.5 resume()
 
-This method resumes the history output request that was previously suppressed.
+此方法恢复之前被抑制的历史输出请求。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.4.6 suppress()
 
-This method suppresses the history output request.
+此方法抑制历史输出请求。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-TextError.
+TextError。
 
 ### 51.4.7 setValues(...)
 
-This method modifies the data for an existing HistoryOutputRequest object in the step where it is created.
+此方法修改创建 HistoryOutputRequest 对象的步骤中现有对象的数据。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [HistoryOutputRequest](pt01ch51pyo04.md#ker-historyoutputrequest-historyoutputrequest-pyc) method, except for the *name* and *createStepName* arguments.
+`setValues` 的可选参数与 [HistoryOutputRequest](pt01ch51pyo04.md#ker-historyoutputrequest-historyoutputrequest-pyc) 方法的参数相同，但 *name* 和 *createStepName* 参数除外。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 51.4.8 setValuesInStep(...)
 
-This method modifies the propagating data for an existing HistoryOutputRequest object in the specified step.
+此方法修改指定步骤中现有 HistoryOutputRequest 对象的传播数据。
 
-**Required argument**
+**必要参数**
 
 *stepName*
 
-A String specifying the name of the step in which the history output request is modified.
+一个 String，指定修改历史输出请求的步骤名称。
 
-**Optional arguments**
+**可选参数**
 
 *variables*
 
-A sequence of Strings specifying output request variable or component names or the SymbolicConstant PRESELECT or ALL. PRESELECT represents all default output variables for the given step. ALL represents all valid output variables.
+一个 String 序列，指定输出请求的变量或分量名称，或 SymbolicConstant PRESELECT 或 ALL。PRESELECT 代表给定步骤的所有默认输出变量。ALL 代表所有有效的输出变量。
 
 *frequency*
 
-The SymbolicConstant LAST_INCREMENT or an Int specifying the output frequency in increments. The default value is 1.
+SymbolicConstant LAST_INCREMENT 或一个 Int，指定输出频率（以增量计）。默认值为 1。
 
 *modes*
 
-The SymbolicConstant ALL or a sequence of Ints specifying a list of eigenmodes for which output is desired. The default value is ALL.
+SymbolicConstant ALL 或一个 Int 序列，指定需要输出的特征模态列表。默认值为 ALL。
 
 *timeInterval*
 
-The SymbolicConstant EVERY_TIME_INCREMENT or a Float specifying the time interval at which the output states are to be written. The default value is EVERY_TIME_INCREMENT.
+SymbolicConstant EVERY_TIME_INCREMENT 或一个 Float，指定写入输出状态的时间间隔。默认值为 EVERY_TIME_INCREMENT。
 
 *numIntervals*
 
-An Int specifying the number of intervals during the step at which output database states are to be written. The default value is 20.
+一个 Int，指定在步骤期间写入输出数据库状态的间隔数。默认值为 20。
 
 *timePoints*
 
-A String specifying the name of a time point object. The default value is equal to the number of intervals during the step at which output database states are to be written. The default value is `None`.
+一个 String，指定时间点对象的名称。默认值为在步骤期间写入输出数据库状态的间隔数。默认值为 `None`。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 51.4.9 Members
+### 51.4.9 成员
 
-The HistoryOutputRequest object can have the following members:
+HistoryOutputRequest 对象可以具有以下成员：
 
 *boltLoad*
 
-A String specifying a bolt load from which output is requested. The default value is an empty string.
+一个 String，指定请求输出的螺栓载荷。默认值为空字符串。
 
 *region*
 
-The SymbolicConstant MODEL or a [Region](pt01ch45pyo03.md) object specifying the region from which output is requested. The SymbolicConstant MODEL represents the whole model. The default value is MODEL.
+ SymbolicConstant MODEL 或一个 [Region](pt01ch45pyo03.md) 对象，指定请求输出的区域。SymbolicConstant MODEL 代表整个模型。默认值为 MODEL。
 
-If the region is a surface region, the surface must lie within the general contact surface domain.
+如果该区域是表面区域，则该表面必须位于通用接触表面域内。
 
 *sectionPoints*
 
-The SymbolicConstant DEFAULT or a tuple of Ints specifying the section points for which output is requested. The default value is DEFAULT.
+SymbolicConstant DEFAULT 或一个 Int 元组，指定请求输出的截面点。默认值为 DEFAULT。
 
 *interactions*
 
- `None` or a tuple of Strings specifying the interaction names. The default value is `None`.
+ `None` 或一个 String 元组，指定相互作用名称。默认值为 `None`。
 
-The sequence can contain only one String.
+该序列只能包含一个 String。
 
-### 51.4.10 Corresponding analysis keywords
+### 51.4.10 对应的分析关键字
 
 | [*CONTACT OUTPUT](../key/key-link.md#usb-kws-hcontactoutput) |
 | --- |
@@ -346,7 +340,3 @@ The sequence can contain only one String.
 | [*NODE OUTPUT](../key/key-link.md#usb-kws-hnodeoutput) |
 | [*OUTPUT](../key/key-link.md#usb-kws-houtput) |
 | [*RADIATION OUTPUT](../key/key-link.md#usb-kws-hradiationoutput) |
-
-
-
-

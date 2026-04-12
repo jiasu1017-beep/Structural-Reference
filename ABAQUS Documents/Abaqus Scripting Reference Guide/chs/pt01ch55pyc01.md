@@ -1,11 +1,5 @@
 # 55.19 writeXYReport
 
-
-
-
-
-
-
 此方法将 XYData 对象写入用户定义的 ASCII 文件。
 
 ### 55.19.1 writeXYReport(...)
@@ -36,9 +30,8 @@ session.writeXYReport
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
-
+无。

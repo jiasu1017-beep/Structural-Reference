@@ -1,11 +1,5 @@
 # 53.8 方法回调命令
 
-
-
-
-
-
-
 `methodCallback` 模块提供的函数允许您注册一个回调，该回调将在某些 Abaqus Scripting Interface 命令即将执行时被调用。此回调允许您增强 Abaqus Scripting Interface 命令的标准行为。
 
 例如，在以下脚本中，当某个类型为 JobType 的对象（即任何 Job 对象）的 `writeInput` 方法即将被调用时，`myCallback` 函数被执行：
@@ -78,9 +72,8 @@ def functionName(*callingMethod*, *args*, *keywordArgs*, *userData*)
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
-
+无。

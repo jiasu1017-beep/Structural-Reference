@@ -1,14 +1,8 @@
-# 51.7 Monitor object
+# 51.7 Monitor 对象
 
+Monitor 对象用于定义要监控的自由度。
 
-
-
-
-
-
-The Monitor object defines a degree of freedom to monitor.
-
-**Access**
+**访问**
 
 ```
 import step
@@ -17,23 +11,23 @@ mdb.models[*name*].steps[*name*].monitor
 
 ### 51.7.1 Monitor(...)
 
-This method creates a request for a degree of freedom to be monitored in a general or modal procedure.
+此方法创建在通用或模态过程中监控自由度的请求。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].steps[*name*].Monitor
 ```
 
-**Required arguments**
+**必要参数**
 
 *node*
 
-A String specifying the name of the region to be monitored.
+一个 String，指定要监控的区域名称。
 
 *dof*
 
-A SymbolicConstant specifying the degree of freedom to be monitored at the node. Possible values are:
+一个 SymbolicConstant，指定要在节点处监控的自由度。可选值为：
 - U1
 - U2
 - U3
@@ -48,53 +42,49 @@ A SymbolicConstant specifying the degree of freedom to be monitored at the node.
 - NN11
 - NN30
 
-The NT identifiers are not available for mass diffusion. The NN identifiers are available only for mass diffusion.
+NT 标识符不适用于质量扩散。NN 标识符仅适用于质量扩散。
 
 *frequency*
 
-An Int specifying the output frequency in increments. This argument is valid only for an Abaqus/Standard analysis.
+一个 Int，指定输出频率（以增量计）。此参数仅对 Abaqus/Standard 分析有效。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回的值**
 
-A Monitor object.
+一个 Monitor 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 51.7.2 setValues(...)
 
-This method modifies the Monitor object.
+此方法修改 Monitor 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [Monitor](pt01ch51pyo07.md#ker-monitor-monitor-pyc) method.
+`setValues` 的可选参数与 [Monitor](pt01ch51pyo07.md#ker-monitor-monitor-pyc) 方法的参数相同。
 
-**Return value**
+**返回的值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 51.7.3 Members
+### 51.7.3 成员
 
-The Monitor object has members with the same names and descriptions as the arguments to the [Monitor](pt01ch51pyo07.md#ker-monitor-monitor-pyc) method.
+Monitor 对象的成员与 [Monitor](pt01ch51pyo07.md#ker-monitor-monitor-pyc) 方法的参数具有相同的名称和描述。
 
-### 51.7.4 Corresponding analysis keywords
+### 51.7.4 对应的分析关键字
 
 | [*MONITOR](../key/key-link.md#usb-kws-hmonitor) |
 | --- |
-
-
-
-

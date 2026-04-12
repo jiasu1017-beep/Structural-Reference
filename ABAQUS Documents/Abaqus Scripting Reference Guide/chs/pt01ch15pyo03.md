@@ -1,16 +1,10 @@
-# 15.3 DatumCsys object
+# 15.3 DatumCsys 对象
 
+DatumCsys 对象没有直接构造函数；它在创建 [Feature](pt01ch20pyo01.md) 对象时创建。例如，`DatumCsysByOffset` 方法创建一个 Feature 对象，该对象创建 DatumCsys 对象。
 
+DatumCsys 对象派生自 [Datum](pt01ch15pyo01.md) 对象。
 
-
-
-
-
-The DatumCsys object has no direct constructor; it is created when a [Feature](pt01ch20pyo01.md) object is created. For example, the `DatumCsysByOffset` method creates a Feature object that creates a DatumCsys object. 
-
-The DatumCsys object is derived from the [Datum](pt01ch15pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import part
@@ -26,30 +20,27 @@ session.odbs[*name*].rootAssembly.connectorOrientations[*i*].localCsys1
 session.odbs[*name*].rootAssembly.connectorOrientations[*i*].localCsys2
 ```
 
-### 15.3.1 Members
+### 15.3.1 成员
 
-The DatumCsys object has the following members:
+DatumCsys 对象具有以下成员：
 
 *coordSysType*
 
-A SymbolicConstant specifying the type of the coordinate system. Possible values are CARTESIAN, CYLINDRICAL, and SPHERICAL.
+符号常量，指定坐标系的类型。可能的值为 CARTESIAN、CYLINDRICAL 和 SPHERICAL。
 
 *origin*
 
-A [DatumPoint](pt01ch15pyo05.md) object specifying the origin of the coordinate system.
+[DatumPoint](pt01ch15pyo05.md) 对象，指定坐标系的原点。
 
 *axis1*
 
-A [DatumAxis](pt01ch15pyo02.md) object specifying the 1-direction of the coordinate system.
+[DatumAxis](pt01ch15pyo02.md) 对象，指定坐标系的 1 方向。
 
 *axis2*
 
-A [DatumAxis](pt01ch15pyo02.md) object specifying the 2-direction of the coordinate system.
+[DatumAxis](pt01ch15pyo02.md) 对象，指定坐标系的 2 方向。
 
 *axis3*
 
-A [DatumAxis](pt01ch15pyo02.md) object specifying the 3-direction of the coordinate system.
-
-
-
+[DatumAxis](pt01ch15pyo02.md) 对象，指定坐标系的 3 方向。
 

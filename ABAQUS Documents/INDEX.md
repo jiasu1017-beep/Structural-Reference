@@ -73,7 +73,7 @@
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
 | [Abaqus Scripting User's Guide](./Abaqus%20Scripting%20User%27s%20Guide/) | Abaqus 脚本用户指南 | ⏳ 未转换 / Not converted |
-| [Abaqus Scripting Reference Guide](./Abaqus%20Scripting%20Reference%20Guide/) | Abaqus 脚本参考指南 | ⏳ 未转换 / Not converted |
+| [Abaqus Scripting Reference Guide](./Abaqus%20Scripting%20Reference%20Guide/) | Abaqus 脚本参考指南 | ✅ 已完成 / Completed |
 | [Abaqus GUI Toolkit User's Guide](./Abaqus%20GUI%20Toolkit%20User%27s%20Guide/) | Abaqus GUI 工具包用户指南 | ⏳ 未转换 / Not converted |
 | [Abaqus GUI Toolkit Reference Guide](./Abaqus%20GUI%20Toolkit%20Reference%20Guide/) | Abaqus GUI 工具包参考指南 | ⏳ 未转换 / Not converted |
 
@@ -99,8 +99,8 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 8 |
-| ⏳ 未转换 / Not converted | 11 |
+| ✅ 已完成 / Completed | 9 |
+| ⏳ 未转换 / Not converted | 10 |
 | **总计 Total** | **19** |
 
 ---

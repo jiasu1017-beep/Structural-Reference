@@ -1,28 +1,18 @@
-# 50.1 CompositeDamping object
+# 50.1 CompositeDamping 对象
 
+CompositeDamping 对象包含复合模态阻尼参数。
 
-
-
-
-
-
-A CompositeDamping object contains composite modal damping parameters.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*].compositeDamping
 ```
 
-### 50.1.1 Members
+### 50.1.1 成员
 
-The CompositeDamping object can have the following member:
+CompositeDamping 对象可以具有以下成员：
 
 *components*
 
-A [CompositeDampingComponentArray](pt01ch50pyo02.md) object.
-
-
-
-
+一个 [CompositeDampingComponentArray](pt01ch50pyo02.md) 对象。

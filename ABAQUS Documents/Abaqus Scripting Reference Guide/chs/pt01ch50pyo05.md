@@ -1,28 +1,22 @@
-# 50.5 DirectDampingByFrequency object
+# 50.6 DirectDampingByFrequencyComponent 对象
 
+DirectDampingByFrequencyComponent 对象用于定义一系列频率的直接阻尼。
 
-
-
-
-
-
-A DirectDampingByFrequency object contains direct damping parameters.
-
-**Access**
+**访问**
 
 ```
 import step
-mdb.models[*name*].steps[*name*].directDampingByFrequency
+mdb.models[*name*].steps[*name*].directDampingByFrequency.components[*i*]
 ```
 
-### 50.5.1 Members
+### 50.6.1 成员
 
-The DirectDampingByFrequency object can have the following member:
+DirectDampingByFrequencyComponent 对象具有以下成员：
 
-*components*
+*frequency*
 
-A [DirectDampingByFrequencyComponentArray](pt01ch50pyo06.md) object.
+一个 Float，指定频率值（周期/时间）。
 
+*fraction*
 
-
-
+一个 Float，指定临界阻尼比。

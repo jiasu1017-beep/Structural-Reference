@@ -1,16 +1,10 @@
-# 13.5 EmbeddedRegion object
+# 13.5 EmbeddedRegion 对象
 
+EmbeddedRegion 对象允许您将模型的某个区域嵌入到模型的"宿主"区域中或整个模型中。
 
+EmbeddedRegion 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The EmbeddedRegion object allows you to embed a region of the model within a “host” region of the model or within the whole model.
-
-The EmbeddedRegion object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
@@ -19,95 +13,92 @@ mdb.models[*name*].constraints[*name*]
 
 ### 13.5.1 EmbeddedRegion(...)
 
-This method creates a EmbeddedRegion object.
+此方法创建一个 EmbeddedRegion 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].EmbeddedRegion
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
 *embeddedRegion*
 
-A [Region](pt01ch45pyo03.md) object specifying the body region to be embedded.
+[Region](pt01ch45pyo03.md) 对象，指定要嵌入的主体区域。
 
 *hostRegion*
 
-A [Region](pt01ch45pyo03.md) object specifying the host region. A value of `None` indicates that the host region is the whole model.
+[Region](pt01ch45pyo03.md) 对象，指定宿主区域。值为 `None` 表示宿主区域是整个模型。
 
-**Optional arguments**
+**可选参数**
 
 *weightFactorTolerance*
 
-A Float specifying a small value below which the weighting factors will be zeroed out. The default value is 10–6.
+浮点数，指定权重因子被清零的下限值。默认值为 10⁻⁶。
 
 *toleranceMethod*
 
-A SymbolicConstant specifying the method used to determine the embedded element tolerance. Possible values are ABSOLUTE, FRACTIONAL, and BOTH. The default value is BOTH.
+符号常量，指定用于确定嵌入单元容差的方法。可能的值为 ABSOLUTE、FRACTIONAL 和 BOTH。默认值为 BOTH。
 
 *absoluteTolerance*
 
-A Float specifying the absolute value by which a node on the embedded region may lie outside the host region. If *absoluteTolerance*=0.0, the *fractionalTolerance* value will be used. The default value is 0.0.
+浮点数，指定嵌入区域上的节点可能位于宿主区域外部的绝对值。如果 *absoluteTolerance*=0.0，则使用 *fractionalTolerance* 值。默认值为 0.0。
 
-This argument applies only when *toleranceMethod*=ABSOLUTE or BOTH.
+此参数仅在 *toleranceMethod*=ABSOLUTE 或 BOTH 时适用。
 
 *fractionalTolerance*
 
-A Float specifying the fractional value by which a node on the embedded region may lie outside the host region. The fractional value is based on the average element size within the host region. The default value is 0.05.
+浮点数，指定嵌入区域上的节点可能位于宿主区域外部的分数值。该分数值基于宿主区域内的平均单元大小。默认值为 0.05。
 
-If both tolerance arguments are specified, the smaller value will be used.
+如果同时指定了两个容差参数，则使用较小的值。
 
-This argument applies only when *toleranceMethod*=FRACTIONAL or BOTH.
+此参数仅在 *toleranceMethod*=FRACTIONAL 或 BOTH 时适用。
 
-**Return value**
+**返回值**
 
-An EmbeddedRegion object.
+EmbeddedRegion 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 13.5.2 setValues(...)
 
-This method modifies the EmbeddedRegion object.
+此方法修改 EmbeddedRegion 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [EmbeddedRegion](pt01ch13pyo05.md#ker-embeddedregion-embeddedregion-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [EmbeddedRegion](pt01ch13pyo05.md#ker-embeddedregion-embeddedregion-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 13.5.3 Members
+### 13.5.3 成员
 
-The EmbeddedRegion object has members with the same names and descriptions as the arguments to the [EmbeddedRegion](pt01ch13pyo05.md#ker-embeddedregion-embeddedregion-pyc) method.
+EmbeddedRegion 对象的成员与 [EmbeddedRegion](pt01ch13pyo05.md#ker-embeddedregion-embeddedregion-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the EmbeddedRegion object has the following member:
+此外，EmbeddedRegion 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.5.4 Corresponding analysis keywords
+### 13.5.4 对应的分析关键字
 
 | [*EMBEDDED ELEMENT](../key/key-link.md#usb-kws-membeddedelement) |
 | --- |
-
-
-
 

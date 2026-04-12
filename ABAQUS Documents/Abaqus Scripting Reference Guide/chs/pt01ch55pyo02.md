@@ -1,11 +1,5 @@
 # 55.2 Area 对象
 
-
-
-
-
-
-
 Area 对象用于在 XYPlot 中显示矩形区域。Area 对象没有构造函数。每当创建 [XYPlot](pt01ch55pyo16.md)、[Chart](pt01ch55pyo06.md)、PlotTitle 或 Legend 对象时，都会自动创建 Area 对象。
 
 **访问**
@@ -32,7 +26,7 @@ session.xyPlots[*name*].title.area
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -105,7 +99,7 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
@@ -189,4 +183,3 @@ Area 对象可以具有以下成员：
 *originOffset*
 
 一对 Float，指定原点相对于可用区域的 X 和 Y 偏移量。除非 *positionMethod*=MANUAL，否则忽略 *originOffset* 参数。默认值为 (-1, 0)。每个 float 的有效范围为 (0, 1)。
-

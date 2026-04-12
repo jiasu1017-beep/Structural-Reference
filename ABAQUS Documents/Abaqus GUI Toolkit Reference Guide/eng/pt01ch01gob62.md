@@ -1,0 +1,105 @@
+# AFXTransition
+
+
+
+
+
+
+
+This class is designed for the finite state transition that the GUI (mostly the dialog boxes) can define to perform actions according to state changes. The first three arguments of the constructors (keyword, op, and refValue) define an expression (keyword.getValue() op refValue). The current value of the keyword is compared with the reference value. When the expression evaluates to True, a message with the given selector will be sent to the specified message target. 
+![](../graphics/gui-afxtransition.png)
+
+### AFXTransition(boolKeyword, op, refValue, tgt, sel, ptr=None)
+
+Constructor.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| boolKeyword | AFXBoolKeyword |  | Keyword. |
+| op | Operator |  | Operator type. |
+| refValue | Bool |  | Reference value. |
+| tgt | FXObject |  | Message target. |
+| sel | Int |  | Message selector. |
+| ptr | String | None | Message data. |
+
+### AFXTransition(floatKeyword, op, refValue, tgt, sel, ptr=None)
+
+Constructor.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| floatKeyword | AFXFloatKeyword |  | Keyword. |
+| op | Operator |  | Operator type. |
+| refValue | Float |  | Reference value. |
+| tgt | FXObject |  | Message target. |
+| sel | Int |  | Message selector. |
+| ptr | String | None | Message data. |
+
+### AFXTransition(intKeyword, op, refValue, tgt, sel, ptr=None)
+
+Constructor.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| intKeyword | AFXIntKeyword |  | Keyword. |
+| op | Operator |  | Operator type. |
+| refValue | Int |  | Reference value. |
+| tgt | FXObject |  | Message target. |
+| sel | Int |  | Message selector. |
+| ptr | String | None | Message data. |
+
+### AFXTransition(togKeyword, op, refValue, tgt, sel, ptr=None)
+
+Constructor.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| togKeyword | AFXTogglableKeyword |  | Keyword. |
+| op | Operator |  | Operator type. |
+| refValue | Bool |  | Reference value. |
+| tgt | FXObject |  | Message target. |
+| sel | Int |  | Message selector. |
+| ptr | String | None | Message data. |
+
+### AFXTransition(floatTarget, op, refValue, tgt, sel, ptr=None)
+
+Constructor.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| floatTarget | AFXFloatTarget |  | Target. |
+| op | Operator |  | Operator type. |
+| refValue | Float |  | Reference value. |
+| tgt | FXObject |  | Message target. |
+| sel | Int |  | Message selector. |
+| ptr | String | None | Message data. |
+
+### AFXTransition(intTarget, op, refValue, tgt, sel, ptr=None)
+
+Constructor.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| intTarget | AFXIntTarget |  | Target. |
+| op | Operator |  | Operator type. |
+| refValue | Int |  | Reference value. |
+| tgt | FXObject |  | Message target. |
+| sel | Int |  | Message selector. |
+| ptr | String | None | Message data. |
+
+### process(sender)
+
+Returns True and sends a message if the expression defined by the constructor arguments evaluates to True; returns False without performing any actions if otherwise.
+| **Argument** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| sender | FXObject |  | Message sender. |
+
+### Class flags
+
+### **Flags for specifying transition operators.**
+
+| **EQ** | Equal to. |
+| --- | --- |
+| **NE** | Not equal to. |
+| **LT** | Less than. |
+| **LE** | Less than or equal to. |
+| **GT** | Greater than. |
+| **GE** | Greater than or equal to. |
+
+
+
+

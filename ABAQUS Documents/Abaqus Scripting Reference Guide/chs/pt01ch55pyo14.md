@@ -1,132 +1,69 @@
-# 55.15 XYCurve 对象
+# 55.14 Title 对象
 
-
-
-
-
-
-
-XYCurve 对象用于绘制 *X–Y* 数据并存储其显示属性。
+Title 对象用于存储 XYPlot 标题的显示属性。创建 [XYPlot](pt01ch55pyo16.md) 对象时会自动创建 Title 对象。
 
 **访问**
 
 ```
 import visualization
-session.charts[*name*].axes1[*i*].axisData.curves[*i*]
-session.charts[*name*].axes2[*i*].axisData.curves[*i*]
-session.charts[*name*].curves[*name*]
-session.curves[*name*]
-session.defaultChartOptions.defaultAxis1Options.axisData.curves[*i*]
-session.defaultChartOptions.defaultAxis2Options.axisData.curves[*i*]
-session.xyPlots[*name*].charts[*name*].axes1[*i*].axisData.curves[*i*]
-session.xyPlots[*name*].charts[*name*].axes2[*i*].axisData.curves[*i*]
-session.xyPlots[*name*].charts[*name*].curves[*name*]
-session.xyPlots[*name*].curves[*name*]
+session.defaultPlot.title
+session.xyPlots[*name*].title
 ```
 
-### 55.15.1 Curve(...)
+### 55.14.1 setValues(...)
 
-此方法从 [XYData](pt01ch55pyo01.md) 对象创建 XYCurve 对象。
-
-**路径**
-
-```
-session.Curve
-```
+此方法修改 Title 对象。
 
 **必需参数**
 
-*name*
-
-一个 String，指定 repository 键。
-
-*data*
-
-一个 [XYData](pt01ch55pyo01.md) 对象，指定曲线的数据。
+无。
 
 **可选参数**
 
-None。
+*title*
 
-**返回值**
+一个 Title 对象，从中复制属性。
 
-XYCurve 对象。
+*text*
 
-**异常**
+一个 String，指定作为标题显示的文本。默认情况下，标题设置为 [XYPlot](pt01ch55pyo16.md) 对象名称。默认值为空字符串。
 
-InvalidNameError。
+*area*
 
-### 55.15.2 setValues(...)
-
-此方法修改 XYCurve 对象。
-
-**必需参数**
-
-None。
-
-**可选参数**
-
-*displayTypes*
-
-一个 SymbolicConstants 序列，指定如何显示曲线。可能的值为 LINE 和 SYMBOL。默认值为 (LINE)。
-
-*legendLabel*
-
-一个 String，指定在图例中显示的标签。默认情况下，标签是系统定义的。
-
-*symbolFrequency*
-
-一个 Int，指定绘制标记的频率。可能的值为 *symbolFrequency* ![](../graphics/ker_eqn00060.gif) 0。如果 *symbolFrequency*=1，则在每个点绘制标记。默认值为 1。
+一个 [Area](pt01ch55pyo02.md) 对象，指定标题的区域。
 
 *useDefault*
 
-一个 Boolean，指定是否使用系统提供的图例标签。默认值为 ON。
+一个 Boolean，指定是否显示默认标题。默认值为 OFF。
+
+*titleStyle*
+
+一个 [TextStyle](pt01ch55pyo13.md) 对象，指定用于显示图例标题的文本属性。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
-### 55.15.3 成员
+### 55.14.2 成员
 
-XYCurve 对象可以具有以下成员：
-
-*name*
-
-一个 String，指定 repository 键。
-
-*symbolFrequency*
-
-一个 Int，指定绘制标记的频率。可能的值为 *symbolFrequency* ![](../graphics/ker_eqn00060.gif) 0。如果 *symbolFrequency*=1，则在每个点绘制标记。默认值为 1。
+Title 对象可以具有以下成员：
 
 *useDefault*
 
-一个 Boolean，指定是否使用系统提供的图例标签。默认值为 ON。
+一个 Boolean，指定是否显示默认标题。默认值为 OFF。
 
-*legendSource*
+*area*
 
-一个 SymbolicConstant，指定系统提供的默认图例标签的生成方式。可能的值为 CURVE_LEGEND、CURVE_NAME 和 CURVE_NAME_LEGEND。默认值为 CURVE_LEGEND。
+一个 [Area](pt01ch55pyo02.md) 对象，指定标题的区域。
 
-*data*
+*text*
 
-一个 [XYData](pt01ch55pyo01.md) 对象，指定曲线的数据。
+一个 String，指定作为标题显示的文本。默认情况下，标题设置为 [XYPlot](pt01ch55pyo16.md) 对象名称。默认值为空字符串。
 
-*lineStyle*
+*titleStyle*
 
-一个 [LineStyle](pt01ch55pyo10.md) 对象，指定显示曲线时要使用的线条属性。
-
-*symbolStyle*
-
-一个 [SymbolStyle](pt01ch55pyo12.md) 对象，指定显示曲线时要使用的符号属性。
-
-*legendLabel*
-
-一个 String，指定在图例中显示的标签。默认情况下，标签是系统定义的。
-
-*displayTypes*
-
-一个 SymbolicConstants 元组，指定如何显示曲线。可能的值为 LINE 和 SYMBOL。默认值为 (LINE)。
-
+一个 [TextStyle](pt01ch55pyo13.md) 对象，指定用于显示图例标题的文本属性。

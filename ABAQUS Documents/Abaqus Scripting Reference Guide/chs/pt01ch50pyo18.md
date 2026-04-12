@@ -1,40 +1,30 @@
-# 50.18 SteadyStateModalFrequency object
+# 50.19 SteadyStateSubspaceFrequency 对象
 
+SteadyStateSubspaceFrequency 是一个用于定义模态范围频率的对象。
 
-
-
-
-
-
-A SteadyStateModalFrequency is an object used to define frequency over a range of modes.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*].frequencyRange[*i*]
 ```
 
-### 50.18.1 Members
+### 50.19.1 成员
 
-The SteadyStateModalFrequency object has the following members:
+SteadyStateSubspaceFrequency 对象具有以下成员：
 
 *lower*
 
-A Float specifying the lower limit of frequency range or a single frequency, in cycles/time.
+一个 Float，指定频率范围的下限或单个频率（以周期/时间计）。
 
 *upper*
 
-A Float specifying the upper limit of frequency range, in cycles/time.
+一个 Float，指定频率范围的上限（以周期/时间计）。
 
 *nPoints*
 
-An Int specifying the number of points in the frequency range at which results should be given.
+一个 Int，指定应给出结果的频率范围内的点数。
 
 *bias*
 
-A Float specifying the bias parameter. When results are requested at four or more frequency points, Abaqus biases the results toward the ends of the intervals to obtain better resolution. The default value is 3.0.
-
-
-
-
+一个 Float，指定偏置参数。当请求在四个或更多频率点给出结果时，Abaqus 会将结果偏向间隔的端点，以获得更好的分辨率。默认值为 3.0。

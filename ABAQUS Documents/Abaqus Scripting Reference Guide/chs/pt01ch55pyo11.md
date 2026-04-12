@@ -1,11 +1,5 @@
 # 55.11 QuantityType 对象
 
-
-
-
-
-
-
 QuantityType 对象用于存储与 [XYData](pt01ch55pyo01.md) 或 [AxisData](pt01ch55pyo05.md) 对象关联的数量类型的物理维度和标签属性。
 
 从 odb 创建 [XYData](pt01ch55pyo01.md) 对象时，会自动创建 QuantityType 对象。
@@ -169,7 +163,7 @@ QuantityType 对象。
 
 **异常**
 
-None。
+无。
 
 ### 55.11.2 setValues(...)
 
@@ -177,7 +171,7 @@ None。
 
 **必需参数**
 
-None。
+无。
 
 **可选参数**
 
@@ -263,13 +257,12 @@ None。
 
 **返回值**
 
-None
+无。
 
 **异常**
 
-None。
+无。
 
 ### 55.11.3 成员
 
 QuantityType 对象具有与 [setValues](pt01ch55pyo11.md#ker-quantitytype-setvalues-pyc) 方法的参数具有相同名称和描述的成员。
-

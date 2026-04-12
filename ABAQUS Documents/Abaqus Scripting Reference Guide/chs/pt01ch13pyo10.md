@@ -1,16 +1,10 @@
-# 13.10 Tie object
+# 13.10 Tie 对象
 
+Tie 对象定义两个曲面在模拟期间绑在一起。
 
+Tie 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The Tie object defines two surfaces to be tied together for the duration of a simulation.
-
-The Tie object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
@@ -19,121 +13,118 @@ mdb.models[*name*].constraints[*name*]
 
 ### 13.10.1 Tie(...)
 
-This method creates a Tie object.
+此方法创建一个 Tie 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].Tie
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
 *master*
 
-A [Region](pt01ch45pyo03.md) object specifying the name of the master surface.
+[Region](pt01ch45pyo03.md) 对象，指定主曲面的名称。
 
 *slave*
 
-A [Region](pt01ch45pyo03.md) object specifying the name of the slave surface.
+[Region](pt01ch45pyo03.md) 对象，指定从曲面的名称。
 
-**Optional arguments**
+**可选参数**
 
 *adjust*
 
-A Boolean specifying whether initial positions of tied slave nodes are adjusted to lie on the master surface. The default value is ON.
+布尔值，指定是否调整绑定从节点的初始位置以位于主曲面上。默认值为 ON。
 
 *positionToleranceMethod*
 
-A SymbolicConstant specifying the method used to determine the position tolerance. Possible values are COMPUTED and SPECIFIED. The default value is COMPUTED.
+符号常量，指定用于确定位置容差的方法。可能的值为 COMPUTED 和 SPECIFIED。默认值为 COMPUTED。
 
 *positionTolerance*
 
-A Float specifying the position tolerance. The *positionTolerance* argument applies only when *positionToleranceMethod*=SPECIFIED. The default value is 0.0.
+浮点数，指定位置容差。*positionTolerance* 参数仅在 *positionToleranceMethod*=SPECIFIED 时适用。默认值为 0.0。
 
 *tieRotations*
 
-A Boolean specifying whether rotation degrees of freedom should be tied. The default value is ON.
+布尔值，指定是否绑定旋转自由度。默认值为 ON。
 
 *constraintRatioMethod*
 
-A SymbolicConstant specifying the method used to determine the constraint ratio. Possible values are DEFAULT and SPECIFIED. The default value is DEFAULT.
+符号常量，指定用于确定约束比例的方法。可能的值为 DEFAULT 和 SPECIFIED。默认值为 DEFAULT。
 
 *constraintRatio*
 
-A Float specifying the fractional distance between the master reference surface and the slave node at which the translational constraint should act. The *constraintRatio* argument applies only when *constraintRatioMethod*=SPECIFIED. The default value is 0.0.
+浮点数，指定主参考曲面与平移约束应作用的从节点之间的分数距离。*constraintRatio* 参数仅在 *constraintRatioMethod*=SPECIFIED 时适用。默认值为 0.0。
 
 *constraintEnforcement*
 
-A SymbolicConstant specifying the discretization method. Possible values are SOLVER_DEFAULT, NODE_TO_SURFACE, and SURFACE_TO_SURFACE. The default value is SOLVER_DEFAULT.
+符号常量，指定离散化方法。可能的值为 SOLVER_DEFAULT、NODE_TO_SURFACE 和 SURFACE_TO_SURFACE。默认值为 SOLVER_DEFAULT。
 
 *thickness*
 
-A Boolean specifying whether shell element thickness is considered. The default value is ON.
+布尔值，指定是否考虑壳单元厚度。默认值为 ON。
 
-**Return value**
+**返回值**
 
-A Tie object.
+Tie 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 13.10.2 swapSurfaces()
 
-This method switches the master and slave surfaces of a tied constraint. This command is valid only during the step in which the interaction is created.
+此方法切换绑定约束的主曲面和从曲面。此命令仅在创建交互的步骤中有效。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 13.10.3 setValues(...)
 
-This method modifies the Tie object.
+此方法修改 Tie 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [Tie](pt01ch13pyo10.md#ker-tie-tie-pyc) method, except for the *name* argument.
+`setValues` 的可选参数与 [Tie](pt01ch13pyo10.md#ker-tie-tie-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 13.10.4 Members
+### 13.10.4 成员
 
-The Tie object has members with the same names and descriptions as the arguments to the [Tie](pt01ch13pyo10.md#ker-tie-tie-pyc) method.
+Tie 对象的成员与 [Tie](pt01ch13pyo10.md#ker-tie-tie-pyc) 方法的参数具有相同的名称和描述。
 
-In addition, the Tie object has the following member:
+此外，Tie 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.10.5 Corresponding analysis keywords
+### 13.10.5 对应的分析关键字
 
 | [*TIE](../key/key-link.md#usb-kws-mtie) |
 | --- |
-
-
-
 

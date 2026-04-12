@@ -1,82 +1,72 @@
-# 51.5 HistoryOutputRequestState object
+# 51.5 HistoryOutputRequestState 对象
 
+HistoryOutputRequestState 对象存储当前步骤中历史输出请求的传播数据。对于每个步骤，[HistoryOutputRequest](pt01ch51pyo04.md) 对象会在内部创建一个此对象的实例。该实例也会由 [HistoryOutputRequest](pt01ch51pyo04.md) 对象在内部删除。
 
+HistoryOutputRequestState 对象没有构造函数或方法。
 
-
-
-
-
-The HistoryOutputRequestState object stores the propagating data of a History output request current in a step. One instance of this object is created internally by the [HistoryOutputRequest](pt01ch51pyo04.md) object for each step. The instance is also deleted internally by the [HistoryOutputRequest](pt01ch51pyo04.md) object.
-
-The HistoryOutputRequestState object has no constructor or methods.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*].historyOutputRequestState[*name*]
 ```
 
-### 51.5.1 Members
+### 51.5.1 成员
 
-The HistoryOutputRequestState object can have the following members:
+HistoryOutputRequestState 对象可以具有以下成员：
 
 *variablesState*
 
-A SymbolicConstant specifying the propagation state of the history output request variables. Possible values are UNSET, SET, and UNCHANGED.
+一个 SymbolicConstant，指定历史输出请求变量的传播状态。可选值为 UNSET、SET 和 UNCHANGED。
 
 *frequency*
 
-The SymbolicConstant LAST_INCREMENT or an Int specifying the output frequency in increments. The default value is 1.
+SymbolicConstant LAST_INCREMENT 或一个 Int，指定输出频率（以增量计）。默认值为 1。
 
 *frequencyState*
 
-A SymbolicConstant specifying the propagation state of the history output request frequency. Possible values are UNSET, SET, and UNCHANGED.
+一个 SymbolicConstant，指定历史输出请求频率的传播状态。可选值为 UNSET、SET 和 UNCHANGED。
 
 *modesState*
 
-A SymbolicConstant specifying the propagation state of the history output request modes. Possible values are UNSET, SET, and UNCHANGED.
+一个 SymbolicConstant，指定历史输出请求模态的传播状态。可选值为 UNSET、SET 和 UNCHANGED。
 
 *timeInterval*
 
-The SymbolicConstant EVERY_TIME_INCREMENT or a Float specifying the time interval at which the output states are to be written. The default value is EVERY_TIME_INCREMENT.
+SymbolicConstant EVERY_TIME_INCREMENT 或一个 Float，指定写入输出状态的时间间隔。默认值为 EVERY_TIME_INCREMENT。
 
 *timeIntervalState*
 
-A SymbolicConstant specifying the propagation state of the history output request time interval. Possible values are UNSET, SET, and UNCHANGED.
+一个 SymbolicConstant，指定历史输出请求时间间隔的传播状态。可选值为 UNSET、SET 和 UNCHANGED。
 
 *numIntervals*
 
-An Int specifying the number of intervals during the step at which output database states are to be written. The default value is 20.
+一个 Int，指定在步骤期间写入输出数据库状态的间隔数。默认值为 20。
 
 *timePointState*
 
-A SymbolicConstant specifying the propagation state of the history output request. Possible values are UNSET, SET, and UNCHANGED.
+一个 SymbolicConstant，指定历史输出请求的传播状态。可选值为 UNSET、SET 和 UNCHANGED。
 
 *numIntervalsState*
 
-A SymbolicConstant specifying the propagation state of the history output request. Possible values are UNSET, SET, and UNCHANGED.
+一个 SymbolicConstant，指定历史输出请求的传播状态。可选值为 UNSET、SET 和 UNCHANGED。
 
 *status*
 
-A SymbolicConstant specifying the propagation state of the HistoryOutputRequestState object. Possible values are NOT_YET_ACTIVE, CREATED, PROPAGATED, MODIFIED, DEACTIVATED, NO_LONGER_ACTIVE, TYPE_NOT_APPLICABLE, and INSTANCE_NOT_APPLICABLE.
+一个 SymbolicConstant，指定 HistoryOutputRequestState 对象的传播状态。可选值为 NOT_YET_ACTIVE、CREATED、PROPAGATED、MODIFIED、DEACTIVATED、NO_LONGER_ACTIVE、TYPE_NOT_APPLICABLE 和 INSTANCE_NOT_APPLICABLE。
 
 *variables*
 
-A tuple of Strings specifying output request variable or component names, or the SymbolicConstant PRESELECT or ALL. PRESELECT represents all default output variables for the given step. ALL represents all valid output variables.
+一个 String 元组，指定输出请求的变量或分量名称，或 SymbolicConstant PRESELECT 或 ALL。PRESELECT 代表给定步骤的所有默认输出变量。ALL 代表所有有效的输出变量。
 
 *modes*
 
-The SymbolicConstant ALL or a tuple of Ints specifying a list of eigenmodes for which output is desired. The default value is ALL.
+SymbolicConstant ALL 或一个 Int 元组，指定需要输出的特征模态列表。默认值为 ALL。
 
 *timePoint*
 
-A String specifying the name of a time point object used to determine at which points in the time period data is written to the output database. The default value is an empty string.
+一个 String，指定时间点对象的名称，用于确定在时间段内的哪些点将数据写入输出数据库。默认值为空字符串。
 
 *frequencyType*
 
-A String specifying a read-only SymbolicConstant describing which type of frequency of output is used.  Possible values areFREQUENCY, NUMBER_INTERVALS, TIME_INTERVAL, TIME_POINT and MODES. The default value depends on the procedure. The default value is an empty string.
-
-
-
-
+一个 String，指定一个只读的 SymbolicConstant，描述使用的是哪种类型的输出频率。可选值为 FREQUENCY、NUMBER_INTERVALS、TIME_INTERVAL、TIME_POINT 和 MODES。默认值取决于过程。默认值为空字符串。

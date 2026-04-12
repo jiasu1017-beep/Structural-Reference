@@ -1,183 +1,289 @@
-# 49.21 ResponseSpectrumStep object
+# 49.22 SoilsStep 对象
 
+SoilsStep 对象用于指定部分或完全饱和液填充多孔介质的瞬态（固结）或稳态响应分析。
 
+SoilsStep 对象派生于 [AnalysisStep](pt01ch49pyo02.md) 对象。
 
-
-
-
-
-The ResponseSpectrumStep object is used to calculate estimates of peak values of displacements and stresses based on user-supplied response spectra and on the natural modes of the system.
-
-The ResponseSpectrumStep object is derived from the [AnalysisStep](pt01ch49pyo02.md) object.
-
-**Access**
+**访问**
 
 ```
 import step
 mdb.models[*name*].steps[*name*]
 ```
 
-### 49.21.1 ResponseSpectrumStep(...)
+### 49.22.1 SoilsStep(...)
 
-This method creates a ResponseSpectrumStep object. 
+此方法创建一个 SoilsStep 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].ResponseSpectrumStep
+mdb.models[*name*].SoilsStep
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
-*components*
-
-A [ResponseSpectrumComponentArray](pt01ch50pyo15.md) object.
-
-**Optional arguments**
+**可选参数**
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
-*comp*
+*response*
 
-A SymbolicConstant specifying the order and method used to sum the components. Possible values are SINGLE_DIRECTION, MULTIPLE_DIRECTION_ABSOLUTE_SUM, MULTIPLE_DIRECTION_SRSS_SUM, MULTIPLE_DIRECTION_THIRTY_PERCENT_RULE, and MULTIPLE_DIRECTION_FORTY_PERCENT_RULE. The default value is SINGLE_DIRECTION.
+一个 SymbolicConstant，指定分析类型。可选值为 STEADY_STATE 和 TRANSIENT。默认值为 TRANSIENT。
 
-*sum*
+*timePeriod*
 
-A SymbolicConstant specifying the method used to sum the components. Possible values are ABS, CQC, NRL, SRSS, TENP, DSC, and GRP. The default value is ABS.
+一个 Float，指定总时间周期。默认值为 1.0。
 
-*directDamping*
+*nlgeom*
 
-A [DirectDamping](pt01ch50pyo04.md) object.
+一个布尔值，指定是否在步骤期间考虑几何非线性。默认值为 OFF。
 
-*compositeDamping*
+*stabilizationMethod*
 
-A [CompositeDamping](pt01ch50pyo01.md) object.
+一个 SymbolicConstant，指定稳定化类型。可选值为 NONE、DISSIPATED_ENERGY_FRACTION 和 DAMPING_FACTOR。默认值为 NONE。
 
-*rayleighDamping*
+*stabilizationMagnitude*
 
-A [RayleighDamping](pt01ch50pyo11.md) object.
+一个 Float，如果问题可能不稳定且 *stabilizationMethod* 不为 NONE，则指定自动阻尼算法的阻尼强度。默认值为 210-4。
 
-*directDampingByFrequency*
+*creep*
 
-A [DirectDampingByFrequency](pt01ch50pyo05.md) object.
+一个布尔值，指定此步骤期间是否发生蠕变响应。默认值为 ON。
 
-*rayleighDampingByFrequency*
+*timeIncrementationMethod*
 
-A [RayleighDampingByFrequency](pt01ch50pyo12.md) object.
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
+
+*initialInc*
+
+一个 Float，指定初始时间增量。默认值为步骤的总时间周期。
+
+*minInc*
+
+一个 Float，指定允许的最小时间增量。默认值为建议的初始时间增量或总时间周期的 105 倍中的较小值。
+
+*maxInc*
+
+一个 Float，指定允许的最大时间增量。默认值为步骤的总时间周期。
+
+*maxNumInc*
+
+一个 Int，指定步骤中的最大增量数。默认值为 100。
+
+*end*
+
+一个 SymbolicConstant，指定瞬态分析中要分析的时间周期。可选值为 PERIOD 和 SS。默认值为 PERIOD。
+
+*utol*
+
+`None` 或一个 Float，指定瞬态固结分析中任何增量中允许的最大孔隙压力变化（以压力单位计）。默认值为 `None`。
+
+*cetol*
+
+一个 Float，指定从增量的开始和结束时的蠕变应变率计算的蠕变应变增量之间的最大允许差异。默认值为 0.0。
+
+*amplitude*
+
+一个 SymbolicConstant，指定步骤中载荷幅值的变化。默认值为 STEP。可选值为 STEP 和 RAMP。
+
+*extrapolation*
+
+一个 SymbolicConstant，指定用于确定非线性分析的增量解的外推类型。可选值为 NONE、LINEAR 和 PARABOLIC。默认值为 LINEAR。
+
+*matrixSolver*
+
+一个 SymbolicConstant，指定求解器类型。可选值为 DIRECT 和 ITERATIVE。默认值为 DIRECT。
+
+*matrixStorage*
+
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
 
 *maintainAttributes*
 
-A Boolean specifying whether to retain attributes from an existing step with the same name. The default value is False.
+一个布尔值，指定是否保留具有相同名称的现有步骤的属性。默认值为 False。
 
-**Return value**
+*solutionTechnique*
 
-A ResponseSpectrumStep object.
+一个 SymbolicConstant，指定用于求解非线性方程的技术。可选值为 FULL_NEWTON 和 QUASI_NEWTON。默认值为 FULL_NEWTON。
 
-**Exceptions**
+*reformKernel*
 
-RangeError.
+一个 Int，指定在核矩阵重新形成之前允许的准牛顿迭代次数。默认值为 8。
 
-### 49.21.2 setValues(...)
+*convertSDI*
 
-This method modifies the ResponseSpectrumStep object.
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
 
-**Required arguments**
+*adaptiveDampingRatio*
 
-None.
+一个 Float，指定最大允许的稳定化能量与总应变能量的比率，仅在 *stabilizationMethod* 不为 NONE 时可以使用。默认值为 0.05。
 
-**Optional arguments**
+*continueDampingFactors*
 
-The optional arguments to `setValues` are the same as the arguments to the [ResponseSpectrumStep](pt01ch49pyo21.md#ker-responsespectrumstep-responsespectrumstep-pyc) method, except for the *name*, *previous*, and *maintainAttributes* arguments.
+一个布尔值，指定此步骤是否从前一个通用步骤的结果中继承阻尼因子。此参数必须与 *adaptiveDampingRatio* 参数一起使用。默认值为 OFF。
 
-**Return value**
+**返回值**
 
-None
+一个 SoilsStep 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 49.21.3 Members
+### 49.22.2 setValues(...)
 
-The ResponseSpectrumStep object can have the following members:
+此方法修改 SoilsStep 对象。
+
+**必需参数**
+
+无。
+
+**可选参数**
+
+`setValues` 的可选参数与 [SoilsStep](pt01ch49pyo22.md#ker-soilsstep-soilsstep-pyc) 方法的参数相同，但 *name*、*previous* 和 *maintainAttributes* 参数除外。
+
+**返回值**
+
+无
+
+**异常**
+
+RangeError。
+
+### 49.22.3 成员
+
+SoilsStep 对象可以具有以下成员：
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定存储库键。
 
-*comp*
+*response*
 
-A SymbolicConstant specifying the order and method used to sum the components. Possible values are SINGLE_DIRECTION, MULTIPLE_DIRECTION_ABSOLUTE_SUM, MULTIPLE_DIRECTION_SRSS_SUM, MULTIPLE_DIRECTION_THIRTY_PERCENT_RULE, and MULTIPLE_DIRECTION_FORTY_PERCENT_RULE. The default value is SINGLE_DIRECTION.
+一个 SymbolicConstant，指定分析类型。可选值为 STEADY_STATE 和 TRANSIENT。默认值为 TRANSIENT。
 
-*sum*
+*timePeriod*
 
-A SymbolicConstant specifying the method used to sum the components. Possible values are ABS, CQC, NRL, SRSS, TENP, DSC, and GRP. The default value is ABS.
+一个 Float，指定总时间周期。默认值为 1.0。
+
+*nlgeom*
+
+一个布尔值，指定是否在步骤期间考虑几何非线性。默认值为 OFF。
+
+*stabilizationMethod*
+
+一个 SymbolicConstant，指定稳定化类型。可选值为 NONE、DISSIPATED_ENERGY_FRACTION 和 DAMPING_FACTOR。默认值为 NONE。
+
+*stabilizationMagnitude*
+
+一个 Float，如果问题可能不稳定且 *stabilizationMethod* 不为 NONE，则指定自动阻尼算法的阻尼强度。默认值为 210-4。
+
+*creep*
+
+一个布尔值，指定此步骤期间是否发生蠕变响应。默认值为 ON。
+
+*timeIncrementationMethod*
+
+一个 SymbolicConstant，指定要使用的时间增量方法。可选值为 FIXED 和 AUTOMATIC。默认值为 AUTOMATIC。
+
+*initialInc*
+
+一个 Float，指定初始时间增量。默认值为步骤的总时间周期。
+
+*minInc*
+
+一个 Float，指定允许的最小时间增量。默认值为建议的初始时间增量或总时间周期的 105 倍中的较小值。
+
+*maxInc*
+
+一个 Float，指定允许的最大时间增量。默认值为步骤的总时间周期。
+
+*maxNumInc*
+
+一个 Int，指定步骤中的最大增量数。默认值为 100。
+
+*end*
+
+一个 SymbolicConstant，指定瞬态分析中要分析的时间周期。可选值为 PERIOD 和 SS。默认值为 PERIOD。
+
+*utol*
+
+`None` 或一个 Float，指定瞬态固结分析中任何增量中允许的最大孔隙压力变化（以压力单位计）。默认值为 `None`。
+
+*cetol*
+
+一个 Float，指定从增量的开始和结束时的蠕变应变率计算的蠕变应变增量之间的最大允许差异。默认值为 0.0。
+
+*amplitude*
+
+一个 SymbolicConstant，指定步骤中载荷幅值的变化。默认值为 STEP。可选值为 STEP 和 RAMP。
+
+*extrapolation*
+
+一个 SymbolicConstant，指定用于确定非线性分析的增量解的外推类型。可选值为 NONE、LINEAR 和 PARABOLIC。默认值为 LINEAR。
+
+*matrixSolver*
+
+一个 SymbolicConstant，指定求解器类型。可选值为 DIRECT 和 ITERATIVE。默认值为 DIRECT。
+
+*matrixStorage*
+
+一个 SymbolicConstant，指定矩阵存储类型。可选值为 SYMMETRIC、UNSYMMETRIC 和 SOLVER_DEFAULT。默认值为 SOLVER_DEFAULT。
+
+*solutionTechnique*
+
+一个 SymbolicConstant，指定用于求解非线性方程的技术。可选值为 FULL_NEWTON 和 QUASI_NEWTON。默认值为 FULL_NEWTON。
+
+*reformKernel*
+
+一个 Int，指定在核矩阵重新形成之前允许的准牛顿迭代次数。默认值为 8。
+
+*convertSDI*
+
+一个 SymbolicConstant，指定在迭代期间发生严重不连续时是否强制进行新迭代。可选值为 PROPAGATED、CONVERT_SDI_OFF 和 CONVERT_SDI_ON。默认值为 PROPAGATED。
+
+*adaptiveDampingRatio*
+
+一个 Float，指定最大允许的稳定化能量与总应变能量的比率，仅在 *stabilizationMethod* 不为 NONE 时可以使用。默认值为 0.05。
+
+*continueDampingFactors*
+
+一个布尔值，指定此步骤是否从前一个通用步骤的结果中继承阻尼因子。此参数必须与 *adaptiveDampingRatio* 参数一起使用。默认值为 OFF。
 
 *previous*
 
-A String specifying the name of the previous step. The new step appears after this step in the list of analysis steps.
+一个字符串，指定前一步的名称。新步骤将出现在分析步骤列表中该步骤之后。
 
 *description*
 
-A String specifying a description of the new step. The default value is an empty string.
-
-*components*
-
-A [ResponseSpectrumComponentArray](pt01ch50pyo15.md) object.
-
-*directDamping*
-
-A [DirectDamping](pt01ch50pyo04.md) object.
-
-*compositeDamping*
-
-A [CompositeDamping](pt01ch50pyo01.md) object.
-
-*rayleighDamping*
-
-A [RayleighDamping](pt01ch50pyo11.md) object.
-
-*directDampingByFrequency*
-
-A [DirectDampingByFrequency](pt01ch50pyo05.md) object.
-
-*rayleighDampingByFrequency*
-
-A [RayleighDampingByFrequency](pt01ch50pyo12.md) object.
-
-*structuralDamping*
-
-A [StructuralDamping](pt01ch50pyo20.md) object.
-
-*structuralDampingByFrequency*
-
-A [StructuralDampingByFrequency](pt01ch50pyo21.md) object.
+一个字符串，指定新步骤的描述。默认值为空字符串。
 
 *explicit*
 
-A SymbolicConstant specifying whether the step has an explicit procedure type (*procedureType*=ANNEAL, DYNAMIC_EXPLICIT, or DYNAMIC_TEMP_DISPLACEMENT).
+一个 SymbolicConstant，指定该步骤是否具有显式过程类型（*procedureType*=ANNEAL、DYNAMIC_EXPLICIT 或 DYNAMIC_TEMP_DISPLACEMENT）。
 
 *perturbation*
 
-A Boolean specifying whether the step has a perturbation procedure type.
+一个布尔值，指定该步骤是否具有扰动过程类型。
 
 *nonmechanical*
 
-A Boolean specifying whether the step has a mechanical procedure type.
+一个布尔值，指定该步骤是否具有力学过程类型。
 
 *procedureType*
 
-A SymbolicConstant specifying the Abaqus procedure. Possible values are:
+一个 SymbolicConstant，指定 Abaqus 过程。可选值包括：
 - ANNEAL
 - BUCKLE
 - COMPLEX_FREQUENCY
@@ -208,70 +314,66 @@ A SymbolicConstant specifying the Abaqus procedure. Possible values are:
 
 *suppressed*
 
-A Boolean specifying whether the step is suppressed or not. The default value is OFF.
+一个布尔值，指定该步骤是否被抑制。默认值为 OFF。
 
 *fieldOutputRequestState*
 
-A repository of [FieldOutputRequestState](pt01ch51pyo03.md) objects.
+[FieldOutputRequestState](pt01ch51pyo03.md) 对象的存储库。
 
 *historyOutputRequestState*
 
-A repository of [HistoryOutputRequestState](pt01ch51pyo05.md) objects.
+[HistoryOutputRequestState](pt01ch51pyo05.md) 对象的存储库。
 
 *diagnosticPrint*
 
-A [DiagnosticPrint](pt01ch51pyo01.md) object.
+[DiagnosticPrint](pt01ch51pyo01.md) 对象。
 
 *monitor*
 
-A [Monitor](pt01ch51pyo07.md) object.
+[Monitor](pt01ch51pyo07.md) 对象。
 
 *restart*
 
-A [Restart](pt01ch51pyo08.md) object.
+[Restart](pt01ch51pyo08.md) 对象。
 
 *adaptiveMeshConstraintStates*
 
-A repository of [AdaptiveMeshConstraintState](pt01ch02pyo02.md) objects.
+[AdaptiveMeshConstraintState](pt01ch02pyo02.md) 对象的存储库。
 
 *adaptiveMeshDomains*
 
-A repository of [AdaptiveMeshDomain](pt01ch02pyo04.md) objects.
+[AdaptiveMeshDomain](pt01ch02pyo04.md) 对象的存储库。
 
 *control*
 
-A [Control](pt01ch50pyo03.md) object.
+[Control](pt01ch50pyo03.md) 对象。
 
 *solverControl*
 
-A [SolverControl](pt01ch50pyo16.md) object.
+[SolverControl](pt01ch50pyo16.md) 对象。
 
 *boundaryConditionStates*
 
-A repository of [BoundaryConditionState](pt01ch09pyo08.md) objects.
+[BoundaryConditionState](pt01ch09pyo08.md) 对象的存储库。
 
 *interactionStates*
 
-A repository of [InteractionState](pt01ch25pyo49.md) objects.
+[InteractionState](pt01ch25pyo49.md) 对象的存储库。
 
 *loadStates*
 
-A repository of [LoadState](pt01ch27pyo42.md) objects.
+[LoadState](pt01ch27pyo42.md) 对象的存储库。
 
 *loadCases*
 
-A repository of [LoadCase](pt01ch28pyo01.md) objects.
+[LoadCase](pt01ch28pyo01.md) 对象的存储库。
 
 *predefinedFieldStates*
 
-A repository of [PredefinedFieldState](pt01ch42pyo12.md) objects.
+[PredefinedFieldState](pt01ch42pyo12.md) 对象的存储库。
 
-### 49.21.4 Corresponding analysis keywords
+### 49.22.4 对应的分析关键字
 
-| [*RESPONSE SPECTRUM](../key/key-link.md#usb-kws-hresponspec) |
+| [*SOILS](../key/key-link.md#usb-kws-hsoils) |
 | --- |
 | [*STEP](../key/key-link.md#usb-kws-hstep) |
-
-
-
-

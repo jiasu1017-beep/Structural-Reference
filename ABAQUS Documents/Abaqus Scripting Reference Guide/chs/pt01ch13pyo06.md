@@ -1,97 +1,102 @@
-# 13.6 Equation object
+# 13.7 MultipointConstraint 对象
 
+MultipointConstraint 对象定义了一组位于区域上的多点约束节点与参考点之间的约束。
 
+MultipointConstraint 对象派生自 [Constraint](pt01ch13pyo01.md) 对象。
 
-
-
-
-
-The Equation object defines a linear multi-point constraint between a set of degrees of freedom.
-
-The Equation object is derived from the [Constraint](pt01ch13pyo01.md) object.
-
-**Access**
+**访问权限**
 
 ```
 import interaction
 mdb.models[*name*].constraints[*name*]
 ```
 
-### 13.6.1 Equation(...)
+### 13.7.1 MultipointConstraint(...)
 
-This method creates an Equation object.
+此方法创建一个 MultipointConstraint 对象。
 
-**Path**
+**路径**
 
 ```
-mdb.models[*name*].Equation
+mdb.models[*name*].MultipointConstraint
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the constraint repository key.
+字符串，指定约束存储库键。
 
-*terms*
+*surface*
 
-A sequence of (Float, String, Int, Int) sequences specifying a coefficient, Set name, degree of freedom, and coordinate system ID. The coordinate system ID is optional.
+[Region](pt01ch45pyo03.md) 对象，指定 MultipointConstraint 节点所在的曲面。
 
-**Optional arguments**
+*controlPoint*
 
-None.
+[Region](pt01ch45pyo03.md) 对象，指定约束控制点。
 
-**Return value**
+*mpcType*
 
-An Equation object.
+符号常量，指定约束的 MPC 类型。可能的值为 BEAM_MPC、ELBOW_MPC、PIN_MPC、LINK_MPC、TIE_MPC 和 USER_MPC。
 
-**Exceptions**
+**可选参数**
 
-If *terms* does not contain more than one entry:
+*csys*
 
-```
-Equation must have two or more terms.
-```
+`None` 或 [DatumCsys](pt01ch15pyo03.md) 对象，指定 MultipointConstraint 自由度局部坐标系的初始方向。如果 *localCsys*=`None`，则在全局坐标系中定义 MultipointConstraint。默认值为 `None`。
 
-### 13.6.2 setValues(...)
+*userType*
 
-This method modifies the Equation object.
+整数，指定用于在用户定义的 MultipointConstraint 中区分不同约束类型的值。默认值为 0。
 
-**Required arguments**
+*userType* 参数仅在 *mpcType*=USER_MPC 时适用。
 
-None.
+*userMode*
 
-**Optional arguments**
+符号常量，指定用户定义约束的模式。可能的值为 DOF_MODE_MPC 和 NODE_MODE_MPC。默认值为 DOF_MODE_MPC。
 
-The optional arguments to `setValues` are the same as the arguments to the [Equation](pt01ch13pyo06.md#ker-equation-equation-pyc) method, except for the *name* argument.
+*userMode* 参数仅在 *mpcType*=USER_MPC 时适用。
 
-**Return value**
+**返回值**
 
-None
+MultipointConstraint 对象。
 
-**Exceptions**
+**异常**
 
-If *terms* does not contain more than one entry:
+无。
 
-```
-Equation must have two or more terms.
-```
+### 13.7.2 setValues(...)
 
-### 13.6.3 Members
+此方法修改 MultipointConstraint 对象。
 
-The Equation object has members with the same names and descriptions as the arguments to the [Equation](pt01ch13pyo06.md#ker-equation-equation-pyc) method.
+**必需参数**
 
-In addition, the Equation object has the following member:
+无。
+
+**可选参数**
+
+`setValues` 的可选参数与 [MultipointConstraint](pt01ch13pyo07.md#ker-multipointconstraint-multipointconstraint-pyc) 方法的参数相同，但 *name* 参数除外。
+
+**返回值**
+
+无。
+
+**异常**
+
+无。
+
+### 13.7.3 成员
+
+MultipointConstraint 对象的成员与 [MultipointConstraint](pt01ch13pyo07.md#ker-multipointconstraint-multipointconstraint-pyc) 方法的参数具有相同的名称和描述。
+
+此外，MultipointConstraint 对象还有以下成员：
 
 *suppressed*
 
-A Boolean specifying whether the constraint is suppressed or not. The default value is OFF.
+布尔值，指定约束是否被抑制。默认值为 OFF。
 
-### 13.6.4 Corresponding analysis keywords
+### 13.7.4 对应的分析关键字
 
-| [*EQUATION](../key/key-link.md#usb-kws-mequation) |
+| [*MPC](../key/key-link.md#usb-kws-mmpc) |
 | --- |
-
-
-
 

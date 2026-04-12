@@ -4,7 +4,7 @@
 
 
 
-此类提供创建 FXMenuPane 并对其进行各种管理活动的接口。
+此类提供用于创建 FXMenuPane 并对其执行各种管理活动的接口。
 ![](../graphics/gui-afxmenupane.png)
 
 ### AFXMenuPane(owner)
@@ -18,8 +18,6 @@
 
 返回菜单窗格的所有者。
 
-从 FXWindow 重新实现。
-
-
+从 FXWindow 重实现。
 
 

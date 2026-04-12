@@ -1,65 +1,75 @@
-# AFXNote
+# AFXObjectKeyword
 
 
 
 
 
-此类通过"Note:"或"Warning:"为给定的消息字符串添加前缀。
-![](../graphics/gui-afxnote.png)
+此类专为具有对象值的命令关键字设计。
+![](../graphics/gui-afxobjectkeyword.png)
 
-### AFXNote(p, message, opts=NOTE_INFORMATION, x=0, y=0)
+### AFXObjectKeyword(command, name, isRequired=False, defaultValue='')
 
 构造函数。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| p | FXComposite |  | 父窗口部件。 |
-| message | String |  | 笔记消息字符串。 |
-| opts | Int | NOTE_INFORMATION | 选项和提示。 |
-| x | Int | 0 | 原点的 X 坐标。 |
-| y | Int | 0 | 原点的 Y 坐标。 |
+| command | AFXCommand |  | 宿主命令。 |
+| name | String |  | 关键字名称。 |
+| isRequired | Bool | False | 如果关键字是命令的必需参数，则为 True。 |
+| defaultValue | String | '' | 默认值。 |
 
-### create()
+### getTypeName()
 
-创建笔记。
+返回关键字类型的名称。
 
-从 FXComposite 重新实现。
+实现 AFXKeyword。
 
-### detach()
+### getValue()
 
-分离笔记的服务器资源。
+返回关键字的当前值。
 
-从 FXComposite 重新实现。
+### getValueAsString()
 
-### disable()
+返回表示关键字当前值的文本字符串。
 
-禁用笔记。
+实现 AFXKeyword。
 
-从 FXWindow 重新实现。
+### isValueChanged()
 
-### enable()
+如果关键字值与其之前的值不同则返回 True。
 
-启用笔记。
+实现 AFXKeyword。
 
-从 FXWindow 重新实现。
+### setDefaultValue(defaultValue)
 
-### getText()
-
-返回笔记的消息字符串。
-
-### setText(message)
-
-设置笔记的消息字符串。
+设置关键字的默认值。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| message | String |  | 消息。 |
+| defaultValue | String |  | 默认值。 |
 
-### 全局标志
+### setValue(newValue)
 
-### **笔记样式的标志。**
+设置关键字的当前值。
+| **参数** | **类型** | **默认值** | **说明** |
+| --- | --- | --- | --- |
+| newValue | String |  | 新值。 |
 
-| **NOTE_INFORMATION** | 信息笔记。 |
-| --- | --- |
-| **NOTE_WARNING** | 警告笔记。 |
+### setValueToDefault(ignoreUnspecified=False)
 
+将关键字值设置为其默认值。
+| **参数** | **类型** | **默认值** | **说明** |
+| --- | --- | --- | --- |
+| ignoreUnspecified | Bool | False | 如果设置为 True，则在默认值未指定时忽略设置值。 |
+
+### setValueToPrevious()
+
+将关键字值设置为其之前的值。
+
+实现 AFXKeyword。
+
+### syncPreviousValue()
+
+将关键字的之前的值设置为其当前值。
+
+实现 AFXKeyword。
 
 

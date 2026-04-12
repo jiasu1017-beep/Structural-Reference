@@ -4,7 +4,7 @@
 
 
 
-此类包含一个标签和列表框，允许用户从下拉列表中选择条目。
+此类包含一个标签和一个列表框，列表框允许用户从下拉列表中选择条目。
 ![](../graphics/gui-afxlistbox.png)
 
 ### AFXListBox(p, nvis, labelText, tgt=None, sel=0, opts=0, x=0, y=0, w=0, h=0, pl=DEFAULT_PAD, pr=DEFAULT_PAD, pt=DEFAULT_PAD, pb=DEFAULT_PAD)
@@ -12,20 +12,20 @@
 构造函数。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| p | FXComposite |  | 父窗口部件。 |
-| nvis | Int |  | 可见项目数。 |
+| p | FXComposite |  | 父组件。 |
+| nvis | Int |  | 可见项目数量。 |
 | labelText | String |  | 标签字符串。 |
 | tgt | FXObject | None | 消息目标。 |
-| sel | Int | 0 | 消息 ID。 |
+| sel | Int | 0 | 消息ID。 |
 | opts | Int | 0 | 选项和提示。 |
-| x | Int | 0 | 原点的 X 坐标。 |
-| y | Int | 0 | 原点的 Y 坐标。 |
-| w | Int | 0 | 窗口部件的宽度。 |
-| h | Int | 0 | 窗口部件的高度。 |
-| pl | Int | DEFAULT_PAD | 左边距（填充）。 |
-| pr | Int | DEFAULT_PAD | 右边距（填充）。 |
-| pt | Int | DEFAULT_PAD | 顶部边距（填充）。 |
-| pb | Int | DEFAULT_PAD | 底部边距（填充）。 |
+| x | Int | 0 | 起点X坐标。 |
+| y | Int | 0 | 起点Y坐标。 |
+| w | Int | 0 | 组件宽度。 |
+| h | Int | 0 | 组件高度。 |
+| pl | Int | DEFAULT_PAD | 左边距。 |
+| pr | Int | DEFAULT_PAD | 右边距。 |
+| pt | Int | DEFAULT_PAD | 顶部边距。 |
+| pb | Int | DEFAULT_PAD | 底部边距。 |
 
 ### appendItem(text, icon=None, sel=0)
 
@@ -44,19 +44,19 @@
 
 创建列表框。
 
-从 FXComposite 重新实现。
+从 FXComposite 重实现。
 
 ### disable()
 
 禁用列表框。
 
-从 FXWindow 重新实现。
+从 FXWindow 重实现。
 
 ### enable()
 
 启用列表框。
 
-从 FXWindow 重新实现。
+从 FXWindow 重实现。
 
 ### getCurrentItem()
 
@@ -90,11 +90,11 @@
 
 ### getNumItems()
 
-返回列表中的项目数。
+返回列表中的项目数量。
 
 ### getNumVisible()
 
-返回可见项目数。
+返回可见项目数量。
 
 ### getTipText()
 
@@ -119,7 +119,7 @@
 
 ### isReadOnlyState()
 
-如果列表框设置为只读状态，则返回 True。
+如果列表框设置为只读状态则返回 True。
 
 ### removeItem(index)
 
@@ -177,7 +177,7 @@
 
 ### setNumVisible(nvis)
 
-设置可见项目数。
+设置可见项目数量。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
 | nvis | Int |  |  |
@@ -198,19 +198,20 @@
 
 ### 类标志
 
-### **消息 ID。**
+### **消息ID。**
 
-| **ID_LIST** | 列表框的 ID。 |
+| **ID_LIST** | 列表框的ID。 |
 | --- | --- |
-| **ID_FIELD** | 文本字段的 ID。 |
+| **ID_FIELD** | 文本字段的ID。 |
 
 ### 全局标志
 
 ### **AFX 列表框选项的标志。**
 
-| **AFXLISTBOX_VERTICAL** | 将标签定向在列表框上方。 |
+| **AFXLISTBOX_VERTICAL** | 将标签置于列表框上方。 |
 | --- | --- |
 | **AFXLISTBOX_READONLY** | 将列表框配置为只读状态。 |
+
 
 
 

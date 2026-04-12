@@ -4,7 +4,7 @@
 
 
 
-此类提供向 AFXComboBox 和 AFXList 等窗口部件供应项目的方式。
+此类提供了一种向组件（如 AFXComboBox 和 AFXList）供应项目的方式。
 ![](../graphics/gui-afxitemprovider.png)
 
 ### AFXItemProvider(initialItems='')
@@ -12,7 +12,7 @@
 构造函数。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| initialItems | String | '' | 带初始项目的序列字符串。 |
+| initialItems | String | '' | 包含初始项目的序列字符串。 |
 
 ### append(str)
 
@@ -30,15 +30,15 @@
 
 ### empty()
 
-如果项目字符串为空，则返回 True。
+如果项目字符串为空则返回 True。
 
 ### getItems()
 
-返回包含此供应者所有项目的序列字符串。
+返回包含提供器所有项目的序列字符串。
 
 ### getVersion()
 
-返回供应者项目的版本。
+返回提供器项目的版本。
 
 ### reset(sz=0)
 
@@ -49,10 +49,11 @@
 
 ### setItems(newItems)
 
-设置供应者的所有项目，先清除任何以前的项。
+设置提供器的所有项目，先清除任何现有项目。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| newItems | String |  | 带新项目的序列字符串。 |
+| newItems | String |  | 包含新项目的序列字符串。 |
+
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-此类支持解析和修改包含用某个分隔符分隔的元素序列的字符串。
+此类支持解析和修改包含由某个分隔符分隔的元素序列的字符串。
 ![](../graphics/gui-afxsequencestring.png)
 
 ### AFXSequenceString(value='', sep=',')
@@ -12,26 +12,26 @@
 构造函数。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| value | String | '' | 带初始序列值的字符串。 |
-| sep | String | ',' | 序列元素的分隔符。 |
+| value | String | '' | 包含初始序列值的字符串。 |
+| sep | String | ',' | 序列元素的分隔符字符。 |
 
 ### AFXSequenceString()
 
-未定义的复制构造函数（此类不具有复制语义）。
+未定义的拷贝构造函数（此类没有拷贝语义）。
 
 ### forceNumElements(num, fill)
 
-强制内容字符串包含具有给定元素数的元组。
+强制内容字符串包含具有给定数量元素的元组。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| num | Int |  | 新的元素数量。 |
+| num | Int |  | 新元素数量。 |
 | fill | String |  | 插入空格的字符串。 |
 
 ### getContentString()
 
 返回包含序列元素值的字符串。
 
-在 AFX2DArrayConstString 中重新实现。
+在 AFX2DArrayConstString 中重实现。
 
 ### getElementSeparator()
 
@@ -73,7 +73,7 @@
 
 ### isValidSequence()
 
-如果此对象包含有效序列，则返回 True。
+如果此对象包含有效序列则返回 True。
 
 ### remove(index, numElements)
 
@@ -88,7 +88,7 @@
 重置序列元素的所有值。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
-| seqstr | String |  | 带新值的序列字符串。 |
+| seqstr | String |  | 包含新值的序列字符串。 |
 
 ### setElementSeparator(sep)
 
@@ -120,14 +120,13 @@
 | --- | --- | --- | --- |
 | index | Int |  | 元素索引。 |
 | value | String |  | 新值。 |
-| replaceAll | Bool | False | 如果为 False（默认），则保留前导和尾随空格，否则替换分隔符之间的所有空格。 |
+| replaceAll | Bool | False | 如果为 False（默认），则保留前导和尾随空格，否则将分隔符之间的所有空格替换为新值。 |
 
 ### trimWhiteSpace(index)
 
-调整元素的位置和长度以修剪前导和尾随空格。
+调整元素的位置和长度以去除前导和尾随空格。
 | **参数** | **类型** | **默认值** | **说明** |
 | --- | --- | --- | --- |
 | index | Int |  | 元素索引。 |
-
 
 

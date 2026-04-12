@@ -23,7 +23,6 @@ To find examples of the usage of a particular keyword in an input file, you can 
 ```
 abaqus fetch job=boltpipeflange_3d_cyclsym.inp
 ```
-
 The **abaqus fetch** utility is explained in detail in ["Fetching sample input files," Section 3.2.16 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-int-dfetchproc).
 
 

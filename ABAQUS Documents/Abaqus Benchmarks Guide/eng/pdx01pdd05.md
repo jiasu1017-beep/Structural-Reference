@@ -1,0 +1,20 @@
+# Abaqus/Design
+
+
+
+
+
+
+
+| [Section 1.18.1](ch01s18ach130.md) | Design sensitivity analysis for cantilever beam |
+| --- | --- |
+
+| [Section 1.18.2](ch01s18ach131.md) | Sensitivity of the stress concentration factor around a circular hole in a plate under uniaxial tension |
+| --- | --- |
+
+| [Section 1.18.3](ch01s18ach132.md) | Sensitivity analysis of modified NAFEMS problem 3DNLG-1: Large deflection of Z-shaped cantilever under an end load |
+| --- | --- |
+
+
+
+

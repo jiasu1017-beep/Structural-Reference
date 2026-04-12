@@ -75,7 +75,7 @@
 | [Abaqus Scripting User's Guide](./Abaqus%20Scripting%20User%27s%20Guide/) | Abaqus 脚本用户指南 | ✅ 已完成 / Completed |
 | [Abaqus Scripting Reference Guide](./Abaqus%20Scripting%20Reference%20Guide/) | Abaqus 脚本参考指南 | ✅ 已完成 / Completed |
 | [Abaqus GUI Toolkit User's Guide](./Abaqus%20GUI%20Toolkit%20User%27s%20Guide/) | Abaqus GUI 工具包用户指南 | ⏳ 翻译中 / Translating |
-| [Abaqus GUI Toolkit Reference Guide](./Abaqus%20GUI%20Toolkit%20Reference%20Guide/) | Abaqus GUI 工具包参考指南 | ⏳ 翻译中 / Translating |
+| [Abaqus GUI Toolkit Reference Guide](./Abaqus%20GUI%20Toolkit%20Reference%20Guide/) | Abaqus GUI 工具包参考指南 | ✅ 已完成 / Completed |
 
 ---
 
@@ -99,8 +99,8 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 12 |
-| ⏳ 翻译中 / Translating | 2 |
+| ✅ 已完成 / Completed | 13 |
+| ⏳ 翻译中 / Translating | 1 |
 | ⏳ 未转换 / Not converted | 5 |
 | **总计 Total** | **19** |
 

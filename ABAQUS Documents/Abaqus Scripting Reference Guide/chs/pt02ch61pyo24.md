@@ -1,14 +1,8 @@
-# 61.24 OdbSet object
+# 61.24 OdbSet 对象
 
+集对象用于标识模型的区域。
 
-
-
-
-
-
-The set objects are used to identify regions of a model.
-
-**Access**
+**访问**
 
 ```
 odb.parts()[*name*].elementSets()[*name*]
@@ -30,9 +24,9 @@ odb.steps()[*name*].frames(*i*).fieldOutputs()[*name*].values(*i*).instance()\
 
 ### 61.24.1 NodeSet(...)
 
-This method creates a node set from an array of [OdbMeshNode](pt02ch61pyo19.md)                     objects (for part instance-level sets)
+此方法从 [OdbMeshNode](pt02ch61pyo19.md) 对象数组创建节点集（用于部件实例级集）。
 
-**Path**
+**路径**
 
 ```
 odb.parts()[*name*].NodeSet
@@ -42,7 +36,7 @@ odb.parts()[*name*].NodeSet
 odb.rootAssembly().instances()[*name*].NodeSet
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -50,37 +44,37 @@ NodeSet(const odb_String& name,
         const odb_SequenceNode& nodes);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *nodes*
 
-A sequence of [OdbMeshNode](pt02ch61pyo19.md)                              objects. For example, for a part:
+[OdbMeshNode](pt02ch61pyo19.md) 对象的序列。例如，对于部件：
 
 ```
 nodes=part1.nodes[1:5]
 ```
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
 ### 61.24.2 ElementSet(...)
 
-This method creates an element set from an array of [OdbMeshElement](pt02ch61pyo18.md)                     objects (for part instance-level sets).
+此方法从 [OdbMeshElement](pt02ch61pyo18.md) 对象数组创建元素集（用于部件实例级集）。
 
-**Path**
+**路径**
 
 ```
 odb.parts()[*name*].ElementSet
@@ -90,7 +84,7 @@ odb.parts()[*name*].ElementSet
 odb.rootAssembly().instances()[*name*].ElementSet
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -98,37 +92,37 @@ ElementSet(const odb_String& name,
            const odb_SequenceElement& elements);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *elements*
 
-A sequence of [OdbMeshElement](pt02ch61pyo18.md)                              objects. For example, for a part:
+[OdbMeshElement](pt02ch61pyo18.md) 对象的序列。例如，对于部件：
 
 ```
 elements=instance1.elements[1:5]
 ```
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-InvalidNameError.
+InvalidNameError。
 
 ### 61.24.3 NodeSet(...)
 
-This method creates a node set.
+此方法创建节点集。
 
-**Path**
+**路径**
 
 ```
 odb.parts()[*name*].NodeSet                   
@@ -138,7 +132,7 @@ odb.parts()[*name*].NodeSet
 odb.rootAssembly().instances()[*name*].NodeSet                   
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -146,39 +140,39 @@ NodeSet(const odb_String& name,
         const odb_SequenceInt& nodeLabels);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *nodeLabels*
 
-An odb_SequenceInt specifying the node labels.
+一个 odb_SequenceInt，指定节点标签。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.24.4 NodeSet(...)
 
-This method creates a node set.
+此方法创建节点集。
 
-**Path**
+**路径**
 
 ```
 odb.rootAssembly().NodeSet
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -187,37 +181,37 @@ NodeSet(const odb_String& name,
         const odb_SequenceSequenceInt& nodeLabels);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *instanceNames*
 
-An odb_SequenceString specifying the namespaces for *nodeLabels*. The string could be an empty string to denote the nodeLabels at the assembly level.
+一个 odb_SequenceString，指定 *nodeLabels* 的命名空间。该字符串可以是一个空字符串，表示装配级别的 nodeLabels。
 
 *nodeLabels*
 
-An odb_SequenceSequenceInt specifying the node labels.
+一个 odb_SequenceSequenceInt，指定节点标签。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.24.5 ElementSet(...)
 
-This method creates an element set.
+此方法创建元素集。
 
-**Path**
+**路径**
 
 ```
 odb.parts()[*name*].ElementSet                   
@@ -227,7 +221,7 @@ odb.parts()[*name*].ElementSet
 odb.rootAssembly().instances()[*name*].ElementSet                   
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -235,39 +229,39 @@ ElementSet(const odb_String& name,
            const odb_SequenceInt& elementLabels);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *elementLabels*
 
-An odb_SequenceInt specifying the element labels.
+一个 odb_SequenceInt，指定元素标签。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.24.6 ElementSet(...)
 
-This method creates an element set.
+此方法创建元素集。
 
-**Path**
+**路径**
 
 ```
 odb.rootAssembly().ElementSet
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -276,37 +270,37 @@ ElementSet(const odb_String& name,
            const odb_SequenceSequenceInt& elementLabels);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *instanceNames*
 
-An odb_SequenceString specifying the namespaces for *elementLabels*. The string could be an empty string to denote the elementLabels at the assembly level.                   
+一个 odb_SequenceString，指定 *elementLabels* 的命名空间。该字符串可以是一个空字符串，表示装配级别的 elementLabels。
 
 *elementLabels*
 
-An odb_SequenceSequenceInt specifying the element labels.
+一个 odb_SequenceSequenceInt，指定元素标签。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.24.7 Surface(...)
 
-This method creates a surface set.
+此方法创建表面集。
 
-**Path**
+**路径**
 
 ```
 odb.parts()[*name*].Surface                   
@@ -316,7 +310,7 @@ odb.parts()[*name*].Surface
 odb.rootAssembly().instances()[*name*].Surface                   
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -325,46 +319,46 @@ Surface(const odb_String& name,
         const odb_SequenceElementFace& faces);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *elements*
 
-An odb_SequenceElement specifying the elements in the surface.
+一个 odb_SequenceElement，指定表面中的元素。
 
 *faces*
 
-An odb_SequenceElementFace                              specifying the element faces.
+一个 odb_SequenceElementFace，指定元素面。
 
-The possible face enumerations depend on the type of element, as described in the following table:
+可能的面枚举取决于元素类型，如下表所述：
 
-| Element type | Face enumerations |
+| 元素类型 | 面枚举 |
 | --- | --- |
-| Solid elements | FACE1, FACE2, FACE3, FACE4, FACE5, FACE6 |
-| Three-dimensional shell elements | SIDE1, SIDE2 |
-| Two-dimensional elements | FACE1, FACE2, FACE3, FACE4 |
-| Wire elements | END, END2 |
+| 实体元素 | FACE1, FACE2, FACE3, FACE4, FACE5, FACE6 |
+| 三维壳元素 | SIDE1, SIDE2 |
+| 二维元素 | FACE1, FACE2, FACE3, FACE4 |
+| 线单元 | END, END2 |
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.24.8 Surface(...)
 
-This method creates a surface set.
+此方法创建表面集。
 
-**Path**
+**路径**
 
 ```
 odb.parts()[*name*].Surface                   
@@ -374,7 +368,7 @@ odb.parts()[*name*].Surface
 odb.rootAssembly().instances()[*name*].Surface                   
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -383,43 +377,43 @@ Surface(const odb_String& name,
         const odb_SequenceElementFace& faces);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *elementLabels*
 
-An odb_SequenceInt specifying the element labels.
+一个 odb_SequenceInt，指定元素标签。
 
 *faces*
 
-An odb_SequenceElementFace                              specifying the element faces. An odb_SequenceSequenceElementFace                              is required for an assembly set.
+一个 odb_SequenceElementFace，指定元素面。装配集需要 odb_SequenceSequenceElementFace。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 61.24.9 Surface(...)
 
-This method creates a surface set.
+此方法创建表面集。
 
-**Path**
+**路径**
 
 ```
 odb.rootAssembly().Surface
 ```
 
-**Prototype**
+**原型**
 
 ```
 odb_Set&
@@ -429,41 +423,41 @@ Surface(const odb_String& name,
         const odb_SequenceSequenceElementFace& faces);
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *instanceNames*
 
-An odb_SequenceString specifying the namespaces for *elementLabels*. This member is only valid for assembly sets. The string could be an empty string to denote the elementLabels at the assembly level.                   
+一个 odb_SequenceString，指定 *elementLabels* 的命名空间。此成员仅对装配集有效。该字符串可以是一个空字符串，表示装配级别的 elementLabels。
 
 *elementLabels*
 
-An odb_SequenceSequenceInt specifying the element labels.
+一个 odb_SequenceSequenceInt，指定元素标签。
 
 *faces*
 
-An odb_SequenceSequenceElementFace specifying the element faces.
+一个 odb_SequenceSequenceElementFace，指定元素面。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An OdbSet                     object.
+一个 OdbSet 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 61.24.10 Members
+### 61.24.10 成员
 
-The OdbSet object can have the following members:
+OdbSet 对象可以具有以下成员：
 
-**Prototype**
+**原型**
 
 ```
 odb_String name() const;
@@ -485,24 +479,20 @@ odb_String name() const;
 
 *name*
 
-An odb_String specifying the name of the set and the repository key.
+一个 odb_String，指定集的名称和存储库键。
 
 *instanceNames*
 
-An odb_SequenceString specifying the namespaces for the nodes, elements, and faces constituting the set.
+一个 odb_SequenceString，指定构成集的节点、元素和面的命名空间。
 
 *nodes*
 
-A sequence of [OdbMeshNode](pt02ch61pyo19.md) objects.
+[OdbMeshNode](pt02ch61pyo19.md) 对象的序列。
 
 *elements*
 
-A sequence of [OdbMeshElement](pt02ch61pyo18.md) objects.
+[OdbMeshElement](pt02ch61pyo18.md) 对象的序列。
 
 *faces*
 
-An odb_SequenceElementFace specifying the element face.
-
-
-
-
+一个 odb_SequenceElementFace，指定元素面。

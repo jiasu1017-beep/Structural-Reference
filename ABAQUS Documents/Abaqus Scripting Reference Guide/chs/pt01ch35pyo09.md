@@ -1,14 +1,8 @@
-# 35.9 ViewCut object
+# 35.9 ViewCut 对象
 
+ViewCut 对象用于存储与 ViewCut 类型对象关联的值和属性。可以使用以下方法创建 ViewCut 对象。通过 [OdbDisplay](pt01ch35pyo01.md) 对象访问的方法会将 ViewCut 对象添加到 session.viewports[name].odbDisplay.viewCuts 仓库。
 
-
-
-
-
-
-The ViewCut object is used to store values and attributes associate with ViewCut type objects. ViewCut objects can be created using the methods described below. The methods accessed via the [OdbDisplay](pt01ch35pyo01.md) object cause the ViewCut object to be added to the session.viewports[name].odbDisplay.viewCuts repository.
-
-**Access**
+**访问**
 
 ```
 import visualization
@@ -18,229 +12,225 @@ session.viewports[*name*].odbDisplay.viewCuts[*name*]
 
 ### 35.9.1 ViewCut(...)
 
-This method creates a ViewCut object.
+此方法创建 ViewCut 对象。
 
-**Path**
+**路径**
 
 ```
 session.viewports[*name*].layers[*name*].odbDisplay.ViewCut
 session.viewports[*name*].odbDisplay.ViewCut
 ```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the repository key.
+一个字符串，指定仓库键。
 
 *shape*
 
-A SymbolicConstant specifying the shape of the ViewCut object. Possible values are PLANE, CYLINDER, SPHERE, and ISOSURFACE.
+一个 SymbolicConstant，指定 ViewCut 对象的形状。可能的值为 PLANE、CYLINDER、SPHERE 和 ISOSURFACE。
 
 *origin*
 
-A sequence of three Floats specifying the X-, Y-, and Z-coordinates of the origin of the plane, cylinder or sphere cut. This origin is not required if the cut shape is ISOSURFACE or if the cut is defined by the *csysName* argument.
+三个浮点数序列，指定平面、圆柱或球体切割的原点 X、Y 和 Z 坐标。如果切割形状为 ISOSURFACE 或切割由 *csysName* 参数定义，则不需要此原点。
 
 *normal*
 
-A sequence of Floats specifying the X-, Y-, and Z-coordinates of the normal axis to the plane defining the cut, when the plane is defined using the *origin* argument or a SymbolicConstant defining this normal axis, when the cut is defined by the *csysName*  argument. Possible values are AXIS_1, AXIS_2, AXIS_3.  This axis is not required if the cut *shape* is CYLINDER, SPHERE or ISOSURFACE.
+当使用 *origin* 参数定义平面时，指定定义切割的平面的法线轴的 X、Y 和 Z 坐标序列；或当切割由 *csysName* 参数定义时，指定定义此法线轴的 SymbolicConstant。可能的值为 AXIS_1、AXIS_2、AXIS_3。如果切割 *shape* 为 CYLINDER、SPHERE 或 ISOSURFACE，则不需要此轴。
 
 *axis2*
 
-A sequence of three Floats specifying the X-, Y-, and Z-coordinates of the second axis of the plane defining the cut, when the plane is defined using the *origin* argument or a SymbolicConstant defining this second axis, when the cut is defined by the *csysName* argument. Possible values are AXIS_1, AXIS_2, AXIS_3. This axis is used to rotate the plane cut. It is not required if the cut *shape* is CYLINDER, SPHERE or ISOSURFACE.
+当使用 *origin* 参数定义平面时，指定定义切割的平面第二轴的 X、Y 和 Z 坐标序列；或当切割由 *csysName* 参数定义时，指定定义此第二轴的 SymbolicConstant。可能的值为 AXIS_1、AXIS_2、AXIS_3。此轴用于旋转平面切割。如果切割 *shape* 为 CYLINDER、SPHERE 或 ISOSURFACE，则不需要此轴。
 
 *csysName*
 
-A String specifying the name of the [DatumCsys](pt01ch15pyo03.md) object  to be used to define the cut. This name is not required if the cut *shape* is ISOSURFACE or if the cut is defined by the *origin* argument.
+一个字符串，指定用于定义切割的 [DatumCsys](pt01ch15pyo03.md) 对象的名称。如果切割 *shape* 为 ISOSURFACE 或切割由 *origin* 参数定义，则不需要此名称。
 
 *cylinderAxis*
 
-A sequence of Floats specifying the X-, Y-, and Z-coordinates of the cylinder axis defining the cut, when the cut is defined using the *origin* argument or a SymbolicConstant defining this cylinder axis, when the cut is defined by the *csysName* argument. Possible values are AXIS_1, AXIS_2, AXIS_3.  This axis is not required if the cut *shape* is PLANE, SPHERE, or ISOSURFACE.
+当使用 *origin* 参数定义切割时，指定定义切割的圆柱轴的 X、Y 和 Z 坐标序列；或当切割由 *csysName* 参数定义时，指定定义此圆柱轴的 SymbolicConstant。可能的值为 AXIS_1、AXIS_2、AXIS_3。如果切割 *shape* 为 PLANE、SPHERE 或 ISOSURFACE，则不需要此轴。
 
-**Optional arguments**
+**可选参数**
 
 *followDeformation*
 
-A Boolean specifying whether the cut will follow the deformation or be static. The default value is OFF.
+一个布尔值，指定切割是否跟随变形或保持静态。默认值为 OFF。
 
 *overrideAveraging*
 
-A Boolean specifying averaging for element based fields associated with isosurface cuts will be set to compute-average with a threshold of 100% when true.  The current field options will be used when false. The default value is ON.
+一个布尔值，指定当为真时，与等值面切割关联的基于元素的场的平均将设置为以 100% 阈值计算平均值。当为假时，将使用当前场的选项。默认值为 ON。
 
 *referenceFrame*
 
-A SymbolicConstant specifying which reference frame will be used when the cut follows the deformation. Possible values are FIRST_FRAME, LAST_FRAME, and CURRENT_FRAME. The default value is FIRST_FRAME.
+一个 SymbolicConstant，指定当切割跟随变形时使用哪个参考帧。可能的值为 FIRST_FRAME、LAST_FRAME 和 CURRENT_FRAME。默认值为 FIRST_FRAME。
 
-**Return value**
+**返回值**
 
-A ViewCut object.
+ViewCut 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 35.9.2 setValues(...)
 
-This method modifies the ViewCut object.
+此方法修改 ViewCut 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-At least one of the following must be provided:
+必须提供以下至少一个参数：
 
 *angle*
 
-A Float specifying the rotation angle of the cut defined with a *shape* set to PLANE.
+一个 Float，指定当 *shape* 设置为 PLANE 时定义的切割的旋转角度。
 
 *motion*
 
-A SymbolicConstant specifying the type of motion for the cut defined with a *shape* set to PLANE. Possible values are TRANSLATE and ROTATE. The default value is TRANSLATE.
+一个 SymbolicConstant，指定当 *shape* 设置为 PLANE 时定义的切割的运动类型。可能的值为 TRANSLATE 和 ROTATE。默认值为 TRANSLATE。
 
 *position*
 
-A Float specifying the position of the cut defined with a *shape* set to PLANE.
+一个 Float，指定当 *shape* 设置为 PLANE 时定义的切割的位置。
 
 *radius*
 
-A Float specifying the radius of the cut defined with a *shape* set to CYLINDER or SPHERE.
+一个 Float，指定当 *shape* 设置为 CYLINDER 或 SPHERE 时定义的切割的半径。
 
 *rotationAxis*
 
-A SymbolicConstant specifying the rotation axis for the cut defined with a *shape* set to PLANE. Possible values are AXIS_1, AXIS_2, and AXIS_3. The default value is AXIS_2.
+一个 SymbolicConstant，指定当 *shape* 设置为 PLANE 时定义的切割的旋转轴。可能的值为 AXIS_1、AXIS_2 和 AXIS_3。默认值为 AXIS_2。
 
 *value*
 
-A Float specifying the value of the cut defined with a *shape* set to ISOSURFACE.
+一个 Float，指定当 *shape* 设置为 ISOSURFACE 时定义的切割的值。
 
 *showModelAboveCut*
 
-A Boolean specifying whether to display the model above the cut. The default value is OFF.
+一个布尔值，指定是否显示切割上方的模型。默认值为 OFF。
 
 *showModelOnCut*
 
-A Boolean specifying whether to display the model on the cut. The default value is ON.
+一个布尔值，指定是否显示切割上的模型。默认值为 ON。
 
 *showModelBelowCut*
 
-A Boolean specifying whether to display the model below the cut. The default value is ON.
+一个布尔值，指定是否显示切割下方的模型。默认值为 ON。
 
 *showFreeBodyCut*
 
-A Boolean specifying whether to display the free body cut. The default value is OFF.
+一个布尔值，指定是否显示自由体切割。默认值为 OFF。
 
 *csysName*
 
-A String specifying the name of the [DatumCsys](pt01ch15pyo03.md) object  to be used to define the cut. This name is not required if the cut *shape* is ISOSURFACE or if the cut is defined by the *origin* argument.
+一个字符串，指定用于定义切割的 [DatumCsys](pt01ch15pyo03.md) 对象的名称。如果切割 *shape* 为 ISOSURFACE 或切割由 *origin* 参数定义，则不需要此名称。
 
 *origin*
 
-A sequence of three Floats specifying the X-, Y-, and Z-coordinates of the origin of the plane, cylinder or sphere cut. This origin is not required if the cut shape is ISOSURFACE or if the cut is defined by the *csysName* argument.
+三个浮点数序列，指定平面、圆柱或球体切割的原点 X、Y 和 Z 坐标。如果切割形状为 ISOSURFACE 或切割由 *csysName* 参数定义，则不需要此原点。
 
 *normal*
 
-A sequence of Floats specifying the X-, Y-, and Z-coordinates of the normal axis to the plane defining the cut, when the plane is defined using the *origin* argument or a SymbolicConstant defining this normal axis, when the cut is defined by the *csysName*  argument. Possible values are AXIS_1, AXIS_2, AXIS_3.  This axis is not required if the cut *shape* is CYLINDER, SPHERE or ISOSURFACE.
+当使用 *origin* 参数定义平面时，指定定义切割的平面的法线轴的 X、Y 和 Z 坐标序列；或当切割由 *csysName* 参数定义时，指定定义此法线轴的 SymbolicConstant。可能的值为 AXIS_1、AXIS_2、AXIS_3。如果切割 *shape* 为 CYLINDER、SPHERE 或 ISOSURFACE，则不需要此轴。
 
 *axis2*
 
-A sequence of three Floats specifying the X-, Y-, and Z-coordinates of the second axis of the plane defining the cut, when the plane is defined using the *origin* argument or a SymbolicConstant defining this second axis, when the cut is defined by the *csysName* argument. Possible values are AXIS_1, AXIS_2, AXIS_3. This axis is used to rotate the plane cut. It is not required if the cut *shape* is CYLINDER, SPHERE or ISOSURFACE.
+当使用 *origin* 参数定义平面时，指定定义切割的平面第二轴的 X、Y 和 Z 坐标序列；或当切割由 *csysName* 参数定义时，指定定义此第二轴的 SymbolicConstant。可能的值为 AXIS_1、AXIS_2、AXIS_3。此轴用于旋转平面切割。如果切割 *shape* 为 CYLINDER、SPHERE 或 ISOSURFACE，则不需要此轴。
 
 *cylinderAxis*
 
-A sequence of Floats specifying the X-, Y-, and Z-coordinates of the cylinder axis defining the cut, when the cut is defined using the *origin* argument or a SymbolicConstant defining this cylinder axis, when the cut is defined by the *csysName* argument. Possible values are AXIS_1, AXIS_2, AXIS_3.  This axis is not required if the cut *shape* is PLANE, SPHERE, or ISOSURFACE.
+当使用 *origin* 参数定义切割时，指定定义切割的圆柱轴的 X、Y 和 Z 坐标序列；或当切割由 *csysName* 参数定义时，指定定义此圆柱轴的 SymbolicConstant。可能的值为 AXIS_1、AXIS_2、AXIS_3。如果切割 *shape* 为 PLANE、SPHERE 或 ISOSURFACE，则不需要此轴。
 
 *followDeformation*
 
-A Boolean specifying whether the cut will follow the deformation or be static. The default value is OFF.
+一个布尔值，指定切割是否跟随变形或保持静态。默认值为 OFF。
 
 *overrideAveraging*
 
-A Boolean specifying averaging for element based fields associated with isosurface cuts will be set to compute-average with a threshold of 100% when true.  The current field options will be used when false. The default value is ON.
+一个布尔值，指定当为真时，与等值面切割关联的基于元素的场的平均将设置为以 100% 阈值计算平均值。当为假时，将使用当前场的选项。默认值为 ON。
 
 *referenceFrame*
 
-A SymbolicConstant specifying which reference frame will be used when the cut follows the deformation. Possible values are FIRST_FRAME, LAST_FRAME, and CURRENT_FRAME. The default value is FIRST_FRAME.
+一个 SymbolicConstant，指定当切割跟随变形时使用哪个参考帧。可能的值为 FIRST_FRAME、LAST_FRAME 和 CURRENT_FRAME。默认值为 FIRST_FRAME。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 35.9.3 updateVariable()
 
-This method updates the field associated with an isosurface cut to be consistent with the current primary variable.
+此方法更新与等值面切割关联的场，以与当前主要变量保持一致。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 35.9.4 Members
+### 35.9.4 成员
 
-The ViewCut object has members with the same names and descriptions as the arguments to the [ViewCut](pt01ch35pyo09.md#ker-viewcut-viewcut-pyc) method.
+ViewCut 对象具有与 [ViewCut](pt01ch35pyo09.md#ker-viewcut-viewcut-pyc) 方法的参数名称和描述相同的成员。
 
-In addition, the ViewCut object has the following members:
+此外，ViewCut 对象具有以下成员：
 
 *angle*
 
-A Float specifying the rotation angle of the cut defined with a *shape* set to PLANE.
+一个 Float，指定当 *shape* 设置为 PLANE 时定义的切割的旋转角度。
 
 *motion*
 
-A SymbolicConstant specifying the type of motion for the cut defined with a *shape* set to PLANE. Possible values are TRANSLATE and ROTATE. The default value is TRANSLATE.
+一个 SymbolicConstant，指定当 *shape* 设置为 PLANE 时定义的切割的运动类型。可能的值为 TRANSLATE 和 ROTATE。默认值为 TRANSLATE。
 
 *position*
 
-A Float specifying the position of the cut defined with a *shape* set to PLANE.
+一个 Float，指定当 *shape* 设置为 PLANE 时定义的切割的位置。
 
 *radius*
 
-A Float specifying the radius of the cut defined with a *shape* set to CYLINDER or SPHERE.
+一个 Float，指定当 *shape* 设置为 CYLINDER 或 SPHERE 时定义的切割的半径。
 
 *rotationAxis*
 
-A SymbolicConstant specifying the rotation axis for the cut defined with a *shape* set to PLANE. Possible values are AXIS_1, AXIS_2, and AXIS_3. The default value is AXIS_2.
+一个 SymbolicConstant，指定当 *shape* 设置为 PLANE 时定义的切割的旋转轴。可能的值为 AXIS_1、AXIS_2 和 AXIS_3。默认值为 AXIS_2。
 
 *value*
 
-A Float specifying the value of the cut defined with a *shape* set to ISOSURFACE.
+一个 Float，指定当 *shape* 设置为 ISOSURFACE 时定义的切割的值。
 
 *showModelAboveCut*
 
-A Boolean specifying whether to display the model above the cut. The default value is OFF.
+一个布尔值，指定是否显示切割上方的模型。默认值为 OFF。
 
 *showModelOnCut*
 
-A Boolean specifying whether to display the model on the cut. The default value is ON.
+一个布尔值，指定是否显示切割上的模型。默认值为 ON。
 
 *showModelBelowCut*
 
-A Boolean specifying whether to display the model below the cut. The default value is ON.
+一个布尔值，指定是否显示切割下方的模型。默认值为 ON。
 
 *showFreeBodyCut*
 
-A Boolean specifying whether to display the free body cut. The default value is OFF.
+一个布尔值，指定是否显示自由体切割。默认值为 OFF。
 
 *active*
 
-A Boolean specifying whether the cut is displayed.
+一个布尔值，指定是否显示切割。
 
 *cutRange*
 
-A pair of Floats specifying the acceptable range for positioning the cut.
-
-
-
-
+一对浮点数，指定定位切割的可接受范围。

@@ -1,14 +1,8 @@
-# 7.15 Vertex object
+# 7.15 Vertex 对象
 
+顶点是几何的点区域。
 
-
-
-
-
-
-Vertices are point regions of geometry.
-
-**Access**
+**访问**
 
 ```
 import part
@@ -31,76 +25,72 @@ mdb.models[*name*].rootAssembly.vertices[*i*]
 
 ### 7.15.1 getEdges()
 
-This method returns a sequence consisting of the edge ids of the edges which share this vertex.
+此方法返回一个由共享该顶点的边缘 ID 组成的序列。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A tuple of integers.
+一个整数元组。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.15.2 getNodes()
 
-This method returns an array of node objects that are associated with the vertex.
+此方法返回与顶点关联的节点对象数组。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A [MeshNodeArray](pt01ch31pyo09.md)                       object which is a sequence of [MeshNode](pt01ch31pyo09.md)                       objects.
+一个 [MeshNodeArray](pt01ch31pyo09.md) 对象，即 [MeshNode](pt01ch31pyo09.md) 对象的序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.15.3 getElements()
 
-This method returns an array of element objects that are associated with the vertex.
+此方法返回与顶点关联的元素对象数组。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A [MeshElementArray](pt01ch31pyo05.md)                       object which is a sequence of [MeshElement](pt01ch31pyo05.md)                       objects.
+一个 [MeshElementArray](pt01ch31pyo05.md) 对象，即 [MeshElement](pt01ch31pyo05.md) 对象的序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 7.15.4 Members
+### 7.15.4 成员
 
-The Vertex object has the following members:
+Vertex 对象具有以下成员：
 
 *index*
 
-An Int specifying the index of the Vertex in the VertexArray.
+一个 Int，指定 Vertex 在 VertexArray 中的索引。
 
 *isReferenceRep*
 
-A Boolean specifying whether the vertex belongs to the reference representation                   of the Part or Instance.
+一个 Boolean，指定顶点是否属于零件或实例的参考表示。
 
 *pointOn*
 
-A tuple of Floats specifying the *X*                     -, *Y*                     -, and *Z*                     -coordinates of the vertex.
+一个 Float 元组，指定顶点的 *X*-、*Y*- 和 *Z*- 坐标。
 
 *featureName*
 
-A tuple of Floats specifying the name of the feature that created this vertex.
+一个 Float 元组，指定创建此顶点的特征名称。
 
 *instanceName*
 
-A tuple of Floats specifying the name of the part instance for this vertex (if applicable).
-
-
-
-
+一个 Float 元组，指定此顶点的零件实例名称（如果适用）。

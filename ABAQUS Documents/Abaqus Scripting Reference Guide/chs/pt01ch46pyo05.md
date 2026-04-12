@@ -1,16 +1,10 @@
-# 46.5 CohesiveSection object
+# 46.5 CohesiveSection 对象
 
+CohesiveSection 对象定义内聚截面的属性。
 
+CohesiveSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The CohesiveSection object defines the properties of a cohesive section.
-
-The CohesiveSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.5.1 CohesiveSection(...)
 
-This method creates a CohesiveSection object.
+此方法创建 CohesiveSection 对象。
 
 **Path**
 
@@ -30,76 +24,73 @@ mdb.models[*name*].CohesiveSection
 session.odbs[*name*].CohesiveSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+ String，指定存储库键。
 
 *response*
 
-A SymbolicConstant specifying the geometric assumption that defines the constitutive behavior of the cohesive elements. Possible values are TRACTION_SEPARATION, CONTINUUM, and GASKET.
+ SymbolicConstant，指定定义内聚元素本构行为的几何假设。可选值为 TRACTION_SEPARATION、CONTINUUM 和 GASKET。
 
 *material*
 
-A String specifying the name of the material.
+ String，指定材料名称。
 
-**Optional arguments**
+**可选参数**
 
 *initialThicknessType*
 
-A SymbolicConstant specifying the method used to compute the initial thickness. Possible values are:
-- SOLVER_DEFAULT, specifying that Abaqus will use the analysis product default
-- GEOMETRY, specifying that Abaqus will compute the thickness from the nodal coordinates of the elements.
-- SPECIFY, specifying that Abaqus will use the value given for *initialThickness*
+ SymbolicConstant，指定用于计算初始厚度的 方法。可选值为：
+- SOLVER_DEFAULT，指定 Abaqus 将使用分析产品默认值
+- GEOMETRY，指定 Abaqus 将从元素的节点坐标计算厚度。
+- SPECIFY，指定 Abaqus 将使用 *initialThickness* 给定的值。
 
-The default value is SOLVER_DEFAULT.
+默认值为 SOLVER_DEFAULT。
 
 *initialThickness*
 
-A Float specifying the initial thickness for the section. The *initialThickness* argument applies only when *initialThicknessType*=SPECIFY. The default value is 1.0.
+ Float，指定截面的初始厚度。*initialThickness* 参数仅在 *initialThicknessType*=SPECIFY 时适用。默认值为 1.0。
 
 *outOfPlaneThickness*
 
- `None` or a Float specifying the out-of-plane thickness for the section. The default value is `None`.
+ `None` 或 Float，指定截面的面外厚度。默认值为 `None`。
 
-**Return value**
+**返回值**
 
-A CohesiveSection object.
+CohesiveSection 对象。
 
-**Exceptions**
+**异常**
 
-RangeError and InvalidNameError.
+RangeError 和 InvalidNameError。
 
 ### 46.5.2 setValues(...)
 
-This method modifies the CohesiveSection object.
+此方法修改 CohesiveSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [CohesiveSection](pt01ch46pyo05.md#ker-cohesivesection-cohesivesection-pyc) method, except for the *name* argument.
+ `setValues` 的可选参数与 [CohesiveSection](pt01ch46pyo05.md#ker-cohesivesection-cohesivesection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 46.5.3 Members
+### 46.5.3 成员
 
-The CohesiveSection object has members with the same names and descriptions as the arguments to the [CohesiveSection](pt01ch46pyo05.md#ker-cohesivesection-cohesivesection-pyc) method.
+CohesiveSection 对象的成员与 [CohesiveSection](pt01ch46pyo05.md#ker-cohesivesection-cohesivesection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.5.4 Corresponding analysis keywords
+### 46.5.4 对应分析关键字
 
-| [*COHESIVE SECTION](../key/key-link.md#usb-kws-mcohesivesection) |
+| [*COHESIVE SECTION*](../key/key-link.md#usb-kws-mcohesivesection) |
 | --- |
-
-
-
 

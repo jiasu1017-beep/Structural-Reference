@@ -1,14 +1,8 @@
-# 29.89 ShearRetention object
+# 29.89 ShearRetention 对象
 
+ShearRetention 对象定义 [Concrete](pt01ch29pyo18.md) 模型中与裂纹面相关的剪切模量降低，作为裂纹间拉伸应变的函数。
 
-
-
-
-
-
-The ShearRetention object defines the reduction of the shear modulus associated with crack surfaces in a [Concrete](pt01ch29pyo18.md) model as a function of the tensile strain across the crack.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,79 +13,75 @@ session.odbs[*name*].materials[*name*].concrete.shearRetention
 
 ### 29.89.1 ShearRetention(...)
 
-This method creates a ShearRetention object.
+此方法创建 ShearRetention 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].concrete.ShearRetention
 session.odbs[*name*].materials[*name*].concrete.ShearRetention
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-**Optional arguments**
+**可选参数**
 
 *temperatureDependency*
 
-A Boolean specifying whether the data depend on temperature. The default value is OFF.
+Boolean，指定数据是否依赖于温度。默认值为 OFF。
 
 *dependencies*
 
-An Int specifying the number of field variable dependencies. The default value is 0.
+Int，指定场变量依赖项的数量。默认值为 0。
 
-**Table data**
+**表格数据**
 
-- ![](../graphics/ker_eqn00363.gif) for dry concrete. The default value is 1.0.
-- ![](../graphics/ker_eqn00364.gif) for dry concrete. The default value is a very large number (full shear retention).
-- ![](../graphics/ker_eqn00363.gif) for wet concrete. The default value is 1.0.
-- ![](../graphics/ker_eqn00364.gif) for wet concrete. The default value is a very large number (full shear retention).
-- Temperature, if the data depend on temperature.
-- Value of the first field variable, if the data depend on field variables.
-- Value of the second field variable.
-- Etc.
+- 干混凝土的 ![](../graphics/ker_eqn00363.gif)。默认值为 1.0。
+- 干混凝土的 ![](../graphics/ker_eqn00364.gif)。默认值为非常大的数（完全剪切保持）。
+- 湿混凝土的 ![](../graphics/ker_eqn00363.gif)。默认值为 1.0。
+- 湿混凝土的 ![](../graphics/ker_eqn00364.gif)。默认值为非常大的数（完全剪切保持）。
+- 温度（如果数据依赖于温度）。
+- 第一个场变量的值（如果数据依赖于场变量）。
+- 第二个场变量的值。
+- 以此类推。
 
-**Return value**
+**返回值**
 
-A ShearRetention object.
+ShearRetention 对象。
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
 ### 29.89.2 setValues(...)
 
-This method modifies the ShearRetention object.
+此方法修改 ShearRetention 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ShearRetention](pt01ch29pyo89.md#ker-shearretention-shearretention-pyc) method.
+`setValues` 的可选参数与 [ShearRetention](pt01ch29pyo89.md#ker-shearretention-shearretention-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-RangeError.
+RangeError。
 
-### 29.89.3 Members
+### 29.89.3 成员
 
-The ShearRetention object has members with the same names and descriptions as the arguments to the [ShearRetention](pt01ch29pyo89.md#ker-shearretention-shearretention-pyc) method.
+ShearRetention 对象的成员与 [ShearRetention](pt01ch29pyo89.md#ker-shearretention-shearretention-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.89.4 Corresponding analysis keywords
+### 29.89.4 对应的分析关键字
 
 | [*SHEAR RETENTION](../key/key-link.md#usb-kws-mshearretention) |
 | --- |
-
-
-
-

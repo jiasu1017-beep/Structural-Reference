@@ -1,14 +1,8 @@
-# 7.14 Transform object
+# 7.14 Transform 对象
 
+`MakeSketchTransform` 方法创建一个 Transform 对象。Transform 对象没有直接构造函数。Transform 对象是一个 4×3 的 Float 矩阵，表示从草图坐标到装配坐标或零件坐标的变换。
 
-
-
-
-
-
-The `MakeSketchTransform`                 method creates a Transform                 object. The Transform                 object has no direct constructor. A Transform                 object is a 43 matrix of Floats that represents the transformation from sketch coordinates to assembly coordinates or to part coordinates.
-
-**Access**
+**访问**
 
 ```
 import part
@@ -17,24 +11,20 @@ import assembly
 
 ### 7.14.1 matrix()
 
-This method returns the transformation matrix as a tuple of 12 Floats.
+此方法将变换矩阵作为 12 个 Float 的元组返回。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A tuple of 12 Floats.
+一个包含 12 个 Float 的元组。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 7.14.2 Members
+### 7.14.2 成员
 
-The Transform object has no members.
-
-
-
-
+Transform 对象没有成员。

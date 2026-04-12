@@ -1,19 +1,13 @@
-# 7.11 InterestingPoint object
+# 7.11 InterestingPoint 对象
 
+有趣点可以位于以下位置：
+- 边缘的中点。
+- 圆弧的中点。
+- 圆弧的中心。
 
+InterestingPoint 对象是一个临时对象，不能从 [Mdb](pt01ch30pyo01.md) 对象访问。
 
-
-
-
-
-Interesting points can be located at the following:
-- The middle of an edge.
-- The middle of an arc.
-- The center of an arc.
-
-               An InterestingPoint                 object is a temporary object and cannot be accessed from the [Mdb](pt01ch30pyo01.md)                 object.
-
-**Access**
+**访问**
 
 ```
 import part
@@ -22,9 +16,9 @@ import assembly
 
 ### 7.11.1 InterestingPoint(...)
 
-This method creates an interesting point along an edge. An InterestingPoint is a temporary object.
+此方法在边缘上创建一个有趣点。InterestingPoint 是一个临时对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].parts[*name*].InterestingPoint
@@ -34,32 +28,28 @@ mdb.models[*name*].parts[*name*].InterestingPoint
 mdb.models[*name*].rootAssembly.instances[*name*].InterestingPoint
 ```
 
-**Required arguments**
+**必需参数**
 
 *edge*
 
-An Edge object specifying the edge on which the interesting point is positioned.
+一个 Edge 对象，指定有趣点所在的边缘。
 
 *rule*
 
-A SymbolicConstant specifying the position of the interesting point. Possible values are MIDDLE                                or CENTER.
+一个 SymbolicConstant，指定有趣点的位置。可能的值为 MIDDLE 或 CENTER。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-An InterestingPoint object.
+一个 InterestingPoint 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 7.11.2 Members
+### 7.11.2 成员
 
-The InterestingPoint object has no members.
-
-
-
-
+InterestingPoint 对象没有成员。

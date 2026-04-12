@@ -1,14 +1,8 @@
-# 29.91 SimpleShearTestData object
+# 29.91 SimpleShearTestData 对象
 
+SimpleShearTestData 对象提供简单剪切测试数据。
 
-
-
-
-
-
-The SimpleShearTestData object provides simple shear test data.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,68 +13,64 @@ session.odbs[*name*].materials[*name*].hyperfoam.simpleShearTestData
 
 ### 29.91.1 SimpleShearTestData(...)
 
-This method creates a SimpleShearTestData object.
+此方法创建 SimpleShearTestData 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].hyperfoam.SimpleShearTestData
 session.odbs[*name*].materials[*name*].hyperfoam.SimpleShearTestData
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying the items described below.
+Float 元组序列，指定下述项目。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Table data**
+**表格数据**
 
-- Nominal shear stress, ![](../graphics/ker_eqn00332.gif).
-- Nominal shear strain, ![](../graphics/ker_eqn00040.gif).
-- Nominal transverse stress, ![](../graphics/ker_eqn00366.gif) (normal to edge with shear stress). This stress value is optional.
+- 名义剪切应力，![](../graphics/ker_eqn00332.gif)。
+- 名义剪切应变，![](../graphics/ker_eqn00040.gif)。
+- 名义横向应力，![](../graphics/ker_eqn00366.gif)（垂直于剪切应力边缘）。此应力值是可选的。
 
-**Return value**
+**返回值**
 
-A SimpleShearTestData object.
+SimpleShearTestData 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 29.91.2 setValues(...)
 
-This method modifies the SimpleShearTestData object.
+此方法修改 SimpleShearTestData 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [SimpleShearTestData](pt01ch29pyo91.md#ker-simplesheartestdata-simplesheartestdata-pyc) method.
+`setValues` 的可选参数与 [SimpleShearTestData](pt01ch29pyo91.md#ker-simplesheartestdata-simplesheartestdata-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 29.91.3 Members
+### 29.91.3 成员
 
-The SimpleShearTestData object has members with the same names and descriptions as the arguments to the [SimpleShearTestData](pt01ch29pyo91.md#ker-simplesheartestdata-simplesheartestdata-pyc) method.
+SimpleShearTestData 对象的成员与 [SimpleShearTestData](pt01ch29pyo91.md#ker-simplesheartestdata-simplesheartestdata-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.91.4 Corresponding analysis keywords
+### 29.91.4 对应的分析关键字
 
 | [*SIMPLE SHEAR TEST DATA](../key/key-link.md#usb-kws-msimplesheartestdata) |
 | --- |
-
-
-
-

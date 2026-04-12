@@ -1,14 +1,8 @@
-# 7.16 VertexArray object
+# 7.16 VertexArray 对象
 
+VertexArray 是 [Vertex](pt01ch07pyo15.md) 对象的序列。如果零件被修改，则必须为该零件更新 VertexArray。
 
-
-
-
-
-
-The VertexArray is a sequence of [Vertex](pt01ch07pyo15.md)                 objects. If the part is modified, then VertexArray must be updated for that part.
-
-**Access**
+**访问**
 
 ```
 import part
@@ -31,201 +25,201 @@ mdb.models[*name*].rootAssembly.vertices
 
 ### 7.16.1 findAt(...)
 
-This method returns the object or objects in the VertexArray located at the given coordinates.
+此方法返回位于给定坐标处的 VertexArray 中的对象。
 
- `findAt`                       initially uses the ACIS tolerance of 1E-6. As a result, `findAt`                       returns any [Vertex](pt01ch07pyo15.md)                       object that is at the arbitrary point specified or at a distance of less than 1E-6 from the arbitrary point. If nothing is found, `findAt`                       uses the tolerance for imprecise geometry (applicable only for imprecise geometric entities).
+`findAt` 最初使用 ACIS 容差 1E-6。因此，`findAt` 返回任意点指定处或距离任意点小于 1E-6 的任何 [Vertex](pt01ch07pyo15.md)。如果未找到任何内容，`findAt` 使用不精确几何的容差（仅适用于不精确几何实体）。
 
- `findAt`                       will always try to find objects among all the vertices in the part or assembly instance and will not restrict itself to a subset even if the VertexArray represents such subset.
+`findAt` 将始终尝试在零件或装配实例中的所有顶点中查找对象，而不会将自己限制为子集，即使 VertexArray 表示这样的子集。
 
-**Required argument**
+**必需参数**
 
 *coordinates*
 
-A sequence of Floats specifying the *X*-, *Y*-, and *Z*-coordinates of the object to find.
+一个 Float 序列，指定要查找的对象的 *X*-、*Y*- 和 *Z*- 坐标。
 
- `findAt`                                returns either a Vertex object or a sequence of Vertex objects based on the type of input.
-- If *coordinates* is a sequence of Floats, `findAt` returns the Vertex object at that point.
-- If you omit the *coordinates* keyword argument, `findAt` accepts as arguments a sequence of sequence of floats in the following format: ``` verts = v.findAt(((20.19686, -169.513997, 27.798593), ), ((19.657627, -167.295749, 27.056402), ), ((18.274129, -157.144741, 25.15218), )) ```
+`findAt` 根据输入类型返回 Vertex 对象或 Vertex 对象序列。
+- 如果 *coordinates* 是 Float 序列，则 `findAt` 返回该点的 Vertex 对象。
+- 如果省略 *coordinates* 关键字参数，则 `findAt` 接受以下格式的 float 序列序列作为参数：``` verts = v.findAt(((20.19686, -169.513997, 27.798593), ), ((19.657627, -167.295749, 27.056402), ), ((18.274129, -157.144741, 25.15218), )) ```
 
-**Optional argument**
+**可选参数**
 
 *printWarning*
 
-A Boolean specifying whether a message is to be printed to the CLI if no entity is found at the specified location. The default value is True.
+一个 Boolean，指定如果在该位置未找到实体，是否向 CLI 打印消息。默认值为 True。
 
-**Return value**
+**返回值**
 
-A Vertex object or a sequence of Vertex objects.
+一个 Vertex 对象或 Vertex 对象序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.2 getSequenceFromMask(...)
 
-This method returns the object or objects in the VertexArray identified using the specified *mask*. This command is generated when the [JournalOptions](pt01ch47pyo06.md)                       are set to COMPRESSEDINDEX. When a large number of objects are involved, this method is highly efficient.
+此方法返回使用指定 *mask* 标识的 VertexArray 中的对象。当 [JournalOptions](pt01ch47pyo06.md) 设置为 COMPRESSEDINDEX 时，会生成此命令。当大量对象涉及时，此方法非常高效。
 
-**Required argument**
+**必需参数**
 
 *mask*
 
-A String specifying the object or objects.
+一个 String，指定对象或对象。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A [Vertex](pt01ch07pyo15.md)                       object or a sequence of [Vertex](pt01ch07pyo15.md)                       objects.
+一个 [Vertex](pt01ch07pyo15.md) 对象或 [Vertex](pt01ch07pyo15.md) 对象序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.3 getMask()
 
-This method returns a string specifying the object or objects.
+此方法返回一个字符串，指定对象或对象。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-                 A String specifying the object or objects.
+一个 String，指定对象或对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.4 getByBoundingBox(...)
 
-This method returns an array of vertex objects that lie within the specified bounding box.
+此方法返回位于指定边界框内的顶点对象数组。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
 *xMin*
 
-A float specifying the minimum *X*-boundary of the bounding box.
+一个 float，指定边界框的最小 *X* 边界。
 
 *yMin*
 
-A float specifying the minimum *Y*-boundary of the bounding box.
+一个 float，指定边界框的最小 *Y* 边界。
 
 *zMin*
 
-A float specifying the minimum *Z*-boundary of the bounding box.
+一个 float，指定边界框的最小 *Z* 边界。
 
 *xMax*
 
-A float specifying the maximum *X*-boundary of the bounding box.
+一个 float，指定边界框的最大 *X* 边界。
 
 *yMax*
 
-A float specifying the maximum *Y*-boundary of the bounding box.
+一个 float，指定边界框的最大 *Y* 边界。
 
 *zMax*
 
-A float specifying the maximum *Z*-boundary of the bounding box.
+一个 float，指定边界框的最大 *Z* 边界。
 
-**Return value**
+**返回值**
 
-A VertexArray                       object, which is a sequence of [Vertex](pt01ch07pyo15.md)                       objects.
+一个 VertexArray 对象，即 [Vertex](pt01ch07pyo15.md) 对象的序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.5 getByBoundingCylinder(...)
 
-This method returns an array of vertex objects that lie within the specified bounding cylinder.
+此方法返回位于指定边界圆柱体内的顶点对象数组。
 
-**Required arguments**
+**必需参数**
 
 *center1*
 
-A tuple of the *X*-, *Y*-, and *Z*-coordinates of the center of the first end of the cylinder.
+圆柱体第一端中心的 *X*-、*Y*- 和 *Z*- 坐标元组。
 
 *center2*
 
-A tuple of the *X*-, *Y*-, and *Z*-coordinates of the center of the second end of the cylinder.
+圆柱体第二端中心的 *X*-、*Y*- 和 *Z*- 坐标元组。
 
 *radius*
 
-A float specifying the radius of the cylinder.
+一个 float，指定圆柱体的半径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A VertexArray                       object, which is a sequence of [Vertex](pt01ch07pyo15.md)                       objects.
+一个 VertexArray 对象，即 [Vertex](pt01ch07pyo15.md) 对象的序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.6 getByBoundingSphere(...)
 
-This method returns an array of vertex objects that lie within the specified bounding sphere.
+此方法返回位于指定边界球体内的顶点对象数组。
 
-**Required arguments**
+**必需参数**
 
 *center*
 
-A tuple of the *X*-, *Y*-, and *Z*-coordinates of the center of the sphere.
+一个元组，表示球体中心的 *X*-、*Y*- 和 *Z*- 坐标。
 
 *radius*
 
-A float specifying the radius of the sphere.
+一个 float，指定球体的半径。
 
-**Optional arguments**
+**可选参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A VertexArray                       object, which is a sequence of [Vertex](pt01ch07pyo15.md)                       objects.
+一个 VertexArray 对象，即 [Vertex](pt01ch07pyo15.md) 对象的序列。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.7 getBoundingBox()
 
-This method returns a dictionary of two tuples representing minimum and maximum boundary                      values of the bounding box of the minimum size containing the vertex sequence.
+此方法返回一个字典，包含两个元组，表示包含顶点序列的最小尺寸边界框的最小和最大边界值。
 
-**Arguments**
+**参数**
 
-None.
+无。
 
-**Return value**
+**返回值**
 
-A Dictionary object with the following items:
+一个 Dictionary 对象，包含以下项目：
 
- *low*: a tuple of three floats representing the minimum *X*-, *Y*-, and *Z*-boundary values of the bounding box.
+*low*：三个 float 元组，表示边界框的最小 *X*-、*Y*- 和 *Z*- 边界值。
 
- *high*: a tuple of three floats representing the maximum *X*-, *Y*-, and *Z*-boundary values of the bounding box.
+*high*：三个 float 元组，表示边界框的最大 *X*-、*Y*- 和 *Z*- 边界值。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 7.16.8 getClosest(...)
 
-This method returns a object or objects in the VertexArray closest to the given set of points, where the given points need not lie on [Vertex](pt01ch07pyo15.md) objects in the VertexArray. 
+此方法返回 VertexArray 中离给定点集最近的对象或对象，给定点不必位于 [Vertex](pt01ch07pyo15.md) 对象上。
 
-**Required argument**
+**必需参数**
 
 *coordinates*
 
-A sequence of a sequence of floats, where each sequence of floats describes the *X*-, *Y*-, and *Z*-coordinates of a point.
+一个 float 序列的序列，其中每个 float 序列描述一个点的 *X*-、*Y*- 和 *Z*- 坐标。
 
 ```
 r=v.getClosest(coordinates=((20.0,20.0,10.0),(-1.0, -15.0, 15),))
@@ -248,28 +242,24 @@ r[0]
         (15.7090625762939, 29.1666641235352, 20.0))
 ```
 
-**Optional argument**
+**可选参数**
 
 *searchTolerance*
 
-A double specifying the distance within which the closest object must lie. The default value is half of the parent part/instance size.
+一个 double，指定最近对象必须位于的距离内。默认值为父零件/实例大小的一半。
 
-**Return value**
+**返回值**
 
-This method returns a dictionary object. The key to the dictionary object is the position of the input point in the tuple specified in the *coordinates*                       starting at index 0. If a closest vertex could be found then the value is a sequence consisting of two objects. The first object in the sequence is a [Vertex](pt01ch07pyo15.md)                       that is close to the input point referred to by the key. The second object in the sequence is a sequence of floats that specifies the *X*-, *Y*-, and *Z*-location of the [Vertex](pt01ch07pyo15.md). See program listing above.
+此方法返回一个字典对象。字典的键是 *coordinates* 中指定输入点在元组中的位置，从索引 0 开始。如果找到最近的顶点，则值是一个包含两个对象的序列。序列中的第一个对象是一个 [Vertex](pt01ch07pyo15.md)，靠近键所指的输入点。序列中的第二个对象是一个 float 序列，指定 [Vertex](pt01ch07pyo15.md) 上到给定点的最近点的 *X*-、*Y*- 和 *Z*- 位置。请参阅上面的程序列表。
 
-**Exceptions**
+**异常**
 
-An exception occurs if the resulting sequence is empty.
+如果结果序列为空，则抛出异常。
 
 ```
 Error: The mask results in an empty sequence
 ```
 
-### 7.16.9 Members
+### 7.16.9 成员
 
-The VertexArray object has no members.
-
-
-
-
+VertexArray 对象没有成员。

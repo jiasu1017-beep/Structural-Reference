@@ -1,14 +1,8 @@
-# 7.13 ReferencePoint object
+# 7.13 ReferencePoint 对象
 
+ReferencePoint 对象没有直接构造函数；当创建 [Feature](pt01ch20pyo01.md) 对象时会创建它。`ReferencePoint` 方法创建一个 [Feature](pt01ch20pyo01.md) 对象，该对象创建一个 ReferencePoint 对象。
 
-
-
-
-
-
-The ReferencePoint                 object has no direct constructor; it is created when a [Feature](pt01ch20pyo01.md)                 object is created. The `ReferencePoint`                 method creates a [Feature](pt01ch20pyo01.md)                 object that creates a ReferencePoint                 object.
-
-**Access**
+**访问**
 
 ```
 import part
@@ -32,10 +26,6 @@ mdb.models[*name*].rootAssembly.referencePoints[*i*]
 mdb.models[*name*].rootAssembly.sets[*name*].referencePoints[*i*]
 ```
 
-### 7.13.1 Members
+### 7.13.1 成员
 
-The ReferencePoint object has no members.
-
-
-
-
+ReferencePoint 对象没有成员。

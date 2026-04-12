@@ -1,14 +1,8 @@
-# 29.90 ShearTestData object
+# 29.90 ShearTestData 对象
 
+ShearTestData 对象将归一化剪切蠕变柔量或松弛模量指定为时间的函数。
 
-
-
-
-
-
-The ShearTestData object specifies the normalized shear creep compliance or relaxation modulus as a function of time.
-
-**Access**
+**访问**
 
 ```
 import material
@@ -19,76 +13,72 @@ session.odbs[*name*].materials[*name*].viscoelastic.shearTestData
 
 ### 29.90.1 ShearTestData(...)
 
-This method creates a ShearTestData object.
+此方法创建 ShearTestData 对象。
 
-**Path**
+**路径**
 
 ```
 mdb.models[*name*].materials[*name*].viscoelastic.ShearTestData
 session.odbs[*name*].materials[*name*].viscoelastic.ShearTestData
 ```
 
-**Required argument**
+**必需参数**
 
 *table*
 
-A sequence of sequences of Floats specifying values that depend on the *time* member of the [Viscoelastic](pt01ch29pyo106.md) object.
+Float 元组序列，指定依赖于 [Viscoelastic](pt01ch29pyo106.md) 对象的 *time* 成员的值。
 
-If *time*=RELAXATION_TEST_DATA, the table data specify the following:
-- Normalized shear relaxation modulus ![](../graphics/ker_eqn00117.gif). ![](../graphics/ker_eqn00118.gif).
-- Time ![](../graphics/ker_eqn00093.gif). ![](../graphics/ker_eqn00121.gif).
+如果 *time*=RELAXATION_TEST_DATA，表格数据指定以下内容：
+- 归一化剪切松弛模量 ![](../graphics/ker_eqn00117.gif)。![](../graphics/ker_eqn00118.gif)。
+- 时间 ![](../graphics/ker_eqn00093.gif)。![](../graphics/ker_eqn00121.gif)。
 
-If *time*=CREEP_TEST_DATA, the table data specify the following:
-- Normalized shear compliance ![](../graphics/ker_eqn00122.gif). ![](../graphics/ker_eqn00365.gif).
-- Time ![](../graphics/ker_eqn00093.gif). ![](../graphics/ker_eqn00121.gif).
+如果 *time*=CREEP_TEST_DATA，表格数据指定以下内容：
+- 归一化剪切柔量 ![](../graphics/ker_eqn00122.gif)。![](../graphics/ker_eqn00365.gif)。
+- 时间 ![](../graphics/ker_eqn00093.gif)。![](../graphics/ker_eqn00121.gif)。
 
-**Optional argument**
+**可选参数**
 
 *shrinf*
 
- `None` or a Float specifying a normalized shear. The value of *shrinf* depends on the value of the *time* member of the [Viscoelastic](pt01ch29pyo106.md) object. The default value is `None`.
+`None` 或 Float，指定归一化剪切。*shrinf* 的值取决于 [Viscoelastic](pt01ch29pyo106.md) 对象的 *time* 成员的值。默认值为 `None`。
 
-If *time*=RELAXATION_TEST_DATA, *shrinf* specifies the value of the long-term, normalized shear modulus ![](../graphics/ker_eqn00115.gif).
+如果 *time*=RELAXATION_TEST_DATA，*shrinf* 指定长期归一化剪切模量 ![](../graphics/ker_eqn00115.gif) 的值。
 
-If *time*=CREEP_TEST_DATA, *shrinf* specifies the value of the long-term, normalized shear compliance ![](../graphics/ker_eqn00116.gif).
+如果 *time*=CREEP_TEST_DATA，*shrinf* 指定长期归一化剪切柔量 ![](../graphics/ker_eqn00116.gif) 的值。
 
-**Return value**
+**返回值**
 
-A ShearTestData object.
+ShearTestData 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 29.90.2 setValues(...)
 
-This method modifies the ShearTestData object.
+此方法修改 ShearTestData 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [ShearTestData](pt01ch29pyo90.md#ker-sheartestdata-sheartestdata-pyc) method.
+`setValues` 的可选参数与 [ShearTestData](pt01ch29pyo90.md#ker-sheartestdata-sheartestdata-pyc) 方法的参数相同。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 29.90.3 Members
+### 29.90.3 成员
 
-The ShearTestData object has members with the same names and descriptions as the arguments to the [ShearTestData](pt01ch29pyo90.md#ker-sheartestdata-sheartestdata-pyc) method.
+ShearTestData 对象的成员与 [ShearTestData](pt01ch29pyo90.md#ker-sheartestdata-sheartestdata-pyc) 方法的参数具有相同的名称和描述。
 
-### 29.90.4 Corresponding analysis keywords
+### 29.90.4 对应的分析关键字
 
 | [*SHEAR TEST DATA](../key/key-link.md#usb-kws-msheartestdata) |
 | --- |
-
-
-
-

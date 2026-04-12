@@ -1,71 +1,61 @@
-# 36.2 CombinedTermDesignResponse object
+# 36.2 CombinedTermDesignResponse 对象
 
+CombinedTermDesignResponse 对象定义组合项设计响应。
 
+CombinedTermDesignResponse 对象派生自 [DesignResponse](pt01ch36pyo04.md) 对象。
 
-
-
-
-
-The CombinedTermDesignResponse object defines a combined-term design response.
-
-         The CombinedTermDesignResponse object is derived from the [DesignResponse](pt01ch36pyo04.md) object.       
-
-**Access**
+**访问**
 
 ```
-
-        import optimization
-        mdb.models[*name*].optimizationTasks[*name*].designResponses[*name*]
-
+import optimization
+mdb.models[*name*].optimizationTasks[*name*].designResponses[*name*]
 ```
 
 ### 36.2.1 CombinedTermDesignResponse(...)
 
-           This method creates a CombinedTermDesignResponse object.         
+此方法创建 CombinedTermDesignResponse 对象。
 
-**Path**
-
-```
-
-          mdb.models[*name*].optimizationTasks[*name*].CombinedTermDesignResponse
+**路径**
 
 ```
+mdb.models[*name*].optimizationTasks[*name*].CombinedTermDesignResponse
+```
 
-**Required arguments**
+**必要参数**
 
 *name*
 
-A String specifying the design response repository key.
+一个字符串，指定设计响应仓库键。
 
 *terms*
 
-A sequence of Strings specifying the names of the design responses to combine.
+字符串序列，指定要组合的设计响应名称。
 
-**Optional arguments**
+**可选参数**
 
 *filterMaxRadius*
 
- `None` or a sequence of Floats specifying the maximum radius of influence used when *method* is FILTER. The default value is `None`.               
+`None` 或浮点数序列，指定当 *method* 为 FILTER 时使用的最大影响半径。默认值为 `None`。
 
 *filterExponent*
 
-                 A Float specifying the exponent used when *method* is FILTER. The default value is 1.0.               
+一个 Float，指定当 *method* 为 FILTER 时使用的指数。默认值为 1.0。
 
 *filterRadiusReduction*
 
-                 A Float specifying the reduction of the radius depending on surface bending, used when *method* is FILTER. The default value is 0.2.               
+一个 Float，指定当 *method* 为 FILTER 时使用的取决于表面弯曲的半径减少。默认值为 0.2。
 
 *highCutOff*
 
- `None` or a sequence of Floats specifying the upper bound of the vector value used when *method* is CUT_OFF.  All values greater than the *highCutOff* are set to the *highCutOff* value. The default value is `None`.               
+`None` 或浮点数序列，指定当 *method* 为 CUT_OFF 时使用的向量值的上限。所有大于 *highCutOff* 的值都设置为 *highCutOff* 值。默认值为 `None`。
 
 *lowCutOff*
 
-                 A Float specifying the lower bound of the vector value used when *method* is CUT_OFF.  All values less than the *lowCutOff* are treated as 0. The default value is 0.0.               
+一个 Float，指定当 *method* 为 CUT_OFF 时使用的向量值的下限。所有小于 *lowCutOff* 的值被视为 0。默认值为 0.0。
 
 *method*
 
-                 A SymbolicConstant specifying the method used to combine selected design responses. Possible values are:
+一个 SymbolicConstant，指定用于组合所选设计响应的方法。可能的值为：
 - ABSOLUTE_DIFFERENCE
 - ABSOLUTE_VALUE
 - ADD
@@ -98,44 +88,40 @@ A sequence of Strings specifying the names of the design responses to combine.
 - TANGENT
 - WEIGHTED_ADD
 
-The default value is ADD.               
+默认值为 ADD。
 
 *weights*
 
-                 A sequence of Floats specifying the weights to apply to the list of design responses used when *method* is WEIGHTED_ADD. The default value is an empty sequence.               
+浮点数序列，指定当 *method* 为 WEIGHTED_ADD 时应用于设计响应列表的权重。默认值为空序列。
 
-**Return value**
+**返回值**
 
-           A CombinedTermDesignResponse object.         
+CombinedTermDesignResponse 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 36.2.2 setValues(...)
 
-           This method modifies the CombinedTermDesignResponse object.         
+此方法修改 CombinedTermDesignResponse 对象。
 
-**Required arguments**
+**必要参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-             The optional arguments to `setValues` are the same as the arguments to the [CombinedTermDesignResponse](pt01ch36pyo02.md#ker-combinedtermdesignresponse-combinedtermdesignrespons-pyc) method, except for the *name* argument.           
+`setValues` 的可选参数与 [CombinedTermDesignResponse](pt01ch36pyo02.md#ker-combinedtermdesignresponse-combinedtermdesignrespons-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 36.2.3 Members
+### 36.2.3 成员
 
-         The CombinedTermDesignResponse object has members with the same names and descriptions as the arguments to the [CombinedTermDesignResponse](pt01ch36pyo02.md#ker-combinedtermdesignresponse-combinedtermdesignrespons-pyc) method.       
-
-
-
-
+CombinedTermDesignResponse 对象具有与 [CombinedTermDesignResponse](pt01ch36pyo02.md#ker-combinedtermdesignresponse-combinedtermdesignrespons-pyc) 方法的参数名称和描述相同的成员。

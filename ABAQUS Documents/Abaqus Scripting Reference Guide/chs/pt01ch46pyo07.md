@@ -1,16 +1,10 @@
-# 46.7 CompositeSolidSection object
+# 46.7 CompositeSolidSection 对象
 
+CompositeSolidSection 对象定义复合实体截面的属性。
 
+CompositeSolidSection 对象派生自 [Section](pt01ch46pyo01.md) 对象。
 
-
-
-
-
-The CompositeSolidSection object defines the properties of a composite solid section.
-
-The CompositeSolidSection object is derived from the [Section](pt01ch46pyo01.md) object.
-
-**Access**
+**访问**
 
 ```
 import section
@@ -21,7 +15,7 @@ session.odbs[*name*].sections[*name*]
 
 ### 46.7.1 CompositeSolidSection(...)
 
-This method creates a CompositeSolidSection object.
+此方法创建 CompositeSolidSection 对象。
 
 **Path**
 
@@ -30,63 +24,60 @@ mdb.models[*name*].CompositeSolidSection
 session.odbs[*name*].CompositeSolidSection
 ```
 
-**Required arguments**
+**必需参数**
 
 *name*
 
-A String specifying the repository key.
+ String，指定存储库键。
 
 *layup*
 
-A [SectionLayerArray](pt01ch46pyo20.md) object specifying the solid cross-section.
+ [SectionLayerArray](pt01ch46pyo20.md) 对象，指定实体截面。
 
-**Optional arguments**
+**可选参数**
 
 *symmetric*
 
-A Boolean specifying whether or not the layup should be made symmetric by the analysis. The default value is OFF.
+ Boolean，指定分析是否应使铺层对称。默认值为 OFF。
 
 *layupName*
 
-A String specifying the layup name for this section. The default value is an empty string.
+ String，指定此截面的铺层名称。默认值为空字符串。
 
-**Return value**
+**返回值**
 
-A CompositeSolidSection object.
+CompositeSolidSection 对象。
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
 ### 46.7.2 setValues(...)
 
-This method modifies the CompositeSolidSection object.
+此方法修改 CompositeSolidSection 对象。
 
-**Required arguments**
+**必需参数**
 
-None.
+无。
 
-**Optional arguments**
+**可选参数**
 
-The optional arguments to `setValues` are the same as the arguments to the [CompositeSolidSection](pt01ch46pyo07.md#ker-compositesolidsection-compositesolidsection-pyc) method, except for the *name* argument.
+ `setValues` 的可选参数与 [CompositeSolidSection](pt01ch46pyo07.md#ker-compositesolidsection-compositesolidsection-pyc) 方法的参数相同，但 *name* 参数除外。
 
-**Return value**
+**返回值**
 
-None
+无
 
-**Exceptions**
+**异常**
 
-None.
+无。
 
-### 46.7.3 Members
+### 46.7.3 成员
 
-The CompositeSolidSection object has members with the same names and descriptions as the arguments to the [CompositeSolidSection](pt01ch46pyo07.md#ker-compositesolidsection-compositesolidsection-pyc) method.
+CompositeSolidSection 对象的成员与 [CompositeSolidSection](pt01ch46pyo07.md#ker-compositesolidsection-compositesolidsection-pyc) 方法的参数具有相同的名称和描述。
 
-### 46.7.4 Corresponding analysis keywords
+### 46.7.4 对应分析关键字
 
-| [*SOLID SECTION](../key/key-link.md#usb-kws-msolidsection) |
+| [*SOLID SECTION*](../key/key-link.md#usb-kws-msolidsection) |
 | --- |
-
-
-
 

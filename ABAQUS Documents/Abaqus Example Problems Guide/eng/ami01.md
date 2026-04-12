@@ -15,7 +15,6 @@ Input data files for all of the analyses are included with the Abaqus release in
 ```
 abaqus fetch job=boltpipeflange_3d_cyclsym.inp
 ```
-
 Parametric study script (`.psf`) and user subroutine (`.f`) files can be fetched in the same manner. All files for a particular problem can be obtained by leaving off the file extension. The **abaqus fetch** utility is explained in detail in ["Fetching sample input files," Section 3.2.16 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-int-dfetchproc).
 
 It is sometimes useful to search the input files. The **findkeyword** utility is used to locate input files that contain user-specified input. This utility is defined in ["Querying the keyword/problem database," Section 3.2.15 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-int-dkeywordproc).
@@ -25,7 +24,6 @@ To reproduce the graphical representation of the solution reported in some of th
 ```
 *NODE FILE, ..., FREQUENCY=1
 ```
-
 instead of `FREQUENCY=100` as appears now.
 
 In addition to the Abaqus Example Problems Guide, there are two other guides that contain worked problems. The [Abaqus Benchmarks Guide](../bmk/bmk-link.md#bmk) contains benchmark problems (including the NAFEMS suite of test problems) and standard analyses used to evaluate the performance of Abaqus. The tests in this guide are multiple element tests of simple geometries or simplified versions of real problems. The [Abaqus Verification Guide](../ver/ver-link.md#ver) contains a large number of examples that are intended as elementary verification of the basic modeling capabilities.

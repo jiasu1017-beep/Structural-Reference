@@ -10,7 +10,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Abaqus/CAE User's Guide](./Abaqus%20CAE%20Users%20Guide/) | Abaqus/CAE 用户指南 | ⏳ 未转换 / Not converted |
+| [Abaqus/CAE User's Guide](./Abaqus%20CAE%20Users%20Guide/) | Abaqus/CAE 用户指南 | ⏳ 翻译中 / Translating |
 
 ---
 
@@ -18,7 +18,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Abaqus Analysis User's Guide](./Abaqus%20Analysis%20User%27s%20Guide/) | Abaqus 分析用户指南 | ⏳ 未转换 / Not converted |
+| [Abaqus Analysis User's Guide](./Abaqus%20Analysis%20User%27s%20Guide/) | Abaqus 分析用户指南 | ⏳ 翻译中 / Translating |
 
 ---
 
@@ -27,7 +27,7 @@
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
 | [Abaqus Example Problems Guide](./Abaqus%20Example%20Problems%20Guide/) | Abaqus 示例问题指南 | ✅ 已完成 / Completed |
-| [Abaqus Benchmarks Guide](./Abaqus%20Benchmarks%20Guide/) | Abaqus 基准测试指南 | ⏳ 未转换 / Not converted |
+| [Abaqus Benchmarks Guide](./Abaqus%20Benchmarks%20Guide/) | Abaqus 基准测试指南 | ✅ 已完成 / Completed |
 
 ---
 
@@ -44,7 +44,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Using Abaqus Online Documentation](./Using%20Abaqus%20Online%20Documentation/) | Abaqus 在线文档使用指南 | ⏳ 未转换 / Not converted |
+| [Using Abaqus Online Documentation](./Using%20Abaqus%20Online%20Documentation/) | Abaqus 在线文档使用指南 | ⏳ 翻译中 / Translating |
 
 ---
 
@@ -62,7 +62,7 @@
 |-------------------|-----------------|----------|
 | [Abaqus Keywords Reference Guide](./Abaqus%20Keywords%20Reference%20Guide/) | Abaqus 关键词参考指南 | ✅ 已完成 / Completed |
 | [Abaqus Theory Guide](./Abaqus%20Theory%20Guide/) | Abaqus 理论指南 | ✅ 已完成 / Completed |
-| [Abaqus Verification Guide](./Abaqus%20Verification%20Guide/) | Abaqus 验证指南 | ⏳ 未转换 / Not converted |
+| [Abaqus Verification Guide](./Abaqus%20Verification%20Guide/) | Abaqus 验证指南 | ✅ 已完成 / Completed |
 | [Abaqus User Subroutines Reference Guide](./Abaqus%20User%20Subroutines%20Reference%20Guide/) | Abaqus 用户子程序参考指南 | ✅ 已完成 / Completed |
 | [Abaqus Glossary](./Abaqus%20Glossary/) | Abaqus 术语表 | ✅ 已完成 / Completed |
 
@@ -74,7 +74,7 @@
 |-------------------|-----------------|----------|
 | [Abaqus Scripting User's Guide](./Abaqus%20Scripting%20User%27s%20Guide/) | Abaqus 脚本用户指南 | ✅ 已完成 / Completed |
 | [Abaqus Scripting Reference Guide](./Abaqus%20Scripting%20Reference%20Guide/) | Abaqus 脚本参考指南 | ✅ 已完成 / Completed |
-| [Abaqus GUI Toolkit User's Guide](./Abaqus%20GUI%20Toolkit%20User%27s%20Guide/) | Abaqus GUI 工具包用户指南 | ⏳ 翻译中 / Translating |
+| [Abaqus GUI Toolkit User's Guide](./Abaqus%20GUI%20Toolkit%20User%27s%20Guide/) | Abaqus GUI 工具包用户指南 | ✅ 已完成 / Completed |
 | [Abaqus GUI Toolkit Reference Guide](./Abaqus%20GUI%20Toolkit%20Reference%20Guide/) | Abaqus GUI 工具包参考指南 | ✅ 已完成 / Completed |
 
 ---
@@ -99,10 +99,10 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 13 |
-| ⏳ 翻译中 / Translating | 1 |
-| ⏳ 未转换 / Not converted | 5 |
-| **总计 Total** | **19** |
+| ✅ 已完成 / Completed | 15 |
+| ⏳ 翻译中 / Translating | 2 |
+| ⏳ 未转换 / Not converted | 3 |
+| **总计 Total** | **20** |
 
 ---
 

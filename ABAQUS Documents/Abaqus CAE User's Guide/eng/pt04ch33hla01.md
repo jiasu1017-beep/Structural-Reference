@@ -1,0 +1,27 @@
+# 33.3 Defining point mass and rotary inertia
+
+
+
+
+
+
+
+You can define lumped mass and rotary inertia at a point on a part or on an assembly. You can also define mass and inertia proportional damping. In an Abaqus/Standard analysis, you can define composite damping. For more information, see ["Point masses," Section 30.1.1 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-emasses), and ["Rotary inertia," Section 30.2.1 of the Abaqus Analysis User's Guide](../usb/usb-link.md#usb-elm-erotinertia).
+
+**To define point mass and rotary inertia:**
+
+1. From the main menu bar in the Property module or the Interaction module, select ****Special**![](../graphics/images/arrow.gif)**Inertia**![](../graphics/images/arrow.gif)**Create****.
+2. In the **Create Inertia** dialog box that appears, name the inertia, select **Point mass/inertia**, and click **Continue**.
+3. Select the points for which you want to define mass and rotary inertia using one of the following methods: - Select the points in the viewport. When you have finished selecting, click mouse button 2. If the model contains a combination of orphan mesh elements and geometry, select one of the following from the prompt area: - Select **Geometry** to define the point mass and rotary inertia for the geometric portions of a part or assembly or for a reference point. - Select **Mesh** to define the point mass and rotary inertia for orphan mesh components. You can use the angle method to select a group of nodes from an orphan mesh. For more information, see ["Using the angle and feature edge method to select multiple objects," Section 6.2.3](pt01ch06s02hlb03.md). - To select from a list of existing sets, do the following: 1. Click **Sets** on the right side of the prompt area to display the **Region Selection** dialog box containing a list of available sets. 2. Select the set of interest, and click **Continue**. **Note:**The default selection method is based on the selection method you most recently employed. To revert to the other method, click **Select in Viewport** or **Sets** on the right side of the prompt area. The **Edit Inertia** dialog box appears. The region to which you are applying the point mass and rotary inertia is highlighted in the viewport.
+4. From the **Mass** portion of the **Magnitude** tabbed page, do the following: - For isotropic mass, toggle on **Isotropic** and specify the magnitude of the mass. - For anisotropic mass, toggle on **Anisotropic** and specify the mass components ![](../graphics/usi_eqn00712.gif), ![](../graphics/usi_eqn00713.gif), and ![](../graphics/usi_eqn00714.gif).
+5. In the **Rotary Inertia** portion of the page, specify the moments of inertia (units [ML2](../popups/usb-int-iconventions-unitsym.md)). 1. Toggle on **Specify off-diagonal terms** if you want to specify products of inertia. 2. Enter values for the rotary inertia. **I11** Rotary inertia about the local 1-axis, ![](../graphics/usi_eqn00695.gif). **I22** Rotary inertia about the local 2-axis, ![](../graphics/usi_eqn00696.gif). **I33** Rotary inertia about the local 3-axis, ![](../graphics/usi_eqn00697.gif). 3. If applicable, enter values for the products of inertia. **I12** Product of inertia, ![](../graphics/usi_eqn00698.gif). **I13** Product of inertia, ![](../graphics/usi_eqn00699.gif). **I23** Product of inertia, ![](../graphics/usi_eqn00700.gif).
+6. If you want to change the coordinate system (**CSYS**) for the rotary inertia, click ![](../graphics/ico_selectBlue.png) and use one of the following methods: - Select an existing datum coordinate system in the viewport. - Select an existing datum coordinate system by name. 1. From the prompt area, click **Datum CSYS List** to display a list of datum coordinate systems. 2. Select a name from the list, and click **OK**. - Click **Use Global CSYS** from the prompt area to revert to the global coordinate system. By default, the global coordinate system is used to define the rotary inertia.
+7. Use the **Damping** tabbed page to define mass or inertia proportional damping. For an Abaqus/Standard analysis, you can also define composite damping. You can specify values for both mass proportional damping and composite damping or for both inertia proportional damping and composite damping; however, Abaqus uses only the damping that is relevant to the particular dynamic analysis procedure being performed. If different damping values are needed for mass and rotary inertia, you must create separate inertia definitions. - In the **Alpha** field, enter the ![](../graphics/usi_eqn00272.gif) factor to create mass or inertia proportional damping for a direct-integration dynamic or explicit dynamic analysis. This value is ignored in a modal dynamic analysis. The default value is 0.0. - In the **Composite** field, enter the fraction of critical damping, ![](../graphics/usi_eqn00715.gif), to be used when calculating composite damping factors for the modes in a modal dynamic analysis. This value is ignored in a direct-integration dynamic analysis. The default value is 0.0.
+8. Click **OK** to save your data and to close the dialog box. Symbols appear in the viewport that represent the point mass and rotary inertia that you just created.
+
+![](../graphics/images/black4rule.gif)For information on related topics, click any of the following items:- ["Controlling the display of attributes," Section 76.15](pt07ch76hla14.md)
+- ["Symbols used to represent special engineering features," Section C.3](ap03s03.md)
+
+
+
+

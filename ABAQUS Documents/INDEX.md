@@ -10,7 +10,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Abaqus/CAE User's Guide](./Abaqus%20CAE%20Users%20Guide/) | Abaqus/CAE 用户指南 | ⏳ 翻译中 / Translating |
+| [Abaqus/CAE User's Guide](./Abaqus%20CAE%20Users%20Guide/) | Abaqus/CAE 用户指南 | ✅ 已完成 / Completed |
 
 ---
 
@@ -18,7 +18,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Abaqus Analysis User's Guide](./Abaqus%20Analysis%20User%27s%20Guide/) | Abaqus 分析用户指南 | ⏳ 翻译中 / Translating |
+| [Abaqus Analysis User's Guide](./Abaqus%20Analysis%20User%27s%20Guide/) | Abaqus 分析用户指南 | ✅ 已完成 / Completed |
 
 ---
 
@@ -44,7 +44,7 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Using Abaqus Online Documentation](./Using%20Abaqus%20Online%20Documentation/) | Abaqus 在线文档使用指南 | ⏳ 翻译中 / Translating |
+| [Using Abaqus Online Documentation](./Using%20Abaqus%20Online%20Documentation/) | Abaqus 在线文档使用指南 | ✅ 已完成 / Completed |
 
 ---
 
@@ -99,9 +99,9 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 15 |
-| ⏳ 翻译中 / Translating | 2 |
-| ⏳ 未转换 / Not converted | 3 |
+| ✅ 已完成 / Completed | 18 |
+| ⏳ 翻译中 / Translating | 0 |
+| ⏳ 未转换 / Not converted | 2 |
 | **总计 Total** | **20** |
 
 ---

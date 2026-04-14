@@ -1,47 +1,1202 @@
-# Abaqus Scripting Reference Guide
+# Abaqus Scripting Reference Guide (6.14)
 
-## Abaqus 脚本参考指南
+## 文档索引 / Documentation Index
 
-**来源 / Source:** D:\SIMULIA\Documentation\docs\v6.14\books\ker
+本手册为 ABAQUS 6.14 Abaqus Scripting Reference Guide 的中文翻译版本。
 
----
-
-## Part I: Python Scripting / 第一部分：Python脚本
-
-### Chapters 1-18: Getting Started / 第1-18章：入门
-
-| 英文 English | 中文 Chinese | 说明 Note |
-|-------------|-------------|----------|
-| [pt01.md](./eng/pt01.md) | [pt01.md](./chs/pt01.md) | Part I index |
-| [pt01ch01.md](./eng/pt01ch01.md) | [pt01ch01.md](./chs/pt01ch01.md) | 1 Abaqus GUI Toolkit |
-| [pt01ch02.md](./eng/pt01ch02.md) | [pt01ch02.md](./chs/pt01ch02.md) | 2 Introduction to Abaqus GUI scripting |
-| [pt01ch03.md](./eng/pt01ch03.md) | [pt01ch03.md](./chs/pt01ch03.md) | 3 A simple example |
-| [pt01ch04.md](./eng/pt01ch04.md) | [pt01ch04.md](./chs/pt01ch04.md) | 4 A more complex example |
-| [pt01ch05.md](./eng/pt01ch05.md) | [pt01ch05.md](./chs/pt01ch05.md) | 5 Using the Abaqus GUI Library |
-| [pt01ch06.md](./eng/pt01ch06.md) | [pt01ch06.md](./chs/pt01ch06.md) | 6 Using Abaqus UI decomposition |
-| [pt01ch07.md](./eng/pt01ch07.md) | [pt01ch07.md](./chs/pt01ch07.md) | 7 Customizing your GUI |
-| [pt01ch08.md](./eng/pt01ch08.md) | [pt01ch08.md](./chs/pt01ch08.md) | 8 Using AF(X) files |
-| [pt01ch09.md](./eng/pt01ch09.md) | [pt01ch09.md](./chs/pt01ch09.md) | 9 The Plugin Manager |
-| [pt01ch10.md](./eng/pt01ch10.md) | [pt01ch10.md](./chs/pt01ch10.md) | 10 Interactiveabaqus.py |
-
-(1162 total files - full index in [eng/](./eng/) directory)
+**来源 / Source:** D:\SIMULIA\Documentation\docs\v6.14\books\cmd\
 
 ---
 
-## 转换状态 / Conversion Status
+## 双语目录对照 / Bilingual Table of Contents
 
-| 状态 Status | 数量 Count |
-|-------------|------------|
-| ✅ 英文已转换 / English converted | 1162 |
-| ⏳ 中文翻译中 / Chinese translating | 0 |
-| ✅ 中文已完成 / Chinese completed | 0 |
+### OTHER
+*Summary of Abaqus Scripting Interface changes between Abaqus 6.13 and Abaqus 6.14*
 
-**总计 / Total:** 1162 files
+| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
+|-----------------|-----------------|-----------------|-----------------|
+| Summary of Abaqus Scripting Interface changes between Abaqus 6.13 and Abaqus 6.14 | Summary of Abaqus Scripting Interface changes between Abaqus 6.13 and Abaqus 6.14 | [pyi01.md](./chs/pyi01.md) | [pyi01.md](./eng/pyi01.md) |
+| Summary of C++ ODB API changes between Abaqus 6.13 and Abaqus 6.14 | Summary of C++ ODB API changes between Abaqus 6.13 and Abaqus 6.14 | [pyi02.md](./chs/pyi02.md) | [pyi02.md](./eng/pyi02.md) |
+| Summary of Abaqus Scripting Interface changes between Abaqus 6.12 and Abaqus 6.13 | Summary of Abaqus Scripting Interface changes between Abaqus 6.12 and Abaqus 6.13 | [pyi03.md](./chs/pyi03.md) | [pyi03.md](./eng/pyi03.md) |
+| Summary of C++ ODB API changes between Abaqus 6.12 and Abaqus 6.13 | Summary of C++ ODB API changes between Abaqus 6.12 and Abaqus 6.13 | [pyi04.md](./chs/pyi04.md) | [pyi04.md](./eng/pyi04.md) |
+| Summary of Abaqus Scripting Interface changes between Abaqus 6.11 and Abaqus 6.12 | Summary of Abaqus Scripting Interface changes between Abaqus 6.11 and Abaqus 6.12 | [pyi05.md](./chs/pyi05.md) | [pyi05.md](./eng/pyi05.md) |
+| Summary of C++ ODB API changes between Abaqus 6.11 and Abaqus 6.12 | Summary of C++ ODB API changes between Abaqus 6.11 and Abaqus 6.12 | [pyi06.md](./chs/pyi06.md) | [pyi06.md](./eng/pyi06.md) |
+
+### PT01
+*第一部分：Python 命令*
+
+| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
+|-----------------|-----------------|-----------------|-----------------|
+| 第一部分：Python 命令 | Python commands | [pt01.md](./chs/pt01.md) | [pt01.md](./eng/pt01.md) |
+| 1 Abaqus/CAE Display Preferences 命令 | 1 Abaqus/CAE Display Preferences commands | [pt01ch01.md](./chs/pt01ch01.md) | [pt01ch01.md](./eng/pt01ch01.md) |
+| 1.1 caePrefsAccess 模块 | 1.1 caePrefsAccess module | [pt01ch01pyo01.md](./chs/pt01ch01pyo01.md) | [pt01ch01pyo01.md](./eng/pt01ch01pyo01.md) |
+| 1.2 CaeGuiPrefs 对象 | 1.2 CaeGuiPrefs object | [pt01ch01pyo02.md](./chs/pt01ch01pyo02.md) | [pt01ch01pyo02.md](./eng/pt01ch01pyo02.md) |
+| 1.3 CaeKerPrefs 对象 | 1.3 CaeKerPrefs object | [pt01ch01pyo03.md](./chs/pt01ch01pyo03.md) | [pt01ch01pyo03.md](./eng/pt01ch01pyo03.md) |
+| 2 Adaptivity 命令 | 2 Adaptivity commands | [pt01ch02.md](./chs/pt01ch02.md) | [pt01ch02.md](./eng/pt01ch02.md) |
+| 2.1 AdaptiveMeshConstraint 对象 | 2.1 AdaptiveMeshConstraint object | [pt01ch02pyo01.md](./chs/pt01ch02pyo01.md) | [pt01ch02pyo01.md](./eng/pt01ch02pyo01.md) |
+| 2.2 AdaptiveMeshConstraintState 对象 | 2.2 AdaptiveMeshConstraintState object | [pt01ch02pyo02.md](./chs/pt01ch02pyo02.md) | [pt01ch02pyo02.md](./eng/pt01ch02pyo02.md) |
+| 2.3 AdaptiveMeshControl 对象 | 2.3 AdaptiveMeshControl object | [pt01ch02pyo03.md](./chs/pt01ch02pyo03.md) | [pt01ch02pyo03.md](./eng/pt01ch02pyo03.md) |
+| 2.4 AdaptiveMeshDomain 对象 | 2.4 AdaptiveMeshDomain object | [pt01ch02pyo04.md](./chs/pt01ch02pyo04.md) | [pt01ch02pyo04.md](./eng/pt01ch02pyo04.md) |
+| 2.5 AdaptivityIteration 对象 | 2.5 AdaptivityIteration object | [pt01ch02pyo05.md](./chs/pt01ch02pyo05.md) | [pt01ch02pyo05.md](./eng/pt01ch02pyo05.md) |
+| 2.6 AdaptivityProcess 对象 | 2.6 AdaptivityProcess object | [pt01ch02pyo06.md](./chs/pt01ch02pyo06.md) | [pt01ch02pyo06.md](./eng/pt01ch02pyo06.md) |
+| 2.7 DisplacementAdaptiveMeshConstraint 对象 | 2.7 DisplacementAdaptiveMeshConstraint object | [pt01ch02pyo07.md](./chs/pt01ch02pyo07.md) | [pt01ch02pyo07.md](./eng/pt01ch02pyo07.md) |
+| 2.8 DisplacementAdaptiveMeshConstraintState 对象 | 2.8 DisplacementAdaptiveMeshConstraintState object | [pt01ch02pyo08.md](./chs/pt01ch02pyo08.md) | [pt01ch02pyo08.md](./eng/pt01ch02pyo08.md) |
+| 2.9 ErrorIndicatorResult 对象 | 2.9 ErrorIndicatorResult object | [pt01ch02pyo09.md](./chs/pt01ch02pyo09.md) | [pt01ch02pyo09.md](./eng/pt01ch02pyo09.md) |
+| 2.10 Model 对象 | 2.10 Model object | [pt01ch02pyo10.md](./chs/pt01ch02pyo10.md) | [pt01ch02pyo10.md](./eng/pt01ch02pyo10.md) |
+| 2.11 RemeshingRule 对象 | 2.11 RemeshingRule object | [pt01ch02pyo11.md](./chs/pt01ch02pyo11.md) | [pt01ch02pyo11.md](./eng/pt01ch02pyo11.md) |
+| 2.12 RuleResult 对象 | 2.12 RuleResult object | [pt01ch02pyo12.md](./chs/pt01ch02pyo12.md) | [pt01ch02pyo12.md](./eng/pt01ch02pyo12.md) |
+| 2.13 VelocityAdaptiveMeshConstraint 对象 | 2.13 VelocityAdaptiveMeshConstraint object | [pt01ch02pyo13.md](./chs/pt01ch02pyo13.md) | [pt01ch02pyo13.md](./eng/pt01ch02pyo13.md) |
+| 2.14 VelocityAdaptiveMeshConstraintState 对象 | 2.14 VelocityAdaptiveMeshConstraintState object | [pt01ch02pyo14.md](./chs/pt01ch02pyo14.md) | [pt01ch02pyo14.md](./eng/pt01ch02pyo14.md) |
+| 3 Amplitude 命令 | 3 Amplitude commands | [pt01ch03.md](./chs/pt01ch03.md) | [pt01ch03.md](./eng/pt01ch03.md) |
+| 3.1 Amplitude 对象 | 3.1 Amplitude object | [pt01ch03pyo01.md](./chs/pt01ch03pyo01.md) | [pt01ch03pyo01.md](./eng/pt01ch03pyo01.md) |
+| 3.2 ActuatorAmplitude 对象 | 3.2 ActuatorAmplitude object | [pt01ch03pyo02.md](./chs/pt01ch03pyo02.md) | [pt01ch03pyo02.md](./eng/pt01ch03pyo02.md) |
+| 3.3 BaselineCorrection 对象 | 3.3 BaselineCorrection object | [pt01ch03pyo03.md](./chs/pt01ch03pyo03.md) | [pt01ch03pyo03.md](./eng/pt01ch03pyo03.md) |
+| 3.4 Correlation 对象 | 3.4 Correlation object | [pt01ch03pyo04.md](./chs/pt01ch03pyo04.md) | [pt01ch03pyo04.md](./eng/pt01ch03pyo04.md) |
+| 3.5 DecayAmplitude 对象 | 3.5 DecayAmplitude object | [pt01ch03pyo05.md](./chs/pt01ch03pyo05.md) | [pt01ch03pyo05.md](./eng/pt01ch03pyo05.md) |
+| 3.6 EquallySpacedAmplitude 对象 | 3.6 EquallySpacedAmplitude object | [pt01ch03pyo06.md](./chs/pt01ch03pyo06.md) | [pt01ch03pyo06.md](./eng/pt01ch03pyo06.md) |
+| 3.7 ModulatedAmplitude 对象 | 3.7 ModulatedAmplitude object | [pt01ch03pyo07.md](./chs/pt01ch03pyo07.md) | [pt01ch03pyo07.md](./eng/pt01ch03pyo07.md) |
+| 3.8 PeriodicAmplitude 对象 | 3.8 PeriodicAmplitude object | [pt01ch03pyo08.md](./chs/pt01ch03pyo08.md) | [pt01ch03pyo08.md](./eng/pt01ch03pyo08.md) |
+| 3.9 PsdDefinition 对象 | 3.9 PsdDefinition object | [pt01ch03pyo09.md](./chs/pt01ch03pyo09.md) | [pt01ch03pyo09.md](./eng/pt01ch03pyo09.md) |
+| 3.10 SmoothStepAmplitude 对象 | 3.10 SmoothStepAmplitude object | [pt01ch03pyo10.md](./chs/pt01ch03pyo10.md) | [pt01ch03pyo10.md](./eng/pt01ch03pyo10.md) |
+| 3.11 SolutionDependentAmplitude 对象 | 3.11 SolutionDependentAmplitude object | [pt01ch03pyo11.md](./chs/pt01ch03pyo11.md) | [pt01ch03pyo11.md](./eng/pt01ch03pyo11.md) |
+| 3.12 SpectrumAmplitude 对象 | 3.12 SpectrumAmplitude object | [pt01ch03pyo12.md](./chs/pt01ch03pyo12.md) | [pt01ch03pyo12.md](./eng/pt01ch03pyo12.md) |
+| 3.13 TabularAmplitude 对象 | 3.13 TabularAmplitude object | [pt01ch03pyo13.md](./chs/pt01ch03pyo13.md) | [pt01ch03pyo13.md](./eng/pt01ch03pyo13.md) |
+| 3.14 UserAmplitude 对象 | 3.14 UserAmplitude object | [pt01ch03pyo14.md](./chs/pt01ch03pyo14.md) | [pt01ch03pyo14.md](./eng/pt01ch03pyo14.md) |
+| 4 Animation 命令 | 4 Animation commands | [pt01ch04.md](./chs/pt01ch04.md) | [pt01ch04.md](./eng/pt01ch04.md) |
+| 4.1 AnimationController 对象 | 4.1 AnimationController object | [pt01ch04pyo01.md](./chs/pt01ch04pyo01.md) | [pt01ch04pyo01.md](./eng/pt01ch04pyo01.md) |
+| 4.2 AnimationOptions 对象 | 4.2 AnimationOptions object | [pt01ch04pyo02.md](./chs/pt01ch04pyo02.md) | [pt01ch04pyo02.md](./eng/pt01ch04pyo02.md) |
+| 4.3 AVIOptions 对象 | 4.3 AVIOptions object | [pt01ch04pyo03.md](./chs/pt01ch04pyo03.md) | [pt01ch04pyo03.md](./eng/pt01ch04pyo03.md) |
+| 4.4 ImageAnimationOptions 对象 | 4.4 ImageAnimationOptions object | [pt01ch04pyo04.md](./chs/pt01ch04pyo04.md) | [pt01ch04pyo04.md](./eng/pt01ch04pyo04.md) |
+| 4.5 ImageAnimation 对象 | 4.5 ImageAnimation object | [pt01ch04pyo05.md](./chs/pt01ch04pyo05.md) | [pt01ch04pyo05.md](./eng/pt01ch04pyo05.md) |
+| 4.6 QuickTimeOptions 对象 | 4.6 QuickTimeOptions object | [pt01ch04pyo06.md](./chs/pt01ch04pyo06.md) | [pt01ch04pyo06.md](./eng/pt01ch04pyo06.md) |
+| 4.7 Movie 对象 | 4.7 Movie object | [pt01ch04pyo07.md](./chs/pt01ch04pyo07.md) | [pt01ch04pyo07.md](./eng/pt01ch04pyo07.md) |
+| 4.8 Session 对象 | 4.8 Session object | [pt01ch04pyo08.md](./chs/pt01ch04pyo08.md) | [pt01ch04pyo08.md](./eng/pt01ch04pyo08.md) |
+| 5 Annotation 命令 | 5 Annotation commands | [pt01ch05.md](./chs/pt01ch05.md) | [pt01ch05.md](./eng/pt01ch05.md) |
+| 5.1 Annotation 对象 | 5.1 Annotation object | [pt01ch05pyo01.md](./chs/pt01ch05pyo01.md) | [pt01ch05pyo01.md](./eng/pt01ch05pyo01.md) |
+| 5.2 AnnotationsToPlotArray 对象 | 5.2 AnnotationsToPlotArray object | [pt01ch05pyo02.md](./chs/pt01ch05pyo02.md) | [pt01ch05pyo02.md](./eng/pt01ch05pyo02.md) |
+| 5.3 Arrow 对象 | 5.3 Arrow object | [pt01ch05pyo03.md](./chs/pt01ch05pyo03.md) | [pt01ch05pyo03.md](./eng/pt01ch05pyo03.md) |
+| 5.4 Text 对象 | 5.4 Text object | [pt01ch05pyo04.md](./chs/pt01ch05pyo04.md) | [pt01ch05pyo04.md](./eng/pt01ch05pyo04.md) |
+| 5.5 Viewport 对象 | 5.5 Viewport object | [pt01ch05pyo05.md](./chs/pt01ch05pyo05.md) | [pt01ch05pyo05.md](./eng/pt01ch05pyo05.md) |
+| 6 Assembly 命令 | 6 Assembly commands | [pt01ch06.md](./chs/pt01ch06.md) | [pt01ch06.md](./eng/pt01ch06.md) |
+| 6.1 Assembly 对象 | 6.1 Assembly object | [pt01ch06pyo01.md](./chs/pt01ch06pyo01.md) | [pt01ch06pyo01.md](./eng/pt01ch06pyo01.md) |
+| 6.2 ConnectorOrientation 对象 | 6.2 ConnectorOrientation object | [pt01ch06pyo02.md](./chs/pt01ch06pyo02.md) | [pt01ch06pyo02.md](./eng/pt01ch06pyo02.md) |
+| 6.3 Feature 对象 | 6.3 Feature object | [pt01ch06pyo03.md](./chs/pt01ch06pyo03.md) | [pt01ch06pyo03.md](./eng/pt01ch06pyo03.md) |
+| 6.4 PartInstance 对象 | 6.4 PartInstance object | [pt01ch06pyo04.md](./chs/pt01ch06pyo04.md) | [pt01ch06pyo04.md](./eng/pt01ch06pyo04.md) |
+| 6.5 ModelInstance 对象 | 6.5 ModelInstance object | [pt01ch06pyo05.md](./chs/pt01ch06pyo05.md) | [pt01ch06pyo05.md](./eng/pt01ch06pyo05.md) |
+| 6.6 Model 对象 | 6.6 Model object | [pt01ch06pyo06.md](./chs/pt01ch06pyo06.md) | [pt01ch06pyo06.md](./eng/pt01ch06pyo06.md) |
+| 7 基本几何命令 | 7 Basic geometry commands | [pt01ch07.md](./chs/pt01ch07.md) | [pt01ch07.md](./eng/pt01ch07.md) |
+| 7.1 Cell 对象 | 7.1 Cell object | [pt01ch07pyo01.md](./chs/pt01ch07pyo01.md) | [pt01ch07pyo01.md](./eng/pt01ch07pyo01.md) |
+| 7.2 CellArray 对象 | 7.2 CellArray object | [pt01ch07pyo02.md](./chs/pt01ch07pyo02.md) | [pt01ch07pyo02.md](./eng/pt01ch07pyo02.md) |
+| 7.3 Edge 对象 | 7.3 Edge object | [pt01ch07pyo03.md](./chs/pt01ch07pyo03.md) | [pt01ch07pyo03.md](./eng/pt01ch07pyo03.md) |
+| 7.4 EdgeArray 对象 | 7.4 EdgeArray object | [pt01ch07pyo04.md](./chs/pt01ch07pyo04.md) | [pt01ch07pyo04.md](./eng/pt01ch07pyo04.md) |
+| 7.5 Face 对象 | 7.5 Face object | [pt01ch07pyo05.md](./chs/pt01ch07pyo05.md) | [pt01ch07pyo05.md](./eng/pt01ch07pyo05.md) |
+| 7.6 FaceArray 对象 | 7.6 FaceArray object | [pt01ch07pyo06.md](./chs/pt01ch07pyo06.md) | [pt01ch07pyo06.md](./eng/pt01ch07pyo06.md) |
+| 7.7 IgnoredEdge 对象 | 7.7 IgnoredEdge object | [pt01ch07pyo07.md](./chs/pt01ch07pyo07.md) | [pt01ch07pyo07.md](./eng/pt01ch07pyo07.md) |
+| 7.8 IgnoredEdgeArray 对象 | 7.8 IgnoredEdgeArray object | [pt01ch07pyo08.md](./chs/pt01ch07pyo08.md) | [pt01ch07pyo08.md](./eng/pt01ch07pyo08.md) |
+| 7.9 IgnoredVertex 对象 | 7.9 IgnoredVertex object | [pt01ch07pyo09.md](./chs/pt01ch07pyo09.md) | [pt01ch07pyo09.md](./eng/pt01ch07pyo09.md) |
+| 7.10 IgnoredVertexArray 对象 | 7.10 IgnoredVertexArray object | [pt01ch07pyo10.md](./chs/pt01ch07pyo10.md) | [pt01ch07pyo10.md](./eng/pt01ch07pyo10.md) |
+| 7.11 InterestingPoint 对象 | 7.11 InterestingPoint object | [pt01ch07pyo11.md](./chs/pt01ch07pyo11.md) | [pt01ch07pyo11.md](./eng/pt01ch07pyo11.md) |
+| 7.12 ModelDot 对象 | 7.12 ModelDot object | [pt01ch07pyo12.md](./chs/pt01ch07pyo12.md) | [pt01ch07pyo12.md](./eng/pt01ch07pyo12.md) |
+| 7.13 ReferencePoint 对象 | 7.13 ReferencePoint object | [pt01ch07pyo13.md](./chs/pt01ch07pyo13.md) | [pt01ch07pyo13.md](./eng/pt01ch07pyo13.md) |
+| 7.14 Transform 对象 | 7.14 Transform object | [pt01ch07pyo14.md](./chs/pt01ch07pyo14.md) | [pt01ch07pyo14.md](./eng/pt01ch07pyo14.md) |
+| 7.15 Vertex 对象 | 7.15 Vertex object | [pt01ch07pyo15.md](./chs/pt01ch07pyo15.md) | [pt01ch07pyo15.md](./eng/pt01ch07pyo15.md) |
+| 7.16 VertexArray 对象 | 7.16 VertexArray object | [pt01ch07pyo16.md](./chs/pt01ch07pyo16.md) | [pt01ch07pyo16.md](./eng/pt01ch07pyo16.md) |
+| 8.1 Profile 对象 | 8 Beam Section profile commands | [pt01ch08.md](./chs/pt01ch08.md) | [pt01ch08.md](./eng/pt01ch08.md) |
+| 8 Beam Section profile 命令 | 8.1 Profile object | [pt01ch08pyo01.md](./chs/pt01ch08pyo01.md) | [pt01ch08pyo01.md](./eng/pt01ch08pyo01.md) |
+| 8.2 ArbitraryProfile 对象 | 8.2 ArbitraryProfile object | [pt01ch08pyo02.md](./chs/pt01ch08pyo02.md) | [pt01ch08pyo02.md](./eng/pt01ch08pyo02.md) |
+| 8.3 BoxProfile 对象 | 8.3 BoxProfile object | [pt01ch08pyo03.md](./chs/pt01ch08pyo03.md) | [pt01ch08pyo03.md](./eng/pt01ch08pyo03.md) |
+| 8.4 CircularProfile 对象 | 8.4 CircularProfile object | [pt01ch08pyo04.md](./chs/pt01ch08pyo04.md) | [pt01ch08pyo04.md](./eng/pt01ch08pyo04.md) |
+| 8.5 GeneralizedProfile 对象 | 8.5 GeneralizedProfile object | [pt01ch08pyo05.md](./chs/pt01ch08pyo05.md) | [pt01ch08pyo05.md](./eng/pt01ch08pyo05.md) |
+| 8.6 HexagonalProfile 对象 | 8.6 HexagonalProfile object | [pt01ch08pyo06.md](./chs/pt01ch08pyo06.md) | [pt01ch08pyo06.md](./eng/pt01ch08pyo06.md) |
+| 8.7 IProfile 对象 | 8.7 IProfile object | [pt01ch08pyo07.md](./chs/pt01ch08pyo07.md) | [pt01ch08pyo07.md](./eng/pt01ch08pyo07.md) |
+| 8.8 LProfile 对象 | 8.8 LProfile object | [pt01ch08pyo08.md](./chs/pt01ch08pyo08.md) | [pt01ch08pyo08.md](./eng/pt01ch08pyo08.md) |
+| 8.9 PipeProfile 对象 | 8.9 PipeProfile object | [pt01ch08pyo09.md](./chs/pt01ch08pyo09.md) | [pt01ch08pyo09.md](./eng/pt01ch08pyo09.md) |
+| 8.10 RectangularProfile 对象 | 8.10 RectangularProfile object | [pt01ch08pyo10.md](./chs/pt01ch08pyo10.md) | [pt01ch08pyo10.md](./eng/pt01ch08pyo10.md) |
+| 8.11 TProfile 对象 | 8.11 TProfile object | [pt01ch08pyo11.md](./chs/pt01ch08pyo11.md) | [pt01ch08pyo11.md](./eng/pt01ch08pyo11.md) |
+| 8.12 TrapezoidalProfile 对象 | 8.12 TrapezoidalProfile object | [pt01ch08pyo12.md](./chs/pt01ch08pyo12.md) | [pt01ch08pyo12.md](./eng/pt01ch08pyo12.md) |
+| 9 Boundary Condition 命令 | 9 Boundary Condition commands | [pt01ch09.md](./chs/pt01ch09.md) | [pt01ch09.md](./eng/pt01ch09.md) |
+| 9.1 BoundaryCondition 对象 | 9.1 BoundaryCondition object | [pt01ch09pyo01.md](./chs/pt01ch09pyo01.md) | [pt01ch09pyo01.md](./eng/pt01ch09pyo01.md) |
+| 9.2 AccelerationBaseMotionBC 对象 | 9.2 AccelerationBaseMotionBC object | [pt01ch09pyo02.md](./chs/pt01ch09pyo02.md) | [pt01ch09pyo02.md](./eng/pt01ch09pyo02.md) |
+| 9.3 AccelerationBaseMotionBCState 对象 | 9.3 AccelerationBaseMotionBCState object | [pt01ch09pyo03.md](./chs/pt01ch09pyo03.md) | [pt01ch09pyo03.md](./eng/pt01ch09pyo03.md) |
+| 9.4 AccelerationBC 对象 | 9.4 AccelerationBC object | [pt01ch09pyo04.md](./chs/pt01ch09pyo04.md) | [pt01ch09pyo04.md](./eng/pt01ch09pyo04.md) |
+| 9.5 AccelerationBCState 对象 | 9.5 AccelerationBCState object | [pt01ch09pyo05.md](./chs/pt01ch09pyo05.md) | [pt01ch09pyo05.md](./eng/pt01ch09pyo05.md) |
+| 9.6 AcousticPressureBC 对象 | 9.6 AcousticPressureBC object | [pt01ch09pyo06.md](./chs/pt01ch09pyo06.md) | [pt01ch09pyo06.md](./eng/pt01ch09pyo06.md) |
+| 9.7 AcousticPressureBCState 对象 | 9.7 AcousticPressureBCState object | [pt01ch09pyo07.md](./chs/pt01ch09pyo07.md) | [pt01ch09pyo07.md](./eng/pt01ch09pyo07.md) |
+| 9.8 BoundaryConditionState 对象 | 9.8 BoundaryConditionState object | [pt01ch09pyo08.md](./chs/pt01ch09pyo08.md) | [pt01ch09pyo08.md](./eng/pt01ch09pyo08.md) |
+| 9.9 ConcentrationBC 对象 | 9.9 ConcentrationBC object | [pt01ch09pyo09.md](./chs/pt01ch09pyo09.md) | [pt01ch09pyo09.md](./eng/pt01ch09pyo09.md) |
+| 9.10 ConcentrationBCState 对象 | 9.10 ConcentrationBCState object | [pt01ch09pyo10.md](./chs/pt01ch09pyo10.md) | [pt01ch09pyo10.md](./eng/pt01ch09pyo10.md) |
+| 9.11 ConnAccelerationBC 对象 | 9.11 ConnAccelerationBC object | [pt01ch09pyo11.md](./chs/pt01ch09pyo11.md) | [pt01ch09pyo11.md](./eng/pt01ch09pyo11.md) |
+| 9.12 ConnAccelerationBCState 对象 | 9.12 ConnAccelerationBCState object | [pt01ch09pyo12.md](./chs/pt01ch09pyo12.md) | [pt01ch09pyo12.md](./eng/pt01ch09pyo12.md) |
+| 9.13 ConnDisplacementBC 对象 | 9.13 ConnDisplacementBC object | [pt01ch09pyo13.md](./chs/pt01ch09pyo13.md) | [pt01ch09pyo13.md](./eng/pt01ch09pyo13.md) |
+| 9.14 ConnDisplacementBCState 对象 | 9.14 ConnDisplacementBCState object | [pt01ch09pyo14.md](./chs/pt01ch09pyo14.md) | [pt01ch09pyo14.md](./eng/pt01ch09pyo14.md) |
+| 9.15 ConnVelocityBC 对象 | 9.15 ConnVelocityBC object | [pt01ch09pyo15.md](./chs/pt01ch09pyo15.md) | [pt01ch09pyo15.md](./eng/pt01ch09pyo15.md) |
+| 9.16 ConnVelocityBCState 对象 | 9.16 ConnVelocityBCState object | [pt01ch09pyo16.md](./chs/pt01ch09pyo16.md) | [pt01ch09pyo16.md](./eng/pt01ch09pyo16.md) |
+| 9.17 DisplacementBaseMotionBC 对象 | 9.17 DisplacementBaseMotionBC object | [pt01ch09pyo17.md](./chs/pt01ch09pyo17.md) | [pt01ch09pyo17.md](./eng/pt01ch09pyo17.md) |
+| 9.18 DisplacementBaseMotionBCState 对象 | 9.18 DisplacementBaseMotionBCState object | [pt01ch09pyo18.md](./chs/pt01ch09pyo18.md) | [pt01ch09pyo18.md](./eng/pt01ch09pyo18.md) |
+| 9.19 DisplacementBC 对象 | 9.19 DisplacementBC object | [pt01ch09pyo19.md](./chs/pt01ch09pyo19.md) | [pt01ch09pyo19.md](./eng/pt01ch09pyo19.md) |
+| 9.20 DisplacementBCState object | 9.20 DisplacementBCState object | [pt01ch09pyo20.md](./chs/pt01ch09pyo20.md) | [pt01ch09pyo20.md](./eng/pt01ch09pyo20.md) |
+| 9.21 ElectricPotentialBC 对象 | 9.21 ElectricPotentialBC object | [pt01ch09pyo21.md](./chs/pt01ch09pyo21.md) | [pt01ch09pyo21.md](./eng/pt01ch09pyo21.md) |
+| 9.22 ElectricPotentialBCState object | 9.22 ElectricPotentialBCState object | [pt01ch09pyo22.md](./chs/pt01ch09pyo22.md) | [pt01ch09pyo22.md](./eng/pt01ch09pyo22.md) |
+| 9.23 EulerianBC object | 9.23 EulerianBC object | [pt01ch09pyo23.md](./chs/pt01ch09pyo23.md) | [pt01ch09pyo23.md](./eng/pt01ch09pyo23.md) |
+| 9.24 EulerianBCState object | 9.24 EulerianBCState object | [pt01ch09pyo24.md](./chs/pt01ch09pyo24.md) | [pt01ch09pyo24.md](./eng/pt01ch09pyo24.md) |
+| 9.25 EulerianMotionBC 对象 | 9.25 EulerianMotionBC object | [pt01ch09pyo25.md](./chs/pt01ch09pyo25.md) | [pt01ch09pyo25.md](./eng/pt01ch09pyo25.md) |
+| 9.26 EulerianMotionBCState 对象 | 9.26 EulerianMotionBCState object | [pt01ch09pyo26.md](./chs/pt01ch09pyo26.md) | [pt01ch09pyo26.md](./eng/pt01ch09pyo26.md) |
+| 9.27 FluidCavityPressureBC 对象 | 9.27 FluidCavityPressureBC object | [pt01ch09pyo27.md](./chs/pt01ch09pyo27.md) | [pt01ch09pyo27.md](./eng/pt01ch09pyo27.md) |
+| 9.28 FluidCavityPressureBCState 对象 | 9.28 FluidCavityPressureBCState object | [pt01ch09pyo28.md](./chs/pt01ch09pyo28.md) | [pt01ch09pyo28.md](./eng/pt01ch09pyo28.md) |
+| 9.29 FluidInletOutletBC 对象 | 9.29 FluidInletOutletBC object | [pt01ch09pyo29.md](./chs/pt01ch09pyo29.md) | [pt01ch09pyo29.md](./eng/pt01ch09pyo29.md) |
+| 9.30 FluidInletOutletBCState 对象 | 9.30 FluidInletOutletBCState object | [pt01ch09pyo30.md](./chs/pt01ch09pyo30.md) | [pt01ch09pyo30.md](./eng/pt01ch09pyo30.md) |
+| 9.31 FluidWallConditionBC 对象 | 9.31 FluidWallConditionBC object | [pt01ch09pyo31.md](./chs/pt01ch09pyo31.md) | [pt01ch09pyo31.md](./eng/pt01ch09pyo31.md) |
+| 9.32 FluidWallConditionBCState 对象 | 9.32 FluidWallConditionBCState object | [pt01ch09pyo32.md](./chs/pt01ch09pyo32.md) | [pt01ch09pyo32.md](./eng/pt01ch09pyo32.md) |
+| 9.33 MagneticVectorPotentialBC 对象 | 9.33 MagneticVectorPotentialBC object | [pt01ch09pyo33.md](./chs/pt01ch09pyo33.md) | [pt01ch09pyo33.md](./eng/pt01ch09pyo33.md) |
+| 9.34 MaterialFlowBC 对象 | 9.34 MaterialFlowBC object | [pt01ch09pyo34.md](./chs/pt01ch09pyo34.md) | [pt01ch09pyo34.md](./eng/pt01ch09pyo34.md) |
+| 9.35 MaterialFlowBCState 对象 | 9.35 MaterialFlowBCState object | [pt01ch09pyo35.md](./chs/pt01ch09pyo35.md) | [pt01ch09pyo35.md](./eng/pt01ch09pyo35.md) |
+| 9.36 PorePressureBC 对象 | 9.36 PorePressureBC object | [pt01ch09pyo36.md](./chs/pt01ch09pyo36.md) | [pt01ch09pyo36.md](./eng/pt01ch09pyo36.md) |
+| 9.37 PorePressureBCState 对象 | 9.37 PorePressureBCState object | [pt01ch09pyo37.md](./chs/pt01ch09pyo37.md) | [pt01ch09pyo37.md](./eng/pt01ch09pyo37.md) |
+| 9.38 RetainedNodalDofsBC 对象 | 9.38 RetainedNodalDofsBC object | [pt01ch09pyo38.md](./chs/pt01ch09pyo38.md) | [pt01ch09pyo38.md](./eng/pt01ch09pyo38.md) |
+| 9.39 SecondaryBaseBC 对象 | 9.39 SecondaryBaseBC object | [pt01ch09pyo39.md](./chs/pt01ch09pyo39.md) | [pt01ch09pyo39.md](./eng/pt01ch09pyo39.md) |
+| 9.40 SecondaryBaseBCState 对象 | 9.40 SecondaryBaseBCState object | [pt01ch09pyo40.md](./chs/pt01ch09pyo40.md) | [pt01ch09pyo40.md](./eng/pt01ch09pyo40.md) |
+| 9.41 SubmodelBC 对象 | 9.41 SubmodelBC object | [pt01ch09pyo41.md](./chs/pt01ch09pyo41.md) | [pt01ch09pyo41.md](./eng/pt01ch09pyo41.md) |
+| 9.42 SubmodelBCState 对象 | 9.42 SubmodelBCState object | [pt01ch09pyo42.md](./chs/pt01ch09pyo42.md) | [pt01ch09pyo42.md](./eng/pt01ch09pyo42.md) |
+| 9.43 TemperatureBC 对象 | 9.43 TemperatureBC object | [pt01ch09pyo43.md](./chs/pt01ch09pyo43.md) | [pt01ch09pyo43.md](./eng/pt01ch09pyo43.md) |
+| 9.44 TemperatureBCState 对象 | 9.44 TemperatureBCState object | [pt01ch09pyo44.md](./chs/pt01ch09pyo44.md) | [pt01ch09pyo44.md](./eng/pt01ch09pyo44.md) |
+| 9.45 TypeBC 对象 | 9.45 TypeBC object | [pt01ch09pyo45.md](./chs/pt01ch09pyo45.md) | [pt01ch09pyo45.md](./eng/pt01ch09pyo45.md) |
+| 9.46 TypeBCState 对象 | 9.46 TypeBCState object | [pt01ch09pyo46.md](./chs/pt01ch09pyo46.md) | [pt01ch09pyo46.md](./eng/pt01ch09pyo46.md) |
+| 9.47 VelocityBaseMotionBC 对象 | 9.47 VelocityBaseMotionBC object | [pt01ch09pyo47.md](./chs/pt01ch09pyo47.md) | [pt01ch09pyo47.md](./eng/pt01ch09pyo47.md) |
+| 9.48 VelocityBaseMotionBCState 对象 | 9.48 VelocityBaseMotionBCState object | [pt01ch09pyo48.md](./chs/pt01ch09pyo48.md) | [pt01ch09pyo48.md](./eng/pt01ch09pyo48.md) |
+| 9.49 VelocityBC 对象 | 9.49 VelocityBC object | [pt01ch09pyo49.md](./chs/pt01ch09pyo49.md) | [pt01ch09pyo49.md](./eng/pt01ch09pyo49.md) |
+| 9.50 VelocityBCState 对象 | 9.50 VelocityBCState object | [pt01ch09pyo50.md](./chs/pt01ch09pyo50.md) | [pt01ch09pyo50.md](./eng/pt01ch09pyo50.md) |
+| 10 校准命令 | 10 Calibration commands | [pt01ch10.md](./chs/pt01ch10.md) | [pt01ch10.md](./eng/pt01ch10.md) |
+| 10.1 Calibration 对象 | 10.1 Calibration object | [pt01ch10pyo01.md](./chs/pt01ch10pyo01.md) | [pt01ch10pyo01.md](./eng/pt01ch10pyo01.md) |
+| 10.2 Behavior 对象 | 10.2 Behavior object | [pt01ch10pyo02.md](./chs/pt01ch10pyo02.md) | [pt01ch10pyo02.md](./eng/pt01ch10pyo02.md) |
+| 10.3 DataSet 对象 | 10.3 DataSet object | [pt01ch10pyo03.md](./chs/pt01ch10pyo03.md) | [pt01ch10pyo03.md](./eng/pt01ch10pyo03.md) |
+| 10.4 ElasIsoBehavior 对象 | 10.4 ElasIsoBehavior object | [pt01ch10pyo04.md](./chs/pt01ch10pyo04.md) | [pt01ch10pyo04.md](./eng/pt01ch10pyo04.md) |
+| 10.5 ElasPlasIsoBehavior 对象 | 10.5 ElasPlasIsoBehavior object | [pt01ch10pyo05.md](./chs/pt01ch10pyo05.md) | [pt01ch10pyo05.md](./eng/pt01ch10pyo05.md) |
+| 10.6 FeFpBehavior 对象 | 10.6 FeFpBehavior object | [pt01ch10pyo06.md](./chs/pt01ch10pyo06.md) | [pt01ch10pyo06.md](./eng/pt01ch10pyo06.md) |
+| 11 Canvas 命令 | 11 Canvas commands | [pt01ch11.md](./chs/pt01ch11.md) | [pt01ch11.md](./eng/pt01ch11.md) |
+| 11.1 AttributeColorMap 对象 | 11.7 Highlight commands | [pt01ch11pyc01.md](./chs/pt01ch11pyc01.md) | [pt01ch11pyc01.md](./eng/pt01ch11pyc01.md) |
+| 11.7 高亮命令 | 11.1 AttributeColorMap object | [pt01ch11pyo01.md](./chs/pt01ch11pyo01.md) | [pt01ch11pyo01.md](./eng/pt01ch11pyo01.md) |
+| 11.2 DrawingArea 对象 | 11.2 DrawingArea object | [pt01ch11pyo02.md](./chs/pt01ch11pyo02.md) | [pt01ch11pyo02.md](./eng/pt01ch11pyo02.md) |
+| 11.3 Layer 对象 | 11.3 Layer object | [pt01ch11pyo03.md](./chs/pt01ch11pyo03.md) | [pt01ch11pyo03.md](./eng/pt01ch11pyo03.md) |
+| 11.4 Viewport 对象 | 11.4 Viewport object | [pt01ch11pyo04.md](./chs/pt01ch11pyo04.md) | [pt01ch11pyo04.md](./eng/pt01ch11pyo04.md) |
+| 11.5 ImageOptions 对象 | 11.5 ImageOptions object | [pt01ch11pyo05.md](./chs/pt01ch11pyo05.md) | [pt01ch11pyo05.md](./eng/pt01ch11pyo05.md) |
+| 11.6 MovieOptions 对象 | 11.6 MovieOptions object | [pt01ch11pyo06.md](./chs/pt01ch11pyo06.md) | [pt01ch11pyo06.md](./eng/pt01ch11pyo06.md) |
+| 12 连接器命令 | 12 Connector commands | [pt01ch12.md](./chs/pt01ch12.md) | [pt01ch12.md](./eng/pt01ch12.md) |
+| 12.1 ConnectorBehaviorOption 对象 | 12.1 ConnectorBehaviorOption object | [pt01ch12pyo01.md](./chs/pt01ch12pyo01.md) | [pt01ch12pyo01.md](./eng/pt01ch12pyo01.md) |
+| 12.2 CDCTerm 对象 | 12.2 CDCTerm object | [pt01ch12pyo02.md](./chs/pt01ch12pyo02.md) | [pt01ch12pyo02.md](./eng/pt01ch12pyo02.md) |
+| 12.3 ConnectorDamage 对象 | 12.3 ConnectorDamage object | [pt01ch12pyo03.md](./chs/pt01ch12pyo03.md) | [pt01ch12pyo03.md](./eng/pt01ch12pyo03.md) |
+| 12.4 ConnectorDamping 对象 | 12.4 ConnectorDamping object | [pt01ch12pyo04.md](./chs/pt01ch12pyo04.md) | [pt01ch12pyo04.md](./eng/pt01ch12pyo04.md) |
+| 12.5 ConnectorElasticity 对象 | 12.5 ConnectorElasticity object | [pt01ch12pyo05.md](./chs/pt01ch12pyo05.md) | [pt01ch12pyo05.md](./eng/pt01ch12pyo05.md) |
+| 12.6 ConnectorFailure 对象 | 12.6 ConnectorFailure object | [pt01ch12pyo06.md](./chs/pt01ch12pyo06.md) | [pt01ch12pyo06.md](./eng/pt01ch12pyo06.md) |
+| 12.7 ConnectorFriction object | 12.7 ConnectorFriction object | [pt01ch12pyo07.md](./chs/pt01ch12pyo07.md) | [pt01ch12pyo07.md](./eng/pt01ch12pyo07.md) |
+| 12.8 ConnectorLock object | 12.8 ConnectorLock object | [pt01ch12pyo08.md](./chs/pt01ch12pyo08.md) | [pt01ch12pyo08.md](./eng/pt01ch12pyo08.md) |
+| 12.9 ConnectorOptions object | 12.9 ConnectorOptions object | [pt01ch12pyo09.md](./chs/pt01ch12pyo09.md) | [pt01ch12pyo09.md](./eng/pt01ch12pyo09.md) |
+| 12.10 ConnectorPlasticity object | 12.10 ConnectorPlasticity object | [pt01ch12pyo10.md](./chs/pt01ch12pyo10.md) | [pt01ch12pyo10.md](./eng/pt01ch12pyo10.md) |
+| 12.11 ConnectorPotential object | 12.11 ConnectorPotential object | [pt01ch12pyo11.md](./chs/pt01ch12pyo11.md) | [pt01ch12pyo11.md](./eng/pt01ch12pyo11.md) |
+| 12.12 ConnectorStop object | 12.12 ConnectorStop object | [pt01ch12pyo12.md](./chs/pt01ch12pyo12.md) | [pt01ch12pyo12.md](./eng/pt01ch12pyo12.md) |
+| 12.13 DerivedComponent object | 12.13 DerivedComponent object | [pt01ch12pyo13.md](./chs/pt01ch12pyo13.md) | [pt01ch12pyo13.md](./eng/pt01ch12pyo13.md) |
+| 12.14 TangentialBehavior object | 12.14 TangentialBehavior object | [pt01ch12pyo14.md](./chs/pt01ch12pyo14.md) | [pt01ch12pyo14.md](./eng/pt01ch12pyo14.md) |
+| 13 Constraint commands | 13 Constraint commands | [pt01ch13.md](./chs/pt01ch13.md) | [pt01ch13.md](./eng/pt01ch13.md) |
+| 13.2 AdjustPoints 对象 | 13.1 Constraint object | [pt01ch13pyo01.md](./chs/pt01ch13pyo01.md) | [pt01ch13pyo01.md](./eng/pt01ch13pyo01.md) |
+| 13.3 Coupling 对象 | 13.2 AdjustPoints object | [pt01ch13pyo02.md](./chs/pt01ch13pyo02.md) | [pt01ch13pyo02.md](./eng/pt01ch13pyo02.md) |
+| 13.1 Constraint 对象 | 13.3 Coupling object | [pt01ch13pyo03.md](./chs/pt01ch13pyo03.md) | [pt01ch13pyo03.md](./eng/pt01ch13pyo03.md) |
+| 13.4 DisplayBody 对象 | 13.4 DisplayBody object | [pt01ch13pyo04.md](./chs/pt01ch13pyo04.md) | [pt01ch13pyo04.md](./eng/pt01ch13pyo04.md) |
+| 13.5 EmbeddedRegion 对象 | 13.5 EmbeddedRegion object | [pt01ch13pyo05.md](./chs/pt01ch13pyo05.md) | [pt01ch13pyo05.md](./eng/pt01ch13pyo05.md) |
+| 13.7 MultipointConstraint 对象 | 13.6 Equation object | [pt01ch13pyo06.md](./chs/pt01ch13pyo06.md) | [pt01ch13pyo06.md](./eng/pt01ch13pyo06.md) |
+| 13.8 RigidBody 对象 | 13.7 MultipointConstraint object | [pt01ch13pyo07.md](./chs/pt01ch13pyo07.md) | [pt01ch13pyo07.md](./eng/pt01ch13pyo07.md) |
+| 13.6 Equation 对象 | 13.8 RigidBody object | [pt01ch13pyo08.md](./chs/pt01ch13pyo08.md) | [pt01ch13pyo08.md](./eng/pt01ch13pyo08.md) |
+| 13.9 ShellSolidCoupling 对象 | 13.9 ShellSolidCoupling object | [pt01ch13pyo09.md](./chs/pt01ch13pyo09.md) | [pt01ch13pyo09.md](./eng/pt01ch13pyo09.md) |
+| 13.10 Tie 对象 | 13.10 Tie object | [pt01ch13pyo10.md](./chs/pt01ch13pyo10.md) | [pt01ch13pyo10.md](./eng/pt01ch13pyo10.md) |
+| 14 CustomKernel module | 14 CustomKernel module | [pt01ch14.md](./chs/pt01ch14.md) | [pt01ch14.md](./eng/pt01ch14.md) |
+| 14.1 CommandRegister 对象 | 14.1 CommandRegister object | [pt01ch14pyo01.md](./chs/pt01ch14pyo01.md) | [pt01ch14pyo01.md](./eng/pt01ch14pyo01.md) |
+| 14.2 RepositorySupport 对象 | 14.2 RepositorySupport object | [pt01ch14pyo02.md](./chs/pt01ch14pyo02.md) | [pt01ch14pyo02.md](./eng/pt01ch14pyo02.md) |
+| 14.4 RegisteredList 对象 | 14.3 RegisteredDictionary object | [pt01ch14pyo03.md](./chs/pt01ch14pyo03.md) | [pt01ch14pyo03.md](./eng/pt01ch14pyo03.md) |
+| 14.3 RegisteredDictionary 对象 | 14.4 RegisteredList object | [pt01ch14pyo04.md](./chs/pt01ch14pyo04.md) | [pt01ch14pyo04.md](./eng/pt01ch14pyo04.md) |
+| 15.1 Datum 对象 | 14.5 RegisteredTuple object | [pt01ch14pyo05.md](./chs/pt01ch14pyo05.md) | [pt01ch14pyo05.md](./eng/pt01ch14pyo05.md) |
+| 15 Datum commands | 15 Datum commands | [pt01ch15.md](./chs/pt01ch15.md) | [pt01ch15.md](./eng/pt01ch15.md) |
+| 14.5 RegisteredTuple 对象 | 15.1 Datum object | [pt01ch15pyo01.md](./chs/pt01ch15pyo01.md) | [pt01ch15pyo01.md](./eng/pt01ch15pyo01.md) |
+| 15.2 DatumAxis 对象 | 15.2 DatumAxis object | [pt01ch15pyo02.md](./chs/pt01ch15pyo02.md) | [pt01ch15pyo02.md](./eng/pt01ch15pyo02.md) |
+| 15.3 DatumCsys 对象 | 15.3 DatumCsys object | [pt01ch15pyo03.md](./chs/pt01ch15pyo03.md) | [pt01ch15pyo03.md](./eng/pt01ch15pyo03.md) |
+| 15.5 DatumPoint 对象 | 15.4 DatumPlane object | [pt01ch15pyo04.md](./chs/pt01ch15pyo04.md) | [pt01ch15pyo04.md](./eng/pt01ch15pyo04.md) |
+| 16.2 DisplayGroupInstance 对象 | 15.5 DatumPoint object | [pt01ch15pyo05.md](./chs/pt01ch15pyo05.md) | [pt01ch15pyo05.md](./eng/pt01ch15pyo05.md) |
+| 16 Display Group commands | 16 Display Group commands | [pt01ch16.md](./chs/pt01ch16.md) | [pt01ch16.md](./eng/pt01ch16.md) |
+| 15.4 DatumPlane 对象 | 16.1 DisplayGroup object | [pt01ch16pyo01.md](./chs/pt01ch16pyo01.md) | [pt01ch16pyo01.md](./eng/pt01ch16pyo01.md) |
+| 16.1 DisplayGroup 对象 | 16.2 DisplayGroupInstance object | [pt01ch16pyo02.md](./chs/pt01ch16pyo02.md) | [pt01ch16pyo02.md](./eng/pt01ch16pyo02.md) |
+| 16.3 DisplayGroupInstanceRepository 对象 | 16.3 DisplayGroupInstanceRepository object | [pt01ch16pyo03.md](./chs/pt01ch16pyo03.md) | [pt01ch16pyo03.md](./eng/pt01ch16pyo03.md) |
+| 16.4 Leaf 对象 | 16.4 Leaf object | [pt01ch16pyo04.md](./chs/pt01ch16pyo04.md) | [pt01ch16pyo04.md](./eng/pt01ch16pyo04.md) |
+| 16.5 LeafFromDatums 对象 | 16.5 LeafFromDatums object | [pt01ch16pyo05.md](./chs/pt01ch16pyo05.md) | [pt01ch16pyo05.md](./eng/pt01ch16pyo05.md) |
+| 16.7 LeafFromElementLabels 对象 | 16.6 LeafFromDisplayGroup object | [pt01ch16pyo06.md](./chs/pt01ch16pyo06.md) | [pt01ch16pyo06.md](./eng/pt01ch16pyo06.md) |
+| 16.8 LeafFromElementSets 对象 | 16.7 LeafFromElementLabels object | [pt01ch16pyo07.md](./chs/pt01ch16pyo07.md) | [pt01ch16pyo07.md](./eng/pt01ch16pyo07.md) |
+| 16.6 LeafFromDisplayGroup 对象 | 16.8 LeafFromElementSets object | [pt01ch16pyo08.md](./chs/pt01ch16pyo08.md) | [pt01ch16pyo08.md](./eng/pt01ch16pyo08.md) |
+| 16.9 LeafFromElementVarRange 对象 | 16.9 LeafFromElementVarRange object | [pt01ch16pyo09.md](./chs/pt01ch16pyo09.md) | [pt01ch16pyo09.md](./eng/pt01ch16pyo09.md) |
+| 16.10 LeafFromGeometry 对象 | 16.10 LeafFromGeometry object | [pt01ch16pyo10.md](./chs/pt01ch16pyo10.md) | [pt01ch16pyo10.md](./eng/pt01ch16pyo10.md) |
+| 16.11 LeafFromInstance 对象 | 16.11 LeafFromInstance object | [pt01ch16pyo11.md](./chs/pt01ch16pyo11.md) | [pt01ch16pyo11.md](./eng/pt01ch16pyo11.md) |
+| 16.12 LeafFromInstanceElementLabels 对象 | 16.12 LeafFromInstanceElementLabels object | [pt01ch16pyo12.md](./chs/pt01ch16pyo12.md) | [pt01ch16pyo12.md](./eng/pt01ch16pyo12.md) |
+| 16.13 LeafFromInstanceNodeLabels 对象 | 16.13 LeafFromInstanceNodeLabels object | [pt01ch16pyo13.md](./chs/pt01ch16pyo13.md) | [pt01ch16pyo13.md](./eng/pt01ch16pyo13.md) |
+| 16.14 LeafFromMeshElementLabels 对象 | 16.14 LeafFromMeshElementLabels object | [pt01ch16pyo14.md](./chs/pt01ch16pyo14.md) | [pt01ch16pyo14.md](./eng/pt01ch16pyo14.md) |
+| 16.15 LeafFromMeshNodeLabels 对象 | 16.15 LeafFromMeshNodeLabels object | [pt01ch16pyo15.md](./chs/pt01ch16pyo15.md) | [pt01ch16pyo15.md](./eng/pt01ch16pyo15.md) |
+| 16.17 LeafFromModelElemLabels 对象 | 16.16 LeafFromMeshSurfaceSets object | [pt01ch16pyo16.md](./chs/pt01ch16pyo16.md) | [pt01ch16pyo16.md](./eng/pt01ch16pyo16.md) |
+| 16.16 LeafFromMeshSurfaceSets 对象 | 16.17 LeafFromModelElemLabels object | [pt01ch16pyo17.md](./chs/pt01ch16pyo17.md) | [pt01ch16pyo17.md](./eng/pt01ch16pyo17.md) |
+| 16.18 LeafFromModelNodeLabels 对象 | 16.18 LeafFromModelNodeLabels object | [pt01ch16pyo18.md](./chs/pt01ch16pyo18.md) | [pt01ch16pyo18.md](./eng/pt01ch16pyo18.md) |
+| 16.19 LeafFromNodeLabels 对象 | 16.19 LeafFromNodeLabels object | [pt01ch16pyo19.md](./chs/pt01ch16pyo19.md) | [pt01ch16pyo19.md](./eng/pt01ch16pyo19.md) |
+| 16.20 LeafFromNodeSets 对象 | 16.20 LeafFromNodeSets object | [pt01ch16pyo20.md](./chs/pt01ch16pyo20.md) | [pt01ch16pyo20.md](./eng/pt01ch16pyo20.md) |
+| 16.21 LeafFromNodeVarRange 对象 | 16.21 LeafFromNodeVarRange object | [pt01ch16pyo21.md](./chs/pt01ch16pyo21.md) | [pt01ch16pyo21.md](./eng/pt01ch16pyo21.md) |
+| 16.22 LeafFromOdbElementLayups 对象 | 16.22 LeafFromOdbElementLayups object | [pt01ch16pyo22.md](./chs/pt01ch16pyo22.md) | [pt01ch16pyo22.md](./eng/pt01ch16pyo22.md) |
+| 16.23 LeafFromOdbElementMaterials 对象 | 16.23 LeafFromOdbElementMaterials object | [pt01ch16pyo23.md](./chs/pt01ch16pyo23.md) | [pt01ch16pyo23.md](./eng/pt01ch16pyo23.md) |
+| 16.24 LeafFromOdbElementPick 对象 | 16.24 LeafFromOdbElementPick object | [pt01ch16pyo24.md](./chs/pt01ch16pyo24.md) | [pt01ch16pyo24.md](./eng/pt01ch16pyo24.md) |
+| 16.25 LeafFromOdbElementPlies 对象 | 16.25 LeafFromOdbElementPlies object | [pt01ch16pyo25.md](./chs/pt01ch16pyo25.md) | [pt01ch16pyo25.md](./eng/pt01ch16pyo25.md) |
+| 16.27 LeafFromOdbElementTypes 对象 | 16.26 LeafFromOdbElementSections object | [pt01ch16pyo26.md](./chs/pt01ch16pyo26.md) | [pt01ch16pyo26.md](./eng/pt01ch16pyo26.md) |
+| 16.26 LeafFromOdbElementSections 对象 | 16.27 LeafFromOdbElementTypes object | [pt01ch16pyo27.md](./chs/pt01ch16pyo27.md) | [pt01ch16pyo27.md](./eng/pt01ch16pyo27.md) |
+| 16.28 LeafFromOdbNodePick 对象 | 16.28 LeafFromOdbNodePick object | [pt01ch16pyo28.md](./chs/pt01ch16pyo28.md) | [pt01ch16pyo28.md](./eng/pt01ch16pyo28.md) |
+| 16.29 LeafFromPartElementLabels 对象 | 16.29 LeafFromPartElementLabels object | [pt01ch16pyo29.md](./chs/pt01ch16pyo29.md) | [pt01ch16pyo29.md](./eng/pt01ch16pyo29.md) |
+| 16.31 LeafFromPartNodeLabels 对象 | 16.30 LeafFromPartInstance object | [pt01ch16pyo30.md](./chs/pt01ch16pyo30.md) | [pt01ch16pyo30.md](./eng/pt01ch16pyo30.md) |
+| 16.30 LeafFromPartInstance 对象 | 16.31 LeafFromPartNodeLabels object | [pt01ch16pyo31.md](./chs/pt01ch16pyo31.md) | [pt01ch16pyo31.md](./eng/pt01ch16pyo31.md) |
+| 16.32 LeafFromReferencePoint 对象 | 16.32 LeafFromReferencePoint object | [pt01ch16pyo32.md](./chs/pt01ch16pyo32.md) | [pt01ch16pyo32.md](./eng/pt01ch16pyo32.md) |
+| 16.33 LeafFromSets 对象 | 16.33 LeafFromSets object | [pt01ch16pyo33.md](./chs/pt01ch16pyo33.md) | [pt01ch16pyo33.md](./eng/pt01ch16pyo33.md) |
+| 16.34 LeafFromSurfaceSets 对象 | 16.34 LeafFromSurfaceSets object | [pt01ch16pyo34.md](./chs/pt01ch16pyo34.md) | [pt01ch16pyo34.md](./eng/pt01ch16pyo34.md) |
+| 16.35 LeafFromSurfaceVarRange 对象 | 16.35 LeafFromSurfaceVarRange object | [pt01ch16pyo35.md](./chs/pt01ch16pyo35.md) | [pt01ch16pyo35.md](./eng/pt01ch16pyo35.md) |
+| 17.1 AssemblyDisplayOptions 对象 | 17 Display Options commands | [pt01ch17.md](./chs/pt01ch17.md) | [pt01ch17.md](./eng/pt01ch17.md) |
+| 17 显示选项命令 | 17.1 AssemblyDisplayOptions object | [pt01ch17pyo01.md](./chs/pt01ch17pyo01.md) | [pt01ch17pyo01.md](./eng/pt01ch17pyo01.md) |
+| 17.2 BCDisplayOptions 对象 | 17.2 BCDisplayOptions object | [pt01ch17pyo02.md](./chs/pt01ch17pyo02.md) | [pt01ch17pyo02.md](./eng/pt01ch17pyo02.md) |
+| 17.3 ConstraintDisplayOptions 对象 | 17.3 ConstraintDisplayOptions object | [pt01ch17pyo03.md](./chs/pt01ch17pyo03.md) | [pt01ch17pyo03.md](./eng/pt01ch17pyo03.md) |
+| 17.4 EngineeringFeatureDisplayOptions 对象 | 17.4 EngineeringFeatureDisplayOptions object | [pt01ch17pyo04.md](./chs/pt01ch17pyo04.md) | [pt01ch17pyo04.md](./eng/pt01ch17pyo04.md) |
+| 17.5 PredefinedFieldDisplayOptions 对象 | 17.5 PredefinedFieldDisplayOptions object | [pt01ch17pyo05.md](./chs/pt01ch17pyo05.md) | [pt01ch17pyo05.md](./eng/pt01ch17pyo05.md) |
+| 17.6 GeometryDisplayOptions 对象 | 17.6 GeometryDisplayOptions object | [pt01ch17pyo06.md](./chs/pt01ch17pyo06.md) | [pt01ch17pyo06.md](./eng/pt01ch17pyo06.md) |
+| 17.7 GeometricRestrictionDisplayOptions 对象 | 17.7 GeometricRestrictionDisplayOptions object | [pt01ch17pyo07.md](./chs/pt01ch17pyo07.md) | [pt01ch17pyo07.md](./eng/pt01ch17pyo07.md) |
+| 17.8 GraphicsInfo 对象 | 17.8 GraphicsInfo object | [pt01ch17pyo08.md](./chs/pt01ch17pyo08.md) | [pt01ch17pyo08.md](./eng/pt01ch17pyo08.md) |
+| 17.9 GraphicsOptions 对象 | 17.9 GraphicsOptions object | [pt01ch17pyo09.md](./chs/pt01ch17pyo09.md) | [pt01ch17pyo09.md](./eng/pt01ch17pyo09.md) |
+| 17.11 Light 对象 | 17.10 InteractionDisplayOptions object | [pt01ch17pyo10.md](./chs/pt01ch17pyo10.md) | [pt01ch17pyo10.md](./eng/pt01ch17pyo10.md) |
+| 17.10 InteractionDisplayOptions 对象 | 17.11 Light object | [pt01ch17pyo11.md](./chs/pt01ch17pyo11.md) | [pt01ch17pyo11.md](./eng/pt01ch17pyo11.md) |
+| 17.12 LightOptions 对象 | 17.12 LightOptions object | [pt01ch17pyo12.md](./chs/pt01ch17pyo12.md) | [pt01ch17pyo12.md](./eng/pt01ch17pyo12.md) |
+| 17.14 MeshDisplayOptions 对象 | 17.13 LoadDisplayOptions object | [pt01ch17pyo13.md](./chs/pt01ch17pyo13.md) | [pt01ch17pyo13.md](./eng/pt01ch17pyo13.md) |
+| 17.13 LoadDisplayOptions 对象 | 17.14 MeshDisplayOptions object | [pt01ch17pyo14.md](./chs/pt01ch17pyo14.md) | [pt01ch17pyo14.md](./eng/pt01ch17pyo14.md) |
+| 17.15 OptimizationTaskDisplayOptions 对象 | 17.15 OptimizationTaskDisplayOptions object | [pt01ch17pyo15.md](./chs/pt01ch17pyo15.md) | [pt01ch17pyo15.md](./eng/pt01ch17pyo15.md) |
+| 17.16 PartDisplayOptions 对象 | 17.16 PartDisplayOptions object | [pt01ch17pyo16.md](./chs/pt01ch17pyo16.md) | [pt01ch17pyo16.md](./eng/pt01ch17pyo16.md) |
+| 17.17 StopConditionDisplayOptions 对象 | 17.17 StopConditionDisplayOptions object | [pt01ch17pyo17.md](./chs/pt01ch17pyo17.md) | [pt01ch17pyo17.md](./eng/pt01ch17pyo17.md) |
+| 17.18 SymbolDisplayOptions 对象 | 17.18 SymbolDisplayOptions object | [pt01ch17pyo18.md](./chs/pt01ch17pyo18.md) | [pt01ch17pyo18.md](./eng/pt01ch17pyo18.md) |
+| 17.19 ViewportAnnotationOptions 对象 | 17.19 ViewportAnnotationOptions object | [pt01ch17pyo19.md](./chs/pt01ch17pyo19.md) | [pt01ch17pyo19.md](./eng/pt01ch17pyo19.md) |
+| 18 网格编辑命令 | 18 Edit mesh commands | [pt01ch18.md](./chs/pt01ch18.md) | [pt01ch18.md](./eng/pt01ch18.md) |
+| 18.1 Assembly 对象 | 18.1 Assembly object | [pt01ch18pyo01.md](./chs/pt01ch18pyo01.md) | [pt01ch18pyo01.md](./eng/pt01ch18pyo01.md) |
+| 18.2 Part 对象 | 18.2 Part object | [pt01ch18pyo02.md](./chs/pt01ch18pyo02.md) | [pt01ch18pyo02.md](./eng/pt01ch18pyo02.md) |
+| 18.3 MeshEditOptions 对象 | 18.3 MeshEditOptions object | [pt01ch18pyo03.md](./chs/pt01ch18pyo03.md) | [pt01ch18pyo03.md](./eng/pt01ch18pyo03.md) |
+| 19 工程特征命令 | 19 Engineering Feature commands | [pt01ch19.md](./chs/pt01ch19.md) | [pt01ch19.md](./eng/pt01ch19.md) |
+| 19.1 EngineeringFeature 对象 | 19.1 EngineeringFeature object | [pt01ch19pyo01.md](./chs/pt01ch19pyo01.md) | [pt01ch19pyo01.md](./eng/pt01ch19pyo01.md) |
+| 19.2 AssembledFastener 对象 | 19.2 AssembledFastener object | [pt01ch19pyo02.md](./chs/pt01ch19pyo02.md) | [pt01ch19pyo02.md](./eng/pt01ch19pyo02.md) |
+| 19.4 Crack 对象 | 19.3 ContourIntegral object | [pt01ch19pyo03.md](./chs/pt01ch19pyo03.md) | [pt01ch19pyo03.md](./eng/pt01ch19pyo03.md) |
+| 19.3 ContourIntegral 对象 | 19.4 Crack object | [pt01ch19pyo04.md](./chs/pt01ch19pyo04.md) | [pt01ch19pyo04.md](./eng/pt01ch19pyo04.md) |
+| 19.5 DebondVCCT 对象 | 19.5 DebondVCCT object | [pt01ch19pyo05.md](./chs/pt01ch19pyo05.md) | [pt01ch19pyo05.md](./eng/pt01ch19pyo05.md) |
+| 19.6 DiscreteFastener 对象 | 19.6 DiscreteFastener object | [pt01ch19pyo06.md](./chs/pt01ch19pyo06.md) | [pt01ch19pyo06.md](./eng/pt01ch19pyo06.md) |
+| 19.7 Fastener 对象 | 19.7 Fastener object | [pt01ch19pyo07.md](./chs/pt01ch19pyo07.md) | [pt01ch19pyo07.md](./eng/pt01ch19pyo07.md) |
+| 19.8 HeatCapacitance 对象 | 19.8 HeatCapacitance object | [pt01ch19pyo08.md](./chs/pt01ch19pyo08.md) | [pt01ch19pyo08.md](./eng/pt01ch19pyo08.md) |
+| 19.9 Inertia 对象 | 19.9 Inertia object | [pt01ch19pyo09.md](./chs/pt01ch19pyo09.md) | [pt01ch19pyo09.md](./eng/pt01ch19pyo09.md) |
+| 19.10 NonstructuralMass 对象 | 19.10 NonstructuralMass object | [pt01ch19pyo10.md](./chs/pt01ch19pyo10.md) | [pt01ch19pyo10.md](./eng/pt01ch19pyo10.md) |
+| 19.12 PointMassInertia 对象 | 19.11 PointFastener object | [pt01ch19pyo11.md](./chs/pt01ch19pyo11.md) | [pt01ch19pyo11.md](./eng/pt01ch19pyo11.md) |
+| 19.11 PointFastener 对象 | 19.12 PointMassInertia object | [pt01ch19pyo12.md](./chs/pt01ch19pyo12.md) | [pt01ch19pyo12.md](./eng/pt01ch19pyo12.md) |
+| 19.13 SpringDashpot 对象 | 19.13 SpringDashpot object | [pt01ch19pyo13.md](./chs/pt01ch19pyo13.md) | [pt01ch19pyo13.md](./eng/pt01ch19pyo13.md) |
+| 19.14 SpringDashpotToGround 对象 | 19.14 SpringDashpotToGround object | [pt01ch19pyo14.md](./chs/pt01ch19pyo14.md) | [pt01ch19pyo14.md](./eng/pt01ch19pyo14.md) |
+| 19.15 TwoPointSpringDashpot 对象 | 19.15 TwoPointSpringDashpot object | [pt01ch19pyo15.md](./chs/pt01ch19pyo15.md) | [pt01ch19pyo15.md](./eng/pt01ch19pyo15.md) |
+| 19.16 XFEMCrack 对象 | 19.16 XFEMCrack object | [pt01ch19pyo16.md](./chs/pt01ch19pyo16.md) | [pt01ch19pyo16.md](./eng/pt01ch19pyo16.md) |
+| 20 Feature commands | 20 Feature commands | [pt01ch20.md](./chs/pt01ch20.md) | [pt01ch20.md](./eng/pt01ch20.md) |
+| 20.1 Feature object | 20.1 Feature object | [pt01ch20pyo01.md](./chs/pt01ch20pyo01.md) | [pt01ch20pyo01.md](./eng/pt01ch20pyo01.md) |
+| 20.2 FeatureOptions object | 20.2 FeatureOptions object | [pt01ch20pyo02.md](./chs/pt01ch20pyo02.md) | [pt01ch20pyo02.md](./eng/pt01ch20pyo02.md) |
+| 21 Field 命令 | 21 Field commands | [pt01ch21.md](./chs/pt01ch21.md) | [pt01ch21.md](./eng/pt01ch21.md) |
+| 21.1 Field 对象 | 21.1 Field object | [pt01ch21pyo01.md](./chs/pt01ch21pyo01.md) | [pt01ch21pyo01.md](./eng/pt01ch21pyo01.md) |
+| 21.2 AnalyticalField 对象 | 21.2 AnalyticalField object | [pt01ch21pyo02.md](./chs/pt01ch21pyo02.md) | [pt01ch21pyo02.md](./eng/pt01ch21pyo02.md) |
+| 21.3 DataTable 对象 | 21.3 DataTable object | [pt01ch21pyo03.md](./chs/pt01ch21pyo03.md) | [pt01ch21pyo03.md](./eng/pt01ch21pyo03.md) |
+| 21.4 DiscreteField 对象 | 21.4 DiscreteField object | [pt01ch21pyo04.md](./chs/pt01ch21pyo04.md) | [pt01ch21pyo04.md](./eng/pt01ch21pyo04.md) |
+| 21.5 ExpressionField 对象 | 21.5 ExpressionField object | [pt01ch21pyo05.md](./chs/pt01ch21pyo05.md) | [pt01ch21pyo05.md](./eng/pt01ch21pyo05.md) |
+| 21.6 MappedField 对象 | 21.6 MappedField object | [pt01ch21pyo06.md](./chs/pt01ch21pyo06.md) | [pt01ch21pyo06.md](./eng/pt01ch21pyo06.md) |
+| 21.7 OdbMeshRegionData 对象 | 21.7 OdbMeshRegionData object | [pt01ch21pyo07.md](./chs/pt01ch21pyo07.md) | [pt01ch21pyo07.md](./eng/pt01ch21pyo07.md) |
+| 22 Filter 命令 | 22 Filter commands | [pt01ch22.md](./chs/pt01ch22.md) | [pt01ch22.md](./eng/pt01ch22.md) |
+| 22.1 Filter 对象 | 22.1 Filter object | [pt01ch22pyo01.md](./chs/pt01ch22pyo01.md) | [pt01ch22pyo01.md](./eng/pt01ch22pyo01.md) |
+| 22.2 ButterworthFilter 对象 | 22.2 ButterworthFilter object | [pt01ch22pyo02.md](./chs/pt01ch22pyo02.md) | [pt01ch22pyo02.md](./eng/pt01ch22pyo02.md) |
+| 22.3 Chebyshev1Filter 对象 | 22.3 Chebyshev1Filter object | [pt01ch22pyo03.md](./chs/pt01ch22pyo03.md) | [pt01ch22pyo03.md](./eng/pt01ch22pyo03.md) |
+| 22.4 Chebyshev2Filter 对象 | 22.4 Chebyshev2Filter object | [pt01ch22pyo04.md](./chs/pt01ch22pyo04.md) | [pt01ch22pyo04.md](./eng/pt01ch22pyo04.md) |
+| 22.5 OperatorFilter 对象 | 22.5 OperatorFilter object | [pt01ch22pyo05.md](./chs/pt01ch22pyo05.md) | [pt01ch22pyo05.md](./eng/pt01ch22pyo05.md) |
+| 23 History and Field Report 命令 | 23 History and Field Report commands | [pt01ch23.md](./chs/pt01ch23.md) | [pt01ch23.md](./eng/pt01ch23.md) |
+| 23.5 writeFieldReport | 23.5 writeFieldReport | [pt01ch23pyc01.md](./chs/pt01ch23pyc01.md) | [pt01ch23pyc01.md](./eng/pt01ch23pyc01.md) |
+| 23.6 writeFreeBodyReport | 23.5 writeFreeBodyReport | [pt01ch23pyc02.md](./chs/pt01ch23pyc02.md) | [pt01ch23pyc02.md](./eng/pt01ch23pyc02.md) |
+| 23.1 FieldReportOptions 对象 | 23.1 FieldReportOptions object | [pt01ch23pyo01.md](./chs/pt01ch23pyo01.md) | [pt01ch23pyo01.md](./eng/pt01ch23pyo01.md) |
+| 23.2 FreeBodyReportOptions 对象 | 23.2 FreeBodyReportOptions object | [pt01ch23pyo02.md](./chs/pt01ch23pyo02.md) | [pt01ch23pyo02.md](./eng/pt01ch23pyo02.md) |
+| 23.3 OdbFieldVarList 对象 | 23.3 OdbFieldVarList object | [pt01ch23pyo03.md](./chs/pt01ch23pyo03.md) | [pt01ch23pyo03.md](./eng/pt01ch23pyo03.md) |
+| 23.4 OdbModelFieldVarList 对象 | 23.4 OdbModelFieldVarList object | [pt01ch23pyo04.md](./chs/pt01ch23pyo04.md) | [pt01ch23pyo04.md](./eng/pt01ch23pyo04.md) |
+| 24 Input File Parser 命令 | 24 Input File Parser commands | [pt01ch24.md](./chs/pt01ch24.md) | [pt01ch24.md](./eng/pt01ch24.md) |
+| 24.1 InputFile 对象 | 24.1 InputFile object | [pt01ch24pyo01.md](./chs/pt01ch24pyo01.md) | [pt01ch24pyo01.md](./eng/pt01ch24pyo01.md) |
+| 24.2 Keyword 对象 | 24.2 Keyword object | [pt01ch24pyo02.md](./chs/pt01ch24pyo02.md) | [pt01ch24pyo02.md](./eng/pt01ch24pyo02.md) |
+| 24.3 AbaqusNDarray 对象 | 24.3 AbaqusNDarray object | [pt01ch24pyo03.md](./chs/pt01ch24pyo03.md) | [pt01ch24pyo03.md](./eng/pt01ch24pyo03.md) |
+| 25 Interaction 命令 | 25 Interaction commands | [pt01ch25.md](./chs/pt01ch25.md) | [pt01ch25.md](./eng/pt01ch25.md) |
+| 25.1 Interaction 对象 | 25.1 Interaction object | [pt01ch25pyo01.md](./chs/pt01ch25pyo01.md) | [pt01ch25pyo01.md](./eng/pt01ch25pyo01.md) |
+| 25.2 AcousticImpedance 对象 | 25.2 AcousticImpedance object | [pt01ch25pyo02.md](./chs/pt01ch25pyo02.md) | [pt01ch25pyo02.md](./eng/pt01ch25pyo02.md) |
+| 25.4 AcousticImpedanceState 对象 | 25.3 AcousticImpedanceProp object | [pt01ch25pyo03.md](./chs/pt01ch25pyo03.md) | [pt01ch25pyo03.md](./eng/pt01ch25pyo03.md) |
+| 25.5 ActuatorSensor 对象 | 25.4 AcousticImpedanceState object | [pt01ch25pyo04.md](./chs/pt01ch25pyo04.md) | [pt01ch25pyo04.md](./eng/pt01ch25pyo04.md) |
+| 25.3 AcousticImpedanceProp 对象 | 25.5 ActuatorSensor object | [pt01ch25pyo05.md](./chs/pt01ch25pyo05.md) | [pt01ch25pyo05.md](./eng/pt01ch25pyo05.md) |
+| 25.6 ActuatorSensorProp 对象 | 25.6 ActuatorSensorProp object | [pt01ch25pyo06.md](./chs/pt01ch25pyo06.md) | [pt01ch25pyo06.md](./eng/pt01ch25pyo06.md) |
+| 25.7 ActuatorSensorState 对象 | 25.7 ActuatorSensorState object | [pt01ch25pyo07.md](./chs/pt01ch25pyo07.md) | [pt01ch25pyo07.md](./eng/pt01ch25pyo07.md) |
+| 25.8 CavityRadiation 对象 | 25.8 CavityRadiation object | [pt01ch25pyo08.md](./chs/pt01ch25pyo08.md) | [pt01ch25pyo08.md](./eng/pt01ch25pyo08.md) |
+| 25.10 CavityRadiationState 对象 | 25.9 CavityRadiationProp object | [pt01ch25pyo09.md](./chs/pt01ch25pyo09.md) | [pt01ch25pyo09.md](./eng/pt01ch25pyo09.md) |
+| 25.9 CavityRadiationProp 对象 | 25.10 CavityRadiationState object | [pt01ch25pyo10.md](./chs/pt01ch25pyo10.md) | [pt01ch25pyo10.md](./eng/pt01ch25pyo10.md) |
+| 25.11 CohesiveBehavior 对象 | 25.11 CohesiveBehavior object | [pt01ch25pyo11.md](./chs/pt01ch25pyo11.md) | [pt01ch25pyo11.md](./eng/pt01ch25pyo11.md) |
+| 25.12 ConcentratedFilmCondition 对象 | 25.12 ConcentratedFilmCondition object | [pt01ch25pyo12.md](./chs/pt01ch25pyo12.md) | [pt01ch25pyo12.md](./eng/pt01ch25pyo12.md) |
+| 25.13 ConcentratedFilmConditionState 对象 | 25.13 ConcentratedFilmConditionState object | [pt01ch25pyo13.md](./chs/pt01ch25pyo13.md) | [pt01ch25pyo13.md](./eng/pt01ch25pyo13.md) |
+| 25.14 ConcentratedRadiationToAmbient 对象 | 25.14 ConcentratedRadiationToAmbient object | [pt01ch25pyo14.md](./chs/pt01ch25pyo14.md) | [pt01ch25pyo14.md](./eng/pt01ch25pyo14.md) |
+| 25.15 ConcentratedRadiationToAmbientState 对象 | 25.15 ConcentratedRadiationToAmbientState object | [pt01ch25pyo15.md](./chs/pt01ch25pyo15.md) | [pt01ch25pyo15.md](./eng/pt01ch25pyo15.md) |
+| 25.16 ContactControl 对象 | 25.16 ContactControl object | [pt01ch25pyo16.md](./chs/pt01ch25pyo16.md) | [pt01ch25pyo16.md](./eng/pt01ch25pyo16.md) |
+| 25.17 ContactDamage 对象 | 25.17 ContactDamage object | [pt01ch25pyo17.md](./chs/pt01ch25pyo17.md) | [pt01ch25pyo17.md](./eng/pt01ch25pyo17.md) |
+| 25.18 ContactDamping 对象 | 25.18 ContactDamping object | [pt01ch25pyo18.md](./chs/pt01ch25pyo18.md) | [pt01ch25pyo18.md](./eng/pt01ch25pyo18.md) |
+| 25.19 ContactExp 对象 | 25.19 ContactExp object | [pt01ch25pyo19.md](./chs/pt01ch25pyo19.md) | [pt01ch25pyo19.md](./eng/pt01ch25pyo19.md) |
+| 25.20 ContactInitialization 对象 | 25.20 ContactInitialization object | [pt01ch25pyo20.md](./chs/pt01ch25pyo20.md) | [pt01ch25pyo20.md](./eng/pt01ch25pyo20.md) |
+| 25.21 ContactProperty 对象 | 25.21 ContactProperty object | [pt01ch25pyo21.md](./chs/pt01ch25pyo21.md) | [pt01ch25pyo21.md](./eng/pt01ch25pyo21.md) |
+| 25.22 ContactPropertyAssignment 对象 | 25.22 ContactPropertyAssignment object | [pt01ch25pyo22.md](./chs/pt01ch25pyo22.md) | [pt01ch25pyo22.md](./eng/pt01ch25pyo22.md) |
+| 25.23 ContactStabilization 对象 | 25.23 ContactStabilization object | [pt01ch25pyo23.md](./chs/pt01ch25pyo23.md) | [pt01ch25pyo23.md](./eng/pt01ch25pyo23.md) |
+| 25.24 ContactStd 对象 | 25.24 ContactStd object | [pt01ch25pyo24.md](./chs/pt01ch25pyo24.md) | [pt01ch25pyo24.md](./eng/pt01ch25pyo24.md) |
+| 25.25 ContactTangentialBehavior 对象 | 25.25 ContactTangentialBehavior object | [pt01ch25pyo25.md](./chs/pt01ch25pyo25.md) | [pt01ch25pyo25.md](./eng/pt01ch25pyo25.md) |
+| 25.26 CyclicSymmetry 对象 | 25.26 CyclicSymmetry object | [pt01ch25pyo26.md](./chs/pt01ch25pyo26.md) | [pt01ch25pyo26.md](./eng/pt01ch25pyo26.md) |
+| 25.27 CyclicSymmetryState 对象 | 25.27 CyclicSymmetryState object | [pt01ch25pyo27.md](./chs/pt01ch25pyo27.md) | [pt01ch25pyo27.md](./eng/pt01ch25pyo27.md) |
+| 25.28 ElasticFoundation 对象 | 25.28 ElasticFoundation object | [pt01ch25pyo28.md](./chs/pt01ch25pyo28.md) | [pt01ch25pyo28.md](./eng/pt01ch25pyo28.md) |
+| 25.29 ElasticFoundationState 对象 | 25.29 ElasticFoundationState object | [pt01ch25pyo29.md](./chs/pt01ch25pyo29.md) | [pt01ch25pyo29.md](./eng/pt01ch25pyo29.md) |
+| 25.30 ExpContactControl 对象 | 25.30 ExpContactControl object | [pt01ch25pyo30.md](./chs/pt01ch25pyo30.md) | [pt01ch25pyo30.md](./eng/pt01ch25pyo30.md) |
+| 25.31 FilmCondition 对象 | 25.31 FilmCondition object | [pt01ch25pyo31.md](./chs/pt01ch25pyo31.md) | [pt01ch25pyo31.md](./eng/pt01ch25pyo31.md) |
+| 25.32 FilmConditionProp 对象 | 25.32 FilmConditionProp object | [pt01ch25pyo32.md](./chs/pt01ch25pyo32.md) | [pt01ch25pyo32.md](./eng/pt01ch25pyo32.md) |
+| 25.33 FilmConditionState 对象 | 25.33 FilmConditionState object | [pt01ch25pyo33.md](./chs/pt01ch25pyo33.md) | [pt01ch25pyo33.md](./eng/pt01ch25pyo33.md) |
+| 25.34 FluidCavity 对象 | 25.34 FluidCavity object | [pt01ch25pyo34.md](./chs/pt01ch25pyo34.md) | [pt01ch25pyo34.md](./eng/pt01ch25pyo34.md) |
+| 25.35 FluidCavityProperty 对象 | 25.35 FluidCavityProperty object | [pt01ch25pyo35.md](./chs/pt01ch25pyo35.md) | [pt01ch25pyo35.md](./eng/pt01ch25pyo35.md) |
+| 25.36 FluidCavityState 对象 | 25.36 FluidCavityState object | [pt01ch25pyo36.md](./chs/pt01ch25pyo36.md) | [pt01ch25pyo36.md](./eng/pt01ch25pyo36.md) |
+| 25.37 FluidExchange 对象 | 25.37 FluidExchange object | [pt01ch25pyo37.md](./chs/pt01ch25pyo37.md) | [pt01ch25pyo37.md](./eng/pt01ch25pyo37.md) |
+| 25.38 FluidExchangeProperty 对象 | 25.38 FluidExchangeProperty object | [pt01ch25pyo38.md](./chs/pt01ch25pyo38.md) | [pt01ch25pyo38.md](./eng/pt01ch25pyo38.md) |
+| 25.39 FluidExchangeState 对象 | 25.39 FluidExchangeState object | [pt01ch25pyo39.md](./chs/pt01ch25pyo39.md) | [pt01ch25pyo39.md](./eng/pt01ch25pyo39.md) |
+| 25.40 FractureCriterion 对象 | 25.40 FractureCriterion object | [pt01ch25pyo40.md](./chs/pt01ch25pyo40.md) | [pt01ch25pyo40.md](./eng/pt01ch25pyo40.md) |
+| 25.41 GapElectricalConductance 对象 | 25.41 GapElectricalConductance object | [pt01ch25pyo41.md](./chs/pt01ch25pyo41.md) | [pt01ch25pyo41.md](./eng/pt01ch25pyo41.md) |
+| 25.42 GapHeatGeneration 对象 | 25.42 GapHeatGeneration object | [pt01ch25pyo42.md](./chs/pt01ch25pyo42.md) | [pt01ch25pyo42.md](./eng/pt01ch25pyo42.md) |
+| 25.43 GeometricProperties 对象 | 25.43 GeometricProperties object | [pt01ch25pyo43.md](./chs/pt01ch25pyo43.md) | [pt01ch25pyo43.md](./eng/pt01ch25pyo43.md) |
+| 25.44 IncidentWave 对象 | 25.44 IncidentWave object | [pt01ch25pyo44.md](./chs/pt01ch25pyo44.md) | [pt01ch25pyo44.md](./eng/pt01ch25pyo44.md) |
+| 25.45 IncidentWaveProperty 对象 | 25.45 IncidentWaveProperty object | [pt01ch25pyo45.md](./chs/pt01ch25pyo45.md) | [pt01ch25pyo45.md](./eng/pt01ch25pyo45.md) |
+| 25.46 IncidentWaveState 对象 | 25.46 IncidentWaveState object | [pt01ch25pyo46.md](./chs/pt01ch25pyo46.md) | [pt01ch25pyo46.md](./eng/pt01ch25pyo46.md) |
+| 25.47 InitializationAssignment 对象 | 25.47 InitializationAssignment object | [pt01ch25pyo47.md](./chs/pt01ch25pyo47.md) | [pt01ch25pyo47.md](./eng/pt01ch25pyo47.md) |
+| 25.48 InteractionProperty 对象 | 25.48 InteractionProperty object | [pt01ch25pyo48.md](./chs/pt01ch25pyo48.md) | [pt01ch25pyo48.md](./eng/pt01ch25pyo48.md) |
+| 25.49 InteractionState 对象 | 25.49 InteractionState object | [pt01ch25pyo49.md](./chs/pt01ch25pyo49.md) | [pt01ch25pyo49.md](./eng/pt01ch25pyo49.md) |
+| 25.50 MasterSlaveAssignment 对象 | 25.50 MasterSlaveAssignment object | [pt01ch25pyo50.md](./chs/pt01ch25pyo50.md) | [pt01ch25pyo50.md](./eng/pt01ch25pyo50.md) |
+| 25.51 Model 对象 | 25.51 Model object | [pt01ch25pyo51.md](./chs/pt01ch25pyo51.md) | [pt01ch25pyo51.md](./eng/pt01ch25pyo51.md) |
+| 25.52 ModelChange 对象 | 25.52 ModelChange object | [pt01ch25pyo52.md](./chs/pt01ch25pyo52.md) | [pt01ch25pyo52.md](./eng/pt01ch25pyo52.md) |
+| 25.53 NormalBehavior 对象 | 25.53 NormalBehavior object | [pt01ch25pyo53.md](./chs/pt01ch25pyo53.md) | [pt01ch25pyo53.md](./eng/pt01ch25pyo53.md) |
+| 25.54 PressurePenetration 对象 | 25.54 PressurePenetration object | [pt01ch25pyo54.md](./chs/pt01ch25pyo54.md) | [pt01ch25pyo54.md](./eng/pt01ch25pyo54.md) |
+| 25.55 PressurePenetrationState 对象 | 25.55 PressurePenetrationState object | [pt01ch25pyo55.md](./chs/pt01ch25pyo55.md) | [pt01ch25pyo55.md](./eng/pt01ch25pyo55.md) |
+| 25.56 Radiation 对象 | 25.56 Radiation object | [pt01ch25pyo56.md](./chs/pt01ch25pyo56.md) | [pt01ch25pyo56.md](./eng/pt01ch25pyo56.md) |
+| 25.57 RadiationToAmbient 对象 | 25.57 RadiationToAmbient object | [pt01ch25pyo57.md](./chs/pt01ch25pyo57.md) | [pt01ch25pyo57.md](./eng/pt01ch25pyo57.md) |
+| 25.58 RadiationToAmbientState 对象 | 25.58 RadiationToAmbientState object | [pt01ch25pyo58.md](./chs/pt01ch25pyo58.md) | [pt01ch25pyo58.md](./eng/pt01ch25pyo58.md) |
+| 25.59 RegionPairs 对象 | 25.59 RegionPairs object | [pt01ch25pyo59.md](./chs/pt01ch25pyo59.md) | [pt01ch25pyo59.md](./eng/pt01ch25pyo59.md) |
+| 25.60 SelfContactExp 对象 | 25.60 SelfContactExp object | [pt01ch25pyo60.md](./chs/pt01ch25pyo60.md) | [pt01ch25pyo60.md](./eng/pt01ch25pyo60.md) |
+| 25.61 SelfContactExpState 对象 | 25.61 SelfContactExpState object | [pt01ch25pyo61.md](./chs/pt01ch25pyo61.md) | [pt01ch25pyo61.md](./eng/pt01ch25pyo61.md) |
+| 25.62 SelfContactStd 对象 | 25.62 SelfContactStd object | [pt01ch25pyo62.md](./chs/pt01ch25pyo62.md) | [pt01ch25pyo62.md](./eng/pt01ch25pyo62.md) |
+| 25.63 SelfContactStdState 对象 | 25.63 SelfContactStdState object | [pt01ch25pyo63.md](./chs/pt01ch25pyo63.md) | [pt01ch25pyo63.md](./eng/pt01ch25pyo63.md) |
+| 25.64 SmoothingAssignment 对象 | 25.64 SmoothingAssignment object | [pt01ch25pyo64.md](./chs/pt01ch25pyo64.md) | [pt01ch25pyo64.md](./eng/pt01ch25pyo64.md) |
+| 25.65 StabilizationAssignment 对象 | 25.65 StabilizationAssignment object | [pt01ch25pyo65.md](./chs/pt01ch25pyo65.md) | [pt01ch25pyo65.md](./eng/pt01ch25pyo65.md) |
+| 25.66 StdContactControl 对象 | 25.66 StdContactControl object | [pt01ch25pyo66.md](./chs/pt01ch25pyo66.md) | [pt01ch25pyo66.md](./eng/pt01ch25pyo66.md) |
+| 25.67 StdInitialization 对象 | 25.67 StdInitialization object | [pt01ch25pyo67.md](./chs/pt01ch25pyo67.md) | [pt01ch25pyo67.md](./eng/pt01ch25pyo67.md) |
+| 25.68 StdStabilization 对象 | 25.68 StdStabilization object | [pt01ch25pyo68.md](./chs/pt01ch25pyo68.md) | [pt01ch25pyo68.md](./eng/pt01ch25pyo68.md) |
+| 25.69 StdXplCosimulation 对象 | 25.69 StdXplCosimulation object | [pt01ch25pyo69.md](./chs/pt01ch25pyo69.md) | [pt01ch25pyo69.md](./eng/pt01ch25pyo69.md) |
+| 25.70 StdXplCosimulationState 对象 | 25.70 StdXplCosimulationState object | [pt01ch25pyo70.md](./chs/pt01ch25pyo70.md) | [pt01ch25pyo70.md](./eng/pt01ch25pyo70.md) |
+| 25.71 SurfaceFeatureAssignment 对象 | 25.71 SurfaceFeatureAssignment object | [pt01ch25pyo71.md](./chs/pt01ch25pyo71.md) | [pt01ch25pyo71.md](./eng/pt01ch25pyo71.md) |
+| 25.72 SurfaceOffsetAssignment 对象 | 25.72 SurfaceOffsetAssignment object | [pt01ch25pyo72.md](./chs/pt01ch25pyo72.md) | [pt01ch25pyo72.md](./eng/pt01ch25pyo72.md) |
+| 25.73 SurfaceThicknessAssignment 对象 | 25.73 SurfaceThicknessAssignment object | [pt01ch25pyo73.md](./chs/pt01ch25pyo73.md) | [pt01ch25pyo73.md](./eng/pt01ch25pyo73.md) |
+| 25.74 SurfaceToSurfaceContactExp 对象 | 25.74 SurfaceToSurfaceContactExp object | [pt01ch25pyo74.md](./chs/pt01ch25pyo74.md) | [pt01ch25pyo74.md](./eng/pt01ch25pyo74.md) |
+| 25.75 SurfaceToSurfaceContactStd 对象 | 25.75 SurfaceToSurfaceContactStd object | [pt01ch25pyo75.md](./chs/pt01ch25pyo75.md) | [pt01ch25pyo75.md](./eng/pt01ch25pyo75.md) |
+| 25.76 SurfaceToSurfaceExpState 对象 | 25.76 SurfaceToSurfaceExpState object | [pt01ch25pyo76.md](./chs/pt01ch25pyo76.md) | [pt01ch25pyo76.md](./eng/pt01ch25pyo76.md) |
+| 25.77 SurfaceToSurfaceStdState 对象 | 25.77 SurfaceToSurfaceStdState object | [pt01ch25pyo77.md](./chs/pt01ch25pyo77.md) | [pt01ch25pyo77.md](./eng/pt01ch25pyo77.md) |
+| 25.78 ThermalConductance 对象 | 25.78 ThermalConductance object | [pt01ch25pyo78.md](./chs/pt01ch25pyo78.md) | [pt01ch25pyo78.md](./eng/pt01ch25pyo78.md) |
+| 25.79 XFEMCrackGrowth object | 25.79 XFEMCrackGrowth object | [pt01ch25pyo79.md](./chs/pt01ch25pyo79.md) | [pt01ch25pyo79.md](./eng/pt01ch25pyo79.md) |
+| 25.80 XFEMCrackGrowthState object | 25.80 XFEMCrackGrowthState object | [pt01ch25pyo80.md](./chs/pt01ch25pyo80.md) | [pt01ch25pyo80.md](./eng/pt01ch25pyo80.md) |
+| 26 作业命令 | 26 Job commands | [pt01ch26.md](./chs/pt01ch26.md) | [pt01ch26.md](./eng/pt01ch26.md) |
+| 26.1 Job 对象 | 26.1 Job object | [pt01ch26pyo01.md](./chs/pt01ch26pyo01.md) | [pt01ch26pyo01.md](./eng/pt01ch26pyo01.md) |
+| 26.3 Message 对象 | 26.2 JobFromInputFile object | [pt01ch26pyo02.md](./chs/pt01ch26pyo02.md) | [pt01ch26pyo02.md](./eng/pt01ch26pyo02.md) |
+| 26.2 JobFromInputFile 对象 | 26.3 Message object | [pt01ch26pyo03.md](./chs/pt01ch26pyo03.md) | [pt01ch26pyo03.md](./eng/pt01ch26pyo03.md) |
+| 26.4 ModelJob object | 26.4 ModelJob object | [pt01ch26pyo04.md](./chs/pt01ch26pyo04.md) | [pt01ch26pyo04.md](./eng/pt01ch26pyo04.md) |
+| 26.5 Queue object | 26.5 Queue object | [pt01ch26pyo05.md](./chs/pt01ch26pyo05.md) | [pt01ch26pyo05.md](./eng/pt01ch26pyo05.md) |
+| 26.6 Coexecution object | 26.6 Coexecution object | [pt01ch26pyo06.md](./chs/pt01ch26pyo06.md) | [pt01ch26pyo06.md](./eng/pt01ch26pyo06.md) |
+| 26.7 OptimizationProcess object | 26.7 OptimizationProcess object | [pt01ch26pyo07.md](./chs/pt01ch26pyo07.md) | [pt01ch26pyo07.md](./eng/pt01ch26pyo07.md) |
+| 27 载荷命令 | 27 Load commands | [pt01ch27.md](./chs/pt01ch27.md) | [pt01ch27.md](./eng/pt01ch27.md) |
+| 27.1 Load 对象 | 27.1 Load object | [pt01ch27pyo01.md](./chs/pt01ch27pyo01.md) | [pt01ch27pyo01.md](./eng/pt01ch27pyo01.md) |
+| 27.2 BodyCharge 对象 | 27.2 BodyCharge object | [pt01ch27pyo02.md](./chs/pt01ch27pyo02.md) | [pt01ch27pyo02.md](./eng/pt01ch27pyo02.md) |
+| 27.3 BodyChargeState 对象 | 27.3 BodyChargeState object | [pt01ch27pyo03.md](./chs/pt01ch27pyo03.md) | [pt01ch27pyo03.md](./eng/pt01ch27pyo03.md) |
+| 27.4 BodyConcentrationFlux 对象 | 27.4 BodyConcentrationFlux object | [pt01ch27pyo04.md](./chs/pt01ch27pyo04.md) | [pt01ch27pyo04.md](./eng/pt01ch27pyo04.md) |
+| 27.5 BodyConcentrationFluxState 对象 | 27.5 BodyConcentrationFluxState object | [pt01ch27pyo05.md](./chs/pt01ch27pyo05.md) | [pt01ch27pyo05.md](./eng/pt01ch27pyo05.md) |
+| 27.6 BodyCurrent 对象 | 27.6 BodyCurrent object | [pt01ch27pyo06.md](./chs/pt01ch27pyo06.md) | [pt01ch27pyo06.md](./eng/pt01ch27pyo06.md) |
+| 27.7 BodyCurrentDensity 对象 | 27.7 BodyCurrentDensity object | [pt01ch27pyo07.md](./chs/pt01ch27pyo07.md) | [pt01ch27pyo07.md](./eng/pt01ch27pyo07.md) |
+| 27.8 BodyCurrentState 对象 | 27.8 BodyCurrentState object | [pt01ch27pyo08.md](./chs/pt01ch27pyo08.md) | [pt01ch27pyo08.md](./eng/pt01ch27pyo08.md) |
+| 27.9 BodyForce 对象 | 27.9 BodyForce object | [pt01ch27pyo09.md](./chs/pt01ch27pyo09.md) | [pt01ch27pyo09.md](./eng/pt01ch27pyo09.md) |
+| 27.10 BodyForceState 对象 | 27.10 BodyForceState object | [pt01ch27pyo10.md](./chs/pt01ch27pyo10.md) | [pt01ch27pyo10.md](./eng/pt01ch27pyo10.md) |
+| 27.11 BodyHeatFlux 对象 | 27.11 BodyHeatFlux object | [pt01ch27pyo11.md](./chs/pt01ch27pyo11.md) | [pt01ch27pyo11.md](./eng/pt01ch27pyo11.md) |
+| 27.12 BodyHeatFluxState 对象 | 27.12 BodyHeatFluxState object | [pt01ch27pyo12.md](./chs/pt01ch27pyo12.md) | [pt01ch27pyo12.md](./eng/pt01ch27pyo12.md) |
+| 27.13 BoltLoad 对象 | 27.13 BoltLoad object | [pt01ch27pyo13.md](./chs/pt01ch27pyo13.md) | [pt01ch27pyo13.md](./eng/pt01ch27pyo13.md) |
+| 27.14 BoltLoadState 对象 | 27.14 BoltLoadState object | [pt01ch27pyo14.md](./chs/pt01ch27pyo14.md) | [pt01ch27pyo14.md](./eng/pt01ch27pyo14.md) |
+| 27.15 ConcCharge 对象 | 27.15 ConcCharge object | [pt01ch27pyo15.md](./chs/pt01ch27pyo15.md) | [pt01ch27pyo15.md](./eng/pt01ch27pyo15.md) |
+| 27.16 ConcConcFlux 对象 | 27.16 ConcConcFlux object | [pt01ch27pyo16.md](./chs/pt01ch27pyo16.md) | [pt01ch27pyo16.md](./eng/pt01ch27pyo16.md) |
+| 27.17 ConcCurrent 对象 | 27.17 ConcCurrent object | [pt01ch27pyo17.md](./chs/pt01ch27pyo17.md) | [pt01ch27pyo17.md](./eng/pt01ch27pyo17.md) |
+| 27.18 ConcCurrentState 对象 | 27.18 ConcCurrentState object | [pt01ch27pyo18.md](./chs/pt01ch27pyo18.md) | [pt01ch27pyo18.md](./eng/pt01ch27pyo18.md) |
+| 27.19 ConcentratedChargeState 对象 | 27.19 ConcentratedChargeState object | [pt01ch27pyo19.md](./chs/pt01ch27pyo19.md) | [pt01ch27pyo19.md](./eng/pt01ch27pyo19.md) |
+| 27.20 ConcentratedConcentrationFluxState 对象 | 27.20 ConcentratedConcentrationFluxState object | [pt01ch27pyo20.md](./chs/pt01ch27pyo20.md) | [pt01ch27pyo20.md](./eng/pt01ch27pyo20.md) |
+| 27.21 ConcentratedForce object | 27.21 ConcentratedForce object | [pt01ch27pyo21.md](./chs/pt01ch27pyo21.md) | [pt01ch27pyo21.md](./eng/pt01ch27pyo21.md) |
+| 27.22 ConcentratedForceState object | 27.22 ConcentratedForceState object | [pt01ch27pyo22.md](./chs/pt01ch27pyo22.md) | [pt01ch27pyo22.md](./eng/pt01ch27pyo22.md) |
+| 27.23 ConcentratedHeatFlux object | 27.23 ConcentratedHeatFlux object | [pt01ch27pyo23.md](./chs/pt01ch27pyo23.md) | [pt01ch27pyo23.md](./eng/pt01ch27pyo23.md) |
+| 27.24 ConcentratedHeatFluxState object | 27.24 ConcentratedHeatFluxState object | [pt01ch27pyo24.md](./chs/pt01ch27pyo24.md) | [pt01ch27pyo24.md](./eng/pt01ch27pyo24.md) |
+| 27.25 ConcentratedPoreFluidState object | 27.25 ConcentratedPoreFluidState object | [pt01ch27pyo25.md](./chs/pt01ch27pyo25.md) | [pt01ch27pyo25.md](./eng/pt01ch27pyo25.md) |
+| 27.26 ConcPoreFluid object | 27.26 ConcPoreFluid object | [pt01ch27pyo26.md](./chs/pt01ch27pyo26.md) | [pt01ch27pyo26.md](./eng/pt01ch27pyo26.md) |
+| 27.27 ConnectorForce object | 27.27 ConnectorForce object | [pt01ch27pyo27.md](./chs/pt01ch27pyo27.md) | [pt01ch27pyo27.md](./eng/pt01ch27pyo27.md) |
+| 27.28 ConnectorForceState object | 27.28 ConnectorForceState object | [pt01ch27pyo28.md](./chs/pt01ch27pyo28.md) | [pt01ch27pyo28.md](./eng/pt01ch27pyo28.md) |
+| 27.29 ConnectorMoment object | 27.29 ConnectorMoment object | [pt01ch27pyo29.md](./chs/pt01ch27pyo29.md) | [pt01ch27pyo29.md](./eng/pt01ch27pyo29.md) |
+| 27.30 ConnectorMomentState object | 27.30 ConnectorMomentState object | [pt01ch27pyo30.md](./chs/pt01ch27pyo30.md) | [pt01ch27pyo30.md](./eng/pt01ch27pyo30.md) |
+| 27.31 CoriolisForce object | 27.31 CoriolisForce object | [pt01ch27pyo31.md](./chs/pt01ch27pyo31.md) | [pt01ch27pyo31.md](./eng/pt01ch27pyo31.md) |
+| 27.32 CoriolisForceState object | 27.32 CoriolisForceState object | [pt01ch27pyo32.md](./chs/pt01ch27pyo32.md) | [pt01ch27pyo32.md](./eng/pt01ch27pyo32.md) |
+| 27.33 Gravity object | 27.33 Gravity object | [pt01ch27pyo33.md](./chs/pt01ch27pyo33.md) | [pt01ch27pyo33.md](./eng/pt01ch27pyo33.md) |
+| 27.34 GravityState object | 27.34 GravityState object | [pt01ch27pyo34.md](./chs/pt01ch27pyo34.md) | [pt01ch27pyo34.md](./eng/pt01ch27pyo34.md) |
+| 27.35 HydrostaticFluidFlowState object | 27.35 HydrostaticFluidFlowState object | [pt01ch27pyo35.md](./chs/pt01ch27pyo35.md) | [pt01ch27pyo35.md](./eng/pt01ch27pyo35.md) |
+| 27.36 InertiaRelief object | 27.36 InertiaRelief object | [pt01ch27pyo36.md](./chs/pt01ch27pyo36.md) | [pt01ch27pyo36.md](./eng/pt01ch27pyo36.md) |
+| 27.37 InertiaReliefState object | 27.37 InertiaReliefState object | [pt01ch27pyo37.md](./chs/pt01ch27pyo37.md) | [pt01ch27pyo37.md](./eng/pt01ch27pyo37.md) |
+| 27.38 InwardVolAccel object | 27.38 InwardVolAccel object | [pt01ch27pyo38.md](./chs/pt01ch27pyo38.md) | [pt01ch27pyo38.md](./eng/pt01ch27pyo38.md) |
+| 27.39 InwardVolAccelState object | 27.39 InwardVolAccelState object | [pt01ch27pyo39.md](./chs/pt01ch27pyo39.md) | [pt01ch27pyo39.md](./eng/pt01ch27pyo39.md) |
+| 27.40 LineLoad object | 27.40 LineLoad object | [pt01ch27pyo40.md](./chs/pt01ch27pyo40.md) | [pt01ch27pyo40.md](./eng/pt01ch27pyo40.md) |
+| 27.41 LineLoadState object | 27.41 LineLoadState object | [pt01ch27pyo41.md](./chs/pt01ch27pyo41.md) | [pt01ch27pyo41.md](./eng/pt01ch27pyo41.md) |
+| 27.42 LoadState object | 27.42 LoadState object | [pt01ch27pyo42.md](./chs/pt01ch27pyo42.md) | [pt01ch27pyo42.md](./eng/pt01ch27pyo42.md) |
+| 27.43 Moment object | 27.43 Moment object | [pt01ch27pyo43.md](./chs/pt01ch27pyo43.md) | [pt01ch27pyo43.md](./eng/pt01ch27pyo43.md) |
+| 27.44 MomentState object | 27.44 MomentState object | [pt01ch27pyo44.md](./chs/pt01ch27pyo44.md) | [pt01ch27pyo44.md](./eng/pt01ch27pyo44.md) |
+| 27.45 PEGLoad object | 27.45 PEGLoad object | [pt01ch27pyo45.md](./chs/pt01ch27pyo45.md) | [pt01ch27pyo45.md](./eng/pt01ch27pyo45.md) |
+| 27.46 PEGLoadState object | 27.46 PEGLoadState object | [pt01ch27pyo46.md](./chs/pt01ch27pyo46.md) | [pt01ch27pyo46.md](./eng/pt01ch27pyo46.md) |
+| 27.47 PipePressure object | 27.47 PipePressure object | [pt01ch27pyo47.md](./chs/pt01ch27pyo47.md) | [pt01ch27pyo47.md](./eng/pt01ch27pyo47.md) |
+| 27.48 PipePressureState object | 27.48 PipePressureState object | [pt01ch27pyo48.md](./chs/pt01ch27pyo48.md) | [pt01ch27pyo48.md](./eng/pt01ch27pyo48.md) |
+| 27.49 PorDragBodyForce object | 27.49 PorDragBodyForce object | [pt01ch27pyo49.md](./chs/pt01ch27pyo49.md) | [pt01ch27pyo49.md](./eng/pt01ch27pyo49.md) |
+| 27.50 PorDragBodyForceState object | 27.50 PorDragBodyForceState object | [pt01ch27pyo50.md](./chs/pt01ch27pyo50.md) | [pt01ch27pyo50.md](./eng/pt01ch27pyo50.md) |
+| 27.51 Pressure object | 27.51 Pressure object | [pt01ch27pyo51.md](./chs/pt01ch27pyo51.md) | [pt01ch27pyo51.md](./eng/pt01ch27pyo51.md) |
+| 27.52 PressureState object | 27.52 PressureState object | [pt01ch27pyo52.md](./chs/pt01ch27pyo52.md) | [pt01ch27pyo52.md](./eng/pt01ch27pyo52.md) |
+| 27.53 ReferencePressure object | 27.53 ReferencePressure object | [pt01ch27pyo53.md](./chs/pt01ch27pyo53.md) | [pt01ch27pyo53.md](./eng/pt01ch27pyo53.md) |
+| 27.54 RotationalBodyForce object | 27.54 RotationalBodyForce object | [pt01ch27pyo54.md](./chs/pt01ch27pyo54.md) | [pt01ch27pyo54.md](./eng/pt01ch27pyo54.md) |
+| 27.55 RotationalBodyForceState object | 27.55 RotationalBodyForceState object | [pt01ch27pyo55.md](./chs/pt01ch27pyo55.md) | [pt01ch27pyo55.md](./eng/pt01ch27pyo55.md) |
+| 27.56 ShellEdgeLoad object | 27.56 ShellEdgeLoad object | [pt01ch27pyo56.md](./chs/pt01ch27pyo56.md) | [pt01ch27pyo56.md](./eng/pt01ch27pyo56.md) |
+| 27.57 ShellEdgeLoadState object | 27.57 ShellEdgeLoadState object | [pt01ch27pyo57.md](./chs/pt01ch27pyo57.md) | [pt01ch27pyo57.md](./eng/pt01ch27pyo57.md) |
+| 27.58 SubmodelSB object | 27.58 SubmodelSB object | [pt01ch27pyo58.md](./chs/pt01ch27pyo58.md) | [pt01ch27pyo58.md](./eng/pt01ch27pyo58.md) |
+| 27.59 SubmodelSBState object | 27.59 SubmodelSBState object | [pt01ch27pyo59.md](./chs/pt01ch27pyo59.md) | [pt01ch27pyo59.md](./eng/pt01ch27pyo59.md) |
+| 27.60 SubstructureLoad object | 27.60 SubstructureLoad object | [pt01ch27pyo60.md](./chs/pt01ch27pyo60.md) | [pt01ch27pyo60.md](./eng/pt01ch27pyo60.md) |
+| 27.61 SubstructureLoadState object | 27.61 SubstructureLoadState object | [pt01ch27pyo61.md](./chs/pt01ch27pyo61.md) | [pt01ch27pyo61.md](./eng/pt01ch27pyo61.md) |
+| 27.62 SurfaceCharge object | 27.62 SurfaceCharge object | [pt01ch27pyo62.md](./chs/pt01ch27pyo62.md) | [pt01ch27pyo62.md](./eng/pt01ch27pyo62.md) |
+| 27.63 SurfaceChargeState object | 27.63 SurfaceChargeState object | [pt01ch27pyo63.md](./chs/pt01ch27pyo63.md) | [pt01ch27pyo63.md](./eng/pt01ch27pyo63.md) |
+| 27.64 SurfaceConcentrationFlux object | 27.64 SurfaceConcentrationFlux object | [pt01ch27pyo64.md](./chs/pt01ch27pyo64.md) | [pt01ch27pyo64.md](./eng/pt01ch27pyo64.md) |
+| 27.65 SurfaceConcentrationFluxState object | 27.65 SurfaceConcentrationFluxState object | [pt01ch27pyo65.md](./chs/pt01ch27pyo65.md) | [pt01ch27pyo65.md](./eng/pt01ch27pyo65.md) |
+| 27.66 SurfaceCurrent object | 27.66 SurfaceCurrent object | [pt01ch27pyo66.md](./chs/pt01ch27pyo66.md) | [pt01ch27pyo66.md](./eng/pt01ch27pyo66.md) |
+| 27.67 SurfaceCurrentDensity object | 27.67 SurfaceCurrentDensity object | [pt01ch27pyo67.md](./chs/pt01ch27pyo67.md) | [pt01ch27pyo67.md](./eng/pt01ch27pyo67.md) |
+| 27.68 SurfaceCurrentState object | 27.68 SurfaceCurrentState object | [pt01ch27pyo68.md](./chs/pt01ch27pyo68.md) | [pt01ch27pyo68.md](./eng/pt01ch27pyo68.md) |
+| 27.69 SurfaceHeatFlux object | 27.69 SurfaceHeatFlux object | [pt01ch27pyo69.md](./chs/pt01ch27pyo69.md) | [pt01ch27pyo69.md](./eng/pt01ch27pyo69.md) |
+| 27.70 SurfaceHeatFluxState object | 27.70 SurfaceHeatFluxState object | [pt01ch27pyo70.md](./chs/pt01ch27pyo70.md) | [pt01ch27pyo70.md](./eng/pt01ch27pyo70.md) |
+| 27.71 SurfacePoreFluid object | 27.71 SurfacePoreFluid object | [pt01ch27pyo71.md](./chs/pt01ch27pyo71.md) | [pt01ch27pyo71.md](./eng/pt01ch27pyo71.md) |
+| 27.72 SurfacePoreFluidState object | 27.72 SurfacePoreFluidState object | [pt01ch27pyo72.md](./chs/pt01ch27pyo72.md) | [pt01ch27pyo72.md](./eng/pt01ch27pyo72.md) |
+| 27.73 SurfaceTraction object | 27.73 SurfaceTraction object | [pt01ch27pyo73.md](./chs/pt01ch27pyo73.md) | [pt01ch27pyo73.md](./eng/pt01ch27pyo73.md) |
+| 27.74 SurfaceTractionState object | 27.74 SurfaceTractionState object | [pt01ch27pyo74.md](./chs/pt01ch27pyo74.md) | [pt01ch27pyo74.md](./eng/pt01ch27pyo74.md) |
+| 28 载荷情形命令 | 28 Load Case commands | [pt01ch28.md](./chs/pt01ch28.md) | [pt01ch28.md](./eng/pt01ch28.md) |
+| 28.1 LoadCase 对象 | 28.1 LoadCase object | [pt01ch28pyo01.md](./chs/pt01ch28pyo01.md) | [pt01ch28pyo01.md](./eng/pt01ch28pyo01.md) |
+| 29 材料命令 | 29 Material commands | [pt01ch29.md](./chs/pt01ch29.md) | [pt01ch29.md](./eng/pt01ch29.md) |
+| 29.1 Material 对象 | 29.111 evaluateMaterial | [pt01ch29pyc01.md](./chs/pt01ch29pyc01.md) | [pt01ch29pyc01.md](./eng/pt01ch29pyc01.md) |
+| 29.1 Material 对象 | 29.1 Material object | [pt01ch29pyo01.md](./chs/pt01ch29pyo01.md) | [pt01ch29pyo01.md](./eng/pt01ch29pyo01.md) |
+| 29.2 AcousticMedium 对象 | 29.2 AcousticMedium object | [pt01ch29pyo02.md](./chs/pt01ch29pyo02.md) | [pt01ch29pyo02.md](./eng/pt01ch29pyo02.md) |
+| 29.3 AnnealTemperature 对象 | 29.3 AnnealTemperature object | [pt01ch29pyo03.md](./chs/pt01ch29pyo03.md) | [pt01ch29pyo03.md](./eng/pt01ch29pyo03.md) |
+| 29.4 BiaxialTestData 对象 | 29.4 BiaxialTestData object | [pt01ch29pyo04.md](./chs/pt01ch29pyo04.md) | [pt01ch29pyo04.md](./eng/pt01ch29pyo04.md) |
+| 29.5 BrittleCracking 对象 | 29.5 BrittleCracking object | [pt01ch29pyo05.md](./chs/pt01ch29pyo05.md) | [pt01ch29pyo05.md](./eng/pt01ch29pyo05.md) |
+| 29.6 BrittleFailure 对象 | 29.6 BrittleFailure object | [pt01ch29pyo06.md](./chs/pt01ch29pyo06.md) | [pt01ch29pyo06.md](./eng/pt01ch29pyo06.md) |
+| 29.7 BrittleShear 对象 | 29.7 BrittleShear object | [pt01ch29pyo07.md](./chs/pt01ch29pyo07.md) | [pt01ch29pyo07.md](./eng/pt01ch29pyo07.md) |
+| 29.8 CapCreepCohesion 对象 | 29.8 CapCreepCohesion object | [pt01ch29pyo08.md](./chs/pt01ch29pyo08.md) | [pt01ch29pyo08.md](./eng/pt01ch29pyo08.md) |
+| 29.9 CapCreepConsolidation 对象 | 29.9 CapCreepConsolidation object | [pt01ch29pyo09.md](./chs/pt01ch29pyo09.md) | [pt01ch29pyo09.md](./eng/pt01ch29pyo09.md) |
+| 29.10 CapHardening 对象 | 29.10 CapHardening object | [pt01ch29pyo10.md](./chs/pt01ch29pyo10.md) | [pt01ch29pyo10.md](./eng/pt01ch29pyo10.md) |
+| 29.100 Trs 对象 | 29.100 Trs object | [pt01ch29pyo100.md](./chs/pt01ch29pyo100.md) | [pt01ch29pyo100.md](./eng/pt01ch29pyo100.md) |
+| 29.101 UniaxialTestData 对象 | 29.101 UniaxialTestData object | [pt01ch29pyo101.md](./chs/pt01ch29pyo101.md) | [pt01ch29pyo101.md](./eng/pt01ch29pyo101.md) |
+| 29.102 UserDefinedField 对象 | 29.102 UserDefinedField object | [pt01ch29pyo102.md](./chs/pt01ch29pyo102.md) | [pt01ch29pyo102.md](./eng/pt01ch29pyo102.md) |
+| 29.103 UserMaterial 对象 | 29.103 UserMaterial object | [pt01ch29pyo103.md](./chs/pt01ch29pyo103.md) | [pt01ch29pyo103.md](./eng/pt01ch29pyo103.md) |
+| 29.104 UserOutputVariables 对象 | 29.104 UserOutputVariables object | [pt01ch29pyo104.md](./chs/pt01ch29pyo104.md) | [pt01ch29pyo104.md](./eng/pt01ch29pyo104.md) |
+| 29.105 VelocityDependence 对象 | 29.105 VelocityDependence object | [pt01ch29pyo105.md](./chs/pt01ch29pyo105.md) | [pt01ch29pyo105.md](./eng/pt01ch29pyo105.md) |
+| 29.106 Viscoelastic 对象 | 29.106 Viscoelastic object | [pt01ch29pyo106.md](./chs/pt01ch29pyo106.md) | [pt01ch29pyo106.md](./eng/pt01ch29pyo106.md) |
+| 29.107 Viscosity 对象 | 29.107 Viscosity object | [pt01ch29pyo107.md](./chs/pt01ch29pyo107.md) | [pt01ch29pyo107.md](./eng/pt01ch29pyo107.md) |
+| 29.108 Viscous 对象 | 29.108 Viscous object | [pt01ch29pyo108.md](./chs/pt01ch29pyo108.md) | [pt01ch29pyo108.md](./eng/pt01ch29pyo108.md) |
+| 29.109 VoidNucleation 对象 | 29.109 VoidNucleation object | [pt01ch29pyo109.md](./chs/pt01ch29pyo109.md) | [pt01ch29pyo109.md](./eng/pt01ch29pyo109.md) |
+| 29.11 CapPlasticity 对象 | 29.11 CapPlasticity object | [pt01ch29pyo11.md](./chs/pt01ch29pyo11.md) | [pt01ch29pyo11.md](./eng/pt01ch29pyo11.md) |
+| 29.110 VolumetricTestData 对象 | 29.110 VolumetricTestData object | [pt01ch29pyo110.md](./chs/pt01ch29pyo110.md) | [pt01ch29pyo110.md](./eng/pt01ch29pyo110.md) |
+| 29.12 CastIronCompressionHardening 对象 | 29.12 CastIronCompressionHardening object | [pt01ch29pyo12.md](./chs/pt01ch29pyo12.md) | [pt01ch29pyo12.md](./eng/pt01ch29pyo12.md) |
+| 29.13 CastIronPlasticity 对象 | 29.13 CastIronPlasticity object | [pt01ch29pyo13.md](./chs/pt01ch29pyo13.md) | [pt01ch29pyo13.md](./eng/pt01ch29pyo13.md) |
+| 29.14 CastIronTensionHardening 对象 | 29.14 CastIronTensionHardening object | [pt01ch29pyo14.md](./chs/pt01ch29pyo14.md) | [pt01ch29pyo14.md](./eng/pt01ch29pyo14.md) |
+| 29.15 ClayHardening 对象 | 29.15 ClayHardening object | [pt01ch29pyo15.md](./chs/pt01ch29pyo15.md) | [pt01ch29pyo15.md](./eng/pt01ch29pyo15.md) |
+| 29.16 ClayPlasticity 对象 | 29.16 ClayPlasticity object | [pt01ch29pyo16.md](./chs/pt01ch29pyo16.md) | [pt01ch29pyo16.md](./eng/pt01ch29pyo16.md) |
+| 29.17 CombinedTestData 对象 | 29.17 CombinedTestData object | [pt01ch29pyo17.md](./chs/pt01ch29pyo17.md) | [pt01ch29pyo17.md](./eng/pt01ch29pyo17.md) |
+| 29.18 Concrete 对象 | 29.18 Concrete object | [pt01ch29pyo18.md](./chs/pt01ch29pyo18.md) | [pt01ch29pyo18.md](./eng/pt01ch29pyo18.md) |
+| 29.19 ConcreteCompressionDamage 对象 | 29.19 ConcreteCompressionDamage object | [pt01ch29pyo19.md](./chs/pt01ch29pyo19.md) | [pt01ch29pyo19.md](./eng/pt01ch29pyo19.md) |
+| 29.20 ConcreteCompressionHardening 对象 | 29.20 ConcreteCompressionHardening object | [pt01ch29pyo20.md](./chs/pt01ch29pyo20.md) | [pt01ch29pyo20.md](./eng/pt01ch29pyo20.md) |
+| 29.21 ConcreteDamagedPlasticity 对象 | 29.21 ConcreteDamagedPlasticity object | [pt01ch29pyo21.md](./chs/pt01ch29pyo21.md) | [pt01ch29pyo21.md](./eng/pt01ch29pyo21.md) |
+| 29.22 ConcreteTensionDamage 对象 | 29.22 ConcreteTensionDamage object | [pt01ch29pyo22.md](./chs/pt01ch29pyo22.md) | [pt01ch29pyo22.md](./eng/pt01ch29pyo22.md) |
+| 29.23 ConcreteTensionStiffening 对象 | 29.23 ConcreteTensionStiffening object | [pt01ch29pyo23.md](./chs/pt01ch29pyo23.md) | [pt01ch29pyo23.md](./eng/pt01ch29pyo23.md) |
+| 29.24 Conductivity 对象 | 29.24 Conductivity object | [pt01ch29pyo24.md](./chs/pt01ch29pyo24.md) | [pt01ch29pyo24.md](./eng/pt01ch29pyo24.md) |
+| 29.25 ContactArea 对象 | 29.25 ContactArea object | [pt01ch29pyo25.md](./chs/pt01ch29pyo25.md) | [pt01ch29pyo25.md](./eng/pt01ch29pyo25.md) |
+| 29.26 Creep 对象 | 29.26 Creep object | [pt01ch29pyo26.md](./chs/pt01ch29pyo26.md) | [pt01ch29pyo26.md](./eng/pt01ch29pyo26.md) |
+| 29.27 CrushableFoam 对象 | 29.27 CrushableFoam object | [pt01ch29pyo27.md](./chs/pt01ch29pyo27.md) | [pt01ch29pyo27.md](./eng/pt01ch29pyo27.md) |
+| 29.28 CrushableFoamHardening 对象 | 29.28 CrushableFoamHardening object | [pt01ch29pyo28.md](./chs/pt01ch29pyo28.md) | [pt01ch29pyo28.md](./eng/pt01ch29pyo28.md) |
+| 29.29 CycledPlastic 对象 | 29.29 CycledPlastic object | [pt01ch29pyo29.md](./chs/pt01ch29pyo29.md) | [pt01ch29pyo29.md](./eng/pt01ch29pyo29.md) |
+| 29.30 CyclicHardening 对象 | 29.30 CyclicHardening object | [pt01ch29pyo30.md](./chs/pt01ch29pyo30.md) | [pt01ch29pyo30.md](./eng/pt01ch29pyo30.md) |
+| 29.31 DamageEvolution 对象 | 29.31 DamageEvolution object | [pt01ch29pyo31.md](./chs/pt01ch29pyo31.md) | [pt01ch29pyo31.md](./eng/pt01ch29pyo31.md) |
+| 29.32 DamageInitiation 对象 | 29.32 DamageInitiation object | [pt01ch29pyo32.md](./chs/pt01ch29pyo32.md) | [pt01ch29pyo32.md](./eng/pt01ch29pyo32.md) |
+| 29.33 DamageStabilization 对象 | 29.33 DamageStabilization object | [pt01ch29pyo33.md](./chs/pt01ch29pyo33.md) | [pt01ch29pyo33.md](./eng/pt01ch29pyo33.md) |
+| 29.34 DamageStabilizationCohesive 对象 | 29.34 DamageStabilizationCohesive object | [pt01ch29pyo34.md](./chs/pt01ch29pyo34.md) | [pt01ch29pyo34.md](./eng/pt01ch29pyo34.md) |
+| 29.35 Damping 对象 | 29.35 Damping object | [pt01ch29pyo35.md](./chs/pt01ch29pyo35.md) | [pt01ch29pyo35.md](./eng/pt01ch29pyo35.md) |
+| 29.36 DeformationPlasticity 对象 | 29.36 DeformationPlasticity object | [pt01ch29pyo36.md](./chs/pt01ch29pyo36.md) | [pt01ch29pyo36.md](./eng/pt01ch29pyo36.md) |
+| 29.37 Density 对象 | 29.37 Density object | [pt01ch29pyo37.md](./chs/pt01ch29pyo37.md) | [pt01ch29pyo37.md](./eng/pt01ch29pyo37.md) |
+| 29.38 Depvar 对象 | 29.38 Depvar object | [pt01ch29pyo38.md](./chs/pt01ch29pyo38.md) | [pt01ch29pyo38.md](./eng/pt01ch29pyo38.md) |
+| 29.39 DetonationPoint 对象 | 29.39 DetonationPoint object | [pt01ch29pyo39.md](./chs/pt01ch29pyo39.md) | [pt01ch29pyo39.md](./eng/pt01ch29pyo39.md) |
+| 29.40 Dielectric 对象 | 29.40 Dielectric object | [pt01ch29pyo40.md](./chs/pt01ch29pyo40.md) | [pt01ch29pyo40.md](./eng/pt01ch29pyo40.md) |
+| 29.41 Diffusivity 对象 | 29.41 Diffusivity object | [pt01ch29pyo41.md](./chs/pt01ch29pyo41.md) | [pt01ch29pyo41.md](./eng/pt01ch29pyo41.md) |
+| 29.42 DruckerPrager 对象 | 29.42 DruckerPrager object | [pt01ch29pyo42.md](./chs/pt01ch29pyo42.md) | [pt01ch29pyo42.md](./eng/pt01ch29pyo42.md) |
+| 29.43 DruckerPragerCreep 对象 | 29.43 DruckerPragerCreep object | [pt01ch29pyo43.md](./chs/pt01ch29pyo43.md) | [pt01ch29pyo43.md](./eng/pt01ch29pyo43.md) |
+| 29.44 DruckerPragerHardening 对象 | 29.44 DruckerPragerHardening object | [pt01ch29pyo44.md](./chs/pt01ch29pyo44.md) | [pt01ch29pyo44.md](./eng/pt01ch29pyo44.md) |
+| 29.45 Elastic 对象 | 29.45 Elastic object | [pt01ch29pyo45.md](./chs/pt01ch29pyo45.md) | [pt01ch29pyo45.md](./eng/pt01ch29pyo45.md) |
+| 29.46 ElectricalConductivity 对象 | 29.46 ElectricalConductivity object | [pt01ch29pyo46.md](./chs/pt01ch29pyo46.md) | [pt01ch29pyo46.md](./eng/pt01ch29pyo46.md) |
+| 29.47 Eos 对象 | 29.47 Eos object | [pt01ch29pyo47.md](./chs/pt01ch29pyo47.md) | [pt01ch29pyo47.md](./eng/pt01ch29pyo47.md) |
+| 29.48 EosCompaction 对象 | 29.48 EosCompaction object | [pt01ch29pyo48.md](./chs/pt01ch29pyo48.md) | [pt01ch29pyo48.md](./eng/pt01ch29pyo48.md) |
+| 29.49 Expansion 对象 | 29.49 Expansion object | [pt01ch29pyo49.md](./chs/pt01ch29pyo49.md) | [pt01ch29pyo49.md](./eng/pt01ch29pyo49.md) |
+| 29.50 FailStrain 对象 | 29.50 FailStrain object | [pt01ch29pyo50.md](./chs/pt01ch29pyo50.md) | [pt01ch29pyo50.md](./eng/pt01ch29pyo50.md) |
+| 29.51 FailStress 对象 | 29.51 FailStress object | [pt01ch29pyo51.md](./chs/pt01ch29pyo51.md) | [pt01ch29pyo51.md](./eng/pt01ch29pyo51.md) |
+| 29.52 FailureRatios 对象 | 29.52 FailureRatios object | [pt01ch29pyo52.md](./chs/pt01ch29pyo52.md) | [pt01ch29pyo52.md](./eng/pt01ch29pyo52.md) |
+| 29.53 FluidLeakoff 对象 | 29.53 FluidLeakoff object | [pt01ch29pyo53.md](./chs/pt01ch29pyo53.md) | [pt01ch29pyo53.md](./eng/pt01ch29pyo53.md) |
+| 29.54 GapFlow 对象 | 29.54 GapFlow object | [pt01ch29pyo54.md](./chs/pt01ch29pyo54.md) | [pt01ch29pyo54.md](./eng/pt01ch29pyo54.md) |
+| 29.55 GasketMembraneElastic 对象 | 29.55 GasketMembraneElastic object | [pt01ch29pyo55.md](./chs/pt01ch29pyo55.md) | [pt01ch29pyo55.md](./eng/pt01ch29pyo55.md) |
+| 29.56 GasketThicknessBehavior 对象 | 29.56 GasketThicknessBehavior object | [pt01ch29pyo56.md](./chs/pt01ch29pyo56.md) | [pt01ch29pyo56.md](./eng/pt01ch29pyo56.md) |
+| 29.57 GasketTransverseShearElastic 对象 | 29.57 GasketTransverseShearElastic object | [pt01ch29pyo57.md](./chs/pt01ch29pyo57.md) | [pt01ch29pyo57.md](./eng/pt01ch29pyo57.md) |
+| 29.58 Gel 对象 | 29.58 Gel object | [pt01ch29pyo58.md](./chs/pt01ch29pyo58.md) | [pt01ch29pyo58.md](./eng/pt01ch29pyo58.md) |
+| 29.59 HeatGeneration 对象 | 29.59 HeatGeneration object | [pt01ch29pyo59.md](./chs/pt01ch29pyo59.md) | [pt01ch29pyo59.md](./eng/pt01ch29pyo59.md) |
+| 29.60 Hyperelastic 对象 | 29.60 Hyperelastic object | [pt01ch29pyo60.md](./chs/pt01ch29pyo60.md) | [pt01ch29pyo60.md](./eng/pt01ch29pyo60.md) |
+| 29.61 Hyperfoam 对象 | 29.61 Hyperfoam object | [pt01ch29pyo61.md](./chs/pt01ch29pyo61.md) | [pt01ch29pyo61.md](./eng/pt01ch29pyo61.md) |
+| 29.62 Hypoelastic 对象 | 29.62 Hypoelastic object | [pt01ch29pyo62.md](./chs/pt01ch29pyo62.md) | [pt01ch29pyo62.md](./eng/pt01ch29pyo62.md) |
+| 29.63 Hysteresis 对象 | 29.63 Hysteresis object | [pt01ch29pyo63.md](./chs/pt01ch29pyo63.md) | [pt01ch29pyo63.md](./eng/pt01ch29pyo63.md) |
+| 29.64 InelasticHeatFraction 对象 | 29.64 InelasticHeatFraction object | [pt01ch29pyo64.md](./chs/pt01ch29pyo64.md) | [pt01ch29pyo64.md](./eng/pt01ch29pyo64.md) |
+| 29.65 JouleHeatFraction 对象 | 29.65 JouleHeatFraction object | [pt01ch29pyo65.md](./chs/pt01ch29pyo65.md) | [pt01ch29pyo65.md](./eng/pt01ch29pyo65.md) |
+| 29.66 LatentHeat 对象 | 29.66 LatentHeat object | [pt01ch29pyo66.md](./chs/pt01ch29pyo66.md) | [pt01ch29pyo66.md](./eng/pt01ch29pyo66.md) |
+| 29.67 LowDensityFoam 对象 | 29.67 LowDensityFoam object | [pt01ch29pyo67.md](./chs/pt01ch29pyo67.md) | [pt01ch29pyo67.md](./eng/pt01ch29pyo67.md) |
+| 29.68 MagneticPermeability 对象 | 29.68 MagneticPermeability object | [pt01ch29pyo68.md](./chs/pt01ch29pyo68.md) | [pt01ch29pyo68.md](./eng/pt01ch29pyo68.md) |
+| 29.69 MohrCoulombHardening 对象 | 29.69 MohrCoulombHardening object | [pt01ch29pyo69.md](./chs/pt01ch29pyo69.md) | [pt01ch29pyo69.md](./eng/pt01ch29pyo69.md) |
+| 29.70 MohrCoulombPlasticity 对象 | 29.70 MohrCoulombPlasticity object | [pt01ch29pyo70.md](./chs/pt01ch29pyo70.md) | [pt01ch29pyo70.md](./eng/pt01ch29pyo70.md) |
+| 29.71 MoistureSwelling 对象 | 29.71 MoistureSwelling object | [pt01ch29pyo71.md](./chs/pt01ch29pyo71.md) | [pt01ch29pyo71.md](./eng/pt01ch29pyo71.md) |
+| 29.72 MullinsEffect 对象 | 29.72 MullinsEffect object | [pt01ch29pyo72.md](./chs/pt01ch29pyo72.md) | [pt01ch29pyo72.md](./eng/pt01ch29pyo72.md) |
+| 29.73 Ornl 对象 | 29.73 Ornl object | [pt01ch29pyo73.md](./chs/pt01ch29pyo73.md) | [pt01ch29pyo73.md](./eng/pt01ch29pyo73.md) |
+| 29.74 Permeability 对象 | 29.74 Permeability object | [pt01ch29pyo74.md](./chs/pt01ch29pyo74.md) | [pt01ch29pyo74.md](./eng/pt01ch29pyo74.md) |
+| 29.75 Piezoelectric 对象 | 29.75 Piezoelectric object | [pt01ch29pyo75.md](./chs/pt01ch29pyo75.md) | [pt01ch29pyo75.md](./eng/pt01ch29pyo75.md) |
+| 29.76 PlanarTestData 对象 | 29.76 PlanarTestData object | [pt01ch29pyo76.md](./chs/pt01ch29pyo76.md) | [pt01ch29pyo76.md](./eng/pt01ch29pyo76.md) |
+| 29.77 Plastic 对象 | 29.77 Plastic object | [pt01ch29pyo77.md](./chs/pt01ch29pyo77.md) | [pt01ch29pyo77.md](./eng/pt01ch29pyo77.md) |
+| 29.78 PoreFluidExpansion 对象 | 29.78 PoreFluidExpansion object | [pt01ch29pyo78.md](./chs/pt01ch29pyo78.md) | [pt01ch29pyo78.md](./eng/pt01ch29pyo78.md) |
+| 29.79 PorousBulkModuli 对象 | 29.79 PorousBulkModuli object | [pt01ch29pyo79.md](./chs/pt01ch29pyo79.md) | [pt01ch29pyo79.md](./eng/pt01ch29pyo79.md) |
+| 29.80 PorousElastic 对象 | 29.80 PorousElastic object | [pt01ch29pyo80.md](./chs/pt01ch29pyo80.md) | [pt01ch29pyo80.md](./eng/pt01ch29pyo80.md) |
+| 29.81 PorousFailureCriteria 对象 | 29.81 PorousFailureCriteria object | [pt01ch29pyo81.md](./chs/pt01ch29pyo81.md) | [pt01ch29pyo81.md](./eng/pt01ch29pyo81.md) |
+| 29.82 PorousMetalPlasticity 对象 | 29.82 PorousMetalPlasticity object | [pt01ch29pyo82.md](./chs/pt01ch29pyo82.md) | [pt01ch29pyo82.md](./eng/pt01ch29pyo82.md) |
+| 29.83 Potential 对象 | 29.83 Potential object | [pt01ch29pyo83.md](./chs/pt01ch29pyo83.md) | [pt01ch29pyo83.md](./eng/pt01ch29pyo83.md) |
+| 29.84 PressureEffect 对象 | 29.84 PressureEffect object | [pt01ch29pyo84.md](./chs/pt01ch29pyo84.md) | [pt01ch29pyo84.md](./eng/pt01ch29pyo84.md) |
+| 29.85 RateDependent 对象 | 29.85 RateDependent object | [pt01ch29pyo85.md](./chs/pt01ch29pyo85.md) | [pt01ch29pyo85.md](./eng/pt01ch29pyo85.md) |
+| 29.86 Ratios 对象 | 29.86 Ratios object | [pt01ch29pyo86.md](./chs/pt01ch29pyo86.md) | [pt01ch29pyo86.md](./eng/pt01ch29pyo86.md) |
+| 29.87 Regularization 对象 | 29.87 Regularization object | [pt01ch29pyo87.md](./chs/pt01ch29pyo87.md) | [pt01ch29pyo87.md](./eng/pt01ch29pyo87.md) |
+| 29.88 SaturationDependence 对象 | 29.88 SaturationDependence object | [pt01ch29pyo88.md](./chs/pt01ch29pyo88.md) | [pt01ch29pyo88.md](./eng/pt01ch29pyo88.md) |
+| 29.89 ShearRetention 对象 | 29.89 ShearRetention object | [pt01ch29pyo89.md](./chs/pt01ch29pyo89.md) | [pt01ch29pyo89.md](./eng/pt01ch29pyo89.md) |
+| 29.90 ShearTestData 对象 | 29.90 ShearTestData object | [pt01ch29pyo90.md](./chs/pt01ch29pyo90.md) | [pt01ch29pyo90.md](./eng/pt01ch29pyo90.md) |
+| 29.91 SimpleShearTestData 对象 | 29.91 SimpleShearTestData object | [pt01ch29pyo91.md](./chs/pt01ch29pyo91.md) | [pt01ch29pyo91.md](./eng/pt01ch29pyo91.md) |
+| 29.92 Solubility 对象 | 29.92 Solubility object | [pt01ch29pyo92.md](./chs/pt01ch29pyo92.md) | [pt01ch29pyo92.md](./eng/pt01ch29pyo92.md) |
+| 29.93 SoretEffect 对象 | 29.93 SoretEffect object | [pt01ch29pyo93.md](./chs/pt01ch29pyo93.md) | [pt01ch29pyo93.md](./eng/pt01ch29pyo93.md) |
+| 29.94 Sorption 对象 | 29.94 Sorption object | [pt01ch29pyo94.md](./chs/pt01ch29pyo94.md) | [pt01ch29pyo94.md](./eng/pt01ch29pyo94.md) |
+| 29.95 SpecificHeat 对象 | 29.95 SpecificHeat object | [pt01ch29pyo95.md](./chs/pt01ch29pyo95.md) | [pt01ch29pyo95.md](./eng/pt01ch29pyo95.md) |
+| 29.96 Swelling 对象 | 29.96 Swelling object | [pt01ch29pyo96.md](./chs/pt01ch29pyo96.md) | [pt01ch29pyo96.md](./eng/pt01ch29pyo96.md) |
+| 29.97 TensionCutOff 对象 | 29.97 TensionCutOff object | [pt01ch29pyo97.md](./chs/pt01ch29pyo97.md) | [pt01ch29pyo97.md](./eng/pt01ch29pyo97.md) |
+| 29.98 TensionStiffening 对象 | 29.98 TensionStiffening object | [pt01ch29pyo98.md](./chs/pt01ch29pyo98.md) | [pt01ch29pyo98.md](./eng/pt01ch29pyo98.md) |
+| 29.99 TriaxialTestData 对象 | 29.99 TriaxialTestData object | [pt01ch29pyo99.md](./chs/pt01ch29pyo99.md) | [pt01ch29pyo99.md](./eng/pt01ch29pyo99.md) |
+| 30 Mdb 命令 | 30 Mdb commands | [pt01ch30.md](./chs/pt01ch30.md) | [pt01ch30.md](./eng/pt01ch30.md) |
+| 30.2 Mdb 命令 | 30.2 Mdb commands | [pt01ch30pyc01.md](./chs/pt01ch30pyc01.md) | [pt01ch30pyc01.md](./eng/pt01ch30pyc01.md) |
+| 30.1 Mdb 对象 | 30.1 Mdb object | [pt01ch30pyo01.md](./chs/pt01ch30pyo01.md) | [pt01ch30pyo01.md](./eng/pt01ch30pyo01.md) |
+| 31 网格命令 | 31 Mesh commands | [pt01ch31.md](./chs/pt01ch31.md) | [pt01ch31.md](./eng/pt01ch31.md) |
+| 31.1 Assembly 对象 | 31.1 Assembly object | [pt01ch31pyo01.md](./chs/pt01ch31pyo01.md) | [pt01ch31pyo01.md](./eng/pt01ch31pyo01.md) |
+| 31.2 Part 对象 | 31.2 Part object | [pt01ch31pyo02.md](./chs/pt01ch31pyo02.md) | [pt01ch31pyo02.md](./eng/pt01ch31pyo02.md) |
+| 31.3 ElemType object | 31.3 ElemType object | [pt01ch31pyo03.md](./chs/pt01ch31pyo03.md) | [pt01ch31pyo03.md](./eng/pt01ch31pyo03.md) |
+| 31.4 MeshEdge object | 31.4 MeshEdge object | [pt01ch31pyo04.md](./chs/pt01ch31pyo04.md) | [pt01ch31pyo04.md](./eng/pt01ch31pyo04.md) |
+| 31.5 MeshElement object | 31.5 MeshElement object | [pt01ch31pyo05.md](./chs/pt01ch31pyo05.md) | [pt01ch31pyo05.md](./eng/pt01ch31pyo05.md) |
+| 31.6 MeshElementArray object | 31.6 MeshElementArray object | [pt01ch31pyo06.md](./chs/pt01ch31pyo06.md) | [pt01ch31pyo06.md](./eng/pt01ch31pyo06.md) |
+| 31.7 MesherOptions object | 31.7 MesherOptions object | [pt01ch31pyo07.md](./chs/pt01ch31pyo07.md) | [pt01ch31pyo07.md](./eng/pt01ch31pyo07.md) |
+| 31.8 MeshFace object | 31.8 MeshFace object | [pt01ch31pyo08.md](./chs/pt01ch31pyo08.md) | [pt01ch31pyo08.md](./eng/pt01ch31pyo08.md) |
+| 31.9 MeshNode object | 31.9 MeshNode object | [pt01ch31pyo09.md](./chs/pt01ch31pyo09.md) | [pt01ch31pyo09.md](./eng/pt01ch31pyo09.md) |
+| 31.10 MeshNodeArray object | 31.10 MeshNodeArray object | [pt01ch31pyo10.md](./chs/pt01ch31pyo10.md) | [pt01ch31pyo10.md](./eng/pt01ch31pyo10.md) |
+| 31.12 MeshEdgeArray 对象 | 31.11 MeshFaceArray object | [pt01ch31pyo11.md](./chs/pt01ch31pyo11.md) | [pt01ch31pyo11.md](./eng/pt01ch31pyo11.md) |
+| 31.13 MeshStats 对象 | 31.12 MeshEdgeArray object | [pt01ch31pyo12.md](./chs/pt01ch31pyo12.md) | [pt01ch31pyo12.md](./eng/pt01ch31pyo12.md) |
+| 32.1 DataObject 对象 | 31.13 MeshStats object | [pt01ch31pyo13.md](./chs/pt01ch31pyo13.md) | [pt01ch31pyo13.md](./eng/pt01ch31pyo13.md) |
+| 32 消息命令 | 32 Messaging commands | [pt01ch32.md](./chs/pt01ch32.md) | [pt01ch32.md](./eng/pt01ch32.md) |
+| 31.11 MeshFaceArray 对象 | 32.1 DataObject object | [pt01ch32pyo01.md](./chs/pt01ch32pyo01.md) | [pt01ch32pyo01.md](./eng/pt01ch32pyo01.md) |
+| 32.2 MonitorMgr 对象 | 32.2 MonitorMgr object | [pt01ch32pyo02.md](./chs/pt01ch32pyo02.md) | [pt01ch32pyo02.md](./eng/pt01ch32pyo02.md) |
+| 33 模型命令 | 33 Model commands | [pt01ch33.md](./chs/pt01ch33.md) | [pt01ch33.md](./eng/pt01ch33.md) |
+| 33.1 Model 对象 | 33.1 Model object | [pt01ch33pyo01.md](./chs/pt01ch33pyo01.md) | [pt01ch33pyo01.md](./eng/pt01ch33pyo01.md) |
+| 33.2 KeywordBlock 对象 | 33.2 KeywordBlock object | [pt01ch33pyo02.md](./chs/pt01ch33pyo02.md) | [pt01ch33pyo02.md](./eng/pt01ch33pyo02.md) |
+| 34 Odb 命令 | 34 Odb commands | [pt01ch34.md](./chs/pt01ch34.md) | [pt01ch34.md](./eng/pt01ch34.md) |
+| 34.1 Odb 对象 | 34.31 Odb commands | [pt01ch34pyc01.md](./chs/pt01ch34pyc01.md) | [pt01ch34pyc01.md](./eng/pt01ch34pyc01.md) |
+| 34.31 Odb 命令 | 34.1 Odb object | [pt01ch34pyo01.md](./chs/pt01ch34pyo01.md) | [pt01ch34pyo01.md](./eng/pt01ch34pyo01.md) |
+| 34.4 BeamOrientation 对象 | 34.2 AnalyticSurface object | [pt01ch34pyo02.md](./chs/pt01ch34pyo02.md) | [pt01ch34pyo02.md](./eng/pt01ch34pyo02.md) |
+| 34.3 AnalyticSurfaceSegment 对象 | 34.3 AnalyticSurfaceSegment object | [pt01ch34pyo03.md](./chs/pt01ch34pyo03.md) | [pt01ch34pyo03.md](./eng/pt01ch34pyo03.md) |
+| 34.2 AnalyticSurface 对象 | 34.4 BeamOrientation object | [pt01ch34pyo04.md](./chs/pt01ch34pyo04.md) | [pt01ch34pyo04.md](./eng/pt01ch34pyo04.md) |
+| 34.5 FieldLocation 对象 | 34.5 FieldLocation object | [pt01ch34pyo05.md](./chs/pt01ch34pyo05.md) | [pt01ch34pyo05.md](./eng/pt01ch34pyo05.md) |
+| 34.6 FieldOutput 对象 | 34.6 FieldOutput object | [pt01ch34pyo06.md](./chs/pt01ch34pyo06.md) | [pt01ch34pyo06.md](./eng/pt01ch34pyo06.md) |
+| 34.7 FieldValue 对象 | 34.7 FieldValue object | [pt01ch34pyo07.md](./chs/pt01ch34pyo07.md) | [pt01ch34pyo07.md](./eng/pt01ch34pyo07.md) |
+| 34.8 HistoryOutput 对象 | 34.8 HistoryOutput object | [pt01ch34pyo08.md](./chs/pt01ch34pyo08.md) | [pt01ch34pyo08.md](./eng/pt01ch34pyo08.md) |
+| 34.9 HistoryPoint 对象 | 34.9 HistoryPoint object | [pt01ch34pyo09.md](./chs/pt01ch34pyo09.md) | [pt01ch34pyo09.md](./eng/pt01ch34pyo09.md) |
+| 34.11 JobData 对象 | 34.10 HistoryRegion object | [pt01ch34pyo10.md](./chs/pt01ch34pyo10.md) | [pt01ch34pyo10.md](./eng/pt01ch34pyo10.md) |
+| 34.12 OdbAssembly 对象 | 34.11 JobData object | [pt01ch34pyo11.md](./chs/pt01ch34pyo11.md) | [pt01ch34pyo11.md](./eng/pt01ch34pyo11.md) |
+| 34.10 HistoryRegion 对象 | 34.12 OdbAssembly object | [pt01ch34pyo12.md](./chs/pt01ch34pyo12.md) | [pt01ch34pyo12.md](./eng/pt01ch34pyo12.md) |
+| 34.13 OdbDatumCsys 对象 | 34.13 OdbDatumCsys object | [pt01ch34pyo13.md](./chs/pt01ch34pyo13.md) | [pt01ch34pyo13.md](./eng/pt01ch34pyo13.md) |
+| 34.14 OdbFrame 对象 | 34.14 OdbFrame object | [pt01ch34pyo14.md](./chs/pt01ch34pyo14.md) | [pt01ch34pyo14.md](./eng/pt01ch34pyo14.md) |
+| 34.17 OdbMeshElement 对象 | 34.15 OdbInstance object | [pt01ch34pyo15.md](./chs/pt01ch34pyo15.md) | [pt01ch34pyo15.md](./eng/pt01ch34pyo15.md) |
+| 34.15 OdbInstance 对象 | 34.16 OdbLoadCase object | [pt01ch34pyo16.md](./chs/pt01ch34pyo16.md) | [pt01ch34pyo16.md](./eng/pt01ch34pyo16.md) |
+| 34.16 OdbLoadCase 对象 | 34.17 OdbMeshElement object | [pt01ch34pyo17.md](./chs/pt01ch34pyo17.md) | [pt01ch34pyo17.md](./eng/pt01ch34pyo17.md) |
+| 34.18 OdbMeshNode 对象 | 34.18 OdbMeshNode object | [pt01ch34pyo18.md](./chs/pt01ch34pyo18.md) | [pt01ch34pyo18.md](./eng/pt01ch34pyo18.md) |
+| 34.19 OdbPart 对象 | 34.19 OdbPart object | [pt01ch34pyo19.md](./chs/pt01ch34pyo19.md) | [pt01ch34pyo19.md](./eng/pt01ch34pyo19.md) |
+| 34.20 OdbPretensionSection 对象 | 34.20 OdbPretensionSection object | [pt01ch34pyo20.md](./chs/pt01ch34pyo20.md) | [pt01ch34pyo20.md](./eng/pt01ch34pyo20.md) |
+| 34.21 OdbRigidBody 对象 | 34.21 OdbRigidBody object | [pt01ch34pyo21.md](./chs/pt01ch34pyo21.md) | [pt01ch34pyo21.md](./eng/pt01ch34pyo21.md) |
+| 34.22 OdbSequenceAnalyticSurfaceSegment 对象 | 34.22 OdbSequenceAnalyticSurfaceSegment object | [pt01ch34pyo22.md](./chs/pt01ch34pyo22.md) | [pt01ch34pyo22.md](./eng/pt01ch34pyo22.md) |
+| 34.23 OdbSet 对象 | 34.23 OdbSet object | [pt01ch34pyo23.md](./chs/pt01ch34pyo23.md) | [pt01ch34pyo23.md](./eng/pt01ch34pyo23.md) |
+| 34.24 OdbStep 对象 | 34.24 OdbStep object | [pt01ch34pyo24.md](./chs/pt01ch34pyo24.md) | [pt01ch34pyo24.md](./eng/pt01ch34pyo24.md) |
+| 34.26 ScratchOdb 对象 | 34.25 RebarOrientation object | [pt01ch34pyo25.md](./chs/pt01ch34pyo25.md) | [pt01ch34pyo25.md](./eng/pt01ch34pyo25.md) |
+| 34.25 RebarOrientation 对象 | 34.26 ScratchOdb object | [pt01ch34pyo26.md](./chs/pt01ch34pyo26.md) | [pt01ch34pyo26.md](./eng/pt01ch34pyo26.md) |
+| 34.27 SectionCategory 对象 | 34.27 SectionCategory object | [pt01ch34pyo27.md](./chs/pt01ch34pyo27.md) | [pt01ch34pyo27.md](./eng/pt01ch34pyo27.md) |
+| 34.28 SectionPoint 对象 | 34.28 SectionPoint object | [pt01ch34pyo28.md](./chs/pt01ch34pyo28.md) | [pt01ch34pyo28.md](./eng/pt01ch34pyo28.md) |
+| 34.29 SectorDefinition 对象 | 34.29 SectorDefinition object | [pt01ch34pyo29.md](./chs/pt01ch34pyo29.md) | [pt01ch34pyo29.md](./eng/pt01ch34pyo29.md) |
+| 34.30 UserData 对象 | 34.30 UserData object | [pt01ch34pyo30.md](./chs/pt01ch34pyo30.md) | [pt01ch34pyo30.md](./eng/pt01ch34pyo30.md) |
+| 35 Odb 显示命令 | 35 Odb Display commands | [pt01ch35.md](./chs/pt01ch35.md) | [pt01ch35.md](./eng/pt01ch35.md) |
+| 35.1 OdbDisplay 对象 | 35.1 OdbDisplay object | [pt01ch35pyo01.md](./chs/pt01ch35pyo01.md) | [pt01ch35pyo01.md](./eng/pt01ch35pyo01.md) |
+| 35.2 CommonOptions 对象 | 35.2 CommonOptions object | [pt01ch35pyo02.md](./chs/pt01ch35pyo02.md) | [pt01ch35pyo02.md](./eng/pt01ch35pyo02.md) |
+| 35.3 ContourOptions 对象 | 35.3 ContourOptions object | [pt01ch35pyo03.md](./chs/pt01ch35pyo03.md) | [pt01ch35pyo03.md](./eng/pt01ch35pyo03.md) |
+| 35.4 DefaultOdbDisplay 对象 | 35.4 DefaultOdbDisplay object | [pt01ch35pyo04.md](./chs/pt01ch35pyo04.md) | [pt01ch35pyo04.md](./eng/pt01ch35pyo04.md) |
+| 35.5 DisplayBodyOptions 对象 | 35.5 DisplayBodyOptions object | [pt01ch35pyo05.md](./chs/pt01ch35pyo05.md) | [pt01ch35pyo05.md](./eng/pt01ch35pyo05.md) |
+| 35.6 OrientationOptions 对象 | 35.6 OrientationOptions object | [pt01ch35pyo06.md](./chs/pt01ch35pyo06.md) | [pt01ch35pyo06.md](./eng/pt01ch35pyo06.md) |
+| 35.7 SuperimposeOptions 对象 | 35.7 SuperimposeOptions object | [pt01ch35pyo07.md](./chs/pt01ch35pyo07.md) | [pt01ch35pyo07.md](./eng/pt01ch35pyo07.md) |
+| 35.8 SymbolOptions 对象 | 35.8 SymbolOptions object | [pt01ch35pyo08.md](./chs/pt01ch35pyo08.md) | [pt01ch35pyo08.md](./eng/pt01ch35pyo08.md) |
+| 35.9 ViewCut 对象 | 35.9 ViewCut object | [pt01ch35pyo09.md](./chs/pt01ch35pyo09.md) | [pt01ch35pyo09.md](./eng/pt01ch35pyo09.md) |
+| 35.10 ViewerOptions 对象 | 35.10 ViewerOptions object | [pt01ch35pyo10.md](./chs/pt01ch35pyo10.md) | [pt01ch35pyo10.md](./eng/pt01ch35pyo10.md) |
+| 36 优化命令 | 36 Optimization commands | [pt01ch36.md](./chs/pt01ch36.md) | [pt01ch36.md](./eng/pt01ch36.md) |
+| 36.1 OptimizationTask 对象 | 36.1 OptimizationTask object | [pt01ch36pyo01.md](./chs/pt01ch36pyo01.md) | [pt01ch36pyo01.md](./eng/pt01ch36pyo01.md) |
+| 36.2 CombinedTermDesignResponse 对象 | 36.2 CombinedTermDesignResponse object | [pt01ch36pyo02.md](./chs/pt01ch36pyo02.md) | [pt01ch36pyo02.md](./eng/pt01ch36pyo02.md) |
+| 36.3 DesignDirection 对象 | 36.3 DesignDirection object | [pt01ch36pyo03.md](./chs/pt01ch36pyo03.md) | [pt01ch36pyo03.md](./eng/pt01ch36pyo03.md) |
+| 36.4 DesignResponse 对象 | 36.4 DesignResponse object | [pt01ch36pyo04.md](./chs/pt01ch36pyo04.md) | [pt01ch36pyo04.md](./eng/pt01ch36pyo04.md) |
+| 36.5 DrillControl 对象 | 36.5 DrillControl object | [pt01ch36pyo05.md](./chs/pt01ch36pyo05.md) | [pt01ch36pyo05.md](./eng/pt01ch36pyo05.md) |
+| 36.6 FixedRegion 对象 | 36.6 FixedRegion object | [pt01ch36pyo06.md](./chs/pt01ch36pyo06.md) | [pt01ch36pyo06.md](./eng/pt01ch36pyo06.md) |
+| 36.7 FrozenArea 对象 | 36.7 FrozenArea object | [pt01ch36pyo07.md](./chs/pt01ch36pyo07.md) | [pt01ch36pyo07.md](./eng/pt01ch36pyo07.md) |
+| 36.8 GeometricRestriction 对象 | 36.8 GeometricRestriction object | [pt01ch36pyo08.md](./chs/pt01ch36pyo08.md) | [pt01ch36pyo08.md](./eng/pt01ch36pyo08.md) |
+| 36.9 Growth 对象 | 36.9 Growth object | [pt01ch36pyo09.md](./chs/pt01ch36pyo09.md) | [pt01ch36pyo09.md](./eng/pt01ch36pyo09.md) |
+| 36.10 LocalStopCondition 对象 | 36.10 LocalStopCondition object | [pt01ch36pyo10.md](./chs/pt01ch36pyo10.md) | [pt01ch36pyo10.md](./eng/pt01ch36pyo10.md) |
+| 36.11 ObjectiveFunction 对象 | 36.11 ObjectiveFunction object | [pt01ch36pyo11.md](./chs/pt01ch36pyo11.md) | [pt01ch36pyo11.md](./eng/pt01ch36pyo11.md) |
+| 36.12 OptimizationConstraint 对象 | 36.12 OptimizationConstraint object | [pt01ch36pyo12.md](./chs/pt01ch36pyo12.md) | [pt01ch36pyo12.md](./eng/pt01ch36pyo12.md) |
+| 36.13 OptimizationObjective 对象 | 36.13 OptimizationObjective object | [pt01ch36pyo13.md](./chs/pt01ch36pyo13.md) | [pt01ch36pyo13.md](./eng/pt01ch36pyo13.md) |
+| 36.14 PenetrationCheck 对象 | 36.14 PenetrationCheck object | [pt01ch36pyo14.md](./chs/pt01ch36pyo14.md) | [pt01ch36pyo14.md](./eng/pt01ch36pyo14.md) |
+| 36.15 ShapeDemoldControl 对象 | 36.15 ShapeDemoldControl object | [pt01ch36pyo15.md](./chs/pt01ch36pyo15.md) | [pt01ch36pyo15.md](./eng/pt01ch36pyo15.md) |
+| 36.16 ShapeMemberSize 对象 | 36.16 ShapeMemberSize object | [pt01ch36pyo16.md](./chs/pt01ch36pyo16.md) | [pt01ch36pyo16.md](./eng/pt01ch36pyo16.md) |
+| 36.17 ShapePlanarSymmetry 对象 | 36.17 ShapePlanarSymmetry object | [pt01ch36pyo17.md](./chs/pt01ch36pyo17.md) | [pt01ch36pyo17.md](./eng/pt01ch36pyo17.md) |
+| 36.18 ShapePointSymmetry 对象 | 36.18 ShapePointSymmetry object | [pt01ch36pyo18.md](./chs/pt01ch36pyo18.md) | [pt01ch36pyo18.md](./eng/pt01ch36pyo18.md) |
+| 36.19 ShapeRotationalSymmetry 对象 | 36.19 ShapeRotationalSymmetry object | [pt01ch36pyo19.md](./chs/pt01ch36pyo19.md) | [pt01ch36pyo19.md](./eng/pt01ch36pyo19.md) |
+| 36.20 ShapeTask 对象 | 36.20 ShapeTask object | [pt01ch36pyo20.md](./chs/pt01ch36pyo20.md) | [pt01ch36pyo20.md](./eng/pt01ch36pyo20.md) |
+| 36.21 SingleTermDesignResponse object | 36.21 SingleTermDesignResponse object | [pt01ch36pyo21.md](./chs/pt01ch36pyo21.md) | [pt01ch36pyo21.md](./eng/pt01ch36pyo21.md) |
+| 36.22 SizingClusterAreas object | 36.22 SizingClusterAreas object | [pt01ch36pyo22.md](./chs/pt01ch36pyo22.md) | [pt01ch36pyo22.md](./eng/pt01ch36pyo22.md) |
+| 36.23 SizingCyclicSymmetry object | 36.23 SizingCyclicSymmetry object | [pt01ch36pyo23.md](./chs/pt01ch36pyo23.md) | [pt01ch36pyo23.md](./eng/pt01ch36pyo23.md) |
+| 36.24 SizingFrozenArea object | 36.24 SizingFrozenArea object | [pt01ch36pyo24.md](./chs/pt01ch36pyo24.md) | [pt01ch36pyo24.md](./eng/pt01ch36pyo24.md) |
+| 36.25 SizingMemberSize object | 36.25 SizingMemberSize object | [pt01ch36pyo25.md](./chs/pt01ch36pyo25.md) | [pt01ch36pyo25.md](./eng/pt01ch36pyo25.md) |
+| 36.26 SizingPlanarSymmetry object | 36.26 SizingPlanarSymmetry object | [pt01ch36pyo26.md](./chs/pt01ch36pyo26.md) | [pt01ch36pyo26.md](./eng/pt01ch36pyo26.md) |
+| 36.27 SizingPointSymmetry object | 36.27 SizingPointSymmetry object | [pt01ch36pyo27.md](./chs/pt01ch36pyo27.md) | [pt01ch36pyo27.md](./eng/pt01ch36pyo27.md) |
+| 36.28 SizingRotationalSymmetry object | 36.28 SizingRotationalSymmetry object | [pt01ch36pyo28.md](./chs/pt01ch36pyo28.md) | [pt01ch36pyo28.md](./eng/pt01ch36pyo28.md) |
+| 36.29 SizingTask object | 36.29 SizingTask object | [pt01ch36pyo29.md](./chs/pt01ch36pyo29.md) | [pt01ch36pyo29.md](./eng/pt01ch36pyo29.md) |
+| 36.30 SizingThicknessControl object | 36.30 SizingThicknessControl object | [pt01ch36pyo30.md](./chs/pt01ch36pyo30.md) | [pt01ch36pyo30.md](./eng/pt01ch36pyo30.md) |
+| 36.31 SlideRegionControl object | 36.31 SlideRegionControl object | [pt01ch36pyo31.md](./chs/pt01ch36pyo31.md) | [pt01ch36pyo31.md](./eng/pt01ch36pyo31.md) |
+| 36.32 StampControl object | 36.32 StampControl object | [pt01ch36pyo32.md](./chs/pt01ch36pyo32.md) | [pt01ch36pyo32.md](./eng/pt01ch36pyo32.md) |
+| 36.33 StepOption object | 36.33 StepOption object | [pt01ch36pyo33.md](./chs/pt01ch36pyo33.md) | [pt01ch36pyo33.md](./eng/pt01ch36pyo33.md) |
+| 36.34 StopCondition object | 36.34 StopCondition object | [pt01ch36pyo34.md](./chs/pt01ch36pyo34.md) | [pt01ch36pyo34.md](./eng/pt01ch36pyo34.md) |
+| 36.35 TopologyCyclicSymmetry object | 36.35 TopologyCyclicSymmetry object | [pt01ch36pyo35.md](./chs/pt01ch36pyo35.md) | [pt01ch36pyo35.md](./eng/pt01ch36pyo35.md) |
+| 36.36 TopologyDemoldControl object | 36.36 TopologyDemoldControl object | [pt01ch36pyo36.md](./chs/pt01ch36pyo36.md) | [pt01ch36pyo36.md](./eng/pt01ch36pyo36.md) |
+| 36.37 TopologyMemberSize object | 36.37 TopologyMemberSize object | [pt01ch36pyo37.md](./chs/pt01ch36pyo37.md) | [pt01ch36pyo37.md](./eng/pt01ch36pyo37.md) |
+| 36.38 TopologyPlanarSymmetry object | 36.38 TopologyPlanarSymmetry object | [pt01ch36pyo38.md](./chs/pt01ch36pyo38.md) | [pt01ch36pyo38.md](./eng/pt01ch36pyo38.md) |
+| 36.39 TopologyPointSymmetry object | 36.39 TopologyPointSymmetry object | [pt01ch36pyo39.md](./chs/pt01ch36pyo39.md) | [pt01ch36pyo39.md](./eng/pt01ch36pyo39.md) |
+| 36.40 TopologyRotationalSymmetry object | 36.40 TopologyRotationalSymmetry object | [pt01ch36pyo40.md](./chs/pt01ch36pyo40.md) | [pt01ch36pyo40.md](./eng/pt01ch36pyo40.md) |
+| 36.41 TopologyTask object | 36.41 TopologyTask object | [pt01ch36pyo41.md](./chs/pt01ch36pyo41.md) | [pt01ch36pyo41.md](./eng/pt01ch36pyo41.md) |
+| 36.42 TurnControl object | 36.42 TurnControl object | [pt01ch36pyo42.md](./chs/pt01ch36pyo42.md) | [pt01ch36pyo42.md](./eng/pt01ch36pyo42.md) |
+| 37 Part commands | 37 Part commands | [pt01ch37.md](./chs/pt01ch37.md) | [pt01ch37.md](./eng/pt01ch37.md) |
+| 37.1 Part object | 37.1 Part object | [pt01ch37pyo01.md](./chs/pt01ch37pyo01.md) | [pt01ch37pyo01.md](./eng/pt01ch37pyo01.md) |
+| 37.2 Feature object | 37.2 Feature object | [pt01ch37pyo02.md](./chs/pt01ch37pyo02.md) | [pt01ch37pyo02.md](./eng/pt01ch37pyo02.md) |
+| 37.3 AcisFile object | 37.3 AcisFile object | [pt01ch37pyo03.md](./chs/pt01ch37pyo03.md) | [pt01ch37pyo03.md](./eng/pt01ch37pyo03.md) |
+| 38 Partition commands | 38 Partition commands | [pt01ch38.md](./chs/pt01ch38.md) | [pt01ch38.md](./eng/pt01ch38.md) |
+| 39 Path and Probe commands | 39 Path and Probe commands | [pt01ch39.md](./chs/pt01ch39.md) | [pt01ch39.md](./eng/pt01ch39.md) |
+| 39.1 Path 对象 | 39.1 Path object | [pt01ch39pyo01.md](./chs/pt01ch39pyo01.md) | [pt01ch39pyo01.md](./eng/pt01ch39pyo01.md) |
+| 39.2 CurrentProbeValues 对象 | 39.2 CurrentProbeValues object | [pt01ch39pyo02.md](./chs/pt01ch39pyo02.md) | [pt01ch39pyo02.md](./eng/pt01ch39pyo02.md) |
+| 39.3 FreeBody 对象 | 39.3 FreeBody object | [pt01ch39pyo03.md](./chs/pt01ch39pyo03.md) | [pt01ch39pyo03.md](./eng/pt01ch39pyo03.md) |
+| 39.4 NodeQuery 对象 | 39.4 NodeQuery object | [pt01ch39pyo04.md](./chs/pt01ch39pyo04.md) | [pt01ch39pyo04.md](./eng/pt01ch39pyo04.md) |
+| 39.5 ProbeOptions 对象 | 39.5 ProbeOptions object | [pt01ch39pyo05.md](./chs/pt01ch39pyo05.md) | [pt01ch39pyo05.md](./eng/pt01ch39pyo05.md) |
+| 39.6 ProbeReport 对象 | 39.6 ProbeReport object | [pt01ch39pyo06.md](./chs/pt01ch39pyo06.md) | [pt01ch39pyo06.md](./eng/pt01ch39pyo06.md) |
+| 39.7 SelectedProbeValues 对象 | 39.7 SelectedProbeValues object | [pt01ch39pyo07.md](./chs/pt01ch39pyo07.md) | [pt01ch39pyo07.md](./eng/pt01ch39pyo07.md) |
+| 39.8 Spectrum 对象 | 39.8 Spectrum object | [pt01ch39pyo08.md](./chs/pt01ch39pyo08.md) | [pt01ch39pyo08.md](./eng/pt01ch39pyo08.md) |
+| 39.9 Stream 对象 | 39.9 Stream object | [pt01ch39pyo09.md](./chs/pt01ch39pyo09.md) | [pt01ch39pyo09.md](./eng/pt01ch39pyo09.md) |
+| 40 绘图选项命令 | 40 Plot Options commands | [pt01ch40.md](./chs/pt01ch40.md) | [pt01ch40.md](./eng/pt01ch40.md) |
+| 40.1 BasicOptions 对象 | 40.1 BasicOptions object | [pt01ch40pyo01.md](./chs/pt01ch40pyo01.md) | [pt01ch40pyo01.md](./eng/pt01ch40pyo01.md) |
+| 40.2 DGCommonOptions 对象 | 40.2 DGCommonOptions object | [pt01ch40pyo02.md](./chs/pt01ch40pyo02.md) | [pt01ch40pyo02.md](./eng/pt01ch40pyo02.md) |
+| 40.3 DGContourOptions 对象 | 40.3 DGContourOptions object | [pt01ch40pyo03.md](./chs/pt01ch40pyo03.md) | [pt01ch40pyo03.md](./eng/pt01ch40pyo03.md) |
+| 40.4 DisplayOptions 对象 | 40.4 DisplayOptions object | [pt01ch40pyo04.md](./chs/pt01ch40pyo04.md) | [pt01ch40pyo04.md](./eng/pt01ch40pyo04.md) |
+| 40.5 DGDisplayBodyOptions 对象 | 40.5 DGDisplayBodyOptions object | [pt01ch40pyo05.md](./chs/pt01ch40pyo05.md) | [pt01ch40pyo05.md](./eng/pt01ch40pyo05.md) |
+| 40.6 FreeBodyOptions 对象 | 40.6 FreeBodyOptions object | [pt01ch40pyo06.md](./chs/pt01ch40pyo06.md) | [pt01ch40pyo06.md](./eng/pt01ch40pyo06.md) |
+| 40.7 HistoryVariable 对象 | 40.7 HistoryVariable object | [pt01ch40pyo07.md](./chs/pt01ch40pyo07.md) | [pt01ch40pyo07.md](./eng/pt01ch40pyo07.md) |
+| 40.8 OdbData 对象 | 40.8 OdbData object | [pt01ch40pyo08.md](./chs/pt01ch40pyo08.md) | [pt01ch40pyo08.md](./eng/pt01ch40pyo08.md) |
+| 40.9 OdbDataDatumCsys 对象 | 40.9 OdbDataDatumCsys object | [pt01ch40pyo09.md](./chs/pt01ch40pyo09.md) | [pt01ch40pyo09.md](./eng/pt01ch40pyo09.md) |
+| 40.10 OdbDataElementSet 对象 | 40.10 OdbDataElementSet object | [pt01ch40pyo10.md](./chs/pt01ch40pyo10.md) | [pt01ch40pyo10.md](./eng/pt01ch40pyo10.md) |
+| 40.11 OdbDataFrame 对象 | 40.11 OdbDataFrame object | [pt01ch40pyo11.md](./chs/pt01ch40pyo11.md) | [pt01ch40pyo11.md](./eng/pt01ch40pyo11.md) |
+| 40.12 OdbDataInstance 对象 | 40.12 OdbDataInstance object | [pt01ch40pyo12.md](./chs/pt01ch40pyo12.md) | [pt01ch40pyo12.md](./eng/pt01ch40pyo12.md) |
+| 40.13 OdbDataMaterial 对象 | 40.13 OdbDataMaterial object | [pt01ch40pyo13.md](./chs/pt01ch40pyo13.md) | [pt01ch40pyo13.md](./eng/pt01ch40pyo13.md) |
+| 40.14 OdbDataNodeSet 对象 | 40.14 OdbDataNodeSet object | [pt01ch40pyo14.md](./chs/pt01ch40pyo14.md) | [pt01ch40pyo14.md](./eng/pt01ch40pyo14.md) |
+| 40.15 OdbDataSection 对象 | 40.15 OdbDataSection object | [pt01ch40pyo15.md](./chs/pt01ch40pyo15.md) | [pt01ch40pyo15.md](./eng/pt01ch40pyo15.md) |
+| 40.16 OdbDataStep 对象 | 40.16 OdbDataStep object | [pt01ch40pyo16.md](./chs/pt01ch40pyo16.md) | [pt01ch40pyo16.md](./eng/pt01ch40pyo16.md) |
+| 40.17 OdbDataSurfaceSet 对象 | 40.17 OdbDataSurfaceSet object | [pt01ch40pyo17.md](./chs/pt01ch40pyo17.md) | [pt01ch40pyo17.md](./eng/pt01ch40pyo17.md) |
+| 40.18 OdbDisplayOptions 对象 | 40.18 OdbDisplayOptions object | [pt01ch40pyo18.md](./chs/pt01ch40pyo18.md) | [pt01ch40pyo18.md](./eng/pt01ch40pyo18.md) |
+| 40.19 OptionArg 对象 | 40.19 OptionArg object | [pt01ch40pyo19.md](./chs/pt01ch40pyo19.md) | [pt01ch40pyo19.md](./eng/pt01ch40pyo19.md) |
+| 40.20 DGOrientationOptions 对象 | 40.20 DGOrientationOptions object | [pt01ch40pyo20.md](./chs/pt01ch40pyo20.md) | [pt01ch40pyo20.md](./eng/pt01ch40pyo20.md) |
+| 40.21 StreamOptions 对象 | 40.21 StreamOptions object | [pt01ch40pyo21.md](./chs/pt01ch40pyo21.md) | [pt01ch40pyo21.md](./eng/pt01ch40pyo21.md) |
+| 40.22 DGSuperimposeOptions 对象 | 40.22 DGSuperimposeOptions object | [pt01ch40pyo22.md](./chs/pt01ch40pyo22.md) | [pt01ch40pyo22.md](./eng/pt01ch40pyo22.md) |
+| 40.23 DGSymbolOptions 对象 | 40.23 DGSymbolOptions object | [pt01ch40pyo23.md](./chs/pt01ch40pyo23.md) | [pt01ch40pyo23.md](./eng/pt01ch40pyo23.md) |
+| 40.24 ViewCutOptions 对象 | 40.24 ViewCutOptions object | [pt01ch40pyo24.md](./chs/pt01ch40pyo24.md) | [pt01ch40pyo24.md](./eng/pt01ch40pyo24.md) |
+| 40.25 DetailPlotOptions 对象 | 40.25 DetailPlotOptions object | [pt01ch40pyo25.md](./chs/pt01ch40pyo25.md) | [pt01ch40pyo25.md](./eng/pt01ch40pyo25.md) |
+| 40.26 PlyStackPlotOptions 对象 | 40.26 PlyStackPlotOptions object | [pt01ch40pyo26.md](./chs/pt01ch40pyo26.md) | [pt01ch40pyo26.md](./eng/pt01ch40pyo26.md) |
+| 40.27 MdbData 对象 | 40.27 MdbData object | [pt01ch40pyo27.md](./chs/pt01ch40pyo27.md) | [pt01ch40pyo27.md](./eng/pt01ch40pyo27.md) |
+| 40.28 MdbDataFrame 对象 | 40.28 MdbDataFrame object | [pt01ch40pyo28.md](./chs/pt01ch40pyo28.md) | [pt01ch40pyo28.md](./eng/pt01ch40pyo28.md) |
+| 40.29 MdbDataInstance 对象 | 40.29 MdbDataInstance object | [pt01ch40pyo29.md](./chs/pt01ch40pyo29.md) | [pt01ch40pyo29.md](./eng/pt01ch40pyo29.md) |
+| 40.30 MdbDataStep 对象 | 40.30 MdbDataStep object | [pt01ch40pyo30.md](./chs/pt01ch40pyo30.md) | [pt01ch40pyo30.md](./eng/pt01ch40pyo30.md) |
+| 41 插件注册命令 | 41 Plug-in registration commands | [pt01ch41.md](./chs/pt01ch41.md) | [pt01ch41.md](./eng/pt01ch41.md) |
+| 42 预定义场命令 | 42 Predefined field commands | [pt01ch42.md](./chs/pt01ch42.md) | [pt01ch42.md](./eng/pt01ch42.md) |
+| 42.1 PredefinedField 对象 | 42.1 PredefinedField object | [pt01ch42pyo01.md](./chs/pt01ch42pyo01.md) | [pt01ch42pyo01.md](./eng/pt01ch42pyo01.md) |
+| 42.2 FluidCavityPressure 对象 | 42.2 FluidCavityPressure object | [pt01ch42pyo02.md](./chs/pt01ch42pyo02.md) | [pt01ch42pyo02.md](./eng/pt01ch42pyo02.md) |
+| 42.3 FluidDensity 对象 | 42.3 FluidDensity object | [pt01ch42pyo03.md](./chs/pt01ch42pyo03.md) | [pt01ch42pyo03.md](./eng/pt01ch42pyo03.md) |
+| 42.4 FluidThermalEnergy 对象 | 42.4 FluidThermalEnergy object | [pt01ch42pyo04.md](./chs/pt01ch42pyo04.md) | [pt01ch42pyo04.md](./eng/pt01ch42pyo04.md) |
+| 42.5 FluidTurbulence 对象 | 42.5 FluidTurbulence object | [pt01ch42pyo05.md](./chs/pt01ch42pyo05.md) | [pt01ch42pyo05.md](./eng/pt01ch42pyo05.md) |
+| 42.6 FluidVelocity 对象 | 42.6 FluidVelocity object | [pt01ch42pyo06.md](./chs/pt01ch42pyo06.md) | [pt01ch42pyo06.md](./eng/pt01ch42pyo06.md) |
+| 42.7 IMAField 对象 | 42.7 IMAField object | [pt01ch42pyo07.md](./chs/pt01ch42pyo07.md) | [pt01ch42pyo07.md](./eng/pt01ch42pyo07.md) |
+| 42.8 IMARegion 对象 | 42.8 IMARegion object | [pt01ch42pyo08.md](./chs/pt01ch42pyo08.md) | [pt01ch42pyo08.md](./eng/pt01ch42pyo08.md) |
+| 42.9 InitialState 对象 | 42.9 InitialState object | [pt01ch42pyo09.md](./chs/pt01ch42pyo09.md) | [pt01ch42pyo09.md](./eng/pt01ch42pyo09.md) |
+| 42.10 KinematicHardening 对象 | 42.10 KinematicHardening object | [pt01ch42pyo10.md](./chs/pt01ch42pyo10.md) | [pt01ch42pyo10.md](./eng/pt01ch42pyo10.md) |
+| 42.11 MaterialAssignment 对象 | 42.11 MaterialAssignment object | [pt01ch42pyo11.md](./chs/pt01ch42pyo11.md) | [pt01ch42pyo11.md](./eng/pt01ch42pyo11.md) |
+| 42.12 PredefinedFieldState 对象 | 42.12 PredefinedFieldState object | [pt01ch42pyo12.md](./chs/pt01ch42pyo12.md) | [pt01ch42pyo12.md](./eng/pt01ch42pyo12.md) |
+| 42.13 Temperature 对象 | 42.13 Temperature object | [pt01ch42pyo13.md](./chs/pt01ch42pyo13.md) | [pt01ch42pyo13.md](./eng/pt01ch42pyo13.md) |
+| 42.14 TemperatureState 对象 | 42.14 TemperatureState object | [pt01ch42pyo14.md](./chs/pt01ch42pyo14.md) | [pt01ch42pyo14.md](./eng/pt01ch42pyo14.md) |
+| 42.15 Velocity 对象 | 42.15 Velocity object | [pt01ch42pyo15.md](./chs/pt01ch42pyo15.md) | [pt01ch42pyo15.md](./eng/pt01ch42pyo15.md) |
+| 43 打印命令 | 43 Print commands | [pt01ch43.md](./chs/pt01ch43.md) | [pt01ch43.md](./eng/pt01ch43.md) |
+| 43.1 PrintOptions 对象 | 43.1 PrintOptions object | [pt01ch43pyo01.md](./chs/pt01ch43pyo01.md) | [pt01ch43pyo01.md](./eng/pt01ch43pyo01.md) |
+| 43.2 EpsOptions 对象 | 43.2 EpsOptions object | [pt01ch43pyo02.md](./chs/pt01ch43pyo02.md) | [pt01ch43pyo02.md](./eng/pt01ch43pyo02.md) |
+| 43.3 PageSetupOptions 对象 | 43.3 PageSetupOptions object | [pt01ch43pyo03.md](./chs/pt01ch43pyo03.md) | [pt01ch43pyo03.md](./eng/pt01ch43pyo03.md) |
+| 43.4 PngOptions 对象 | 43.4 PngOptions object | [pt01ch43pyo04.md](./chs/pt01ch43pyo04.md) | [pt01ch43pyo04.md](./eng/pt01ch43pyo04.md) |
+| 43.5 PsOptions 对象 | 43.5 PsOptions object | [pt01ch43pyo05.md](./chs/pt01ch43pyo05.md) | [pt01ch43pyo05.md](./eng/pt01ch43pyo05.md) |
+| 43.6 SvgOptions 对象 | 43.6 SvgOptions object | [pt01ch43pyo06.md](./chs/pt01ch43pyo06.md) | [pt01ch43pyo06.md](./eng/pt01ch43pyo06.md) |
+| 43.7 TiffOptions 对象 | 43.7 TiffOptions object | [pt01ch43pyo07.md](./chs/pt01ch43pyo07.md) | [pt01ch43pyo07.md](./eng/pt01ch43pyo07.md) |
+| 44 属性命令 | 44 Property commands | [pt01ch44.md](./chs/pt01ch44.md) | [pt01ch44.md](./eng/pt01ch44.md) |
+| 44.6 属性分配命令 | 44.6 Property assignment commands | [pt01ch44pyc01.md](./chs/pt01ch44pyc01.md) | [pt01ch44pyc01.md](./eng/pt01ch44pyc01.md) |
+| 44.1 SectionAssignment 对象 | 44.1 SectionAssignment object | [pt01ch44pyo01.md](./chs/pt01ch44pyo01.md) | [pt01ch44pyo01.md](./eng/pt01ch44pyo01.md) |
+| 44.2 CompositeLayup 对象 | 44.2 CompositeLayup object | [pt01ch44pyo02.md](./chs/pt01ch44pyo02.md) | [pt01ch44pyo02.md](./eng/pt01ch44pyo02.md) |
+| 44.3 CompositePly 对象 | 44.3 CompositePly object | [pt01ch44pyo03.md](./chs/pt01ch44pyo03.md) | [pt01ch44pyo03.md](./eng/pt01ch44pyo03.md) |
+| 44.4 MaterialOrientation 对象 | 44.4 MaterialOrientation object | [pt01ch44pyo04.md](./chs/pt01ch44pyo04.md) | [pt01ch44pyo04.md](./eng/pt01ch44pyo04.md) |
+| 44.5 PlyStackPlot 对象 | 44.5 PlyStackPlot object | [pt01ch44pyo05.md](./chs/pt01ch44pyo05.md) | [pt01ch44pyo05.md](./eng/pt01ch44pyo05.md) |
+| 45 区域命令 | 45 Region commands | [pt01ch45.md](./chs/pt01ch45.md) | [pt01ch45.md](./eng/pt01ch45.md) |
+| 45.1 Assembly 对象 | 45.1 Assembly object | [pt01ch45pyo01.md](./chs/pt01ch45pyo01.md) | [pt01ch45pyo01.md](./eng/pt01ch45pyo01.md) |
+| 45.2 Part 对象 | 45.2 Part object | [pt01ch45pyo02.md](./chs/pt01ch45pyo02.md) | [pt01ch45pyo02.md](./eng/pt01ch45pyo02.md) |
+| 45.3 Region 对象 | 45.3 Region object | [pt01ch45pyo03.md](./chs/pt01ch45pyo03.md) | [pt01ch45pyo03.md](./eng/pt01ch45pyo03.md) |
+| 45.4 Set 对象 | 45.4 Set object | [pt01ch45pyo04.md](./chs/pt01ch45pyo04.md) | [pt01ch45pyo04.md](./eng/pt01ch45pyo04.md) |
+| 45.5 Surface 对象 | 45.5 Surface object | [pt01ch45pyo05.md](./chs/pt01ch45pyo05.md) | [pt01ch45pyo05.md](./eng/pt01ch45pyo05.md) |
+| 45.6 Skin 对象 | 45.6 Skin object | [pt01ch45pyo06.md](./chs/pt01ch45pyo06.md) | [pt01ch45pyo06.md](./eng/pt01ch45pyo06.md) |
+| 45.7 Stringer 对象 | 45.7 Stringer object | [pt01ch45pyo07.md](./chs/pt01ch45pyo07.md) | [pt01ch45pyo07.md](./eng/pt01ch45pyo07.md) |
+| 46 截面命令 | 46 Section commands | [pt01ch46.md](./chs/pt01ch46.md) | [pt01ch46.md](./eng/pt01ch46.md) |
+| 46.1 Section 对象 | 46.1 Section object | [pt01ch46pyo01.md](./chs/pt01ch46pyo01.md) | [pt01ch46pyo01.md](./eng/pt01ch46pyo01.md) |
+| 46.2 AcousticInfiniteSection 对象 | 46.2 AcousticInfiniteSection object | [pt01ch46pyo02.md](./chs/pt01ch46pyo02.md) | [pt01ch46pyo02.md](./eng/pt01ch46pyo02.md) |
+| 46.3 AcousticInterfaceSection 对象 | 46.3 AcousticInterfaceSection object | [pt01ch46pyo03.md](./chs/pt01ch46pyo03.md) | [pt01ch46pyo03.md](./eng/pt01ch46pyo03.md) |
+| 46.4 BeamSection 对象 | 46.4 BeamSection object | [pt01ch46pyo04.md](./chs/pt01ch46pyo04.md) | [pt01ch46pyo04.md](./eng/pt01ch46pyo04.md) |
+| 46.5 CohesiveSection 对象 | 46.5 CohesiveSection object | [pt01ch46pyo05.md](./chs/pt01ch46pyo05.md) | [pt01ch46pyo05.md](./eng/pt01ch46pyo05.md) |
+| 46.6 CompositeShellSection 对象 | 46.6 CompositeShellSection object | [pt01ch46pyo06.md](./chs/pt01ch46pyo06.md) | [pt01ch46pyo06.md](./eng/pt01ch46pyo06.md) |
+| 46.7 CompositeSolidSection 对象 | 46.7 CompositeSolidSection object | [pt01ch46pyo07.md](./chs/pt01ch46pyo07.md) | [pt01ch46pyo07.md](./eng/pt01ch46pyo07.md) |
+| 46.8 ConnectorSection 对象 | 46.8 ConnectorSection object | [pt01ch46pyo08.md](./chs/pt01ch46pyo08.md) | [pt01ch46pyo08.md](./eng/pt01ch46pyo08.md) |
+| 46.9 EulerianSection 对象 | 46.9 EulerianSection object | [pt01ch46pyo09.md](./chs/pt01ch46pyo09.md) | [pt01ch46pyo09.md](./eng/pt01ch46pyo09.md) |
+| 46.10 GasketSection 对象 | 46.10 GasketSection object | [pt01ch46pyo10.md](./chs/pt01ch46pyo10.md) | [pt01ch46pyo10.md](./eng/pt01ch46pyo10.md) |
+| 46.11 GeneralStiffnessSection 对象 | 46.11 GeneralStiffnessSection object | [pt01ch46pyo11.md](./chs/pt01ch46pyo11.md) | [pt01ch46pyo11.md](./eng/pt01ch46pyo11.md) |
+| 46.12 GeometryShellSection 对象 | 46.12 GeometryShellSection object | [pt01ch46pyo12.md](./chs/pt01ch46pyo12.md) | [pt01ch46pyo12.md](./eng/pt01ch46pyo12.md) |
+| 46.13 HomogeneousShellSection 对象 | 46.13 HomogeneousShellSection object | [pt01ch46pyo13.md](./chs/pt01ch46pyo13.md) | [pt01ch46pyo13.md](./eng/pt01ch46pyo13.md) |
+| 46.14 HomogeneousSolidSection 对象 | 46.14 HomogeneousSolidSection object | [pt01ch46pyo14.md](./chs/pt01ch46pyo14.md) | [pt01ch46pyo14.md](./eng/pt01ch46pyo14.md) |
+| 46.15 LayerProperties 对象 | 46.15 LayerProperties object | [pt01ch46pyo15.md](./chs/pt01ch46pyo15.md) | [pt01ch46pyo15.md](./eng/pt01ch46pyo15.md) |
+| 46.16 MembraneSection 对象 | 46.16 MembraneSection object | [pt01ch46pyo16.md](./chs/pt01ch46pyo16.md) | [pt01ch46pyo16.md](./eng/pt01ch46pyo16.md) |
+| 46.17 MPCSection 对象 | 46.17 MPCSection object | [pt01ch46pyo17.md](./chs/pt01ch46pyo17.md) | [pt01ch46pyo17.md](./eng/pt01ch46pyo17.md) |
+| 46.18 PEGSection 对象 | 46.18 PEGSection object | [pt01ch46pyo18.md](./chs/pt01ch46pyo18.md) | [pt01ch46pyo18.md](./eng/pt01ch46pyo18.md) |
+| 46.19 RebarLayers 对象 | 46.19 RebarLayers object | [pt01ch46pyo19.md](./chs/pt01ch46pyo19.md) | [pt01ch46pyo19.md](./eng/pt01ch46pyo19.md) |
+| 46.20 SectionLayer 对象 | 46.20 SectionLayer object | [pt01ch46pyo20.md](./chs/pt01ch46pyo20.md) | [pt01ch46pyo20.md](./eng/pt01ch46pyo20.md) |
+| 46.21 ShellSection 对象 | 46.21 ShellSection object | [pt01ch46pyo21.md](./chs/pt01ch46pyo21.md) | [pt01ch46pyo21.md](./eng/pt01ch46pyo21.md) |
+| 46.22 SolidSection 对象 | 46.22 SolidSection object | [pt01ch46pyo22.md](./chs/pt01ch46pyo22.md) | [pt01ch46pyo22.md](./eng/pt01ch46pyo22.md) |
+| 46.23 SurfaceSection 对象 | 46.23 SurfaceSection object | [pt01ch46pyo23.md](./chs/pt01ch46pyo23.md) | [pt01ch46pyo23.md](./eng/pt01ch46pyo23.md) |
+| 46.24 TransverseShearBeam 对象 | 46.24 TransverseShearBeam object | [pt01ch46pyo24.md](./chs/pt01ch46pyo24.md) | [pt01ch46pyo24.md](./eng/pt01ch46pyo24.md) |
+| 46.25 TransverseShearShell 对象 | 46.25 TransverseShearShell object | [pt01ch46pyo25.md](./chs/pt01ch46pyo25.md) | [pt01ch46pyo25.md](./eng/pt01ch46pyo25.md) |
+| 46.26 TrussSection 对象 | 46.26 TrussSection object | [pt01ch46pyo26.md](./chs/pt01ch46pyo26.md) | [pt01ch46pyo26.md](./eng/pt01ch46pyo26.md) |
+| 47 Session 命令 | 47 Session commands | [pt01ch47.md](./chs/pt01ch47.md) | [pt01ch47.md](./eng/pt01ch47.md) |
+| 47.1 Session 对象 | 47.1 Session object | [pt01ch47pyo01.md](./chs/pt01ch47pyo01.md) | [pt01ch47pyo01.md](./eng/pt01ch47pyo01.md) |
+| 47.2 AutoColors 对象 | 47.2 AutoColors object | [pt01ch47pyo02.md](./chs/pt01ch47pyo02.md) | [pt01ch47pyo02.md](./eng/pt01ch47pyo02.md) |
+| 47.3 Color 对象 | 47.3 Color object | [pt01ch47pyo03.md](./chs/pt01ch47pyo03.md) | [pt01ch47pyo03.md](./eng/pt01ch47pyo03.md) |
+| 47.4 Drawing 对象 | 47.4 Drawing object | [pt01ch47pyo04.md](./chs/pt01ch47pyo04.md) | [pt01ch47pyo04.md](./eng/pt01ch47pyo04.md) |
+| 47.5 Image 对象 | 47.5 Image object | [pt01ch47pyo05.md](./chs/pt01ch47pyo05.md) | [pt01ch47pyo05.md](./eng/pt01ch47pyo05.md) |
+| 47.6 JournalOptions 对象 | 47.6 JournalOptions object | [pt01ch47pyo06.md](./chs/pt01ch47pyo06.md) | [pt01ch47pyo06.md](./eng/pt01ch47pyo06.md) |
+| 47.7 MemoryReductionOptions 对象 | 47.7 MemoryReductionOptions object | [pt01ch47pyo07.md](./chs/pt01ch47pyo07.md) | [pt01ch47pyo07.md](./eng/pt01ch47pyo07.md) |
+| 47.8 NetworkDatabaseConnector 对象 | 47.8 NetworkDatabaseConnector object | [pt01ch47pyo08.md](./chs/pt01ch47pyo08.md) | [pt01ch47pyo08.md](./eng/pt01ch47pyo08.md) |
+| 47.9 NumberFormat 对象 | 47.9 NumberFormat object | [pt01ch47pyo09.md](./chs/pt01ch47pyo09.md) | [pt01ch47pyo09.md](./eng/pt01ch47pyo09.md) |
+| 48 Sketcher 命令 | 48 Sketcher commands | [pt01ch48.md](./chs/pt01ch48.md) | [pt01ch48.md](./eng/pt01ch48.md) |
+| 48.1 ConstrainedSketch 对象 | 48.1 ConstrainedSketch object | [pt01ch48pyo01.md](./chs/pt01ch48pyo01.md) | [pt01ch48pyo01.md](./eng/pt01ch48pyo01.md) |
+| 48.2 ConstrainedSketchConstraint object | 48.2 ConstrainedSketchConstraint object | [pt01ch48pyo02.md](./chs/pt01ch48pyo02.md) | [pt01ch48pyo02.md](./eng/pt01ch48pyo02.md) |
+| 48.3 ConstrainedSketchDimension object | 48.3 ConstrainedSketchDimension object | [pt01ch48pyo03.md](./chs/pt01ch48pyo03.md) | [pt01ch48pyo03.md](./eng/pt01ch48pyo03.md) |
+| 48.4 ConstrainedSketcherOptions object | 48.4 ConstrainedSketcherOptions object | [pt01ch48pyo04.md](./chs/pt01ch48pyo04.md) | [pt01ch48pyo04.md](./eng/pt01ch48pyo04.md) |
+| 48.5 ConstrainedSketchGeometry object | 48.5 ConstrainedSketchGeometry object | [pt01ch48pyo05.md](./chs/pt01ch48pyo05.md) | [pt01ch48pyo05.md](./eng/pt01ch48pyo05.md) |
+| 48.6 ConstrainedSketchGeometryArray object | 48.6 ConstrainedSketchGeometryArray object | [pt01ch48pyo06.md](./chs/pt01ch48pyo06.md) | [pt01ch48pyo06.md](./eng/pt01ch48pyo06.md) |
+| 48.7 ConstrainedSketchImageOptions object | 48.7 ConstrainedSketchImageOptions object | [pt01ch48pyo07.md](./chs/pt01ch48pyo07.md) | [pt01ch48pyo07.md](./eng/pt01ch48pyo07.md) |
+| 48.8 ConstrainedSketchOptions object | 48.8 ConstrainedSketchOptions object | [pt01ch48pyo08.md](./chs/pt01ch48pyo08.md) | [pt01ch48pyo08.md](./eng/pt01ch48pyo08.md) |
+| 48.9 ConstrainedSketchParameter object | 48.9 ConstrainedSketchParameter object | [pt01ch48pyo09.md](./chs/pt01ch48pyo09.md) | [pt01ch48pyo09.md](./eng/pt01ch48pyo09.md) |
+| 48.10 ConstrainedSketchVertex object | 48.10 ConstrainedSketchVertex object | [pt01ch48pyo10.md](./chs/pt01ch48pyo10.md) | [pt01ch48pyo10.md](./eng/pt01ch48pyo10.md) |
+| 48.11 ConstrainedSketchVertexArray object | 48.11 ConstrainedSketchVertexArray object | [pt01ch48pyo11.md](./chs/pt01ch48pyo11.md) | [pt01ch48pyo11.md](./eng/pt01ch48pyo11.md) |
+| 49 Step commands (step) | 49 Step commands (step) | [pt01ch49.md](./chs/pt01ch49.md) | [pt01ch49.md](./eng/pt01ch49.md) |
+| 49.1 Step 对象 | 49.1 Step object | [pt01ch49pyo01.md](./chs/pt01ch49pyo01.md) | [pt01ch49pyo01.md](./eng/pt01ch49pyo01.md) |
+| 49.2 AnalysisStep 对象 | 49.2 AnalysisStep object | [pt01ch49pyo02.md](./chs/pt01ch49pyo02.md) | [pt01ch49pyo02.md](./eng/pt01ch49pyo02.md) |
+| 49.3 AnnealStep 对象 | 49.3 AnnealStep object | [pt01ch49pyo03.md](./chs/pt01ch49pyo03.md) | [pt01ch49pyo03.md](./eng/pt01ch49pyo03.md) |
+| 49.4 BuckleStep 对象 | 49.4 BuckleStep object | [pt01ch49pyo04.md](./chs/pt01ch49pyo04.md) | [pt01ch49pyo04.md](./eng/pt01ch49pyo04.md) |
+| 49.5 ComplexFrequencyStep 对象 | 49.5 ComplexFrequencyStep object | [pt01ch49pyo05.md](./chs/pt01ch49pyo05.md) | [pt01ch49pyo05.md](./eng/pt01ch49pyo05.md) |
+| 49.6 CoupledTempDisplacementStep 对象 | 49.6 CoupledTempDisplacementStep object | [pt01ch49pyo06.md](./chs/pt01ch49pyo06.md) | [pt01ch49pyo06.md](./eng/pt01ch49pyo06.md) |
+| 49.7 CoupledThermalElectricalStructuralStep 对象 | 49.7 CoupledThermalElectricalStructuralStep object | [pt01ch49pyo07.md](./chs/pt01ch49pyo07.md) | [pt01ch49pyo07.md](./eng/pt01ch49pyo07.md) |
+| 49.8 CoupledThermalElectricStep 对象 | 49.8 CoupledThermalElectricStep object | [pt01ch49pyo08.md](./chs/pt01ch49pyo08.md) | [pt01ch49pyo08.md](./eng/pt01ch49pyo08.md) |
+| 49.10 EmagTimeHarmonicStep 对象 | 49.9 DirectCyclicStep object | [pt01ch49pyo09.md](./chs/pt01ch49pyo09.md) | [pt01ch49pyo09.md](./eng/pt01ch49pyo09.md) |
+| 49.11 ExplicitDynamicsStep 对象 | 49.10 EmagTimeHarmonicStep object | [pt01ch49pyo10.md](./chs/pt01ch49pyo10.md) | [pt01ch49pyo10.md](./eng/pt01ch49pyo10.md) |
+| 49.9 DirectCyclicStep 对象 | 49.11 ExplicitDynamicsStep object | [pt01ch49pyo11.md](./chs/pt01ch49pyo11.md) | [pt01ch49pyo11.md](./eng/pt01ch49pyo11.md) |
+| 49.12 FlowStep 对象 | 49.12 FlowStep object | [pt01ch49pyo12.md](./chs/pt01ch49pyo12.md) | [pt01ch49pyo12.md](./eng/pt01ch49pyo12.md) |
+| 49.14 GeostaticStep 对象 | 49.13 FrequencyStep object | [pt01ch49pyo13.md](./chs/pt01ch49pyo13.md) | [pt01ch49pyo13.md](./eng/pt01ch49pyo13.md) |
+| 49.13 FrequencyStep 对象 | 49.14 GeostaticStep object | [pt01ch49pyo14.md](./chs/pt01ch49pyo14.md) | [pt01ch49pyo14.md](./eng/pt01ch49pyo14.md) |
+| 49.15 HeatTransferStep 对象 | 49.15 HeatTransferStep object | [pt01ch49pyo15.md](./chs/pt01ch49pyo15.md) | [pt01ch49pyo15.md](./eng/pt01ch49pyo15.md) |
+| 49.16 ImplicitDynamicsStep 对象 | 49.16 ImplicitDynamicsStep object | [pt01ch49pyo16.md](./chs/pt01ch49pyo16.md) | [pt01ch49pyo16.md](./eng/pt01ch49pyo16.md) |
+| 49.17 InitialStep 对象 | 49.17 InitialStep object | [pt01ch49pyo17.md](./chs/pt01ch49pyo17.md) | [pt01ch49pyo17.md](./eng/pt01ch49pyo17.md) |
+| 49.18 MassDiffusionStep 对象 | 49.18 MassDiffusionStep object | [pt01ch49pyo18.md](./chs/pt01ch49pyo18.md) | [pt01ch49pyo18.md](./eng/pt01ch49pyo18.md) |
+| 49.19 ModalDynamicsStep 对象 | 49.19 ModalDynamicsStep object | [pt01ch49pyo19.md](./chs/pt01ch49pyo19.md) | [pt01ch49pyo19.md](./eng/pt01ch49pyo19.md) |
+| 49.20 RandomResponseStep 对象 | 49.20 RandomResponseStep object | [pt01ch49pyo20.md](./chs/pt01ch49pyo20.md) | [pt01ch49pyo20.md](./eng/pt01ch49pyo20.md) |
+| 49.22 SoilsStep 对象 | 49.21 ResponseSpectrumStep object | [pt01ch49pyo21.md](./chs/pt01ch49pyo21.md) | [pt01ch49pyo21.md](./eng/pt01ch49pyo21.md) |
+| 49.25 StaticStep 对象 | 49.22 SoilsStep object | [pt01ch49pyo22.md](./chs/pt01ch49pyo22.md) | [pt01ch49pyo22.md](./eng/pt01ch49pyo22.md) |
+| 49.21 ResponseSpectrumStep 对象 | 49.23 StaticLinearPerturbationStep object | [pt01ch49pyo23.md](./chs/pt01ch49pyo23.md) | [pt01ch49pyo23.md](./eng/pt01ch49pyo23.md) |
+| 49.23 StaticLinearPerturbationStep 对象 | 49.24 StaticRiksStep object | [pt01ch49pyo24.md](./chs/pt01ch49pyo24.md) | [pt01ch49pyo24.md](./eng/pt01ch49pyo24.md) |
+| 49.24 StaticRiksStep 对象 | 49.25 StaticStep object | [pt01ch49pyo25.md](./chs/pt01ch49pyo25.md) | [pt01ch49pyo25.md](./eng/pt01ch49pyo25.md) |
+| 49.26 SteadyStateDirectStep 对象 | 49.26 SteadyStateDirectStep object | [pt01ch49pyo26.md](./chs/pt01ch49pyo26.md) | [pt01ch49pyo26.md](./eng/pt01ch49pyo26.md) |
+| 49.28 SteadyStateSubspaceStep 对象 | 49.27 SteadyStateModalStep object | [pt01ch49pyo27.md](./chs/pt01ch49pyo27.md) | [pt01ch49pyo27.md](./eng/pt01ch49pyo27.md) |
+| 49.29 SubspaceDynamicsStep 对象 | 49.28 SteadyStateSubspaceStep object | [pt01ch49pyo28.md](./chs/pt01ch49pyo28.md) | [pt01ch49pyo28.md](./eng/pt01ch49pyo28.md) |
+| 49.27 SteadyStateModalStep 对象 | 49.29 SubspaceDynamicsStep object | [pt01ch49pyo29.md](./chs/pt01ch49pyo29.md) | [pt01ch49pyo29.md](./eng/pt01ch49pyo29.md) |
+| 49.30 SubstructureGenerateStep 对象 | 49.30 SubstructureGenerateStep object | [pt01ch49pyo30.md](./chs/pt01ch49pyo30.md) | [pt01ch49pyo30.md](./eng/pt01ch49pyo30.md) |
+| 49.31 TempDisplacementDynamicsStep 对象 | 49.31 TempDisplacementDynamicsStep object | [pt01ch49pyo31.md](./chs/pt01ch49pyo31.md) | [pt01ch49pyo31.md](./eng/pt01ch49pyo31.md) |
+| 49.32 ViscoStep 对象 | 49.32 ViscoStep object | [pt01ch49pyo32.md](./chs/pt01ch49pyo32.md) | [pt01ch49pyo32.md](./eng/pt01ch49pyo32.md) |
+| 50 Step commands (miscellaneous) | 50 Step commands (miscellaneous) | [pt01ch50.md](./chs/pt01ch50.md) | [pt01ch50.md](./eng/pt01ch50.md) |
+| 50.1 CompositeDamping 对象 | 50.1 CompositeDamping object | [pt01ch50pyo01.md](./chs/pt01ch50pyo01.md) | [pt01ch50pyo01.md](./eng/pt01ch50pyo01.md) |
+| 50.3 Control 对象 | 50.2 CompositeDampingComponent object | [pt01ch50pyo02.md](./chs/pt01ch50pyo02.md) | [pt01ch50pyo02.md](./eng/pt01ch50pyo02.md) |
+| 50.2 CompositeDampingComponent 对象 | 50.3 Control object | [pt01ch50pyo03.md](./chs/pt01ch50pyo03.md) | [pt01ch50pyo03.md](./eng/pt01ch50pyo03.md) |
+| 50.5 DirectDampingByFrequency 对象 | 50.4 DirectDamping object | [pt01ch50pyo04.md](./chs/pt01ch50pyo04.md) | [pt01ch50pyo04.md](./eng/pt01ch50pyo04.md) |
+| 50.6 DirectDampingByFrequencyComponent 对象 | 50.5 DirectDampingByFrequency object | [pt01ch50pyo05.md](./chs/pt01ch50pyo05.md) | [pt01ch50pyo05.md](./eng/pt01ch50pyo05.md) |
+| 50.4 DirectDamping 对象 | 50.6 DirectDampingByFrequencyComponent object | [pt01ch50pyo06.md](./chs/pt01ch50pyo06.md) | [pt01ch50pyo06.md](./eng/pt01ch50pyo06.md) |
+| 50.7 DirectDampingComponent 对象 | 50.7 DirectDampingComponent object | [pt01ch50pyo07.md](./chs/pt01ch50pyo07.md) | [pt01ch50pyo07.md](./eng/pt01ch50pyo07.md) |
+| 50.9 MassScaling 对象 | 50.8 EmagTimeHarmonicFrequency object | [pt01ch50pyo08.md](./chs/pt01ch50pyo08.md) | [pt01ch50pyo08.md](./eng/pt01ch50pyo08.md) |
+| 50.8 EmagTimeHarmonicFrequency 对象 | 50.9 MassScaling object | [pt01ch50pyo09.md](./chs/pt01ch50pyo09.md) | [pt01ch50pyo09.md](./eng/pt01ch50pyo09.md) |
+| 50.10 RandomResponseFrequency 对象 | 50.10 RandomResponseFrequency object | [pt01ch50pyo10.md](./chs/pt01ch50pyo10.md) | [pt01ch50pyo10.md](./eng/pt01ch50pyo10.md) |
+| 50.11 RayleighDamping 对象 | 50.11 RayleighDamping object | [pt01ch50pyo11.md](./chs/pt01ch50pyo11.md) | [pt01ch50pyo11.md](./eng/pt01ch50pyo11.md) |
+| 50.12 RayleighDampingByFrequency 对象 | 50.12 RayleighDampingByFrequency object | [pt01ch50pyo12.md](./chs/pt01ch50pyo12.md) | [pt01ch50pyo12.md](./eng/pt01ch50pyo12.md) |
+| 50.13 RayleighDampingByFrequencyComponent 对象 | 50.13 RayleighDampingByFrequencyComponent object | [pt01ch50pyo13.md](./chs/pt01ch50pyo13.md) | [pt01ch50pyo13.md](./eng/pt01ch50pyo13.md) |
+| 50.15 ResponseSpectrumComponent 对象 | 50.14 RayleighDampingComponent object | [pt01ch50pyo14.md](./chs/pt01ch50pyo14.md) | [pt01ch50pyo14.md](./eng/pt01ch50pyo14.md) |
+| 50.14 RayleighDampingComponent 对象 | 50.15 ResponseSpectrumComponent object | [pt01ch50pyo15.md](./chs/pt01ch50pyo15.md) | [pt01ch50pyo15.md](./eng/pt01ch50pyo15.md) |
+| 50.17 SteadyStateDirectFrequency 对象 | 50.16 SolverControl object | [pt01ch50pyo16.md](./chs/pt01ch50pyo16.md) | [pt01ch50pyo16.md](./eng/pt01ch50pyo16.md) |
+| 50.18 SteadyStateModalFrequency 对象 | 50.17 SteadyStateDirectFrequency object | [pt01ch50pyo17.md](./chs/pt01ch50pyo17.md) | [pt01ch50pyo17.md](./eng/pt01ch50pyo17.md) |
+| 50.19 SteadyStateSubspaceFrequency 对象 | 50.18 SteadyStateModalFrequency object | [pt01ch50pyo18.md](./chs/pt01ch50pyo18.md) | [pt01ch50pyo18.md](./eng/pt01ch50pyo18.md) |
+| 50.16 SolverControl 对象 | 50.19 SteadyStateSubspaceFrequency object | [pt01ch50pyo19.md](./chs/pt01ch50pyo19.md) | [pt01ch50pyo19.md](./eng/pt01ch50pyo19.md) |
+| 50.21 StructuralDampingByFrequency 对象 | 50.20 StructuralDamping object | [pt01ch50pyo20.md](./chs/pt01ch50pyo20.md) | [pt01ch50pyo20.md](./eng/pt01ch50pyo20.md) |
+| 50.20 StructuralDamping 对象 | 50.21 StructuralDampingByFrequency object | [pt01ch50pyo21.md](./chs/pt01ch50pyo21.md) | [pt01ch50pyo21.md](./eng/pt01ch50pyo21.md) |
+| 50.22 StructuralDampingByFrequencyComponent 对象 | 50.22 StructuralDampingByFrequencyComponent object | [pt01ch50pyo22.md](./chs/pt01ch50pyo22.md) | [pt01ch50pyo22.md](./eng/pt01ch50pyo22.md) |
+| 50.24 SubstructureGenerateFrequency 对象 | 50.23 StructuralDampingComponent object | [pt01ch50pyo23.md](./chs/pt01ch50pyo23.md) | [pt01ch50pyo23.md](./eng/pt01ch50pyo23.md) |
+| 50.25 SubstructureGenerateModes 对象 | 50.24 SubstructureGenerateFrequency object | [pt01ch50pyo24.md](./chs/pt01ch50pyo24.md) | [pt01ch50pyo24.md](./eng/pt01ch50pyo24.md) |
+| 50.23 StructuralDampingComponent 对象 | 50.25 SubstructureGenerateModes object | [pt01ch50pyo25.md](./chs/pt01ch50pyo25.md) | [pt01ch50pyo25.md](./eng/pt01ch50pyo25.md) |
+| 51 Step commands (output) | 51 Step commands (output) | [pt01ch51.md](./chs/pt01ch51.md) | [pt01ch51.md](./eng/pt01ch51.md) |
+| 51.1 DiagnosticPrint 对象 | 51.1 DiagnosticPrint object | [pt01ch51pyo01.md](./chs/pt01ch51pyo01.md) | [pt01ch51pyo01.md](./eng/pt01ch51pyo01.md) |
+| 51.2 FieldOutputRequest 对象 | 51.2 FieldOutputRequest object | [pt01ch51pyo02.md](./chs/pt01ch51pyo02.md) | [pt01ch51pyo02.md](./eng/pt01ch51pyo02.md) |
+| 51.3 FieldOutputRequestState 对象 | 51.3 FieldOutputRequestState object | [pt01ch51pyo03.md](./chs/pt01ch51pyo03.md) | [pt01ch51pyo03.md](./eng/pt01ch51pyo03.md) |
+| 51.4 HistoryOutputRequest 对象 | 51.4 HistoryOutputRequest object | [pt01ch51pyo04.md](./chs/pt01ch51pyo04.md) | [pt01ch51pyo04.md](./eng/pt01ch51pyo04.md) |
+| 51.5 HistoryOutputRequestState 对象 | 51.5 HistoryOutputRequestState object | [pt01ch51pyo05.md](./chs/pt01ch51pyo05.md) | [pt01ch51pyo05.md](./eng/pt01ch51pyo05.md) |
+| 51.6 IntegratedOutputSection 对象 | 51.6 IntegratedOutputSection object | [pt01ch51pyo06.md](./chs/pt01ch51pyo06.md) | [pt01ch51pyo06.md](./eng/pt01ch51pyo06.md) |
+| 51.7 Monitor 对象 | 51.7 Monitor object | [pt01ch51pyo07.md](./chs/pt01ch51pyo07.md) | [pt01ch51pyo07.md](./eng/pt01ch51pyo07.md) |
+| 51.8 Restart 对象 | 51.8 Restart object | [pt01ch51pyo08.md](./chs/pt01ch51pyo08.md) | [pt01ch51pyo08.md](./eng/pt01ch51pyo08.md) |
+| 51.9 TimePoint 对象 | 51.9 TimePoint object | [pt01ch51pyo09.md](./chs/pt01ch51pyo09.md) | [pt01ch51pyo09.md](./eng/pt01ch51pyo09.md) |
+| 52 Text Representation commands | 52 Text Representation commands | [pt01ch52.md](./chs/pt01ch52.md) | [pt01ch52.md](./eng/pt01ch52.md) |
+| 52.1 redentABQ 模块 | 52.1 redentABQ module | [pt01ch52pyo01.md](./chs/pt01ch52pyo01.md) | [pt01ch52pyo01.md](./eng/pt01ch52pyo01.md) |
+| 52.2 textRepr 模块 | 52.2 textRepr module | [pt01ch52pyo02.md](./chs/pt01ch52pyo02.md) | [pt01ch52pyo02.md](./eng/pt01ch52pyo02.md) |
+| 52.3 TextReprOptions 对象 | 52.3 TextReprOptions object | [pt01ch52pyo03.md](./chs/pt01ch52pyo03.md) | [pt01ch52pyo03.md](./eng/pt01ch52pyo03.md) |
+| 53 实用命令 | 53 Utility commands | [pt01ch53.md](./chs/pt01ch53.md) | [pt01ch53.md](./eng/pt01ch53.md) |
+| 53.6 状态命令 | 53.5 User input commands | [pt01ch53pyc01.md](./chs/pt01ch53pyc01.md) | [pt01ch53pyc01.md](./eng/pt01ch53pyc01.md) |
+| 53.5 用户输入命令 | 53.6 Status commands | [pt01ch53pyc02.md](./chs/pt01ch53pyc02.md) | [pt01ch53pyc02.md](./eng/pt01ch53pyc02.md) |
+| 53.7 回调命令 | 53.7 Callback commands | [pt01ch53pyc03.md](./chs/pt01ch53pyc03.md) | [pt01ch53pyc03.md](./eng/pt01ch53pyc03.md) |
+| 53.8 方法回调命令 | 53.8 Method callback command | [pt01ch53pyc04.md](./chs/pt01ch53pyc04.md) | [pt01ch53pyc04.md](./eng/pt01ch53pyc04.md) |
+| 53.9 删除对象回调命令 | 53.9 Delete object callback command | [pt01ch53pyc05.md](./chs/pt01ch53pyc05.md) | [pt01ch53pyc05.md](./eng/pt01ch53pyc05.md) |
+| 53.10 升级脚本命令 | 53.10 Upgrade script commands | [pt01ch53pyc06.md](./chs/pt01ch53pyc06.md) | [pt01ch53pyc06.md](./eng/pt01ch53pyc06.md) |
+| 53.11 自定义命令 | 53.11 Customization commands | [pt01ch53pyc07.md](./chs/pt01ch53pyc07.md) | [pt01ch53pyc07.md](./eng/pt01ch53pyc07.md) |
+| 53.1 SymbolicConstant 对象 | 53.1 SymbolicConstant object | [pt01ch53pyo01.md](./chs/pt01ch53pyo01.md) | [pt01ch53pyo01.md](./eng/pt01ch53pyo01.md) |
+| 53.2 AbaqusBoolean 对象 | 53.2 AbaqusBoolean object | [pt01ch53pyo02.md](./chs/pt01ch53pyo02.md) | [pt01ch53pyo02.md](./eng/pt01ch53pyo02.md) |
+| 53.3 Repository 对象 | 53.3 Repository object | [pt01ch53pyo03.md](./chs/pt01ch53pyo03.md) | [pt01ch53pyo03.md](./eng/pt01ch53pyo03.md) |
+| 53.4 BackwardCompatibility 对象 | 53.4 BackwardCompatibility object | [pt01ch53pyo04.md](./chs/pt01ch53pyo04.md) | [pt01ch53pyo04.md](./eng/pt01ch53pyo04.md) |
+| 54 视图命令 | 54 View commands | [pt01ch54.md](./chs/pt01ch54.md) | [pt01ch54.md](./eng/pt01ch54.md) |
+| 54.1 View 对象 | 54.1 View object | [pt01ch54pyo01.md](./chs/pt01ch54pyo01.md) | [pt01ch54pyo01.md](./eng/pt01ch54pyo01.md) |
+| 55 XY 命令 | 55 XY commands | [pt01ch55.md](./chs/pt01ch55.md) | [pt01ch55.md](./eng/pt01ch55.md) |
+| 55.19 writeXYReport | 55.19 writeXYReport | [pt01ch55pyc01.md](./chs/pt01ch55pyc01.md) | [pt01ch55pyc01.md](./eng/pt01ch55pyc01.md) |
+| 55.1 XYData 对象 | 55.1 XYData object | [pt01ch55pyo01.md](./chs/pt01ch55pyo01.md) | [pt01ch55pyo01.md](./eng/pt01ch55pyo01.md) |
+| 55.2 Area 对象 | 55.2 Area object | [pt01ch55pyo02.md](./chs/pt01ch55pyo02.md) | [pt01ch55pyo02.md](./eng/pt01ch55pyo02.md) |
+| 55.3 AreaStyle 对象 | 55.3 AreaStyle object | [pt01ch55pyo03.md](./chs/pt01ch55pyo03.md) | [pt01ch55pyo03.md](./eng/pt01ch55pyo03.md) |
+| 55.4 Axis 对象 | 55.4 Axis object | [pt01ch55pyo04.md](./chs/pt01ch55pyo04.md) | [pt01ch55pyo04.md](./eng/pt01ch55pyo04.md) |
+| 55.5 AxisData 对象 | 55.5 AxisData object | [pt01ch55pyo05.md](./chs/pt01ch55pyo05.md) | [pt01ch55pyo05.md](./eng/pt01ch55pyo05.md) |
+| 55.6 Chart 对象 | 55.6 Chart object | [pt01ch55pyo06.md](./chs/pt01ch55pyo06.md) | [pt01ch55pyo06.md](./eng/pt01ch55pyo06.md) |
+| 55.7 DefaultChartOptions 对象 | 55.7 DefaultChartOptions object | [pt01ch55pyo07.md](./chs/pt01ch55pyo07.md) | [pt01ch55pyo07.md](./eng/pt01ch55pyo07.md) |
+| 55.8 DefaultPlot 对象 | 55.8 DefaultPlot object | [pt01ch55pyo08.md](./chs/pt01ch55pyo08.md) | [pt01ch55pyo08.md](./eng/pt01ch55pyo08.md) |
+| 55.9 Legend 对象 | 55.9 Legend object | [pt01ch55pyo09.md](./chs/pt01ch55pyo09.md) | [pt01ch55pyo09.md](./eng/pt01ch55pyo09.md) |
+| 55.10 LineStyle 对象 | 55.10 LineStyle object | [pt01ch55pyo10.md](./chs/pt01ch55pyo10.md) | [pt01ch55pyo10.md](./eng/pt01ch55pyo10.md) |
+| 55.11 QuantityType 对象 | 55.11 QuantityType object | [pt01ch55pyo11.md](./chs/pt01ch55pyo11.md) | [pt01ch55pyo11.md](./eng/pt01ch55pyo11.md) |
+| 55.12 SymbolStyle 对象 | 55.12 SymbolStyle object | [pt01ch55pyo12.md](./chs/pt01ch55pyo12.md) | [pt01ch55pyo12.md](./eng/pt01ch55pyo12.md) |
+| 55.13 TextStyle 对象 | 55.13 TextStyle object | [pt01ch55pyo13.md](./chs/pt01ch55pyo13.md) | [pt01ch55pyo13.md](./eng/pt01ch55pyo13.md) |
+| 55.14 Title 对象 | 55.14 Title object | [pt01ch55pyo14.md](./chs/pt01ch55pyo14.md) | [pt01ch55pyo14.md](./eng/pt01ch55pyo14.md) |
+| 55.15 XYCurve 对象 | 55.15 XYCurve object | [pt01ch55pyo15.md](./chs/pt01ch55pyo15.md) | [pt01ch55pyo15.md](./eng/pt01ch55pyo15.md) |
+| 55.16 XYPlot 对象 | 55.16 XYPlot object | [pt01ch55pyo16.md](./chs/pt01ch55pyo16.md) | [pt01ch55pyo16.md](./eng/pt01ch55pyo16.md) |
+| 55.17 XYReportOptions 对象 | 55.17 XYReportOptions object | [pt01ch55pyo17.md](./chs/pt01ch55pyo17.md) | [pt01ch55pyo17.md](./eng/pt01ch55pyo17.md) |
+| 附录 C：关键字链接 | 55.18 Session object | [pt01ch55pyo18.md](./chs/pt01ch55pyo18.md) | [pt01ch55pyo18.md](./eng/pt01ch55pyo18.md) |
+
+### PT02
+*56 幅值命令*
+
+| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
+|-----------------|-----------------|-----------------|-----------------|
+| 56 幅值命令 | C++ commands | [pt02.md](./chs/pt02.md) | [pt02.md](./eng/pt02.md) |
+| 57 梁截面轮廓命令 | 56 Amplitude commands | [pt02ch56.md](./chs/pt02ch56.md) | [pt02ch56.md](./eng/pt02ch56.md) |
+| 56.1 Amplitude 对象 | 56.1 Amplitude object | [pt02ch56pyo01.md](./chs/pt02ch56pyo01.md) | [pt02ch56pyo01.md](./eng/pt02ch56pyo01.md) |
+| 56.2 ActuatorAmplitude 对象 | 56.2 ActuatorAmplitude object | [pt02ch56pyo02.md](./chs/pt02ch56pyo02.md) | [pt02ch56pyo02.md](./eng/pt02ch56pyo02.md) |
+| 56.4 DecayAmplitude 对象 | 56.3 BaselineCorrection object | [pt02ch56pyo03.md](./chs/pt02ch56pyo03.md) | [pt02ch56pyo03.md](./eng/pt02ch56pyo03.md) |
+| 56.3 BaselineCorrection 对象 | 56.4 DecayAmplitude object | [pt02ch56pyo04.md](./chs/pt02ch56pyo04.md) | [pt02ch56pyo04.md](./eng/pt02ch56pyo04.md) |
+| 56.5 EquallySpacedAmplitude 对象 | 56.5 EquallySpacedAmplitude object | [pt02ch56pyo05.md](./chs/pt02ch56pyo05.md) | [pt02ch56pyo05.md](./eng/pt02ch56pyo05.md) |
+| 56.6 ModulatedAmplitude 对象 | 56.6 ModulatedAmplitude object | [pt02ch56pyo06.md](./chs/pt02ch56pyo06.md) | [pt02ch56pyo06.md](./eng/pt02ch56pyo06.md) |
+| 56.7 PeriodicAmplitude 对象 | 56.7 PeriodicAmplitude object | [pt02ch56pyo07.md](./chs/pt02ch56pyo07.md) | [pt02ch56pyo07.md](./eng/pt02ch56pyo07.md) |
+| 56.8 PsdDefinition 对象 | 56.8 PsdDefinition object | [pt02ch56pyo08.md](./chs/pt02ch56pyo08.md) | [pt02ch56pyo08.md](./eng/pt02ch56pyo08.md) |
+| 56.9 SmoothStepAmplitude 对象 | 56.9 SmoothStepAmplitude object | [pt02ch56pyo09.md](./chs/pt02ch56pyo09.md) | [pt02ch56pyo09.md](./eng/pt02ch56pyo09.md) |
+| 56.10 SolutionDependentAmplitude 对象 | 56.10 SolutionDependentAmplitude object | [pt02ch56pyo10.md](./chs/pt02ch56pyo10.md) | [pt02ch56pyo10.md](./eng/pt02ch56pyo10.md) |
+| 56.11 SpectrumAmplitude 对象 | 56.11 SpectrumAmplitude object | [pt02ch56pyo11.md](./chs/pt02ch56pyo11.md) | [pt02ch56pyo11.md](./eng/pt02ch56pyo11.md) |
+| 56.12 TabularAmplitude 对象 | 56.12 TabularAmplitude object | [pt02ch56pyo12.md](./chs/pt02ch56pyo12.md) | [pt02ch56pyo12.md](./eng/pt02ch56pyo12.md) |
+| 57.1 Profile 对象 | 56.13 UserAmplitude object | [pt02ch56pyo13.md](./chs/pt02ch56pyo13.md) | [pt02ch56pyo13.md](./eng/pt02ch56pyo13.md) |
+| 58 连接器命令 | 57 Beam Section profile commands | [pt02ch57.md](./chs/pt02ch57.md) | [pt02ch57.md](./eng/pt02ch57.md) |
+| 57.1 Profile 对象 | 57.1 Profile object | [pt02ch57pyo01.md](./chs/pt02ch57pyo01.md) | [pt02ch57pyo01.md](./eng/pt02ch57pyo01.md) |
+| 57.2 ArbitraryProfile 对象 | 57.2 ArbitraryProfile object | [pt02ch57pyo02.md](./chs/pt02ch57pyo02.md) | [pt02ch57pyo02.md](./eng/pt02ch57pyo02.md) |
+| 57.3 BoxProfile 对象 | 57.3 BoxProfile object | [pt02ch57pyo03.md](./chs/pt02ch57pyo03.md) | [pt02ch57pyo03.md](./eng/pt02ch57pyo03.md) |
+| 57.4 CircularProfile 对象 | 57.4 CircularProfile object | [pt02ch57pyo04.md](./chs/pt02ch57pyo04.md) | [pt02ch57pyo04.md](./eng/pt02ch57pyo04.md) |
+| 57.6 HexagonalProfile 对象 | 57.5 GeneralizedProfile object | [pt02ch57pyo05.md](./chs/pt02ch57pyo05.md) | [pt02ch57pyo05.md](./eng/pt02ch57pyo05.md) |
+| 57.5 GeneralizedProfile 对象 | 57.6 HexagonalProfile object | [pt02ch57pyo06.md](./chs/pt02ch57pyo06.md) | [pt02ch57pyo06.md](./eng/pt02ch57pyo06.md) |
+| 57.7 IProfile 对象 | 57.7 IProfile object | [pt02ch57pyo07.md](./chs/pt02ch57pyo07.md) | [pt02ch57pyo07.md](./eng/pt02ch57pyo07.md) |
+| 57.8 LProfile 对象 | 57.8 LProfile object | [pt02ch57pyo08.md](./chs/pt02ch57pyo08.md) | [pt02ch57pyo08.md](./eng/pt02ch57pyo08.md) |
+| 57.9 PipeProfile 对象 | 57.9 PipeProfile object | [pt02ch57pyo09.md](./chs/pt02ch57pyo09.md) | [pt02ch57pyo09.md](./eng/pt02ch57pyo09.md) |
+| 57.10 RectangularProfile 对象 | 57.10 RectangularProfile object | [pt02ch57pyo10.md](./chs/pt02ch57pyo10.md) | [pt02ch57pyo10.md](./eng/pt02ch57pyo10.md) |
+| 57.11 TProfile 对象 | 57.11 TProfile object | [pt02ch57pyo11.md](./chs/pt02ch57pyo11.md) | [pt02ch57pyo11.md](./eng/pt02ch57pyo11.md) |
+| 57.12 TrapezoidalProfile 对象 | 57.12 TrapezoidalProfile object | [pt02ch57pyo12.md](./chs/pt02ch57pyo12.md) | [pt02ch57pyo12.md](./eng/pt02ch57pyo12.md) |
+| 59 过滤器命令 | 58 Connector commands | [pt02ch58.md](./chs/pt02ch58.md) | [pt02ch58.md](./eng/pt02ch58.md) |
+| 58.1 ConnectorBehaviorOption 对象 | 58.1 ConnectorBehaviorOption object | [pt02ch58pyo01.md](./chs/pt02ch58pyo01.md) | [pt02ch58pyo01.md](./eng/pt02ch58pyo01.md) |
+| 58.2 CDCTerm 对象 | 58.2 CDCTerm object | [pt02ch58pyo02.md](./chs/pt02ch58pyo02.md) | [pt02ch58pyo02.md](./eng/pt02ch58pyo02.md) |
+| 58.3 ConnectorDamage 对象 | 58.3 ConnectorDamage object | [pt02ch58pyo03.md](./chs/pt02ch58pyo03.md) | [pt02ch58pyo03.md](./eng/pt02ch58pyo03.md) |
+| 58.4 ConnectorDamping object | 58.4 ConnectorDamping object | [pt02ch58pyo04.md](./chs/pt02ch58pyo04.md) | [pt02ch58pyo04.md](./eng/pt02ch58pyo04.md) |
+| 58.5 ConnectorElasticity object | 58.5 ConnectorElasticity object | [pt02ch58pyo05.md](./chs/pt02ch58pyo05.md) | [pt02ch58pyo05.md](./eng/pt02ch58pyo05.md) |
+| 58.6 ConnectorFailure object | 58.6 ConnectorFailure object | [pt02ch58pyo06.md](./chs/pt02ch58pyo06.md) | [pt02ch58pyo06.md](./eng/pt02ch58pyo06.md) |
+| 58.7 ConnectorFriction object | 58.7 ConnectorFriction object | [pt02ch58pyo07.md](./chs/pt02ch58pyo07.md) | [pt02ch58pyo07.md](./eng/pt02ch58pyo07.md) |
+| 58.8 ConnectorLock object | 58.8 ConnectorLock object | [pt02ch58pyo08.md](./chs/pt02ch58pyo08.md) | [pt02ch58pyo08.md](./eng/pt02ch58pyo08.md) |
+| 58.9 ConnectorOptions object | 58.9 ConnectorOptions object | [pt02ch58pyo09.md](./chs/pt02ch58pyo09.md) | [pt02ch58pyo09.md](./eng/pt02ch58pyo09.md) |
+| 58.10 ConnectorPlasticity object | 58.10 ConnectorPlasticity object | [pt02ch58pyo10.md](./chs/pt02ch58pyo10.md) | [pt02ch58pyo10.md](./eng/pt02ch58pyo10.md) |
+| 58.11 ConnectorPotential object | 58.11 ConnectorPotential object | [pt02ch58pyo11.md](./chs/pt02ch58pyo11.md) | [pt02ch58pyo11.md](./eng/pt02ch58pyo11.md) |
+| 58.12 ConnectorStop object | 58.12 ConnectorStop object | [pt02ch58pyo12.md](./chs/pt02ch58pyo12.md) | [pt02ch58pyo12.md](./eng/pt02ch58pyo12.md) |
+| 58.13 DerivedComponent object | 58.13 DerivedComponent object | [pt02ch58pyo13.md](./chs/pt02ch58pyo13.md) | [pt02ch58pyo13.md](./eng/pt02ch58pyo13.md) |
+| 58.14 TangentialBehavior object | 58.14 TangentialBehavior object | [pt02ch58pyo14.md](./chs/pt02ch58pyo14.md) | [pt02ch58pyo14.md](./eng/pt02ch58pyo14.md) |
+| 59 Filter commands | 59 Filter commands | [pt02ch59.md](./chs/pt02ch59.md) | [pt02ch59.md](./eng/pt02ch59.md) |
+| 59.1 Filter 对象 | 59.1 Filter object | [pt02ch59pyo01.md](./chs/pt02ch59pyo01.md) | [pt02ch59pyo01.md](./eng/pt02ch59pyo01.md) |
+| 59.2 ButterworthFilter 对象 | 59.2 ButterworthFilter object | [pt02ch59pyo02.md](./chs/pt02ch59pyo02.md) | [pt02ch59pyo02.md](./eng/pt02ch59pyo02.md) |
+| 59.3 Chebyshev1Filter 对象 | 59.3 Chebyshev1Filter object | [pt02ch59pyo03.md](./chs/pt02ch59pyo03.md) | [pt02ch59pyo03.md](./eng/pt02ch59pyo03.md) |
+| 59.4 Chebyshev2Filter 对象 | 59.4 Chebyshev2Filter object | [pt02ch59pyo04.md](./chs/pt02ch59pyo04.md) | [pt02ch59pyo04.md](./eng/pt02ch59pyo04.md) |
+| 59.5 OperatorFilter 对象 | 59.5 OperatorFilter object | [pt02ch59pyo05.md](./chs/pt02ch59pyo05.md) | [pt02ch59pyo05.md](./eng/pt02ch59pyo05.md) |
+| 60 材料命令 | 60 Material commands | [pt02ch60.md](./chs/pt02ch60.md) | [pt02ch60.md](./eng/pt02ch60.md) |
+| 60.1 Material 对象 | 60.1 Material object | [pt02ch60pyo01.md](./chs/pt02ch60pyo01.md) | [pt02ch60pyo01.md](./eng/pt02ch60pyo01.md) |
+| 60.2 AcousticMedium 对象 | 60.2 AcousticMedium object | [pt02ch60pyo02.md](./chs/pt02ch60pyo02.md) | [pt02ch60pyo02.md](./eng/pt02ch60pyo02.md) |
+| 60.3 AnnealTemperature 对象 | 60.3 AnnealTemperature object | [pt02ch60pyo03.md](./chs/pt02ch60pyo03.md) | [pt02ch60pyo03.md](./eng/pt02ch60pyo03.md) |
+| 60.4 BiaxialTestData 对象 | 60.4 BiaxialTestData object | [pt02ch60pyo04.md](./chs/pt02ch60pyo04.md) | [pt02ch60pyo04.md](./eng/pt02ch60pyo04.md) |
+| 60.5 BrittleCracking 对象 | 60.5 BrittleCracking object | [pt02ch60pyo05.md](./chs/pt02ch60pyo05.md) | [pt02ch60pyo05.md](./eng/pt02ch60pyo05.md) |
+| 60.6 BrittleFailure 对象 | 60.6 BrittleFailure object | [pt02ch60pyo06.md](./chs/pt02ch60pyo06.md) | [pt02ch60pyo06.md](./eng/pt02ch60pyo06.md) |
+| 60.7 BrittleShear 对象 | 60.7 BrittleShear object | [pt02ch60pyo07.md](./chs/pt02ch60pyo07.md) | [pt02ch60pyo07.md](./eng/pt02ch60pyo07.md) |
+| 60.8 CapCreepCohesion 对象 | 60.8 CapCreepCohesion object | [pt02ch60pyo08.md](./chs/pt02ch60pyo08.md) | [pt02ch60pyo08.md](./eng/pt02ch60pyo08.md) |
+| 60.9 CapCreepConsolidation 对象 | 60.9 CapCreepConsolidation object | [pt02ch60pyo09.md](./chs/pt02ch60pyo09.md) | [pt02ch60pyo09.md](./eng/pt02ch60pyo09.md) |
+| 60.10 CapHardening 对象 | 60.10 CapHardening object | [pt02ch60pyo10.md](./chs/pt02ch60pyo10.md) | [pt02ch60pyo10.md](./eng/pt02ch60pyo10.md) |
+| 60.101 UniaxialTestData 对象 | 60.100 Trs object | [pt02ch60pyo100.md](./chs/pt02ch60pyo100.md) | [pt02ch60pyo100.md](./eng/pt02ch60pyo100.md) |
+| 60.100 Trs 对象 | 60.101 UniaxialTestData object | [pt02ch60pyo101.md](./chs/pt02ch60pyo101.md) | [pt02ch60pyo101.md](./eng/pt02ch60pyo101.md) |
+| 60.102 UserDefinedField 对象 | 60.102 UserDefinedField object | [pt02ch60pyo102.md](./chs/pt02ch60pyo102.md) | [pt02ch60pyo102.md](./eng/pt02ch60pyo102.md) |
+| 60.103 UserMaterial 对象 | 60.103 UserMaterial object | [pt02ch60pyo103.md](./chs/pt02ch60pyo103.md) | [pt02ch60pyo103.md](./eng/pt02ch60pyo103.md) |
+| 60.104 UserOutputVariables 对象 | 60.104 UserOutputVariables object | [pt02ch60pyo104.md](./chs/pt02ch60pyo104.md) | [pt02ch60pyo104.md](./eng/pt02ch60pyo104.md) |
+| 60.105 VelocityDependence 对象 | 60.105 VelocityDependence object | [pt02ch60pyo105.md](./chs/pt02ch60pyo105.md) | [pt02ch60pyo105.md](./eng/pt02ch60pyo105.md) |
+| 60.106 Viscoelastic 对象 | 60.106 Viscoelastic object | [pt02ch60pyo106.md](./chs/pt02ch60pyo106.md) | [pt02ch60pyo106.md](./eng/pt02ch60pyo106.md) |
+| 60.107 Viscosity 对象 | 60.107 Viscosity object | [pt02ch60pyo107.md](./chs/pt02ch60pyo107.md) | [pt02ch60pyo107.md](./eng/pt02ch60pyo107.md) |
+| 60.108 Viscous 对象 | 60.108 Viscous object | [pt02ch60pyo108.md](./chs/pt02ch60pyo108.md) | [pt02ch60pyo108.md](./eng/pt02ch60pyo108.md) |
+| 60.109 VoidNucleation 对象 | 60.109 VoidNucleation object | [pt02ch60pyo109.md](./chs/pt02ch60pyo109.md) | [pt02ch60pyo109.md](./eng/pt02ch60pyo109.md) |
+| 60.11 CapPlasticity 对象 | 60.11 CapPlasticity object | [pt02ch60pyo11.md](./chs/pt02ch60pyo11.md) | [pt02ch60pyo11.md](./eng/pt02ch60pyo11.md) |
+| 60.110 VolumetricTestData 对象 | 60.110 VolumetricTestData object | [pt02ch60pyo110.md](./chs/pt02ch60pyo110.md) | [pt02ch60pyo110.md](./eng/pt02ch60pyo110.md) |
+| 60.12 CastIronCompressionHardening 对象 | 60.12 CastIronCompressionHardening object | [pt02ch60pyo12.md](./chs/pt02ch60pyo12.md) | [pt02ch60pyo12.md](./eng/pt02ch60pyo12.md) |
+| 60.13 CastIronPlasticity 对象 | 60.13 CastIronPlasticity object | [pt02ch60pyo13.md](./chs/pt02ch60pyo13.md) | [pt02ch60pyo13.md](./eng/pt02ch60pyo13.md) |
+| 60.14 CastIronTensionHardening 对象 | 60.14 CastIronTensionHardening object | [pt02ch60pyo14.md](./chs/pt02ch60pyo14.md) | [pt02ch60pyo14.md](./eng/pt02ch60pyo14.md) |
+| 60.15 ClayHardening 对象 | 60.15 ClayHardening object | [pt02ch60pyo15.md](./chs/pt02ch60pyo15.md) | [pt02ch60pyo15.md](./eng/pt02ch60pyo15.md) |
+| 60.16 ClayPlasticity 对象 | 60.16 ClayPlasticity object | [pt02ch60pyo16.md](./chs/pt02ch60pyo16.md) | [pt02ch60pyo16.md](./eng/pt02ch60pyo16.md) |
+| 60.17 CombinedTestData 对象 | 60.17 CombinedTestData object | [pt02ch60pyo17.md](./chs/pt02ch60pyo17.md) | [pt02ch60pyo17.md](./eng/pt02ch60pyo17.md) |
+| 60.18 Concrete 对象 | 60.18 Concrete object | [pt02ch60pyo18.md](./chs/pt02ch60pyo18.md) | [pt02ch60pyo18.md](./eng/pt02ch60pyo18.md) |
+| 60.19 ConcreteCompressionDamage 对象 | 60.19 ConcreteCompressionDamage object | [pt02ch60pyo19.md](./chs/pt02ch60pyo19.md) | [pt02ch60pyo19.md](./eng/pt02ch60pyo19.md) |
+| 60.20 ConcreteCompressionHardening 对象 | 60.20 ConcreteCompressionHardening object | [pt02ch60pyo20.md](./chs/pt02ch60pyo20.md) | [pt02ch60pyo20.md](./eng/pt02ch60pyo20.md) |
+| 60.21 ConcreteDamagedPlasticity 对象 | 60.21 ConcreteDamagedPlasticity object | [pt02ch60pyo21.md](./chs/pt02ch60pyo21.md) | [pt02ch60pyo21.md](./eng/pt02ch60pyo21.md) |
+| 60.22 ConcreteTensionDamage 对象 | 60.22 ConcreteTensionDamage object | [pt02ch60pyo22.md](./chs/pt02ch60pyo22.md) | [pt02ch60pyo22.md](./eng/pt02ch60pyo22.md) |
+| 60.23 ConcreteTensionStiffening 对象 | 60.23 ConcreteTensionStiffening object | [pt02ch60pyo23.md](./chs/pt02ch60pyo23.md) | [pt02ch60pyo23.md](./eng/pt02ch60pyo23.md) |
+| 60.24 Conductivity 对象 | 60.24 Conductivity object | [pt02ch60pyo24.md](./chs/pt02ch60pyo24.md) | [pt02ch60pyo24.md](./eng/pt02ch60pyo24.md) |
+| 60.25 ContactArea 对象 | 60.25 ContactArea object | [pt02ch60pyo25.md](./chs/pt02ch60pyo25.md) | [pt02ch60pyo25.md](./eng/pt02ch60pyo25.md) |
+| 60.26 Creep 对象 | 60.26 Creep object | [pt02ch60pyo26.md](./chs/pt02ch60pyo26.md) | [pt02ch60pyo26.md](./eng/pt02ch60pyo26.md) |
+| 60.27 CrushableFoam 对象 | 60.27 CrushableFoam object | [pt02ch60pyo27.md](./chs/pt02ch60pyo27.md) | [pt02ch60pyo27.md](./eng/pt02ch60pyo27.md) |
+| 60.28 CrushableFoamHardening 对象 | 60.28 CrushableFoamHardening object | [pt02ch60pyo28.md](./chs/pt02ch60pyo28.md) | [pt02ch60pyo28.md](./eng/pt02ch60pyo28.md) |
+| 60.29 CycledPlastic 对象 | 60.29 CycledPlastic object | [pt02ch60pyo29.md](./chs/pt02ch60pyo29.md) | [pt02ch60pyo29.md](./eng/pt02ch60pyo29.md) |
+| 60.30 CyclicHardening 对象 | 60.30 CyclicHardening object | [pt02ch60pyo30.md](./chs/pt02ch60pyo30.md) | [pt02ch60pyo30.md](./eng/pt02ch60pyo30.md) |
+| 60.31 DamageEvolution 对象 | 60.31 DamageEvolution object | [pt02ch60pyo31.md](./chs/pt02ch60pyo31.md) | [pt02ch60pyo31.md](./eng/pt02ch60pyo31.md) |
+| 60.32 DamageInitiation 对象 | 60.32 DamageInitiation object | [pt02ch60pyo32.md](./chs/pt02ch60pyo32.md) | [pt02ch60pyo32.md](./eng/pt02ch60pyo32.md) |
+| 60.33 DamageStabilization 对象 | 60.33 DamageStabilization object | [pt02ch60pyo33.md](./chs/pt02ch60pyo33.md) | [pt02ch60pyo33.md](./eng/pt02ch60pyo33.md) |
+| 60.34 DamageStabilizationCohesive 对象 | 60.34 DamageStabilizationCohesive object | [pt02ch60pyo34.md](./chs/pt02ch60pyo34.md) | [pt02ch60pyo34.md](./eng/pt02ch60pyo34.md) |
+| 60.35 Damping 对象 | 60.35 Damping object | [pt02ch60pyo35.md](./chs/pt02ch60pyo35.md) | [pt02ch60pyo35.md](./eng/pt02ch60pyo35.md) |
+| 60.36 DeformationPlasticity 对象 | 60.36 DeformationPlasticity object | [pt02ch60pyo36.md](./chs/pt02ch60pyo36.md) | [pt02ch60pyo36.md](./eng/pt02ch60pyo36.md) |
+| 60.37 Density 对象 | 60.37 Density object | [pt02ch60pyo37.md](./chs/pt02ch60pyo37.md) | [pt02ch60pyo37.md](./eng/pt02ch60pyo37.md) |
+| 60.38 Depvar 对象 | 60.38 Depvar object | [pt02ch60pyo38.md](./chs/pt02ch60pyo38.md) | [pt02ch60pyo38.md](./eng/pt02ch60pyo38.md) |
+| 60.39 DetonationPoint 对象 | 60.39 DetonationPoint object | [pt02ch60pyo39.md](./chs/pt02ch60pyo39.md) | [pt02ch60pyo39.md](./eng/pt02ch60pyo39.md) |
+| 60.40 Dielectric 对象 | 60.40 Dielectric object | [pt02ch60pyo40.md](./chs/pt02ch60pyo40.md) | [pt02ch60pyo40.md](./eng/pt02ch60pyo40.md) |
+| 60.41 Diffusivity 对象 | 60.41 Diffusivity object | [pt02ch60pyo41.md](./chs/pt02ch60pyo41.md) | [pt02ch60pyo41.md](./eng/pt02ch60pyo41.md) |
+| 60.42 DruckerPrager 对象 | 60.42 DruckerPrager object | [pt02ch60pyo42.md](./chs/pt02ch60pyo42.md) | [pt02ch60pyo42.md](./eng/pt02ch60pyo42.md) |
+| 60.43 DruckerPragerCreep 对象 | 60.43 DruckerPragerCreep object | [pt02ch60pyo43.md](./chs/pt02ch60pyo43.md) | [pt02ch60pyo43.md](./eng/pt02ch60pyo43.md) |
+| 60.44 DruckerPragerHardening 对象 | 60.44 DruckerPragerHardening object | [pt02ch60pyo44.md](./chs/pt02ch60pyo44.md) | [pt02ch60pyo44.md](./eng/pt02ch60pyo44.md) |
+| 60.45 Elastic 对象 | 60.45 Elastic object | [pt02ch60pyo45.md](./chs/pt02ch60pyo45.md) | [pt02ch60pyo45.md](./eng/pt02ch60pyo45.md) |
+| 60.46 ElectricalConductivity 对象 | 60.46 ElectricalConductivity object | [pt02ch60pyo46.md](./chs/pt02ch60pyo46.md) | [pt02ch60pyo46.md](./eng/pt02ch60pyo46.md) |
+| 60.47 Eos 对象 | 60.47 Eos object | [pt02ch60pyo47.md](./chs/pt02ch60pyo47.md) | [pt02ch60pyo47.md](./eng/pt02ch60pyo47.md) |
+| 60.48 EosCompaction 对象 | 60.48 EosCompaction object | [pt02ch60pyo48.md](./chs/pt02ch60pyo48.md) | [pt02ch60pyo48.md](./eng/pt02ch60pyo48.md) |
+| 60.49 Expansion 对象 | 60.49 Expansion object | [pt02ch60pyo49.md](./chs/pt02ch60pyo49.md) | [pt02ch60pyo49.md](./eng/pt02ch60pyo49.md) |
+| 60.50 FailStrain 对象 | 60.50 FailStrain object | [pt02ch60pyo50.md](./chs/pt02ch60pyo50.md) | [pt02ch60pyo50.md](./eng/pt02ch60pyo50.md) |
+| 60.51 FailStress 对象 | 60.51 FailStress object | [pt02ch60pyo51.md](./chs/pt02ch60pyo51.md) | [pt02ch60pyo51.md](./eng/pt02ch60pyo51.md) |
+| 60.52 FailureRatios 对象 | 60.52 FailureRatios object | [pt02ch60pyo52.md](./chs/pt02ch60pyo52.md) | [pt02ch60pyo52.md](./eng/pt02ch60pyo52.md) |
+| 60.53 FluidLeakoff 对象 | 60.53 FluidLeakoff object | [pt02ch60pyo53.md](./chs/pt02ch60pyo53.md) | [pt02ch60pyo53.md](./eng/pt02ch60pyo53.md) |
+| 60.54 GapFlow 对象 | 60.54 GapFlow object | [pt02ch60pyo54.md](./chs/pt02ch60pyo54.md) | [pt02ch60pyo54.md](./eng/pt02ch60pyo54.md) |
+| 60.55 GasketMembraneElastic 对象 | 60.55 GasketMembraneElastic object | [pt02ch60pyo55.md](./chs/pt02ch60pyo55.md) | [pt02ch60pyo55.md](./eng/pt02ch60pyo55.md) |
+| 60.56 GasketThicknessBehavior 对象 | 60.56 GasketThicknessBehavior object | [pt02ch60pyo56.md](./chs/pt02ch60pyo56.md) | [pt02ch60pyo56.md](./eng/pt02ch60pyo56.md) |
+| 60.57 GasketTransverseShearElastic 对象 | 60.57 GasketTransverseShearElastic object | [pt02ch60pyo57.md](./chs/pt02ch60pyo57.md) | [pt02ch60pyo57.md](./eng/pt02ch60pyo57.md) |
+| 60.58 Gel 对象 | 60.58 Gel object | [pt02ch60pyo58.md](./chs/pt02ch60pyo58.md) | [pt02ch60pyo58.md](./eng/pt02ch60pyo58.md) |
+| 60.59 HeatGeneration 对象 | 60.59 HeatGeneration object | [pt02ch60pyo59.md](./chs/pt02ch60pyo59.md) | [pt02ch60pyo59.md](./eng/pt02ch60pyo59.md) |
+| 60.60 Hyperelastic 对象 | 60.60 Hyperelastic object | [pt02ch60pyo60.md](./chs/pt02ch60pyo60.md) | [pt02ch60pyo60.md](./eng/pt02ch60pyo60.md) |
+| 60.61 Hyperfoam 对象 | 60.61 Hyperfoam object | [pt02ch60pyo61.md](./chs/pt02ch60pyo61.md) | [pt02ch60pyo61.md](./eng/pt02ch60pyo61.md) |
+| 60.62 Hypoelastic 对象 | 60.62 Hypoelastic object | [pt02ch60pyo62.md](./chs/pt02ch60pyo62.md) | [pt02ch60pyo62.md](./eng/pt02ch60pyo62.md) |
+| 60.63 Hysteresis 对象 | 60.63 Hysteresis object | [pt02ch60pyo63.md](./chs/pt02ch60pyo63.md) | [pt02ch60pyo63.md](./eng/pt02ch60pyo63.md) |
+| 60.64 InelasticHeatFraction 对象 | 60.64 InelasticHeatFraction object | [pt02ch60pyo64.md](./chs/pt02ch60pyo64.md) | [pt02ch60pyo64.md](./eng/pt02ch60pyo64.md) |
+| 60.65 JouleHeatFraction 对象 | 60.65 JouleHeatFraction object | [pt02ch60pyo65.md](./chs/pt02ch60pyo65.md) | [pt02ch60pyo65.md](./eng/pt02ch60pyo65.md) |
+| 60.66 LatentHeat 对象 | 60.66 LatentHeat object | [pt02ch60pyo66.md](./chs/pt02ch60pyo66.md) | [pt02ch60pyo66.md](./eng/pt02ch60pyo66.md) |
+| 60.67 LowDensityFoam 对象 | 60.67 LowDensityFoam object | [pt02ch60pyo67.md](./chs/pt02ch60pyo67.md) | [pt02ch60pyo67.md](./eng/pt02ch60pyo67.md) |
+| 60.68 MagneticPermeability 对象 | 60.68 MagneticPermeability object | [pt02ch60pyo68.md](./chs/pt02ch60pyo68.md) | [pt02ch60pyo68.md](./eng/pt02ch60pyo68.md) |
+| 60.69 MohrCoulombHardening 对象 | 60.69 MohrCoulombHardening object | [pt02ch60pyo69.md](./chs/pt02ch60pyo69.md) | [pt02ch60pyo69.md](./eng/pt02ch60pyo69.md) |
+| 60.70 MohrCoulombPlasticity 对象 | 60.70 MohrCoulombPlasticity object | [pt02ch60pyo70.md](./chs/pt02ch60pyo70.md) | [pt02ch60pyo70.md](./eng/pt02ch60pyo70.md) |
+| 60.71 MoistureSwelling 对象 | 60.71 MoistureSwelling object | [pt02ch60pyo71.md](./chs/pt02ch60pyo71.md) | [pt02ch60pyo71.md](./eng/pt02ch60pyo71.md) |
+| 60.76 PlanarTestData 对象 | 60.72 MullinsEffect object | [pt02ch60pyo72.md](./chs/pt02ch60pyo72.md) | [pt02ch60pyo72.md](./eng/pt02ch60pyo72.md) |
+| 60.73 Ornl 对象 | 60.73 Ornl object | [pt02ch60pyo73.md](./chs/pt02ch60pyo73.md) | [pt02ch60pyo73.md](./eng/pt02ch60pyo73.md) |
+| 60.72 MullinsEffect 对象 | 60.74 Permeability object | [pt02ch60pyo74.md](./chs/pt02ch60pyo74.md) | [pt02ch60pyo74.md](./eng/pt02ch60pyo74.md) |
+| 60.74 Permeability 对象 | 60.75 Piezoelectric object | [pt02ch60pyo75.md](./chs/pt02ch60pyo75.md) | [pt02ch60pyo75.md](./eng/pt02ch60pyo75.md) |
+| 60.75 Piezoelectric 对象 | 60.76 PlanarTestData object | [pt02ch60pyo76.md](./chs/pt02ch60pyo76.md) | [pt02ch60pyo76.md](./eng/pt02ch60pyo76.md) |
+| 60.78 PoreFluidExpansion 对象 | 60.77 Plastic object | [pt02ch60pyo77.md](./chs/pt02ch60pyo77.md) | [pt02ch60pyo77.md](./eng/pt02ch60pyo77.md) |
+| 60.77 Plastic 对象 | 60.78 PoreFluidExpansion object | [pt02ch60pyo78.md](./chs/pt02ch60pyo78.md) | [pt02ch60pyo78.md](./eng/pt02ch60pyo78.md) |
+| 60.79 PorousBulkModuli 对象 | 60.79 PorousBulkModuli object | [pt02ch60pyo79.md](./chs/pt02ch60pyo79.md) | [pt02ch60pyo79.md](./eng/pt02ch60pyo79.md) |
+| 60.81 PorousFailureCriteria 对象 | 60.80 PorousElastic object | [pt02ch60pyo80.md](./chs/pt02ch60pyo80.md) | [pt02ch60pyo80.md](./eng/pt02ch60pyo80.md) |
+| 60.80 PorousElastic 对象 | 60.81 PorousFailureCriteria object | [pt02ch60pyo81.md](./chs/pt02ch60pyo81.md) | [pt02ch60pyo81.md](./eng/pt02ch60pyo81.md) |
+| 60.82 PorousMetalPlasticity 对象 | 60.82 PorousMetalPlasticity object | [pt02ch60pyo82.md](./chs/pt02ch60pyo82.md) | [pt02ch60pyo82.md](./eng/pt02ch60pyo82.md) |
+| 60.83 Potential 对象 | 60.83 Potential object | [pt02ch60pyo83.md](./chs/pt02ch60pyo83.md) | [pt02ch60pyo83.md](./eng/pt02ch60pyo83.md) |
+| 60.84 PressureEffect 对象 | 60.84 PressureEffect object | [pt02ch60pyo84.md](./chs/pt02ch60pyo84.md) | [pt02ch60pyo84.md](./eng/pt02ch60pyo84.md) |
+| 60.86 Ratios 对象 | 60.85 RateDependent object | [pt02ch60pyo85.md](./chs/pt02ch60pyo85.md) | [pt02ch60pyo85.md](./eng/pt02ch60pyo85.md) |
+| 60.85 RateDependent 对象 | 60.86 Ratios object | [pt02ch60pyo86.md](./chs/pt02ch60pyo86.md) | [pt02ch60pyo86.md](./eng/pt02ch60pyo86.md) |
+| 60.87 Regularization 对象 | 60.87 Regularization object | [pt02ch60pyo87.md](./chs/pt02ch60pyo87.md) | [pt02ch60pyo87.md](./eng/pt02ch60pyo87.md) |
+| 60.89 ShearRetention 对象 | 60.88 SaturationDependence object | [pt02ch60pyo88.md](./chs/pt02ch60pyo88.md) | [pt02ch60pyo88.md](./eng/pt02ch60pyo88.md) |
+| 60.88 SaturationDependence 对象 | 60.89 ShearRetention object | [pt02ch60pyo89.md](./chs/pt02ch60pyo89.md) | [pt02ch60pyo89.md](./eng/pt02ch60pyo89.md) |
+| 60.90 ShearTestData 对象 | 60.90 ShearTestData object | [pt02ch60pyo90.md](./chs/pt02ch60pyo90.md) | [pt02ch60pyo90.md](./eng/pt02ch60pyo90.md) |
+| 60.91 SimpleShearTestData 对象 | 60.91 SimpleShearTestData object | [pt02ch60pyo91.md](./chs/pt02ch60pyo91.md) | [pt02ch60pyo91.md](./eng/pt02ch60pyo91.md) |
+| 60.92 Solubility 对象 | 60.92 Solubility object | [pt02ch60pyo92.md](./chs/pt02ch60pyo92.md) | [pt02ch60pyo92.md](./eng/pt02ch60pyo92.md) |
+| 60.93 SoretEffect 对象 | 60.93 SoretEffect object | [pt02ch60pyo93.md](./chs/pt02ch60pyo93.md) | [pt02ch60pyo93.md](./eng/pt02ch60pyo93.md) |
+| 60.94 Sorption 对象 | 60.94 Sorption object | [pt02ch60pyo94.md](./chs/pt02ch60pyo94.md) | [pt02ch60pyo94.md](./eng/pt02ch60pyo94.md) |
+| 60.95 SpecificHeat 对象 | 60.95 SpecificHeat object | [pt02ch60pyo95.md](./chs/pt02ch60pyo95.md) | [pt02ch60pyo95.md](./eng/pt02ch60pyo95.md) |
+| 60.97 TensionCutOff 对象 | 60.96 Swelling object | [pt02ch60pyo96.md](./chs/pt02ch60pyo96.md) | [pt02ch60pyo96.md](./eng/pt02ch60pyo96.md) |
+| 60.96 Swelling 对象 | 60.97 TensionCutOff object | [pt02ch60pyo97.md](./chs/pt02ch60pyo97.md) | [pt02ch60pyo97.md](./eng/pt02ch60pyo97.md) |
+| 60.98 TensionStiffening 对象 | 60.98 TensionStiffening object | [pt02ch60pyo98.md](./chs/pt02ch60pyo98.md) | [pt02ch60pyo98.md](./eng/pt02ch60pyo98.md) |
+| 60.99 TriaxialTestData 对象 | 60.99 TriaxialTestData object | [pt02ch60pyo99.md](./chs/pt02ch60pyo99.md) | [pt02ch60pyo99.md](./eng/pt02ch60pyo99.md) |
+| 61 Odb 命令 | 61 Odb commands | [pt02ch61.md](./chs/pt02ch61.md) | [pt02ch61.md](./eng/pt02ch61.md) |
+| 61.32 顶层命令 | 61.32 Top level commands | [pt02ch61pyc01.md](./chs/pt02ch61pyc01.md) | [pt02ch61pyc01.md](./eng/pt02ch61pyc01.md) |
+| 61.1 Odb 对象 | 61.1 Odb object | [pt02ch61pyo01.md](./chs/pt02ch61pyo01.md) | [pt02ch61pyo01.md](./eng/pt02ch61pyo01.md) |
+| 61.2 AnalyticSurface 对象 | 61.2 AnalyticSurface object | [pt02ch61pyo02.md](./chs/pt02ch61pyo02.md) | [pt02ch61pyo02.md](./eng/pt02ch61pyo02.md) |
+| 61.3 AnalyticSurfaceSegment 对象 | 61.3 AnalyticSurfaceSegment object | [pt02ch61pyo03.md](./chs/pt02ch61pyo03.md) | [pt02ch61pyo03.md](./eng/pt02ch61pyo03.md) |
+| 61.4 BeamOrientation 对象 | 61.4 BeamOrientation object | [pt02ch61pyo04.md](./chs/pt02ch61pyo04.md) | [pt02ch61pyo04.md](./eng/pt02ch61pyo04.md) |
+| 61.5 FieldBulkData 对象 | 61.5 FieldBulkData object | [pt02ch61pyo05.md](./chs/pt02ch61pyo05.md) | [pt02ch61pyo05.md](./eng/pt02ch61pyo05.md) |
+| 61.6 FieldLocation 对象 | 61.6 FieldLocation object | [pt02ch61pyo06.md](./chs/pt02ch61pyo06.md) | [pt02ch61pyo06.md](./eng/pt02ch61pyo06.md) |
+| 61.7 FieldOutput 对象 | 61.7 FieldOutput object | [pt02ch61pyo07.md](./chs/pt02ch61pyo07.md) | [pt02ch61pyo07.md](./eng/pt02ch61pyo07.md) |
+| 61.8 FieldValue 对象 | 61.8 FieldValue object | [pt02ch61pyo08.md](./chs/pt02ch61pyo08.md) | [pt02ch61pyo08.md](./eng/pt02ch61pyo08.md) |
+| 61.9 HistoryOutput 对象 | 61.9 HistoryOutput object | [pt02ch61pyo09.md](./chs/pt02ch61pyo09.md) | [pt02ch61pyo09.md](./eng/pt02ch61pyo09.md) |
+| 61.10 HistoryPoint 对象 | 61.10 HistoryPoint object | [pt02ch61pyo10.md](./chs/pt02ch61pyo10.md) | [pt02ch61pyo10.md](./eng/pt02ch61pyo10.md) |
+| 61.11 HistoryRegion 对象 | 61.11 HistoryRegion object | [pt02ch61pyo11.md](./chs/pt02ch61pyo11.md) | [pt02ch61pyo11.md](./eng/pt02ch61pyo11.md) |
+| 61.12 JobData 对象 | 61.12 JobData object | [pt02ch61pyo12.md](./chs/pt02ch61pyo12.md) | [pt02ch61pyo12.md](./eng/pt02ch61pyo12.md) |
+| 61.13 OdbAssembly 对象 | 61.13 OdbAssembly object | [pt02ch61pyo13.md](./chs/pt02ch61pyo13.md) | [pt02ch61pyo13.md](./eng/pt02ch61pyo13.md) |
+| 61.14 OdbDatumCsys 对象 | 61.14 OdbDatumCsys object | [pt02ch61pyo14.md](./chs/pt02ch61pyo14.md) | [pt02ch61pyo14.md](./eng/pt02ch61pyo14.md) |
+| 61.15 OdbFrame 对象 | 61.15 OdbFrame object | [pt02ch61pyo15.md](./chs/pt02ch61pyo15.md) | [pt02ch61pyo15.md](./eng/pt02ch61pyo15.md) |
+| 61.16 OdbInstance 对象 | 61.16 OdbInstance object | [pt02ch61pyo16.md](./chs/pt02ch61pyo16.md) | [pt02ch61pyo16.md](./eng/pt02ch61pyo16.md) |
+| 61.17 OdbLoadCase 对象 | 61.17 OdbLoadCase object | [pt02ch61pyo17.md](./chs/pt02ch61pyo17.md) | [pt02ch61pyo17.md](./eng/pt02ch61pyo17.md) |
+| 61.18 OdbMeshElement 对象 | 61.18 OdbMeshElement object | [pt02ch61pyo18.md](./chs/pt02ch61pyo18.md) | [pt02ch61pyo18.md](./eng/pt02ch61pyo18.md) |
+| 61.19 OdbMeshNode 对象 | 61.19 OdbMeshNode object | [pt02ch61pyo19.md](./chs/pt02ch61pyo19.md) | [pt02ch61pyo19.md](./eng/pt02ch61pyo19.md) |
+| 61.20 OdbPart 对象 | 61.20 OdbPart object | [pt02ch61pyo20.md](./chs/pt02ch61pyo20.md) | [pt02ch61pyo20.md](./eng/pt02ch61pyo20.md) |
+| 61.21 OdbPretensionSection 对象 | 61.21 OdbPretensionSection object | [pt02ch61pyo21.md](./chs/pt02ch61pyo21.md) | [pt02ch61pyo21.md](./eng/pt02ch61pyo21.md) |
+| 61.22 OdbRigidBody 对象 | 61.22 OdbRigidBody object | [pt02ch61pyo22.md](./chs/pt02ch61pyo22.md) | [pt02ch61pyo22.md](./eng/pt02ch61pyo22.md) |
+| 61.23 OdbSequenceAnalyticSurfaceSegment 对象 | 61.23 OdbSequenceAnalyticSurfaceSegment object | [pt02ch61pyo23.md](./chs/pt02ch61pyo23.md) | [pt02ch61pyo23.md](./eng/pt02ch61pyo23.md) |
+| 61.24 OdbSet 对象 | 61.24 OdbSet object | [pt02ch61pyo24.md](./chs/pt02ch61pyo24.md) | [pt02ch61pyo24.md](./eng/pt02ch61pyo24.md) |
+| 61.25 OdbStep 对象 | 61.25 OdbStep object | [pt02ch61pyo25.md](./chs/pt02ch61pyo25.md) | [pt02ch61pyo25.md](./eng/pt02ch61pyo25.md) |
+| 61.26 RebarOrientation 对象 | 61.26 RebarOrientation object | [pt02ch61pyo26.md](./chs/pt02ch61pyo26.md) | [pt02ch61pyo26.md](./eng/pt02ch61pyo26.md) |
+| 61.27 SectionCategory 对象 | 61.27 SectionCategory object | [pt02ch61pyo27.md](./chs/pt02ch61pyo27.md) | [pt02ch61pyo27.md](./eng/pt02ch61pyo27.md) |
+| 61.28 SectionPoint 对象 | 61.28 SectionPoint object | [pt02ch61pyo28.md](./chs/pt02ch61pyo28.md) | [pt02ch61pyo28.md](./eng/pt02ch61pyo28.md) |
+| 61.29 SectorDefinition 对象 | 61.29 SectorDefinition object | [pt02ch61pyo29.md](./chs/pt02ch61pyo29.md) | [pt02ch61pyo29.md](./eng/pt02ch61pyo29.md) |
+| 61.30 UserData 对象 | 61.30 UserData object | [pt02ch61pyo30.md](./chs/pt02ch61pyo30.md) | [pt02ch61pyo30.md](./eng/pt02ch61pyo30.md) |
+| 61.31 UserXYData 对象 | 61.31 UserXYData object | [pt02ch61pyo31.md](./chs/pt02ch61pyo31.md) | [pt02ch61pyo31.md](./eng/pt02ch61pyo31.md) |
+| 62 属性命令 | 62 Property commands | [pt02ch62.md](./chs/pt02ch62.md) | [pt02ch62.md](./eng/pt02ch62.md) |
+| 62.1 SectionAssignment 对象 | 62.1 SectionAssignment object | [pt02ch62pyo01.md](./chs/pt02ch62pyo01.md) | [pt02ch62pyo01.md](./eng/pt02ch62pyo01.md) |
+| 63 截面命令 | 63 Section commands | [pt02ch63.md](./chs/pt02ch63.md) | [pt02ch63.md](./eng/pt02ch63.md) |
+| 63.1 Section 对象 | 63.1 Section object | [pt02ch63pyo01.md](./chs/pt02ch63pyo01.md) | [pt02ch63pyo01.md](./eng/pt02ch63pyo01.md) |
+| 63.2 AcousticInfiniteSection 对象 | 63.2 AcousticInfiniteSection object | [pt02ch63pyo02.md](./chs/pt02ch63pyo02.md) | [pt02ch63pyo02.md](./eng/pt02ch63pyo02.md) |
+| 63.3 AcousticInterfaceSection 对象 | 63.3 AcousticInterfaceSection object | [pt02ch63pyo03.md](./chs/pt02ch63pyo03.md) | [pt02ch63pyo03.md](./eng/pt02ch63pyo03.md) |
+| 63.4 BeamSection 对象 | 63.4 BeamSection object | [pt02ch63pyo04.md](./chs/pt02ch63pyo04.md) | [pt02ch63pyo04.md](./eng/pt02ch63pyo04.md) |
+| 63.5 CohesiveSection object | 63.5 CohesiveSection object | [pt02ch63pyo05.md](./chs/pt02ch63pyo05.md) | [pt02ch63pyo05.md](./eng/pt02ch63pyo05.md) |
+| 63.6 CompositeShellSection object | 63.6 CompositeShellSection object | [pt02ch63pyo06.md](./chs/pt02ch63pyo06.md) | [pt02ch63pyo06.md](./eng/pt02ch63pyo06.md) |
+| 63.7 CompositeSolidSection object | 63.7 CompositeSolidSection object | [pt02ch63pyo07.md](./chs/pt02ch63pyo07.md) | [pt02ch63pyo07.md](./eng/pt02ch63pyo07.md) |
+| 63.8 ConnectorSection object | 63.8 ConnectorSection object | [pt02ch63pyo08.md](./chs/pt02ch63pyo08.md) | [pt02ch63pyo08.md](./eng/pt02ch63pyo08.md) |
+| 63.9 EulerianSection object | 63.9 EulerianSection object | [pt02ch63pyo09.md](./chs/pt02ch63pyo09.md) | [pt02ch63pyo09.md](./eng/pt02ch63pyo09.md) |
+| 63.10 GasketSection object | 63.10 GasketSection object | [pt02ch63pyo10.md](./chs/pt02ch63pyo10.md) | [pt02ch63pyo10.md](./eng/pt02ch63pyo10.md) |
+| 63.11 GeneralStiffnessSection object | 63.11 GeneralStiffnessSection object | [pt02ch63pyo11.md](./chs/pt02ch63pyo11.md) | [pt02ch63pyo11.md](./eng/pt02ch63pyo11.md) |
+| 63.12 GeometryShellSection object | 63.12 GeometryShellSection object | [pt02ch63pyo12.md](./chs/pt02ch63pyo12.md) | [pt02ch63pyo12.md](./eng/pt02ch63pyo12.md) |
+| 63.13 HomogeneousShellSection object | 63.13 HomogeneousShellSection object | [pt02ch63pyo13.md](./chs/pt02ch63pyo13.md) | [pt02ch63pyo13.md](./eng/pt02ch63pyo13.md) |
+| 63.14 HomogeneousSolidSection object | 63.14 HomogeneousSolidSection object | [pt02ch63pyo14.md](./chs/pt02ch63pyo14.md) | [pt02ch63pyo14.md](./eng/pt02ch63pyo14.md) |
+| 63.15 LayerProperties object | 63.15 LayerProperties object | [pt02ch63pyo15.md](./chs/pt02ch63pyo15.md) | [pt02ch63pyo15.md](./eng/pt02ch63pyo15.md) |
+| 63.16 MembraneSection object | 63.16 MembraneSection object | [pt02ch63pyo16.md](./chs/pt02ch63pyo16.md) | [pt02ch63pyo16.md](./eng/pt02ch63pyo16.md) |
+| 63.17 MPCSection object | 63.17 MPCSection object | [pt02ch63pyo17.md](./chs/pt02ch63pyo17.md) | [pt02ch63pyo17.md](./eng/pt02ch63pyo17.md) |
+| 63.18 PEGSection object | 63.18 PEGSection object | [pt02ch63pyo18.md](./chs/pt02ch63pyo18.md) | [pt02ch63pyo18.md](./eng/pt02ch63pyo18.md) |
+| 63.19 RebarLayers object | 63.19 RebarLayers object | [pt02ch63pyo19.md](./chs/pt02ch63pyo19.md) | [pt02ch63pyo19.md](./eng/pt02ch63pyo19.md) |
+| 63.20 SectionLayer object | 63.20 SectionLayer object | [pt02ch63pyo20.md](./chs/pt02ch63pyo20.md) | [pt02ch63pyo20.md](./eng/pt02ch63pyo20.md) |
+| 63.21 ShellSection object | 63.21 ShellSection object | [pt02ch63pyo21.md](./chs/pt02ch63pyo21.md) | [pt02ch63pyo21.md](./eng/pt02ch63pyo21.md) |
+| 63.22 SolidSection object | 63.22 SolidSection object | [pt02ch63pyo22.md](./chs/pt02ch63pyo22.md) | [pt02ch63pyo22.md](./eng/pt02ch63pyo22.md) |
+| 63.23 SurfaceSection object | 63.23 SurfaceSection object | [pt02ch63pyo23.md](./chs/pt02ch63pyo23.md) | [pt02ch63pyo23.md](./eng/pt02ch63pyo23.md) |
+| 63.24 TransverseShearBeam object | 63.24 TransverseShearBeam object | [pt02ch63pyo24.md](./chs/pt02ch63pyo24.md) | [pt02ch63pyo24.md](./eng/pt02ch63pyo24.md) |
+| 63.25 TransverseShearShell object | 63.25 TransverseShearShell object | [pt02ch63pyo25.md](./chs/pt02ch63pyo25.md) | [pt02ch63pyo25.md](./eng/pt02ch63pyo25.md) |
+| 63.26 TrussSection object | 63.26 TrussSection object | [pt02ch63pyo26.md](./chs/pt02ch63pyo26.md) | [pt02ch63pyo26.md](./eng/pt02ch63pyo26.md) |
+| 64 Infrastructure commands | 64 Infrastructure commands | [pt02ch64.md](./chs/pt02ch64.md) | [pt02ch64.md](./eng/pt02ch64.md) |
+| 64.1 BaseException object | 64.1 BaseException object | [pt02ch64pyo01.md](./chs/pt02ch64pyo01.md) | [pt02ch64pyo01.md](./eng/pt02ch64pyo01.md) |
+| 64.2 Repository object | 64.2 Repository object | [pt02ch64pyo02.md](./chs/pt02ch64pyo02.md) | [pt02ch64pyo02.md](./eng/pt02ch64pyo02.md) |
+| 64.3 RepositoryIterator object | 64.3 RepositoryIterator object | [pt02ch64pyo03.md](./chs/pt02ch64pyo03.md) | [pt02ch64pyo03.md](./eng/pt02ch64pyo03.md) |
+| 64.4 Sequence object | 64.4 Sequence object | [pt02ch64pyo04.md](./chs/pt02ch64pyo04.md) | [pt02ch64pyo04.md](./eng/pt02ch64pyo04.md) |
+| 64.5 String object | 64.5 String object | [pt02ch64pyo05.md](./chs/pt02ch64pyo05.md) | [pt02ch64pyo05.md](./eng/pt02ch64pyo05.md) |
+| 64.6 Union object | 64.6 Union object | [pt02ch64pyo06.md](./chs/pt02ch64pyo06.md) | [pt02ch64pyo06.md](./eng/pt02ch64pyo06.md) |
+
+---
+
+## 资源文件 / Resource Files
+
+图片资源位于 `graphics/` 目录。
 
 ---
 
 ## 版权声明 / Copyright Notice
 
 本翻译仅供学习研究使用，原文档版权归 Dassault Systèmes Simulia Corp. 所有。
-
 This translation is for study and research purposes only. Original documentation copyright Dassault Systèmes Simulia Corp.

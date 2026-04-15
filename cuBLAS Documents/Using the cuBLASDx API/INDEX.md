@@ -10,7 +10,7 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 5 | [using-the-cublasdx-api.md](./chs/using-the-cublasdx-api.md) | [using-the-cublasdx-api.md](./eng/using-the-cublasdx-api.md) |
+| 5 | [使用 cuBLASDx API](./chs/using-the-cublasdx-api.md) | [Using the cuBLASDx API](./eng/using-the-cublasdx-api.md) |
 
 ---
 

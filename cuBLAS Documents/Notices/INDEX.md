@@ -10,9 +10,9 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 10 | [notices.md](./chs/notices.md) | [notices.md](./eng/notices.md) |
-| 10.2 | [opencl.md](./chs/opencl.md) | [opencl.md](./eng/opencl.md) |
-| 10.3 | [trademarks.md](./chs/trademarks.md) | [trademarks.md](./eng/trademarks.md) |
+| 10 | [Notices](./chs/notices.md) | [Notices](./eng/notices.md) |
+| 10.2 | [OpenCL](./chs/opencl.md) | [OpenCL](./eng/opencl.md) |
+| 10.3 | [商标 (Trademarks)](./chs/trademarks.md) | [Trademarks](./eng/trademarks.md) |
 
 ---
 

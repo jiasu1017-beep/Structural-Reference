@@ -10,7 +10,7 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 9 | [acknowledgements.md](./chs/acknowledgements.md) | [acknowledgements.md](./eng/acknowledgements.md) |
+| 9 | [致谢](./chs/acknowledgements.md) | [Acknowledgements](./eng/acknowledgements.md) |
 
 ---
 

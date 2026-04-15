@@ -10,8 +10,8 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 6 | [using-the-cublas-legacy-api.md](./chs/using-the-cublas-legacy-api.md) | [using-the-cublas-legacy-api.md](./eng/using-the-cublas-legacy-api.md) |
-| 6.8 | [converting-legacy-to-the-cublas-api.md](./chs/converting-legacy-to-the-cublas-api.md) | [converting-legacy-to-the-cublas-api.md](./eng/converting-legacy-to-the-cublas-api.md) |
+| 6 | [使用 cuBLAS Legacy API](./chs/using-the-cublas-legacy-api.md) | [Using the cuBLAS Legacy API](./eng/using-the-cublas-legacy-api.md) |
+| 6.8 | [从旧版迁移到 cuBLAS API](./chs/converting-legacy-to-the-cublas-api.md) | [Converting Legacy to the cuBLAS API](./eng/converting-legacy-to-the-cublas-api.md) |
 
 ---
 

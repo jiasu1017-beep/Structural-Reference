@@ -10,7 +10,7 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 7 | [cublas-fortran-bindings.md](./chs/cublas-fortran-bindings.md) | [cublas-fortran-bindings.md](./eng/cublas-fortran-bindings.md) |
+| 7 | [cuBLAS Fortran 绑定](./chs/cublas-fortran-bindings.md) | [cuBLAS Fortran Bindings](./eng/cublas-fortran-bindings.md) |
 
 ---
 

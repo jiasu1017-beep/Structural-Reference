@@ -10,37 +10,37 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 2.1.2 | [cublas-context.md](./chs/cublas-context.md) | [cublas-context.md](./eng/cublas-context.md) |
-| 2.8 | [blas-like-extension.md](./chs/blas-like-extension.md) | [blas-like-extension.md](./eng/blas-like-extension.md) |
-| 4 | [using-the-cublasxt-api.md](./chs/using-the-cublasxt-api.md) | [using-the-cublasxt-api.md](./eng/using-the-cublasxt-api.md) |
-| 4.2 | [cublasxt-api-datatypes-reference.md](./chs/cublasxt-api-datatypes-reference.md) | [cublasxt-api-datatypes-reference.md](./eng/cublasxt-api-datatypes-reference.md) |
-| 4.2.1 | [cublasxthandle-t.md](./chs/cublasxthandle-t.md) | [cublasxthandle-t.md](./eng/cublasxthandle-t.md) |
-| 4.2.2 | [cublasxtoptype-t.md](./chs/cublasxtoptype-t.md) | [cublasxtoptype-t.md](./eng/cublasxtoptype-t.md) |
-| 4.2.3 | [cublasxtblasop-t.md](./chs/cublasxtblasop-t.md) | [cublasxtblasop-t.md](./eng/cublasxtblasop-t.md) |
-| 4.2.4 | [cublasxtpinningmemmode-t.md](./chs/cublasxtpinningmemmode-t.md) | [cublasxtpinningmemmode-t.md](./eng/cublasxtpinningmemmode-t.md) |
-| 4.3 | [cublasxt-api-helper-function-reference.md](./chs/cublasxt-api-helper-function-reference.md) | [cublasxt-api-helper-function-reference.md](./eng/cublasxt-api-helper-function-reference.md) |
-| 4.3.1 | [cublasxtcreate.md](./chs/cublasxtcreate.md) | [cublasxtcreate.md](./eng/cublasxtcreate.md) |
-| 4.3.2 | [cublasxtdestroy.md](./chs/cublasxtdestroy.md) | [cublasxtdestroy.md](./eng/cublasxtdestroy.md) |
-| 4.3.3 | [cublasxtdeviceselect.md](./chs/cublasxtdeviceselect.md) | [cublasxtdeviceselect.md](./eng/cublasxtdeviceselect.md) |
-| 4.3.4 | [cublasxtsetblockdim.md](./chs/cublasxtsetblockdim.md) | [cublasxtsetblockdim.md](./eng/cublasxtsetblockdim.md) |
-| 4.3.5 | [cublasxtgetblockdim.md](./chs/cublasxtgetblockdim.md) | [cublasxtgetblockdim.md](./eng/cublasxtgetblockdim.md) |
-| 4.3.6 | [cublasxtsetcpuroutine.md](./chs/cublasxtsetcpuroutine.md) | [cublasxtsetcpuroutine.md](./eng/cublasxtsetcpuroutine.md) |
-| 4.3.7 | [cublasxtsetcpuratio.md](./chs/cublasxtsetcpuratio.md) | [cublasxtsetcpuratio.md](./eng/cublasxtsetcpuratio.md) |
-| 4.3.8 | [cublasxtsetpinningmemmode.md](./chs/cublasxtsetpinningmemmode.md) | [cublasxtsetpinningmemmode.md](./eng/cublasxtsetpinningmemmode.md) |
-| 4.3.9 | [cublasxtgetpinningmemmode.md](./chs/cublasxtgetpinningmemmode.md) | [cublasxtgetpinningmemmode.md](./eng/cublasxtgetpinningmemmode.md) |
-| 4.4 | [cublasxt-api-math-functions-reference.md](./chs/cublasxt-api-math-functions-reference.md) | [cublasxt-api-math-functions-reference.md](./eng/cublasxt-api-math-functions-reference.md) |
-| 4.4.1 | [cublasxt-t-gemm.md](./chs/cublasxt-t-gemm.md) | [cublasxt-t-gemm.md](./eng/cublasxt-t-gemm.md) |
-| 4.4.2 | [cublasxt-t-hemm.md](./chs/cublasxt-t-hemm.md) | [cublasxt-t-hemm.md](./eng/cublasxt-t-hemm.md) |
-| 4.4.3 | [cublasxt-t-symm.md](./chs/cublasxt-t-symm.md) | [cublasxt-t-symm.md](./eng/cublasxt-t-symm.md) |
-| 4.4.4 | [cublasxt-t-syrk.md](./chs/cublasxt-t-syrk.md) | [cublasxt-t-syrk.md](./eng/cublasxt-t-syrk.md) |
-| 4.4.5 | [cublasxt-t-syr2k.md](./chs/cublasxt-t-syr2k.md) | [cublasxt-t-syr2k.md](./eng/cublasxt-t-syr2k.md) |
-| 4.4.6 | [cublasxt-t-syrkx.md](./chs/cublasxt-t-syrkx.md) | [cublasxt-t-syrkx.md](./eng/cublasxt-t-syrkx.md) |
-| 4.4.7 | [cublasxt-t-herk.md](./chs/cublasxt-t-herk.md) | [cublasxt-t-herk.md](./eng/cublasxt-t-herk.md) |
-| 4.4.8 | [cublasxt-t-her2k.md](./chs/cublasxt-t-her2k.md) | [cublasxt-t-her2k.md](./eng/cublasxt-t-her2k.md) |
-| 4.4.9 | [cublasxt-t-herkx.md](./chs/cublasxt-t-herkx.md) | [cublasxt-t-herkx.md](./eng/cublasxt-t-herkx.md) |
-| 4.4.10 | [cublasxt-t-trsm.md](./chs/cublasxt-t-trsm.md) | [cublasxt-t-trsm.md](./eng/cublasxt-t-trsm.md) |
-| 4.4.11 | [cublasxt-t-trmm.md](./chs/cublasxt-t-trmm.md) | [cublasxt-t-trmm.md](./eng/cublasxt-t-trmm.md) |
-| 4.4.12 | [cublasxt-t-spmm.md](./chs/cublasxt-t-spmm.md) | [cublasxt-t-spmm.md](./eng/cublasxt-t-spmm.md) |
+| 2.1.2 | [cuBLAS 上下文](./chs/cublas-context.md) | [cuBLAS Context](./eng/cublas-context.md) |
+| 2.8 | [类BLAS扩展](./chs/blas-like-extension.md) | [BLAS-like Extension](./eng/blas-like-extension.md) |
+| 4 | [Using the cuBLASXt API](./chs/using-the-cublasxt-api.md) | [Using the cuBLASXt API](./eng/using-the-cublasxt-api.md) |
+| 4.2 | [cuBLASXt API 数据类型参考](./chs/cublasxt-api-datatypes-reference.md) | [cuBLASXt API Datatypes Reference](./eng/cublasxt-api-datatypes-reference.md) |
+| 4.2.1 | [cublasXtHandle_t](./chs/cublasxthandle-t.md) | [cublasXtHandle_t](./eng/cublasxthandle-t.md) |
+| 4.2.2 | [cublasXtOpType_t](./chs/cublasxtoptype-t.md) | [cublasXtOpType_t](./eng/cublasxtoptype-t.md) |
+| 4.2.3 | [cublasXtBlasOp_t](./chs/cublasxtblasop-t.md) | [cublasXtBlasOp_t](./eng/cublasxtblasop-t.md) |
+| 4.2.4 | [cublasXtPinningMemMode_t](./chs/cublasxtpinningmemmode-t.md) | [cublasXtPinningMemMode_t](./eng/cublasxtpinningmemmode-t.md) |
+| 4.3 | [cuBLASXt API 辅助函数参考](./chs/cublasxt-api-helper-function-reference.md) | [cuBLASXt API Helper Function Reference](./eng/cublasxt-api-helper-function-reference.md) |
+| 4.3.1 | [cublasXtCreate()](./chs/cublasxtcreate.md) | [cublasXtCreate()](./eng/cublasxtcreate.md) |
+| 4.3.2 | [cublasXtDestroy()](./chs/cublasxtdestroy.md) | [cublasXtDestroy()](./eng/cublasxtdestroy.md) |
+| 4.3.3 | [cublasXtDeviceSelect()](./chs/cublasxtdeviceselect.md) | [cublasXtDeviceSelect()](./eng/cublasxtdeviceselect.md) |
+| 4.3.4 | [cublasXtSetBlockDim()](./chs/cublasxtsetblockdim.md) | [cublasXtSetBlockDim()](./eng/cublasxtsetblockdim.md) |
+| 4.3.5 | [cublasXtGetBlockDim()](./chs/cublasxtgetblockdim.md) | [cublasXtGetBlockDim()](./eng/cublasxtgetblockdim.md) |
+| 4.3.6 | [cublasXtSetCpuRoutine()](./chs/cublasxtsetcpuroutine.md) | [cublasXtSetCpuRoutine()](./eng/cublasxtsetcpuroutine.md) |
+| 4.3.7 | [cublasXtSetCpuRatio()](./chs/cublasxtsetcpuratio.md) | [cublasXtSetCpuRatio()](./eng/cublasxtsetcpuratio.md) |
+| 4.3.8 | [cublasXtSetPinningMemMode()](./chs/cublasxtsetpinningmemmode.md) | [cublasXtSetPinningMemMode()](./eng/cublasxtsetpinningmemmode.md) |
+| 4.3.9 | [cublasXtGetPinningMemMode()](./chs/cublasxtgetpinningmemmode.md) | [cublasXtGetPinningMemMode()](./eng/cublasxtgetpinningmemmode.md) |
+| 4.4 | [cuBLASXt API 数学函数参考](./chs/cublasxt-api-math-functions-reference.md) | [cuBLASXt API Math Functions Reference](./eng/cublasxt-api-math-functions-reference.md) |
+| 4.4.1 | [cublasXt<t>gemm()](./chs/cublasxt-t-gemm.md) | [cublasXt<t>gemm()](./eng/cublasxt-t-gemm.md) |
+| 4.4.2 | [cublasXt<t>hemm()](./chs/cublasxt-t-hemm.md) | [cublasXt<t>hemm()](./eng/cublasxt-t-hemm.md) |
+| 4.4.3 | [cublasXt<t>symm()](./chs/cublasxt-t-symm.md) | [cublasXt<t>symm()](./eng/cublasxt-t-symm.md) |
+| 4.4.4 | [cublasXt<t>syrk()](./chs/cublasxt-t-syrk.md) | [cublasXt<t>syrk()](./eng/cublasxt-t-syrk.md) |
+| 4.4.5 | [cublasXt<t>syr2k()](./chs/cublasxt-t-syr2k.md) | [cublasXt<t>syr2k()](./eng/cublasxt-t-syr2k.md) |
+| 4.4.6 | [cublasXt<t>syrkx()](./chs/cublasxt-t-syrkx.md) | [cublasXt<t>syrkx()](./eng/cublasxt-t-syrkx.md) |
+| 4.4.7 | [cublasXt<t>herk()](./chs/cublasxt-t-herk.md) | [cublasXt<t>herk()](./eng/cublasxt-t-herk.md) |
+| 4.4.8 | [cublasXt<t>her2k()](./chs/cublasxt-t-her2k.md) | [cublasXt<t>her2k()](./eng/cublasxt-t-her2k.md) |
+| 4.4.9 | [cublasXt<t>herkx()](./chs/cublasxt-t-herkx.md) | [cublasXt<t>herkx()](./eng/cublasxt-t-herkx.md) |
+| 4.4.10 | [cublasXt<t>trsm()](./chs/cublasxt-t-trsm.md) | [cublasXt<t>trsm()](./eng/cublasxt-t-trsm.md) |
+| 4.4.11 | [cublasXt<t>trmm()](./chs/cublasxt-t-trmm.md) | [cublasXt<t>trmm()](./eng/cublasxt-t-trmm.md) |
+| 4.4.12 | [cublasXt<t>spmm()](./chs/cublasxt-t-spmm.md) | [cublasXt<t>spmm()](./eng/cublasxt-t-spmm.md) |
 
 ---
 

@@ -1,0 +1,24 @@
+
+
+### 2.4.36. cublasGetFixedPointEmulationMantissaBitCountPointer()
+
+
+
+```c++
+
+cublasStatus_t cublasGetFixedPointEmulationMantissaBitCountPointer(cublasHandle_t handle, int **mantissaBitCount)
+
+
+```
+
+
+This function obtains the value previously programmed to the library handle.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | mantissaBitCount was returned successfully. |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaBitCount is NULL. |
+| CUBLAS_STATUS_NOT_INITIALIZED | the library was not initialized. |
+
+

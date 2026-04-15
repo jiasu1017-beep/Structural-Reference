@@ -1,0 +1,36 @@
+
+
+### 3.4.11. cublasLtLoggerSetCallback()
+
+
+
+```c++
+
+cublasStatus_t cublasLtLoggerSetCallback(cublasLtLoggerCallback_t callback);
+
+
+```
+
+
+Experimental: This function sets the logging callback function.
+
+
+**Parameters**:
+
+
+| Parameter | Memory | Input / Output | Description |
+| --- | --- | --- | --- |
+| callback |  | Input | Pointer to a callback function. See cublasLtLoggerCallback_t. |
+
+
+**Returns**:
+
+
+| Return Value | Description |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | If the callback function was successfully set. |
+
+
+See cublasStatus_t for a complete list of valid return codes.
+
+

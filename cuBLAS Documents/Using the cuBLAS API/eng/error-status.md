@@ -1,0 +1,8 @@
+
+
+### 2.1.1. Error Status
+
+
+All cuBLAS library function calls return the error status cublasStatus_t.
+
+

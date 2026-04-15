@@ -1,0 +1,24 @@
+
+
+### 2.4.26. cublasSetEmulationStrategy()
+
+
+
+```c++
+
+cublasStatus_t cublasSetEmulationStrategy(cublasHandle_t handle, cublasEmulationStrategy_t emulationStrategy)
+
+
+```
+
+
+The cublasSetEmulationStrategy() function enables you to select how the library should make use of floating point emulation.  For more details, please see cublasEmulationStrategy_t.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The emulation strategy was set successfully. |
+| CUBLAS_STATUS_INVALID_VALUE | An invalid value for emulation strategy was specified. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+
+

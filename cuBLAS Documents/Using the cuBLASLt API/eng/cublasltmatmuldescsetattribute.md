@@ -1,0 +1,44 @@
+
+
+### 3.4.29. cublasLtMatmulDescSetAttribute()
+
+
+
+```c++
+
+cublasStatus_t cublasLtMatmulDescSetAttribute(
+      cublasLtMatmulDesc_t matmulDesc,
+      cublasLtMatmulDescAttributes_t attr,
+      const void *buf,
+      size_t sizeInBytes);
+
+
+```
+
+
+This function sets the value of the specified attribute belonging to a previously created matrix multiply descriptor.
+
+
+**Parameters**:
+
+
+| Parameter | Memory | Input / Output | Description |
+| --- | --- | --- | --- |
+| matmulDesc |  | Input | Pointer to the previously created structure holding the matrix multiply descriptor queried by this function. See cublasLtMatmulDesc_t. |
+| attr |  | Input | The attribute that will be set by this function. See cublasLtMatmulDescAttributes_t. |
+| buf |  | Input | The value to which the specified attribute should be set. |
+| sizeInBytes |  | Input | Size of buf buffer (in bytes) for verification. |
+
+
+**Returns**:
+
+
+| Return Value | Description |
+| --- | --- |
+| CUBLAS_STATUS_INVALID_VALUE | If buf is NULL or sizeInBytes doesn’t match the size of the internal storage for the selected attribute. |
+| CUBLAS_STATUS_SUCCESS | If the attribute was set successfully. |
+
+
+See cublasStatus_t for a complete list of valid return codes.
+
+

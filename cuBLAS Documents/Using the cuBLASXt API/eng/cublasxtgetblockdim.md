@@ -1,0 +1,22 @@
+
+
+### 4.3.5. cublasXtGetBlockDim()
+
+
+
+```c++
+
+cublasXtGetBlockDim(cublasXtHandle_t handle, int *blockDim)
+
+
+```
+
+
+This function allows the user to query the block dimension used for the tiling of the matrices.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | the call has been successful |
+
+

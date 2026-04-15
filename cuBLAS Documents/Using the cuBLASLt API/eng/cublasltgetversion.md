@@ -1,0 +1,23 @@
+
+
+### 3.4.10. cublasLtGetVersion()
+
+
+
+```c++
+
+size_t cublasLtGetVersion(void);
+
+
+```
+
+
+This function returns the version number of cuBLASLt library.
+
+
+**Parameters:** None.
+
+
+**Returns:**`size_t` - The version number of cuBLASLt library.
+
+

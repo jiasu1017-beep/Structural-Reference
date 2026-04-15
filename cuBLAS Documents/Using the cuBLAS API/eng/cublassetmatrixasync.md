@@ -1,0 +1,29 @@
+
+
+### 2.4.18. cublasSetMatrixAsync()
+
+
+
+```c++
+
+cublasStatus_t
+cublasSetMatrixAsync(int rows, int cols, int elemSize, const void *A,
+                     int lda, void *B, int ldb, cudaStream_t stream)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function has the same functionality as cublasSetMatrix(), with the exception that the data transfer is done asynchronously (with respect to the host) using the given CUDA™ stream parameter.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_INVALID_VALUE | The parameters rows or cols are negative, or elemSize, lda ldb are not positive. |
+| CUBLAS_STATUS_MAPPING_ERROR | There was an error accessing GPU memory |
+
+

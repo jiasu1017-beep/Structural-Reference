@@ -1,0 +1,22 @@
+
+
+### 2.4.5. cublasGetStatusName()
+
+
+
+```c++
+
+const char* cublasGetStatusName(cublasStatus_t status)
+
+
+```
+
+
+This function returns the string representation of a given status.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| NULL-terminated string | The string representation of the status |
+
+

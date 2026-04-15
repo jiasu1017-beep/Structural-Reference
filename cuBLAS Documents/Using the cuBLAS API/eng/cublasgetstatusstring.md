@@ -1,0 +1,22 @@
+
+
+### 2.4.6. cublasGetStatusString()
+
+
+
+```c++
+
+const char* cublasGetStatusString(cublasStatus_t status)
+
+
+```
+
+
+This function returns the description string for a given status.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| NULL-terminated string | The description of the status |
+
+

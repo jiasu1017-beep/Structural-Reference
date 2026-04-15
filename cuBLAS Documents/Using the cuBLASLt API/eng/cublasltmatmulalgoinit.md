@@ -1,0 +1,52 @@
+
+
+### 3.4.24. cublasLtMatmulAlgoInit()
+
+
+
+```c++
+
+cublasStatus_t cublasLtMatmulAlgoInit(
+      cublasLtHandle_t lightHandle,
+      cublasComputeType_t computeType,
+      cudaDataType_t scaleType,
+      cudaDataType_t Atype,
+      cudaDataType_t Btype,
+      cudaDataType_t Ctype,
+      cudaDataType_t Dtype,
+      int algoId,
+      cublasLtMatmulAlgo_t *algo);
+
+
+```
+
+
+This function initializes the matrix multiply algorithm structure for the cublasLtMatmul() , for a specified matrix multiply algorithm and input matrices A, B and C, and the output matrix D.
+
+
+**Parameters**:
+
+
+| Parameter | Memory | Input / Output | Description |
+| --- | --- | --- | --- |
+| lightHandle |  | Input | Pointer to the allocated cuBLASLt handle for the cuBLASLt context. See cublasLtHandle_t. |
+| computeType |  | Input | Compute type. See CUBLASLT_MATMUL_DESC_COMPUTE_TYPE of cublasLtMatmulDescAttributes_t. |
+| scaleType |  | Input | Scale type. See CUBLASLT_MATMUL_DESC_SCALE_TYPEof cublasLtMatmulDescAttributes_t. Usually same as computeType. |
+| Atype, Btype, Ctype, and Dtype |  | Input | Datatype precision for the input and output matrices. See cudaDataType_t . |
+| algoId |  | Input | Specifies the algorithm being initialized. Should be a valid algoId returned by the cublasLtMatmulAlgoGetIds() function. |
+| algo |  | Input | Pointer to the opaque structure to be initialized. See cublasLtMatmulAlgo_t. |
+
+
+**Returns**:
+
+
+| Return Value | Description |
+| --- | --- |
+| CUBLAS_STATUS_INVALID_VALUE | If algo is NULL or algoId is outside the recognized range. |
+| CUBLAS_STATUS_NOT_SUPPORTED | If algoId is not supported for given combination of data types. |
+| CUBLAS_STATUS_SUCCESS | If the structure was successfully initialized. |
+
+
+See cublasStatus_t for a complete list of valid return codes.
+
+

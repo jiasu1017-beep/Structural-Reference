@@ -1,0 +1,23 @@
+
+
+### 3.4.4. cublasLtGetCudartVersion()
+
+
+
+```c++
+
+size_t cublasLtGetCudartVersion(void);
+
+
+```
+
+
+This function returns the version number of the CUDA Runtime library.
+
+
+**Parameters:** None.
+
+
+**Returns:**`size_t` - The version number of the CUDA Runtime library.
+
+

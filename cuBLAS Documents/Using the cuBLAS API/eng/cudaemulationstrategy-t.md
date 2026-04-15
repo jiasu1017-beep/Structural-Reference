@@ -1,0 +1,8 @@
+
+
+### 2.3.2. cudaEmulationStrategy_t
+
+
+The `cudaEmulationStrategy_t` is a parameter to specify how to leverage floating point emulation algorithms. This is equivalent to cublasEmulationStrategy_t.
+
+

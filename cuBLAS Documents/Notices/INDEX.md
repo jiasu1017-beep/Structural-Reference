@@ -11,6 +11,7 @@
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
 | 10 | [Notices](./chs/notices.md) | [Notices](./eng/notices.md) |
+| 10.1 | [Notice](./chs/notices.md) | [Notice](./eng/notices.md) |
 | 10.2 | [OpenCL](./chs/opencl.md) | [OpenCL](./eng/opencl.md) |
 | 10.3 | [商标 (Trademarks)](./chs/trademarks.md) | [Trademarks](./eng/trademarks.md) |
 
@@ -20,9 +21,9 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 3 |
+| ✅ 已完成 / Completed | 4 |
 | ⏳ 未转换 / Not converted | 0 |
-| **总计 Total** | **3** |
+| **总计 Total** | **4** |
 
 ---
 

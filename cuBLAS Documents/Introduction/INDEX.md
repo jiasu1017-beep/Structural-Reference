@@ -11,7 +11,6 @@
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
 | 1 | [Introduction](./chs/ch01.md) | [Introduction](./eng/ch01.md) |
-| 1 | [简介](./chs/introduction.md) | [Introduction](./eng/introduction.md) |
 | 1.1 | [数据布局](./chs/data-layout.md) | [Data Layout](./eng/data-layout.md) |
 | 1.2 | [新版和旧版 cuBLAS API](./chs/new-and-legacy-cublas-api.md) | [New and Legacy cuBLAS API](./eng/new-and-legacy-cublas-api.md) |
 | 1.3 | [示例代码](./chs/example-code.md) | [Example Code](./eng/example-code.md) |
@@ -33,9 +32,9 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 16 |
+| ✅ 已完成 / Completed | 15 |
 | ⏳ 未转换 / Not converted | 0 |
-| **总计 Total** | **16** |
+| **总计 Total** | **15** |
 
 ---
 

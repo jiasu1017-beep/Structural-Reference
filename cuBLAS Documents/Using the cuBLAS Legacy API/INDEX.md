@@ -8,10 +8,10 @@
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-| 序号 | 文件 File | 中文 Chinese | 英文 English |
-|------|-----------|--------------|--------------|
-| 1 | converting-legacy-to-the-cublas-api.md | [converting-legacy-to-the-cublas-api.md](./chs/converting-legacy-to-the-cublas-api.md) | [converting-legacy-to-the-cublas-api.md](./eng/converting-legacy-to-the-cublas-api.md) |
-| 2 | using-the-cublas-legacy-api.md | [using-the-cublas-legacy-api.md](./chs/using-the-cublas-legacy-api.md) | [using-the-cublas-legacy-api.md](./eng/using-the-cublas-legacy-api.md) |
+| 章节号 | 中文 Chinese | 英文 English |
+|--------|--------------|--------------|
+| 6 | [using-the-cublas-legacy-api.md](./chs/using-the-cublas-legacy-api.md) | [using-the-cublas-legacy-api.md](./eng/using-the-cublas-legacy-api.md) |
+| 6.8 | [converting-legacy-to-the-cublas-api.md](./chs/converting-legacy-to-the-cublas-api.md) | [converting-legacy-to-the-cublas-api.md](./eng/converting-legacy-to-the-cublas-api.md) |
 
 ---
 

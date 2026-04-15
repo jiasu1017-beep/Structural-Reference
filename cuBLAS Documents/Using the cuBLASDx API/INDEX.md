@@ -8,9 +8,9 @@
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-| 序号 | 文件 File | 中文 Chinese | 英文 English |
-|------|-----------|--------------|--------------|
-| 1 | using-the-cublasdx-api.md | [using-the-cublasdx-api.md](./chs/using-the-cublasdx-api.md) | [using-the-cublasdx-api.md](./eng/using-the-cublasdx-api.md) |
+| 章节号 | 中文 Chinese | 英文 English |
+|--------|--------------|--------------|
+| 5 | [using-the-cublasdx-api.md](./chs/using-the-cublasdx-api.md) | [using-the-cublasdx-api.md](./eng/using-the-cublasdx-api.md) |
 
 ---
 

@@ -8,9 +8,9 @@
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-| 序号 | 文件 File | 中文 Chinese | 英文 English |
-|------|-----------|--------------|--------------|
-| 1 | acknowledgements.md | [acknowledgements.md](./chs/acknowledgements.md) | [acknowledgements.md](./eng/acknowledgements.md) |
+| 章节号 | 中文 Chinese | 英文 English |
+|--------|--------------|--------------|
+| 9 | [acknowledgements.md](./chs/acknowledgements.md) | [acknowledgements.md](./eng/acknowledgements.md) |
 
 ---
 

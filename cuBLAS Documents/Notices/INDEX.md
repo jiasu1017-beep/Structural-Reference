@@ -8,11 +8,11 @@
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-| 序号 | 文件 File | 中文 Chinese | 英文 English |
-|------|-----------|--------------|--------------|
-| 1 | notices.md | [notices.md](./chs/notices.md) | [notices.md](./eng/notices.md) |
-| 2 | opencl.md | [opencl.md](./chs/opencl.md) | [opencl.md](./eng/opencl.md) |
-| 3 | trademarks.md | [trademarks.md](./chs/trademarks.md) | [trademarks.md](./eng/trademarks.md) |
+| 章节号 | 中文 Chinese | 英文 English |
+|--------|--------------|--------------|
+| 10 | [notices.md](./chs/notices.md) | [notices.md](./eng/notices.md) |
+| 10.2 | [opencl.md](./chs/opencl.md) | [opencl.md](./eng/opencl.md) |
+| 10.3 | [trademarks.md](./chs/trademarks.md) | [trademarks.md](./eng/trademarks.md) |
 
 ---
 

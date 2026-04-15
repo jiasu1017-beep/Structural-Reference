@@ -8,10 +8,10 @@
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-| 序号 | 文件 File | 中文 Chinese | 英文 English |
-|------|-----------|--------------|--------------|
-| 1 | interaction-with-other-libraries-and-tools.md | [interaction-with-other-libraries-and-tools.md](./chs/interaction-with-other-libraries-and-tools.md) | [interaction-with-other-libraries-and-tools.md](./eng/interaction-with-other-libraries-and-tools.md) |
-| 2 | nvprune.md | [nvprune.md](./chs/nvprune.md) | [nvprune.md](./eng/nvprune.md) |
+| 章节号 | 中文 Chinese | 英文 English |
+|--------|--------------|--------------|
+| 8 | [interaction-with-other-libraries-and-tools.md](./chs/interaction-with-other-libraries-and-tools.md) | [interaction-with-other-libraries-and-tools.md](./eng/interaction-with-other-libraries-and-tools.md) |
+| 8.1 | [nvprune.md](./chs/nvprune.md) | [nvprune.md](./eng/nvprune.md) |
 
 ---
 

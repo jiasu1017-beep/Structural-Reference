@@ -12,8 +12,8 @@
 |--------|--------------|--------------|
 | 10 | [Notices](./chs/notices.md) | [Notices](./eng/notices.md) |
 | 10.1 | [Notice](./chs/notices.md) | [Notice](./eng/notices.md) |
-| 10.2 | [OpenCL](./chs/opencl.md) | [OpenCL](./eng/opencl.md) |
-| 10.3 | [商标 (Trademarks)](./chs/trademarks.md) | [Trademarks](./eng/trademarks.md) |
+| 10.2 | [OpenCL](./chs/notices.md) | [OpenCL](./eng/notices.md) |
+| 10.3 | [Trademarks](./chs/notices.md) | [Trademarks](./eng/notices.md) |
 
 ---
 

@@ -11,7 +11,7 @@
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
 | 8 | [Interaction with Other Libraries and Tools](./chs/interaction-with-other-libraries-and-tools.md) | [Interaction with Other Libraries and Tools](./eng/interaction-with-other-libraries-and-tools.md) |
-| 8.1 | [nvprune](./chs/nvprune.md) | [nvprune](./eng/nvprune.md) |
+| 8.1 | [nvprune](./chs/interaction-with-other-libraries-and-tools.md) | [nvprune](./eng/interaction-with-other-libraries-and-tools.md) |
 
 ---
 

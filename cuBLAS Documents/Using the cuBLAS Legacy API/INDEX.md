@@ -18,7 +18,7 @@
 | 6.5 | [标量参数](./chs/using-the-cublas-legacy-api.md) | [Scalar Parameters](./eng/using-the-cublas-legacy-api.md) |
 | 6.6 | [辅助函数](./chs/using-the-cublas-legacy-api.md) | [Helper Functions](./eng/using-the-cublas-legacy-api.md) |
 | 6.7 | [Level-1、2、3 函数](./chs/using-the-cublas-legacy-api.md) | [Level-1,2,3 Functions](./eng/using-the-cublas-legacy-api.md) |
-| 6.8 | [从旧版迁移到 cuBLAS API](./chs/converting-legacy-to-the-cublas-api.md) | [Converting Legacy to the cuBLAS API](./eng/converting-legacy-to-the-cublas-api.md) |
+| 6.8 | [从 Legacy 转换到 cuBLAS API](./chs/using-the-cublas-legacy-api.md) | [Converting Legacy to the cuBLAS API](./eng/using-the-cublas-legacy-api.md) |
 | 6.9 | [示例](./chs/using-the-cublas-legacy-api.md) | [Examples](./eng/using-the-cublas-legacy-api.md) |
 
 ---

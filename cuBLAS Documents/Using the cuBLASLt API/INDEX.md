@@ -10,12 +10,11 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 2.1.4 | [结果可重现性](./chs/results-reproducibility.md) | [Results Reproducibility](./eng/results-reproducibility.md) |
 | 3 | [Using the cuBLASLt API](./chs/using-the-cublaslt-api.md) | [Using the cuBLASLt API](./eng/using-the-cublaslt-api.md) |
 | 3.1 | [General Description](./chs/using-the-cublaslt-api.md) | [General Description](./eng/using-the-cublaslt-api.md) |
 | 3.1.1 | [Problem Size Limitations](./chs/using-the-cublaslt-api.md) | [Problem Size Limitations](./eng/using-the-cublaslt-api.md) |
 | 3.1.2 | [Heuristics Cache](./chs/using-the-cublaslt-api.md) | [Heuristics Cache](./eng/using-the-cublaslt-api.md) |
-| 3.1.3 | [cuBLASLt 日志记录](./chs/cublaslt-logging.md) | [cuBLASLt Logging](./eng/cublaslt-logging.md) |
+| 3.1.3 | [cuBLASLt Logging](./chs/using-the-cublaslt-api.md) | [cuBLASLt Logging](./eng/using-the-cublaslt-api.md) |
 | 3.1.4 | [Narrow Precision Data Types Usage](./chs/using-the-cublaslt-api.md) | [Narrow Precision Data Types Usage](./eng/using-the-cublaslt-api.md) |
 | 3.1.4.1 | [Tensorwide Scaling For FP8 Data Types](./chs/using-the-cublaslt-api.md) | [Tensorwide Scaling For FP8 Data Types](./eng/using-the-cublaslt-api.md) |
 | 3.1.4.2 | [Experimental: Per-batch Tensorwide Scaling For FP8 Data Types](./chs/using-the-cublaslt-api.md) | [Experimental: Per-batch Tensorwide Scaling For FP8 Data Types](./eng/using-the-cublaslt-api.md) |
@@ -23,91 +22,91 @@
 | 3.1.4.4 | [16/32-Element 1D Block Scaling for FP8 and FP4 Data Types](./chs/using-the-cublaslt-api.md) | [16/32-Element 1D Block Scaling for FP8 and FP4 Data Types](./eng/using-the-cublaslt-api.md) |
 | 3.1.4.5 | [128-element 1D and 128x128 2D Block Scaling For FP8 Data Types](./chs/using-the-cublaslt-api.md) | [128-element 1D and 128x128 2D Block Scaling For FP8 Data Types](./eng/using-the-cublaslt-api.md) |
 | 3.1.5 | [Disabling CPU Instructions](./chs/using-the-cublaslt-api.md) | [Disabling CPU Instructions](./eng/using-the-cublaslt-api.md) |
-| 3.2 | [cuBLASLt 代码示例](./chs/cublaslt-code-examples.md) | [cuBLASLt Code Examples](./eng/cublaslt-code-examples.md) |
-| 3.3 | [cuBLASLt Datatypes Reference](./chs/cublaslt-datatypes-reference.md) | [cuBLASLt Datatypes Reference](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.1 | [cublasLtClusterShape_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtClusterShape_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.2 | [cublasLtEpilogue_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtEpilogue_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.3 | [cublasLtHandle_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtHandle_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.4 | [cublasLtLoggerCallback_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtLoggerCallback_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.5 | [cublasLtMatmulAlgo_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulAlgo_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.6 | [cublasLtMatmulAlgoCapAttributes_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulAlgoCapAttributes_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.7 | [cublasLtMatmulAlgoConfigAttributes_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulAlgoConfigAttributes_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.8 | [cublasLtMatmulDesc_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulDesc_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.9 | [cublasLtMatmulDescAttributes_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulDescAttributes_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.10 | [cublasLtMatmulHeuristicResult_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulHeuristicResult_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.11 | [cublasLtMatmulInnerShape_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulInnerShape_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.12 | [cublasLtMatmulPreference_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulPreference_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.13 | [cublasLtMatmulPreferenceAttributes_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulPreferenceAttributes_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.14 | [cublasLtMatmulSearch_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulSearch_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.15 | [cublasLtMatmulTile_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulTile_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.16 | [cublasLtMatmulStages_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulStages_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.17 | [cublasLtNumericalImplFlags_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtNumericalImplFlags_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.18 | [cublasLtMatrixLayout_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatrixLayout_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.19 | [cublasLtMatrixLayoutAttribute_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatrixLayoutAttribute_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.20 | [cublasLtIntegerWidth_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtIntegerWidth_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.21 | [cublasLtMatrixTransformDesc_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatrixTransformDesc_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.22 | [cublasLtMatrixTransformDescAttributes_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatrixTransformDescAttributes_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.23 | [cublasLtOrder_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtOrder_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.24 | [cublasLtPointerMode_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtPointerMode_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.25 | [cublasLtPointerModeMask_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtPointerModeMask_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.26 | [cublasLtReductionScheme_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtReductionScheme_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.27 | [cublasLtMatmulMatrixScale_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtMatmulMatrixScale_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.28 | [cublasLtBatchMode_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtBatchMode_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.29 | [cublasLtEmulationDesc_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtEmulationDesc_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.3.30 | [cublasLtEmulationDescAttributes_t](./chs/cublaslt-datatypes-reference.md) | [cublasLtEmulationDescAttributes_t](./eng/cublaslt-datatypes-reference.md) |
-| 3.4 | [cuBLASLt API 参考文档](./chs/cublaslt-api-reference.md) | [cuBLASLt API Reference](./eng/cublaslt-api-reference.md) |
-| 3.4.1 | [cublasLtCreate()](./chs/cublasltcreate.md) | [cublasLtCreate()](./eng/cublasltcreate.md) |
-| 3.4.2 | [cublasLtDestroy()](./chs/cublasltdestroy.md) | [cublasLtDestroy()](./eng/cublasltdestroy.md) |
-| 3.4.3 | [cublasLtDisableCpuInstructionsSetMask()](./chs/cublasltdisablecpuinstructionssetmask.md) | [cublasLtDisableCpuInstructionsSetMask()](./eng/cublasltdisablecpuinstructionssetmask.md) |
-| 3.4.4 | [cublasLtGetCudartVersion()](./chs/cublasltgetcudartversion.md) | [cublasLtGetCudartVersion()](./eng/cublasltgetcudartversion.md) |
-| 3.4.5 | [cublasLtGetProperty()](./chs/cublasltgetproperty.md) | [cublasLtGetProperty()](./eng/cublasltgetproperty.md) |
-| 3.4.6 | [cublasLtGetStatusName()](./chs/cublasltgetstatusname.md) | [cublasLtGetStatusName()](./eng/cublasltgetstatusname.md) |
-| 3.4.7 | [cublasLtGetStatusString()](./chs/cublasltgetstatusstring.md) | [cublasLtGetStatusString()](./eng/cublasltgetstatusstring.md) |
-| 3.4.8 | [cublasLtHeuristicsCacheGetCapacity()](./chs/cublasltheuristicscachegetcapacity.md) | [cublasLtHeuristicsCacheGetCapacity()](./eng/cublasltheuristicscachegetcapacity.md) |
-| 3.4.9 | [cublasLtHeuristicsCacheSetCapacity()](./chs/cublasltheuristicscachesetcapacity.md) | [cublasLtHeuristicsCacheSetCapacity()](./eng/cublasltheuristicscachesetcapacity.md) |
-| 3.4.10 | [cublasLtGetVersion()](./chs/cublasltgetversion.md) | [cublasLtGetVersion()](./eng/cublasltgetversion.md) |
-| 3.4.11 | [cublasLtLoggerSetCallback()](./chs/cublaslt-api-reference.md) | [cublasLtLoggerSetCallback()](./eng/cublaslt-api-reference.md) |
-| 3.4.12 | [cublasLtLoggerSetFile()](./chs/cublasltloggersetfile.md) | [cublasLtLoggerSetFile()](./eng/cublasltloggersetfile.md) |
-| 3.4.13 | [cublasLtLoggerOpenFile()](./chs/cublasltloggeropenfile.md) | [cublasLtLoggerOpenFile()](./eng/cublasltloggeropenfile.md) |
-| 3.4.14 | [cublasLtLoggerSetLevel()](./chs/cublasltloggersetlevel.md) | [cublasLtLoggerSetLevel()](./eng/cublasltloggersetlevel.md) |
-| 3.4.15 | [cublasLtLoggerSetMask()](./chs/cublasltloggersetmask.md) | [cublasLtLoggerSetMask()](./eng/cublasltloggersetmask.md) |
-| 3.4.16 | [cublasLtLoggerForceDisable()](./chs/cublasltloggerforcedisable.md) | [cublasLtLoggerForceDisable()](./eng/cublasltloggerforcedisable.md) |
-| 3.4.17 | [cublasLtMatmul()](./chs/cublasltmatmul.md) | [cublasLtMatmul()](./eng/cublasltmatmul.md) |
-| 3.4.18 | [cublasLtMatmulAlgoCapGetAttribute()](./chs/cublasltmatmulalgocapgetattribute.md) | [cublasLtMatmulAlgoCapGetAttribute()](./eng/cublasltmatmulalgocapgetattribute.md) |
-| 3.4.19 | [cublasLtMatmulAlgoCheck()](./chs/cublasltmatmulalgocheck.md) | [cublasLtMatmulAlgoCheck()](./eng/cublasltmatmulalgocheck.md) |
-| 3.4.20 | [cublasLtMatmulAlgoConfigGetAttribute()](./chs/cublasltmatmulalgoconfiggetattribute.md) | [cublasLtMatmulAlgoConfigGetAttribute()](./eng/cublasltmatmulalgoconfiggetattribute.md) |
-| 3.4.21 | [cublasLtMatmulAlgoConfigSetAttribute()](./chs/cublasltmatmulalgoconfigsetattribute.md) | [cublasLtMatmulAlgoConfigSetAttribute()](./eng/cublasltmatmulalgoconfigsetattribute.md) |
-| 3.4.22 | [cublasLtMatmulAlgoGetHeuristic()](./chs/cublasltmatmulalgogetheuristic.md) | [cublasLtMatmulAlgoGetHeuristic()](./eng/cublasltmatmulalgogetheuristic.md) |
-| 3.4.23 | [cublasLtMatmulAlgoGetIds()](./chs/cublasltmatmulalgogetids.md) | [cublasLtMatmulAlgoGetIds()](./eng/cublasltmatmulalgogetids.md) |
-| 3.4.24 | [cublasLtMatmulAlgoInit()](./chs/cublasltmatmulalgoinit.md) | [cublasLtMatmulAlgoInit()](./eng/cublasltmatmulalgoinit.md) |
-| 3.4.25 | [cublasLtMatmulDescCreate()](./chs/cublasltmatmuldesccreate.md) | [cublasLtMatmulDescCreate()](./eng/cublasltmatmuldesccreate.md) |
-| 3.4.26 | [cublasLtMatmulDescInit()](./chs/cublasltmatmuldescinit.md) | [cublasLtMatmulDescInit()](./eng/cublasltmatmuldescinit.md) |
-| 3.4.27 | [cublasLtMatmulDescDestroy()](./chs/cublasltmatmuldescdestroy.md) | [cublasLtMatmulDescDestroy()](./eng/cublasltmatmuldescdestroy.md) |
-| 3.4.28 | [cublasLtMatmulDescGetAttribute()](./chs/cublasltmatmuldescgetattribute.md) | [cublasLtMatmulDescGetAttribute()](./eng/cublasltmatmuldescgetattribute.md) |
-| 3.4.29 | [cublasLtMatmulDescSetAttribute()](./chs/cublasltmatmuldescsetattribute.md) | [cublasLtMatmulDescSetAttribute()](./eng/cublasltmatmuldescsetattribute.md) |
-| 3.4.30 | [cublasLtMatmulPreferenceCreate()](./chs/cublasltmatmulpreferencecreate.md) | [cublasLtMatmulPreferenceCreate()](./eng/cublasltmatmulpreferencecreate.md) |
-| 3.4.31 | [cublasLtMatmulPreferenceInit()](./chs/cublasltmatmulpreferenceinit.md) | [cublasLtMatmulPreferenceInit()](./eng/cublasltmatmulpreferenceinit.md) |
-| 3.4.32 | [cublasLtMatmulPreferenceDestroy()](./chs/cublasltmatmulpreferencedestroy.md) | [cublasLtMatmulPreferenceDestroy()](./eng/cublasltmatmulpreferencedestroy.md) |
-| 3.4.33 | [cublasLtMatmulPreferenceGetAttribute()](./chs/cublasltmatmulpreferencegetattribute.md) | [cublasLtMatmulPreferenceGetAttribute()](./eng/cublasltmatmulpreferencegetattribute.md) |
-| 3.4.34 | [cublasLtMatmulPreferenceSetAttribute()](./chs/cublasltmatmulpreferencesetattribute.md) | [cublasLtMatmulPreferenceSetAttribute()](./eng/cublasltmatmulpreferencesetattribute.md) |
-| 3.4.35 | [cublasLtMatrixLayoutCreate()](./chs/cublasltmatrixlayoutcreate.md) | [cublasLtMatrixLayoutCreate()](./eng/cublasltmatrixlayoutcreate.md) |
-| 3.4.36 | [cublasLtMatrixLayoutInit()](./chs/cublasltmatrixlayoutinit.md) | [cublasLtMatrixLayoutInit()](./eng/cublasltmatrixlayoutinit.md) |
-| 3.4.37 | [cublasLtGroupedMatrixLayoutCreate()](./chs/cublasltgroupedmatrixlayoutcreate.md) | [cublasLtGroupedMatrixLayoutCreate()](./eng/cublasltgroupedmatrixlayoutcreate.md) |
-| 3.4.38 | [cublasLtGroupedMatrixLayoutInit()](./chs/cublasltgroupedmatrixlayoutinit.md) | [cublasLtGroupedMatrixLayoutInit()](./eng/cublasltgroupedmatrixlayoutinit.md) |
-| 3.4.39 | [cublasLtMatrixLayoutDestroy()](./chs/cublasltmatrixlayoutdestroy.md) | [cublasLtMatrixLayoutDestroy()](./eng/cublasltmatrixlayoutdestroy.md) |
-| 3.4.40 | [cublasLtMatrixLayoutGetAttribute()](./chs/cublasltmatrixlayoutgetattribute.md) | [cublasLtMatrixLayoutGetAttribute()](./eng/cublasltmatrixlayoutgetattribute.md) |
-| 3.4.41 | [cublasLtMatrixLayoutSetAttribute()](./chs/cublasltmatrixlayoutsetattribute.md) | [cublasLtMatrixLayoutSetAttribute()](./eng/cublasltmatrixlayoutsetattribute.md) |
-| 3.4.42 | [cublasLtMatrixTransform()](./chs/cublasltmatrixtransform.md) | [cublasLtMatrixTransform()](./eng/cublasltmatrixtransform.md) |
-| 3.4.43 | [cublasLtMatrixTransformDescCreate()](./chs/cublasltmatrixtransformdesccreate.md) | [cublasLtMatrixTransformDescCreate()](./eng/cublasltmatrixtransformdesccreate.md) |
-| 3.4.44 | [cublasLtMatrixTransformDescInit()](./chs/cublasltmatrixtransformdescinit.md) | [cublasLtMatrixTransformDescInit()](./eng/cublasltmatrixtransformdescinit.md) |
-| 3.4.45 | [cublasLtMatrixTransformDescDestroy()](./chs/cublasltmatrixtransformdescdestroy.md) | [cublasLtMatrixTransformDescDestroy()](./eng/cublasltmatrixtransformdescdestroy.md) |
-| 3.4.46 | [cublasLtMatrixTransformDescGetAttribute()](./chs/cublasltmatrixtransformdescgetattribute.md) | [cublasLtMatrixTransformDescGetAttribute()](./eng/cublasltmatrixtransformdescgetattribute.md) |
-| 3.4.47 | [cublasLtMatrixTransformDescSetAttribute()](./chs/cublasltmatrixtransformdescsetattribute.md) | [cublasLtMatrixTransformDescSetAttribute()](./eng/cublasltmatrixtransformdescsetattribute.md) |
-| 3.4.48 | [cublasLtEmulationDescInit()](./chs/cublasltemulationdescinit.md) | [cublasLtEmulationDescInit()](./eng/cublasltemulationdescinit.md) |
-| 3.4.49 | [cublasLtEmulationDescCreate()](./chs/cublasltemulationdesccreate.md) | [cublasLtEmulationDescCreate()](./eng/cublasltemulationdesccreate.md) |
-| 3.4.50 | [cublasLtEmulationDescDestroy()](./chs/cublasltemulationdescdestroy.md) | [cublasLtEmulationDescDestroy()](./eng/cublasltemulationdescdestroy.md) |
-| 3.4.51 | [cublasLtEmulationDescSetAttribute()](./chs/cublasltemulationdescsetattribute.md) | [cublasLtEmulationDescSetAttribute()](./eng/cublasltemulationdescsetattribute.md) |
-| 3.4.52 | [cublasLtEmulationDescGetAttribute()](./chs/cublasltemulationdescgetattribute.md) | [cublasLtEmulationDescGetAttribute()](./eng/cublasltemulationdescgetattribute.md) |
+| 3.2 | [cuBLASLt Code Examples](./chs/using-the-cublaslt-api.md) | [cuBLASLt Code Examples](./eng/using-the-cublaslt-api.md) |
+| 3.3 | [cuBLASLt Datatypes Reference](./chs/using-the-cublaslt-api.md) | [cuBLASLt Datatypes Reference](./eng/using-the-cublaslt-api.md) |
+| 3.3.1 | [cublasLtClusterShape_t](./chs/using-the-cublaslt-api.md) | [cublasLtClusterShape_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.2 | [cublasLtEpilogue_t](./chs/using-the-cublaslt-api.md) | [cublasLtEpilogue_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.3 | [cublasLtHandle_t](./chs/using-the-cublaslt-api.md) | [cublasLtHandle_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.4 | [cublasLtLoggerCallback_t](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerCallback_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.5 | [cublasLtMatmulAlgo_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgo_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.6 | [cublasLtMatmulAlgoCapAttributes_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoCapAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.7 | [cublasLtMatmulAlgoConfigAttributes_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoConfigAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.8 | [cublasLtMatmulDesc_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDesc_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.9 | [cublasLtMatmulDescAttributes_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDescAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.10 | [cublasLtMatmulHeuristicResult_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulHeuristicResult_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.11 | [cublasLtMatmulInnerShape_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulInnerShape_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.12 | [cublasLtMatmulPreference_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreference_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.13 | [cublasLtMatmulPreferenceAttributes_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreferenceAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.14 | [cublasLtMatmulSearch_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulSearch_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.15 | [cublasLtMatmulTile_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulTile_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.16 | [cublasLtMatmulStages_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulStages_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.17 | [cublasLtNumericalImplFlags_t](./chs/using-the-cublaslt-api.md) | [cublasLtNumericalImplFlags_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.18 | [cublasLtMatrixLayout_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayout_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.19 | [cublasLtMatrixLayoutAttribute_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayoutAttribute_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.20 | [cublasLtIntegerWidth_t](./chs/using-the-cublaslt-api.md) | [cublasLtIntegerWidth_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.21 | [cublasLtMatrixTransformDesc_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDesc_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.22 | [cublasLtMatrixTransformDescAttributes_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDescAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.23 | [cublasLtOrder_t](./chs/using-the-cublaslt-api.md) | [cublasLtOrder_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.24 | [cublasLtPointerMode_t](./chs/using-the-cublaslt-api.md) | [cublasLtPointerMode_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.25 | [cublasLtPointerModeMask_t](./chs/using-the-cublaslt-api.md) | [cublasLtPointerModeMask_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.26 | [cublasLtReductionScheme_t](./chs/using-the-cublaslt-api.md) | [cublasLtReductionScheme_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.27 | [cublasLtMatmulMatrixScale_t](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulMatrixScale_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.28 | [cublasLtBatchMode_t](./chs/using-the-cublaslt-api.md) | [cublasLtBatchMode_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.29 | [cublasLtEmulationDesc_t](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDesc_t](./eng/using-the-cublaslt-api.md) |
+| 3.3.30 | [cublasLtEmulationDescAttributes_t](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3.4 | [cuBLASLt API Reference](./chs/using-the-cublaslt-api.md) | [cuBLASLt API Reference](./eng/using-the-cublaslt-api.md) |
+| 3.4.1 | [cublasLtCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.2 | [cublasLtDestroy()](./chs/using-the-cublaslt-api.md) | [cublasLtDestroy()](./eng/using-the-cublaslt-api.md) |
+| 3.4.3 | [cublasLtDisableCpuInstructionsSetMask()](./chs/using-the-cublaslt-api.md) | [cublasLtDisableCpuInstructionsSetMask()](./eng/using-the-cublaslt-api.md) |
+| 3.4.4 | [cublasLtGetCudartVersion()](./chs/using-the-cublaslt-api.md) | [cublasLtGetCudartVersion()](./eng/using-the-cublaslt-api.md) |
+| 3.4.5 | [cublasLtGetProperty()](./chs/using-the-cublaslt-api.md) | [cublasLtGetProperty()](./eng/using-the-cublaslt-api.md) |
+| 3.4.6 | [cublasLtGetStatusName()](./chs/using-the-cublaslt-api.md) | [cublasLtGetStatusName()](./eng/using-the-cublaslt-api.md) |
+| 3.4.7 | [cublasLtGetStatusString()](./chs/using-the-cublaslt-api.md) | [cublasLtGetStatusString()](./eng/using-the-cublaslt-api.md) |
+| 3.4.8 | [cublasLtHeuristicsCacheGetCapacity()](./chs/using-the-cublaslt-api.md) | [cublasLtHeuristicsCacheGetCapacity()](./eng/using-the-cublaslt-api.md) |
+| 3.4.9 | [cublasLtHeuristicsCacheSetCapacity()](./chs/using-the-cublaslt-api.md) | [cublasLtHeuristicsCacheSetCapacity()](./eng/using-the-cublaslt-api.md) |
+| 3.4.10 | [cublasLtGetVersion()](./chs/using-the-cublaslt-api.md) | [cublasLtGetVersion()](./eng/using-the-cublaslt-api.md) |
+| 3.4.11 | [cublasLtLoggerSetCallback()](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerSetCallback()](./eng/using-the-cublaslt-api.md) |
+| 3.4.12 | [cublasLtLoggerSetFile()](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerSetFile()](./eng/using-the-cublaslt-api.md) |
+| 3.4.13 | [cublasLtLoggerOpenFile()](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerOpenFile()](./eng/using-the-cublaslt-api.md) |
+| 3.4.14 | [cublasLtLoggerSetLevel()](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerSetLevel()](./eng/using-the-cublaslt-api.md) |
+| 3.4.15 | [cublasLtLoggerSetMask()](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerSetMask()](./eng/using-the-cublaslt-api.md) |
+| 3.4.16 | [cublasLtLoggerForceDisable()](./chs/using-the-cublaslt-api.md) | [cublasLtLoggerForceDisable()](./eng/using-the-cublaslt-api.md) |
+| 3.4.17 | [cublasLtMatmul()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmul()](./eng/using-the-cublaslt-api.md) |
+| 3.4.18 | [cublasLtMatmulAlgoCapGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoCapGetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.19 | [cublasLtMatmulAlgoCheck()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoCheck()](./eng/using-the-cublaslt-api.md) |
+| 3.4.20 | [cublasLtMatmulAlgoConfigGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoConfigGetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.21 | [cublasLtMatmulAlgoConfigSetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoConfigSetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.22 | [cublasLtMatmulAlgoGetHeuristic()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoGetHeuristic()](./eng/using-the-cublaslt-api.md) |
+| 3.4.23 | [cublasLtMatmulAlgoGetIds()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoGetIds()](./eng/using-the-cublaslt-api.md) |
+| 3.4.24 | [cublasLtMatmulAlgoInit()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulAlgoInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.25 | [cublasLtMatmulDescCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDescCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.26 | [cublasLtMatmulDescInit()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDescInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.27 | [cublasLtMatmulDescDestroy()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDescDestroy()](./eng/using-the-cublaslt-api.md) |
+| 3.4.28 | [cublasLtMatmulDescGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDescGetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.29 | [cublasLtMatmulDescSetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulDescSetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.30 | [cublasLtMatmulPreferenceCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreferenceCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.31 | [cublasLtMatmulPreferenceInit()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreferenceInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.32 | [cublasLtMatmulPreferenceDestroy()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreferenceDestroy()](./eng/using-the-cublaslt-api.md) |
+| 3.4.33 | [cublasLtMatmulPreferenceGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreferenceGetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.34 | [cublasLtMatmulPreferenceSetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatmulPreferenceSetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.35 | [cublasLtMatrixLayoutCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayoutCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.36 | [cublasLtMatrixLayoutInit()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayoutInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.37 | [cublasLtGroupedMatrixLayoutCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtGroupedMatrixLayoutCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.38 | [cublasLtGroupedMatrixLayoutInit()](./chs/using-the-cublaslt-api.md) | [cublasLtGroupedMatrixLayoutInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.39 | [cublasLtMatrixLayoutDestroy()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayoutDestroy()](./eng/using-the-cublaslt-api.md) |
+| 3.4.40 | [cublasLtMatrixLayoutGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayoutGetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.41 | [cublasLtMatrixLayoutSetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixLayoutSetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.42 | [cublasLtMatrixTransform()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransform()](./eng/using-the-cublaslt-api.md) |
+| 3.4.43 | [cublasLtMatrixTransformDescCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDescCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.44 | [cublasLtMatrixTransformDescInit()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDescInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.45 | [cublasLtMatrixTransformDescDestroy()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDescDestroy()](./eng/using-the-cublaslt-api.md) |
+| 3.4.46 | [cublasLtMatrixTransformDescGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDescGetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.47 | [cublasLtMatrixTransformDescSetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtMatrixTransformDescSetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.48 | [cublasLtEmulationDescInit()](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescInit()](./eng/using-the-cublaslt-api.md) |
+| 3.4.49 | [cublasLtEmulationDescCreate()](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescCreate()](./eng/using-the-cublaslt-api.md) |
+| 3.4.50 | [cublasLtEmulationDescDestroy()](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescDestroy()](./eng/using-the-cublaslt-api.md) |
+| 3.4.51 | [cublasLtEmulationDescSetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescSetAttribute()](./eng/using-the-cublaslt-api.md) |
+| 3.4.52 | [cublasLtEmulationDescGetAttribute()](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescGetAttribute()](./eng/using-the-cublaslt-api.md) |
 
 ---
 
@@ -115,9 +114,9 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 98 |
+| ✅ 已完成 / Completed | 97 |
 | ⏳ 未转换 / Not converted | 0 |
-| **总计 Total** | **98** |
+| **总计 Total** | **97** |
 
 ---
 

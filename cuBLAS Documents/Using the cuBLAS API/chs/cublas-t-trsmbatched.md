@@ -70,8 +70,8 @@ This function solves an array of triangular linear systems with multiple right-h
 
 
 $\left\{ \begin{matrix}
-{\text{op}(A\lbrack i\rbrack)X\lbrack i\rbrack = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{X\lbrack i\rbrack\text{op}(A\lbrack i\rbrack) = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\text{op}(A\lbrack i\rbrack)X\lbrack i\rbrack = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{X\lbrack i\rbrack\text{op}(A\lbrack i\rbrack) = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -79,9 +79,9 @@ where $A\lbrack i\rbrack$ is a triangular matrix stored in lower or upper mode w
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

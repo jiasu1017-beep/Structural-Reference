@@ -35,8 +35,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

@@ -61,9 +61,9 @@ $C = \alpha\text{op}(A)\text{op}(B) + \beta C$
 其中 $\alpha$ 和 $\beta$ 是标量，A、B 和 C 是按列优先格式存储的矩阵，维度分别为 $\text{op}(A)$ $m \times k$、$\text{op}(B)$ $k \times n$ 和 $C$ $m \times n$。此外，对于矩阵 A：
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 对于矩阵 B，$\text{op}(B)$ 的定义类似。

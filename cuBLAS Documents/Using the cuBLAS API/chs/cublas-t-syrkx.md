@@ -47,8 +47,8 @@ $C = \alpha\text{op}(A)\text{op}(B)^{T} + \beta C$
 其中 $\alpha$ 和 $\beta$ 是标量，$C$ 是以下三角或上三角模式存储的对称矩阵，$A$ 和 $B$ 是维度分别为 $\text{op}(A)$ $n \times k$ 和 $\text{op}(B)$ $n \times k$ 的矩阵。同样，对于矩阵 $A$ 和 $B$
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 当B以保证结果对称的方式给出时，可以使用此例程。一个常见的例子是矩阵B是矩阵A的缩放形式：这等价于矩阵B是矩阵A与对角矩阵的乘积。有关矩阵与对角矩阵乘积的高效计算，请参阅 `cublas<t>dgmm()` 例程。

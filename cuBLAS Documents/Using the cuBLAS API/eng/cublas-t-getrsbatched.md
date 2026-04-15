@@ -68,9 +68,9 @@ where $A\lbrack i\rbrack$ is a matrix which has been LU factorized with pivoting
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

@@ -56,9 +56,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

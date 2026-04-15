@@ -52,8 +52,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 

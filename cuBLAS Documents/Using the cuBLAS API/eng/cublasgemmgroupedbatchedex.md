@@ -55,27 +55,27 @@ end
 ```
 
 
-where $\text{$\mathrm{alpha\_array}$}$ and $\text{$\mathrm{beta\_array}$}$ are arrays of scaling factors, and $\text{Aarray}$, $\text{Barray}$ and $\text{Carray}$ are arrays of pointers to matrices stored in column-major format.  For a given index, $\text{idx}$, that is part of group $i$, the dimensions are:
+where $\text{alpha\_array}$ and $\text{beta\_array}$ are arrays of scaling factors, and $\text{Aarray}$, $\text{Barray}$ and $\text{Carray}$ are arrays of pointers to matrices stored in column-major format.  For a given index, $\text{idx}$, that is part of group $i$, the dimensions are:
 
 
-> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\): \(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{k\_array}$}\lbrack i\rbrack\)
-\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\): \(\text{$\mathrm{k\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
-\(\text{Carray}\lbrack\text{idx}\rbrack\): \(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
+> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\): \(\text{m\_array}\lbrack i\rbrack \times \text{k\_array}\lbrack i\rbrack\)
+\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\): \(\text{k\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
+\(\text{Carray}\lbrack\text{idx}\rbrack\): \(\text{m\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
 
 
 > **Note**
 
 Note
-This API takes arrays of two different lengths.  The arrays of dimensions, leading dimensions, transpositions, and scaling factors are of length group_count and the arrays of matrices are of length problem_count where \(\text{$\mathrm{problem\_count}$} = \sum_{i = 0}^{\text{$\mathrm{group\_count}$} - 1} \text{$\mathrm{group\_size}$}\lbrack i\rbrack\)
+This API takes arrays of two different lengths.  The arrays of dimensions, leading dimensions, transpositions, and scaling factors are of length group_count and the arrays of matrices are of length problem_count where \(\text{problem\_count} = \sum_{i = 0}^{\text{group\_count} - 1} \text{group\_size}\lbrack i\rbrack\)
 
 
 For matrix $A[\text{idx}]$ in group $i$
 
 
 $\text{op}(A[\text{idx}]) = \left\{ \begin{matrix}
-A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_N}} \\
+A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_T}} \\
+A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

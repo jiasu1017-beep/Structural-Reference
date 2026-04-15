@@ -52,9 +52,9 @@ where $A$ is a banded matrix with $kl$ subdiagonals and $ku$ superdiagonals, $\m
 
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 

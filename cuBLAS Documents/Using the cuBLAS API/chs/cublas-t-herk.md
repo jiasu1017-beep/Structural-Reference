@@ -27,8 +27,8 @@ $C = \alpha\text{op}(A)\text{op}(A)^{H} + \beta C$
 其中 $\alpha$ 和 $\beta$ 为标量，$C$ 为以下三角模式存储的厄米特矩阵，$A$ 为维度 $\text{op}(A)$ $n \times k$ 的矩阵。此外，对于矩阵 $A$：
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 | 参数 | 内存 | 输入/输出 | 含义 |

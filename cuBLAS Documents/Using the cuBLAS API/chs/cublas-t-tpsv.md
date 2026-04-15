@@ -31,9 +31,9 @@ $\text{op}(A)\textbf{x} = \textbf{b}$
 其中 $A$ 是以压缩格式存储的三角矩阵，$\mathbf{x}$ 和 $\mathbf{b}$ 是向量。此外，对于矩阵 $A$
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 解 $\mathbf{x}$ 会在退出时覆盖右端项 $\mathbf{b}$。

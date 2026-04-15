@@ -2787,9 +2787,9 @@ where $A$ is a banded matrix with $kl$ subdiagonals and $ku$ superdiagonals, $\m
 
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 
@@ -2890,9 +2890,9 @@ where $A$ is a $m \times n$ matrix stored in column-major format, $\mathbf{x}$ a
 
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 
@@ -3589,9 +3589,9 @@ where $A$ is a triangular banded matrix, and $\mathbf{x}$ is a vector. Also, for
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -3681,9 +3681,9 @@ where $A$ is a triangular banded matrix, and $\mathbf{x}$ and $\mathbf{b}$ are v
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -3778,9 +3778,9 @@ where $A$ is a triangular matrix stored in packed format, and $\mathbf{x}$ is a 
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -3867,9 +3867,9 @@ where $A$ is a triangular matrix stored in packed format, and $\mathbf{x}$ and $
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -3961,9 +3961,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -4046,9 +4046,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -4709,9 +4709,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ is an array of pointers to matri
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -4884,9 +4884,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ is an array of pointers to matri
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -5012,9 +5012,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -5106,9 +5106,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -5240,9 +5240,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are arrays of poin
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -5407,9 +5407,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are arrays of poin
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -5538,27 +5538,27 @@ end
 ```
 
 
-where $\text{$\mathrm{alpha\_array}$}$ and $\text{$\mathrm{beta\_array}$}$ are arrays of scaling factors, and $\text{Aarray}$, $\text{Barray}$ and $\text{Carray}$ are arrays of pointers to matrices stored in column-major format.  For a given index, $\text{idx}$, that is part of group $i$, the dimensions are:
+where $\text{alpha\_array}$ and $\text{beta\_array}$ are arrays of scaling factors, and $\text{Aarray}$, $\text{Barray}$ and $\text{Carray}$ are arrays of pointers to matrices stored in column-major format.  For a given index, $\text{idx}$, that is part of group $i$, the dimensions are:
 
 
-> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\): \(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{k\_array}$}\lbrack i\rbrack\)
-\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\): \(\text{$\mathrm{k\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
-\(\text{Carray}\lbrack\text{idx}\rbrack\): \(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
+> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\): \(\text{m\_array}\lbrack i\rbrack \times \text{k\_array}\lbrack i\rbrack\)
+\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\): \(\text{k\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
+\(\text{Carray}\lbrack\text{idx}\rbrack\): \(\text{m\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
 
 
 > **Note**
 
 Note
-This API takes arrays of two different lengths.  The arrays of dimensions, leading dimensions, transpositions, and scaling factors are of length group_count and the arrays of matrices are of length problem_count where \(\text{$\mathrm{problem\_count}$} = \sum_{i = 0}^{\text{$\mathrm{group\_count}$} - 1} \text{$\mathrm{group\_size}$}\lbrack i\rbrack\)
+This API takes arrays of two different lengths.  The arrays of dimensions, leading dimensions, transpositions, and scaling factors are of length group_count and the arrays of matrices are of length problem_count where \(\text{problem\_count} = \sum_{i = 0}^{\text{group\_count} - 1} \text{group\_size}\lbrack i\rbrack\)
 
 
 For matrix $A[\text{idx}]$ in group $i$
 
 
 $\text{op}(A[\text{idx}]) = \left\{ \begin{matrix}
-A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_N}} \\
+A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_T}} \\
+A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -5674,8 +5674,8 @@ This function performs the symmetric matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha AB + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha BA + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha AB + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha BA + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -5778,8 +5778,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -5880,8 +5880,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -5985,8 +5985,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -6090,8 +6090,8 @@ This function performs the triangular matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha\text{op}(A)B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha B\text{op}(A)} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha\text{op}(A)B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha B\text{op}(A)} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -6099,9 +6099,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6199,8 +6199,8 @@ This function solves the triangular linear system with multiple right-hand-sides
 
 
 $\left\{ \begin{matrix}
-{\text{op}(A)X = \alpha B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{X\text{op}(A) = \alpha B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\text{op}(A)X = \alpha B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{X\text{op}(A) = \alpha B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -6208,9 +6208,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6333,8 +6333,8 @@ This function solves an array of triangular linear systems with multiple right-h
 
 
 $\left\{ \begin{matrix}
-{\text{op}(A\lbrack i\rbrack)X\lbrack i\rbrack = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{X\lbrack i\rbrack\text{op}(A\lbrack i\rbrack) = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\text{op}(A\lbrack i\rbrack)X\lbrack i\rbrack = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{X\lbrack i\rbrack\text{op}(A\lbrack i\rbrack) = \alpha B\lbrack i\rbrack} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -6342,9 +6342,9 @@ where $A\lbrack i\rbrack$ is a triangular matrix stored in lower or upper mode w
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6437,8 +6437,8 @@ This function performs the Hermitian matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha AB + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha BA + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha AB + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha BA + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -6527,8 +6527,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6613,8 +6613,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6701,8 +6701,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6820,9 +6820,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -6930,8 +6930,8 @@ This function performs the matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{A \times diag(X)} & {\text{if }\textsf{mode == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
-{diag(X) \times A} & {\text{if }\textsf{mode == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
+{A \times diag(X)} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_RIGHT}} \\
+{diag(X) \times A} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_LEFT}} \\
 \end{matrix} \right.$
 
 
@@ -7214,9 +7214,9 @@ where $A\lbrack i\rbrack$ is a matrix which has been LU factorized with pivoting
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -7946,9 +7946,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -8103,9 +8103,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -8274,9 +8274,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are arrays of poin
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -8464,9 +8464,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are arrays of poin
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -8629,27 +8629,27 @@ end
 ```
 
 
-where $\text{$\mathrm{alpha\_array}$}$ and $\text{$\mathrm{beta\_array}$}$ are arrays of scaling factors, and $\text{Aarray}$, $\text{Barray}$ and $\text{Carray}$ are arrays of pointers to matrices stored in column-major format.  For a given index, $\text{idx}$, that is part of group $i$, the dimensions are:
+where $\text{alpha\_array}$ and $\text{beta\_array}$ are arrays of scaling factors, and $\text{Aarray}$, $\text{Barray}$ and $\text{Carray}$ are arrays of pointers to matrices stored in column-major format.  For a given index, $\text{idx}$, that is part of group $i$, the dimensions are:
 
 
-> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\): \(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{k\_array}$}\lbrack i\rbrack\)
-\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\): \(\text{$\mathrm{k\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
-\(\text{Carray}\lbrack\text{idx}\rbrack\): \(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
+> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\): \(\text{m\_array}\lbrack i\rbrack \times \text{k\_array}\lbrack i\rbrack\)
+\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\): \(\text{k\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
+\(\text{Carray}\lbrack\text{idx}\rbrack\): \(\text{m\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
 
 
 > **Note**
 
 Note
-This API takes arrays of two different lengths.  The arrays of dimensions, leading dimensions, transpositions, and scaling factors are of length group_count and the arrays of matrices are of length problem_count where \(\text{$\mathrm{problem\_count}$} = \sum_{i = 0}^{\text{$\mathrm{group\_count}$} - 1} \text{$\mathrm{group\_size}$}\lbrack i\rbrack\)
+This API takes arrays of two different lengths.  The arrays of dimensions, leading dimensions, transpositions, and scaling factors are of length group_count and the arrays of matrices are of length problem_count where \(\text{problem\_count} = \sum_{i = 0}^{\text{group\_count} - 1} \text{group\_size}\lbrack i\rbrack\)
 
 
 For matrix $A[\text{idx}]$ in group $i$
 
 
 $\text{op}(A[\text{idx}]) = \left\{ \begin{matrix}
-A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_N}} \\
+A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_T}} \\
+A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -8775,8 +8775,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -8879,8 +8879,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -8983,8 +8983,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -9087,8 +9087,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

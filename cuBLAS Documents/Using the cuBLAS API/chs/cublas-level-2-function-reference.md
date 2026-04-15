@@ -47,9 +47,9 @@ $\mathbf{y} = \alpha\text{ op}(A)\mathbf{x} + \beta\mathbf{y}$
 其中 $A$ 是一个具有 $kl$ 条次对角线和 $ku$ 条超对角线的带状矩阵，$\mathbf{x}$ 和 $\mathbf{y}$ 是向量，$\alpha$ 和 $\beta$ 是标量。此外，对于矩阵 $A$
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 带状矩阵 $A$ 按列存储，主对角线存储在第 $ku + 1$ 行（从第一个位置开始），第一条超对角线存储在第 $ku$ 行（从第二个位置开始），第一条次对角线存储在第 $ku + 2$ 行（从第一个位置开始），以此类推。因此，一般情况下，元素 $A\left( {i,j} \right)$ 存储在内存位置 `A(ku+1+i-j,j)` 中，其中 $j = 1,\ldots,n$ 且 $i \in \left\lbrack {\max\left( {1,j - ku} \right),\min\left( {m,j + kl} \right)} \right\rbrack$。此外，数组 $A$ 中在概念上不对应带状矩阵元素的元素（左上角的 $ku \times ku$ 和右下角的 $kl \times kl$ 三角形区域）不会被访问。
@@ -129,9 +129,9 @@ $\textbf{y} = \alpha\text{ op}(A)\textbf{x} + \beta\textbf{y}$
 其中 $A$ 是一个以列优先格式存储的 $m \times n$ 矩阵，$\mathbf{x}$ 和 $\mathbf{y}$ 是向量，$\alpha$ 和 $\beta$ 是标量。此外，对于矩阵 $A$
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 | 参数 | 内存 | 输入/输出 | 含义 |

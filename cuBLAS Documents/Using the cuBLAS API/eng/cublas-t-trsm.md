@@ -46,8 +46,8 @@ This function solves the triangular linear system with multiple right-hand-sides
 
 
 $\left\{ \begin{matrix}
-{\text{op}(A)X = \alpha B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{X\text{op}(A) = \alpha B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\text{op}(A)X = \alpha B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{X\text{op}(A) = \alpha B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -55,9 +55,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

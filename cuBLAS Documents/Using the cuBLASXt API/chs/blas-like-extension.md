@@ -51,9 +51,9 @@ $C = \alpha\text{op}(A) + \beta\text{op}(B)$
 其中 $\alpha$ 和 $\beta$ 是标量，$A$、$B$ 和 $C$ 是按列主序格式存储的矩阵，维度分别为 $\text{op}(A)$ $m \times n$、$\text{op}(B)$ $m \times n$ 和 $C$ $m \times n$。对于矩阵 $A$：
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 $\text{op}(B)$ 对于矩阵 $B$ 的定义类似。
@@ -140,8 +140,8 @@ cublasStatus_t cublasZdgmm(cublasHandle_t handle, cublasSideMode_t mode,
 此函数执行矩阵-矩阵乘法
 
 $C = \left\{ \begin{matrix}
-{A \times diag(X)} & {\text{if }\textsf{mode == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
-{diag(X) \times A} & {\text{if }\textsf{mode == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
+{A \times diag(X)} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_RIGHT}} \\
+{diag(X) \times A} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_LEFT}} \\
 \end{matrix} \right.$
 
 其中 $A$ 和 $C$ 是按列主序格式存储的矩阵，维度为 $m \times n$。$X$ 是一个向量，如果 `mode == CUBLAS_SIDE_RIGHT` 则大小为 $n$，如果 `mode == CUBLAS_SIDE_LEFT` 则大小为 $m$。$X$ 从一维数组 x 中按步长 `incx` 聚集。`incx` 的绝对值是步长，`incx` 的符号是步长方向。如果 `incx` 为正，则从第一个元素开始正向遍历 x。否则，从最后一个元素开始向后遍历 x。X 的公式为
@@ -377,9 +377,9 @@ $\text{op}(A\lbrack i \rbrack) X\lbrack i\rbrack = B\lbrack i\rbrack$
 其中 $A\lbrack i\rbrack$ 是已经过带主元 LU 分解的矩阵，$X\lbrack i\rbrack$ 和 $B\lbrack i\rbrack$ 是 $n \times {nrhs}$ 矩阵。对于矩阵 $A$：
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 此函数适用于矩阵尺寸较小、启动开销是重要因素的情况。

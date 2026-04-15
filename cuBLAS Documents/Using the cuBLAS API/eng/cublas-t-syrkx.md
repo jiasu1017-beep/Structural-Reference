@@ -56,8 +56,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 

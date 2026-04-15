@@ -60,9 +60,9 @@ where $A$ is a banded matrix with $kl$ subdiagonals and $ku$ superdiagonals, $\m
 
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 
@@ -163,9 +163,9 @@ where $A$ is a $m \times n$ matrix stored in column-major format, $\mathbf{x}$ a
 
 
 $\text{ op}(A) = \begin{cases}
-A & \text{ if trans == $\mathrm{CUBLAS\_OP\_N}$} \\
-A^{T} & \text{ if trans == $\mathrm{CUBLAS\_OP\_T}$} \\
-A^{H} & \text{ if trans == $\mathrm{CUBLAS\_OP\_C}$} \\
+A & \text{ if trans == CUBLAS\_OP\_N} \\
+A^{T} & \text{ if trans == CUBLAS\_OP\_T} \\
+A^{H} & \text{ if trans == CUBLAS\_OP\_C} \\
 \end{cases}$
 
 
@@ -862,9 +862,9 @@ where $A$ is a triangular banded matrix, and $\mathbf{x}$ is a vector. Also, for
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -954,9 +954,9 @@ where $A$ is a triangular banded matrix, and $\mathbf{x}$ and $\mathbf{b}$ are v
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -1051,9 +1051,9 @@ where $A$ is a triangular matrix stored in packed format, and $\mathbf{x}$ is a 
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -1140,9 +1140,9 @@ where $A$ is a triangular matrix stored in packed format, and $\mathbf{x}$ and $
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -1234,9 +1234,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -1319,9 +1319,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -1982,9 +1982,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ is an array of pointers to matri
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -2157,9 +2157,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ is an array of pointers to matri
 
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

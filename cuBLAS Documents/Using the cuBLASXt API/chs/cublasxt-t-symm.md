@@ -43,8 +43,8 @@ cublasStatus_t cublasXtZsymm(cublasXtHandle_t handle,
 
 
 $C = \left\{ \begin{matrix}
-{\alpha AB + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha BA + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha AB + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha BA + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 

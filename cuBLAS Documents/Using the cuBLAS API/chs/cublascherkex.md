@@ -30,8 +30,8 @@ $C = \alpha\text{op}(A)\text{op}(A)^{H} + \beta C$
 其中$\alpha$和$\beta$是标量，$C$是以lower或upper模式存储的Hermitian矩阵，$A$是一个维度为$\text{op}(A)$ $n \times k$的矩阵。同样，对于矩阵$A$：
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 > **Note**

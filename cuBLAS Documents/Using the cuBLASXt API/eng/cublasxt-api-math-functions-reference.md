@@ -75,9 +75,9 @@ where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices store
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -153,8 +153,8 @@ This function performs the Hermitian matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha AB + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha BA + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha AB + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha BA + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -245,8 +245,8 @@ This function performs the symmetric matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha AB + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha BA + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha AB + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha BA + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -339,8 +339,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -432,8 +432,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -527,8 +527,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\text{ and }B^{T}} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 
@@ -610,8 +610,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -687,8 +687,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -766,8 +766,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -857,8 +857,8 @@ This function solves the triangular linear system with multiple right-hand-sides
 
 
 $\left\{ \begin{matrix}
-{\text{op}(A)X = \alpha B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{X\text{op}(A) = \alpha B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\text{op}(A)X = \alpha B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{X\text{op}(A) = \alpha B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -866,9 +866,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -961,8 +961,8 @@ This function performs the triangular matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha\text{op}(A)B} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha B\text{op}(A)} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha\text{op}(A)B} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha B\text{op}(A)} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 
@@ -970,9 +970,9 @@ where $A$ is a triangular matrix stored in lower or upper mode with or without t
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 
@@ -1083,8 +1083,8 @@ This function performs the symmetric packed matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{\alpha AB + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
-{\alpha BA + \beta C} & {\text{if }\textsf{side == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
+{\alpha AB + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_LEFT}} \\
+{\alpha BA + \beta C} & {\text{if }\textsf{side == CUBLAS\_SIDE\_RIGHT}} \\
 \end{matrix} \right.$
 
 

@@ -28,9 +28,9 @@ $\textbf{x} = \text{op}(A)\textbf{x}$
 其中 $A$ 是以_lower_或_upper_模式存储的三角矩阵，可包含或不包含主对角线，$\mathbf{x}$ 是向量。此外，对于矩阵 $A$
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 | 参数 | 内存 | 输入/输出 | 含义 |

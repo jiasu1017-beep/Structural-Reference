@@ -40,9 +40,9 @@ where $A$ is a triangular matrix stored in packed format, and $\mathbf{x}$ is a 
 
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

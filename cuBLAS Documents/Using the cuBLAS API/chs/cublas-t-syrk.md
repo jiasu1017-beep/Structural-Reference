@@ -43,8 +43,8 @@ $C = \alpha\text{op}(A)\text{op}(A)^{T} + \beta C$
 其中 $\alpha$ 和 $\beta$ 是标量，$C$ 是以下三角模式存储的对称矩阵，$A$ 是维度为 $\text{op}(A)$ $n \times k$ 的矩阵。另外，对于矩阵 $A$
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
 \end{matrix} \right.$
 
 | 参数 | 内存 | 输入/输出 | 含义 |

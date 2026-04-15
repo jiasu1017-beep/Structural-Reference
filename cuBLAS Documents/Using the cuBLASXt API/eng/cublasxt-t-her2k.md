@@ -37,8 +37,8 @@ where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lowe
 
 
 $\text{op(}A\text{) and op(}B\text{)} = \left\{ \begin{matrix}
-{A\text{ and }B} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\text{ and }B} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{H}\text{ and }B^{H}} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

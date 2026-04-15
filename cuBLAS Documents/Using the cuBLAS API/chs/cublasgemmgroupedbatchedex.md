@@ -51,26 +51,26 @@ end
 ```
 
 
-其中 $\text{$\mathrm{alpha\_array}$}$ 和 $\text{$\mathrm{beta\_array}$}$ 是缩放因子数组，$\text{Aarray}$、$\text{Barray}$ 和 $\text{Carray}$ 是指向以列主序格式存储的矩阵的指针数组。对于属于组 $i$ 的给定索引 $\text{idx}$，维度如下：
+其中 $\text{alpha\_array}$ 和 $\text{beta\_array}$ 是缩放因子数组，$\text{Aarray}$、$\text{Barray}$ 和 $\text{Carray}$ 是指向以列主序格式存储的矩阵的指针数组。对于属于组 $i$ 的给定索引 $\text{idx}$，维度如下：
 
 
-> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\)：\(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{k\_array}$}\lbrack i\rbrack\)
-\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\)：\(\text{$\mathrm{k\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
-\(\text{Carray}\lbrack\text{idx}\rbrack\)：\(\text{$\mathrm{m\_array}$}\lbrack i\rbrack \times \text{$\mathrm{n\_array}$}\lbrack i\rbrack\)
+> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\)：\(\text{m\_array}\lbrack i\rbrack \times \text{k\_array}\lbrack i\rbrack\)
+\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\)：\(\text{k\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
+\(\text{Carray}\lbrack\text{idx}\rbrack\)：\(\text{m\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
 
 
 > **注意**
 
-此 API 接收两种不同长度的数组。维度、前导维度、转置和缩放因子数组的长度为 group_count，矩阵数组的长度为 problem_count，其中 \(\text{$\mathrm{problem\_count}$} = \sum_{i = 0}^{\text{$\mathrm{group\_count}$} - 1} \text{$\mathrm{group\_size}$}\lbrack i\rbrack\)
+此 API 接收两种不同长度的数组。维度、前导维度、转置和缩放因子数组的长度为 group_count，矩阵数组的长度为 problem_count，其中 \(\text{problem\_count} = \sum_{i = 0}^{\text{group\_count} - 1} \text{group\_size}\lbrack i\rbrack\)
 
 
 对于组 $i$ 中的矩阵 $A[\text{idx}]$
 
 
 $\text{op}(A[\text{idx}]) = \left\{ \begin{matrix}
-A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_N}} \\
+A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_T}} \\
+A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 

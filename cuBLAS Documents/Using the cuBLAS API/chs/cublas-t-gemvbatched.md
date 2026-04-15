@@ -90,9 +90,9 @@ $\textbf{y}\lbrack i\rbrack = \alpha\text{op}(A\lbrack i\rbrack)\textbf{x}\lbrac
 其中 $\alpha$ 和 $\beta$ 是标量，$A$ 是指向矩阵 $A\lbrack i\rbrack$ 的指针数组，以列优先格式存储，维度为 $m \times n$ ，而 $\textbf{x}$ 和 $\textbf{y}$ 是指向向量的指针数组。同样，对于矩阵 $A\lbrack i\rbrack$ ：
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A\lbrack i\rbrack}^{T} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A\lbrack i\rbrack}^{H} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 > **注意**

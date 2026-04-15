@@ -50,9 +50,9 @@ $C = \alpha\text{op}(A) + \beta\text{op}(B)$
 其中 $\alpha$ 和 $\beta$ 是标量，$A$、$B$ 和 $C$ 是以列主序格式存储的矩阵，维度分别为 $\text{op}(A)$ $m \times n$、$\text{op}(B)$ $m \times n$ 和 $C$ $m \times n$。同样，对于矩阵 $A$：
 
 $\text{op}(A) = \left\{ \begin{matrix}
-A & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_N}$}} \\
-A^{T} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_T}$}} \\
-A^{H} & {\text{if }\textsf{transa == $\mathrm{CUBLAS\_OP\_C}$}} \\
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 $\text{op}(B)$ 对于矩阵 $B$ 的定义与此类似。

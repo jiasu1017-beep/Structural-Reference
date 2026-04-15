@@ -38,8 +38,8 @@ This function performs the matrix-matrix multiplication
 
 
 $C = \left\{ \begin{matrix}
-{A \times diag(X)} & {\text{if }\textsf{mode == $\mathrm{CUBLAS\_SIDE\_RIGHT}$}} \\
-{diag(X) \times A} & {\text{if }\textsf{mode == $\mathrm{CUBLAS\_SIDE\_LEFT}$}} \\
+{A \times diag(X)} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_RIGHT}} \\
+{diag(X) \times A} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_LEFT}} \\
 \end{matrix} \right.$
 
 

@@ -60,9 +60,9 @@ $\text{op}(A\lbrack i \rbrack) X\lbrack i\rbrack = B\lbrack i\rbrack$
 其中，$A\lbrack i\rbrack$ 是经过带部分主元的 LU 分解的矩阵，$X\lbrack i\rbrack$ 和 $B\lbrack i\rbrack$ 是 $n \times {nrhs}$ 矩阵。同样，对于矩阵 $A$：
 
 $\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
-{A\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_N}$}} \\
-{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_T}$}} \\
-{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == $\mathrm{CUBLAS\_OP\_C}$}} \\
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
 \end{matrix} \right.$
 
 此函数适用于矩阵规模较小、启动开销占比较高的场景。

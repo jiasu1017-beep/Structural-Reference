@@ -1,229 +1,770 @@
-## 3.3. cuBLASLt 数据类型参考
+
+
+## 3.3. cuBLASLt Datatypes Reference
+
+
+
 
 ### 3.3.1. cublasLtClusterShape_t
 
-`cublasLtClusterShape_t` 是一个枚举类型，用于配置线程块集群维度。线程块集群增加了一个可选的层级结构，由线程块组成。与线程块类似，这些集群可以是一维、二维或三维的。另请参阅[线程块集群](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#thread-block-clusters)。
 
-| 值 | 描述 |
+cublasLtClusterShape_t is an enumerated type used to configure thread block cluster dimensions. Thread block clusters add an optional hierarchical level and are made up of thread blocks. Similar to thread blocks, these can be one, two, or three-dimensional. See also [Thread Block Clusters](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#thread-block-clusters).
+
+
+| Value | Description |
 | --- | --- |
-| CUBLASLT_CLUSTER_SHAPE_AUTO | 集群形状自动选择。 |
-| CUBLASLT_CLUSTER_SHAPE_1x1x1 | 集群形状为 1 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x2x1 | 集群形状为 1 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x4x1 | 集群形状为 1 x 4 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x1x1 | 集群形状为 2 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x2x1 | 集群形状为 2 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x4x1 | 集群形状为 2 x 4 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_4x1x1 | 集群形状为 4 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_4x2x1 | 集群形状为 4 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_4x4x1 | 集群形状为 4 x 4 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x8x1 | 集群形状为 1 x 8 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_8x1x1 | 集群形状为 8 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x8x1 | 集群形状为 2 x 8 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_8x2x1 | 集群形状为 8 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x16x1 | 集群形状为 1 x 16 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_16x1x1 | 集群形状为 16 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x3x1 | 集群形状为 1 x 3 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x5x1 | 集群形状为 1 x 5 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x6x1 | 集群形状为 1 x 6 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x7x1 | 集群形状为 1 x 7 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x9x1 | 集群形状为 1 x 9 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x10x1 | 集群形状为 1 x 10 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x11x1 | 集群形状为 1 x 11 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x12x1 | 集群形状为 1 x 12 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x13x1 | 集群形状为 1 x 13 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x14x1 | 集群形状为 1 x 14 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_1x15x1 | 集群形状为 1 x 15 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x3x1 | 集群形状为 2 x 3 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x5x1 | 集群形状为 2 x 5 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x6x1 | 集群形状为 2 x 6 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_2x7x1 | 集群形状为 2 x 7 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_3x1x1 | 集群形状为 3 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_3x2x1 | 集群形状为 3 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_3x3x1 | 集群形状为 3 x 3 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_3x4x1 | 集群形状为 3 x 4 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_3x5x1 | 集群形状为 3 x 5 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_4x3x1 | 集群形状为 4 x 3 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_5x1x1 | 集群形状为 5 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_5x2x1 | 集群形状为 5 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_5x3x1 | 集群形状为 5 x 3 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_6x1x1 | 集群形状为 6 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_6x2x1 | 集群形状为 6 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_7x1x1 | 集群形状为 7 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_7x2x1 | 集群形状为 7 x 2 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_9x1x1 | 集群形状为 9 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_10x1x1 | 集群形状为 10 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_11x1x1 | 集群形状为 11 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_12x1x1 | 集群形状为 12 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_13x1x1 | 集群形状为 13 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_14x1x1 | 集群形状为 14 x 1 x 1。 |
-| CUBLASLT_CLUSTER_SHAPE_15x1x1 | 集群形状为 15 x 1 x 1。 |
+| CUBLASLT_CLUSTER_SHAPE_AUTO | Cluster shape is automatically selected. |
+| CUBLASLT_CLUSTER_SHAPE_1x1x1 | Cluster shape is 1 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x2x1 | Cluster shape is 1 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x4x1 | Cluster shape is 1 x 4 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x1x1 | Cluster shape is 2 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x2x1 | Cluster shape is 2 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x4x1 | Cluster shape is 2 x 4 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_4x1x1 | Cluster shape is 4 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_4x2x1 | Cluster shape is 4 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_4x4x1 | Cluster shape is 4 x 4 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x8x1 | Cluster shape is 1 x 8 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_8x1x1 | Cluster shape is 8 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x8x1 | Cluster shape is 2 x 8 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_8x2x1 | Cluster shape is 8 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x16x1 | Cluster shape is 1 x 16 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_16x1x1 | Cluster shape is 16 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x3x1 | Cluster shape is 1 x 3 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x5x1 | Cluster shape is 1 x 5 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x6x1 | Cluster shape is 1 x 6 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x7x1 | Cluster shape is 1 x 7 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x9x1 | Cluster shape is 1 x 9 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x10x1 | Cluster shape is 1 x 10 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x11x1 | Cluster shape is 1 x 11 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x12x1 | Cluster shape is 1 x 12 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x13x1 | Cluster shape is 1 x 13 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x14x1 | Cluster shape is 1 x 14 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_1x15x1 | Cluster shape is 1 x 15 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x3x1 | Cluster shape is 2 x 3 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x5x1 | Cluster shape is 2 x 5 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x6x1 | Cluster shape is 2 x 6 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_2x7x1 | Cluster shape is 2 x 7 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_3x1x1 | Cluster shape is 3 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_3x2x1 | Cluster shape is 3 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_3x3x1 | Cluster shape is 3 x 3 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_3x4x1 | Cluster shape is 3 x 4 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_3x5x1 | Cluster shape is 3 x 5 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_4x3x1 | Cluster shape is 4 x 3 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_5x1x1 | Cluster shape is 5 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_5x2x1 | Cluster shape is 5 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_5x3x1 | Cluster shape is 5 x 3 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_6x1x1 | Cluster shape is 6 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_6x2x1 | Cluster shape is 6 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_7x1x1 | Cluster shape is 7 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_7x2x1 | Cluster shape is 7 x 2 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_9x1x1 | Cluster shape is 9 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_10x1x1 | Cluster shape is 10 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_11x1x1 | Cluster shape is 11 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_12x1x1 | Cluster shape is 12 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_13x1x1 | Cluster shape is 13 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_14x1x1 | Cluster shape is 14 x 1 x 1. |
+| CUBLASLT_CLUSTER_SHAPE_15x1x1 | Cluster shape is 15 x 1 x 1. |
+
+
+
+
 
 ### 3.3.2. cublasLtEpilogue_t
 
-`cublasLtEpilogue_t` 是一个枚举类型，用于设置后处理的收尾选项。
 
-| 值 | 描述 |
+The cublasLtEpilogue_t is an enum type to set the postprocessing options for the epilogue.
+
+
+| Value | Description |
 | --- | --- |
-| CUBLASLT_EPILOGUE_DEFAULT = 1 | 无特殊后处理，仅在必要时对结果进行缩放和量化。 |
-| CUBLASLT_EPILOGUE_RELU = 2 | 对结果应用 ReLU 逐点变换（x := max(x, 0)）。 |
-| CUBLASLT_EPILOGUE_RELU_AUX = CUBLASLT_EPILOGUE_RELU \| 128 | 对结果应用 ReLU 逐点变换（x := max(x, 0)）。此收尾模式产生一个额外输出，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_BIAS = 4 | 应用（广播）来自偏置向量的偏置。偏置向量长度必须与矩阵 D 的行数匹配，且必须是紧凑的（如向量元素之间的步长为 1）。偏置向量被广播到所有列，并在应用最终后处理之前添加。 |
-| CUBLASLT_EPILOGUE_RELU_BIAS = CUBLASLT_EPILOGUE_RELU \| CUBLASLT_EPILOGUE_BIAS | 先应用偏置，然后应用 ReLU 变换。 |
-| CUBLASLT_EPILOGUE_RELU_AUX_BIAS = CUBLASLT_EPILOGUE_RELU_AUX \| CUBLASLT_EPILOGUE_BIAS | 先应用偏置，然后应用 ReLU 变换。此收尾模式产生一个额外输出，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_DRELU = 8 \| 128 | 对矩阵乘法输出应用 ReLU 梯度。在输出矩阵中存储 ReLU 梯度。此收尾模式需要一个额外输入，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_DRELU_BGRAD = CUBLASLT_EPILOGUE_DRELU \| 16 | 对矩阵乘法输出独立应用 ReLU 和偏置梯度。在输出矩阵中存储 ReLU 梯度，在偏置缓冲区中存储偏置梯度（参见 `CUBLASLT_MATMUL_DESC_BIAS_POINTER`）。此收尾模式需要一个额外输入，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_GELU = 32 | 对结果应用 GELU 逐点变换（x := GELU(x)）。 |
-| CUBLASLT_EPILOGUE_GELU_AUX = CUBLASLT_EPILOGUE_GELU \| 128 | 对结果应用 GELU 逐点变换（x := GELU(x)）。此收尾模式将 GELU 输入输出为单独的矩阵（对训练有用）。参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_GELU_BIAS = CUBLASLT_EPILOGUE_GELU \| CUBLASLT_EPILOGUE_BIAS | 应用偏置然后应用 GELU 变换⁵。 |
-| CUBLASLT_EPILOGUE_GELU_AUX_BIAS = CUBLASLT_EPILOGUE_GELU_AUX \| CUBLASLT_EPILOGUE_BIAS | 应用偏置然后应用 GELU 变换⁵。此收尾模式将 GELU 输入输出为单独的矩阵（对训练有用）。参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_DGELU = 64 \| 128 | 对矩阵乘法输出应用 GELU 梯度。在输出矩阵中存储 GELU 梯度。此收尾模式需要一个额外输入，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_DGELU_BGRAD = CUBLASLT_EPILOGUE_DGELU \| 16 | 对矩阵乘法输出独立应用 GELU 和偏置梯度。在输出矩阵中存储 GELU 梯度，在偏置缓冲区中存储偏置梯度（参见 `CUBLASLT_MATMUL_DESC_BIAS_POINTER`）。此收尾模式需要一个额外输入，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER`。 |
-| CUBLASLT_EPILOGUE_BGRADA = 256 | 对输入矩阵 A 应用偏置梯度。偏置大小对应于矩阵 D 的行数。归约发生在 GEMM 的"k"维度上。将偏置梯度存储在偏置缓冲区中，参见 `cublasLtMatmulDescAttributes_t` 中的 `CUBLASLT_MATMUL_DESC_BIAS_POINTER`。 |
-| CUBLASLT_EPILOGUE_BGRADB = 512 | 对输入矩阵 B 应用偏置梯度。偏置大小对应于矩阵 D 的列数。归约发生在 GEMM 的"k"维度上。将偏置梯度存储在偏置缓冲区中，参见 `CUBLASLT_MATMUL_DESC_BIAS_POINTER`。 |
+| CUBLASLT_EPILOGUE_DEFAULT = 1 | No special postprocessing, just scale and quantize the results if necessary. |
+| CUBLASLT_EPILOGUE_RELU = 2 | Apply ReLU point-wise transform to the results (x := max(x, 0)). |
+| CUBLASLT_EPILOGUE_RELU_AUX = CUBLASLT_EPILOGUE_RELU | 128 | Apply ReLU point-wise transform to the results (x := max(x, 0)). This epilogue mode produces an extra output, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_BIAS = 4 | Apply (broadcast) bias from the bias vector. Bias vector length must match matrix D rows, and it must be packed (such as stride between vector elements is 1). Bias vector is broadcast to all columns and added before applying the final postprocessing. |
+| CUBLASLT_EPILOGUE_RELU_BIAS = CUBLASLT_EPILOGUE_RELU = CUBLASLT_EPILOGUE_BIAS | Apply bias and then ReLU transform. |
+| CUBLASLT_EPILOGUE_RELU_AUX_BIAS = CUBLASLT_EPILOGUE_RELU_AUX = CUBLASLT_EPILOGUE_BIAS | Apply bias and then ReLU transform. This epilogue mode produces an extra output, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_DRELU = 8 | 128 | Apply ReLu gradient to matmul output. Store ReLu gradient in the output matrix. This epilogue mode requires an extra input, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_DRELU_BGRAD = CUBLASLT_EPILOGUE_DRELU | 16 | Apply independently ReLu and Bias gradient to matmul output. Store ReLu gradient in the output matrix, and Bias gradient in the bias buffer (see CUBLASLT_MATMUL_DESC_BIAS_POINTER). This epilogue mode requires an extra input, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_GELU = 32 | Apply GELU point-wise transform to the results (x := GELU(x)). |
+| CUBLASLT_EPILOGUE_GELU_AUX = CUBLASLT_EPILOGUE_GELU | 128 | Apply GELU point-wise transform to the results (x := GELU(x)). This epilogue mode outputs GELU input as a separate matrix (useful for training). See CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_GELU_BIAS = CUBLASLT_EPILOGUE_GELU | CUBLASLT_EPILOGUE_BIAS | Apply Bias and then GELU transform 5. |
+| CUBLASLT_EPILOGUE_GELU_AUX_BIAS = CUBLASLT_EPILOGUE_GELU_AUX | CUBLASLT_EPILOGUE_BIAS | Apply Bias and then GELU transform 5. This epilogue mode outputs GELU input as a separate matrix (useful for training). See CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_DGELU = 64 | 128 | Apply GELU gradient to matmul output. Store GELU gradient in the output matrix. This epilogue mode requires an extra input, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_DGELU_BGRAD = CUBLASLT_EPILOGUE_DGELU | 16 | Apply independently GELU and Bias gradient to matmul output. Store GELU gradient in the output matrix, and Bias gradient in the bias buffer (see CUBLASLT_MATMUL_DESC_BIAS_POINTER). This epilogue mode requires an extra input, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_BGRADA = 256 | Apply Bias gradient to the input matrix A. The bias size corresponds to the number of rows of the matrix D. The reduction happens over the GEMM’s “k” dimension. Store Bias gradient in the bias buffer, see CUBLASLT_MATMUL_DESC_BIAS_POINTER of cublasLtMatmulDescAttributes_t. |
+| CUBLASLT_EPILOGUE_BGRADB = 512 | Apply Bias gradient to the input matrix B. The bias size corresponds to the number of columns of the matrix D. The reduction happens over the GEMM’s “k” dimension. Store Bias gradient in the bias buffer, see CUBLASLT_MATMUL_DESC_BIAS_POINTER of cublasLtMatmulDescAttributes_t. |
 
-**注意事项：**
 
-**⁵(1,2)**
-: GELU（高斯误差线性单元）通过以下公式近似：\({0.5}x\left( 1 + \text{tanh}\left( \sqrt{2/\pi}\left( x + {0.044715}x^{3} \right) \right) \right)\)
+**NOTES:**
 
-> **注意**
->
-> 注意
-> 当任何矩阵的 `cublasLtBatchMode_t` 设置为 `CUBLASLT_BATCH_MODE_POINTER_ARRAY` 时，仅支持 `CUBLASLT_EPILOGUE_DEFAULT`。
-> 当任何矩阵的 `cublasLtBatchMode_t` 设置为 `CUBLASLT_BATCH_MODE_GROUPED` 时，仅支持 `CUBLASLT_EPILOGUE_DEFAULT` 和 `CUBLASLT_EPILOGUE_BIAS`。
+
+**5(1,2)**
+: GELU (Gaussian Error Linear Unit) is approximated by: \({0.5}x\left( 1 + \text{tanh}\left( \sqrt{2/\pi}\left( x + {0.044715}x^{3} \right) \right) \right)\)
+
+
+
+> **Note**
+
+Note
+Only CUBLASLT_EPILOGUE_DEFAULT is supported when cublasLtBatchMode_t of any matrix is set to CUBLASLT_BATCH_MODE_POINTER_ARRAY.
+Only CUBLASLT_EPILOGUE_DEFAULT and CUBLASLT_EPILOGUE_BIAS are supported when cublasLtBatchMode_t of any matrix is set to CUBLASLT_BATCH_MODE_GROUPED.
+
+
+
+
 
 ### 3.3.3. cublasLtHandle_t
 
-`cublasLtHandle_t` 类型是指向保存 cuBLASLt 库上下文的不透明结构体的指针类型。使用 `cublasLtCreate()` 初始化 cuBLASLt 库上下文并返回指向保存 cuBLASLt 库上下文的不透明结构体的句柄，并使用 `cublasLtDestroy()` 销毁先前创建的 cuBLASLt 库上下文描述符并释放资源。
 
-> **注意**
->
-> 注意
-> cuBLAS 句柄（`cublasHandle_t`）封装了一个 cuBLASLt 句柄。任何有效的 `cublasHandle_t` 都可以通过简单类型转换来替代 `cublasLtHandle_t` 使用。但是，与 cuBLAS 句柄不同，cuBLASLt 句柄不绑定到任何特定的 CUDA 上下文，但绑定到图形上下文的 CUDA 上下文除外（从 CUDA 12.8 开始）。如果在当前 CUDA 上下文绑定到图形上下文时创建了 cuBLASLt 句柄，则 cuBLASLt 会检测相应的共享内存限制并将其记录在句柄中。
+The cublasLtHandle_t type is a pointer type to an opaque structure holding the cuBLASLt  library context. Use cublasLtCreate() to initialize the cuBLASLt library context and return a handle to an opaque structure holding the cuBLASLt library context, and use cublasLtDestroy() to destroy a previously created cuBLASLt library context descriptor and release the resources.
+
+
+> **Note**
+
+Note
+cuBLAS handle (cublasHandle_t) encapsulates a cuBLASLt handle. Any valid cublasHandle_t can be used in place of cublasLtHandle_t with a simple cast. However, unlike a cuBLAS handle, a cuBLASLt handle is not tied to any particular CUDA context with the exception of CUDA contexts tied to a graphics context (starting from CUDA 12.8). If a cuBLASLt handle is created when the current CUDA context is tied to a graphics context, then cuBLASLt detects the corresponding shared memory limitations and records it in the handle.
+
+
+
+
 
 ### 3.3.4. cublasLtLoggerCallback_t
 
-`cublasLtLoggerCallback_t` 是回调函数指针类型。可以使用 `cublasLtLoggerSetCallback()` 设置回调函数。
 
-**参数**：
+cublasLtLoggerCallback_t is a callback function pointer type. A callback function can be set using cublasLtLoggerSetCallback().
 
-| 参数 | 内存 | 输入/输出 | 描述 |
+
+**Parameters**:
+
+
+| Parameter | Memory | Input / Output | Description |
 | --- | --- | --- | --- |
-| logLevel |  | 输出 | 参见 cuBLASLt 日志记录。 |
-| functionName |  | 输出 | 记录此消息的 API 名称。 |
-| message |  | 输出 | 日志消息。 |
+| logLevel |  | Output | See cuBLASLt Logging. |
+| functionName |  | Output | The name of the API that logged this message. |
+| message |  | Output | The log message. |
+
+
+
+
 
 ### 3.3.5. cublasLtMatmulAlgo_t
 
-`cublasLtMatmulAlgo_t` 是一个不透明结构体，保存矩阵乘法算法的描述。该结构体可以简单地序列化，并在以后与相同版本的 cuBLAS 库一起恢复使用，以避免再次选择正确的配置。
+
+cublasLtMatmulAlgo_t is an opaque structure holding the description of the matrix multiplication algorithm. This structure can be trivially serialized and later restored for use with the same version of cuBLAS library to save on selecting the right configuration again.
+
+
+
+
 
 ### 3.3.6. cublasLtMatmulAlgoCapAttributes_t
 
-`cublasLtMatmulAlgoCapAttributes_t` 枚举了矩阵乘法算法能力属性，可以使用 `cublasLtMatmulAlgoCapGetAttribute()` 从初始化的 `cublasLtMatmulAlgo_t` 描述符中检索。
 
-| 值 | 描述 | 数据类型 |
+cublasLtMatmulAlgoCapAttributes_t enumerates matrix multiplication algorithm capability attributes that can be retrieved from an initialized cublasLtMatmulAlgo_t descriptor using cublasLtMatmulAlgoCapGetAttribute().
+
+
+| Value | Description | Data Type |
 | --- | --- | --- |
-| CUBLASLT_ALGO_CAP_SPLITK_SUPPORT | Split-K 支持。布尔值（0 或 1）表示是否支持 split-K 实现。0 表示不支持，否则表示支持。参见 `cublasLtMatmulAlgoConfigAttributes_t` 中的 `CUBLASLT_ALGO_CONFIG_SPLITK_NUM`。 | int32_t |
-| CUBLASLT_ALGO_CAP_REDUCTION_SCHEME_MASK | 表示支持的归约方案类型的掩码，参见 `cublasLtReductionScheme_t`。如果归约方案未被掩码排除，则表示支持。例如：int isReductionSchemeComputeTypeSupported ? (reductionSchemeMask & CUBLASLT_REDUCTION_SCHEME_COMPUTE_TYPE) == CUBLASLT_REDUCTION_SCHEME_COMPUTE_TYPE ? 1 : 0; | uint32_t |
-| CUBLASLT_ALGO_CAP_CTA_SWIZZLING_SUPPORT | CTA-swizzling 支持。布尔值（0 或 1）表示是否支持 CTA-swizzling 实现。0 表示不支持，1 表示支持值 1；其他值保留。另请参见 `cublasLtMatmulAlgoConfigAttributes_t` 中的 `CUBLASLT_ALGO_CONFIG_CTA_SWIZZLING`。 | uint32_t |
-| CUBLASLT_ALGO_CAP_STRIDED_BATCH_SUPPORT | 支持步进批处理。0 表示不支持，否则表示支持。 | int32_t |
-| CUBLASLT_ALGO_CAP_POINTER_ARRAY_BATCH_SUPPORT | 支持指针数组批处理。0 表示不支持，否则表示支持。 | int32_t |
-| CUBLASLT_ALGO_CAP_POINTER_ARRAY_GROUPED_SUPPORT | 实验性：支持指针数组分组批处理。0 表示不支持，否则表示支持。参见 `cublasLtBatchMode_t` 中的 `CUBLASLT_BATCH_MODE_GROUPED`。 | int32_t |
-| CUBLASLT_ALGO_CAP_OUT_OF_PLACE_RESULT_SUPPORT | 支持结果原地输出（D ≠ C，公式为 D = alpha.A.B + beta.C）。0 表示不支持，否则表示支持。 | int32_t |
-| CUBLASLT_ALGO_CAP_UPLO_SUPPORT | Syrk（对称秩 k 更新）/herk（埃尔米特秩 k 更新）支持（在常规 gemm 之上）。0 表示不支持，否则表示支持。 | int32_t |
-| CUBLASLT_ALGO_CAP_TILE_IDS | 可使用的瓦片 ID。参见 `cublasLtMatmulTile_t`。如果不支持任何瓦片 ID，则使用 `CUBLASLT_MATMUL_TILE_UNDEFINED`。使用 `cublasLtMatmulAlgoCapGetAttribute()` 且 `sizeInBytes = 0` 来查询实际数量。 | uint32_t[] |
-| CUBLASLT_ALGO_CAP_STAGES_IDS | 可使用的阶段 ID。参见 `cublasLtMatmulStages_t`。如果不支持任何阶段 ID，则使用 `CUBLASLT_MATMUL_STAGES_UNDEFINED`。使用 `cublasLtMatmulAlgoCapGetAttribute()` 且 `sizeInBytes = 0` 来查询实际数量。 | uint32_t[] |
-| CUBLASLT_ALGO_CAP_CUSTOM_OPTION_MAX | 自定义选项范围从 0 到 `CUBLASLT_ALGO_CAP_CUSTOM_OPTION_MAX`（包含）。参见 `cublasLtMatmulAlgoConfigAttributes_t` 中的 `CUBLASLT_ALGO_CONFIG_CUSTOM_OPTION`。 | int32_t |
-| CUBLASLT_ALGO_CAP_MATHMODE_IMPL | 指示算法使用的是常规计算还是张量运算。0 表示常规计算，1 表示张量运算。
-已弃用 | int32_t |
-| CUBLASLT_ALGO_CAP_GAUSSIAN_IMPL | 指示算法是否实现了复数矩阵乘法的高斯优化。0 表示常规计算；1 表示高斯。参见 `cublasMath_t`。
-已弃用 | int32_t |
-| CUBLASLT_ALGO_CAP_CUSTOM_MEMORY_ORDER | 指示算法是否支持自定义（非 COL 或 ROW 内存顺序）。0 表示仅允许 COL 和 ROW 内存顺序，非零值表示算法可能有不同的要求。参见 `cublasLtOrder_t`。 | int32_t |
-| CUBLASLT_ALGO_CAP_POINTER_MODE_MASK | 枚举算法支持的指针模式的位掩码。参见 `cublasLtPointerModeMask_t`。 | uint32_t |
-| CUBLASLT_ALGO_CAP_EPILOGUE_MASK | 枚举收尾中支持的后处理算法类型的位掩码。参见 `cublasLtEpilogue_t`。 | uint32_t |
-| CUBLASLT_ALGO_CAP_LD_NEGATIVE | 所有矩阵支持负前导维度。0 表示不支持，否则表示支持。 | uint32_t |
-| CUBLASLT_ALGO_CAP_NUMERICAL_IMPL_FLAGS | 影响算法数值行为的实现细节。参见 `cublasLtNumericalImplFlags_t`。 | uint64_t |
-| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_A_BYTES | A 矩阵所需的最小字节对齐。 | uint32_t |
-| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_B_BYTES | B 矩阵所需的最小字节对齐。 | uint32_t |
-| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_C_BYTES | C 矩阵所需的最小字节对齐。 | uint32_t |
-| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_D_BYTES | D 矩阵所需的最小字节对齐。 | uint32_t |
-| CUBLASLT_ALGO_CAP_FLOATING_POINT_EMULATION_SUPPORT | 浮点仿真的支持。参见浮点仿真。 | int32_t |
+| CUBLASLT_ALGO_CAP_SPLITK_SUPPORT | Support for split-K. Boolean (0 or 1) to express if split-K implementation is supported. 0 means no support, and supported otherwise. See CUBLASLT_ALGO_CONFIG_SPLITK_NUM of cublasLtMatmulAlgoConfigAttributes_t. | int32_t |
+| CUBLASLT_ALGO_CAP_REDUCTION_SCHEME_MASK | Mask to express the types of reduction schemes supported, see cublasLtReductionScheme_t. If the reduction scheme is not masked out then it is supported. For example: int isReductionSchemeComputeTypeSupported ? (reductionSchemeMask & CUBLASLT_REDUCTION_SCHEME_COMPUTE_TYPE) == CUBLASLT_REDUCTION_SCHEME_COMPUTE_TYPE ? 1 : 0; | uint32_t |
+| CUBLASLT_ALGO_CAP_CTA_SWIZZLING_SUPPORT | Support for CTA-swizzling. Boolean (0 or 1) to express if CTA-swizzling implementation is supported. 0 means no support, and 1 means supported value of 1; other values are reserved. See also CUBLASLT_ALGO_CONFIG_CTA_SWIZZLING of cublasLtMatmulAlgoConfigAttributes_t. | uint32_t |
+| CUBLASLT_ALGO_CAP_STRIDED_BATCH_SUPPORT | Support strided batch. 0 means no support, supported otherwise. | int32_t |
+| CUBLASLT_ALGO_CAP_POINTER_ARRAY_BATCH_SUPPORT | Support pointer array batch. 0 means no support, supported otherwise. | int32_t |
+| CUBLASLT_ALGO_CAP_POINTER_ARRAY_GROUPED_SUPPORT | Experimental: Support pointer array grouped batch. 0 means no support, supported otherwise. See CUBLASLT_BATCH_MODE_GROUPED of cublasLtBatchMode_t. | int32_t |
+| CUBLASLT_ALGO_CAP_OUT_OF_PLACE_RESULT_SUPPORT | Support results out of place (D != C in D = alpha.A.B + beta.C). 0 means no support, supported otherwise. | int32_t |
+| CUBLASLT_ALGO_CAP_UPLO_SUPPORT | Syrk (symmetric rank k update)/herk (Hermitian rank k update) support (on top of regular gemm). 0 means no support, supported otherwise. | int32_t |
+| CUBLASLT_ALGO_CAP_TILE_IDS | The tile ids possible to use. See cublasLtMatmulTile_t. If no tile ids are supported then use CUBLASLT_MATMUL_TILE_UNDEFINED. Use cublasLtMatmulAlgoCapGetAttribute() with sizeInBytes = 0 to query the actual count. | uint32_t[] |
+| CUBLASLT_ALGO_CAP_STAGES_IDS | The stages ids possible to use. See cublasLtMatmulStages_t. If no stages ids are supported then use CUBLASLT_MATMUL_STAGES_UNDEFINED. Use cublasLtMatmulAlgoCapGetAttribute() with sizeInBytes = 0 to query the actual count. | uint32_t[] |
+| CUBLASLT_ALGO_CAP_CUSTOM_OPTION_MAX | Custom option range is from 0 to CUBLASLT_ALGO_CAP_CUSTOM_OPTION_MAX (inclusive). See CUBLASLT_ALGO_CONFIG_CUSTOM_OPTION of cublasLtMatmulAlgoConfigAttributes_t . | int32_t |
+| CUBLASLT_ALGO_CAP_MATHMODE_IMPL | Indicates whether the algorithm is using regular compute or tensor operations. 0 means regular compute, 1 means tensor operations.
+DEPRECATED | int32_t |
+| CUBLASLT_ALGO_CAP_GAUSSIAN_IMPL | Indicate whether the algorithm implements the Gaussian optimization of complex matrix multiplication. 0 means regular compute; 1 means Gaussian. See cublasMath_t.
+DEPRECATED | int32_t |
+| CUBLASLT_ALGO_CAP_CUSTOM_MEMORY_ORDER | Indicates whether the algorithm supports custom (not COL or ROW memory order). 0 means only COL and ROW memory order is allowed, non-zero means that algo might have different requirements. See cublasLtOrder_t. | int32_t |
+| CUBLASLT_ALGO_CAP_POINTER_MODE_MASK | Bitmask enumerating the pointer modes the algorithm supports. See cublasLtPointerModeMask_t. | uint32_t |
+| CUBLASLT_ALGO_CAP_EPILOGUE_MASK | Bitmask enumerating the kinds of postprocessing algorithm supported in the epilogue. See cublasLtEpilogue_t. | uint32_t |
+| CUBLASLT_ALGO_CAP_LD_NEGATIVE | Support for negative leading dimension for all of the matrices. 0 means no support, supported otherwise. | uint32_t |
+| CUBLASLT_ALGO_CAP_NUMERICAL_IMPL_FLAGS | Details about algorithm’s implementation that affect it’s numerical behavior. See cublasLtNumericalImplFlags_t. | uint64_t |
+| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_A_BYTES | Minimum alignment required for A matrix in bytes. | uint32_t |
+| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_B_BYTES | Minimum alignment required for B matrix in bytes. | uint32_t |
+| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_C_BYTES | Minimum alignment required for C matrix in bytes. | uint32_t |
+| CUBLASLT_ALGO_CAP_MIN_ALIGNMENT_D_BYTES | Minimum alignment required for D matrix in bytes. | uint32_t |
+| CUBLASLT_ALGO_CAP_FLOATING_POINT_EMULATION_SUPPORT | Support for for floating point emulation. See Floating Point Emulation. | int32_t |
+
+
+
+
 
 ### 3.3.7. cublasLtMatmulAlgoConfigAttributes_t
 
-`cublasLtMatmulAlgoConfigAttributes_t` 是一个枚举类型，包含 cuBLASLt 矩阵乘法算法的配置属性。配置属性是特定于算法的，可以设置。给定算法的属性配置应与其能力属性一致。使用 `cublasLtMatmulAlgoConfigGetAttribute()` 和 `cublasLtMatmulAlgoConfigSetAttribute()` 获取和设置矩阵乘法算法描述符的属性值。
 
-| 值 | 描述 | 数据类型 |
+cublasLtMatmulAlgoConfigAttributes_t is an enumerated type that contains the configuration attributes for cuBLASLt matrix multiply algorithms. The configuration attributes are algorithm-specific, and can be set. The attributes configuration of a given algorithm should agree with its capability attributes. Use cublasLtMatmulAlgoConfigGetAttribute() and cublasLtMatmulAlgoConfigSetAttribute() to get and set the attribute value of a matmul algorithm descriptor.
+
+
+| Value | Description | Data Type |
 | --- | --- | --- |
-| CUBLASLT_ALGO_CONFIG_ID | 只读属性。算法索引。参见 `cublasLtMatmulAlgoGetIds()`。由 `cublasLtMatmulAlgoInit()` 设置。 | int32_t |
-| CUBLASLT_ALGO_CONFIG_TILE_ID | 瓦片 ID。参见 `cublasLtMatmulTile_t`。默认值：`CUBLASLT_MATMUL_TILE_UNDEFINED`。 | uint32_t |
-| CUBLASLT_ALGO_CONFIG_STAGES_ID | 阶段 ID，参见 `cublasLtMatmulStages_t`。默认值：`CUBLASLT_MATMUL_STAGES_UNDEFINED`。 | uint32_t |
-| CUBLASLT_ALGO_CONFIG_SPLITK_NUM | K 分裂数量。如果 K 分裂数量大于 1，则矩阵乘法的 SPLITK_NUM 部分将并行计算。结果将根据 `CUBLASLT_ALGO_CONFIG_REDUCTION_SCHEME` 进行累积。 | uint32_t |
-| CUBLASLT_ALGO_CONFIG_REDUCTION_SCHEME | 当 splitK 值 > 1 时使用的归约方案。默认值：`CUBLASLT_REDUCTION_SCHEME_NONE`。参见 `cublasLtReductionScheme_t`。 | uint32_t |
-| CUBLASLT_ALGO_CONFIG_CTA_SWIZZLING | 启用/禁用 CTA swizzling。更改从 CUDA 网格坐标到矩阵部分的映射。可能的值：0 和 1；其他值保留。 | uint32_t |
-| CUBLASLT_ALGO_CONFIG_CUSTOM_OPTION | 自定义选项值。每个算法可以支持一些不适合其他配置属性描述的自定义选项。参见 `cublasLtMatmulAlgoCapAttributes_t` 中的 `CUBLASLT_ALGO_CAP_CUSTOM_OPTION_MAX` 以获取特定情况下可接受的范围。 | uint32_t |
-| CUBLASLT_ALGO_CONFIG_INNER_SHAPE_ID | 内部形状 ID。参见 `cublasLtMatmulInnerShape_t`。默认值：`CUBLASLT_MATMUL_INNER_SHAPE_UNDEFINED`。 | uint16_t |
-| CUBLASLT_ALGO_CONFIG_CLUSTER_SHAPE_ID | 集群形状 ID。参见 `cublasLtClusterShape_t`。默认值：`CUBLASLT_CLUSTER_SHAPE_AUTO`。 | uint16_t |
+| CUBLASLT_ALGO_CONFIG_ID | Read-only attribute. Algorithm index. See cublasLtMatmulAlgoGetIds(). Set by cublasLtMatmulAlgoInit(). | int32_t |
+| CUBLASLT_ALGO_CONFIG_TILE_ID | Tile id. See cublasLtMatmulTile_t. Default: CUBLASLT_MATMUL_TILE_UNDEFINED. | uint32_t |
+| CUBLASLT_ALGO_CONFIG_STAGES_ID | stages id, see cublasLtMatmulStages_t. Default: CUBLASLT_MATMUL_STAGES_UNDEFINED. | uint32_t |
+| CUBLASLT_ALGO_CONFIG_SPLITK_NUM | Number of K splits. If the number of K splits is greater than one, SPLITK_NUM parts of matrix multiplication will be computed in parallel. The results will be accumulated according to CUBLASLT_ALGO_CONFIG_REDUCTION_SCHEME. | uint32_t |
+| CUBLASLT_ALGO_CONFIG_REDUCTION_SCHEME | Reduction scheme to use when splitK value > 1. Default: CUBLASLT_REDUCTION_SCHEME_NONE. See cublasLtReductionScheme_t. | uint32_t |
+| CUBLASLT_ALGO_CONFIG_CTA_SWIZZLING | Enable/Disable CTA swizzling. Change mapping from CUDA grid coordinates to parts of the matrices. Possible values: 0 and 1; other values reserved. | uint32_t |
+| CUBLASLT_ALGO_CONFIG_CUSTOM_OPTION | Custom option value. Each algorithm can support some custom options that don’t fit the description of the other configuration attributes. See the CUBLASLT_ALGO_CAP_CUSTOM_OPTION_MAX of cublasLtMatmulAlgoCapAttributes_t for the accepted range for a specific case. | uint32_t |
+| CUBLASLT_ALGO_CONFIG_INNER_SHAPE_ID | Inner shape ID. Refer to cublasLtMatmulInnerShape_t. Default: CUBLASLT_MATMUL_INNER_SHAPE_UNDEFINED. | uint16_t |
+| CUBLASLT_ALGO_CONFIG_CLUSTER_SHAPE_ID | Cluster shape ID. Refer to cublasLtClusterShape_t. Default: CUBLASLT_CLUSTER_SHAPE_AUTO. | uint16_t |
+
+
+
+
 
 ### 3.3.8. cublasLtMatmulDesc_t
 
-`cublasLtMatmulDesc_t` 是指向不透明结构体的指针，该结构体保存矩阵乘法操作 `cublasLtMatmul()` 的描述。可以通过调用 `cublasLtMatmulDescCreate()` 创建描述符，并通过调用 `cublasLtMatmulDescDestroy()` 销毁描述符。
+
+The cublasLtMatmulDesc_t is a pointer to an opaque structure holding the description of the matrix multiplication operation cublasLtMatmul(). A descriptor can be created by calling cublasLtMatmulDescCreate() and destroyed by calling cublasLtMatmulDescDestroy().
+
+
+
+
 
 ### 3.3.9. cublasLtMatmulDescAttributes_t
 
-`cublasLtMatmulDescAttributes_t` 是一个描述符结构体，包含定义矩阵乘法操作细节的属性。使用 `cublasLtMatmulDescGetAttribute()` 和 `cublasLtMatmulDescSetAttribute()` 获取和设置矩阵乘法描述符的属性值。
 
-| 值 | 描述 | 数据类型 |
+cublasLtMatmulDescAttributes_t is a descriptor structure containing the attributes that define the specifics of the matrix multiply operation. Use cublasLtMatmulDescGetAttribute() and cublasLtMatmulDescSetAttribute() to get and set the attribute value of a matmul descriptor.
+
+
+| Value | Description | Data Type |
 | --- | --- | --- |
-| CUBLASLT_MATMUL_DESC_COMPUTE_TYPE | 计算类型。定义用于乘累加操作的数据类型，以及矩阵乘法期间的累加器类型。参见 `cublasComputeType_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_SCALE_TYPE | 缩放类型。定义缩放因子 alpha 和 beta 的数据类型。累加器值和来自矩阵 C 的值在最终缩放之前通常会转换为缩放类型。然后在存储到内存之前，值会从缩放类型转换为矩阵 D 的类型。默认值取决于 `CUBLASLT_MATMUL_DESC_COMPUTE_TYPE`。参见 `cudaDataType_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_POINTER_MODE | 指定 alpha 和 beta 是通过引用传递的，它们是主机上的标量、设备上的标量还是设备向量。默认值：`CUBLASLT_POINTER_MODE_HOST`（即在主机上）。参见 `cublasLtPointerMode_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_TRANSA | 指定应在矩阵 A 上执行的变换操作类型。默认值：`CUBLAS_OP_N`（即非转置操作）。参见 `cublasOperation_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_TRANSB | 指定应在矩阵 B 上执行的变换操作类型。默认值：`CUBLAS_OP_N`（即非转置操作）。参见 `cublasOperation_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_TRANSC | 指定应在矩阵 C 上执行的变换操作类型。当前仅支持 `CUBLAS_OP_N`。默认值：`CUBLAS_OP_N`（即非转置操作）。参见 `cublasOperation_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_FILL_MODE | 指示稠密矩阵的哪一部分被填充，因此应该被函数使用。当前此标志不支持 bfloat16 或 FP8 数据类型，也不支持以下 GPU：Hopper、Blackwell。默认值：`CUBLAS_FILL_MODE_FULL`。参见 `cublasFillMode_t`。 | int32_t |
-| CUBLASLT_MATMUL_DESC_EPILOGUE | 收尾函数。参见 `cublasLtEpilogue_t`。默认值：`CUBLASLT_EPILOGUE_DEFAULT`。 | uint32_t |
-| CUBLASLT_MATMUL_DESC_BIAS_POINTER | 设备内存中偏置或偏置梯度向量指针。
+| CUBLASLT_MATMUL_DESC_COMPUTE_TYPE | Compute type. Defines the data type used for multiply and accumulate operations, and the accumulator during the matrix multiplication. See cublasComputeType_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_SCALE_TYPE | Scale type. Defines the data type of the scaling factors alpha and beta. The accumulator value and the value from matrix C are typically converted to scale type before final scaling. The value is then converted from scale type to the type of matrix D before storing in memory. The default value depends on CUBLASLT_MATMUL_DESC_COMPUTE_TYPE. See cudaDataType_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_POINTER_MODE | Specifies alpha and beta are passed by reference, whether they are scalars on the host or on the device, or device vectors. Default value is: CUBLASLT_POINTER_MODE_HOST (i.e., on the host). See cublasLtPointerMode_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_TRANSA | Specifies the type of transformation operation that should be performed on matrix A. Default value is: CUBLAS_OP_N (i.e., non-transpose operation). See cublasOperation_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_TRANSB | Specifies the type of transformation operation that should be performed on matrix B. Default value is: CUBLAS_OP_N (i.e., non-transpose operation). See cublasOperation_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_TRANSC | Specifies the type of transformation operation that should be performed on matrix C. Currently only CUBLAS_OP_N is supported. Default value is: CUBLAS_OP_N (i.e., non-transpose operation). See cublasOperation_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_FILL_MODE | Indicates whether the lower or upper part of the dense matrix was filled, and consequently should be used by the function. Currently this flag is not supported for bfloat16 or FP8 data types and is not supported on the following GPUs: Hopper, Blackwell. Default value is: CUBLAS_FILL_MODE_FULL. See cublasFillMode_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_EPILOGUE | Epilogue function. See cublasLtEpilogue_t. Default value is: CUBLASLT_EPILOGUE_DEFAULT. | uint32_t |
+| CUBLASLT_MATMUL_DESC_BIAS_POINTER | Bias or Bias gradient vector pointer in the device memory.
 
-使用以下收尾之一时：矩阵 D 行数匹配长度的输入向量 `CUBLASLT_EPILOGUE_BIAS`、`CUBLASLT_EPILOGUE_RELU_BIAS`、`CUBLASLT_EPILOGUE_RELU_AUX_BIAS`、`CUBLASLT_EPILOGUE_GELU_BIAS`、`CUBLASLT_EPILOGUE_GELU_AUX_BIAS`。
-使用以下收尾之一时：矩阵 D 行数匹配长度的输出向量 `CUBLASLT_EPILOGUE_DRELU_BGRAD`、`CUBLASLT_EPILOGUE_DGELU_BGRAD`、`CUBLASLT_EPILOGUE_BGRADA`。
-使用以下收尾之一时：矩阵 D 列数匹配长度的输出向量 `CUBLASLT_EPILOGUE_BGRADB`。
+Input vector with length that matches the number of rows of matrix D when one of the following epilogues is used: CUBLASLT_EPILOGUE_BIAS, CUBLASLT_EPILOGUE_RELU_BIAS, CUBLASLT_EPILOGUE_RELU_AUX_BIAS, CUBLASLT_EPILOGUE_GELU_BIAS, CUBLASLT_EPILOGUE_GELU_AUX_BIAS.
+Output vector with length that matches the number of rows of matrix D when one of the following epilogues is used: CUBLASLT_EPILOGUE_DRELU_BGRAD, CUBLASLT_EPILOGUE_DGELU_BGRAD, CUBLASLT_EPILOGUE_BGRADA.
+Output vector with length that matches the number of columns of matrix D when one of the following epilogues is used: CUBLASLT_EPILOGUE_BGRADB.
 
-当矩阵 D 数据类型为 `CUDA_R_8I` 时，偏置向量元素类型与 alpha 和 beta 相同（参见本表中的 `CUBLASLT_MATMUL_DESC_SCALE_TYPE`），否则与矩阵 D 数据类型相同。参见 `cublasLtMatmul()` 下的数据类型表以获取详细映射。默认值：NULL。 | void * / const void * |
-| CUBLASLT_MATMUL_DESC_BIAS_BATCH_STRIDE | 步进批操作中下一个偏置或偏置梯度向量的步长（以元素为单位）。如果任何矩阵的 `cublasLtBatchMode_t` 设置为 `CUBLASLT_BATCH_MODE_GROUPED` 且 `CUBLASLT_MATMUL_DESC_EPILOGUE` 包含 `CUBLASLT_EPILOGUE_BIAS`，则必须将 `CUBLASLT_MATMUL_DESC_BIAS_BATCH_STRIDE` 设置为 1。默认值为 0。 | int64_t |
-| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER | 收尾辅助缓冲区指针。
+Bias vector elements are the same type as alpha and beta (see CUBLASLT_MATMUL_DESC_SCALE_TYPE in this table) when matrix D datatype is CUDA_R_8I and same as matrix D datatype otherwise. See the datatypes table under cublasLtMatmul() for detailed mapping. Default value is: NULL. | void * / const void * |
+| CUBLASLT_MATMUL_DESC_BIAS_BATCH_STRIDE | Stride (in elements) to the next bias or bias gradient vector for strided batch operations. If cublasLtBatchMode_t of any matrix is set to CUBLASLT_BATCH_MODE_GROUPED and CUBLASLT_MATMUL_DESC_EPILOGUE includes CUBLASLT_EPILOGUE_BIAS then CUBLASLT_MATMUL_DESC_BIAS_BATCH_STRIDE must be set to 1. The default value is 0. | int64_t |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER | Pointer for epilogue auxiliary buffer.
 
-使用 `CUBLASLT_EPILOGUE_RELU_AUX` 或 `CUBLASLT_EPILOGUE_RELU_AUX_BIAS` 收尾时，前向传播中的 ReLu 位掩码输出向量。
-使用 `CUBLASLT_EPILOGUE_DRELU` 或 `CUBLASLT_EPILOGUE_DRELU_BGRAD` 收尾时，反向传播中的 ReLu 位掩码输入向量。
-使用 `CUBLASLT_EPILOGUE_GELU_AUX_BIAS` 收尾时，前向传播中的 GELU 输入矩阵输出。
-使用 `CUBLASLT_EPILOGUE_DGELU` 或 `CUBLASLT_EPILOGUE_DGELU_BGRAD` 收尾时，反向传播中的 GELU 输入矩阵输入。
+Output vector for ReLu bit-mask in forward pass when CUBLASLT_EPILOGUE_RELU_AUX or CUBLASLT_EPILOGUE_RELU_AUX_BIAS epilogue is used.
+Input vector for ReLu bit-mask in backward pass when CUBLASLT_EPILOGUE_DRELU or CUBLASLT_EPILOGUE_DRELU_BGRAD epilogue is used.
+Output of GELU input matrix in forward pass when CUBLASLT_EPILOGUE_GELU_AUX_BIAS epilogue is used.
+Input of GELU input matrix for backward pass when CUBLASLT_EPILOGUE_DGELU or CUBLASLT_EPILOGUE_DGELU_BGRAD epilogue is used.
 
-有关辅助数据类型，参见 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_DATA_TYPE`。不取消引用此指针的例程（如 `cublasLtMatmulAlgoGetHeuristic()`）依赖于其值来确定预期的指针对齐方式。需要设置 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_LD` 属性。 | void * / const void * |
-| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_LD | 收尾辅助缓冲区的前导维度。
+For aux data type, see CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_DATA_TYPE. Routines that don’t dereference this pointer, like cublasLtMatmulAlgoGetHeuristic() depend on its value to determine expected pointer alignment. Requires setting the CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_LD attribute. | void * / const void * |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_LD | Leading dimension for epilogue auxiliary buffer.
 
-使用 `CUBLASLT_EPILOGUE_RELU_AUX`、`CUBLASLT_EPILOGUE_RELU_AUX_BIAS`、`CUBLASLT_EPILOGUE_DRELU_BGRAD` 或 `CUBLASLT_EPILOGUE_DRELU_BGRAD` 收尾时，ReLu 位掩码矩阵的前导维度（以元素/位为单位）。必须能被 128 整除，且不小于输出矩阵的行数。
-使用 `CUBLASLT_EPILOGUE_GELU_AUX_BIAS`、`CUBLASLT_EPILOGUE_DGELU` 或 `CUBLASLT_EPILOGUE_DGELU_BGRAD` 收尾时，GELU 输入矩阵的前导维度（以元素为单位）。必须能被 8 整除，且不小于输出矩阵的行数。 | int64_t |
-| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_BATCH_STRIDE | 收尾辅助缓冲区的批处理步长。
+ReLu bit-mask matrix leading dimension in elements (i.e. bits) when CUBLASLT_EPILOGUE_RELU_AUX, CUBLASLT_EPILOGUE_RELU_AUX_BIAS, CUBLASLT_EPILOGUE_DRELU_BGRAD, or CUBLASLT_EPILOGUE_DRELU_BGRAD epilogue is used. Must be divisible by 128 and be no less than the number of rows in the output matrix.
+GELU input matrix leading dimension in elements when CUBLASLT_EPILOGUE_GELU_AUX_BIAS, CUBLASLT_EPILOGUE_DGELU,  or CUBLASLT_EPILOGUE_DGELU_BGRAD epilogue used. Must be divisible by 8 and be no less than the number of rows in the output matrix. | int64_t |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_BATCH_STRIDE | Batch stride for epilogue auxiliary buffer.
 
-使用 `CUBLASLT_EPILOGUE_RELU_AUX`、`CUBLASLT_EPILOGUE_RELU_AUX_BIAS` 或 `CUBLASLT_EPILOGUE_DRELU_BGRAD` 收尾时，ReLu 位掩码矩阵的批处理步长（以元素/位为单位）。必须能被 128 整除。
-使用 `CUBLASLT_EPILOGUE_GELU_AUX_BIAS`、`CUBLASLT_EPILOGUE_DRELU` 或 `CUBLASLT_EPILOGUE_DGELU_BGRAD` 收尾时，GELU 输入矩阵的批处理步长（以元素为单位）。必须能被 8 整除。
+ReLu bit-mask matrix batch stride in elements (i.e. bits) when CUBLASLT_EPILOGUE_RELU_AUX, CUBLASLT_EPILOGUE_RELU_AUX_BIAS or CUBLASLT_EPILOGUE_DRELU_BGRAD epilogue is used. Must be divisible by 128.
+GELU input matrix batch stride in elements when CUBLASLT_EPILOGUE_GELU_AUX_BIAS, CUBLASLT_EPILOGUE_DRELU, or CUBLASLT_EPILOGUE_DGELU_BGRAD epilogue used. Must be divisible by 8.
 
-默认值：0。 | int64_t |
-| CUBLASLT_MATMUL_DESC_ALPHA_VECTOR_BATCH_STRIDE | alpha 向量的批处理步长。与 `CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_HOST` 一起使用，当矩阵 D 的 `CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT` 大于 1 时。如果设置了 `CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_ZERO`，则必须将 `CUBLASLT_MATMUL_DESC_ALPHA_VECTOR_BATCH_STRIDE` 设置为 0，因为此模式不支持批处理 alpha 向量。如果任何矩阵的 `cublasLtBatchMode_t` 未设置为 `CUBLASLT_BATCH_MODE_STRIDED`，则必须将 `CUBLASLT_MATMUL_DESC_ALPHA_VECTOR_BATCH_STRIDE` 设置为 0。默认值：0。 | int64_t |
-| CUBLASLT_MATMUL_DESC_SM_COUNT_TARGET | 目标并行执行的 SM 数量。当用户期望并发流使用部分设备资源时，优化启发式以在不同的 SM 数量上执行。默认值：0。 | int32_t |
-| CUBLASLT_MATMUL_DESC_A_SCALE_POINTER | 设备指针，指向将矩阵 A 中的数据转换为计算数据类型范围的缩放因子值。缩放因子必须与计算类型具有相同的类型。如果未指定或设置为 NULL，则假定缩放因子为 1。如果为不支持的矩阵数据、缩放和计算类型组合设置，调用 `cublasLtMatmul()` 将返回 `CUBLAS_INVALID_VALUE`。默认值：NULL | const void * |
-| CUBLASLT_MATMUL_DESC_B_SCALE_POINTER | 与矩阵 B 的 `CUBLASLT_MATMUL_DESC_A_SCALE_POINTER` 等效。默认值：NULL | const void * |
-| CUBLASLT_MATMUL_DESC_C_SCALE_POINTER | 与矩阵 C 的 `CUBLASLT_MATMUL_DESC_A_SCALE_POINTER` 等效。默认值：NULL | const void * |
-| CUBLASLT_MATMUL_DESC_D_SCALE_POINTER | 与矩阵 D 的 `CUBLASLT_MATMUL_DESC_A_SCALE_POINTER` 等效。默认值：NULL | const void * |
-| CUBLASLT_MATMUL_DESC_AMAX_D_POINTER | 设备指针，指向完成后将设置为输出矩阵中绝对值最大位置的内存。计算值的类型与计算类型相同。如果未指定或设置为 NULL，则不计算最大绝对值。如果为不支持的矩阵数据、缩放和计算类型组合设置，调用 `cublasLtMatmul()` 将返回 `CUBLAS_INVALID_VALUE`。默认值：NULL | void * |
-| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_DATA_TYPE | 将存储在 `CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER` 中的数据类型。如果未设置（或设置为默认值 -1），则数据类型设置为输出矩阵元素数据类型（DType），但有例外：
+Default value: 0. | int64_t |
+| CUBLASLT_MATMUL_DESC_ALPHA_VECTOR_BATCH_STRIDE | Batch stride for alpha vector. Used together with CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_HOST when matrix D’s CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT is greater than 1. If CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_ZERO is set then CUBLASLT_MATMUL_DESC_ALPHA_VECTOR_BATCH_STRIDE must be set to 0 as this mode doesn’t support batched alpha vector. If cublasLtBatchMode_t of any matrix is not set to CUBLASLT_BATCH_MODE_STRIDED then CUBLASLT_MATMUL_DESC_ALPHA_VECTOR_BATCH_STRIDE must be set to 0. Default value: 0. | int64_t |
+| CUBLASLT_MATMUL_DESC_SM_COUNT_TARGET | Number of SMs to target for parallel execution. Optimizes heuristics for execution on a different number of SMs when user expects a concurrent stream to be using some of the device resources. Default value: 0. | int32_t |
+| CUBLASLT_MATMUL_DESC_A_SCALE_POINTER | Device pointer to the scale factor value that converts data in matrix A to the compute data type range. The scaling factor must have the same type as the compute type. If not specified, or set to NULL, the scaling factor is assumed to be 1. If set for an unsupported matrix data, scale, and compute type combination, calling cublasLtMatmul() will return CUBLAS_INVALID_VALUE. Default value: NULL | const void * |
+| CUBLASLT_MATMUL_DESC_B_SCALE_POINTER | Equivalent to CUBLASLT_MATMUL_DESC_A_SCALE_POINTER for matrix B. Default value: NULL | const void * |
+| CUBLASLT_MATMUL_DESC_C_SCALE_POINTER | Equivalent to CUBLASLT_MATMUL_DESC_A_SCALE_POINTER for matrix C. Default value: NULL | const void * |
+| CUBLASLT_MATMUL_DESC_D_SCALE_POINTER | Equivalent to CUBLASLT_MATMUL_DESC_A_SCALE_POINTER for matrix D. Default value: NULL | const void * |
+| CUBLASLT_MATMUL_DESC_AMAX_D_POINTER | Device pointer to the memory location that on completion will be set to the maximum of absolute values in the output matrix. The computed value has the same type as the compute type. If not specified, or set to NULL, the maximum absolute value is not computed. If set for an unsupported matrix data, scale, and compute type combination, calling cublasLtMatmul() will return CUBLAS_INVALID_VALUE. Default value: NULL | void * |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_DATA_TYPE | The type of the data that will be stored in CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER. If unset (or set to the default value of -1), the data type is set to be the output matrix element data type (DType) with some exceptions:
 
-ReLu 使用位掩码。
-对于输出类型（DType）为 `CUDA_R_8F_E4M3` 的 FP8 内核，如果满足以下条件，可以将数据类型设置为非默认值：
+ReLu uses a bit-mask.
+For FP8 kernels with an output type (DType) of CUDA_R_8F_E4M3, the data type can be set to a non-default value if:
 
-AType 和 BType 为 `CUDA_R_8F_E4M3`。
-偏置类型为 `CUDA_R_16F`。
-CType 为 `CUDA_R_16BF` 或 `CUDA_R_16F`
-`CUBLASLT_MATMUL_DESC_EPILOGUE` 设置为 `CUBLASLT_EPILOGUE_GELU_AUX`
 
-当 CType 为 `CUDA_R_16F` 时，数据类型可以设置为 `CUDA_R
+AType and BType are CUDA_R_8F_E4M3.
+Bias Type is CUDA_R_16F.
+CType is CUDA_R_16BF or CUDA_R_16F
+CUBLASLT_MATMUL_DESC_EPILOGUE is set to CUBLASLT_EPILOGUE_GELU_AUX
+
+When CType is CUDA_R_16F, the data type may be set to CUDA_R_16F or CUDA_R_8F_E4M3. When CType is CUDA_R_16BF, the data type may be set to CUDA_R_16BF. Otherwise, the data type should be left unset or set to the default value of -1.
+If set for an unsupported matrix data, scale, and compute type combination, calling cublasLtMatmul() will return CUBLAS_INVALID_VALUE. Default value: -1 | int32_t (cudaDataType_t) |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_SCALE_POINTER | Device pointer to the scaling factor value to convert results from compute type data range to storage data range in the auxiliary matrix that is set via CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER. The scaling factor value must have the same type as the compute type. If not specified, or set to NULL, the scaling factor is assumed to be 1. If set for an unsupported matrix data, scale, and compute type combination, calling cublasLtMatmul() will return CUBLAS_INVALID_VALUE. Default value: NULL | void * |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_AMAX_POINTER | Device pointer to the memory location that on completion will be set to the maximum of absolute values in the buffer that is set via CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_POINTER. The computed value has the same type as the compute type. If not specified, or set to NULL, the maximum absolute value is not computed. If set for an unsupported matrix data, scale, and compute type combination, calling cublasLtMatmul() will return CUBLAS_INVALID_VALUE. Default value: NULL | void * |
+| CUBLASLT_MATMUL_DESC_FAST_ACCUM | Flag for managing FP8 fast accumulation mode. When enabled, on some GPUs problem execution might be faster but at the cost of lower accuracy because intermediate results will not periodically be promoted to a higher precision. Currently this flag has an effect on the following GPUs: Ada, Hopper. Default value: 0 - fast accumulation mode is disabled | int8_t |
+| CUBLASLT_MATMUL_DESC_BIAS_DATA_TYPE | Type of the bias or bias gradient vector in the device memory. Bias case: see CUBLASLT_EPILOGUE_BIAS. If unset (or set to the default value of -1), the bias vector elements are the same type as the elements of the output matrix (Dtype) with the following exceptions:
+
+IMMA kernels with computeType=CUDA_R_32I and Ctype=CUDA_R_8I where the bias vector elements are the same type as alpha, beta (CUBLASLT_MATMUL_DESC_SCALE_TYPE=CUDA_R_32F)
+For FP8 kernels with an output type of CUDA_R_32F, CUDA_R_8F_E4M3 or CUDA_R_8F_E5M2. See cublasLtMatmul() for more details.
+
+Default value: -1 | int32_t (cudaDataType_t) |
+| CUBLASLT_MATMUL_DESC_A_SCALE_MODE | Scaling mode that defines how the matrix scaling factor for matrix A is interpreted. Default value: 0. See cublasLtMatmulMatrixScale_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_B_SCALE_MODE | Scaling mode that defines how the matrix scaling factor for matrix B is interpreted. Default value: 0. See cublasLtMatmulMatrixScale_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_C_SCALE_MODE | Scaling mode that defines how the matrix scaling factor for matrix C is interpreted. Default value: 0. See cublasLtMatmulMatrixScale_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_D_SCALE_MODE | Scaling mode that defines how the matrix scaling factor for matrix D is interpreted. Default value: 0. See cublasLtMatmulMatrixScale_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_EPILOGUE_AUX_SCALE_MODE | Scaling mode that defines how the matrix scaling factor for the auxiliary matrix is interpreted. Default value: 0. See cublasLtMatmulMatrixScale_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_D_OUT_SCALE_POINTER | Device pointer to the scale factors that are used to convert data in matrix D to the compute data type range. The scaling factor value type is defined by the scaling mode (see CUBLASLT_MATMUL_DESC_D_OUT_SCALE_MODE). If set for an unsupported matrix data, scale, scale mode, and compute type combination, or missing for a supported combination, then calling cublasLtMatmul() will return CUBLAS_INVALID_VALUE. Default value: NULL. | void * |
+| CUBLASLT_MATMUL_DESC_D_OUT_SCALE_MODE | Scaling mode that defines how the output matrix scaling factor for matrix D is interpreted. Default value: 0. See cublasLtMatmulMatrixScale_t. | int32_t |
+| CUBLASLT_MATMUL_DESC_EMULATION_DESCRIPTOR | Emulation descriptor to configure floating point emulation parameters. Default value: NULL. | int32_t |
+| CUBLASLT_MATMUL_DESC_ALPHA_BATCH_STRIDE | Experimental: Batch stride for alpha. Applicable when matrix D’s CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT is greater than 1. Supported values are 0 and 1. Default value is 0. When the value is set to 1, the parameter alpha of cublasLtMatmul() must contain a device array of pointers of length CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT. This setting is currently only supported if cublasLtBatchMode_t of all matrices is set to CUBLASLT_BATCH_MODE_GROUPED and CUBLASLT_MATMUL_DESC_POINTER_MODE is set to CUBLASLT_POINTER_MODE_DEVICE. | int64_t |
+| CUBLASLT_MATMUL_DESC_BETA_BATCH_STRIDE | Experimental: Batch stride for beta. Applicable when matrix D’s CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT is greater than 1. Supported values are 0 and 1. Default value is 0. When the value is set to 1, the parameter beta of cublasLtMatmul() must contain a device array of pointers of length CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT. This setting is currently only supported if cublasLtBatchMode_t of all matrices is set to CUBLASLT_BATCH_MODE_GROUPED and CUBLASLT_MATMUL_DESC_POINTER_MODE is set to CUBLASLT_POINTER_MODE_DEVICE. | int64_t |
+
+
+> **Note**
+
+Note
+The batch mode of a matmul operation is inferred from the batch modes of matrix descriptors, which must all be the same. The following table describes rules for operands that do not have a descriptor, like scaling factors. The expected parameter value depends on the batch mode of the matmul operation and the operand stride configured via a CUBLASLT_MATMUL_DESC_{ATTR}_BATCH_STRIDE attribute.
+
+
+| Matmul batch mode | Operand stride | Expected parameter value | Usage scenario |
+| --- | --- | --- | --- |
+| Strided | 0 | Pointer to a buffer for a single batch element | Reuse the value across the batch |
+| Non-zero | Pointer to a buffer with distinct values for each batch element | Use distinct values for each batch element |
+| Pointer array or grouped | 0 | Pointer to a for a single batch element | Reuse the value across the batch |
+| 1 | Pointer to a device array of pointers to buffers, one for each batch element | Use distinct values for each batch element |
+| Other values | Not supported | None |
+
+
+
+
+
+### 3.3.10. cublasLtMatmulHeuristicResult_t
+
+
+cublasLtMatmulHeuristicResult_t is a descriptor that holds the configured matrix multiplication algorithm descriptor and its runtime properties.
+
+
+| Member | Description |
+| --- | --- |
+| cublasLtMatmulAlgo_t algo | Must be initialized with cublasLtMatmulAlgoInit() if the preference CUBLASLT_MATMUL_PERF_SEARCH_MODE is set to CUBLASLT_SEARCH_LIMITED_BY_ALGO_ID. See cublasLtMatmulSearch_t. |
+| size_t workspaceSize; | Actual size of workspace memory required. |
+| cublasStatus_t state; | Result status. Other fields are valid only if, after call to cublasLtMatmulAlgoGetHeuristic(), this member is set to CUBLAS_STATUS_SUCCESS. |
+| float wavesCount; | Waves count is a device utilization metric. A wavesCount value of 1.0f suggests that when the kernel is launched it will fully occupy the GPU. |
+| int reserved[4]; | Reserved. |
+
+
+
+
+
+### 3.3.11. cublasLtMatmulInnerShape_t
+
+
+cublasLtMatmulInnerShape_t is an enumerated type used to configure various aspects of the internal kernel design. This does not impact the CUDA grid size.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_MATMUL_INNER_SHAPE_UNDEFINED | Inner shape is undefined. |
+| CUBLASLT_MATMUL_INNER_SHAPE_MMA884 | Inner shape is MMA884. |
+| CUBLASLT_MATMUL_INNER_SHAPE_MMA1684 | Inner shape is MMA1684. |
+| CUBLASLT_MATMUL_INNER_SHAPE_MMA1688 | Inner shape is MMA1688. |
+| CUBLASLT_MATMUL_INNER_SHAPE_MMA16816 | Inner shape is MMA16816. |
+
+
+
+
+
+### 3.3.12. cublasLtMatmulPreference_t
+
+
+The cublasLtMatmulPreference_t is a pointer to an opaque structure holding the description of the preferences for cublasLtMatmulAlgoGetHeuristic() configuration. Use cublasLtMatmulPreferenceCreate() to create one instance of the descriptor and cublasLtMatmulPreferenceDestroy() to destroy a previously created descriptor and release the resources.
+
+
+
+
+
+### 3.3.13. cublasLtMatmulPreferenceAttributes_t
+
+
+cublasLtMatmulPreferenceAttributes_t is an enumerated type used to apply algorithm search preferences while fine-tuning the heuristic function. Use cublasLtMatmulPreferenceGetAttribute() and cublasLtMatmulPreferenceSetAttribute() to get and set the attribute value of a matmul preference descriptor.
+
+
+| Value | Description | Data Type |
+| --- | --- | --- |
+| CUBLASLT_MATMUL_PREF_SEARCH_MODE | Search mode. See cublasLtMatmulSearch_t. Default is CUBLASLT_SEARCH_BEST_FIT. | uint32_t |
+| CUBLASLT_MATMUL_PREF_MAX_WORKSPACE_BYTES | Maximum allowed workspace memory. Default is 0 (no workspace memory allowed). | uint64_t |
+| CUBLASLT_MATMUL_PREF_REDUCTION_SCHEME_MASK | Reduction scheme mask. See cublasLtReductionScheme_t. Only algorithm configurations specifying CUBLASLT_ALGO_CONFIG_REDUCTION_SCHEME that is not masked out by this attribute are allowed. For example, a mask value of 0x03 will allow only INPLACE and COMPUTE_TYPE reduction schemes. Default is CUBLASLT_REDUCTION_SCHEME_MASK (i.e., allows all reduction schemes). | uint32_t |
+| CUBLASLT_MATMUL_PREF_MIN_ALIGNMENT_A_BYTES | Minimum buffer alignment for matrix A (in bytes). Selecting a smaller value will exclude algorithms that can not work with matrix A, which is not as strictly aligned as the algorithms need. Default is 256 bytes. | uint32_t |
+| CUBLASLT_MATMUL_PREF_MIN_ALIGNMENT_B_BYTES | Minimum buffer alignment for matrix B (in bytes). Selecting a smaller value will exclude algorithms that can not work with matrix B, which is not as strictly aligned as the algorithms need. Default is 256 bytes. | uint32_t |
+| CUBLASLT_MATMUL_PREF_MIN_ALIGNMENT_C_BYTES | Minimum buffer alignment for matrix C (in bytes). Selecting a smaller value will exclude algorithms that can not work with matrix C, which is not as strictly aligned as the algorithms need. Default is 256 bytes. | uint32_t |
+| CUBLASLT_MATMUL_PREF_MIN_ALIGNMENT_D_BYTES | Minimum buffer alignment for matrix D (in bytes). Selecting a smaller value will exclude algorithms that can not work with matrix D, which is not as strictly aligned as the algorithms need. Default is 256 bytes. | uint32_t |
+| CUBLASLT_MATMUL_PREF_MAX_WAVES_COUNT | Maximum wave count. See cublasLtMatmulHeuristicResult_t::wavesCount. Selecting a non-zero value will exclude algorithms that report device utilization higher than specified. Default is 0.0f. | float |
+| CUBLASLT_MATMUL_PREF_IMPL_MASK | Numerical implementation details mask. See cublasLtNumericalImplFlags_t. Filters heuristic result to only include algorithms that use the allowed implementations. default: uint64_t(-1) (allow everything) | uint64_t |
+| CUBLASLT_MATMUL_PREF_GROUPED_AVERAGE_REDUCTION_DIM | Experimental: Average reduction dimension. This is only supported when all matrix descriptors have CUBLASLT_MATRIX_LAYOUT_BATCH_MODE set to CUBLASLT_BATCH_MODE_GROUPED. Default value is 0. | uint32_t |
+| CUBLASLT_MATMUL_PREF_GROUPED_DESC_D_AVERAGE_ROWS | Experimental: Average rows of matrix D. This is only supported when all matrix descriptors have CUBLASLT_MATRIX_LAYOUT_BATCH_MODE set to CUBLASLT_BATCH_MODE_GROUPED. Default value is 0. | uint32_t |
+| CUBLASLT_MATMUL_PREF_GROUPED_DESC_D_AVERAGE_COLS | Experimental: Average columns of matrix D. This is only supported when all matrix descriptors have CUBLASLT_MATRIX_LAYOUT_BATCH_MODE set to CUBLASLT_BATCH_MODE_GROUPED. Default value is 0. | uint32_t |
+
+
+
+
+
+### 3.3.14. cublasLtMatmulSearch_t
+
+
+cublasLtMatmulSearch_t is an enumerated type that contains the attributes for heuristics search type.
+
+
+| Value | Description | Data Type |
+| --- | --- | --- |
+| CUBLASLT_SEARCH_BEST_FIT | Request heuristics for the best algorithm for the given use case. |  |
+| CUBLASLT_SEARCH_LIMITED_BY_ALGO_ID | Request heuristics only for the pre-configured algo id. |  |
+
+
+
+
+
+### 3.3.15. cublasLtMatmulTile_t
+
+
+cublasLtMatmulTile_t is an enumerated type used to set the tile size in `rows x columns.` See also [CUTLASS: Fast Linear Algebra in CUDA C++](https://www.google.com/url?q=https://devblogs.nvidia.com/cutlass-linear-algebra-cuda/&sa=D&ust=1543610995532000&usg=AFQjCNE3tHlNsXDOnOhbVeeH1uXWQFLzLA).
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_MATMUL_TILE_UNDEFINED | Tile size is undefined. |
+| CUBLASLT_MATMUL_TILE_8x8 | Tile size is 8 rows x 8 columns. |
+| CUBLASLT_MATMUL_TILE_8x16 | Tile size is 8 rows x 16 columns. |
+| CUBLASLT_MATMUL_TILE_16x8 | Tile size is 16 rows x 8 columns. |
+| CUBLASLT_MATMUL_TILE_8x32 | Tile size is 8 rows x 32 columns. |
+| CUBLASLT_MATMUL_TILE_16x16 | Tile size is 16 rows x 16 columns. |
+| CUBLASLT_MATMUL_TILE_32x8 | Tile size is 32 rows x 8 columns. |
+| CUBLASLT_MATMUL_TILE_8x64 | Tile size is 8 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_16x32 | Tile size is 16 rows x 32 columns. |
+| CUBLASLT_MATMUL_TILE_32x16 | Tile size is 32 rows x 16 columns. |
+| CUBLASLT_MATMUL_TILE_64x8 | Tile size is 64 rows x 8 columns. |
+| CUBLASLT_MATMUL_TILE_32x32 | Tile size is 32 rows x 32 columns. |
+| CUBLASLT_MATMUL_TILE_32x64 | Tile size is 32 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_64x32 | Tile size is 64 rows x 32 columns. |
+| CUBLASLT_MATMUL_TILE_32x128 | Tile size is 32 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_64x64 | Tile size is 64 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_128x32 | Tile size is 128 rows x 32 columns. |
+| CUBLASLT_MATMUL_TILE_64x128 | Tile size is 64 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_128x64 | Tile size is 128 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_64x256 | Tile size is 64 rows x 256 columns. |
+| CUBLASLT_MATMUL_TILE_128x128 | Tile size is 128 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_256x64 | Tile size is 256 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_64x512 | Tile size is 64 rows x 512 columns. |
+| CUBLASLT_MATMUL_TILE_128x256 | Tile size is 128 rows x 256 columns. |
+| CUBLASLT_MATMUL_TILE_256x128 | Tile size is 256 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_512x64 | Tile size is 512 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_64x96 | Tile size is 64 rows x 96 columns. |
+| CUBLASLT_MATMUL_TILE_96x64 | Tile size is 96 rows x 64 columns. |
+| CUBLASLT_MATMUL_TILE_96x128 | Tile size is 96 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_128x160 | Tile size is 128 rows x 160 columns. |
+| CUBLASLT_MATMUL_TILE_160x128 | Tile size is 160 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_192x128 | Tile size is 192 rows x 128 columns. |
+| CUBLASLT_MATMUL_TILE_128x192 | Tile size is 128 rows x 192 columns. |
+| CUBLASLT_MATMUL_TILE_128x96 | Tile size is 128 rows x 96 columns. |
+
+
+
+
+
+### 3.3.16. cublasLtMatmulStages_t
+
+
+cublasLtMatmulStages_t is an enumerated type used to configure the size and number of shared memory buffers where input elements are staged. Number of staging buffers defines kernel’s pipeline depth.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_MATMUL_STAGES_UNDEFINED | Stage size is undefined. |
+| CUBLASLT_MATMUL_STAGES_16x1 | Stage size is 16, number of stages is 1. |
+| CUBLASLT_MATMUL_STAGES_16x2 | Stage size is 16, number of stages is 2. |
+| CUBLASLT_MATMUL_STAGES_16x3 | Stage size is 16, number of stages is 3. |
+| CUBLASLT_MATMUL_STAGES_16x4 | Stage size is 16, number of stages is 4. |
+| CUBLASLT_MATMUL_STAGES_16x5 | Stage size is 16, number of stages is 5. |
+| CUBLASLT_MATMUL_STAGES_16x6 | Stage size is 16, number of stages is 6. |
+| CUBLASLT_MATMUL_STAGES_32x1 | Stage size is 32, number of stages is 1. |
+| CUBLASLT_MATMUL_STAGES_32x2 | Stage size is 32, number of stages is 2. |
+| CUBLASLT_MATMUL_STAGES_32x3 | Stage size is 32, number of stages is 3. |
+| CUBLASLT_MATMUL_STAGES_32x4 | Stage size is 32, number of stages is 4. |
+| CUBLASLT_MATMUL_STAGES_32x5 | Stage size is 32, number of stages is 5. |
+| CUBLASLT_MATMUL_STAGES_32x6 | Stage size is 32, number of stages is 6. |
+| CUBLASLT_MATMUL_STAGES_64x1 | Stage size is 64, number of stages is 1. |
+| CUBLASLT_MATMUL_STAGES_64x2 | Stage size is 64, number of stages is 2. |
+| CUBLASLT_MATMUL_STAGES_64x3 | Stage size is 64, number of stages is 3. |
+| CUBLASLT_MATMUL_STAGES_64x4 | Stage size is 64, number of stages is 4. |
+| CUBLASLT_MATMUL_STAGES_64x5 | Stage size is 64, number of stages is 5. |
+| CUBLASLT_MATMUL_STAGES_64x6 | Stage size is 64, number of stages is 6. |
+| CUBLASLT_MATMUL_STAGES_128x1 | Stage size is 128, number of stages is 1. |
+| CUBLASLT_MATMUL_STAGES_128x2 | Stage size is 128, number of stages is 2. |
+| CUBLASLT_MATMUL_STAGES_128x3 | Stage size is 128, number of stages is 3. |
+| CUBLASLT_MATMUL_STAGES_128x4 | Stage size is 128, number of stages is 4. |
+| CUBLASLT_MATMUL_STAGES_128x5 | Stage size is 128, number of stages is 5. |
+| CUBLASLT_MATMUL_STAGES_128x6 | Stage size is 128, number of stages is 6. |
+| CUBLASLT_MATMUL_STAGES_32x10 | Stage size is 32, number of stages is 10. |
+| CUBLASLT_MATMUL_STAGES_8x4 | Stage size is 8, number of stages is 4. |
+| CUBLASLT_MATMUL_STAGES_16x10 | Stage size is 16, number of stages is 10. |
+| CUBLASLT_MATMUL_STAGES_8x5 | Stage size is 8, number of stages is 5. |
+| CUBLASLT_MATMUL_STAGES_8x3 | Stage size is 8, number of stages is 3. |
+| CUBLASLT_MATMUL_STAGES_8xAUTO | Stage size is 8, number of stages is selected automatically. |
+| CUBLASLT_MATMUL_STAGES_16xAUTO | Stage size is 16, number of stages is selected automatically. |
+| CUBLASLT_MATMUL_STAGES_32xAUTO | Stage size is 32, number of stages is selected automatically. |
+| CUBLASLT_MATMUL_STAGES_64xAUTO | Stage size is 64, number of stages is selected automatically. |
+| CUBLASLT_MATMUL_STAGES_128xAUTO | Stage size is 128, number of stages is selected automatically. |
+| CUBLASLT_MATMUL_STAGES_256xAUTO | Stage size is 256, number of stages is selected automatically. |
+| CUBLASLT_MATMUL_STAGES_768xAUTO | Stage size is 768, number of stages is selected automatically. |
+
+
+
+
+
+### 3.3.17. cublasLtNumericalImplFlags_t
+
+
+cublasLtNumericalImplFlags_t: a set of bit-flags that can be specified to select implementation details that may affect numerical behavior of algorithms.
+
+
+Flags below can be combined using the bit OR operator “|”.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_FMA | Specify that the implementation is based on [H,F,D]FMA (fused multiply-add) family instructions. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_HMMA | Specify that the implementation is based on HMMA (tensor operation) family instructions. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_IMMA | Specify that the implementation is based on IMMA (integer tensor operation) family instructions. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_DMMA | Specify that the implementation is based on DMMA (double precision tensor operation) family instructions. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_TENSOR_OP_MASK | Mask to filter implementations using any of the above kinds of tensor operations. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_OP_TYPE_MASK | Mask to filter implementation details about multiply-accumulate instructions used. |
+|  |  |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_ACCUMULATOR_16F | Specify that the implementation’s inner dot product is using half precision accumulator. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_ACCUMULATOR_32F | Specify that the implementation’s inner dot product is using single precision accumulator. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_ACCUMULATOR_64F | Specify that the implementation’s inner dot product is using double precision accumulator. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_ACCUMULATOR_32I | Specify that the implementation’s inner dot product is using 32 bit signed integer precision accumulator. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_ACCUMULATOR_TYPE_MASK | Mask to filter implementation details about accumulator used. |
+|  |  |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_INPUT_16F | Specify that the implementation’s inner dot product multiply-accumulate instruction is using half-precision inputs. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_INPUT_16BF | Specify that the implementation’s inner dot product multiply-accumulate instruction is using bfloat16 inputs. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_INPUT_TF32 | Specify that the implementation’s inner dot product multiply-accumulate instruction is using TF32 inputs. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_INPUT_32F | Specify that the implementation’s inner dot product multiply-accumulate instruction is using single-precision inputs. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_INPUT_64F | Specify that the implementation’s inner dot product multiply-accumulate instruction is using double-precision inputs. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_INPUT_8I | Specify that the implementation’s inner dot product multiply-accumulate instruction is using 8-bit integer inputs. |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_OP_INPUT_TYPE_MASK | Mask to filter implementation details about accumulator input used. |
+|  |  |
+| CUBLASLT_NUMERICAL_IMPL_FLAGS_GAUSSIAN | Specify that the implementation applies Gauss complexity reduction algorithm to reduce arithmetic complexity of the complex matrix multiplication problem |
+
+
+
+
+
+### 3.3.18. cublasLtMatrixLayout_t
+
+
+The cublasLtMatrixLayout_t is a pointer to an opaque structure holding the description of a matrix layout. Use cublasLtMatrixLayoutCreate() or cublasLtGroupedMatrixLayoutCreate() to create one instance of the descriptor and cublasLtMatrixLayoutDestroy() to destroy a previously created descriptor and release the resources.
+
+
+
+
+
+### 3.3.19. cublasLtMatrixLayoutAttribute_t
+
+
+cublasLtMatrixLayoutAttribute_t is a descriptor structure containing the attributes that define the details of the matrix operation. Use cublasLtMatrixLayoutGetAttribute() and cublasLtMatrixLayoutSetAttribute() to get and set the attribute value of a matrix layout descriptor.
+
+
+| Value | Description | Data Type |
+| --- | --- | --- |
+| CUBLASLT_MATRIX_LAYOUT_TYPE | Specifies the data precision type. See cudaDataType_t. | uint32_t |
+| CUBLASLT_MATRIX_LAYOUT_ORDER | Specifies the memory order of the data of the matrix. Default value is CUBLASLT_ORDER_COL. See cublasLtOrder_t . | int32_t |
+| CUBLASLT_MATRIX_LAYOUT_ROWS | Describes the number of rows in the matrix. Normally only values that can be expressed as int32_t are supported. | uint64_t |
+| CUBLASLT_MATRIX_LAYOUT_COLS | Describes the number of columns in the matrix. Normally only values that can be expressed as int32_t are supported. | uint64_t |
+| CUBLASLT_MATRIX_LAYOUT_LD | The leading dimension of the matrix. For CUBLASLT_ORDER_COL this is the stride (in elements) of matrix column. See also cublasLtOrder_t.
+
+Currently only non-negative values are supported.
+Must be large enough so that matrix memory locations are not overlapping (e.g., greater or equal to CUBLASLT_MATRIX_LAYOUT_ROWS in case of CUBLASLT_ORDER_COL). | int64_t |
+| CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT | Number of matmul operations to perform in the batch. Default value is 1. See also CUBLASLT_ALGO_CAP_STRIDED_BATCH_SUPPORT, CUBLASLT_ALGO_CAP_POINTER_ARRAY_BATCH_SUPPORT and CUBLASLT_ALGO_CAP_POINTER_ARRAY_GROUPED_SUPPORT in cublasLtMatmulAlgoCapAttributes_t. | int32_t |
+| CUBLASLT_MATRIX_LAYOUT_STRIDED_BATCH_OFFSET | Stride (in elements) to the next matrix for the strided batch operation. Default value is 0. When matrix type is planar-complex (CUBLASLT_MATRIX_LAYOUT_PLANE_OFFSET != 0), batch stride is interpreted by cublasLtMatmul() in number of real valued sub-elements. E.g. for data of type CUDA_C_16F, offset of 1024B is encoded as a stride of value 512 (since each element of the real and imaginary matrices is a 2B (16bit) floating point type). NOTE: A bug in cublasLtMatrixTransform() causes it to interpret the batch stride for a planar-complex matrix as if it was specified in number of complex elements. Therefore an offset of 1024B must be encoded as stride value 256 when calling cublasLtMatrixTransform() (each complex element is 4B with real and imaginary values 2B each). This behavior is expected to be corrected in the next major cuBLAS version. | int64_t |
+| CUBLASLT_MATRIX_LAYOUT_PLANE_OFFSET | Stride (in bytes) to the imaginary plane for planar-complex layout. Default value is 0, indicating that the layout is regular (real and imaginary parts of complex numbers are interleaved in memory for each element). | int64_t |
+| CUBLASLT_MATRIX_LAYOUT_BATCH_MODE | The batch mode of the matrix. Default value is CUBLASLT_BATCH_MODE_STRIDED. See cublasLtBatchMode_t . | int32_t |
+| CUBLASLT_GROUPED_MATRIX_LAYOUT_ROWS_ARRAY | Experimental: a device pointer to the array of rows in a grouped matrix. The length of the array must be equal to CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT. The width of each element in the array is determined by CUBLASLT_GROUPED_MATRIX_LAYOUT_ROWS_COLS_ARRAY_INTEGER_WIDTH. Default value is NULL. | void * |
+| CUBLASLT_GROUPED_MATRIX_LAYOUT_COLS_ARRAY | Experimental: a device pointer to the array of columns in a grouped matrix. The length of the array must be equal to CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT. The width of each element in the array is determined by CUBLASLT_GROUPED_MATRIX_LAYOUT_ROWS_COLS_ARRAY_INTEGER_WIDTH. Default value is NULL. | void * |
+| CUBLASLT_GROUPED_MATRIX_LAYOUT_LD_ARRAY | Experimental: a device pointer to the array of leading dimensions in a grouped matrix. The length of the array must be equal to CUBLASLT_MATRIX_LAYOUT_BATCH_COUNT. The width of each element in the array is determined by CUBLASLT_GROUPED_MATRIX_LAYOUT_LD_ARRAY_INTEGER_WIDTH. Default value is NULL. | void * |
+| CUBLASLT_GROUPED_MATRIX_LAYOUT_ROWS_COLS_ARRAY_INTEGER_WIDTH | Experimental: cublasLtIntegerWidth_t is an enumerated type used to indicate the width of integers in the rows and columns arrays of a grouped matrix. Default value is CUBLASLT_INTEGER_WIDTH_32. See cublasLtIntegerWidth_t . | int32_t |
+| CUBLASLT_GROUPED_MATRIX_LAYOUT_LD_ARRAY_INTEGER_WIDTH | Experimental: cublasLtIntegerWidth_t is an enumerated type used to indicate the width of integers in the leading dimensions array of a grouped matrix. Default value is CUBLASLT_INTEGER_WIDTH_32. See cublasLtIntegerWidth_t . | int32_t |
+
+
+
+
+
+### 3.3.20. cublasLtIntegerWidth_t
+
+
+Experimental: cublasLtIntegerWidth_t is an enumerated type used to indicate the width of integers in the dimensions arrays of a grouped matrix.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_INTEGER_WIDTH_32 | 32-bit integer width. |
+| CUBLASLT_INTEGER_WIDTH_64 | 64-bit integer width. |
+
+
+
+
+
+### 3.3.21. cublasLtMatrixTransformDesc_t
+
+
+The cublasLtMatrixTransformDesc_t is a pointer to an opaque structure holding the description of a matrix transformation operation. Use cublasLtMatrixTransformDescCreate() to create one instance of the descriptor and cublasLtMatrixTransformDescDestroy() to destroy a previously created descriptor and release the resources.
+
+
+
+
+
+### 3.3.22. cublasLtMatrixTransformDescAttributes_t
+
+
+cublasLtMatrixTransformDescAttributes_t is a descriptor structure containing the attributes that define the specifics of the matrix transform operation. Use cublasLtMatrixTransformDescGetAttribute() and cublasLtMatrixTransformDescSetAttribute() to set the attribute value of a matrix transform descriptor.
+
+
+| Value | Description | Data Type |
+| --- | --- | --- |
+| CUBLASLT_MATRIX_TRANSFORM_DESC_SCALE_TYPE | Scale type. Inputs are converted to the scale type for scaling and summation, and results are then converted to the output type to store in the memory. For the supported data types see cudaDataType_t. | int32_t |
+| CUBLASLT_MATRIX_TRANSFORM_DESC_POINTER_MODE | Specifies the scalars alpha and beta are passed by reference whether on the host or on the device. Default value is: CUBLASLT_POINTER_MODE_HOST (i.e., on the host). See cublasLtPointerMode_t. | int32_t |
+| CUBLASLT_MATRIX_TRANSFORM_DESC_TRANSA | Specifies the type of operation that should be performed on the matrix A. Default value is: CUBLAS_OP_N (i.e., non-transpose operation). See cublasOperation_t. | int32_t |
+| CUBLASLT_MATRIX_TRANSFORM_DESC_TRANSB | Specifies the type of operation that should be performed on the matrix B. Default value is: CUBLAS_OP_N (i.e., non-transpose operation). See cublasOperation_t. | int32_t |
+
+
+
+
+
+### 3.3.23. cublasLtOrder_t
+
+
+cublasLtOrder_t is an enumerated type used to indicate the data ordering of the matrix.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_ORDER_COL | Data is ordered in column-major format. The leading dimension is the stride (in elements) to the beginning of next column in memory. |
+| CUBLASLT_ORDER_ROW | Data is ordered in row-major format. The leading dimension is the stride (in elements) to the beginning of next row in memory. |
+| CUBLASLT_ORDER_COL32 | Data is ordered in column-major ordered tiles of 32 columns. The leading dimension is the stride (in elements) to the beginning of next group of 32-columns.
+For example, if the matrix has 33 columns and 2 rows, then the leading dimension must be at least 32 * 2 = 64. |
+| CUBLASLT_ORDER_COL4_4R2_8C | Data is ordered in column-major ordered tiles of composite tiles with total 32 columns and 8 rows. A tile is composed of interleaved inner tiles of 4 columns within 4 even or odd rows in an alternating pattern.
+The leading dimension is the stride (in elements) to the beginning of the first 32 column x 8 row tile for the next 32-wide group of columns. For example, if the matrix has 33 columns and 1 row,
+the leading dimension must be at least (32 * 8) * 1 = 256. |
+| CUBLASLT_ORDER_COL32_2R_4R4 | Data is ordered in column-major ordered tiles of composite tiles with total 32 columns ands 32 rows. Element offset within the tile is calculated as (((row % 8) / 2 * 4 + row / 8) * 2 + row % 2) * 32 + col.
+Leading dimension is the stride (in elements) to the beginning of the first 32 column x 32 row tile for the next 32-wide group of columns. E.g. if matrix has 33 columns and 1 row, then its leading dimensions
+must be at least (32 * 32) * 1 = 1024. |
+
+
+
+
+
+### 3.3.24. cublasLtPointerMode_t
+
+
+cublasLtPointerMode_t is an enumerated type used to set the pointer mode for the scaling factors `alpha` and `beta`.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_POINTER_MODE_HOST = CUBLAS_POINTER_MODE_HOST | Matches CUBLAS_POINTER_MODE_HOST, and the pointer targets a single value host memory. |
+| CUBLASLT_POINTER_MODE_DEVICE = CUBLAS_POINTER_MODE_DEVICE | Matches CUBLAS_POINTER_MODE_DEVICE, and the pointer targets a single value device memory. |
+| CUBLASLT_POINTER_MODE_DEVICE_VECTOR = 2 | Pointers target device memory vectors of length equal to the number of rows of matrix D. |
+| CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_ZERO = 3 | alpha pointer targets a device memory vector of length equal to the number of rows of matrix D, and beta is zero. |
+| CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_HOST = 4 | alpha pointer targets a device memory vector of length equal to the number of rows of matrix D, and beta is a single value in host memory. |
+
+
+> **Note**
+
+Note
+Only pointer modes CUBLASLT_POINTER_MODE_HOST and CUBLASLT_POINTER_MODE_DEVICE are supported when cublasLtBatchMode_t of any matrix is set to CUBLASLT_BATCH_MODE_POINTER_ARRAY or CUBLASLT_BATCH_MODE_GROUPED.
+
+
+
+
+
+### 3.3.25. cublasLtPointerModeMask_t
+
+
+cublasLtPointerModeMask_t is an enumerated type used to define and query the pointer mode capability.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_POINTER_MODE_MASK_HOST = 1 | See CUBLASLT_POINTER_MODE_HOST in cublasLtPointerMode_t. |
+| CUBLASLT_POINTER_MODE_MASK_DEVICE = 2 | See CUBLASLT_POINTER_MODE_DEVICE in cublasLtPointerMode_t. |
+| CUBLASLT_POINTER_MODE_MASK_DEVICE_VECTOR = 4 | See CUBLASLT_POINTER_MODE_DEVICE_VECTOR in cublasLtPointerMode_t |
+| CUBLASLT_POINTER_MODE_MASK_ALPHA_DEVICE_VECTOR_BETA_ZERO = 8 | See CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_ZERO in cublasLtPointerMode_t |
+| CUBLASLT_POINTER_MODE_MASK_ALPHA_DEVICE_VECTOR_BETA_HOST = 16 | See CUBLASLT_POINTER_MODE_ALPHA_DEVICE_VECTOR_BETA_HOST in cublasLtPointerMode_t |
+
+
+
+
+
+### 3.3.26. cublasLtReductionScheme_t
+
+
+cublasLtReductionScheme_t is an enumerated type used to specify a reduction scheme for the portions of the dot-product calculated in parallel (i.e., “split - K”).
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_REDUCTION_SCHEME_NONE | Do not apply reduction. The dot-product will be performed in one sequence. |
+| CUBLASLT_REDUCTION_SCHEME_INPLACE | Reduction is performed “in place” using the output buffer, parts are added up in the output data type. Workspace is only used for counters that guarantee sequentiality. |
+| CUBLASLT_REDUCTION_SCHEME_COMPUTE_TYPE | Reduction done out of place in a user-provided workspace. The intermediate results are stored in the compute type in the workspace and reduced in a separate step. |
+| CUBLASLT_REDUCTION_SCHEME_OUTPUT_TYPE | Reduction done out of place in a user-provided workspace. The intermediate results are stored in the output type in the workspace and reduced in a separate step. |
+| CUBLASLT_REDUCTION_SCHEME_MASK | Allows all reduction schemes. |
+
+
+
+
+
+### 3.3.27. cublasLtMatmulMatrixScale_t
+
+
+cublasLtMatmulMatrixScale_t is an enumerated type used to specify scaling mode that defines how scaling factor pointers are interpreted.
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_MATMUL_MATRIX_SCALE_SCALAR_32F | Scaling factors are single-precision scalars applied to the whole tensors (this mode is the default for fp8). This is the only value valid for CUBLASLT_MATMUL_DESC_D_SCALE_MODE when the D tensor uses a narrow precision data type. |
+| CUBLASLT_MATMUL_MATRIX_SCALE_VEC16_UE4M3 | Scaling factors are tensors that contain a dedicated scaling factor stored as an 8-bit CUDA_R_8F_UE4M3 value for each 16-element block in the innermost dimension of the corresponding data tensor. |
+| CUBLASLT_MATMUL_MATRIX_SCALE_VEC32_UE8M0 | Scaling factors are tensors that contain a dedicated scaling factor stored as an 8-bit CUDA_R_8F_UE8M0 value for each 32-element block in the innermost dimension of the corresponding data tensor. |
+| CUBLASLT_MATMUL_MATRIX_SCALE_OUTER_VEC_32F | Scaling factors are vectors of CUDA_R_32F values. This mode is only applicable to matrices A and B, in which case the vectors are expected to have M and N elements respectively, and each (i, j)-th element of product of A and B is multiplied by i-th element of A scale and j-th element of B scale. |
+| CUBLASLT_MATMUL_MATRIX_SCALE_VEC128_32F | Scaling factors are tensors that contain a dedicated CUDA_R_32F scaling factor for each 128-element block in the innermost dimension of the corresponding data tensor. |
+| CUBLASLT_MATMUL_MATRIX_SCALE_BLK128x128_32F | Scaling factors are tensors that contain a dedicated CUDA_R_32F scaling factor for each 128x128-element block in the the corresponding data tensor. |
+| CUBLASLT_MATMUL_MATRIX_SCALE_PER_BATCH_SCALAR_32F | Scaling factors are single-precision scalars applied successively to each matrix in a batch. This mode is only applicable to matrices A and B, in which case the scales are expected to have BATCH_COUNT elements. |
+
+
+
+
+
+### 3.3.28. cublasLtBatchMode_t
+
+
+| Value | Description |
+| --- | --- |
+| CUBLASLT_BATCH_MODE_STRIDED | The matrices of each instance of the batch are located at fixed offsets in number of elements from their locations in the previous instance. |
+| CUBLASLT_BATCH_MODE_POINTER_ARRAY | The address of the matrix of each instance of the batch are read from device arrays of pointers. |
+| CUBLASLT_BATCH_MODE_GROUPED | Experimental: The address of the matrix of each instance of the group are read from device arrays of pointers. Each group can have different columns, rows, and leading dimensions. See cublasLtMatrixLayout_t for more details. |
+
+
+
+
+
+### 3.3.29. cublasLtEmulationDesc_t
+
+
+cublasLtEmulationDesc_t is a pointer to an opaque structure holding the emulation descriptor. Use cublasLtEmulationDescCreate() to create a new emulation descriptor, and cublasLtEmulationDescDestroy() to destroy it and release the resources.
+
+
+
+
+
+### 3.3.30. cublasLtEmulationDescAttributes_t
+
+
+cublasLtEmulationDescAttributes_t is an enumerated type used to configure floating point emulation parameters. See Floating Point Emulation documentation for more details.
+
+
+| Value | Description | Data Type |
+| --- | --- | --- |
+| CUBLASLT_EMULATION_DESC_STRATEGY | Strategy, see cublasEmulationStrategy_t. Defines when to use floating point emulation algorithms. Default: EMULATION_STRATEGY_DEFAULT. | int32_t |
+| CUBLASLT_EMULATION_DESC_SPECIAL_VALUES_SUPPORT | Special values support, see cudaEmulationSpecialValuesSupport_t. Defines a bit mask of special cases in floating-point representations that must be supported. Default: EMULATION_SPECIAL_VALUES_SUPPORT_DEFAULT. | int32_t |
+| CUBLASLT_EMULATION_DESC_FIXEDPOINT_MANTISSA_CONTROL | Mantissa control, see cudaEmulationMantissaControl_t. For fixed-point emulation, defines how to compute the number of retained mantissa bits. See Floating Point Emulation documentation for more details. | int32_t |
+| CUBLASLT_EMULATION_DESC_FIXEDPOINT_MAX_MANTISSA_BIT_COUNT | For fixed-point emulation only. An int32_t representing the maximum (up to quantization) number of mantissa bits to retain during fixed-point emulation. A default value of 0 allows the library to select a reasonable value based on device properties. Default: 0. | int32_t |
+| CUBLASLT_EMULATION_DESC_FIXEDPOINT_MANTISSA_BIT_OFFSET | This parameter is for fixed-point emulation with CUDA_EMULATION_MANTISSA_CONTROL_DYNAMIC mantissa control (see cudaEmulationMantissaControl_t). An integer which can be used to bias the number of recommended mantissa bits. Default: 0. | int32_t |
+| CUBLASLT_EMULATION_DESC_FIXEDPOINT_MANTISSA_BIT_COUNT_POINTER | This parameter is for fixed-point emulation. A device pointer which will contain the number of mantissa bits that were retained. If emulation is not used, the pointer will contain -1. Default: nullptr. | int32_t * |
+
+
+

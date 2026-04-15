@@ -10,16 +10,16 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Introduction](./Introduction/) | 简介 | ⏳ 未转换 / Not converted |
-| [Using the cuBLAS API](./Using%20the%20cuBLAS%20API/) | 使用 cuBLAS API | ⏳ 未转换 / Not converted |
-| [Using the cuBLASLt API](./Using%20the%20cuBLASLt%20API/) | 使用 cuBLASLt API | ⏳ 未转换 / Not converted |
-| [Using the cuBLASXt API](./Using%20the%20cuBLASXt%20API/) | 使用 cuBLASXt API | ⏳ 未转换 / Not converted |
-| [Using the cuBLASDx API](./Using%20the%20cuBLASDx%20API/) | 使用 cuBLASDx API | ⏳ 未转换 / Not converted |
-| [Using the cuBLAS Legacy API](./Using%20the%20cuBLAS%20Legacy%20API/) | 使用 cuBLAS Legacy API | ⏳ 未转换 / Not converted |
-| [cuBLAS Fortran Bindings](./cuBLAS%20Fortran%20Bindings/) | cuBLAS Fortran 绑定 | ⏳ 未转换 / Not converted |
-| [Interaction with Other Libraries and Tools](./Interaction%20with%20Other%20Libraries%20and%20Tools/) | 与其他库和工具的交互 | ⏳ 未转换 / Not converted |
-| [Acknowledgements](./Acknowledgements/) | 致谢 | ⏳ 未转换 / Not converted |
-| [Notices](./Notices/) | 声明 | ⏳ 未转换 / Not converted |
+| [Introduction](./Introduction/) | 简介 | ✅ 已完成 / Completed |
+| [Using the cuBLAS API](./Using%20the%20cuBLAS%20API/) | 使用 cuBLAS API | ✅ 已完成 / Completed |
+| [Using the cuBLASLt API](./Using%20the%20cuBLASLt%20API/) | 使用 cuBLASLt API | ✅ 已完成 / Completed |
+| [Using the cuBLASXt API](./Using%20the%20cuBLASXt%20API/) | 使用 cuBLASXt API | ✅ 已完成 / Completed |
+| [Using the cuBLASDx API](./Using%20the%20cuBLASDx%20API/) | 使用 cuBLASDx API | ✅ 已完成 / Completed |
+| [Using the cuBLAS Legacy API](./Using%20the%20cuBLAS%20Legacy%20API/) | 使用 cuBLAS Legacy API | ✅ 已完成 / Completed |
+| [cuBLAS Fortran Bindings](./cuBLAS%20Fortran%20Bindings/) | cuBLAS Fortran 绑定 | ✅ 已完成 / Completed |
+| [Interaction with Other Libraries and Tools](./Interaction%20with%20Other%20Libraries%20and%20Tools/) | 与其他库和工具的交互 | ✅ 已完成 / Completed |
+| [Acknowledgements](./Acknowledgements/) | 致谢 | ✅ 已完成 / Completed |
+| [Notices](./Notices/) | 声明 | ✅ 已完成 / Completed |
 
 ---
 
@@ -79,10 +79,12 @@
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
+| ✅ 已完成 / Completed | 10 |
 | ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 10 |
+| ⏳ 未转换 / Not converted | 0 |
 | **总计 Total** | **10** |
+
+> 📝 翻译统计 / Translation Stats: 327 文件 / files (275 翻译 / translated, 4 代码复制 / code copied, 35 跳过 / skipped, 13 失败但已复制原文 / failed with English fallback)
 
 ---
 

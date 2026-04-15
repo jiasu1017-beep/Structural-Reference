@@ -1,0 +1,20 @@
+## 6.6. 辅助函数
+
+在本节中，我们列出旧版 cuBLAS API 提供的辅助函数及其功能。有关这些函数的确切原型，请参阅旧版 cuBLAS API 头文件"cublas.h"。
+
+| 辅助函数 | 含义 |
+| --- | --- |
+| `cublasInit()` | 初始化库 |
+| `cublasShutdown()` | 关闭库 |
+| `cublasGetError()` | 获取库的误差状态 |
+| `cublasSetKernelStream()` | 设置库使用的流 |
+| `cublasAlloc()` | 为库分配设备内存 |
+| `cublasFree()` | 释放为库分配的设备内存 |
+| `cublasSetVector()` | 将主机上的向量 x 复制到 GPU 上的向量 |
+| `cublasGetVector()` | 将 GPU 上的向量 x 复制到主机上的向量 |
+| `cublasSetMatrix()` | 将主机上矩阵的 \(m \times n\) 分块复制到 GPU |
+| `cublasGetMatrix()` | 将 GPU 上矩阵的 \(m \times n\) 分块复制到主机 |
+| `cublasSetVectorAsync()` | 类似于 `cublasSetVector()`，但复制是异步的 |
+| `cublasGetVectorAsync()` | 类似于 `cublasGetVector()`，但复制是异步的 |
+| `cublasSetMatrixAsync()` | 类似于 `cublasSetMatrix()`，但复制是异步的 |
+| `cublasGetMatrixAsync()` | 类似于 `cublasGetMatrix()`，但复制是异步的 |

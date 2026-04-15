@@ -222,3 +222,151 @@
 注意
 一般来说，`cublasSetEmulationStrategy()` 函数优先于环境变量设置。
 但是，将环境变量 `CUBLAS_EMULATION_STRATEGY` 设置为 performant 或 eager 将用相应的仿真策略覆盖默认的仿真策略，即使默认策略是由函数调用设置的。
+
+该类型指示是否可以使用具有原子操作替代实现的 cuBLAS 例程。原子操作模式可以分别使用 `cublasSetAtomicsMode()` 和 `cublasGetAtomicsMode()` 例程进行设置和查询。
+
+| 值 | 含义 |
+| --- | --- |
+| `CUBLAS_ATOMICS_NOT_ALLOWED` | 不允许使用原子操作。 |
+| `CUBLAS_ATOMICS_ALLOWED` | 允许使用原子操作。 |
+
+
+cublasComputeType_t enumerate type is used in cublasGemmEx() and cublasLtMatmul() (including all batched and strided batched variants) to choose compute precision modes as defined below.
+
+
+| Value                                      | Meaning |
+| --- |
+| CUBLAS_COMPUTE_16F | This is the default and highest-performance mode for 16-bit half precision floating point and all compute and intermediate storage precisions with at least 16-bit half precision. Tensor Cores will be used whenever possible. |
+| CUBLAS_COMPUTE_16F_PEDANTIC | This mode uses 16-bit half precision floating point standardized arithmetic for all phases of calculations and is primarily intended for numerical robustness studies, testing, and debugging. This mode might not be as performant as the other modes since it disables use of tensor cores. |
+| CUBLAS_COMPUTE_32F | This is the default 32-bit single precision floating point and uses compute and intermediate storage precisions of at least 32-bits. |
+| CUBLAS_COMPUTE_32F_PEDANTIC | Uses 32-bit single precision floating point arithmetic for all phases of calculations and also disables algorithmic optimizations such as Gaussian complexity reduction (3M). |
+| CUBLAS_COMPUTE_32F_FAST_16F | Allows the library to use Tensor Cores with automatic down-conversion and 16-bit half-precision compute for 32-bit input and output matrices. |
+| CUBLAS_COMPUTE_32F_FAST_16BF | Allows the library to use Tensor Cores with automatic down-convesion and bfloat16 compute for 32-bit input and output matrices. See Alternate Floating Point section for more details on bfloat16. |
+| CUBLAS_COMPUTE_32F_FAST_TF32 | Allows the library to use Tensor Cores with TF32 compute for 32-bit floating point input and output matrices. Note that input conversions round to nearest even. See Alternate Floating Point section for more details on TF32 compute. |
+| CUBLAS_COMPUTE_32F_EMULATED_16BFX9 | Allows the library to use the BF16x9 floating point emulation algorithm for 32-bit floating point arithmetic. See Floating Point Emulation for more details. |
+| CUBLAS_COMPUTE_64F | This is the default 64-bit double precision floating point and uses compute and intermediate storage precisions of at least 64-bits. |
+| CUBLAS_COMPUTE_64F_EMULATED_FIXEDPOINT | Allows the library to use fixed-point emulation algorithms for 64-bit double precision floating point arithmetic. See Floating Point Emulation for more details. |
+| CUBLAS_COMPUTE_64F_PEDANTIC | Uses 64-bit double precision floating point arithmetic for all phases of calculations and also disables algorithmic optimizations such as Gaussian complexity reduction (3M). |
+| CUBLAS_COMPUTE_32I | This is the default 32-bit integer mode and uses compute and intermediate storage precisions of at least 32-bits. |
+| CUBLAS_COMPUTE_32I_PEDANTIC | Uses 32-bit integer arithmetic for all phases of calculations. |
+
+
+> **Note**
+
+Note
+Setting the environment variable NVIDIA_TF32_OVERRIDE = 0 will override any defaults or programmatic configuration of NVIDIA libraries, and consequently, cuBLAS will not accelerate single-precision computations with TF32 tensor cores.
+
+
+
+
+该类型指示稠密矩阵的主对角线是否为单位矩阵，因此函数不应触碰或修改该对角线。其值对应于 Fortran 字符 `'N'` 或 `'n'`（非单位）和 `'U'` 或 `'u'`（单位），这些字符通常用作传统 BLAS 实现的参数。
+
+| 值 | 含义 |
+| --- | --- |
+| CUBLAS_DIAG_NON_UNIT | 矩阵对角线具有非单位元素。 |
+| CUBLAS_DIAG_UNIT | 矩阵对角线具有单位元素。 |
+
+`cublasEmulationStrategy_t` 枚举类型用于 `cublasSetEmulationStrategy()`，用于选择如何利用浮点模拟算法。
+
+| 值 | 含义 |
+| --- | --- |
+| `CUBLAS_EMULATION_STRATEGY_DEFAULT` | 这是默认的模拟策略，等效于 `CUBLAS_EMULATION_STRATEGY_PERFORMANT`，除非设置了 `CUBLAS_EMULATION_STRATEGY` 环境变量。 |
+| `CUBLAS_EMULATION_STRATEGY_PERFORMANT` | 一种只要能带来性能提升就使用模拟的策略。 |
+| `CUBLAS_EMULATION_STRATEGY_EAGER` | 一种尽可能使用模拟的策略。 |
+
+> **注意**
+
+注意
+一般来说，`cublasSetEmulationStrategy()` 函数优先于环境变量设置。
+但是，将环境变量 `CUBLAS_EMULATION_STRATEGY` 设置为 performant 或 eager 将覆盖默认的模拟策略，即使默认策略是由函数调用设置的。
+
+
+The type indicates which part (lower or upper) of the dense matrix was filled and consequently should be used by the function. Its values correspond to Fortran characters `L` or `l` (lower) and `U` or `u` (upper) that are often used as parameters to legacy BLAS implementations.
+
+
+| Value | Meaning |
+| --- | --- |
+| CUBLAS_FILL_MODE_LOWER | The lower part of the matrix is filled. |
+| CUBLAS_FILL_MODE_UPPER | The upper part of the matrix is filled. |
+| CUBLAS_FILL_MODE_FULL | The full matrix is filled. |
+
+
+
+
+`cublasGemmAlgo_t` 类型是一个枚举类型，用于指定在 `sm_75` 及以下 GPU 架构上进行矩阵-矩阵乘法的算法。在 `sm_80` 及更新版本的 GPU 架构上，此枚举类型无效。cuBLAS 提供以下算法选项：
+
+| 值 | 含义 |
+| --- | --- |
+| CUBLAS_GEMM_DEFAULT | 应用启发式方法选择 GEMM 算法 |
+| CUBLAS_GEMM_ALGO0 到 CUBLAS_GEMM_ALGO23 | 显式选择算法 0..23。注意：在 NVIDIA Ampere 架构及更新版本的 GPU 上无效。 |
+| CUBLAS_GEMM_DEFAULT_TENSOR_OP[已弃用] | 此模式已弃用，将在后续版本中移除。应用启发式方法选择 GEMM 算法，同时允许使用降低精度的 CUBLAS_COMPUTE_32F_FAST_16F 内核（为了向后兼容）。 |
+| CUBLAS_GEMM_ALGO0_TENSOR_OP 到 CUBLAS_GEMM_ALGO15_TENSOR_OP[已弃用] | 这些值已弃用，将在后续版本中移除。显式选择张量核 GEMM 算法 0..15。允许使用降低精度的 CUBLAS_COMPUTE_32F_FAST_16F 内核（为了向后兼容）。注意：在 NVIDIA Ampere 架构及更新版本的 GPU 上无效。 |
+| CUBLAS_GEMM_AUTOTUNE | [实验性] 库将对多个可用算法进行基准测试，并为给定问题配置选择最优算法。解决方案缓存在 cublas 句柄中，以便后续使用该问题大小的调用将使用缓存的配置。注意：为了避免覆盖用户数据，库将分配与输出大小对应的内存量。注意：在流捕获期间不支持基准测试；如果在给定问题大小的缓存中未找到配置，将在流捕获期间返回 CUBLAS_STATUS_NOT_SUPPORTED。 |
+
+`cublasHandle_t` 类型是一个指向不透明结构的指针类型，用于保存 cuBLAS 库上下文。cuBLAS 库上下文必须使用 `cublasCreate()` 进行初始化，并且返回的句柄必须传递给所有后续的库函数调用。上下文应在最后使用 `cublasDestroy()` 进行销毁。
+
+
+cublasMath_t enumerate type is used in cublasSetMathMode() to choose compute precision modes as defined in the following table. Since this setting does not directly control the use of Tensor Cores, the mode `CUBLAS_TENSOR_OP_MATH` is being deprecated, and will be removed in a future release.
+
+
+| Value | Meaning |
+| --- | --- |
+| CUBLAS_DEFAULT_MATH | This is the default and highest-performance mode that uses compute and intermediate storage precisions with at least the same number of mantissa and exponent bits as requested. Tensor Cores will be used whenever possible. |
+| CUBLAS_PEDANTIC_MATH | This mode uses the prescribed precision and standardized arithmetic for all phases of calculations and is primarily intended for numerical robustness studies, testing, and debugging. This mode might not be as performant as the other modes. |
+| CUBLAS_TF32_TENSOR_OP_MATH | Enable acceleration of single-precision routines using TF32 tensor cores. Note that input conversions round to nearest even. |
+| CUBLAS_FP32_EMULATED_BF16X9_MATH | Enable acceleration of single-precision routines using the BF16x9 algorithm. See Floating Point Emulation for more details. For single precision GEMM routines cuBLAS will use the CUBLAS_COMPUTE_32F_EMULATED_16BFX9 compute type. |
+| CUBLAS_FP64_EMULATED_FIXEDPOINT_MATH | Enable acceleration of double-precision routines using fixed-point emulation algorithms. See Floating Point Emulation for more details. |
+| CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION | Forces any reductions during matrix multiplications to use the accumulator type (that is, compute type) and not the output type in case of mixed precision routines where output type precision is less than the compute type precision. This is a flag that can be set (using a bitwise or operation) alongside any of the other values. |
+| CUBLAS_TENSOR_OP_MATH [DEPRECATED] | This mode is deprecated and will be removed in a future release. Allows the library to use Tensor Core operations whenever possible. For single precision GEMM routines cuBLAS will use the CUBLAS_COMPUTE_32F_FAST_16F compute type. |
+
+
+
+
+`cublasOperation_t` 类型用于指定需要对稠密矩阵执行的操作。其取值对应于 Fortran 中的字符 `'N'` 或 `'n'`（非转置）、`'T'` 或 `'t'`（转置）以及 `'C'` 或 `'c'`（共轭转置），这些字符通常作为参数用于传统的 BLAS 实现。
+
+| 值 | 含义 |
+| --- | --- |
+| CUBLAS_OP_N | 选择非转置操作。 |
+| CUBLAS_OP_T | 选择转置操作。 |
+| CUBLAS_OP_C | 选择共轭转置操作。 |
+
+
+The cublasPointerMode_t type indicates whether the scalar values are passed by reference on the host or device. It is important to point out that if several scalar values are present in the function call, all of them must conform to the same single pointer mode. The pointer mode can be set and retrieved using cublasSetPointerMode() and cublasGetPointerMode() routines, respectively.
+
+
+| Value | Meaning |
+| --- | --- |
+| CUBLAS_POINTER_MODE_HOST | The scalars are passed by reference on the host. |
+| CUBLAS_POINTER_MODE_DEVICE | The scalars are passed by reference on the device. |
+
+
+
+
+该类型表示在特定函数求解的矩阵方程中，稠密矩阵位于左侧还是右侧。其取值对应于 Fortran 字符 `‘L’` 或 `‘l’`（左侧）和 `‘R’` 或 `‘r’`（右侧），这些字符常用作传统 BLAS 实现的参数。
+
+| 值 | 含义 |
+| --- | --- |
+| CUBLAS_SIDE_LEFT | 矩阵位于方程的左侧。 |
+| CUBLAS_SIDE_RIGHT | 矩阵位于方程的右侧。 |
+
+此类型用于函数状态返回值。所有 cuBLAS 库函数都会返回其状态，状态可以是以下值：
+
+| 值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | cuBLAS 库未初始化。这通常是由于缺少先前的 `cublasCreate()` 调用、cuBLAS 例程调用的 CUDA Runtime API 错误或硬件设置错误造成的。 |
+| | 纠正方法：在函数调用前调用 `cublasCreate()`；并检查硬件、适当版本的驱动程序和 cuBLAS 库是否正确安装。 |
+| CUBLAS_STATUS_ALLOC_FAILED | cuBLAS 库内部的资源分配失败。这通常是由 `cudaMalloc()` 失败造成的。 |
+| | 纠正方法：在函数调用之前，尽可能多地释放先前分配的内存。 |
+| CUBLAS_STATUS_INVALID_VALUE | 向函数传递了不支持的值或参数（例如，负的向量大小）。 |
+| | 纠正方法：确保传递的所有参数都具有有效值。 |
+| CUBLAS_STATUS_ARCH_MISMATCH | 函数需要设备架构中不存在的功能；通常是由计算能力低于 5.0 造成的。 |
+| | 纠正方法：在具有适当计算能力的设备上编译和运行应用程序。 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问 GPU 内存空间失败，这通常是由纹理绑定失败造成的。 |
+| | 纠正方法：在函数调用之前，取消绑定任何先前绑定的纹理。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | GPU 程序执行失败。这通常是由 GPU 上内核启动失败造成的，可能由多种原因引起。 |
+| | 纠正方法：检查硬件、适当版本的驱动程序和 cuBLAS 库是否正确安装。 |
+| CUBLAS_STATUS_INTERNAL_ERROR | cuBLAS 内部操作失败。此错误通常是由 `cudaMemcpyAsync()` 失败造成的。 |
+| | 纠正方法：检查硬件、适当版本的驱动程序和 cuBLAS 库是否正确安装。同时，检查传递给例程的内存是否在例程完成之前未被释放。 |
+| CUBLAS_STATUS_NOT_SUPPORTED | 请求的功能不受支持。 |
+| CUBLAS_STATUS_LICENSE_ERROR | 请求的功能需要许可证，在尝试检查当前许可时检测到错误。如果许可证不存在或已过期，或者环境变量 NVIDIA_LICENSE_FILE 设置不正确，则可能发生此错误。 |

@@ -9568,3 +9568,2561 @@ For references please refer to NETLIB documentation:
 
 
 
+
+
+```c++
+
+cublasStatus_t cublasSdgmm(cublasHandle_t handle, cublasSideMode_t mode,
+                          int m, int n,
+                          const float           *A, int lda,
+                          const float           *x, int incx,
+                          float           *C, int ldc)
+cublasStatus_t cublasDdgmm(cublasHandle_t handle, cublasSideMode_t mode,
+                          int m, int n,
+                          const double          *A, int lda,
+                          const double          *x, int incx,
+                          double          *C, int ldc)
+cublasStatus_t cublasCdgmm(cublasHandle_t handle, cublasSideMode_t mode,
+                          int m, int n,
+                          const cuComplex       *A, int lda,
+                          const cuComplex       *x, int incx,
+                          cuComplex       *C, int ldc)
+cublasStatus_t cublasZdgmm(cublasHandle_t handle, cublasSideMode_t mode,
+                          int m, int n,
+                          const cuDoubleComplex *A, int lda,
+                          const cuDoubleComplex *x, int incx,
+                          cuDoubleComplex *C, int ldc)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+
+此函数执行矩阵-矩阵乘法
+
+
+$C = \left\{ \begin{matrix}
+{A \times diag(X)} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_RIGHT}} \\
+{diag(X) \times A} & {\text{if }\textsf{mode == CUBLAS\_SIDE\_LEFT}} \\
+\end{matrix} \right.$
+
+
+其中 $A$ 和 $C$ 是以列优先格式存储的矩阵，维度为 $m \times n$。当 `mode == CUBLAS_SIDE_RIGHT` 时，$X$ 是大小为 $n$ 的向量；当 `mode == CUBLAS_SIDE_LEFT` 时，$X$ 是大小为 $m$ 的向量。$X$ 从一维数组 x 中以步长 `incx` 进行聚集。`incx` 的绝对值是步长，`incx` 的符号是步长的方向。如果 `incx` 为正，则从第一个元素开始正向遍历 x。否则，从最后一个元素开始反向遍历 x。$X$ 的公式为
+
+
+$X\lbrack j\rbrack = \left\{ \begin{matrix}
+{x\lbrack j \times incx\rbrack} & {\text{if }incx \geq 0} \\
+{x\lbrack(\chi - 1) \times |incx| - j \times |incx|\rbrack} & {\text{if }incx < 0} \\
+\end{matrix} \right.$
+
+
+其中，当 `mode == CUBLAS_SIDE_LEFT` 时 $\chi = m$，当 `mode == CUBLAS_SIDE_RIGHT` 时 $\chi = n$。
+
+
+示例 1：如果用户想要执行 $diag(diag(B)) \times A$，则 $incx = ldb + 1$，其中 ldb 是矩阵 `B` 的主维度，无论是行优先还是列优先格式。
+
+
+示例 2：如果用户想要执行 $\alpha \times A$，有两种选择：要么使用 `*beta == 0` 和 `transa == CUBLAS_OP_N` 的 cublas<t>geam()，要么使用 `incx == 0` 和 `x[0] == alpha` 的 cublas<t>dgmm()。
+
+
+该操作是原地（out-of-place）操作。仅当 `lda == ldc` 时原地（in-place）操作才有效。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS 库上下文的句柄。 |
+| mode |  | input | 如果 mode == CUBLAS_SIDE_LEFT 则左乘，如果 mode == CUBLAS_SIDE_RIGHT 则右乘 |
+| m |  | input | 矩阵 A 和 C 的行数。 |
+| n |  | input | 矩阵 A 和 C 的列数。 |
+| A | device | input | 维度为 lda x n 的 <type> 数组，其中 lda >= max(1, m) |
+| lda |  | input | 用于存储矩阵 A 的二维数组的主维度。 |
+| x | device | input | 一维 <type> 数组，当 mode == CUBLAS_SIDE_LEFT 时大小为 abs(incx) x m，当 mode == CUBLAS_SIDE_RIGHT 时大小为 abs(incx) x n |
+| incx |  | input | 一维数组 x 的步长。 |
+| C | device | in/out | 维度为 ldc x n 的 <type> 数组，其中 ldc >= max(1, m)。 |
+| ldc |  | input | 用于存储矩阵 C 的二维数组的主维度。 |
+
+
+此函数返回的可能错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 m < 0 或 n < 0，或<br>如果 mode 不是 CUBLAS_SIDE_LEFT 和 CUBLAS_SIDE_RIGHT 之一，或<br>如果 lda < max(1, m)，或<br>如果 ldc < max(1, m) |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败 |
+
+
+
+```c++
+
+cublasStatus_t cublasSgeam(cublasHandle_t handle,
+                          cublasOperation_t transa, cublasOperation_t transb,
+                          int m, int n,
+                          const float           *alpha,
+                          const float           *A, int lda,
+                          const float           *beta,
+                          const float           *B, int ldb,
+                          float           *C, int ldc)
+cublasStatus_t cublasDgeam(cublasHandle_t handle,
+                          cublasOperation_t transa, cublasOperation_t transb,
+                          int m, int n,
+                          const double          *alpha,
+                          const double          *A, int lda,
+                          const double          *beta,
+                          const double          *B, int ldb,
+                          double          *C, int ldc)
+cublasStatus_t cublasCgeam(cublasHandle_t handle,
+                          cublasOperation_t transa, cublasOperation_t transb,
+                          int m, int n,
+                          const cuComplex       *alpha,
+                          const cuComplex       *A, int lda,
+                          const cuComplex       *beta ,
+                          const cuComplex       *B, int ldb,
+                          cuComplex       *C, int ldc)
+cublasStatus_t cublasZgeam(cublasHandle_t handle,
+                          cublasOperation_t transa, cublasOperation_t transb,
+                          int m, int n,
+                          const cuDoubleComplex *alpha,
+                          const cuDoubleComplex *A, int lda,
+                          const cuDoubleComplex *beta,
+                          const cuDoubleComplex *B, int ldb,
+                          cuDoubleComplex *C, int ldc)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+此函数执行矩阵-矩阵加法/转置操作：
+
+$C = \alpha\text{op}(A) + \beta\text{op}(B)$
+
+其中 $\alpha$ 和 $\beta$ 是标量，$A$、$B$ 和 $C$ 是以列主序格式存储的矩阵，维度分别为 $\text{op}(A)$ $m \times n$、$\text{op}(B)$ $m \times n$ 和 $C$ $m \times n$。同样，对于矩阵 $A$：
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+$\text{op}(B)$ 对于矩阵 $B$ 的定义与此类似。
+
+
+如果 C 与 A 或 B 不重叠，则该操作是原地外操作。
+
+原地模式支持以下两种操作：
+
+$C = \alpha\text{*}C + \beta\text{op}(B)$
+
+$C = \alpha\text{op}(A) + \beta\text{*}C$
+
+对于原地模式，如果 `C == A`，则 `ldc == lda` 且 `transa == CUBLAS_OP_N`。如果 `C === B`，则 `ldc == ldb` 且 `transb == CUBLAS_OP_N`。如果用户不满足上述要求，将返回 `CUBLAS_STATUS_INVALID_VALUE`。
+
+该操作包含以下特殊情况：
+
+用户可以通过设置 `*alpha = beta = 0` 将矩阵 C 重置为零。
+
+用户可以通过设置 `*alpha = 1 and *beta = 0` 对矩阵 A 进行转置。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS 库上下文的句柄。 |
+| transa |  | input | 操作 op(A)，即非转置或（共轭）转置。 |
+| transb |  | input | 操作 op(B)，即非转置或（共轭）转置。 |
+| m |  | input | 矩阵 op(A) 和 C 的行数。 |
+| n |  | input | 矩阵 op(B) 和 C 的列数。 |
+| alpha | host or device | input | 用于乘法的 <type> 标量。如果 *alpha == 0，则 A 不必是有效输入。 |
+| A | device | input | 维度为 lda x n 的 <type> 数组，当 transa == CUBLAS_OP_N 时 lda >= max(1, m)，否则为 lda x m 且 lda >= max(1, n)。 |
+| lda |  | input | 用于存储矩阵 A 的二维数组的主维度。 |
+| B | device | input | 维度为 ldb x n 的 <type> 数组，当 transb == CUBLAS_OP_N 时 ldb >= max(1, m)，否则为 ldb x m 且 ldb >= max(1,n)。 |
+| ldb |  | input | 用于存储矩阵 B 的二维数组的主维度。 |
+| beta | host or device | input | 用于乘法的 <type> 标量。如果 *beta == 0，则 B 不必是有效输入。 |
+| C | device | output | 维度为 ldc x n 的 <type> 数组，ldc >= max(1, m)。 |
+| ldc |  | input | 用于存储矩阵 C 的二维数组的主维度。 |
+
+
+此函数返回的可能错误值及其含义如下所示。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 m < 0 或 n < 0，或<br>如果 transa 不是 CUBLAS_OP_N、CUBLAS_OP_T 和 CUBLAS_OP_C 之一，或<br>如果 transb 不是 CUBLAS_OP_N、CUBLAS_OP_T 和 CUBLAS_OP_C 之一，或<br>如果 transa == CUBLAS_OP_N 时 lda < max(1, m)，否则 lda < max(1, n)，或<br>如果 transb == CUBLAS_OP_N 时 ldb < max(1, m)，否则 ldb < max(1, n)，或<br>如果 ldc < max(1, m)，或<br>如果 A == C 且 (transa != CUBLAS_OP_N) || (lda != ldc)，或<br>如果 B == C 且 (transb != CUBLAS_OP_N) || (ldb != ldc)，或<br>如果 alpha 或 beta 为 NULL |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败 |
+
+
+
+```c++
+
+cublasStatus_t cublasSgelsBatched( cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int m,
+                                   int n,
+                                   int nrhs,
+                                   float *const Aarray[],
+                                   int lda,
+                                   float *const Carray[],
+                                   int ldc,
+                                   int *info,
+                                   int *devInfoArray,
+                                   int batchSize );
+
+cublasStatus_t cublasDgelsBatched( cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int m,
+                                   int n,
+                                   int nrhs,
+                                   double *const Aarray[],
+                                   int lda,
+                                   double *const Carray[],
+                                   int ldc,
+                                   int *info,
+                                   int *devInfoArray,
+                                   int batchSize );
+
+cublasStatus_t cublasCgelsBatched( cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int m,
+                                   int n,
+                                   int nrhs,
+                                   cuComplex *const Aarray[],
+                                   int lda,
+                                   cuComplex *const Carray[],
+                                   int ldc,
+                                   int *info,
+                                   int *devInfoArray,
+                                   int batchSize );
+
+cublasStatus_t cublasZgelsBatched( cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int m,
+                                   int n,
+                                   int nrhs,
+                                   cuDoubleComplex *const Aarray[],
+                                   int lda,
+                                   cuDoubleComplex *const Carray[],
+                                   int ldc,
+                                   int *info,
+                                   int *devInfoArray,
+                                   int batchSize );
+
+
+```
+
+
+`Aarray` 是一个指向以列优先格式存储的矩阵的指针数组。`Carray` 是一个指向以列优先格式存储的矩阵的指针数组。
+
+
+此函数求解一批超定系统的最小二乘解：它求解如下所述的最小二乘问题：
+
+
+
+```c++
+
+minimize  || Carray[i] - Aarray[i]*Xarray[i] || , with i = 0, ...,batchSize-1
+
+
+```
+
+
+退出时，每个 `Aarray[i]` 被其 QR 分解覆盖，每个 `Carray[i]` 被最小二乘解覆盖。
+
+
+cublas<t>gelsBatched 仅支持非转置操作，且仅求解超定系统（m >= n）。
+
+
+cublas<t>gelsBatched 仅支持计算能力 2.0 或更高版本。
+
+
+此函数旨在用于矩阵规模较小且启动开销较大的场景。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | 指向 cuBLAS 库上下文的句柄。 |
+| trans |  | 输入 | op(Aarray[i]) 的操作，即非转置或（共轭）转置。当前仅支持非转置操作。 |
+| m |  | 输入 | 每个 Aarray[i] 和 Carray[i] 的行数（当 trans == CUBLAS_OP_N 时），否则为每个 Aarray[i] 的列数（当前不支持）。 |
+| n |  | 输入 | 每个 Aarray[i] 的列数（当 trans == CUBLAS_OP_N 时），否则为每个 Aarray[i] 和 Carray[i] 的行数（当前不支持）。 |
+| nrhs |  | 输入 | 每个 Carray[i] 的列数。 |
+| Aarray | 设备 | 输入/输出 | 指向 <type> 数组的指针数组，每个数组维度为 m x n（当 trans == CUBLAS_OP_N 时，lda >= max(1, m)），否则为 n x m（lda >= max(1, n)）（当前不支持）。矩阵 Aarray[i] 不应重叠；否则行为未定义。 |
+| lda |  | 输入 | 用于存储每个矩阵 Aarray[i] 的二维数组的主导维度。 |
+| Carray | 设备 | 输入/输出 | 指向 <type> 数组的指针数组，每个数组维度为 m x nrhs（当 trans == CUBLAS_OP_N 时，ldc >= max(1, m)），否则为 n x nrhs（lda >= max(1, n)）（当前不支持）。矩阵 Carray[i] 不应重叠；否则行为未定义。 |
+| ldc |  | 输入 | 用于存储每个矩阵 Carray[i] 的二维数组的主导维度。 |
+| info | 主机 | 输出 | 如果 info == 0，则传递给函数的参数有效
+如果 info < 0，则位置 -info 处的参数无效 |
+| devInfoArray | 设备 | 输出 | 可选的整数数组，维度为 batchsize。
+如果非空，devInfoArray[i] == V 的每个元素具有以下含义：
+V == 0：第 i 个问题已成功求解
+V > 0：Aarray[i] 的第 V 个对角元素为零。Aarray[i] 不是满秩的。 |
+| batchSize |  | 输入 | Aarray 和 Carray 中包含的指针数量 |
+
+
+此函数返回的可能错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 m < 0 或 n < 0 或 nrhs < 0 或 batchSize < 0，或
+如果 lda < max(1, m) 或 ldc < max(1, m) |
+| CUBLAS_STATUS_NOT_SUPPORTED | 参数 m < n 或 trans 与非转置不同。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败 |
+
+
+有关参考信息，请参阅 NETLIB 文档：
+
+
+[sgels()](http://www.netlib.org/lapack/single/sgels.f), [dgels()](http://www.netlib.org/lapack/double/dgels.f), [cgels()](http://www.netlib.org/lapack/complex/cgels.f), [zgels()](http://www.netlib.org/lapack/complex16/zgels.f)
+
+
+
+```c++
+
+cublasStatus_t cublasSgemmEx(cublasHandle_t handle,
+                           cublasOperation_t transa,
+                           cublasOperation_t transb,
+                           int m,
+                           int n,
+                           int k,
+                           const float    *alpha,
+                           const void     *A,
+                           cudaDataType_t Atype,
+                           int lda,
+                           const void     *B,
+                           cudaDataType_t Btype,
+                           int ldb,
+                           const float    *beta,
+                           void           *C,
+                           cudaDataType_t Ctype,
+                           int ldc)
+cublasStatus_t cublasCgemmEx(cublasHandle_t handle,
+                           cublasOperation_t transa,
+                           cublasOperation_t transb,
+                           int m,
+                           int n,
+                           int k,
+                           const cuComplex *alpha,
+                           const void      *A,
+                           cudaDataType_t  Atype,
+                           int lda,
+                           const void      *B,
+                           cudaDataType_t  Btype,
+                           int ldb,
+                           const cuComplex *beta,
+                           void            *C,
+                           cudaDataType_t  Ctype,
+                           int ldc)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function is an extension of cublas<t>gemm(). In this function the input matrices and output matrices can have a lower precision but the computation is still done in the type `<t>`. For example, in the type `float` for cublasSgemmEx() and in the type `cuComplex` for cublasCgemmEx().
+
+
+$C = \alpha\text{op}(A)\text{op}(B) + \beta C$
+
+
+where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are matrices stored in column-major format with dimensions $\text{op}(A)$ $m \times k$ , $\text{op}(B)$ $k \times n$ and $C$ $m \times n$ , respectively. Also, for matrix $A$
+
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+
+and $\text{op}(B)$ is defined similarly for matrix $B$ .
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| transa |  | input | Operation op(A) that is non- or (conj.) transpose. |
+| transb |  | input | Operation op(B) that is non- or (conj.) transpose. |
+| m |  | input | Number of rows of matrix op(A) and C. |
+| n |  | input | Number of columns of matrix op(B) and C. |
+| k |  | input | Number of columns of op(A) and rows of op(B). |
+| alpha | host or device | input | <type> scalar used for multiplication. |
+| A | device | input | <type> array of dimensions lda x k with lda >= max(1, m) if transa == CUBLAS_OP_N and lda x m with lda >= max(1, k) otherwise. |
+| Atype |  | input | Enumerant specifying the datatype of matrix A. |
+| lda |  | input | Leading dimension of two-dimensional array used to store the matrix A. |
+| B | device | input | <type> array of dimension ldb x n with ldb >= max(1, k) if transb == CUBLAS_OP_N and ldb x k with ldb >= max(1,n) otherwise. |
+| Btype |  | input | Enumerant specifying the datatype of matrix B. |
+| ldb |  | input | Leading dimension of two-dimensional array used to store matrix B. |
+| beta | host or device | input | <type> scalar used for multiplication. If beta == 0, C does not have to be a valid input. |
+| C | device | in/out | <type> array of dimensions ldc x n with ldc >= max(1, m). |
+| Ctype |  | input | Enumerant specifying the datatype of matrix C. |
+| ldc |  | input | Leading dimension of a two-dimensional array used to store the matrix C. |
+
+
+The matrix types combinations supported for cublasSgemmEx() are listed below:
+
+
+| C | A/B |
+| --- | --- |
+| CUDA_R_16BF | CUDA_R_16BF |
+| CUDA_R_16F | CUDA_R_16F |
+| CUDA_R_32F | CUDA_R_8I |
+|  | CUDA_R_16BF |
+|  | CUDA_R_16F |
+|  | CUDA_R_32F |
+
+
+The matrix types combinations supported for cublasCgemmEx() are listed below :
+
+
+| C | A/B |
+| --- | --- |
+| CUDA_C_32F | CUDA_C_8I |
+|  | CUDA_C_32F |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_ARCH_MISMATCH | cublasCgemmEx() is only supported for GPU with architecture capabilities equal or greater than 5.0 |
+| CUBLAS_STATUS_NOT_SUPPORTED | The combination of the parameters Atype, Btype and Ctype is not supported |
+| CUBLAS_STATUS_INVALID_VALUE | If m < 0 or n < 0 or k < 0, or
+if transa and transb are not one of CUBLAS_OP_N, CUBLAS_OP_C, CUBLAS_OP_T, or
+if lda < max(1, m) when transa == CUBLAS_OP_N and lda < max(1, k) otherwise, or
+if ldb < max(1, k) when transb == CUBLAS_OP_N and ldb < max(1, n) otherwise, or
+if ldc < max(1, m), or
+if alpha or beta are NULL, or
+if C is NULL when beta is not zero |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+For references please refer to NETLIB documentation:
+
+
+[sgemm()](http://www.netlib.org/blas/sgemm.f)
+
+
+For more information about the numerical behavior of some GEMM algorithms, refer to the GEMM Algorithms Numerical Behavior section.
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasSgeqrfBatched( cublasHandle_t handle,
+                                    int m,
+                                    int n,
+                                    float *const Aarray[],
+                                    int lda,
+                                    float *const TauArray[],
+                                    int *info,
+                                    int batchSize);
+
+cublasStatus_t cublasDgeqrfBatched( cublasHandle_t handle,
+                                    int m,
+                                    int n,
+                                    double *const Aarray[],
+                                    int lda,
+                                    double *const TauArray[],
+                                    int *info,
+                                    int batchSize);
+
+cublasStatus_t cublasCgeqrfBatched( cublasHandle_t handle,
+                                    int m,
+                                    int n,
+                                    cuComplex *const Aarray[],
+                                    int lda,
+                                    cuComplex *const TauArray[],
+                                    int *info,
+                                    int batchSize);
+
+cublasStatus_t cublasZgeqrfBatched( cublasHandle_t handle,
+                                    int m,
+                                    int n,
+                                    cuDoubleComplex *const Aarray[],
+                                    int lda,
+                                    cuDoubleComplex *const TauArray[],
+                                    int *info,
+                                    int batchSize);
+
+
+```
+
+
+`Aarray` is an array of pointers to matrices stored in column-major format with dimensions `m x n` and leading dimension `lda`. `TauArray` is an array of pointers to vectors of dimension of at least `max (1, min(m, n)`.
+
+
+This function performs the QR factorization of each `Aarray[i]` for `i = 0, ...,batchSize-1` using Householder reflections. Each matrix `Q[i]` is represented as a product of elementary reflectors and is stored in the lower part of each `Aarray[i]` as follows :
+
+
+
+```text
+
+Q[j] = H[j][1] H[j][2] . . . H[j](k), where k = min(m,n).
+
+
+```
+
+
+Each H[j][i] has the form
+
+
+
+```text
+
+H[j][i] = I - tau[j] * v * v'
+
+
+```
+
+
+where `tau[j]` is a real scalar, and `v` is a real vector with `v(1:i-1) = 0` and `v(i) = 1`; `v(i+1:m)` is stored on exit in `Aarray[j][i+1:m,i]`, and `tau` in `TauArray[j][i]`.
+
+
+This function is intended to be used for matrices of small sizes where the launch overhead is a significant factor.
+
+
+cublas<t>geqrfBatched supports arbitrary dimension.
+
+
+cublas<t>geqrfBatched only supports compute capability 2.0 or above.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| m |  | input | Number of rows Aarray[i]. |
+| n |  | input | Number of columns of Aarray[i]. |
+| Aarray | device | input | Array of pointers to <type> array, with each array of dim. m x n with lda >= max(1, m). |
+| lda |  | input | Leading dimension of two-dimensional array used to store each matrix Aarray[i]. |
+| TauArray | device | output | Array of pointers to <type> vector, with each vector of dim. max(1 ,min(m, n)). |
+| info | host | output | If info == 0, the parameters passed to the function are valid
+If info < 0, the parameter in position -info is invalid |
+| batchSize |  | input | Number of pointers contained in Aarray |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_INVALID_VALUE | If m < 0 or n < 0 or batchSize < 0, or
+if lda < max(1, m) |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+For references please refer to NETLIB documentation:
+
+
+[sgeqrf()](http://www.netlib.org/lapack/single/sgeqrf.f), [dgeqrf()](http://www.netlib.org/lapack/double/dgeqrf.f), [cgeqrf()](http://www.netlib.org/lapack/complex/cgeqrf.f), [zgeqrf()](http://www.netlib.org/lapack/complex16/zgeqrf.f)
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasSgetrfBatched(cublasHandle_t handle,
+                                   int n,
+                                   float *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   int *infoArray,
+                                   int batchSize);
+
+cublasStatus_t cublasDgetrfBatched(cublasHandle_t handle,
+                                   int n,
+                                   double *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   int *infoArray,
+                                   int batchSize);
+
+cublasStatus_t cublasCgetrfBatched(cublasHandle_t handle,
+                                   int n,
+                                   cuComplex *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   int *infoArray,
+                                   int batchSize);
+
+cublasStatus_t cublasZgetrfBatched(cublasHandle_t handle,
+                                   int n,
+                                   cuDoubleComplex *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   int *infoArray,
+                                   int batchSize);
+
+
+```
+
+
+`Aarray` is an array of pointers to matrices stored in column-major format with dimensions `nxn` and leading dimension `lda`.
+
+
+This function performs the LU factorization of each `Aarray[i]` for i = 0, …, `batchSize-1` by the following equation
+
+
+$\text{P}\text{*}{Aarray}\lbrack i\rbrack = L\text{*}U$
+
+
+where `P` is a permutation matrix which represents partial pivoting with row interchanges. `L` is a lower triangular matrix with unit diagonal and `U` is an upper triangular matrix.
+
+
+Formally `P` is written by a product of permutation matrices `Pj`, for `j = 1,2,...,n`, say `P = P1 * P2 * P3 * .... * Pn`. `Pj` is a permutation matrix which interchanges two rows of vector x when performing `Pj*x`. `Pj` can be constructed by `j` element of `PivotArray[i]` by the following Matlab code
+
+
+
+```c++
+
+// In Matlab PivotArray[i] is an array of base-1.
+// In C, PivotArray[i] is base-0.
+Pj = eye(n);
+swap Pj(j,:) and Pj(PivotArray[i][j]  ,:)
+
+
+```
+
+
+`L` and `U` are written back to original matrix `A`, and diagonal elements of `L` are discarded. The `L` and `U` can be constructed by the following Matlab code
+
+
+
+```c++
+
+// A is a matrix of nxn after getrf.
+L = eye(n);
+for j = 1:n
+    L(j+1:n,j) = A(j+1:n,j)
+end
+U = zeros(n);
+for i = 1:n
+    U(i,i:n) = A(i,i:n)
+end
+
+
+```
+
+
+If matrix `A(=Aarray[i])` is singular, getrf still works and the value of `info(=infoArray[i])` reports first row index that LU factorization cannot proceed. If info is `k`, `U(k,k)` is zero. The equation `P*A == L*U` still holds, however `L` and `U` reconstruction needs a different Matlab code as follows:
+
+
+
+```c++
+
+// A is a matrix of nxn after getrf.
+// info is k, which means U(k,k) is zero.
+L = eye(n);
+for j = 1:k-1
+    L(j+1:n,j) = A(j+1:n,j)
+end
+U = zeros(n);
+for i = 1:k-1
+    U(i,i:n) = A(i,i:n)
+end
+for i = k:n
+    U(i,k:n) = A(i,k:n)
+end
+
+
+```
+
+
+This function is intended to be used for matrices of small sizes where the launch overhead is a significant factor.
+
+
+cublas<t>getrfBatched supports non-pivot LU factorization if `PivotArray` is NULL.
+
+
+cublas<t>getrfBatched supports arbitrary dimension.
+
+
+cublas<t>getrfBatched only supports compute capability 2.0 or above.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| n |  | input | Number of rows and columns of Aarray[i]. |
+| Aarray | device | input/output | Array of pointers to <type> array, with each array of dim. n x n with lda >= max(1, n). Matrices Aarray[i] should not overlap; otherwise, undefined behavior is expected. |
+| lda |  | input | Leading dimension of two-dimensional array used to store each matrix Aarray[i]. |
+| PivotArray | device | output | Array of size n x batchSize that contains the pivoting sequence of each factorization of Aarray[i] stored in a linear fashion. If PivotArray is NULL, pivoting is disabled. |
+| infoArray | device | output | Array of size batchSize that info(=infoArray[i]) contains the information of factorization of Aarray[i].
+If info == 0, the execution is successful.
+If info = -j, the j-th parameter had an illegal value.
+If info = k, U(k, k) == 0. The factorization has been completed, but U is exactly singular. |
+| batchSize |  | input | Number of pointers contained in A |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_INVALID_VALUE | The parameters n < 0 or batchSize < 0 or lda <0 |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+For references please refer to NETLIB documentation:
+
+
+[sgeqrf()](http://www.netlib.org/lapack/single/sgetrf.f), [dgeqrf()](http://www.netlib.org/lapack/double/dgetrf.f), [cgeqrf()](http://www.netlib.org/lapack/complex/cgetrf.f), [zgeqrf()](http://www.netlib.org/lapack/complex16/zgetrf.f)
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasSgetriBatched(cublasHandle_t handle,
+                                   int n,
+                                   const float *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   float *const Carray[],
+                                   int ldc,
+                                   int *infoArray,
+                                   int batchSize);
+
+cublasStatus_t cublasDgetriBatched(cublasHandle_t handle,
+                                   int n,
+                                   const double *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   double *const Carray[],
+                                   int ldc,
+                                   int *infoArray,
+                                   int batchSize);
+
+cublasStatus_t cublasCgetriBatched(cublasHandle_t handle,
+                                   int n,
+                                   const cuComplex *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   cuComplex *const Carray[],
+                                   int ldc,
+                                   int *infoArray,
+                                   int batchSize);
+
+cublasStatus_t cublasZgetriBatched(cublasHandle_t handle,
+                                   int n,
+                                   const cuDoubleComplex *const Aarray[],
+                                   int lda,
+                                   int *PivotArray,
+                                   cuDoubleComplex *const Carray[],
+                                   int ldc,
+                                   int *infoArray,
+                                   int batchSize);
+
+
+```
+
+
+`Aarray` and `Carray` are arrays of pointers to matrices stored in column-major format with dimensions `n*n` and leading dimension `lda` and `ldc` respectively.
+
+
+This function performs the inversion of matrices `A[i]` for i = 0, …, `batchSize-1`.
+
+
+Prior to calling cublas<t>getriBatched, the matrix `A[i]` must be factorized first using the routine cublas<t>getrfBatched. After the call of cublas<t>getrfBatched, the matrix pointing by `Aarray[i]` will contain the LU factors of the matrix `A[i]` and the vector pointing by `(PivotArray+i)` will contain the pivoting sequence.
+
+
+Following the LU factorization, cublas<t>getriBatched uses forward and backward triangular solvers to complete inversion of matrices `A[i]` for i = 0, …, `batchSize-1`. The inversion is out-of-place, so memory space of Carray[i] cannot overlap memory space of Array[i].
+
+
+Typically all parameters in cublas<t>getrfBatched would be passed into cublas<t>getriBatched. For example,
+
+
+
+```c++
+
+// step 1: perform in-place LU decomposition, P*A = L*U.
+//      Aarray[i] is n*n matrix A[i]
+    cublasDgetrfBatched(handle, n, Aarray, lda, PivotArray, infoArray, batchSize);
+//      check infoArray[i] to see if factorization of A[i] is successful or not.
+//      Array[i] contains LU factorization of A[i]
+
+// step 2: perform out-of-place inversion, Carray[i] = inv(A[i])
+    cublasDgetriBatched(handle, n, Aarray, lda, PivotArray, Carray, ldc, infoArray, batchSize);
+//      check infoArray[i] to see if inversion of A[i] is successful or not.
+
+
+```
+
+
+The user can check singularity from either cublas<t>getrfBatched or cublas<t>getriBatched.
+
+
+This function is intended to be used for matrices of small sizes where the launch overhead is a significant factor.
+
+
+If cublas<t>getrfBatched is performed by non-pivoting, `PivotArray` of cublas<t>getriBatched should be NULL.
+
+
+cublas<t>getriBatched supports arbitrary dimension.
+
+
+cublas<t>getriBatched only supports compute capability 2.0 or above.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| n |  | input | Number of rows and columns of Aarray[i]. |
+| Aarray | device | input | Array of pointers to <type> array, with each array of dimension n*n with lda >= max(1, n). |
+| lda |  | input | Leading dimension of two-dimensional array used to store each matrix Aarray[i]. |
+| PivotArray | device | output | Array of size n*batchSize that contains the pivoting sequence of each factorization of Aarray[i] stored in a linear fashion. If PivotArray is NULL, pivoting is disabled. |
+| Carray | device | output | Array of pointers to <type> array, with each array of dimension n*n with ldc >= max(1, n). Matrices Carray[i] should not overlap; otherwise, undefined behavior is expected. |
+| ldc |  | input | Leading dimension of two-dimensional array used to store each matrix Carray[i]. |
+| infoArray | device | output | Array of size batchSize that info(=infoArray[i]) contains the information of inversion of A[i].
+If info == 0, the execution is successful.
+If info == k, U(k, k) == 0. The U is exactly singular and the inversion failed. |
+| batchSize |  | input | Number of pointers contained in A |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_INVALID_VALUE | If n < 0 or lda < 0 or ldc < 0 or batchSize < 0, or
+if lda < n or ldc < n |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+
+
+```c++
+
+cublasStatus_t cublasSgetrsBatched(cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int n,
+                                   int nrhs,
+                                   const float *const Aarray[],
+                                   int lda,
+                                   const int *devIpiv,
+                                   float *const Barray[],
+                                   int ldb,
+                                   int *info,
+                                   int batchSize);
+
+cublasStatus_t cublasDgetrsBatched(cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int n,
+                                   int nrhs,
+                                   const double *const Aarray[],
+                                   int lda,
+                                   const int *devIpiv,
+                                   double *const Barray[],
+                                   int ldb,
+                                   int *info,
+                                   int batchSize);
+
+cublasStatus_t cublasCgetrsBatched(cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int n,
+                                   int nrhs,
+                                   const cuComplex *const Aarray[],
+                                   int lda,
+                                   const int *devIpiv,
+                                   cuComplex *const Barray[],
+                                   int ldb,
+                                   int *info,
+                                   int batchSize);
+
+cublasStatus_t cublasZgetrsBatched(cublasHandle_t handle,
+                                   cublasOperation_t trans,
+                                   int n,
+                                   int nrhs,
+                                   const cuDoubleComplex *const Aarray[],
+                                   int lda,
+                                   const int *devIpiv,
+                                   cuDoubleComplex *const Barray[],
+                                   int ldb,
+                                   int *info,
+                                   int batchSize);
+
+
+```
+
+此函数用于求解一系列线性方程组，形式如下：
+
+$\text{op}(A\lbrack i \rbrack) X\lbrack i\rbrack = B\lbrack i\rbrack$
+
+其中，$A\lbrack i\rbrack$ 是经过带部分主元的 LU 分解的矩阵，$X\lbrack i\rbrack$ 和 $B\lbrack i\rbrack$ 是 $n \times {nrhs}$ 矩阵。同样，对于矩阵 $A$：
+
+$\text{op}(A\lbrack i\rbrack) = \left\{ \begin{matrix}
+{A\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_N}} \\
+{A^{T}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_T}} \\
+{A^{H}\lbrack i\rbrack} & {\text{if }\textsf{trans == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+此函数适用于矩阵规模较小、启动开销占比较高的场景。
+
+`cublas<t>getrsBatched()` 支持不带主元选择的 LU 分解（当 `devIpiv` 为 `NULL` 时）。
+
+`cublas<t>getrsBatched()` 支持任意维度。
+
+`cublas<t>getrsBatched()` 仅支持计算能力 2.0 及以上的设备。
+
+| 参数 | 内存位置 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |
+| trans |  | 输入 | 运算 op(A)，可以是未转置或（共轭）转置。 |
+| n |  | 输入 | Aarray[i] 的行数和列数。 |
+| nrhs |  | 输入 | Barray[i] 的列数。 |
+| Aarray | 设备端 | 输入 | 指向 <type> 类型数组的指针数组，每个数组维度为 n x n，且 lda >= max(1, n)。 |
+| lda |  | 输入 | 用于存储每个矩阵 Aarray[i] 的二维数组的主导维度。 |
+| devIpiv | 设备端 | 输入 | 大小为 n x batchSize 的数组，其中包含以线性方式存储的每个 Aarray[i] 分解的旋转序列。如果 devIpiv 为 NULL，则忽略所有 Aarray[i] 的旋转操作。 |
+| Barray | 设备端 | 输入/输出 | 指向 <type> 类型数组的指针数组，每个数组维度为 n x nrhs，且 ldb >= max(1, n)。矩阵 Barray[i] 之间不应重叠，否则将导致未定义行为。 |
+| ldb |  | 输入 | 用于存储每个解矩阵 Barray[i] 的二维数组的主导维度。 |
+| info | 主机端 | 输出 | 如果 info == 0，表示执行成功。
+如果 info = -j，表示第 j 个参数具有非法值。 |
+| batchSize |  | 输入 | Aarray 中包含的指针数量。 |
+
+此函数可能返回的错误值及其含义如下表所列。
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 n < 0 或 nrhs < 0，或
+如果 trans 不是 CUBLAS_OP_N、CUBLAS_OP_T 和 CUBLAS_OP_C 之一，或
+如果 lda < max(1, n)，或
+如果 ldb < max(1, n) |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数未能在 GPU 上启动执行 |
+
+相关参考文献请参阅 NETLIB 文档：
+
+[sgeqrs()](http://www.netlib.org/lapack/single/sgetrs.f)、[dgeqrs()](http://www.netlib.org/lapack/double/dgetrs.f)、[cgeqrs()](http://www.netlib.org/lapack/complex/cgetrs.f)、[zgeqrs()](http://www.netlib.org/lapack/complex16/zgetrs.f)
+
+
+
+```c++
+
+cublasStatus_t cublasSmatinvBatched(cublasHandle_t handle,
+                                    int n,
+                                    const float *const A[],
+                                    int lda,
+                                    float *const Ainv[],
+                                    int lda_inv,
+                                    int *info,
+                                    int batchSize);
+
+cublasStatus_t cublasDmatinvBatched(cublasHandle_t handle,
+                                    int n,
+                                    const double *const A[],
+                                    int lda,
+                                    double *const Ainv[],
+                                    int lda_inv,
+                                    int *info,
+                                    int batchSize);
+
+cublasStatus_t cublasCmatinvBatched(cublasHandle_t handle,
+                                    int n,
+                                    const cuComplex *const A[],
+                                    int lda,
+                                    cuComplex *const Ainv[],
+                                    int lda_inv,
+                                    int *info,
+                                    int batchSize);
+
+cublasStatus_t cublasZmatinvBatched(cublasHandle_t handle,
+                                    int n,
+                                    const cuDoubleComplex *const A[],
+                                    int lda,
+                                    cuDoubleComplex *const Ainv[],
+                                    int lda_inv,
+                                    int *info,
+                                    int batchSize);
+
+
+```
+
+
+`A` and `Ainv` are arrays of pointers to matrices stored in column-major format with dimensions `n*n` and leading dimension `lda` and `lda_inv` respectively.
+
+
+This function performs the inversion of matrices `A[i]` for i = 0, …, `batchSize-1`.
+
+
+This function is a short cut of cublas<t>getrfBatched() plus cublas<t>getriBatched(). However it doesn’t work if `n` is greater than 32. If not, the user has to go through cublas<t>getrfBatched() and cublas<t>getriBatched().
+
+
+If the matrix `A[i]` is singular, then `info[i]` reports singularity, the same as cublas<t>getrfBatched().
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| n |  | input | Number of rows and columns of A[i]. |
+| A | device | input | Array of pointers to <type> array, with each array of dimension n*n with lda >= max(1, n). |
+| lda |  | input | Leading dimension of two-dimensional array used to store each matrix A[i]. |
+| Ainv | device | output | Array of pointers to <type> array, with each array of dimension n*n with lda_inv >= max(1, n). Matrices Ainv[i] should not overlap; otherwise, undefined behavior is expected. |
+| lda_inv |  | input | Leading dimension of two-dimensional array used to store each matrix Ainv[i]. |
+| info | device | output | Array of size batchSize that info[i] contains the information of inversion of A[i].
+If info[i] == 0, the execution is successful.
+If info[i] == k, then U(k, k) == 0. The U is exactly singular and the inversion failed. |
+| batchSize |  | input | Number of pointers contained in A. |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_INVALID_VALUE | If n < 0 or lda < 0 or lda_inv < 0 or batchSize < 0, or
+if lda < n or lda_inv < n, or
+if n > 32 |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasStpttr ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const float *AP,
+                              float *A,
+                              int lda );
+
+cublasStatus_t cublasDtpttr ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const double *AP,
+                              double *A,
+                              int lda );
+
+cublasStatus_t cublasCtpttr ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const cuComplex *AP,
+                              cuComplex *A,
+                              int lda );
+
+cublasStatus_t cublasZtpttr ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const cuDoubleComplex *AP,
+                              cuDoubleComplex *A,
+                              int lda );
+
+
+```
+
+
+此函数执行从三角压缩格式到三角格式的转换。
+
+
+如果 `uplo == CUBLAS_FILL_MODE_LOWER`，则 `AP` 的元素被复制到三角矩阵 `A` 的下三角部分，而 `A` 的上三角部分保持不变。如果 `uplo == CUBLAS_FILL_MODE_UPPER`，则 `AP` 的元素被复制到三角矩阵 `A` 的上三角部分，而 `A` 的下三角部分保持不变。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |
+| uplo |  | 输入 | 指示矩阵 AP 是否包含矩阵 A 的下三角部分或上三角部分。 |
+| n |  | 输入 | 矩阵 A 的行数和列数。 |
+| AP | 设备端 | 输入 | 以压缩格式存储 \(A\) 的 <type> 数组。 |
+| A | 设备端 | 输出 | 维度为 lda x n 的 <type> 数组，其中 lda >= max(1, n)。A 的相对侧保持不变。 |
+| lda |  | 输入 | 用于存储矩阵 A 的二维数组的主维度。 |
+
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 n < 0，或
+如果 uplo 不是 CUBLAS_FILL_MODE_LOWER 和 CUBLAS_FILL_MODE_UPPER 之一，或
+如果 lda < max(1, n) |
+| CUBLAS_STATUS_EXECUTION_FAILED | 该函数在 GPU 上启动失败 |
+
+
+有关参考资料，请参阅 NETLIB 文档：
+
+
+[stpttr()](http://www.netlib.org/lapack/explore-html/d7/d70/stpttr_8f.html)、[dtpttr()](http://www.netlib.org/lapack/explore-html/df/d63/dtpttr_8f.html)、[ctpttr()](http://www.netlib.org/lapack/explore-html/de/d13/ctpttr_8f.html)、[ztpttr()](http://www.netlib.org/lapack/explore-html/d6/dbc/ztpttr_8f.html)
+
+```c++
+
+cublasStatus_t cublasStrttp ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const float *A,
+                              int lda,
+                              float *AP );
+
+cublasStatus_t cublasDtrttp ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const double *A,
+                              int lda,
+                              double *AP );
+
+cublasStatus_t cublasCtrttp ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const cuComplex *A,
+                              int lda,
+                              cuComplex *AP );
+
+cublasStatus_t cublasZtrttp ( cublasHandle_t handle,
+                              cublasFillMode_t uplo,
+                              int n,
+                              const cuDoubleComplex *A,
+                              int lda,
+                              cuDoubleComplex *AP );
+
+```
+
+此函数执行从三角格式到压缩三角格式的转换。
+
+如果 `uplo == CUBLAS_FILL_MODE_LOWER`，则将三角矩阵 `A` 的下三角部分复制到数组 `AP` 中。如果 `uplo == CUBLAS_FILL_MODE_UPPER`，则将三角矩阵 `A` 的上三角部分复制到数组 `AP` 中。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS 库上下文的句柄。 |
+| uplo |  | input | 指示引用矩阵 A 的下三角还是上三角部分。 |
+| n |  | input | 矩阵 A 的行数和列数。 |
+| A | device | input | 尺寸为 lda × n 的 <type> 数组，其中 lda >= max(1, n)。 |
+| lda |  | input | 用于存储矩阵 A 的二维数组的主维。 |
+| AP | device | output | 以压缩格式存储 A 的 <type> 数组。 |
+
+此函数返回的可能错误值及其含义如下所示。
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 n < 0，或 uplo 不是 CUBLAS_FILL_MODE_LOWER 和 CUBLAS_FILL_MODE_UPPER 之一，或 lda < max(1, n)。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败。 |
+
+有关参考信息，请参阅 NETLIB 文档：
+
+[strttp()](http://www.netlib.org/lapack/explore-html/d9/def/strttp_8f.html)、[dtrttp()](http://www.netlib.org/lapack/explore-html/d0/daf/dtrttp_8f.html)、[ctrttp()](http://www.netlib.org/lapack/explore-html/d7/d56/ctrttp_8f.html)、[ztrttp()](http://www.netlib.org/lapack/explore-html/da/dc2/ztrttp_8f.html)
+
+```c++
+
+cublasStatus_t cublasAxpyEx (cublasHandle_t handle,
+                             int n,
+                             const void *alpha,
+                             cudaDataType alphaType,
+                             const void *x,
+                             cudaDataType xType,
+                             int incx,
+                             void *y,
+                             cudaDataType yType,
+                             int incy,
+                             cudaDataType executiontype);
+
+
+```
+
+此函数支持64位整数接口。
+
+此函数是对cublas<t>axpy() routine的API泛化，允许独立指定输入数据、输出数据和计算类型。
+
+此函数将向量`x`乘以标量$\alpha$，然后加到向量`y`上，用结果覆盖最新的向量。因此，执行的操作是$\mathbf{y}\lbrack j\rbrack = \alpha \times \mathbf{x}\lbrack k\rbrack + \mathbf{y}\lbrack j\rbrack$，其中$i = 1,\ldots,n$，$k = 1 + \left( {i - 1} \right)*\text{incx}$，$j = 1 + \left( {i - 1} \right)*\text{incy}$。注意，最后两个公式反映了为与Fortran兼容而使用的1-based索引。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| n |  | 输入 | 向量x和y中的元素数量。 |
+| alpha | 主机或设备 | 输入 | 用于乘法的<type>标量。 |
+| alphaType |  | 输入 | 指定标量alpha数据类型的枚举类型。 |
+| x | 设备 | 输入 | 具有n个元素的<type>向量。 |
+| xType |  | 输入 | 指定向量x数据类型的枚举类型。 |
+| incx |  | 输入 | x中连续元素之间的步长。 |
+| y | 设备 | 输入/输出 | 具有n个元素的<type>向量。 |
+| yType |  | 输入 | 指定向量y数据类型的枚举类型。 |
+| incy |  | 输入 | y中连续元素之间的步长。 |
+| executionType |  | 输入 | 指定计算执行数据类型的枚举类型。 |
+
+cublasAxpyEx()当前支持的数据类型组合如下表所示：
+
+| alpha | x | y | execution |
+| --- | --- | --- | --- |
+| CUDA_R_32F | CUDA_R_16F | CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_16BF | CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_R_64F | CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_32F | CUDA_C_32F | CUDA_C_32F | CUDA_C_32F |
+| CUDA_C_64F | CUDA_C_64F | CUDA_C_64F | CUDA_C_64F |
+
+此函数可能返回的错误值及其含义如下表所列。
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_NOT_SUPPORTED | xType、yType和executionType的组合不支持。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在GPU上启动失败。 |
+| CUBLAS_STATUS_INVALID_VALUE | alphaType或xType或yType或executionType不支持。 |
+
+有关参考资料，请参阅NETLIB文档：
+
+[saxpy()](http://www.netlib.org/blas/saxpy.f), [daxpy()](http://www.netlib.org/blas/daxpy.f), [caxpy()](http://www.netlib.org/blas/caxpy.f), [zaxpy()](http://www.netlib.org/blas/zaxpy.f)
+
+
+
+```c++
+
+cublasStatus_t cublasCherk3mEx(cublasHandle_t handle,
+                           cublasFillMode_t uplo,
+                           cublasOperation_t trans,
+                           int n,
+                           int k,
+                           const float     *alpha,
+                           const void      *A,
+                           cudaDataType    Atype,
+                           int lda,
+                           const float    *beta,
+                           cuComplex      *C,
+                           cudaDataType   Ctype,
+                           int ldc)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function is an extension of cublasCherk() where the input matrix and output matrix can have a lower precision but the computation is still done in the type `cuComplex`. This routine is implemented using the Gauss complexity reduction algorithm which can lead to an increase in performance up to 25%
+
+
+This function performs the Hermitian rank- $k$ update
+
+
+$C = \alpha\text{op}(A)\text{op}(A)^{H} + \beta C$
+
+
+where $\alpha$ and $\beta$ are scalars, $C$ is a Hermitian matrix stored in lower or upper mode, and $A$ is a matrix with dimensions $\text{op}(A)$ $n \times k$ . Also, for matrix $A$
+
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+
+> **Note**
+
+Note
+This routine is only supported on GPUs with architecture capabilities equal to or greater than 5.0
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| uplo |  | input | Indicates if matrix C lower or upper part is stored, the other Hermitian part is not referenced. |
+| trans |  | input | Operation op(A) that is non- or (conj.) transpose. |
+| n |  | input | Number of rows of matrix op(A) and C. |
+| k |  | input | Number of columns of matrix op(A). |
+| alpha | host or device | input | <type> scalar used for multiplication. |
+| A | device | input | <type> array of dimension lda x k with lda >= max(1, n) if trans == CUBLAS_OP_N and lda x n with lda >= max(1, k) otherwise. |
+| Atype |  | input | Enumerant specifying the datatype of matrix A. |
+| lda |  | input | Leading dimension of two-dimensional array used to store matrix A. |
+| beta |  | input | <type> scalar used for multiplication. If beta == 0 then C does not have to be a valid input. |
+| C | device | in/out | <type> array of dimension ldc x n, with ldc >= max(1, n). The imaginary parts of the diagonal elements are assumed and set to zero. |
+| Ctype |  | input | Enumerant specifying the datatype of matrix C. |
+| ldc |  | input | Leading dimension of two-dimensional array used to store matrix C. |
+
+
+The matrix types combinations supported for cublasCherk3mEx() are listed in the following table:
+
+
+| A | C |
+| --- | --- |
+| CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+| CUBLAS_STATUS_INVALID_VALUE | If n < 0 or k < 0, or
+if uplo is not one of CUBLAS_FILL_MODE_LOWER and CUBLAS_FILL_MODE_UPPER, or
+if trans is not one of CUBLAS_OP_N, CUBLAS_OP_T and CUBLAS_OP_C, or
+if lda < max(1, n) if trans == CUBLAS_OP_N and lda < max(1, k) otherwise, or
+if ldc < max(1, n), or
+if Atype or Ctype are not supported |
+| CUBLAS_STATUS_NOT_SUPPORTED | The combination of the parameters Atype and Ctype is not supported. |
+| CUBLAS_STATUS_ARCH_MISMATCH | The device has a compute capability lower than 5.0. |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU. |
+
+
+For references please refer to NETLIB documentation:
+
+
+[cherk()](http://www.netlib.org/blas/cherk.f)
+
+
+
+
+```c++
+
+cublasStatus_t cublasCherkEx(cublasHandle_t handle,
+                           cublasFillMode_t uplo,
+                           cublasOperation_t trans,
+                           int n,
+                           int k,
+                           const float     *alpha,
+                           const void      *A,
+                           cudaDataType    Atype,
+                           int lda,
+                           const float    *beta,
+                           cuComplex      *C,
+                           cudaDataType   Ctype,
+                           int ldc)
+
+
+```
+
+此函数支持64位整数接口。
+
+此函数是`cublasCherk()`的扩展，其中输入矩阵和输出矩阵可以具有较低的精度，但计算仍然以`cuComplex`类型进行。
+
+此函数执行Hermitian秩-$k$更新：
+
+$C = \alpha\text{op}(A)\text{op}(A)^{H} + \beta C$
+
+其中$\alpha$和$\beta$是标量，$C$是以lower或upper模式存储的Hermitian矩阵，$A$是一个维度为$\text{op}(A)$ $n \times k$的矩阵。同样，对于矩阵$A$：
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+> **Note**
+>
+> 注意
+>
+> 此例程仅在计算能力等于或大于5.0的GPU上支持。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| uplo |  | 输入 | 指示矩阵C的下三角或上三角部分是否存储，另一半Hermitian部分未被引用。 |
+| trans |  | 输入 | 非转置或（共轭）转置操作op(A)。 |
+| n |  | 输入 | 矩阵op(A)和C的行数。 |
+| k |  | 输入 | 矩阵op(A)的列数。 |
+| alpha | 主机或设备 | 输入 | 用于乘法的<type>标量。 |
+| A | 设备 | 输入 | 维度为lda x k的<type>数组，当transa == CUBLAS_OP_N时lda >= max(1, n)，否则为lda x n且lda >= max(1, k)。 |
+| Atype |  | 输入 | 指定矩阵A数据类型的枚举量。 |
+| lda |  | 输入 | 用于存储矩阵A的二维数组的主维度。 |
+| beta |  | 输入 | 用于乘法的<type>标量。如果beta == 0，则C不必是有效的输入。 |
+| C | 设备 | 输入/输出 | 维度为ldc x n的<type>数组，ldc >= max(1, n)。对角元素的虚部被假定并设置为零。 |
+| Ctype |  | 输入 | 指定矩阵C数据类型的枚举量。 |
+| ldc |  | 输入 | 用于存储矩阵C的二维数组的主维度。 |
+
+`cublasCherkEx()`支持的矩阵类型组合如下表所示：
+
+| A | C |
+| --- | --- |
+| CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+
+此函数返回的可能错误值及其含义如下所示：
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果n < 0或k < 0，或<br>如果uplo不是CUBLAS_FILL_MODE_LOWER和CUBLAS_FILL_MODE_UPPER之一，或<br>如果trans不是CUBLAS_OP_N、CUBLAS_OP_T和CUBLAS_OP_C之一，或<br>如果trans == CUBLAS_OP_N时lda < max(1, n)，否则lda < max(1, k)，或<br>如果ldc < max(1, n)，或<br>如果Atype或Ctype不受支持 |
+| CUBLAS_STATUS_NOT_SUPPORTED | 参数Atype和Ctype的组合不受支持。 |
+| CUBLAS_STATUS_ARCH_MISMATCH | 设备的计算能力低于5.0。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在GPU上启动失败。 |
+
+参考文献请参阅NETLIB文档：
+
+[cherk()](http://www.netlib.org/blas/cherk.f)
+
+
+
+```c++
+
+cublasStatus_t cublasCsyrk3mEx(cublasHandle_t handle,
+                               cublasFillMode_t uplo,
+                               cublasOperation_t trans,
+                               int n,
+                               int k,
+                               const cuComplex *alpha,
+                               const void      *A,
+                               cudaDataType    Atype,
+                               int lda,
+                               const cuComplex *beta,
+                               cuComplex       *C,
+                               cudaDataType    Ctype,
+                               int ldc)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function is an extension of cublasCsyrk() where the input matrix and output matrix can have a lower precision but the computation is still done in the type `cuComplex`. This routine is implemented using the Gauss complexity reduction algorithm which can lead to an increase in performance up to 25%
+
+
+This function performs the symmetric rank- $k$ update
+
+
+$C = \alpha\text{op}(A)\text{op}(A)^{T} + \beta C$
+
+
+where $\alpha$ and $\beta$ are scalars, $C$ is a symmetric matrix stored in lower or upper mode, and $A$ is a matrix with dimensions $\text{op}(A)$ $n \times k$ . Also, for matrix $A$
+
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+\end{matrix} \right.$
+
+
+> **Note**
+
+Note
+This routine is only supported on GPUs with architecture capabilities equal to or greater than 5.0
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| uplo |  | input | Indicates if matrix C lower or upper part is stored, the other symmetric part is not referenced and is inferred from the stored elements. |
+| trans |  | input | Operation op(A) that is non- or transpose. |
+| n |  | input | Number of rows of matrix op(A) and C. |
+| k |  | input | Number of columns of matrix op(A). |
+| alpha | host or device | input | <type> scalar used for multiplication. |
+| A | device | input | <type> array of dimension lda x k with lda >= max(1, n) if trans == CUBLAS_OP_N and lda x n with lda >= max(1, k) otherwise. |
+| Atype |  | input | Enumerant specifying the datatype of matrix A. |
+| lda |  | input | Leading dimension of two-dimensional array used to store matrix A. |
+| beta | host or device | input | <type> scalar used for multiplication. If beta == 0 then C does not have to be a valid input. |
+| C | device | in/out | <type> array of dimension ldc x n, with ldc >= max(1, n). |
+| Ctype |  | input | Enumerant specifying the datatype of matrix C. |
+| ldc |  | input | Leading dimension of two-dimensional array used to store matrix C. |
+
+
+The matrix types combinations supported for cublasCsyrk3mEx() are listed below :
+
+
+| A | C |
+| --- | --- |
+| CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+| CUBLAS_STATUS_INVALID_VALUE | If n < 0 or k < 0, or
+if uplo is not one of CUBLAS_FILL_MODE_LOWER and CUBLAS_FILL_MODE_UPPER, or
+if trans is not one of CUBLAS_OP_N, CUBLAS_OP_T and CUBLAS_OP_C, or
+if lda < max(1, n) if trans == CUBLAS_OP_N and lda < max(1, k) otherwise, or
+if ldc < max(1, n), or
+if Atype or Ctype are not supported |
+| CUBLAS_STATUS_NOT_SUPPORTED | The combination of the parameters Atype and Ctype is not supported. |
+| CUBLAS_STATUS_ARCH_MISMATCH | The device has a compute capability lower than 5.0. |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU. |
+
+
+For references please refer to NETLIB documentation:
+
+
+[ssyrk()](http://www.netlib.org/blas/ssyrk.f), [dsyrk()](http://www.netlib.org/blas/dsyrk.f), [csyrk()](http://www.netlib.org/blas/csyrk.f), [zsyrk()](http://www.netlib.org/blas/zsyrk.f)
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasCsyrkEx(cublasHandle_t handle,
+                             cublasFillMode_t uplo,
+                             cublasOperation_t trans,
+                             int n,
+                             int k,
+                             const cuComplex *alpha,
+                             const void      *A,
+                             cudaDataType    Atype,
+                             int lda,
+                             const cuComplex *beta,
+                             cuComplex       *C,
+                             cudaDataType    Ctype,
+                             int ldc)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+
+此函数是cublasCsyrk()的扩展，其中输入矩阵和输出矩阵可以具有更低的精度，但计算仍然以`cuComplex`类型进行
+
+
+此函数执行对称秩- $k$ 更新
+
+
+$C = \alpha\text{op}(A)\text{op}(A)^{T} + \beta C$
+
+
+其中 $\alpha$ 和 $\beta$ 是标量，$C$ 是以下三角或上三角模式存储的对称矩阵，$A$ 是维度为 $\text{op}(A)$ $n \times k$ 的矩阵。同样，对于矩阵 $A$
+
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+\end{matrix} \right.$
+
+
+> **注意**
+
+此例程仅在计算能力大于或等于5.0的GPU上支持。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | 指向cuBLAS库上下文的句柄。 |
+| uplo |  | 输入 | 指示矩阵C的下三角或上三角部分是否存储，另一对称部分未引用且从存储的元素推断。 |
+| trans |  | 输入 | 非转置或转置的运算op(A)。 |
+| n |  | 输入 | 矩阵op(A)和C的行数。 |
+| k |  | 输入 | 矩阵op(A)的列数。 |
+| alpha | 主机或设备 | 输入 | 用于乘法运算的<类型>标量。 |
+| A | 设备 | 输入 | 维度为lda x k的<类型>数组，当trans == CUBLAS_OP_N时lda >= max(1, n)，否则为lda x n且lda >= max(1, k)。 |
+| Atype |  | 输入 | 指定矩阵A数据类型的枚举量。 |
+| lda |  | 输入 | 用于存储矩阵A的二维数组的leading dimension。 |
+| beta | 主机或设备 | 输入 | 用于乘法运算的<类型>标量。如果beta == 0，则C不必是有效输入。 |
+| C | 设备 | 输入/输出 | 维度为ldc x n的<类型>数组，ldc >= max(1, n)。 |
+| Ctype |  | 输入 | 指定矩阵C数据类型的枚举量。 |
+| ldc |  | 输入 | 用于存储矩阵C的二维数组的leading dimension。 |
+
+
+cublasCsyrkEx()支持的矩阵类型组合如下：
+
+
+| A | C |
+| --- | --- |
+| CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+
+
+此函数返回的可能错误值及其含义如下：
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果n < 0或k < 0，或
+如果uplo不是CUBLAS_FILL_MODE_LOWER和CUBLAS_FILL_MODE_UPPER之一，或
+如果trans不是CUBLAS_OP_N、CUBLAS_OP_T和CUBLAS_OP_C之一，或
+如果trans == CUBLAS_OP_N时lda < max(1, n)且否则lda < max(1, k)，或
+如果ldc < max(1, n)，或
+如果Atype或Ctype不受支持 |
+| CUBLAS_STATUS_NOT_SUPPORTED | Atype和Ctype参数的组合不受支持。 |
+| CUBLAS_STATUS_ARCH_MISMATCH | 设备的计算能力低于5.0。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在GPU上启动失败。 |
+
+
+有关参考，请参阅NETLIB文档：
+
+
+[ssyrk()](http://www.netlib.org/blas/ssyrk.f), [dsyrk()](http://www.netlib.org/blas/dsyrk.f), [csyrk()](http://www.netlib.org/blas/csyrk.f), [zsyrk()](http://www.netlib.org/blas/zsyrk.f)
+
+
+
+```c++
+
+cublasStatus_t cublasDotEx (cublasHandle_t handle,
+                            int n,
+                            const void *x,
+                            cudaDataType xType,
+                            int incx,
+                            const void *y,
+                            cudaDataType yType,
+                            int incy,
+                            void *result,
+                            cudaDataType resultType,
+                            cudaDataType executionType);
+
+cublasStatus_t cublasDotcEx (cublasHandle_t handle,
+                             int n,
+                             const void *x,
+                             cudaDataType xType,
+                             int incx,
+                             const void *y,
+                             cudaDataType yType,
+                             int incy,
+                             void *result,
+                             cudaDataType resultType,
+                             cudaDataType executionType);
+
+
+```
+
+
+These functions support the 64-bit Integer Interface.
+
+
+These functions are an API generalization of the routines cublas<t>dot() and cublas<t>dotc() where input data, output data and compute type can be specified independently. Note: cublas<t>dotc() is dot product conjugated, cublas<t>dotu() is dot product unconjugated.
+
+
+This function computes the dot product of vectors `x` and `y`. Hence, the result is $\sum_{i = 1}^{n}\left( {\mathbf{x}\lbrack k\rbrack \times \mathbf{y}\lbrack j\rbrack} \right)$ where $k = 1 + \left( {i - 1} \right)*\text{incx}$ and $j = 1 + \left( {i - 1} \right)*\text{incy}$ . Notice that in the first equation the conjugate of the element of vector x should be used if the function name ends in character ‘c’ and that the last two equations reflect 1-based indexing used for compatibility with Fortran.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| n |  | input | Number of elements in the vectors x and y. |
+| x | device | input | <type> vector with n elements. |
+| xType |  | input | Enumerant specifying the datatype of vector x. |
+| incx |  | input | Stride between consecutive elements of x. |
+| y | device | input | <type> vector with n elements. |
+| yType |  | input | Enumerant specifying the datatype of vector y. |
+| incy |  | input | Stride between consecutive elements of y. |
+| result | host or device | output | The resulting dot product, which is set to 0 if n <= 0 |
+| resultType |  | input | Enumerant specifying the datatype of the result. |
+| executionType |  | input | Enumerant specifying the datatype in which the computation is executed. |
+
+
+The datatypes combinations currently supported for cublasDotEx() and [cublasDotcEx()](cublasDotEx()) are listed below:
+
+
+| x | y | result | execution |
+| --- | --- | --- | --- |
+| CUDA_R_16F | CUDA_R_16F | CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_16BF | CUDA_R_16BF | CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_R_64F | CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_32F | CUDA_C_32F | CUDA_C_32F | CUDA_C_32F |
+| CUDA_C_64F | CUDA_C_64F | CUDA_C_64F | CUDA_C_64F |
+
+
+The possible error values returned by this function and their meanings are listed in the following table:
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+| CUBLAS_STATUS_ALLOC_FAILED | The reduction buffer could not be allocated. |
+| CUBLAS_STATUS_NOT_SUPPORTED | The combination of the parameters xType, yType, resultType and executionType is not supported. |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU. |
+| CUBLAS_STATUS_INVALID_VALUE | xType or yType or resultType or executionType is not supported. |
+
+
+For references please refer to NETLIB documentation:
+
+
+[sdot()](http://www.netlib.org/blas/sdot.f), [ddot()](http://www.netlib.org/blas/ddot.f), [cdotu()](http://www.netlib.org/blas/cdotu.f), [cdotc()](http://www.netlib.org/blas/cdotc.f), [zdotu()](http://www.netlib.org/blas/zdotu.f), [zdotc()](http://www.netlib.org/blas/zdotc.f)
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasGemmBatchedEx(cublasHandle_t handle,
+                            cublasOperation_t transa,
+                            cublasOperation_t transb,
+                            int m,
+                            int n,
+                            int k,
+                            const void    *alpha,
+                            const void     *const Aarray[],
+                            cudaDataType_t Atype,
+                            int lda,
+                            const void     *const Barray[],
+                            cudaDataType_t Btype,
+                            int ldb,
+                            const void    *beta,
+                            void           *const Carray[],
+                            cudaDataType_t Ctype,
+                            int ldc,
+                            int batchCount,
+                            cublasComputeType_t computeType,
+                            cublasGemmAlgo_t algo)
+
+##if defined(__cplusplus)
+cublasStatus_t cublasGemmBatchedEx(cublasHandle_t handle,
+                            cublasOperation_t transa,
+                            cublasOperation_t transb,
+                            int m,
+                            int n,
+                            int k,
+                            const void     *alpha,
+                            const void     *const Aarray[],
+                            cudaDataType   Atype,
+                            int lda,
+                            const void     *const Barray[],
+                            cudaDataType   Btype,
+                            int ldb,
+                            const void     *beta,
+                            void           *const Carray[],
+                            cudaDataType   Ctype,
+                            int ldc,
+                            int batchCount,
+                            cudaDataType   computeType,
+                            cublasGemmAlgo_t algo)
+##endif
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function is an extension of cublas<t>gemmBatched() that performs the matrix-matrix multiplication of a batch of matrices and allows the user to individually specify the data types for each of the A, B and C matrix arrays, the precision of computation and the GEMM algorithm to be run. Like cublas<t>gemmBatched(), the batch is considered to be “uniform”, i.e. all instances have the same dimensions (m, n, k), leading dimensions (lda, ldb, ldc) and transpositions (transa, transb) for their respective A, B and C matrices. The address of the input matrices and the output matrix of each instance of the batch are read from arrays of pointers passed to the function by the caller. Supported combinations of arguments are listed further down in this section.
+
+
+> **Note**
+
+Note
+The second variant of cublasGemmBatchedEx() function is provided for backward compatibility with C++ applications code, where the computeType parameter is of cudaDataType instead of cublasComputeType_t. C applications would still compile with the updated function signature.
+
+
+$C\lbrack i\rbrack = \alpha\text{op}(A\lbrack i\rbrack)\text{op}(B\lbrack i\rbrack) + \beta C\lbrack i\rbrack,\text{ for i } \in \lbrack 0,batchCount - 1\rbrack$
+
+
+where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are arrays of pointers to matrices stored in column-major format with dimensions $\text{op}(A\lbrack i\rbrack)$ $m \times k$ , $\text{op}(B\lbrack i\rbrack)$ $k \times n$ and $C\lbrack i\rbrack$ $m \times n$ , respectively. Also, for matrix $A$
+
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+
+and $\text{op}(B\lbrack i\rbrack)$ is defined similarly for matrix $B\lbrack i\rbrack$ .
+
+
+> **Note**
+
+Note
+\(C\lbrack i\rbrack\) matrices must not overlap, i.e. the individual gemm operations must be computable independently; otherwise, behavior is undefined.
+
+
+On certain problem sizes, it might be advantageous to make multiple calls to cublas<t>gemm() in different CUDA streams, rather than use this API.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| transa |  | input | Operation op(Aarray[i]) that is non- or (conj.) transpose. |
+| transb |  | input | Operation op(Barray[i]) that is non- or (conj.) transpose. |
+| m |  | input | Number of rows of matrix op(Aarray[i]) and Carray[i]. |
+| n |  | input | Number of columns of matrix op(Barray[i]) and Carray[i]. |
+| k |  | input | Number of columns of op(Aarray[i]) and rows of op(Barray[i]). |
+| alpha | host or device | input | Scaling factor for matrix products of the type that corresponds to the computeType and Ctype, see the table below for details. |
+| Aarray | device | input | Array of pointers to <Atype> array, with each array of dim. lda x k with lda >= max(1, m) if transa == CUBLAS_OP_N and lda x m with lda >= max(1, k) otherwise.
+All pointers must meet certain alignment criteria. Please see below for details. |
+| Atype |  | input | Enumerant specifying the datatype of Aarray. |
+| lda |  | input | Leading dimension of two-dimensional array used to store the matrix Aarray[i]. |
+| Barray | device | input | Array of pointers to <Btype> array, with each array of dim. ldb x n with ldb >= max(1, k) if transb == CUBLAS_OP_N and ldb x k with ldb >= max(1,n) otherwise.
+All pointers must meet certain alignment criteria. Please see below for details. |
+| Btype |  | input | Enumerant specifying the datatype of Barray. |
+| ldb |  | input | Leading dimension of two-dimensional array used to store matrix Barray[i]. |
+| beta | host or device | input | Scaling factor for Carray of the type that corresponds to the computeType and Ctype, see the table below for details. If beta == 0, Carray[i] does not have to be a valid input. |
+| Carray | device | in/out | Array of pointers to <Ctype> array. It has dimensions ldc x n with ldc >= max(1, m). Matrices Carray[i] should not overlap; otherwise, the behavior is undefined.
+All pointers must meet certain alignment criteria. Please see below for details. |
+| Ctype |  | input | Enumerant specifying the datatype of Carray. |
+| ldc |  | input | Leading dimension of a two-dimensional array used to store each matrix Carray[i]. |
+| batchCount |  | input | Number of pointers contained in Aarray, Barray and Carray. |
+| computeType |  | input | Enumerant specifying the computation type. |
+| algo |  | input | Enumerant specifying the algorithm. See cublasGemmAlgo_t. |
+
+
+cublasGemmBatchedEx() supports the following Compute Type, Scale Type, Atype/Btype, and Ctype:
+
+
+| Compute Type | Scale Type (alpha and beta) | Atype/Btype | Ctype |
+| --- | --- | --- | --- |
+| CUBLAS_COMPUTE_16F or
+CUBLAS_COMPUTE_16F_PEDANTIC | CUDA_R_16F | CUDA_R_16F | CUDA_R_16F |
+| CUBLAS_COMPUTE_32I or
+CUBLAS_COMPUTE_32I_PEDANTIC | CUDA_R_32I | CUDA_R_8I | CUDA_R_32I |
+| CUBLAS_COMPUTE_32F or
+CUBLAS_COMPUTE_32F_PEDANTIC | CUDA_R_32F | CUDA_R_16BF | CUDA_R_16BF |
+| CUDA_R_16F | CUDA_R_16F |
+| CUDA_R_8I | CUDA_R_32F |
+| CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+| CUBLAS_COMPUTE_32F_FAST_16F or
+CUBLAS_COMPUTE_32F_FAST_16BF or
+CUBLAS_COMPUTE_32F_FAST_TF32 or
+CUBLAS_COMPUTE_32F_EMULATED_16BFX9 | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_C_32F | CUDA_C_32F |
+| CUBLAS_COMPUTE_64F or
+CUBLAS_COMPUTE_64F_PEDANTIC | CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_64F | CUDA_C_64F | CUDA_C_64F |
+
+
+If `Atype` is `CUDA_R_16F` or `CUDA_R_16BF`, or `computeType` is any of the `FAST` options, or when math mode or `algo` enable fast math modes, pointers (not the pointer arrays) placed in the GPU memory must be properly aligned to avoid misaligned memory access errors. Ideally all pointers are aligned to at least 16 Bytes. Otherwise it is recommended that they meet the following rule:
+
+
+- if k % 8 == 0 then ensure intptr_t(ptr) % 16 == 0,
+- if k % 2 == 0 then ensure intptr_t(ptr) %  4 == 0.
+
+
+> **Note**
+
+Note
+Compute types CUBLAS_COMPUTE_32I and CUBLAS_COMPUTE_32I_PEDANTIC are only supported with all pointers A[i], B[i] being 4-byte aligned and lda, ldb being multiples of 4. For a better performance, it is also recommended that IMMA kernels requirements for the regular data ordering listed here are met.
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+| CUBLAS_STATUS_ARCH_MISMATCH | cublasGemmBatchedEx() is only supported for GPU with architecture capabilities equal to or greater than 5.0. |
+| CUBLAS_STATUS_NOT_SUPPORTED | The combination of the parameters Atype, Btype and Ctype or the algorithm, algo is not supported. |
+| CUBLAS_STATUS_INVALID_VALUE | If m < 0 or n < 0 or k < 0, or
+if transa and transb are not one of CUBLAS_OP_N, CUBLAS_OP_C, CUBLAS_OP_T, or
+if lda < max(1, m) when transa == CUBLAS_OP_N and lda < max(1, k) otherwise, or
+if ldb < max(1, k) when transb == CUBLAS_OP_N and ldb < max(1, n) otherwise, or
+if ldc < max(1, m), or
+if alpha or beta are NULL, or
+if Atype or Btype or Ctype or algo or computeType is not supported |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU. |
+
+
+Also refer to: [sgemm.()](http://www.netlib.org/blas/sgemm.f)
+
+
+
+
+```c++
+// 计算类型为 cudaDataType 的版本
+cublasStatus_t cublasGemmEx(cublasHandle_t handle,
+                           cublasOperation_t transa,
+                           cublasOperation_t transb,
+                           int m,
+                           int n,
+                           int k,
+                           const void    *alpha,
+                           const void     *A,
+                           cudaDataType_t Atype,
+                           int lda,
+                           const void     *B,
+                           cudaDataType_t Btype,
+                           int ldb,
+                           const void    *beta,
+                           void           *C,
+                           cudaDataType_t Ctype,
+                           int ldc,
+                           cublasComputeType_t computeType,
+                           cublasGemmAlgo_t algo)
+
+// C++ 版本，计算类型为 cudaDataType
+##if defined(__cplusplus)
+cublasStatus_t cublasGemmEx(cublasHandle_t handle,
+                           cublasOperation_t transa,
+                           cublasOperation_t transb,
+                           int m,
+                           int n,
+                           int k,
+                           const void     *alpha,
+                           const void     *A,
+                           cudaDataType   Atype,
+                           int lda,
+                           const void     *B,
+                           cudaDataType   Btype,
+                           int ldb,
+                           const void     *beta,
+                           void           *C,
+                           cudaDataType   Ctype,
+                           int ldc,
+                           cudaDataType   computeType,
+                           cublasGemmAlgo_t algo)
+##endif
+```
+
+此函数支持 64 位整数接口。
+
+此函数是 `cublas<t>gemm()` 的扩展，允许用户单独指定 A、B 和 C 矩阵的数据类型、计算精度以及要运行的 GEMM 算法。支持的参数组合列在本节的后面部分。
+
+> **注意**
+>
+> 提供 `cublasGemmEx()` 函数的第二个变体是为了与 C++ 应用程序代码向后兼容，其中 computeType 参数的类型为 `cudaDataType` 而非 `cublasComputeType_t`。C 应用程序仍可使用更新后的函数签名进行编译。
+
+此函数仅在计算能力为 5.0 或更高版本的设备上支持。
+
+$C = \alpha\text{op}(A)\text{op}(B) + \beta C$
+
+其中 $\alpha$ 和 $\beta$ 是标量，A、B 和 C 是按列优先格式存储的矩阵，维度分别为 $\text{op}(A)$ $m \times k$、$\text{op}(B)$ $k \times n$ 和 $C$ $m \times n$。此外，对于矩阵 A：
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+对于矩阵 B，$\text{op}(B)$ 的定义类似。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |
+| transa |  | 输入 | 操作 op(A)，即非转置或（共轭）转置。 |
+| transb |  | 输入 | 操作 op(B)，即非转置或（共轭）转置。 |
+| m |  | 输入 | 矩阵 op(A) 和 C 的行数。 |
+| n |  | 输入 | 矩阵 op(B) 和 C 的列数。 |
+| k |  | 输入 | op(A) 的列数或 op(B) 的行数。 |
+| alpha | 主机或设备 | 输入 | A*B 的缩放因子，类型对应于 computeType 和 Ctype，详见下表。 |
+| A | 设备 | 输入 | 维度为 lda × k 的 <type> 数组，当 transa == CUBLAS_OP_N 时 lda >= max(1, m)，否则为 lda × m，lda >= max(1, k)。 |
+| Atype |  | 输入 | 指定矩阵 A 数据类型的枚举量。 |
+| lda |  | 输入 | 用于存储矩阵 A 的二维数组的主维度。 |
+| B | 设备 | 输入 | 维度为 ldb × n 的 <type> 数组，当 transb == CUBLAS_OP_N 时 ldb >= max(1, k)，否则为 ldb × k，ldb >= max(1, n)。 |
+| Btype |  | 输入 | 指定矩阵 B 数据类型的枚举量。 |
+| ldb |  | 输入 | 用于存储矩阵 B 的二维数组的主维度。 |
+| beta | 主机或设备 | 输入 | C 的缩放因子，类型对应于 computeType 和 Ctype，详见下表。如果 beta == 0，C 不必是有效的输入。 |
+| C | 设备 | 输入/输出 | 维度为 ldc × n 的 <type> 数组，ldc >= max(1, m)。 |
+| Ctype |  | 输入 | 指定矩阵 C 数据类型的枚举量。 |
+| ldc |  | 输入 | 用于存储矩阵 C 的二维数组的主维度。 |
+| computeType |  | 输入 | 指定计算类型的枚举量。 |
+| algo |  | 输入 | 指定算法的枚举量。参见 `cublasGemmAlgo_t`。 |
+
+`cublasGemmEx()` 支持以下计算类型、缩放类型、Atype/Btype 和 Ctype：
+
+| 计算类型 | 缩放类型（alpha 和 beta） | Atype/Btype | Ctype |
+| --- | --- | --- | --- |
+| CUBLAS_COMPUTE_16F 或
+CUBLAS_COMPUTE_16F_PEDANTIC | CUDA_R_16F | CUDA_R_16F | CUDA_R_16F |
+| CUBLAS_COMPUTE_32I 或
+CUBLAS_COMPUTE_32I_PEDANTIC | CUDA_R_32I | CUDA_R_8I | CUDA_R_32I |
+| CUBLAS_COMPUTE_32F 或
+CUBLAS_COMPUTE_32F_PEDANTIC | CUDA_R_32F | CUDA_R_16BF | CUDA_R_16BF |
+| CUDA_R_16F | CUDA_R_16F |
+| CUDA_R_8I | CUDA_R_32F |
+| CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+| CUBLAS_COMPUTE_32F_FAST_16F 或
+CUBLAS_COMPUTE_32F_FAST_16BF 或
+CUBLAS_COMPUTE_32F_FAST_TF32 或
+CUBLAS_COMPUTE_32F_EMULATED_16BFX9 | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_C_32F | CUDA_C_32F |
+| CUBLAS_COMPUTE_64F 或
+CUBLAS_COMPUTE_64F_PEDANTIC | CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_64F | CUDA_C_64F | CUDA_C_64F | CUDA_C_64F |
+
+> **注意**
+>
+> CUBLAS_COMPUTE_32I 和 CUBLAS_COMPUTE_32I_PEDANTIC 计算类型仅支持 A、B 为 4 字节对齐且 lda、ldb 为 4 的倍数的情况。为获得更好的性能，建议也满足此处列出的 IMMA 内核对常规数据顺序的要求。
+
+此函数返回的可能错误值及其含义列于下表：
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_ARCH_MISMATCH | cublasGemmEx() 仅支持计算能力等于或大于 5.0 的 GPU。 |
+| CUBLAS_STATUS_NOT_SUPPORTED | Atype、Btype 和 Ctype 的参数组合或算法 algo 不受支持。 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 m < 0 或 n < 0 或 k < 0，或
+transa 和 transb 不是 CUBLAS_OP_N、CUBLAS_OP_C、CUBLAS_OP_T 之一，或
+当 transa == CUBLAS_OP_N 时 lda < max(1, m)，否则 lda < max(1, k)，或
+当 transb == CUBLAS_OP_N 时 ldb < max(1, k)，否则 ldb < max(1, n)，或
+ldc < max(1, m)，或
+alpha 或 beta 为 NULL，或
+当 beta 不为零时 C 为 NULL
+Atype 或 Btype 或 Ctype 或 algo 不受支持 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败。 |
+
+从 11.2 版本开始，使用类型化函数而非扩展函数（`cublas**Ex()`）有助于在链接静态 cuBLAS 库时减小二进制文件大小。
+
+另请参阅：[sgemm()](http://www.netlib.org/blas/sgemm.f)
+
+有关某些 GEMM 算法数值行为的更多信息，请参阅 GEMM 算法数值行为部分。
+
+```c++
+
+cublasStatus_t cublasGemmGroupedBatchedEx(cublasHandle_t handle,
+                            const cublasOperation_t transa_array[],
+                            const cublasOperation_t transb_array[],
+                            const int m_array[],
+                            const int n_array[],
+                            const int k_array[],
+                            const void    *alpha_array,
+                            const void     *const Aarray[],
+                            cudaDataType_t Atype,
+                            const int lda_array[],
+                            const void     *const Barray[],
+                            cudaDataType_t Btype,
+                            const int ldb_array[],
+                            const void    *beta_array,
+                            void           *const Carray[],
+                            cudaDataType_t Ctype,
+                            const int ldc_array[],
+                            int group_count,
+                            const int group_size[],
+                            cublasComputeType_t computeType)
+
+
+```
+
+此函数支持 64 位整数接口。
+
+此函数对矩阵组执行矩阵-矩阵乘法。给定的组被认为是"均匀的"，即所有实例对于各自的 A、B 和 C 矩阵具有相同的维度（m, n, k）、前导维度（lda, ldb, ldc）和转置（transa, transb）。但是，维度、前导维度、转置和缩放因子（alpha, beta）可能在不同组之间有所不同。每个批次实例的输入矩阵和输出矩阵的地址从调用者传递给函数的指针数组中读取。这在功能上等价于以下内容：
+
+
+
+```c++
+
+idx = 0;
+// 遍历所有组
+for i = 0:group_count - 1
+    // 遍历每个组内的所有实例
+    for j = 0:group_size[i] - 1
+        gemmEx(transa_array[i], transb_array[i], m_array[i], n_array[i], k_array[i],
+               alpha_array[i], Aarray[idx], Atype, lda_array[i], Barray[idx], Btype,
+               ldb_array[i], beta_array[i], Carray[idx], Ctype, ldc_array[i],
+               computeType, CUBLAS_GEMM_DEFAULT);
+        idx += 1;
+    end
+end
+
+
+```
+
+
+其中 $\text{alpha\_array}$ 和 $\text{beta\_array}$ 是缩放因子数组，$\text{Aarray}$、$\text{Barray}$ 和 $\text{Carray}$ 是指向以列主序格式存储的矩阵的指针数组。对于属于组 $i$ 的给定索引 $\text{idx}$，维度如下：
+
+
+> \(\text{op}(\text{Aarray}\lbrack\text{idx}\rbrack)\)：\(\text{m\_array}\lbrack i\rbrack \times \text{k\_array}\lbrack i\rbrack\)
+\(\text{op}(\text{Barray}\lbrack\text{idx}\rbrack)\)：\(\text{k\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
+\(\text{Carray}\lbrack\text{idx}\rbrack\)：\(\text{m\_array}\lbrack i\rbrack \times \text{n\_array}\lbrack i\rbrack\)
+
+
+> **注意**
+
+此 API 接收两种不同长度的数组。维度、前导维度、转置和缩放因子数组的长度为 group_count，矩阵数组的长度为 problem_count，其中 \(\text{problem\_count} = \sum_{i = 0}^{\text{group\_count} - 1} \text{group\_size}\lbrack i\rbrack\)
+
+
+对于组 $i$ 中的矩阵 $A[\text{idx}]$
+
+
+$\text{op}(A[\text{idx}]) = \left\{ \begin{matrix}
+A[\text{idx}] & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_N}} \\
+A[\text{idx}]^{T} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_T}} \\
+A[\text{idx}]^{H} & {\text{if }\textsf{$\mathrm{transa\_array}\lbrack i\rbrack$ == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+
+并且 $\text{op}(B[\text{idx}])$ 对于组 $i$ 中的矩阵 $B[\text{idx}]$ 类似定义。
+
+
+> **注意**
+
+\(C\lbrack\text{idx}\rbrack\) 矩阵不得重叠，即各个 gemm 操作必须能够独立计算；否则，将产生未定义行为。
+
+
+在某些问题规模上，在不同的 CUDA 流中多次调用 cublasGemmBatchedEx() 可能比使用此 API 更有优势。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 | 数组长度 |
+| --- | --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |  |
+| transa_array | 主机端 | 输入 | 包含每个组的 op(A[idx]) 操作的数组，即非转置或（共轭）转置。 | group_count |
+| transb_array | 主机端 | 输入 | 包含每个组的 op(B[idx]) 操作的数组，即非转置或（共轭）转置。 | group_count |
+| m_array | 主机端 | 输入 | 包含每个组的矩阵 op(A[idx]) 和 C[idx] 行数的数组。 | group_count |
+| n_array | 主机端 | 输入 | 包含每个组的 op(B[idx]) 和 C[idx] 列数的数组。 | group_count |
+| k_array | 主机端 | 输入 | 包含每个组的 op(A[idx]) 列数和 op(B[idx]) 行数的数组。 | group_count |
+| alpha_array | 主机端 | 输入 | 包含每个组乘法所用 <Scale Type> 标量的数组。 | group_count |
+| Aarray | 设备端 | 输入 | 指向 <Atype> 数组的指针数组，每个数组维度为 lda[i] x k[i]，其中当 transa[i] == CUBLAS_OP_N 时 lda[i] >= max(1,m[i])，否则为 lda[i] x m[i]，lda[i] >= max(1,k[i])。
+所有指针必须满足特定的对齐要求。请参阅下文了解详情。 | problem_count |
+| Atype |  | 输入 | 指定 A 数据类型的枚举值。 |  |
+| lda_array | 主机端 | 输入 | 包含每个组用于存储每个矩阵 A[idx] 的二维数组前导维度的数组。 | group_count |
+| Barray | 设备端 | 输入 | 指向 <Btype> 数组的指针数组，每个数组维度为 ldb[i] x n[i]，其中当 transb[i] == CUBLAS_OP_N 时 ldb[i] >= max(1,k[i])，否则为 ldb[i] x k[i]，ldb[i] >= max(1,n[i])。
+所有指针必须满足特定的对齐要求。请参阅下文了解详情。 | problem_count |
+| Btype |  | 输入 | 指定 B 数据类型的枚举值。 |  |
+| ldb_array | 主机端 | 输入 | 包含每个组用于存储每个矩阵 B[idx] 的二维数组前导维度的数组。 | group_count |
+| beta_array | 主机端 | 输入 | 包含每个组乘法所用 <Scale Type> 标量的数组。 | group_count |
+| Carray | 设备端 | 输入/输出 | 指向 <Ctype> 数组的指针数组。维度为 ldc[i] x n[i]，其中 ldc[i] >= max(1,m[i])。矩阵 C[idx] 不应重叠；否则，将产生未定义行为。
+所有指针必须满足特定的对齐要求。请参阅下文了解详情。 | problem_count |
+| Ctype |  | 输入 | 指定 C 数据类型的枚举值。 |  |
+| ldc_array | 主机端 | 输入 | 包含每个组用于存储每个矩阵 C[idx] 的二维数组前导维度的数组。 | group_count |
+| group_count | 主机端 | 输入 | 组的数量 |  |
+| group_size | 主机端 | 输入 | 包含每个组在 Aarray、Barray 和 Carray 中的指针数量的数组。 | group_count |
+| computeType |  | 输入 | 指定计算类型的枚举值。 |  |
+
+
+cublasGemmGroupedBatchedEx() 支持以下计算类型、缩放类型、Atype/Btype 和 Ctype：
+
+
+| 计算类型 | 缩放类型（alpha 和 beta） | Atype/Btype | Ctype |
+| --- | --- | --- | --- |
+| CUBLAS_COMPUTE_32F | CUDA_R_32F | CUDA_R_16BF | CUDA_R_16BF |
+| CUDA_R_16F | CUDA_R_16F |
+| CUDA_R_32F | CUDA_R_32F |
+| CUBLAS_COMPUTE_32F_PEDANTIC | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUBLAS_COMPUTE_32F_FAST_TF32 | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUBLAS_COMPUTE_64F 或
+CUBLAS_COMPUTE_64F_PEDANTIC | CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+
+
+如果 `Atype` 是 `CUDA_R_16F` 或 `CUDA_R_16BF`，或者如果 `computeType` 是任何 `FAST` 选项，则放置在 GPU 内存中的指针（不是指针数组）必须正确对齐以避免未对齐内存访问错误。理想情况下，所有指针至少对齐到 16 字节。否则，它们必须满足以下规则：
+
+
+- 如果 (k * AtypeSize) % 16 == 0，则确保 intptr_t(ptr) % 16 == 0，
+- 如果 (k * AtypeSize) % 4 == 0，则确保 intptr_t(ptr) % 4 == 0。
+
+
+此函数返回的可能错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 transa_array、transb_array、m_array、n_array、k_array、alpha_array、lda_array、ldb_array、beta_array、ldc_array 或 group_size 为 NULL，或
+如果 group_count < 0，或
+如果 m_array[i] < 0、n_array[i] < 0、k_array[i] < 0、group_size[i] < 0，或
+如果 transa_array[i] 和 transb_array[i] 不是 CUBLAS_OP_N、CUBLAS_OP_C、CUBLAS_OP_T 之一，或
+如果 transa_array[i] == CUBLAS_OP_N 且 lda_array[i] < max(1, m_array[i])，否则 lda_array[i] < max(1, k_array[i])，或
+如果 transb_array[i] == CUBLAS_OP_N 且 ldb_array[i] < max(1, k_array[i])，否则 ldb_array[i] < max(1, n_array[i])，或
+如果 ldc_array[i] < max(1, m_array[i]) |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在 GPU 上启动 |
+| CUBLAS_STATUS_NOT_SUPPORTED | 指针模式设置为 CUBLAS_POINTER_MODE_DEVICE
+Atype 或 Btype 或 Ctype 或 computeType 不受支持 |
+
+
+
+```c++
+
+cublasStatus_t cublasGemmStridedBatchedEx(cublasHandle_t handle,
+                            cublasOperation_t transa,
+                            cublasOperation_t transb,
+                            int m,
+                            int n,
+                            int k,
+                            const void    *alpha,
+                            const void     *A,
+                            cudaDataType_t Atype,
+                            int lda,
+                            long long int strideA,
+                            const void     *B,
+                            cudaDataType_t Btype,
+                            int ldb,
+                            long long int strideB,
+                            const void    *beta,
+                            void           *C,
+                            cudaDataType_t Ctype,
+                            int ldc,
+                            long long int strideC,
+                            int batchCount,
+                            cublasComputeType_t computeType,
+                            cublasGemmAlgo_t algo)
+
+##if defined(__cplusplus)
+cublasStatus_t cublasGemmStridedBatchedEx(cublasHandle_t handle,
+                            cublasOperation_t transa,
+                            cublasOperation_t transb,
+                            int m,
+                            int n,
+                            int k,
+                            const void    *alpha,
+                            const void     *A,
+                            cudaDataType Atype,
+                            int lda,
+                            long long int strideA,
+                            const void     *B,
+                            cudaDataType Btype,
+                            int ldb,
+                            long long int strideB,
+                            const void    *beta,
+                            void           *C,
+                            cudaDataType Ctype,
+                            int ldc,
+                            long long int strideC,
+                            int batchCount,
+                            cudaDataType computeType,
+                            cublasGemmAlgo_t algo)
+##endif
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function is an extension of cublas<t>gemmStridedBatched() that performs the matrix-matrix multiplication of a batch of matrices and allows the user to individually specify the data types for each of the A, B and C matrices, the precision of computation and the GEMM algorithm to be run. Like cublas<t>gemmStridedBatched(), the batch is considered to be “uniform”, i.e. all instances have the same dimensions (m, n, k), leading dimensions (lda, ldb, ldc) and transpositions (transa, transb) for their respective A, B and C matrices. Input matrices A, B and output matrix C for each instance of the batch are located at fixed offsets in number of elements from their locations in the previous instance. Pointers to A, B and C matrices for the first instance are passed to the function by the user along with the offsets in number of elements - strideA, strideB and strideC that determine the locations of input and output matrices in future instances.
+
+
+> **Note**
+
+Note
+The second variant of cublasGemmStridedBatchedEx() function is provided for backward compatibility with C++ applications code, where the computeType parameter is of cudaDataType_t instead of cublasComputeType_t. C applications would still compile with the updated function signature.
+
+
+$C + i*{strideC} = \alpha\text{op}(A + i*{strideA})\text{op}(B + i*{strideB}) + \beta(C + i*{strideC}),\text{ for i } \in \lbrack 0,batchCount - 1\rbrack$
+
+
+where $\alpha$ and $\beta$ are scalars, and $A$ , $B$ and $C$ are arrays of pointers to matrices stored in column-major format with dimensions $\text{op}(A\lbrack i\rbrack)$ $m \times k$ , $\text{op}(B\lbrack i\rbrack)$ $k \times n$ and $C\lbrack i\rbrack$ $m \times n$ , respectively. Also, for matrix $A$
+
+
+$\text{op}(A) = \left\{ \begin{matrix}
+A & {\text{if }\textsf{transa == CUBLAS\_OP\_N}} \\
+A^{T} & {\text{if }\textsf{transa == CUBLAS\_OP\_T}} \\
+A^{H} & {\text{if }\textsf{transa == CUBLAS\_OP\_C}} \\
+\end{matrix} \right.$
+
+
+and $\text{op}(B\lbrack i\rbrack)$ is defined similarly for matrix $B\lbrack i\rbrack$ .
+
+
+> **Note**
+
+Note
+\(C\lbrack i\rbrack\) matrices must not overlap, i.e. the individual gemm operations must be computable independently; otherwise, the behavior is undefined.
+
+
+On certain problem sizes, it might be advantageous to make multiple calls to cublas<t>gemm() in different CUDA streams, rather than use this API.
+
+
+> **Note**
+
+Note
+In the table below, we use A[i], B[i], C[i] as notation for A, B and C matrices in the ith instance of the batch, implicitly assuming they are respectively offsets in number of elements strideA, strideB, strideC away from A[i-1], B[i-1], C[i-1]. The unit for the offset is number of elements and must not be zero .
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| transa |  | input | Operation op(A[i]) that is non- or (conj.) transpose. |
+| transb |  | input | Operation op(B[i]) that is non- or (conj.) transpose. |
+| m |  | input | Number of rows of matrix op(A[i]) and C[i]. |
+| n |  | input | Number of columns of matrix op(B[i]) and C[i]. |
+| k |  | input | Number of columns of op(A[i]) and rows of op(B[i]). |
+| alpha | host or device | input | Scaling factor for A*B of the <Scale Type> that corresponds to the computeType and Ctype, see the table below for details. |
+| A | device | input | Pointer to <Atype> matrix, A, corresponds to the first instance of the batch, with dimensions lda x k with lda >= max(1, m) if transa == CUBLAS_OP_N and lda x m with lda >= max(1, k) otherwise. |
+| Atype |  | input | Enumerant specifying the datatype of A. |
+| lda |  | input | Leading dimension of two-dimensional array used to store the matrix A[i]. |
+| strideA |  | input | Value of type long long int that gives the offset in number of elements between A[i] and A[i+1]. |
+| B | device | input | Pointer to <Btype> matrix, B, corresponds to the first instance of the batch, with dimensions ldb x n with ldb >= max(1, k) if transb == CUBLAS_OP_N and ldb x k with ldb >= max(1,n) otherwise. |
+| Btype |  | input | Enumerant specifying the datatype of B. |
+| ldb |  | input | Leading dimension of two-dimensional array used to store matrix B[i]. |
+| strideB |  | input | Value of type long long int that gives the offset in number of elements between B[i] and B[i+1]. |
+| beta | host or device | input | Scaling factor for C of the <Scale Type> that corresponds to the computeType and Ctype, see the table below for details. If beta == 0, C[i] does not have to be a valid input. |
+| C | device | in/out | Pointer to <Ctype> matrix, C, corresponds to the first instance of the batch, with dimensions ldc x n with ldc >= max(1, m). Matrices C[i] should not overlap; otherwise, undefined behavior is expected. |
+| Ctype |  | input | Enumerant specifying the datatype of C. |
+| ldc |  | input | Leading dimension of a two-dimensional array used to store each matrix C[i]. |
+| strideC |  | input | Value of type long long int that gives the offset in number of elements between C[i] and C[i+1]. |
+| batchCount |  | input | Number of GEMMs to perform in the batch. |
+| computeType |  | input | Enumerant specifying the computation type. |
+| algo |  | input | Enumerant specifying the algorithm. See cublasGemmAlgo_t. |
+
+
+cublasGemmStridedBatchedEx() supports the following Compute Type, Scale Type, Atype/Btype, and Ctype:
+
+
+| Compute Type | Scale Type (alpha and beta) | Atype/Btype | Ctype |
+| --- | --- | --- | --- |
+| CUBLAS_COMPUTE_16F or
+CUBLAS_COMPUTE_16F_PEDANTIC | CUDA_R_16F | CUDA_R_16F | CUDA_R_16F |
+| CUBLAS_COMPUTE_32I or
+CUBLAS_COMPUTE_32I_PEDANTIC | CUDA_R_32I | CUDA_R_8I | CUDA_R_32I |
+| CUBLAS_COMPUTE_32F or
+CUBLAS_COMPUTE_32F_PEDANTIC | CUDA_R_32F | CUDA_R_16BF | CUDA_R_16BF |
+| CUDA_R_16F | CUDA_R_16F |
+| CUDA_R_8I | CUDA_R_32F |
+| CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_C_8I | CUDA_C_32F |
+| CUDA_C_32F | CUDA_C_32F |
+| CUBLAS_COMPUTE_32F_FAST_16F or
+CUBLAS_COMPUTE_32F_FAST_16BF or
+CUBLAS_COMPUTE_32F_FAST_TF32 or
+CUBLAS_COMPUTE_32F_EMULATED_16BFX9 | CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_C_32F | CUDA_C_32F |
+| CUBLAS_COMPUTE_64F or
+CUBLAS_COMPUTE_64F_PEDANTIC | CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_64F | CUDA_C_64F | CUDA_C_64F |
+
+
+> **Note**
+
+Note
+Compute types CUBLAS_COMPUTE_32I and CUBLAS_COMPUTE_32I_PEDANTIC are only supported with all pointers A[i], B[i] being 4-byte aligned and lda, ldb being multiples of 4. For a better performance, it is also recommended that IMMA kernels requirements for the regular data ordering listed here are met.
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+| CUBLAS_STATUS_ARCH_MISMATCH | cublasGemmBatchedEx() is only supported for GPU with architecture capabilities equal or greater than 5.0. |
+| CUBLAS_STATUS_NOT_SUPPORTED | The combination of the parameters Atype, Btype and Ctype or the algorithm, algo is not supported. |
+| CUBLAS_STATUS_INVALID_VALUE | If m < 0 or n < 0 or k < 0, or
+if transa and transb are not one of CUBLAS_OP_N, CUBLAS_OP_C, CUBLAS_OP_T, or
+if lda < max(1, m) when transa == CUBLAS_OP_N and lda < max(1, k) otherwise, or
+if ldb < max(1, k) when transb == CUBLAS_OP_N and ldb < max(1, n) otherwise, or
+if ldc < max(1, m), or
+if alpha or beta are NULL, or
+if Atype or Btype or Ctype or algo or computeType is not supported |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+Also refer to: [sgemm.()](http://www.netlib.org/blas/sgemm.f)
+
+
+
+
+```c++
+cublasStatus_t  cublasNrm2Ex( cublasHandle_t handle,
+                              int n,
+                              const void *x,
+                              cudaDataType xType,
+                              int incx,
+                              void *result,
+                              cudaDataType resultType,
+                              cudaDataType executionType)
+```
+
+
+此函数支持64位整数接口。
+
+此函数是例程cublas<t>nrm2()的API泛化版本，其中输入数据、输出数据和计算类型可以独立指定。
+
+此函数计算向量`x`的欧几里得范数。该代码使用多阶段累积模型来避免中间的下溢和溢出，其结果等价于 $\sqrt{\sum_{i = 1}^{n}\left( {\mathbf{x}\lbrack j\rbrack \times \mathbf{x}\lbrack j\rbrack} \right)}$，其中 $j = 1 + \left( {i - 1} \right)*\text{incx}$（精确算术）。请注意，最后一个公式反映了为与Fortran兼容而使用的1-based索引。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS库上下文的句柄。 |
+| n |  | input | 向量x中的元素数量。 |
+| x | device | input | 包含n个元素的<type>向量。 |
+| xType |  | input | 指定向量x数据类型的枚举符。 |
+| incx |  | input | 向量x中连续元素之间的步长。 |
+| result | host or device | output | 计算得到的范数，如果n <= 0或incx <= 0则设置为0。 |
+| resultType |  | input | 指定结果数据类型的枚举符。 |
+| executionType |  | input | 指定执行计算所使用的数据类型的枚举符。 |
+
+cublasNrm2Ex()当前支持的数据类型组合如下：
+
+| x | result | execution |
+| --- | --- | --- |
+| CUDA_R_16F | CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_16BF | CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_C_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_64F | CUDA_R_64F | CUDA_R_64F |
+
+此函数可能返回的错误值及其含义如下：
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配归约缓冲区 |
+| CUBLAS_STATUS_NOT_SUPPORTED | xType、resultType和executionType的组合不支持 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在GPU上启动 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果xType、resultType或executionType不支持，或者result为NULL |
+
+有关参考文献，请参阅NETLIB文档：
+
+[snrm2()](http://www.netlib.org/blas/snrm2.f90), [dnrm2()](http://www.netlib.org/blas/dnrm2.f90), [scnrm2()](http://www.netlib.org/blas/scnrm2.f90), [dznrm2()](http://www.netlib.org/blas/dznrm2.f90)
+
+
+
+```c++
+
+cublasStatus_t cublasRotEx(cublasHandle_t handle,
+                           int n,
+                           void *x,
+                           cudaDataType xType,
+                           int incx,
+                           void *y,
+                           cudaDataType yType,
+                           int incy,
+                           const void *c,  /* host or device pointer */
+                           const void *s,
+                           cudaDataType csType,
+                           cudaDataType executiontype);
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function is an extension to the routine cublas<t>rot() where input data, output data, cosine/sine type, and compute type can be specified independently.
+
+
+This function applies Givens rotation matrix (i.e., rotation in the x,y plane counter-clockwise by angle defined by $cos(alpha) = c$, $sin(alpha) = s$):
+
+
+$G = \begin{pmatrix}
+c & s \\
+{- s} & c \\
+\end{pmatrix}$
+
+
+to vectors `x` and `y`.
+
+
+Hence, the result is $\mathbf{x}\lbrack k\rbrack = c \times \mathbf{x}\lbrack k\rbrack + s \times \mathbf{y}\lbrack j\rbrack$ and $\mathbf{y}\lbrack j\rbrack = - s \times \mathbf{x}\lbrack k\rbrack + c \times \mathbf{y}\lbrack j\rbrack$ where $k = 1 + \left( {i - 1} \right)*\text{incx}$ and $j = 1 + \left( {i - 1} \right)*\text{incy}$ . Notice that the last two equations reflect 1-based indexing used for compatibility with Fortran.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| n |  | input | Number of elements in the vectors x and y. |
+| x | device | in/out | <type> vector with n elements. |
+| xType |  | input | Enumerant specifying the datatype of vector x. |
+| incx |  | input | Stride between consecutive elements of x. |
+| y | device | in/out | <type> vector with n elements. |
+| yType |  | input | Enumerant specifying the datatype of vector y. |
+| incy |  | input | Stride between consecutive elements of y. |
+| c | host or device | input | Cosine element of the rotation matrix. |
+| s | host or device | input | Sine element of the rotation matrix. |
+| csType |  | input | Enumerant specifying the datatype of c and s. |
+| executionType |  | input | Enumerant specifying the datatype in which the computation is executed. |
+
+
+The datatypes combinations currently supported for cublasRotEx() are listed below :
+
+
+| executionType | xType / yType | csType |
+| --- | --- | --- |
+| CUDA_R_32F | CUDA_R_16BF
+CUDA_R_16F
+CUDA_R_32F | CUDA_R_16BF
+CUDA_R_16F
+CUDA_R_32F |
+| CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_32F | CUDA_C_32F
+CUDA_C_32F | CUDA_R_32F
+CUDA_C_32F |
+| CUDA_C_64F | CUDA_C_64F
+CUDA_C_64F | CUDA_R_64F
+CUDA_C_64F |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+For references please refer to NETLIB documentation:
+
+
+[srot()](http://www.netlib.org/blas/srot.f), [drot()](http://www.netlib.org/blas/drot.f), [crot()](http://www.netlib.org/lapack/lapack_routine/crot.f), [csrot()](http://www.netlib.org/blas/csrot.f), [zrot()](http://www.netlib.org/lapack/lapack_routine/zrot.f), [zdrot()](http://www.netlib.org/blas/zdrot.f)
+
+
+
+
+```c++
+
+cublasStatus_t  cublasScalEx(cublasHandle_t handle,
+                             int n,
+                             const void *alpha,
+                             cudaDataType alphaType,
+                             void *x,
+                             cudaDataType xType,
+                             int incx,
+                             cudaDataType executionType);
+
+
+```
+
+此函数支持 64 位整数接口。
+
+此函数将向量 `x` 按标量 $\alpha$ 进行缩放，并将结果覆盖回 `x`。因此，执行的操作为 $\mathbf{x}\lbrack j\rbrack = \alpha \times \mathbf{x}\lbrack j\rbrack$，其中 $i = 1,\ldots,n$ 且 $j = 1 + \left( {i - 1} \right)*\text{incx}$。请注意，上述两个公式使用的是 1-based 索引，这是为了与 Fortran 保持兼容。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS 库上下文的句柄。 |
+| n |  | input | 向量 x 中的元素数量。 |
+| alpha | host 或 device | input | 用于乘法的 <type> 标量。 |
+| alphaType |  | input | 指定标量 alpha 数据类型的枚举常量。 |
+| x | device | in/out | 具有 n 个元素的 <type> 向量。 |
+| xType |  | input | 指定向量 x 数据类型的枚举常量。 |
+| incx |  | input | 向量 x 中连续元素之间的步长。 |
+| executionType |  | input | 指定执行计算所使用的数据类型的枚举常量。 |
+
+以下是 cublasScalEx() 当前支持的数据类型组合：
+
+| alpha | x | execution |
+| --- | --- | --- |
+| CUDA_R_32F | CUDA_R_16F | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_16BF | CUDA_R_32F |
+| CUDA_R_32F | CUDA_R_32F | CUDA_R_32F |
+| CUDA_R_64F | CUDA_R_64F | CUDA_R_64F |
+| CUDA_C_32F | CUDA_C_32F | CUDA_C_32F |
+| CUDA_C_64F | CUDA_C_64F | CUDA_C_64F |
+
+以下是此函数可能返回的错误值及其含义：
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_NOT_SUPPORTED | xType 和 executionType 的组合不支持 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败 |
+| CUBLAS_STATUS_INVALID_VALUE | alphaType 或 xType 或 executionType 不支持 |
+
+有关参考信息，请参阅 NETLIB 文档：
+
+[sscal()](http://www.netlib.org/blas/sscal.f), [dscal()](http://www.netlib.org/blas/dscal.f), [csscal()](http://www.netlib.org/blas/csscal.f), [cscal()](http://www.netlib.org/blas/cscal.f), [zdscal()](http://www.netlib.org/blas/zdscal.f), [zscal()](http://www.netlib.org/blas/zscal.f)

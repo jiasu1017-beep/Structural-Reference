@@ -8,6 +8,156 @@ This section describes how to use the cuBLAS library API.
 
 
 
+######### 2.1.8. Cache Configuration
+####### 2.1.7. Batching Kernels
+##### 2.1.1. Error Status
+##### 2.1.2. cuBLAS Context
+##### 2.1.3. Thread Safety
+##### 2.1.4. Results Reproducibility
+##### 2.1.5. Scalar Parameters
+##### 2.1.6. Parallelism with Streams
+##### 2.1.7. Batching Kernels
+##### 2.1.8. Cache Configuration
+##### 2.1.9. Static Library Support
+##### 2.1.10. GEMM Algorithms Numerical Behavior
+##### 2.1.11. Tensor Core Usage
+##### 2.1.12. CUDA Graphs Support
+##### 2.1.13. 64-bit Integer Interface
+##### 2.2.1. cublasHandle_t
+##### 2.2.2. cublasStatus_t
+##### 2.2.3. cublasOperation_t
+##### 2.2.4. cublasFillMode_t
+##### 2.2.5. cublasDiagType_t
+##### 2.2.6. cublasSideMode_t
+##### 2.2.7. cublasPointerMode_t
+##### 2.2.8. cublasAtomicsMode_t
+##### 2.2.9. cublasGemmAlgo_t
+##### 2.2.10. cublasMath_t
+##### 2.2.11. cublasComputeType_t
+##### 2.2.12. cublasEmulationStrategy_t
+##### 2.3.1. cudaDataType_t
+##### 2.3.2. cudaEmulationStrategy_t
+##### 2.3.3. cudaEmulationMantissaControl_t
+##### 2.3.4. cudaEmulationSpecialValuesSupport_t
+##### 2.3.5. libraryPropertyType_t
+##### 2.4.1. cublasCreate()
+##### 2.4.2. cublasDestroy()
+##### 2.4.3. cublasGetVersion()
+##### 2.4.4. cublasGetProperty()
+##### 2.4.5. cublasGetStatusName()
+##### 2.4.6. cublasGetStatusString()
+##### 2.4.7. cublasSetStream()
+##### 2.4.8. cublasSetWorkspace()
+##### 2.4.9. cublasGetStream()
+##### 2.4.10. cublasGetPointerMode()
+##### 2.4.11. cublasSetPointerMode()
+##### 2.4.12. cublasSetVector()
+##### 2.4.13. cublasGetVector()
+##### 2.4.14. cublasSetMatrix()
+##### 2.4.15. cublasGetMatrix()
+##### 2.4.16. cublasSetVectorAsync()
+##### 2.4.17. cublasGetVectorAsync()
+##### 2.4.18. cublasSetMatrixAsync()
+##### 2.4.19. cublasGetMatrixAsync()
+##### 2.4.20. cublasSetAtomicsMode()
+##### 2.4.21. cublasGetAtomicsMode()
+##### 2.4.22. cublasSetMathMode()
+##### 2.4.23. cublasGetMathMode()
+##### 2.4.24. cublasSetSmCountTarget()
+##### 2.4.25. cublasGetSmCountTarget()
+##### 2.4.26. cublasSetEmulationStrategy()
+##### 2.4.27. cublasGetEmulationStrategy()
+##### 2.4.28. cublasGetEmulationSpecialValuesSupport()
+##### 2.4.29. cublasSetEmulationSpecialValuesSupport()
+##### 2.4.30. cublasGetFixedPointEmulationMantissaControl()
+##### 2.4.31. cublasSetFixedPointEmulationMantissaControl()
+##### 2.4.32. cublasGetFixedPointEmulationMaxMantissaBitCount()
+##### 2.4.33. cublasSetFixedPointEmulationMaxMantissaBitCount()
+##### 2.4.34. cublasGetFixedPointEmulationMantissaBitOffset()
+##### 2.4.35. cublasSetFixedPointEmulationMantissaBitOffset()
+##### 2.4.36. cublasGetFixedPointEmulationMantissaBitCountPointer()
+##### 2.4.37. cublasSetFixedPointEmulationMantissaBitCountPointer()
+##### 2.4.38. cublasLoggerConfigure()
+##### 2.4.39. cublasGetLoggerCallback()
+##### 2.4.40. cublasSetLoggerCallback()
+##### 2.5.1. cublasI<t>amax()
+##### 2.5.2. cublasI<t>amin()
+##### 2.5.3. cublas<t>asum()
+##### 2.5.4. cublas<t>axpy()
+##### 2.5.5. cublas<t>copy()
+##### 2.5.6. cublas<t>dot()
+##### 2.5.7. cublas<t>nrm2()
+##### 2.5.8. cublas<t>rot()
+##### 2.5.9. cublas<t>rotg()
+##### 2.5.10. cublas<t>rotm()
+##### 2.5.11. cublas<t>rotmg()
+##### 2.5.12. cublas<t>scal()
+##### 2.5.13. cublas<t>swap()
+##### 2.6.1. cublas<t>gbmv()
+##### 2.6.2. cublas<t>gemv()
+##### 2.6.3. cublas<t>ger()
+##### 2.6.4. cublas<t>sbmv()
+##### 2.6.5. cublas<t>spmv()
+##### 2.6.6. cublas<t>spr()
+##### 2.6.7. cublas<t>spr2()
+##### 2.6.8. cublas<t>symv()
+##### 2.6.9. cublas<t>syr()
+##### 2.6.10. cublas<t>syr2()
+##### 2.6.11. cublas<t>tbmv()
+##### 2.6.12. cublas<t>tbsv()
+##### 2.6.13. cublas<t>tpmv()
+##### 2.6.14. cublas<t>tpsv()
+##### 2.6.15. cublas<t>trmv()
+##### 2.6.16. cublas<t>trsv()
+##### 2.6.17. cublas<t>hemv()
+##### 2.6.18. cublas<t>hbmv()
+##### 2.6.19. cublas<t>hpmv()
+##### 2.6.20. cublas<t>her()
+##### 2.6.21. cublas<t>her2()
+##### 2.6.22. cublas<t>hpr()
+##### 2.6.23. cublas<t>hpr2()
+##### 2.6.24. cublas<t>gemvBatched()
+##### 2.6.25. cublas<t>gemvStridedBatched()
+##### 2.7.1. cublas<t>gemm()
+##### 2.7.2. cublas<t>gemm3m()
+##### 2.7.3. cublas<t>gemmBatched()
+##### 2.7.4. cublas<t>gemmStridedBatched()
+##### 2.7.5. cublas<t>gemmGroupedBatched()
+##### 2.7.6. cublas<t>symm()
+##### 2.7.7. cublas<t>syrk()
+##### 2.7.8. cublas<t>syr2k()
+##### 2.7.9. cublas<t>syrkx()
+##### 2.7.10. cublas<t>trmm()
+##### 2.7.11. cublas<t>trsm()
+##### 2.7.12. cublas<t>trsmBatched()
+##### 2.7.13. cublas<t>hemm()
+##### 2.7.14. cublas<t>herk()
+##### 2.7.15. cublas<t>her2k()
+##### 2.7.16. cublas<t>herkx()
+##### 2.8.1. cublas<t>geam()
+##### 2.8.2. cublas<t>dgmm()
+##### 2.8.3. cublas<t>getrfBatched()
+##### 2.8.4. cublas<t>getrsBatched()
+##### 2.8.5. cublas<t>getriBatched()
+##### 2.8.6. cublas<t>matinvBatched()
+##### 2.8.7. cublas<t>geqrfBatched()
+##### 2.8.8. cublas<t>gelsBatched()
+##### 2.8.9. cublas<t>tpttr()
+##### 2.8.10. cublas<t>trttp()
+##### 2.8.11. cublas<t>gemmEx()
+##### 2.8.12. cublasGemmEx()
+##### 2.8.13. cublasGemmBatchedEx()
+##### 2.8.14. cublasGemmStridedBatchedEx()
+##### 2.8.15. cublasGemmGroupedBatchedEx()
+##### 2.8.16. cublasCsyrkEx()
+##### 2.8.17. cublasCsyrk3mEx()
+##### 2.8.18. cublasCherkEx()
+##### 2.8.19. cublasCherk3mEx()
+##### 2.8.20. cublasNrm2Ex()
+##### 2.8.21. cublasAxpyEx()
+##### 2.8.22. cublasDotEx()
+##### 2.8.23. cublasRotEx()
+##### 2.8.24. cublasScalEx()
 ### 2.1.1. Error Status
 
 
@@ -307,5 +457,220 @@ cublasStatus_t cublasSsyr_64(cublasHandle_t handle, cublasFillMode_t uplo, int64
 
 Not every function has a 64-bit integer equivalent. For instance, cublasSetMathMode() doesn’t have any arguments that could meaningfully be `int64_t`. For documentation brevity, the 64-bit integer APIs are not explicitly listed, but only mentioned that they exist for the relevant functions.
 
+
+
+
+
+### 2.1.13. 64-bit Integer Interface
+
+
+cuBLAS version 12 introduced 64-bit integer capable functions. Each 64-bit integer function is equivalent to a 32-bit integer function with the following changes:
+
+
+- The function name has _64 suffix.
+- The dimension (problem size) data type changed from int to int64_t. Examples of dimension: m, n, and k.
+- The leading dimension data type changed from int to int64_t. Examples of leading dimension: lda, ldb, and ldc.
+- The vector increment data type changed from int to int64_t. Examples of vector increment: incx and incy.
+
+
+For example, consider the following 32-bit integer functions:
+
+
+
+```c++
+
+cublasStatus_t cublasSetMatrix(int rows, int cols, int elemSize, const void *A, int lda, void *B, int ldb);
+cublasStatus_t cublasIsamax(cublasHandle_t handle, int n, const float *x, int incx, int *result);
+cublasStatus_t cublasSsyr(cublasHandle_t handle, cublasFillMode_t uplo, int n, const float *alpha, const float *x, int incx, float *A, int lda);
+
+
+```
+
+
+The equivalent 64-bit integer functions are:
+
+
+
+```c++
+
+cublasStatus_t cublasSetMatrix_64(int64_t rows, int64_t cols, int64_t elemSize, const void *A, int64_t lda, void *B, int64_t ldb);
+cublasStatus_t cublasIsamax_64(cublasHandle_t handle, int64_t n, const float *x, int64_t incx, int64_t *result);
+cublasStatus_t cublasSsyr_64(cublasHandle_t handle, cublasFillMode_t uplo, int64_t n, const float *alpha, const float *x, int64_t incx, float *A, int64_t lda);
+
+
+```
+
+
+Not every function has a 64-bit integer equivalent. For instance, cublasSetMathMode() doesn’t have any arguments that could meaningfully be `int64_t`. For documentation brevity, the 64-bit integer APIs are not explicitly listed, but only mentioned that they exist for the relevant functions.
+
+
+
+
+### 2.1.12. CUDA Graphs Support
+
+
+cuBLAS routines can be captured in CUDA Graph stream capture without restrictions in most situations.
+
+
+The exception are routines that output results into host buffers (e.g. cublas<t>dot() while pointer mode `CUBLAS_POINTER_MODE_HOST` is configured), as it enforces synchronization.
+
+
+For input coefficients (such as `alpha`, `beta`) behavior depends on the pointer mode setting:
+
+
+- In the case of CUBLAS(LT)_POINTER_MODE_HOST, coefficient values are captured in the graph.
+- In the case of pointer modes with device pointers, coefficient value is accessed using the device pointer at the time of graph execution.
+
+
+> **Note**
+
+Note
+When captured in CUDA Graph stream capture, cuBLAS routines can create memory nodes through the use of stream-ordered allocation APIs, cudaMallocAsync and cudaFreeAsync. However, as there is currently no support for memory nodes in child graphs or graphs launched from the device, attempts to capture cuBLAS routines in such scenarios may fail. To avoid this issue, use the cublasSetWorkspace() function to provide user-owned workspace memory.
+
+
+
+
+### 2.1.1. Error Status
+
+
+All cuBLAS library function calls return the error status cublasStatus_t.
+
+
+
+
+### 2.1.10. GEMM Algorithms Numerical Behavior
+
+
+Some GEMM algorithms split the computation along the dimension K to increase the GPU occupancy, especially when the dimension K is large compared to dimensions M and N. When this type of algorithm is chosen by the cuBLAS heuristics or explicitly by the user, the results of each split is summed deterministically into the resulting matrix to get the final result.
+
+
+For the routines cublas<t>gemmEx() and cublasGemmEx(), when the compute type is greater than the output type, the sum of the split chunks can potentially lead to some intermediate overflows thus producing a final resulting matrix with some overflows. Those overflows might not have occurred if all the dot products had been accumulated in the compute type before being converted at the end in the output type. This computation side-effect can be easily exposed when the computeType is `CUDA_R_32F` and Atype, Btype and Ctype are `CUDA_R_16F`. This behavior can be controlled using the compute precision mode `CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION` with cublasSetMathMode()
+
+
+
+
+### 2.1.6. Parallelism with Streams
+
+
+If the application uses the results computed by multiple independent tasks, CUDA™ streams can be used to overlap the computation performed in these tasks.
+
+
+The application can conceptually associate each stream with each task. In order to achieve the overlap of computation between the tasks, the user should create CUDA™ streams using the function `cudaStreamCreate()` and set the stream to be used by each individual cuBLAS library routine by calling cublasSetStream() just before calling the actual cuBLAS routine. Note that cublasSetStream() resets the user-provided workspace to the default workspace pool; see cublasSetWorkspace(). Then, the computation performed in separate streams would be overlapped automatically when possible on the GPU. This approach is especially useful when the computation performed by a single task is relatively small and is not enough to fill the GPU with work.
+
+
+We recommend using the new cuBLAS API with scalar parameters and results passed by reference in the device memory to achieve maximum overlap of the computation when using streams.
+
+
+A particular application of streams, batching of multiple small kernels, is described in the following section.
+
+
+
+
+### 2.1.5. Scalar Parameters
+
+
+There are two categories of the functions that use scalar parameters :
+
+
+- Functions that take alpha and/or beta parameters by reference on the host or the device as scaling factors, such as gemm.
+- Functions that return a scalar result on the host or the device such as amax(), amin, asum(), rotg(), rotmg(), dot() and nrm2().
+
+
+For the functions of the first category, when the pointer mode is set to `CUBLAS_POINTER_MODE_HOST`, the scalar parameters `alpha` and/or `beta` can be on the stack or allocated on the heap, shouldn’t be placed in managed memory. Underneath, the CUDA kernels related to those functions will be launched with the value of `alpha` and/or `beta`. Therefore if they were allocated on the heap, they can be freed just after the return of the call even though the kernel launch is asynchronous. When the pointer mode is set to `CUBLAS_POINTER_MODE_DEVICE`, `alpha` and/or `beta` must be accessible on the device and their values should not be modified until the kernel is done. Note that since `cudaFree()` does an implicit `cudaDeviceSynchronize()`, `cudaFree()` can still be called on `alpha` and/or `beta` just after the call but it would defeat the purpose of using this pointer mode in that case.
+
+
+For the functions of the second category, when the pointer mode is set to `CUBLAS_POINTER_MODE_HOST`, these functions block the CPU, until the GPU has completed its computation and the results have been copied back to the Host. When the pointer mode is set to `CUBLAS_POINTER_MODE_DEVICE`, these functions return immediately. In this case, similar to matrix and vector results, the scalar result is ready only when execution of the routine on the GPU has completed. This requires proper synchronization in order to read the result from the host.
+
+
+In either case, the pointer mode `CUBLAS_POINTER_MODE_DEVICE` allows the library functions to execute completely asynchronously from the Host even when `alpha` and/or `beta` are generated by a previous kernel. For example, this situation can arise when iterative methods for solution of linear systems and eigenvalue problems are implemented using the cuBLAS library.
+
+
+
+
+### 2.1.9. Static Library Support
+
+
+The cuBLAS Library is also delivered in a static form as `libcublas_static.a` on Linux. The static cuBLAS library and all other static math libraries depend on a common thread abstraction layer library called `libculibos.a`.
+
+
+For example, on Linux, to compile a small application using cuBLAS, against the dynamic library, the following command can be used:
+
+
+
+```c++
+
+nvcc myCublasApp.c  -lcublas  -o myCublasApp
+
+
+```
+
+
+Whereas to compile against the static cuBLAS library, the following command must be used:
+
+
+
+```c++
+
+nvcc myCublasApp.c  -lcublas_static   -lculibos -o myCublasApp
+
+
+```
+
+
+It is also possible to use the native Host C++ compiler. Depending on the Host operating system, some additional libraries like `pthread` or `dl` might be needed on the linking line. The following command on Linux is suggested :
+
+
+
+```c++
+
+g++ myCublasApp.c  -lcublas_static   -lculibos -lcudart_static -lpthread -ldl -I <cuda-toolkit-path>/include -L <cuda-toolkit-path>/lib64 -o myCublasApp
+
+
+```
+
+
+Note that in the latter case, the library `cuda` is not needed. The CUDA Runtime will try to open explicitly the `cuda` library if needed. In the case of a system which does not have the CUDA driver installed, this allows the application to gracefully manage this issue and potentially run if a CPU-only path is available.
+
+
+Starting with release 11.2, using the typed functions instead of the extension functions (cublas**Ex()) helps in reducing the binary size when linking to static cuBLAS Library.
+
+
+
+
+### 2.1.11. Tensor Core Usage
+
+
+Tensor cores were first introduced with Volta GPUs (compute capability 7.0 and above) and significantly accelerate matrix multiplications. Starting with cuBLAS version 11.0.0, the library may automatically make use of Tensor Core capabilities wherever possible, unless they are explicitly disabled by selecting pedantic compute modes in cuBLAS (see cublasSetMathMode(), cublasMath_t).
+
+
+It should be noted that the library will pick a Tensor Core enabled implementation wherever it determines that it would provide the best performance.
+
+
+The best performance when using Tensor Cores can be achieved when the matrix dimensions and pointers meet certain memory alignment requirements. Specifically, all of the following conditions must be satisfied to get the most performance out of Tensor Cores:
+
+
+- ((op_A == CUBLAS_OP_N ? m : k) * AtypeSize) % 16 == 0
+- ((op_B == CUBLAS_OP_N ? k : n) * BtypeSize) % 16 == 0
+- (m * CtypeSize) % 16 == 0
+- (lda * AtypeSize) % 16 == 0
+- (ldb * BtypeSize) % 16 == 0
+- (ldc * CtypeSize) % 16 == 0
+- intptr_t(A) % 16 == 0
+- intptr_t(B) % 16 == 0
+- intptr_t(C) % 16 == 0
+
+
+To conduct matrix multiplication with FP8 types (see 8-bit Floating Point Data Types (FP8) Usage), you must ensure that your matrix dimensions and pointers meet the optimal requirements listed above.  Aside from FP8, there are no longer any restrictions on matrix dimensions and memory alignments to use Tensor Cores (starting with cuBLAS version 11.0.0).
+
+
+
+
+### 2.1.3. Thread Safety
+
+
+The library is thread safe and its functions can be called from multiple host threads, even with the same handle. When multiple threads share the same handle, extreme care needs to be taken when the handle configuration is changed because that change will affect potentially subsequent cuBLAS calls in all threads. It is even more true for the destruction of the handle. So it is not recommended that multiple thread share the same cuBLAS handle.
+
+
+Additional considerations apply when the same handle is used from multiple threads with a user provided workspace. See cublasSetWorkspace() for details.
 
 

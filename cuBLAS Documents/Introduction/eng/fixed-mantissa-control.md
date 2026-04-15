@@ -1,8 +1,0 @@
-
-
-#### 1.5.2.2. Fixed Mantissa Control
-
-
-Fixed mantissa control can be leveraged to further accelerate fixed-point emulation.  The user can provide the number of mantissa bits for the fixed-point representation via cublasSetFixedPointEmulationMaxMantissaBitCount(); however, without the automatic dynamic precision framework, it is not possible to guarantee equal or better accuracy than FP64 arithmetic.
-
-

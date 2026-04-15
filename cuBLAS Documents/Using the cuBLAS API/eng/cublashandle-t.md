@@ -1,8 +1,0 @@
-
-
-### 2.2.1. cublasHandle_t
-
-
-The cublasHandle_t type is a pointer type to an opaque structure holding the cuBLAS library context. The cuBLAS library context must be initialized using cublasCreate() and the returned handle must be passed to all subsequent library function calls. The context should be destroyed at the end using cublasDestroy().
-
-

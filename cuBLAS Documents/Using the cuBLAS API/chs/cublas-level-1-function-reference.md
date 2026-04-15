@@ -914,3 +914,781 @@ For references please refer to NETLIB documentation:
 
 
 
+
+
+
+
+```c++
+
+cublasStatus_t  cublasSasum(cublasHandle_t handle, int n,
+                            const float           *x, int incx, float  *result)
+cublasStatus_t  cublasDasum(cublasHandle_t handle, int n,
+                            const double          *x, int incx, double *result)
+cublasStatus_t cublasScasum(cublasHandle_t handle, int n,
+                            const cuComplex       *x, int incx, float  *result)
+cublasStatus_t cublasDzasum(cublasHandle_t handle, int n,
+                            const cuDoubleComplex *x, int incx, double *result)
+
+
+```
+
+
+此函数支持 64 位整数接口。
+
+
+此函数计算向量 `x` 元素绝对值之和。因此，结果为 $\left. \sum_{i = 1}^{n} \middle| \mathbf{Im}\left( {x\lbrack j\rbrack} \right) \middle| + \middle| \mathbf{Re}\left( {x\lbrack j\rbrack} \right) \right|$，其中 $j = 1 + \left( {i - 1} \right)*\text{incx}$。请注意，上式反映的是为与 Fortran 兼容而使用的 1 基索引。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |
+| n |  | 输入 | 向量 x 中的元素数量。 |
+| x | 设备 | 输入 | 包含元素的 <type> 向量。 |
+| incx |  | 输入 | x 连续元素之间的步长。 |
+| result | 主机或设备 | 输出 | 结果之和，如果 n <= 0 或 incx <= 0，则设置为 0。 |
+
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配归约缓冲区。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在 GPU 上启动。 |
+| CUBLAS_STATUS_INVALID_VALUE | result 为 NULL。 |
+
+
+有关参考信息，请参阅 NETLIB 文档：
+
+
+[sasum()](http://www.netlib.org/blas/sasum.f)、[dasum()](http://www.netlib.org/blas/dasum.f)、[scasum()](http://www.netlib.org/blas/scasum.f)、[dzasum()](http://www.netlib.org/blas/dzasum.f)
+
+```c++
+
+cublasStatus_t cublasSaxpy(cublasHandle_t handle, int n,
+                           const float           *alpha,
+                           const float           *x, int incx,
+                           float                 *y, int incy)
+cublasStatus_t cublasDaxpy(cublasHandle_t handle, int n,
+                           const double          *alpha,
+                           const double          *x, int incx,
+                           double                *y, int incy)
+cublasStatus_t cublasCaxpy(cublasHandle_t handle, int n,
+                           const cuComplex       *alpha,
+                           const cuComplex       *x, int incx,
+                           cuComplex             *y, int incy)
+cublasStatus_t cublasZaxpy(cublasHandle_t handle, int n,
+                           const cuDoubleComplex *alpha,
+                           const cuDoubleComplex *x, int incx,
+                           cuDoubleComplex       *y, int incy)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+此函数将向量 `x` 乘以标量 $\alpha$ 并将其加到向量 `y` 上，用结果覆盖最新的向量。因此，执行的操作是对于 $i = 1,\ldots,n$、$k = 1 + \left( {i - 1} \right)*\text{incx}$ 和 $j = 1 + \left( {i - 1} \right)*\text{incy}$，有 $\mathbf{y}\lbrack j\rbrack = \alpha \times \mathbf{x}\lbrack k\rbrack + \mathbf{y}\lbrack j\rbrack$。请注意，最后两个公式反映了为与Fortran兼容而使用的1-based索引。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| alpha | 主机或设备 | 输入 | 用于乘法的 <type> 标量。 |
+| n |  | 输入 | 向量 x 和 y 中的元素数量。 |
+| x | 设备 | 输入 | 具有 n 个元素的 <type> 向量。 |
+| incx |  | 输入 | x 中连续元素之间的步长。 |
+| y | 设备 | 输入/输出 | 具有 n 个元素的 <type> 向量。 |
+| incy |  | 输入 | y 中连续元素之间的步长。 |
+
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在GPU上启动失败 |
+
+
+参考文献请参阅NETLIB文档：
+
+
+[saxpy()](http://www.netlib.org/blas/saxpy.f)、[daxpy()](http://www.netlib.org/blas/daxpy.f)、[caxpy()](http://www.netlib.org/blas/caxpy.f)、[zaxpy()](http://www.netlib.org/blas/zaxpy.f)
+
+
+
+```c++
+
+cublasStatus_t cublasScopy(cublasHandle_t handle, int n,
+                           const float           *x, int incx,
+                           float                 *y, int incy)
+cublasStatus_t cublasDcopy(cublasHandle_t handle, int n,
+                           const double          *x, int incx,
+                           double                *y, int incy)
+cublasStatus_t cublasCcopy(cublasHandle_t handle, int n,
+                           const cuComplex       *x, int incx,
+                           cuComplex             *y, int incy)
+cublasStatus_t cublasZcopy(cublasHandle_t handle, int n,
+                           const cuDoubleComplex *x, int incx,
+                           cuDoubleComplex       *y, int incy)
+
+
+```
+
+
+此函数支持 64 位整数接口。
+
+
+此函数将向量 `x` 复制到向量 `y` 中。因此，执行的操作是 $\mathbf{y}\lbrack j\rbrack = \mathbf{x}\lbrack k\rbrack$，其中 $i = 1,\ldots,n$，$k = 1 + \left( {i - 1} \right)*\text{incx}$，$j = 1 + \left( {i - 1} \right)*\text{incy}$。请注意，后两个等式反映的是 1 基于索引，用于与 Fortran 兼容。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |
+| n |  | 输入 | 向量 x 和 y 中的元素数量。 |
+| x | 设备 | 输入 | 具有 n 个元素的 <type> 向量。 |
+| incx |  | 输入 | x 中连续元素之间的步长。 |
+| y | 设备 | 输入/输出 | 具有 n 个元素的 <type> 向量。 |
+| incy |  | 输入 | y 中连续元素之间的步长。 |
+
+
+此函数返回的可能错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 该函数无法在 GPU 上启动 |
+
+
+参考文献请参阅 NETLIB 文档：
+
+
+[scopy()](http://www.netlib.org/blas/scopy.f), [dcopy()](http://www.netlib.org/blas/dcopy.f), [ccopy()](http://www.netlib.org/blas/ccopy.f), [zcopy()](http://www.netlib.org/blas/zcopy.f)
+
+```c++
+
+cublasStatus_t cublasSdot (cublasHandle_t handle, int n,
+                           const float           *x, int incx,
+                           const float           *y, int incy,
+                           float           *result)
+cublasStatus_t cublasDdot (cublasHandle_t handle, int n,
+                           const double          *x, int incx,
+                           const double          *y, int incy,
+                           double          *result)
+cublasStatus_t cublasCdotu(cublasHandle_t handle, int n,
+                           const cuComplex       *x, int incx,
+                           const cuComplex       *y, int incy,
+                           cuComplex       *result)
+cublasStatus_t cublasCdotc(cublasHandle_t handle, int n,
+                           const cuComplex       *x, int incx,
+                           const cuComplex       *y, int incy,
+                           cuComplex       *result)
+cublasStatus_t cublasZdotu(cublasHandle_t handle, int n,
+                           const cuDoubleComplex *x, int incx,
+                           const cuDoubleComplex *y, int incy,
+                           cuDoubleComplex *result)
+cublasStatus_t cublasZdotc(cublasHandle_t handle, int n,
+                           const cuDoubleComplex *x, int incx,
+                           const cuDoubleComplex *y, int incy,
+                           cuDoubleComplex       *result)
+
+
+```
+
+此函数支持64位整数接口。
+
+此函数计算向量`x`和`y`的点积。因此，结果为 $\sum_{i = 1}^{n}\left( {\mathbf{x}\lbrack k\rbrack \times \mathbf{y}\lbrack j\rbrack} \right)$，其中 $k = 1 + \left( {i - 1} \right)*\text{incx}$ 且 $j = 1 + \left( {i - 1} \right)*\text{incy}$。注意，如果函数名以字符'c'结尾，则应在向量x的元素上使用共轭值；最后两个等式反映了为与Fortran兼容而使用的一-based索引。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| n |  | 输入 | 向量x和y中的元素数量。 |
+| x | 设备 | 输入 | 具有n个元素的<type>向量。 |
+| incx |  | 输入 | 向量x中连续元素之间的步长。 |
+| y | 设备 | 输入 | 具有n个元素的<type>向量。 |
+| incy |  | 输入 | 向量y中连续元素之间的步长。 |
+| result | 主机或设备 | 输出 | 生成的点积，如果 n <= 0 则设置为 0。 |
+
+此函数可能返回的错误值及其含义如下所列。
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配归约缓冲区。 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在GPU上启动。 |
+
+有关参考，请参阅NETLIB文档：
+
+[sdot()](http://www.netlib.org/blas/sdot.f), [ddot()](http://www.netlib.org/blas/ddot.f), [cdotu()](http://www.netlib.org/blas/cdotu.f), [cdotc()](http://www.netlib.org/blas/cdotc.f), [zdotu()](http://www.netlib.org/blas/zdotu.f), [zdotc()](http://www.netlib.org/blas/zdotc.f)
+
+
+
+```c++
+
+cublasStatus_t  cublasSnrm2(cublasHandle_t handle, int n,
+                            const float           *x, int incx, float  *result)
+cublasStatus_t  cublasDnrm2(cublasHandle_t handle, int n,
+                            const double          *x, int incx, double *result)
+cublasStatus_t cublasScnrm2(cublasHandle_t handle, int n,
+                            const cuComplex       *x, int incx, float  *result)
+cublasStatus_t cublasDznrm2(cublasHandle_t handle, int n,
+                            const cuDoubleComplex *x, int incx, double *result)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+
+此函数计算向量 `x` 的欧几里得范数。该代码使用多阶段累积模型来避免中间的下溢和溢出，其结果等价于 $\sqrt{\sum_{i = 1}^{n}\left( {\mathbf{x}\lbrack j\rbrack \times \mathbf{x}\lbrack j\rbrack} \right)}$，其中 $j = 1 + \left( {i - 1} \right)*\text{incx}$ 在精确算术中。请注意，最后一个公式反映了为与Fortran兼容而使用的1-based索引。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| n |  | 输入 | 向量x中元素的个数。 |
+| x | device | 输入 | 具有n个元素的<type>类型向量。 |
+| incx |  | 输入 | 向量x中连续元素之间的步长。 |
+| result | host或device | 输出 | 计算得到的范数，如果 n <= 0 或 incx <= 0，则设置为0。 |
+
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配归约缓冲区 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在GPU上启动失败 |
+| CUBLAS_STATUS_INVALID_VALUE | result为NULL |
+
+
+有关参考资料，请参阅NETLIB文档：
+
+
+[snrm2()](http://www.netlib.org/blas/snrm2.f90), [dnrm2()](http://www.netlib.org/blas/dnrm2.f90), [scnrm2()](http://www.netlib.org/blas/scnrm2.f90), [dznrm2()](http://www.netlib.org/blas/dznrm2.f90)
+
+
+
+```c++
+
+cublasStatus_t  cublasSrot(cublasHandle_t handle, int n,
+                           float           *x, int incx,
+                           float           *y, int incy,
+                           const float  *c, const float           *s)
+cublasStatus_t  cublasDrot(cublasHandle_t handle, int n,
+                           double          *x, int incx,
+                           double          *y, int incy,
+                           const double *c, const double          *s)
+cublasStatus_t  cublasCrot(cublasHandle_t handle, int n,
+                           cuComplex       *x, int incx,
+                           cuComplex       *y, int incy,
+                           const float  *c, const cuComplex       *s)
+cublasStatus_t cublasCsrot(cublasHandle_t handle, int n,
+                           cuComplex       *x, int incx,
+                           cuComplex       *y, int incy,
+                           const float  *c, const float           *s)
+cublasStatus_t  cublasZrot(cublasHandle_t handle, int n,
+                           cuDoubleComplex *x, int incx,
+                           cuDoubleComplex *y, int incy,
+                           const double *c, const cuDoubleComplex *s)
+cublasStatus_t cublasZdrot(cublasHandle_t handle, int n,
+                           cuDoubleComplex *x, int incx,
+                           cuDoubleComplex *y, int incy,
+                           const double *c, const double          *s)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function applies Givens rotation matrix (i.e., rotation in the x,y plane counter-clockwise by angle defined by $cos(alpha) = c$, $sin(alpha) = s$):
+
+
+$G = \begin{pmatrix}
+c & s \\
+{- s} & c \\
+\end{pmatrix}$
+
+
+to vectors `x` and `y`.
+
+
+Hence, the result is $\mathbf{x}\lbrack k\rbrack = c \times \mathbf{x}\lbrack k\rbrack + s \times \mathbf{y}\lbrack j\rbrack$ and $\mathbf{y}\lbrack j\rbrack = - s \times \mathbf{x}\lbrack k\rbrack + c \times \mathbf{y}\lbrack j\rbrack$ where $k = 1 + \left( {i - 1} \right)*\text{incx}$ and $j = 1 + \left( {i - 1} \right)*\text{incy}$ . Notice that the last two equations reflect 1-based indexing used for compatibility with Fortran.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| n |  | input | Number of elements in the vectors x and y. |
+| x | device | in/out | <type> vector with n elements. |
+| incx |  | input | Stride between consecutive elements of x. |
+| y | device | in/out | <type> vector with n elements. |
+| incy |  | input | Stride between consecutive elements of y. |
+| c | host or device | input | Cosine element of the rotation matrix. |
+| s | host or device | input | Sine element of the rotation matrix. |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+For references please refer to NETLIB documentation:
+
+
+[srot()](http://www.netlib.org/blas/srot.f), [drot()](http://www.netlib.org/blas/drot.f), [crot()](http://www.netlib.org/lapack/lapack_routine/crot.f), [csrot()](http://www.netlib.org/blas/csrot.f), [zrot()](http://www.netlib.org/lapack/lapack_routine/zrot.f), [zdrot()](http://www.netlib.org/blas/zdrot.f)
+
+
+
+
+
+
+```c++
+
+cublasStatus_t cublasSrotg(cublasHandle_t handle,
+                           float           *a, float           *b,
+                           float  *c, float           *s)
+cublasStatus_t cublasDrotg(cublasHandle_t handle,
+                           double          *a, double          *b,
+                           double *c, double          *s)
+cublasStatus_t cublasCrotg(cublasHandle_t handle,
+                           cuComplex       *a, cuComplex       *b,
+                           float  *c, cuComplex       *s)
+cublasStatus_t cublasZrotg(cublasHandle_t handle,
+                           cuDoubleComplex *a, cuDoubleComplex *b,
+                           double *c, cuDoubleComplex *s)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+
+此函数构造Givens旋转矩阵
+
+
+$G = \begin{pmatrix}
+c & s \\
+{- s} & c \\
+\end{pmatrix}$
+
+
+用于将$2 \times 1$向量$\left( {a,b} \right)^{T}$的第二个元素置零。
+
+
+然后，对于实数，我们可以写成
+
+
+$\begin{pmatrix}
+c & s \\
+{- s} & c \\
+\end{pmatrix}\begin{pmatrix}
+a \\
+b \\
+\end{pmatrix} = \begin{pmatrix}
+r \\
+0 \\
+\end{pmatrix}$
+
+
+其中$c^{2} + s^{2} = 1$且$r = \pm \sqrt{a^{2} + b^{2}}$。参数$a$和$b$分别被覆盖为$r$和$z$。$z$的值使得$c$和$s$可以通过以下规则恢复：
+
+
+$\left( {c,s} \right) = \begin{cases}
+\left( {\sqrt{1 - z^{2}},z} \right) & {\text{ if }\left| z \middle| < 1 \right.} \\
+\left( {0.0,1.0} \right) & {\text{ if }\left| z \middle| = 1 \right.} \\
+\left( 1/z,\sqrt{1 - z^{2}} \right) & {\text{ if }\left| z \middle| > 1 \right.} \\
+\end{cases}$
+
+
+对于复数，我们可以写成
+
+
+$\begin{pmatrix}
+c & s \\
+{- \bar{s}} & c \\
+\end{pmatrix}\begin{pmatrix}
+a \\
+b \\
+\end{pmatrix} = \begin{pmatrix}
+r \\
+0 \\
+\end{pmatrix}$
+
+
+其中$c^{2} + \left( {\bar{s} \times s} \right) = 1$且$r = \frac{a}{|a|} \times \parallel \left( {a,b} \right)^{T} \parallel_{2}$，其中$\parallel \left( {a,b} \right)^{T} \parallel_{2} = \sqrt{\left| a|^{2} + \middle| B|^{2} \right.}$（当$a \neq 0$时），当$a = 0$时$r = b$。最后，参数$a$在退出时被覆盖为$r$。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| a | 主机或设备 | 输入/输出 | 被覆盖为\(r\)的<type>标量。 |
+| b | 主机或设备 | 输入/输出 | 被覆盖为\(z\)的<type>标量。 |
+| c | 主机或设备 | 输出 | 旋转矩阵的余弦元素。 |
+| s | 主机或设备 | 输出 | 旋转矩阵的正弦元素。 |
+
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数未能成功在GPU上启动 |
+
+有关参考文献，请参阅NETLIB文档：
+
+
+[srotg()](http://www.netlib.org/blas/srotg.f90), [drotg()](http://www.netlib.org/blas/drotg.f90), [crotg()](http://www.netlib.org/blas/crotg.f90), [zrotg()](http://www.netlib.org/blas/zrotg.f90)
+
+```c++
+// 应用修改的Givens变换到向量 x 和 y
+cublasStatus_t cublasSrotm(cublasHandle_t handle, int n, float  *x, int incx,
+                           float  *y, int incy, const float*  param)
+cublasStatus_t cublasDrotm(cublasHandle_t handle, int n, double *x, int incx,
+                           double *y, int incy, const double* param)
+```
+
+此函数支持64位整数接口。
+
+此函数将改进的Givens变换
+
+$H = \begin{pmatrix}
+h_{11} & h_{12} \\
+h_{21} & h_{22} \\
+\end{pmatrix}$
+
+应用于向量 `x` 和 `y`。
+
+因此，结果为 $\mathbf{x}\lbrack k\rbrack = h_{11} \times \mathbf{x}\lbrack k\rbrack + h_{12} \times \mathbf{y}\lbrack j\rbrack$ 和 $\mathbf{y}\lbrack j\rbrack = h_{21} \times \mathbf{x}\lbrack k\rbrack + h_{22} \times \mathbf{y}\lbrack j\rbrack$，其中 $k = 1 + \left( {i - 1} \right)*\text{incx}$ 且 $j = 1 + \left( {i - 1} \right)*\text{incy}$。请注意，最后两个等式反映了为与Fortran兼容而使用的1-based索引。
+
+矩阵 $H$ 的元素 $h_{11}$、$h_{12}$、$h_{21}$ 和 $h_{22}$ 分别存储在 `param[1]`、`param[2]`、`param[3]` 和 `param[4]` 中。`flag = param[0]` 定义了矩阵 $H$ 条目的以下预定义值：
+
+| flag == -1.0 | flag == 0.0 | flag == 1.0 | flag == -2.0 |
+| --- | --- | --- | --- |
+| \(\begin{pmatrix}
+h_{11} & h_{12} \\
+h_{21} & h_{22} \\
+\end{pmatrix}\) | \(\begin{pmatrix}
+{1.0} & h_{12} \\
+h_{21} & {1.0} \\
+\end{pmatrix}\) | \(\begin{pmatrix}
+h_{11} & {1.0} \\
+{- 1.0} & h_{22} \\
+\end{pmatrix}\) | \(\begin{pmatrix}
+{1.0} & {0.0} \\
+{0.0} & {1.0} \\
+\end{pmatrix}\) |
+
+请注意，flag隐含的-1.0、0.0和1.0值不会存储在param中。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS库上下文的句柄。 |
+| n |  | input | 向量x和y中的元素数量。 |
+| x | device | in/out | 包含n个元素的<type>向量。 |
+| incx |  | input | x中连续元素之间的步长。 |
+| y | device | in/out | 包含n个元素的<type>向量。 |
+| incy |  | input | y中连续元素之间的步长。 |
+| param | host or device | input | 包含5个元素的<type>向量，其中param[0]和param[1..4]分别包含flag和矩阵\(H\)。 |
+
+此函数返回的可能错误值及其含义如下所列。
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在GPU上启动 |
+
+有关参考，请参阅NETLIB文档：
+
+[srotm()](http://www.netlib.org/blas/srotm.f), [drotm()](http://www.netlib.org/blas/drotm.f)
+
+
+
+```c++
+
+cublasStatus_t cublasSrotmg(cublasHandle_t handle, float  *d1, float  *d2,
+                            float  *x1, const float  *y1, float  *param)
+cublasStatus_t cublasDrotmg(cublasHandle_t handle, double *d1, double *d2,
+                            double *x1, const double *y1, double *param)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function constructs the modified Givens transformation
+
+
+$H = \begin{pmatrix}
+h_{11} & h_{12} \\
+h_{21} & h_{22} \\
+\end{pmatrix}$
+
+
+that zeros out the second entry of a $2 \times 1$ vector $\left( {\sqrt{d1}*x1,\sqrt{d2}*y1} \right)^{T}$ .
+
+
+The `flag = param[0]` defines the following predefined values for the matrix $H$ entries
+
+
+| flag == -1.0 | flag == 0.0 | flag == 1.0 | flag == -2.0 |
+| --- | --- | --- | --- |
+| \(\begin{pmatrix}
+h_{11} & h_{12} \\
+h_{21} & h_{22} \\
+\end{pmatrix}\) | \(\begin{pmatrix}
+{1.0} & h_{12} \\
+h_{21} & {1.0} \\
+\end{pmatrix}\) | \(\begin{pmatrix}
+h_{11} & {1.0} \\
+{- 1.0} & h_{22} \\
+\end{pmatrix}\) | \(\begin{pmatrix}
+{1.0} & {0.0} \\
+{0.0} & {1.0} \\
+\end{pmatrix}\) |
+
+
+Notice that the values -1.0, 0.0 and 1.0 implied by the flag are not stored in param.
+
+
+| Param. | Memory | In/out | Meaning |
+| --- | --- | --- | --- |
+| handle |  | input | Handle to the cuBLAS library context. |
+| d1 | host or device | in/out | <type> scalar that is overwritten on exit. |
+| d2 | host or device | in/out | <type> scalar that is overwritten on exit. |
+| x1 | host or device | in/out | <type> scalar that is overwritten on exit. |
+| y1 | host or device | input | <type> scalar. |
+| param | host or device | output | <type> vector of 5 elements, where param[0] and param[1-4] contain the flag and matrix \(H\). |
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Error Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_EXECUTION_FAILED | The function failed to launch on the GPU |
+
+
+For references please refer to NETLIB documentation:
+
+
+[srotmg()](http://www.netlib.org/blas/srotmg.f), [drotmg()](http://www.netlib.org/blas/drotmg.f)
+
+
+
+
+
+
+```c++
+
+cublasStatus_t  cublasSscal(cublasHandle_t handle, int n,
+                            const float           *alpha,
+                            float           *x, int incx)
+cublasStatus_t  cublasDscal(cublasHandle_t handle, int n,
+                            const double          *alpha,
+                            double          *x, int incx)
+cublasStatus_t  cublasCscal(cublasHandle_t handle, int n,
+                            const cuComplex       *alpha,
+                            cuComplex       *x, int incx)
+cublasStatus_t cublasCsscal(cublasHandle_t handle, int n,
+                            const float           *alpha,
+                            cuComplex       *x, int incx)
+cublasStatus_t  cublasZscal(cublasHandle_t handle, int n,
+                            const cuDoubleComplex *alpha,
+                            cuDoubleComplex *x, int incx)
+cublasStatus_t cublasZdscal(cublasHandle_t handle, int n,
+                            const double          *alpha,
+                            cuDoubleComplex *x, int incx)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+
+此函数用标量 $\alpha$ 缩放向量 `x`，并用结果覆盖原向量。因此，执行的操作是对于 $i = 1,\ldots,n$ 和 $j = 1 + \left( {i - 1} \right)*\text{incx}$，有 $\mathbf{x}\lbrack j\rbrack = \alpha \times \mathbf{x}\lbrack j\rbrack$。注意，上述等式反映了为与 Fortran 兼容而使用的从1开始的索引方式。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS 库上下文的句柄。 |
+| alpha | 主机或设备 | 输入 | 用于乘法的 <type> 标量。 |
+| n |  | 输入 | 向量 x 中的元素个数。 |
+| x | 设备 | 输入/输出 | 包含 n 个元素的 <type> 向量。 |
+| incx |  | 输入 | 向量 x 中连续元素之间的步长。 |
+
+
+此函数可能返回的错误值及其含义如下所示。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在 GPU 上启动失败 |
+
+
+相关参考请参阅 NETLIB 文档：
+
+
+[sscal()](http://www.netlib.org/blas/sscal.f), [dscal()](http://www.netlib.org/blas/dscal.f), [csscal()](http://www.netlib.org/blas/csscal.f), [cscal()](http://www.netlib.org/blas/cscal.f), [zdscal()](http://www.netlib.org/blas/zdscal.f), [zscal()](http://www.netlib.org/blas/zscal.f)
+
+
+
+```c++
+
+cublasStatus_t cublasSswap(cublasHandle_t handle, int n, float           *x,
+                           int incx, float           *y, int incy)
+cublasStatus_t cublasDswap(cublasHandle_t handle, int n, double          *x,
+                           int incx, double          *y, int incy)
+cublasStatus_t cublasCswap(cublasHandle_t handle, int n, cuComplex       *x,
+                           int incx, cuComplex       *y, int incy)
+cublasStatus_t cublasZswap(cublasHandle_t handle, int n, cuDoubleComplex *x,
+                           int incx, cuDoubleComplex *y, int incy)
+
+
+```
+
+
+此函数支持64位整数接口。
+
+
+此函数用于交换向量 `x` 和 `y` 的元素。因此，执行的操作是 $\left. \mathbf{y}\lbrack j\rbrack\Leftrightarrow\mathbf{x}\lbrack k\rbrack \right.$，其中 $i = 1,\ldots,n$，$k = 1 + \left( {i - 1} \right)*\text{incx}$，$j = 1 + \left( {i - 1} \right)*\text{incy}$。请注意，最后两个等式反映了为与Fortran兼容而使用的一-based索引。
+
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| n |  | 输入 | 向量x和y中的元素数量。 |
+| x | 设备 | 输入/输出 | 包含n个元素的<类型>向量。 |
+| incx |  | 输入 | x中连续元素之间的步长。 |
+| y | 设备 | 输入/输出 | 包含n个元素的<类型>向量。 |
+| incy |  | 输入 | y中连续元素之间的步长。 |
+
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在GPU上启动 |
+
+
+参考文献请参阅NETLIB文档：
+
+
+[sswap()](http://www.netlib.org/blas/sswap.f), [dswap()](http://www.netlib.org/blas/dswap.f), [cswap()](http://www.netlib.org/blas/cswap.f), [zswap()](http://www.netlib.org/blas/zswap.f)
+
+```c++
+
+cublasStatus_t cublasIsamax(cublasHandle_t handle, int n,
+                            const float *x, int incx, int *result)
+cublasStatus_t cublasIdamax(cublasHandle_t handle, int n,
+                            const double *x, int incx, int *result)
+cublasStatus_t cublasIcamax(cublasHandle_t handle, int n,
+                            const cuComplex *x, int incx, int *result)
+cublasStatus_t cublasIzamax(cublasHandle_t handle, int n,
+                            const cuDoubleComplex *x, int incx, int *result)
+
+
+```
+
+此函数支持 64 位整数接口。
+
+此函数用于查找最大绝对值元素的（最小）索引。因此，结果为第一个满足以下条件的 $i$：对于 $i = 1,\ldots,n$ 和 $j = 1 + \left( {i - 1} \right)*\text{ incx}$，使得 $\left| \mathbf{Im}\left( {x\lbrack j\rbrack} \right) \middle| + \middle| \mathbf{Re}\left( {x\lbrack j\rbrack} \right) \right|$ 最大。请注意，最后一个等式反映的是为与 Fortran 兼容而使用的 1-based 索引。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | input | cuBLAS 库上下文的句柄。 |
+| n |  | input | 向量 x 中的元素数量。 |
+| x | device | input | 包含元素的 <type> 向量。 |
+| incx |  | input | 向量 x 中连续元素之间的步长。 |
+| result | host or device | output | 结果索引，如果 n <= 0 或 incx <= 0，则设置为 0。 |
+
+此函数可能返回的错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配归约缓冲区 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数无法在 GPU 上启动 |
+| CUBLAS_STATUS_INVALID_VALUE | result 为 NULL |
+
+
+相关参考请参阅 NETLIB 文档：
+
+
+[isamax()](http://www.netlib.org/blas/isamax.f), [idamax()](http://www.netlib.org/blas/idamax.f), [icamax()](http://www.netlib.org/blas/icamax.f), [izamax()](http://www.netlib.org/blas/izamax.f)
+
+```c++
+
+cublasStatus_t cublasIsamin(cublasHandle_t handle, int n,
+                            const float *x, int incx, int *result)
+cublasStatus_t cublasIdamin(cublasHandle_t handle, int n,
+                            const double *x, int incx, int *result)
+cublasStatus_t cublasIcamin(cublasHandle_t handle, int n,
+                            const cuComplex *x, int incx, int *result)
+cublasStatus_t cublasIzamin(cublasHandle_t handle, int n,
+                            const cuDoubleComplex *x, int incx, int *result)
+
+
+```
+
+此函数支持64位整数接口。
+
+此函数查找最小幅度元素的（最小）索引。因此，结果是第一个满足以下条件的 $i$：对于 $i = 1,\ldots,n$ 和 $j = 1 + \left( {i - 1} \right)*\text{incx}$，使得 $\left| \mathbf{Im}\left( {x\lbrack j\rbrack} \right) \middle| + \middle| \mathbf{Re}\left( {x\lbrack j\rbrack} \right) \right|$ 最小。请注意，上式反映了为与Fortran兼容而使用的1-based索引。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| handle |  | 输入 | cuBLAS库上下文的句柄。 |
+| n |  | 输入 | 向量x中的元素数量。 |
+| x | 设备 | 输入 | 包含元素的<type>类型向量。 |
+| incx |  | 输入 | x连续元素之间的步长。 |
+| result | 主机或设备 | 输出 | 结果索引，如果n <= 0或incx <= 0，则设置为0。 |
+
+
+此函数返回的可能错误值及其含义如下所列。
+
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配归约缓冲区 |
+| CUBLAS_STATUS_EXECUTION_FAILED | 函数在GPU上启动失败 |
+| CUBLAS_STATUS_INVALID_VALUE | result为NULL |
+
+
+有关参考资料，请参阅NETLIB文档：
+
+
+[isamin()](http://www.netlib.org/scilib/blass.f)

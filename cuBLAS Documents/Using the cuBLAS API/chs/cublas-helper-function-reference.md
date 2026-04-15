@@ -819,3 +819,754 @@ cublasStatus_t cublasGetEmulationSpecialValuesSupport(cublasHandle_t handle, cud
 
 
 ### 2.4.29.
+
+```c++
+cublasStatus_t
+cublasCreate(cublasHandle_t *handle)
+```
+
+此函数初始化 cuBLAS 库并创建一个指向包含 cuBLAS 库上下文的不透明结构的句柄。它在主机和设备上分配硬件资源，必须在其他任何 cuBLAS 库调用之前调用。
+
+cuBLAS 库上下文与当前 CUDA 设备绑定。要在多个设备上使用该库，需要为每个设备创建一个 cuBLAS 句柄。另请参阅 cuBLAS 上下文。
+
+对于给定的设备，可以创建具有不同配置的多个 cuBLAS 句柄。对于从不同线程使用同一设备的多线程应用程序，推荐的编程模型是为每个线程创建一个 cuBLAS 句柄，并在该线程的整个生命周期内使用该 cuBLAS 句柄。
+
+由于 `cublasCreate()` 会分配一些内部资源，而调用 `cublasDestroy()` 释放这些资源时将隐式调用 `cudaDeviceSynchronize()`，因此建议尽量减少调用这些函数的次数。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 初始化成功 |
+| CUBLAS_STATUS_NOT_INITIALIZED | CUDA™ Runtime 初始化失败 |
+| CUBLAS_STATUS_ALLOC_FAILED | 无法分配资源 |
+| CUBLAS_STATUS_INVALID_VALUE | handle 为 NULL |
+
+
+
+```c++
+
+cublasStatus_t
+cublasDestroy(cublasHandle_t handle)
+
+
+```
+
+
+This function releases hardware resources used by the cuBLAS library. This function is usually the last call with a particular handle to the cuBLAS library. Because cublasCreate() allocates some internal resources and the release of those resources by calling cublasDestroy() will implicitly call `cudaDeviceSynchronize()`, it is recommended to minimize the number of times these functions are called.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | the shut down succeeded |
+| CUBLAS_STATUS_NOT_INITIALIZED | the library was not initialized |
+
+
+
+
+```c++
+cublasStatus_t cublasGetAtomicsMode(cublasHandle_t handle, cublasAtomicsMode_t *mode)
+```
+
+此函数查询特定 cuBLAS 上下文的原子模式。
+
+默认初始化的 `cublasHandle_t` 对象的默认原子模式为 `CUBLAS_ATOMICS_NOT_ALLOWED`。请参阅类型部分了解更多详情。
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 原子模式查询成功 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数 mode 为空指针 |
+
+```c++
+cublasStatus_t cublasGetEmulationSpecialValuesSupport(cublasHandle_t handle, cudaEmulationSpecialValuesSupport *mask)
+```
+
+此函数获取之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 仿真特殊值支持已成功返回。 |
+| CUBLAS_STATUS_INVALID_VALUE | mask 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t cublasGetEmulationStrategy(cublasHandle_t handle, cublasEmulationStrategy_t *emulationStrategy)
+```
+
+此函数获取之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 模拟策略返回成功。 |
+| CUBLAS_STATUS_INVALID_VALUE | emulationStrategy 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t cublasGetFixedPointEmulationMantissaBitCountPointer(cublasHandle_t handle, int **mantissaBitCount)
+```
+
+此函数获取之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | mantissaBitCount 已成功返回。 |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaBitCount 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+
+cublasStatus_t cublasGetFixedPointEmulationMantissaBitOffset(cublasHandle_t handle, int *mantissaBitOffset)
+
+
+```
+
+此函数用于获取之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | mantissaBitOffset 已成功返回。 |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaBitOffset 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+
+cublasStatus_t cublasGetFixedPointEmulationMantissaControl(cublasHandle_t handle, cudaEmulationMantissaControl *mantissaControl)
+
+```
+
+此函数用于获取先前编程到库句柄的值。
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 定点仿真尾数控制已成功返回。 |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaControl 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+
+cublasStatus_t cublasGetFixedPointEmulationMaxMantissaBitCount(cublasHandle_t handle, int *maxMantissaBitCount)
+
+```
+
+此函数获取先前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 成功返回 maxMantissaBitCount。 |
+| CUBLAS_STATUS_INVALID_VALUE | maxMantissaBitCount 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t cublasGetLoggerCallback(
+    cublasLogCallback* userCallback)
+```
+
+此函数用于检索通过 `cublasSetLoggerCallback()` 安装的自定义用户回调函数的函数指针；如果未安装回调函数，则返回零。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| userCallback | host | output | 指向用户定义的回调函数的指针。 |
+
+此函数返回的可能错误值及其含义如下所示。
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | userCallback 为 NULL |
+
+```c++
+cublasStatus_t cublasGetMathMode(cublasHandle_t handle, cublasMath_t *mode)
+// 此函数返回库例程使用的数学模式
+```
+
+此函数返回库例程使用的数学模式。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 数学类型已成功返回。 |
+| CUBLAS_STATUS_INVALID_VALUE | 如果 mode 为 NULL。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t
+cublasGetMatrix(int rows, int cols, int elemSize,
+                const void *A, int lda, void *B, int ldb)
+```
+
+此函数支持64位整数接口。
+
+此函数将`rows x cols`个元素组成的块从GPU内存空间中的矩阵`A`复制到主机内存空间中的矩阵`B`。假设每个元素需要`elemSize`字节的存储空间，且两个矩阵均以列主序格式存储，源矩阵`A`和目标矩阵`B`的前导维度分别由`lda`和`ldb`给出。前导维度表示已分配矩阵的行数，即使只使用其子矩阵也是如此。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数rows或cols为负，或elemSize、lda、ldb不为正数。 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问GPU内存时出错 |
+
+
+
+```c++
+
+cublasStatus_t
+cublasGetMatrixAsync(int rows, int cols, int elemSize, const void *A,
+                     int lda, void *B, int ldb, cudaStream_t stream)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function has the same functionality as cublasGetMatrix(), with the exception that the data transfer is done asynchronously (with respect to the host) using the given CUDA™ stream parameter.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_INVALID_VALUE | The parameters rows or cols are negative, or elemSize, lda ldb are not positive. |
+| CUBLAS_STATUS_MAPPING_ERROR | There was an error accessing GPU memory |
+
+
+
+
+```c++
+cublasStatus_t
+cublasGetPointerMode(cublasHandle_t handle, cublasPointerMode_t *mode)
+```
+
+此函数用于获取cuBLAS库使用的指针模式。有关更多详细信息，请参阅关于`cublasPointerMode_t`类型的章节。
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 指针模式获取成功 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | mode为NULL |
+
+```c++
+
+cublasStatus_t
+
+cublasGetProperty(libraryPropertyType type, int *value)
+
+
+```
+
+此函数返回请求的属性的值，存储在 `value` 指向的内存中。请参阅 `libraryPropertyType` 了解支持的类型。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 类型或值无效，如果 `type` 的值无效，或如果 `value` 为 NULL |
+
+
+
+```c++
+
+cublasStatus_t cublasGetSmCountTarget(cublasHandle_t handle, int *smCountTarget)
+
+
+```
+
+
+This function obtains the value previously programmed to the library handle.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | SM count target was returned successfully. |
+| CUBLAS_STATUS_INVALID_VALUE | smCountTarget is NULL. |
+| CUBLAS_STATUS_NOT_INITIALIZED | the library was not initialized. |
+
+
+
+
+
+
+```c++
+
+const char* cublasGetStatusName(cublasStatus_t status)
+
+
+```
+
+
+此函数返回给定状态的字符串表示形式。
+
+
+| 返回值 | 含义 |
+| --- | --- |
+| NULL-terminated string | 状态的字符串表示形式 |
+
+```c++
+
+const char* cublasGetStatusString(cublasStatus_t status)
+
+
+```
+
+此函数返回给定状态的描述字符串。
+
+| 返回值 | 含义 |
+| --- | --- |
+| NULL 终止字符串 | 该状态的描述 |
+
+
+
+```c++
+
+cublasStatus_t
+cublasGetStream(cublasHandle_t handle, cudaStream_t *streamId)
+
+
+```
+
+
+This function gets the cuBLAS library stream, which is being used to execute all calls to the cuBLAS library functions. If the cuBLAS library stream is not set, all kernels use the *default* NULL stream.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | the stream was returned successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | the library was not initialized |
+| CUBLAS_STATUS_INVALID_VALUE | streamId is NULL |
+
+
+
+
+```c++
+cublasStatus_t
+cublasGetVector(int n, int elemSize,
+                const void *x, int incx, void *y, int incy)
+```
+
+此函数支持64位整数接口。
+
+此函数将GPU内存空间中向量`x`的`n`个元素复制到主机内存空间中的向量`y`。两个向量中的元素都被假定为`elemSize`字节大小。源向量中连续元素之间的存储间距由`incx`给出，目标向量`y`的存储间距由`incy`给出。
+
+由于假定二维矩阵采用列主序格式，如果向量是矩阵的一部分，则增量等于`1`会访问该矩阵的（部分）列。类似地，使用等于矩阵主维度的增量会访问该矩阵的（部分）行。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数incx、incy或elemSize不为正数 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问GPU内存时出错 |
+
+```c++
+cublasStatus_t
+cublasGetVectorAsync(int n, int elemSize, const void *devicePtr, int incx,
+                     void *hostPtr, int incy, cudaStream_t stream)
+```
+
+此函数支持 64 位整数接口。
+
+此函数的功能与 `cublasGetVector()` 相同，区别在于数据传送是使用给定的 CUDA™ 流参数异步（相对于主机）完成的。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数 incx、incy 或 elemSize 不为正数 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问 GPU 内存时出错 |
+
+
+
+```c++
+
+cublasStatus_t
+cublasGetVersion(cublasHandle_t handle, int *version)
+
+
+```
+
+
+This function returns the version number of the cuBLAS library.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_INVALID_VALUE | version is NULL |
+
+
+> **Note**
+
+Note
+This function can be safely called with handle set to NULL.  This allows users to get the version of the library without a handle.  Another way to do this is with cublasGetProperty().
+
+
+
+
+```c++
+cublasStatus_t cublasLoggerConfigure(
+    int             logIsOn,
+    int             logToStdOut,
+    int             logToStdErr,
+    const char*     logFileName)
+```
+
+此函数用于在运行时配置日志记录。除此类配置方式外，还可以通过特殊的**环境变量**来配置日志记录，这些环境变量会被 libcublas 检查：
+
+- CUBLAS_LOGINFO_DBG - 将此环境变量设置为 1 表示开启日志记录（默认情况下日志记录是关闭的）。
+- CUBLAS_LOGDEST_DBG - 此环境变量指定日志写入位置：stdout、stderr 分别表示将日志消息写入标准输出或标准错误流。其他值会被解释为文件名。
+
+**参数**
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| logIsOn | 主机端 | 输入 | 完全开启/关闭日志记录。默认关闭，但通过调用 cublasSetLoggerCallback() 设置用户定义的回调函数后会开启。 |
+| logToStdOut | 主机端 | 输入 | 开启/关闭向标准输出 I/O 流的日志记录。默认关闭。 |
+| logToStdErr | 主机端 | 输入 | 开启/关闭向标准错误 I/O 流的日志记录。默认关闭。 |
+| logFileName | 主机端 | 输入 | 开启/关闭向由其名称指定的文件系统中的文件的日志记录。cublasLoggerConfigure() 会复制 logFileName 的内容。如果不需要此类型的日志记录，应提供空指针。 |
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+
+
+
+```c++
+
+cublasStatus_t cublasSetAtomicsMode(cublasHandlet handle, cublasAtomicsMode_t mode)
+
+
+```
+
+
+某些例程（如 `cublas<t>symv()` 和 `cublas<t>hemv()`）具有使用原子操作（atomics）累积结果的替代实现。这种实现通常速度明显更快，但可能在多次运行中产生不完全相同的结果。从数学角度来看，这些差异并不显著，但在调试时可能造成不利影响。
+
+
+此函数允许或禁止在 cuBLAS 库中对所有具有替代实现的例程使用原子操作。如果在 cuBLAS 例程的文档中未明确说明，则表示该例程没有使用原子操作的替代实现。当禁用原子模式时，在同一硬件上使用相同参数调用时，每个 cuBLAS 例程应产生相同的结果。
+
+
+默认初始化的 `cublasHandle_t` 对象的原子模式为 `CUBLAS_ATOMICS_NOT_ALLOWED`。请参阅类型部分了解更多详情。
+
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 原子模式设置成功 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+
+```c++
+
+cublasStatus_t cublasSetEmulationSpecialValuesSupport(cublasHandle_t handle, cudaEmulationSpecialValuesSupport mask)
+
+
+```
+
+此函数设置之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 仿真特殊值支持已成功设置。 |
+| CUBLAS_STATUS_INVALID_VALUE | mask 超出允许范围。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+
+cublasStatus_t cublasSetEmulationStrategy(cublasHandle_t handle, cublasEmulationStrategy_t emulationStrategy)
+
+
+```
+
+`cublasSetEmulationStrategy()` 函数使您能够选择库如何使用浮点模拟。更多详细信息，请参阅 `cublasEmulationStrategy_t`。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 模拟策略设置成功。 |
+| CUBLAS_STATUS_INVALID_VALUE | 指定的模拟策略值无效。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t cublasSetFixedPointEmulationMantissaBitCountPointer(cublasHandle_t handle, int *mantissaBitCount)
+```
+
+此函数设置之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | mantissaBitCount 设置成功。 |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaBitCount 超出允许范围。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t cublasSetFixedPointEmulationMantissaBitOffset(cublasHandle_t handle, int mantissaBitOffset)
+```
+
+此函数用于设置之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | mantissaBitOffset 已成功设置。 |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaBitOffset 超出允许范围。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+```c++
+cublasStatus_t cublasSetFixedPointEmulationMantissaControl(cublasHandle_t handle, cudaEmulationMantissaControl mantissaControl)
+```
+
+此函数用于设置之前编程到库句柄的值。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 定点仿真尾数控制设置成功。 |
+| CUBLAS_STATUS_INVALID_VALUE | mantissaControl 超出允许范围。 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化。 |
+
+
+
+```c++
+
+cublasStatus_t cublasSetFixedPointEmulationMaxMantissaBitCount(cublasHandle_t handle, int maxMantissaBitCount)
+
+
+```
+
+
+This function sets the value previously programmed to the library handle.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | maxMantissaBitCount was set successfully. |
+| CUBLAS_STATUS_INVALID_VALUE | maxMantissaBitCount is outside of the allowed range. |
+| CUBLAS_STATUS_NOT_INITIALIZED | the library was not initialized. |
+
+
+
+
+```c++
+
+cublasStatus_t cublasSetLoggerCallback(
+    cublasLogCallback   userCallback)
+
+
+```
+
+此函数通过 cuBLAS C 公共 API 安装用户自定义的回调函数。
+
+| 参数 | 内存 | 输入/输出 | 含义 |
+| --- | --- | --- | --- |
+| userCallback | 主机 | 输入 | 指向用户定义的回调函数的指针。 |
+
+| 错误值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+
+
+
+```c++
+
+cublasStatus_t cublasSetMathMode(cublasHandle_t handle, cublasMath_t mode)
+
+
+```
+
+
+The cublasSetMathMode() function enables you to choose the compute precision modes as defined by cublasMath_t. Users are allowed to set the compute precision mode as a logical combination of them (except the deprecated `CUBLAS_TENSOR_OP_MATH`). For example, `cublasSetMathMode(handle, CUBLAS_DEFAULT_MATH | CUBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION)`. Please note that the default math mode is `CUBLAS_DEFAULT_MATH`.
+
+
+For matrix and compute precisions allowed for cublasGemmEx() and cublasLtMatmul() APIs and their strided variants please refer to: cublasGemmEx() , cublasGemmBatchedEx(), cublasGemmStridedBatchedEx(), and cublasLtMatmul().
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The math mode was set successfully. |
+| CUBLAS_STATUS_INVALID_VALUE | An invalid value for mode was specified. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+
+
+
+
+```c++
+cublasStatus_t
+cublasSetMatrix(int rows, int cols, int elemSize,
+                const void *A, int lda, void *B, int ldb)
+```
+
+此函数支持64位整数接口。
+
+此函数将主机内存空间中矩阵 `A` 的 `rows x cols` 个元素的数据块复制到GPU内存空间中的矩阵 `B`。该函数假定每个元素需要 `elemSize` 字节的存储空间，并且两个矩阵均以列优先格式存储。源矩阵 `A` 和目标矩阵 `B` 的主维分别由 `lda` 和 `ldb` 给出。主维表示已分配矩阵的行数，即使仅使用其中的子矩阵。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数 rows 或 cols 为负，或者 elemSize、lda、ldb 不为正数 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问GPU内存时出错 |
+
+```c++
+
+cublasStatus_t
+cublasSetMatrixAsync(int rows, int cols, int elemSize, const void *A,
+                     int lda, void *B, int ldb, cudaStream_t stream)
+
+
+```
+
+此函数支持64位整数接口。
+
+此函数的功能与 `cublasSetMatrix()` 相同，区别在于数据传送是通过给定的 CUDA™ 流参数异步执行的（相对于主机而言）。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数 `rows` 或 `cols` 为负数，或 `elemSize`、`lda`、`ldb` 不为正数。 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问 GPU 内存时发生错误 |
+
+```c++
+cublasStatus_t
+cublasSetPointerMode(cublasHandle_t handle, cublasPointerMode_t mode)
+```
+
+此函数设置 cuBLAS 库使用的指针模式。*默认*情况下，值通过主机上的引用传递。请参阅 cublasPointerMode_t 类型部分以了解更多详细信息。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 指针模式设置成功 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+| CUBLAS_STATUS_INVALID_VALUE | mode 不是 CUBLAS_POINTER_MODE_HOST 或 CUBLAS_POINTER_MODE_DEVICE |
+
+
+
+```c++
+
+cublasStatus_t cublasSetSmCountTarget(cublasHandle_t handle, int smCountTarget)
+
+
+```
+
+
+The cublasSetSmCountTarget() function allows overriding the number of multiprocessors available to the library during kernels execution.
+
+
+This option can be used to improve the library performance when cuBLAS routines are known to run concurrently with other work on different CUDA streams. For example, on an NVIDIA A100 GPU, which has 108 multiprocessors, when there is a concurrent kenrel running with grid size of 8, one can use cublasSetSmCountTarget() with `smCountTarget` set to `100` to override the library heuristics to optimize for running on the remaining 100 multiprocessors.
+
+
+When set to `0`, the library returns to its default behavior. The input value should not exceed the device’s multiprocessor count, which can be obtained using `cudaDeviceGetAttribute`. Negative values are not accepted.
+
+
+The user must ensure thread safety when modifying the library handle with this routine similar to when using cublasSetStream(), etc.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | SM count target was set successfully. |
+| CUBLAS_STATUS_INVALID_VALUE | The value of smCountTarget outside of the allowed range. |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized. |
+
+
+
+
+```c++
+cublasStatus_t
+cublasSetStream(cublasHandle_t handle, cudaStream_t streamId)
+```
+
+此函数用于设置 cuBLAS 库的流，后续对 cuBLAS 库函数的所有调用都将在此流中执行。如果未设置 cuBLAS 库的流，则所有内核将使用*默认*的 NULL 流。具体来说，此例程可用于在内核启动之间更改流，然后将 cuBLAS 库的流重置回 NULL。此外，此函数无条件地将 cuBLAS 库的工作空间重置回默认工作空间池（请参阅 cublasSetWorkspace()）。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 流设置成功 |
+| CUBLAS_STATUS_NOT_INITIALIZED | 库未初始化 |
+
+
+
+```c++
+
+cublasStatus_t
+cublasSetVector(int n, int elemSize,
+                const void *x, int incx, void *y, int incy)
+
+
+```
+
+
+This function supports the 64-bit Integer Interface.
+
+
+This function copies `n` elements from a vector `x` in host memory space to a vector `y` in GPU memory space. Elements in both vectors are assumed to have a size of `elemSize` bytes. The storage spacing between consecutive elements is given by `incx` for the source vector `x` and by `incy` for the destination vector `y`.
+
+
+Since column-major format for two-dimensional matrices is assumed, if a vector is part of a matrix, a vector increment equal to `1` accesses a (partial) column of that matrix. Similarly, using an increment equal to the leading dimension of the matrix results in accesses to a (partial) row of that matrix.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The operation completed successfully |
+| CUBLAS_STATUS_INVALID_VALUE | The parameters incx, incy, or elemSize are not positive |
+| CUBLAS_STATUS_MAPPING_ERROR | There was an error accessing GPU memory |
+
+
+
+
+```c++
+
+cublasStatus_t
+cublasSetVectorAsync(int n, int elemSize, const void *hostPtr, int incx,
+                     void *devicePtr, int incy, cudaStream_t stream)
+
+
+```
+
+此函数支持64位整数接口。
+
+此函数的功能与`cublasSetVector()`相同，不同之处在于数据传送是使用指定的CUDA™流参数异步执行的（相对于主机）。
+
+| 返回值 | 含义 |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | 操作成功完成 |
+| CUBLAS_STATUS_INVALID_VALUE | 参数incx、incy或elemSize不为正数 |
+| CUBLAS_STATUS_MAPPING_ERROR | 访问GPU内存时出错 |
+
+
+
+```c++
+
+cublasStatus_t
+cublasSetWorkspace(cublasHandle_t handle, void *workspace, size_t workspaceSizeInBytes)
+
+
+```
+
+
+This function sets the cuBLAS library workspace to a user-owned device buffer, which will be used to execute all subsequent calls to the cuBLAS library functions (on the currently set stream). If the cuBLAS library workspace is not set, all kernels will use the default workspace pool allocated during the cuBLAS context creation. In particular, this routine can be used to change the workspace between kernel launches. The workspace pointer has to be aligned to at least 256 bytes, otherwise `CUBLAS_STATUS_INVALID_VALUE` error is returned. The cublasSetStream() function unconditionally resets the cuBLAS library workspace back to the default workspace pool. Calling this function, including with `workspaceSizeInBytes` equal to 0, will prevent the cuBLAS library from utilizing the default workspace. Too small value of `workspaceSizeInBytes` may cause some routines to fail with `CUBLAS_STATUS_ALLOC_FAILED` error returned or cause large regressions in performance. Workspace size equal to or larger than 16KiB is enough to prevent `CUBLAS_STATUS_ALLOC_FAILED` error, while a larger workspace can provide performance benefits for some routines.
+
+
+> **Note**
+
+Note
+If the stream set by cublasSetStream() is cudaStreamPerThread and there are multiple threads using the same cuBLAS library handle, then users must manually manage synchronization to avoid possible race conditions in the user provided workspace. Alternatively, users may rely on the default workspace pool which safely guards against race conditions.
+
+
+> **Warning**
+
+Warning
+cuBLAS functions may invoke more than one CUDA kernel, and rely on workspace being intact between the invocations. Hence, if cuBLAS handle is configured with user-provided workspace and is being used from multiple threads, it is user’s responsibility to serialize cuBLAS calls between threads, as otherwise the kernels from different cuBLAS invocations might interleave and invalidate the assumptions each of them makes regarding workspace intactness. The default workspace pool managed by cuBLAS is thread safe.
+
+
+The table below shows the recommended size of user-provided workspace.
+This is based on the cuBLAS default workspace pool size which is GPU architecture dependent.
+
+
+| GPU Architecture | Recommended workspace size |
+| --- | --- |
+| NVIDIA Hopper Architecture (sm90) | 32 MiB |
+| NVIDIA Blackwell Architecture (sm10x) | 32 MiB |
+| NVIDIA Blackwell Architecture (sm12x) | 32 MiB |
+| Other | 4 MiB |
+
+
+> **Note**
+
+Note
+If the cuBLAS library is configured to utilize fixed-point emulation, which can be done by setting the corresponding math mode in cublasSetMathMode() or calling APIs with CUBLAS_COMPUTE_64F_EMULATED_FIXEDPOINT, it can be beneficial to provide more workspace than recommended for the GPU architecture.  See Fixed-Point Workspace Requirements for more details.
+
+
+The possible error values returned by this function and their meanings are listed below.
+
+
+| Return Value | Meaning |
+| --- | --- |
+| CUBLAS_STATUS_SUCCESS | The stream was set successfully |
+| CUBLAS_STATUS_NOT_INITIALIZED | The library was not initialized |
+| CUBLAS_STATUS_INVALID_VALUE | The workspace pointer wasn’t aligned to at least 256 bytes |
+
+

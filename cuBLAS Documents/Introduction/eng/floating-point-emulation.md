@@ -26,6 +26,15 @@ To enable floating point emulation without any code changes, the following envir
 
 
 
+##### 1.5.1. BF16x9
+##### 1.5.2. Fixed-Point
+###### 1.5.2.1. Dynamic Mantissa Control
+###### 1.5.2.2. Fixed Mantissa Control
+###### 1.5.2.3. Representation and Mappings
+###### 1.5.2.4. Fixed-Point Workspace Requirements
+###### 1.5.2.5. Fixed-Point Performance Guide
+##### 1.5.3. Default Library Configurations
+##### 1.5.4. Support For Floating Point Special Values
 ### 1.5.1. BF16x9
 
 
@@ -217,5 +226,299 @@ The implementations of floating point emulation algorithms maintain the accuracy
 | BF16x9 | \(\text{NaN}\) |
 | Fixed-Point | None |
 
+
+
+
+
+### 1.5.1. BF16x9
+
+
+The BF16x9 algorithm is used for emulating FP32 arithmetic. An FP32 value can be exactly represented as three BF16 values as follows:
+
+
+
+```
+
+\[\begin{split}a & = a_0 + 2^{-8} a_1 + 2^{-16} a_2 \\\end{split}\]
+```
+
+
+We can fully reconstruct the FP32 value from the BF16 values without any loss of accuracy. Using this, we define an FMA operation (d = ab + c) as follows:
+
+
+
+```
+
+\[\begin{split}d & = ab + c \\
+  & = (a_0 + 2^{-8} a_1 + 2^{-16} a_2) \cdot (b_0 + 2^{-8} b_1 + 2^{-16} b_2) + c \\
+  & = a_0b_0 + 2^{-8}a_0b_1 + 2^{-16}a_0b_2 \\
+  & \quad + 2^{-8}a_1b_0 + 2^{-16}a_1b_1 + 2^{-24}a_1b_2 \\
+  & \quad + 2^{-16}a_2b_0 + 2^{-24}a_2b_1 + 2^{-32}a_2b_2 + c \\\end{split}\]
+```
+
+
+In practice, the BF16 tensor cores are utilized rather than FMA units and this idea naturally extends into complex arithmetic as well.
+
+
+While BF16x9 can be supported on all hardware, it only provides a performance advantage when peak BF16 throughput is more than nine times greater than peak FP32 throughput. It also requires special hardware features to apply the additional scaling factors in a performant manner. As a result, BF16x9 is only supported on select architectures. See the Floating Point Emulation Support Overview table for more details.
+
+
+
+
+### 1.5.3. Default Library Configurations
+
+
+Library default values for emulation are subject to change.
+
+
+| API | Mantissa Control | Default Behavior |
+| --- | --- | --- |
+| cublasGetEmulationStrategy() | Not applicable | CUBLAS_EMULATION_STRATEGY_DEFAULT |
+| cublasGetEmulationSpecialValuesSupport() | Not applicable | CUBLAS_EMULATION_SPECIAL_VALUES_SUPPORT_DEFAULT |
+| cublasGetFixedPointEmulationMantissaControl() | Not applicable | CUDA_EMULATION_MANTISSA_CONTROL_DYNAMIC |
+| cublasGetFixedPointEmulationMaxMantissaBitCount() | CUDA_EMULATION_MANTISSA_CONTROL_DYNAMIC | 79 |
+| cublasGetFixedPointEmulationMaxMantissaBitCount() | CUDA_EMULATION_MANTISSA_CONTROL_FIXED | 55 |
+| cublasGetFixedPointEmulationMantissaBitOffset() | Not applicable | 0 |
+| cublasGetFixedPointEmulationMantissaBitCountPointer() | Not applicable | NULL |
+
+
+
+
+### 1.5.2.1. Dynamic Mantissa Control
+
+
+Dynamic mantissa control represents the cuBLAS library default mantissa control.  Our automatic dynamic precision framework computes the proper number of fixed-point mantissa bits required to maintain equal or better accuracy than FP64.  If the number of required mantissa bits exceeds a library defined default (see Default Library Configurations) or a user provided maximum number of bits (see cublasSetFixedPointEmulationMaxMantissaBitCount()), the framework dynamically dispatches to native FP64.
+
+
+
+
+### 1.5.2.2. Fixed Mantissa Control
+
+
+Fixed mantissa control can be leveraged to further accelerate fixed-point emulation.  The user can provide the number of mantissa bits for the fixed-point representation via cublasSetFixedPointEmulationMaxMantissaBitCount(); however, without the automatic dynamic precision framework, it is not possible to guarantee equal or better accuracy than FP64 arithmetic.
+
+
+
+
+### 1.5.2.5. Fixed-Point Performance Guide
+
+
+Fixed-point emulation allows users to make performance and precision trade-offs for further acceleration.  For dynamic mantissa control, users are able to configure the automatic dynamic precision framework to use fewer or more bits than the accuracy of native FP64 requires with cublasSetFixedPointEmulationMantissaBitOffset().  Fixed mantissa control can be similarly tuned by increasing or decreasing the number of mantissa bits with cublasSetFixedPointEmulationMaxMantissaBitCount().
+
+
+Due to the large fixed-point workspace requirements, asynchronous allocation is done with cudaMallocAsync().  In cases where not enough GEMMs are called to amortize the cost of memory allocation, or very frequent CUDA stream synchronization occurs, you can improve performance by:
+
+
+- Reducing the number of CUDA stream synchronizations
+- Managing your own memory and providing workspace with cublasSetWorkspace()
+- Allowing the default memory pool to retain memory between synchronizations
+
+
+
+
+### 1.5.2.4. Fixed-Point Workspace Requirements
+
+
+To compute with fixed-point emulation, the A and B matrices are translated into a fixed-point representation in workspace memory.  This leads to workspace requirements that are problem size and emulation parameter dependent.  The following function will provide a safe bound (possibly overestimating) on the workspace required for fixed-point emulation:
+
+
+
+```c++
+
+size_t getFixedPointWorkspaceSizeInBytes(int m, int n, int k, int batchCount, bool isComplex,
+                cudaEmulationMantissaControl mantissaControl, int maxMantissaBitCount) {
+    constexpr double MULTIPLIER = 1.25;
+
+    int mult = isComplex ? 2 : 1;
+    int numSlices = ceildiv(maxMantissaBitCount + 1, 8);
+    int max_splitk = ceildiv(opts.k, 8192);
+
+    int padded_m = ceildiv(m, 1024) * 1024;
+    int padded_n = ceildiv(n, 1024) * 1024;
+    int padded_k = ceildiv(k, 128) * 128;
+    int num_blocks_k = ceildiv(k, 64);
+
+    size_t gemm_workspace = sizeof(int8_t) *
+        ((size_t)padded_m * padded_k + (size_t)padded_n * padded_k) * mult * numSlices;
+    gemm_workspace += sizeof(int32_t) * ((size_t)padded_m + padded_n) * mult;
+
+    size_t acc_workspace_ver1 = 0;
+    if (isComplex) {
+        acc_workspace_ver1 += sizeof(double) * (size_t)m * n * mult * mult;
+    }
+    size_t acc_workspace_ver2 = std::min(sizeof(int32_t) * ((size_t)padded_m * padded_n) * mult * mult * numSlices,
+                                         (size_t)(1LL << 32)) *
+                                max_splitk;
+    gemm_workspace += std::max(acc_workspace_ver1, acc_workspace_ver2);
+
+    size_t adp_workspace = 0;
+    if (mantissaControl == CUDA_EMULATION_MANTISSA_CONTROL_DYNAMIC) {
+        adp_workspace = sizeof(int32_t) * ((size_t)m * num_blocks_k + (size_t)n * num_blocks_k +
+                         (size_t)m * n) * mult;
+    }
+
+    constexpr size_t CONSTANT_SIZE = 128 * 1024 * 1024;
+    return (size_t)(std::max(gemm_workspace, adp_workspace) * batchCount * MULTIPLIER) + CONSTANT_SIZE;
+}
+
+
+```
+
+
+This function can be used to manage your own workspace memory with cublasSetWorkspace(), which can be used to guarantee reproducible results and improve performance.
+
+
+
+
+### 1.5.2. Fixed-Point
+
+
+Fixed-point emulation is used for emulating FP64 arithmetic and follows the [Ozaki Scheme](https://doi.org/10.1177/10943420241239588). Fixed-point representations emulate floating point through the addition of a shared power of two scaling factor and by encoding the remaining dynamic range of floating point within mantissa bits. The scaling factor is shared for elements in the same row of the A matrix or column of the B matrix and is used to logically scale all elements to be between -1 and 1 inclusively.
+
+
+Due to the large dynamic range of FP64, there is no single configuration of fixed-point which is both performant and accurate for all floating point inputs.  Therefore, we enable two flavors of fixed-point emulation: Dynamic Mantissa Control and Fixed Mantissa Control. These configurations can be set with cublasSetFixedPointEmulationMantissaControl().
+
+
+
+
+#### 1.5.2.1. Dynamic Mantissa Control
+
+
+Dynamic mantissa control represents the cuBLAS library default mantissa control.  Our automatic dynamic precision framework computes the proper number of fixed-point mantissa bits required to maintain equal or better accuracy than FP64.  If the number of required mantissa bits exceeds a library defined default (see Default Library Configurations) or a user provided maximum number of bits (see cublasSetFixedPointEmulationMaxMantissaBitCount()), the framework dynamically dispatches to native FP64.
+
+
+
+
+
+#### 1.5.2.2. Fixed Mantissa Control
+
+
+Fixed mantissa control can be leveraged to further accelerate fixed-point emulation.  The user can provide the number of mantissa bits for the fixed-point representation via cublasSetFixedPointEmulationMaxMantissaBitCount(); however, without the automatic dynamic precision framework, it is not possible to guarantee equal or better accuracy than FP64 arithmetic.
+
+
+
+
+
+#### 1.5.2.3. Representation and Mappings
+
+
+The fixed-point representation consists of a shared scaling factor for elements in the same row or column of a matrix, a sign bit, and mantissa bits.  We store the sign bit and mantissa bits within 8-bit integers.  Each matrix of 8-bit integers are referred to as a slice and the computational cost grows quadratically with the number of slices.  The formula to convert mantissa bit count to slice count is as follows:
+
+
+
+```
+
+\[\text{sliceCount} = \text{ceildiv}(\text{mantissaBitCount} + 1, 8)\]
+```
+
+
+> **Note**
+
+Note
+The number of mantissa bits will always be rounded up to fully occupy the least significant slice
+
+
+
+
+
+#### 1.5.2.4. Fixed-Point Workspace Requirements
+
+
+To compute with fixed-point emulation, the A and B matrices are translated into a fixed-point representation in workspace memory.  This leads to workspace requirements that are problem size and emulation parameter dependent.  The following function will provide a safe bound (possibly overestimating) on the workspace required for fixed-point emulation:
+
+
+
+```c++
+
+size_t getFixedPointWorkspaceSizeInBytes(int m, int n, int k, int batchCount, bool isComplex,
+                cudaEmulationMantissaControl mantissaControl, int maxMantissaBitCount) {
+    constexpr double MULTIPLIER = 1.25;
+
+    int mult = isComplex ? 2 : 1;
+    int numSlices = ceildiv(maxMantissaBitCount + 1, 8);
+    int max_splitk = ceildiv(opts.k, 8192);
+
+    int padded_m = ceildiv(m, 1024) * 1024;
+    int padded_n = ceildiv(n, 1024) * 1024;
+    int padded_k = ceildiv(k, 128) * 128;
+    int num_blocks_k = ceildiv(k, 64);
+
+    size_t gemm_workspace = sizeof(int8_t) *
+        ((size_t)padded_m * padded_k + (size_t)padded_n * padded_k) * mult * numSlices;
+    gemm_workspace += sizeof(int32_t) * ((size_t)padded_m + padded_n) * mult;
+
+    size_t acc_workspace_ver1 = 0;
+    if (isComplex) {
+        acc_workspace_ver1 += sizeof(double) * (size_t)m * n * mult * mult;
+    }
+    size_t acc_workspace_ver2 = std::min(sizeof(int32_t) * ((size_t)padded_m * padded_n) * mult * mult * numSlices,
+                                         (size_t)(1LL << 32)) *
+                                max_splitk;
+    gemm_workspace += std::max(acc_workspace_ver1, acc_workspace_ver2);
+
+    size_t adp_workspace = 0;
+    if (mantissaControl == CUDA_EMULATION_MANTISSA_CONTROL_DYNAMIC) {
+        adp_workspace = sizeof(int32_t) * ((size_t)m * num_blocks_k + (size_t)n * num_blocks_k +
+                         (size_t)m * n) * mult;
+    }
+
+    constexpr size_t CONSTANT_SIZE = 128 * 1024 * 1024;
+    return (size_t)(std::max(gemm_workspace, adp_workspace) * batchCount * MULTIPLIER) + CONSTANT_SIZE;
+}
+
+
+```
+
+
+This function can be used to manage your own workspace memory with cublasSetWorkspace(), which can be used to guarantee reproducible results and improve performance.
+
+
+
+
+
+#### 1.5.2.5. Fixed-Point Performance Guide
+
+
+Fixed-point emulation allows users to make performance and precision trade-offs for further acceleration.  For dynamic mantissa control, users are able to configure the automatic dynamic precision framework to use fewer or more bits than the accuracy of native FP64 requires with cublasSetFixedPointEmulationMantissaBitOffset().  Fixed mantissa control can be similarly tuned by increasing or decreasing the number of mantissa bits with cublasSetFixedPointEmulationMaxMantissaBitCount().
+
+
+Due to the large fixed-point workspace requirements, asynchronous allocation is done with cudaMallocAsync().  In cases where not enough GEMMs are called to amortize the cost of memory allocation, or very frequent CUDA stream synchronization occurs, you can improve performance by:
+
+
+- Reducing the number of CUDA stream synchronizations
+- Managing your own memory and providing workspace with cublasSetWorkspace()
+- Allowing the default memory pool to retain memory between synchronizations
+
+
+
+
+
+
+The fixed-point representation consists of a shared scaling factor for elements in the same row or column of a matrix, a sign bit, and mantissa bits.  We store the sign bit and mantissa bits within 8-bit integers.  Each matrix of 8-bit integers are referred to as a slice and the computational cost grows quadratically with the number of slices.  The formula to convert mantissa bit count to slice count is as follows:
+
+
+
+```
+
+\[\text{sliceCount} = \text{ceildiv}(\text{mantissaBitCount} + 1, 8)\]
+```
+
+
+> **Note**
+
+Note
+The number of mantissa bits will always be rounded up to fully occupy the least significant slice
+
+
+
+
+
+The implementations of floating point emulation algorithms maintain the accuracy of the emulated precision for both normal and denormalized values but may not adhere to the IEEE-754 standard with respect to $\text{Inf}$, $\text{NaN}$, or signed zeros.  If the underlying emulated algorithm cannot implicitly support a given special value, and the library is configured to support it (see cublasSetEmulationSpecialValuesSupport()), then extra steps are taken to support it.  The following table shows which special values are implicitly supported for each emulation algorithm.
+
+
+| Floating Point Emulation Algorithm | Implicitly Supported Special Values |
+| --- | --- |
+| BF16x9 | \(\text{NaN}\) |
+| Fixed-Point | None |
 
 

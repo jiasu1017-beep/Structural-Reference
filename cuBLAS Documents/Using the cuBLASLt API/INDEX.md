@@ -1,68 +1,111 @@
-# Using the cuBLASLt API (3.)
+# Using the cuBLASLt API
 
-## 文档索引 / Documentation Index
+## 使用 cuBLASLt API
 
-本手册为 NVIDIA cuBLAS 13.2 Using the cuBLASLt API 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 3
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - Using the cuBLASLt API
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 03
-*第三章 使用 cuBLASLt API*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 3 使用 cuBLASLt API | 3. Using the cuBLASLt API | [ch03.md](./chs/ch03.md) | [ch03.md](./eng/ch03.md) |
-| 3.1 一般描述 | 3.1. General Description | [ch03s01.md](./chs/ch03s01.md) | [ch03s01.md](./eng/ch03s01.md) |
-| 3.1.1 问题大小限制 | 3.1.1. Problem Size Limitations | [ch03s01s01.md](./chs/ch03s01s01.md) | [ch03s01s01.md](./eng/ch03s01s01.md) |
-| 3.1.2 启发式缓存 | 3.1.2. Heuristics Cache | [ch03s01s02.md](./chs/ch03s01s02.md) | [ch03s01s02.md](./eng/ch03s01s02.md) |
-| 3.1.3 cuBLASLt 日志记录 | 3.1.3. cuBLASLt Logging | [ch03s01s03.md](./chs/ch03s01s03.md) | [ch03s01s03.md](./eng/ch03s01s03.md) |
-| 3.1.4 窄精度数据类型使用 | 3.1.4. Narrow Precision Data Types Usage | [ch03s01s04.md](./chs/ch03s01s04.md) | [ch03s01s04.md](./eng/ch03s01s04.md) |
-| 3.1.5 禁用 CPU 指令 | 3.1.5. Disabling CPU Instructions | [ch03s01s05.md](./chs/ch03s01s05.md) | [ch03s01s05.md](./eng/ch03s01s05.md) |
-| 3.2 cuBLASLt 代码示例 | 3.2. cuBLASLt Code Examples | [ch03s02.md](./chs/ch03s02.md) | [ch03s02.md](./eng/ch03s02.md) |
-| 3.3 cuBLASLt 数据类型参考 | 3.3. cuBLASLt Datatypes Reference | [ch03s03.md](./chs/ch03s03.md) | [ch03s03.md](./eng/ch03s03.md) |
-| 3.3.1 cublasLtClusterShape_t | 3.3.1. cublasLtClusterShape_t | [ch03s03s01.md](./chs/ch03s03s01.md) | [ch03s03s01.md](./eng/ch03s03s01.md) |
-| 3.3.2 cublasLtEpilogue_t | 3.3.2. cublasLtEpilogue_t | [ch03s03s02.md](./chs/ch03s03s02.md) | [ch03s03s02.md](./eng/ch03s03s02.md) |
-| 3.3.3 cublasLtHandle_t | 3.3.3. cublasLtHandle_t | [ch03s03s03.md](./chs/ch03s03s03.md) | [ch03s03s03.md](./eng/ch03s03s03.md) |
-| 3.3.4 cublasLtLoggerCallback_t | 3.3.4. cublasLtLoggerCallback_t | [ch03s03s04.md](./chs/ch03s03s04.md) | [ch03s03s04.md](./eng/ch03s03s04.md) |
-| 3.3.5 cublasLtMatmulAlgo_t | 3.3.5. cublasLtMatmulAlgo_t | [ch03s03s05.md](./chs/ch03s03s05.md) | [ch03s03s05.md](./eng/ch03s03s05.md) |
-| 3.3.6 cublasLtMatmulAlgoCapAttributes_t | 3.3.6. cublasLtMatmulAlgoCapAttributes_t | [ch03s03s06.md](./chs/ch03s03s06.md) | [ch03s03s06.md](./eng/ch03s03s06.md) |
-| 3.3.7 cublasLtMatmulAlgoConfigAttributes_t | 3.3.7. cublasLtMatmulAlgoConfigAttributes_t | [ch03s03s07.md](./chs/ch03s03s07.md) | [ch03s03s07.md](./eng/ch03s03s07.md) |
-| 3.3.8 cublasLtMatmulDesc_t | 3.3.8. cublasLtMatmulDesc_t | [ch03s03s08.md](./chs/ch03s03s08.md) | [ch03s03s08.md](./eng/ch03s03s08.md) |
-| 3.3.9 cublasLtMatmulDescAttributes_t | 3.3.9. cublasLtMatmulDescAttributes_t | [ch03s03s09.md](./chs/ch03s03s09.md) | [ch03s03s09.md](./eng/ch03s03s09.md) |
-| 3.3.10 cublasLtMatmulHeuristicResult_t | 3.3.10. cublasLtMatmulHeuristicResult_t | [ch03s03s10.md](./chs/ch03s03s10.md) | [ch03s03s10.md](./eng/ch03s03s10.md) |
-| 3.3.11 cublasLtMatmulInnerShape_t | 3.3.11. cublasLtMatmulInnerShape_t | [ch03s03s11.md](./chs/ch03s03s11.md) | [ch03s03s11.md](./eng/ch03s03s11.md) |
-| 3.3.12 cublasLtMatmulPreference_t | 3.3.12. cublasLtMatmulPreference_t | [ch03s03s12.md](./chs/ch03s03s12.md) | [ch03s03s12.md](./eng/ch03s03s12.md) |
-| 3.3.13 cublasLtMatmulPreferenceAttributes_t | 3.3.13. cublasLtMatmulPreferenceAttributes_t | [ch03s03s13.md](./chs/ch03s03s13.md) | [ch03s03s13.md](./eng/ch03s03s13.md) |
-| 3.3.14 cublasLtMatmulSearch_t | 3.3.14. cublasLtMatmulSearch_t | [ch03s03s14.md](./chs/ch03s03s14.md) | [ch03s03s14.md](./eng/ch03s03s14.md) |
-| 3.3.15 cublasLtMatmulTile_t | 3.3.15. cublasLtMatmulTile_t | [ch03s03s15.md](./chs/ch03s03s15.md) | [ch03s03s15.md](./eng/ch03s03s15.md) |
-| 3.3.16 cublasLtMatmulStages_t | 3.3.16. cublasLtMatmulStages_t | [ch03s03s16.md](./chs/ch03s03s16.md) | [ch03s03s16.md](./eng/ch03s03s16.md) |
-| 3.3.17 cublasLtNumericalImplFlags_t | 3.3.17. cublasLtNumericalImplFlags_t | [ch03s03s17.md](./chs/ch03s03s17.md) | [ch03s03s17.md](./eng/ch03s03s17.md) |
-| 3.3.18 cublasLtMatrixLayout_t | 3.3.18. cublasLtMatrixLayout_t | [ch03s03s18.md](./chs/ch03s03s18.md) | [ch03s03s18.md](./eng/ch03s03s18.md) |
-| 3.3.19 cublasLtMatrixLayoutAttribute_t | 3.3.19. cublasLtMatrixLayoutAttribute_t | [ch03s03s19.md](./chs/ch03s03s19.md) | [ch03s03s19.md](./eng/ch03s03s19.md) |
-| 3.3.20 cublasLtIntegerWidth_t | 3.3.20. cublasLtIntegerWidth_t | [ch03s03s20.md](./chs/ch03s03s20.md) | [ch03s03s20.md](./eng/ch03s03s20.md) |
-| 3.3.21 cublasLtMatrixTransformDesc_t | 3.3.21. cublasLtMatrixTransformDesc_t | [ch03s03s21.md](./chs/ch03s03s21.md) | [ch03s03s21.md](./eng/ch03s03s21.md) |
-| 3.3.22 cublasLtMatrixTransformDescAttributes_t | 3.3.22. cublasLtMatrixTransformDescAttributes_t | [ch03s03s22.md](./chs/ch03s03s22.md) | [ch03s03s22.md](./eng/ch03s03s22.md) |
-| 3.3.23 cublasLtOrder_t | 3.3.23. cublasLtOrder_t | [ch03s03s23.md](./chs/ch03s03s23.md) | [ch03s03s23.md](./eng/ch03s03s23.md) |
-| 3.3.24 cublasLtPointerMode_t | 3.3.24. cublasLtPointerMode_t | [ch03s03s24.md](./chs/ch03s03s24.md) | [ch03s03s24.md](./eng/ch03s03s24.md) |
-| 3.3.25 cublasLtPointerModeMask_t | 3.3.25. cublasLtPointerModeMask_t | [ch03s03s25.md](./chs/ch03s03s25.md) | [ch03s03s25.md](./eng/ch03s03s25.md) |
-| 3.4 cuBLASLt API 辅助函数参考 | 3.4. cuBLASLt API Helper Function Reference | [ch03s04.md](./chs/ch03s04.md) | [ch03s04.md](./eng/ch03s04.md) |
-| 3.5 cuBLASLt Matmul 函数参考 | 3.5. cuBLASLt Matmul Function Reference | [ch03s05.md](./chs/ch03s05.md) | [ch03s05.md](./eng/ch03s05.md) |
-| 3.6 cuBLASLt 矩阵转换函数参考 | 3.6. cuBLASLt Matrix Transformation Function Reference | [ch03s06.md](./chs/ch03s06.md) | [ch03s06.md](./eng/ch03s06.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | cublaslt-api-reference.md | [cublaslt-api-reference.md](./chs/cublaslt-api-reference.md) | [cublaslt-api-reference.md](./eng/cublaslt-api-reference.md) |
+| 2 | cublaslt-code-examples.md | [cublaslt-code-examples.md](./chs/cublaslt-code-examples.md) | [cublaslt-code-examples.md](./eng/cublaslt-code-examples.md) |
+| 3 | cublaslt-datatypes-reference.md | [cublaslt-datatypes-reference.md](./chs/cublaslt-datatypes-reference.md) | [cublaslt-datatypes-reference.md](./eng/cublaslt-datatypes-reference.md) |
+| 4 | cublaslt-logging.md | [cublaslt-logging.md](./chs/cublaslt-logging.md) | [cublaslt-logging.md](./eng/cublaslt-logging.md) |
+| 5 | cublasltbatchmode-t.md | [cublasltbatchmode-t.md](./chs/cublasltbatchmode-t.md) | [cublasltbatchmode-t.md](./eng/cublasltbatchmode-t.md) |
+| 6 | cublasltclustershape-t.md | [cublasltclustershape-t.md](./chs/cublasltclustershape-t.md) | [cublasltclustershape-t.md](./eng/cublasltclustershape-t.md) |
+| 7 | cublasltcreate.md | [cublasltcreate.md](./chs/cublasltcreate.md) | [cublasltcreate.md](./eng/cublasltcreate.md) |
+| 8 | cublasltdestroy.md | [cublasltdestroy.md](./chs/cublasltdestroy.md) | [cublasltdestroy.md](./eng/cublasltdestroy.md) |
+| 9 | cublasltdisablecpuinstructionssetmask.md | [cublasltdisablecpuinstructionssetmask.md](./chs/cublasltdisablecpuinstructionssetmask.md) | [cublasltdisablecpuinstructionssetmask.md](./eng/cublasltdisablecpuinstructionssetmask.md) |
+| 10 | cublasltemulationdesc-t.md | [cublasltemulationdesc-t.md](./chs/cublasltemulationdesc-t.md) | [cublasltemulationdesc-t.md](./eng/cublasltemulationdesc-t.md) |
+| 11 | cublasltemulationdescattributes-t.md | [cublasltemulationdescattributes-t.md](./chs/cublasltemulationdescattributes-t.md) | [cublasltemulationdescattributes-t.md](./eng/cublasltemulationdescattributes-t.md) |
+| 12 | cublasltemulationdesccreate.md | [cublasltemulationdesccreate.md](./chs/cublasltemulationdesccreate.md) | [cublasltemulationdesccreate.md](./eng/cublasltemulationdesccreate.md) |
+| 13 | cublasltemulationdescdestroy.md | [cublasltemulationdescdestroy.md](./chs/cublasltemulationdescdestroy.md) | [cublasltemulationdescdestroy.md](./eng/cublasltemulationdescdestroy.md) |
+| 14 | cublasltemulationdescgetattribute.md | [cublasltemulationdescgetattribute.md](./chs/cublasltemulationdescgetattribute.md) | [cublasltemulationdescgetattribute.md](./eng/cublasltemulationdescgetattribute.md) |
+| 15 | cublasltemulationdescinit.md | [cublasltemulationdescinit.md](./chs/cublasltemulationdescinit.md) | [cublasltemulationdescinit.md](./eng/cublasltemulationdescinit.md) |
+| 16 | cublasltemulationdescsetattribute.md | [cublasltemulationdescsetattribute.md](./chs/cublasltemulationdescsetattribute.md) | [cublasltemulationdescsetattribute.md](./eng/cublasltemulationdescsetattribute.md) |
+| 17 | cublasltepilogue-t.md | [cublasltepilogue-t.md](./chs/cublasltepilogue-t.md) | [cublasltepilogue-t.md](./eng/cublasltepilogue-t.md) |
+| 18 | cublasltgetcudartversion.md | [cublasltgetcudartversion.md](./chs/cublasltgetcudartversion.md) | [cublasltgetcudartversion.md](./eng/cublasltgetcudartversion.md) |
+| 19 | cublasltgetproperty.md | [cublasltgetproperty.md](./chs/cublasltgetproperty.md) | [cublasltgetproperty.md](./eng/cublasltgetproperty.md) |
+| 20 | cublasltgetstatusname.md | [cublasltgetstatusname.md](./chs/cublasltgetstatusname.md) | [cublasltgetstatusname.md](./eng/cublasltgetstatusname.md) |
+| 21 | cublasltgetstatusstring.md | [cublasltgetstatusstring.md](./chs/cublasltgetstatusstring.md) | [cublasltgetstatusstring.md](./eng/cublasltgetstatusstring.md) |
+| 22 | cublasltgetversion.md | [cublasltgetversion.md](./chs/cublasltgetversion.md) | [cublasltgetversion.md](./eng/cublasltgetversion.md) |
+| 23 | cublasltgroupedmatrixlayoutcreate.md | [cublasltgroupedmatrixlayoutcreate.md](./chs/cublasltgroupedmatrixlayoutcreate.md) | [cublasltgroupedmatrixlayoutcreate.md](./eng/cublasltgroupedmatrixlayoutcreate.md) |
+| 24 | cublasltgroupedmatrixlayoutinit.md | [cublasltgroupedmatrixlayoutinit.md](./chs/cublasltgroupedmatrixlayoutinit.md) | [cublasltgroupedmatrixlayoutinit.md](./eng/cublasltgroupedmatrixlayoutinit.md) |
+| 25 | cublaslthandle-t.md | [cublaslthandle-t.md](./chs/cublaslthandle-t.md) | [cublaslthandle-t.md](./eng/cublaslthandle-t.md) |
+| 26 | cublasltheuristicscachegetcapacity.md | [cublasltheuristicscachegetcapacity.md](./chs/cublasltheuristicscachegetcapacity.md) | [cublasltheuristicscachegetcapacity.md](./eng/cublasltheuristicscachegetcapacity.md) |
+| 27 | cublasltheuristicscachesetcapacity.md | [cublasltheuristicscachesetcapacity.md](./chs/cublasltheuristicscachesetcapacity.md) | [cublasltheuristicscachesetcapacity.md](./eng/cublasltheuristicscachesetcapacity.md) |
+| 28 | cublasltintegerwidth-t.md | [cublasltintegerwidth-t.md](./chs/cublasltintegerwidth-t.md) | [cublasltintegerwidth-t.md](./eng/cublasltintegerwidth-t.md) |
+| 29 | cublasltloggerforcedisable.md | [cublasltloggerforcedisable.md](./chs/cublasltloggerforcedisable.md) | [cublasltloggerforcedisable.md](./eng/cublasltloggerforcedisable.md) |
+| 30 | cublasltloggeropenfile.md | [cublasltloggeropenfile.md](./chs/cublasltloggeropenfile.md) | [cublasltloggeropenfile.md](./eng/cublasltloggeropenfile.md) |
+| 31 | cublasltloggersetfile.md | [cublasltloggersetfile.md](./chs/cublasltloggersetfile.md) | [cublasltloggersetfile.md](./eng/cublasltloggersetfile.md) |
+| 32 | cublasltloggersetlevel.md | [cublasltloggersetlevel.md](./chs/cublasltloggersetlevel.md) | [cublasltloggersetlevel.md](./eng/cublasltloggersetlevel.md) |
+| 33 | cublasltloggersetmask.md | [cublasltloggersetmask.md](./chs/cublasltloggersetmask.md) | [cublasltloggersetmask.md](./eng/cublasltloggersetmask.md) |
+| 34 | cublasltmatmul.md | [cublasltmatmul.md](./chs/cublasltmatmul.md) | [cublasltmatmul.md](./eng/cublasltmatmul.md) |
+| 35 | cublasltmatmulalgo-t.md | [cublasltmatmulalgo-t.md](./chs/cublasltmatmulalgo-t.md) | [cublasltmatmulalgo-t.md](./eng/cublasltmatmulalgo-t.md) |
+| 36 | cublasltmatmulalgocapattributes-t.md | [cublasltmatmulalgocapattributes-t.md](./chs/cublasltmatmulalgocapattributes-t.md) | [cublasltmatmulalgocapattributes-t.md](./eng/cublasltmatmulalgocapattributes-t.md) |
+| 37 | cublasltmatmulalgocapgetattribute.md | [cublasltmatmulalgocapgetattribute.md](./chs/cublasltmatmulalgocapgetattribute.md) | [cublasltmatmulalgocapgetattribute.md](./eng/cublasltmatmulalgocapgetattribute.md) |
+| 38 | cublasltmatmulalgocheck.md | [cublasltmatmulalgocheck.md](./chs/cublasltmatmulalgocheck.md) | [cublasltmatmulalgocheck.md](./eng/cublasltmatmulalgocheck.md) |
+| 39 | cublasltmatmulalgoconfigattributes-t.md | [cublasltmatmulalgoconfigattributes-t.md](./chs/cublasltmatmulalgoconfigattributes-t.md) | [cublasltmatmulalgoconfigattributes-t.md](./eng/cublasltmatmulalgoconfigattributes-t.md) |
+| 40 | cublasltmatmulalgoconfiggetattribute.md | [cublasltmatmulalgoconfiggetattribute.md](./chs/cublasltmatmulalgoconfiggetattribute.md) | [cublasltmatmulalgoconfiggetattribute.md](./eng/cublasltmatmulalgoconfiggetattribute.md) |
+| 41 | cublasltmatmulalgoconfigsetattribute.md | [cublasltmatmulalgoconfigsetattribute.md](./chs/cublasltmatmulalgoconfigsetattribute.md) | [cublasltmatmulalgoconfigsetattribute.md](./eng/cublasltmatmulalgoconfigsetattribute.md) |
+| 42 | cublasltmatmulalgogetheuristic.md | [cublasltmatmulalgogetheuristic.md](./chs/cublasltmatmulalgogetheuristic.md) | [cublasltmatmulalgogetheuristic.md](./eng/cublasltmatmulalgogetheuristic.md) |
+| 43 | cublasltmatmulalgogetids.md | [cublasltmatmulalgogetids.md](./chs/cublasltmatmulalgogetids.md) | [cublasltmatmulalgogetids.md](./eng/cublasltmatmulalgogetids.md) |
+| 44 | cublasltmatmulalgoinit.md | [cublasltmatmulalgoinit.md](./chs/cublasltmatmulalgoinit.md) | [cublasltmatmulalgoinit.md](./eng/cublasltmatmulalgoinit.md) |
+| 45 | cublasltmatmuldesc-t.md | [cublasltmatmuldesc-t.md](./chs/cublasltmatmuldesc-t.md) | [cublasltmatmuldesc-t.md](./eng/cublasltmatmuldesc-t.md) |
+| 46 | cublasltmatmuldescattributes-t.md | [cublasltmatmuldescattributes-t.md](./chs/cublasltmatmuldescattributes-t.md) | [cublasltmatmuldescattributes-t.md](./eng/cublasltmatmuldescattributes-t.md) |
+| 47 | cublasltmatmuldesccreate.md | [cublasltmatmuldesccreate.md](./chs/cublasltmatmuldesccreate.md) | [cublasltmatmuldesccreate.md](./eng/cublasltmatmuldesccreate.md) |
+| 48 | cublasltmatmuldescdestroy.md | [cublasltmatmuldescdestroy.md](./chs/cublasltmatmuldescdestroy.md) | [cublasltmatmuldescdestroy.md](./eng/cublasltmatmuldescdestroy.md) |
+| 49 | cublasltmatmuldescgetattribute.md | [cublasltmatmuldescgetattribute.md](./chs/cublasltmatmuldescgetattribute.md) | [cublasltmatmuldescgetattribute.md](./eng/cublasltmatmuldescgetattribute.md) |
+| 50 | cublasltmatmuldescinit.md | [cublasltmatmuldescinit.md](./chs/cublasltmatmuldescinit.md) | [cublasltmatmuldescinit.md](./eng/cublasltmatmuldescinit.md) |
+| 51 | cublasltmatmuldescsetattribute.md | [cublasltmatmuldescsetattribute.md](./chs/cublasltmatmuldescsetattribute.md) | [cublasltmatmuldescsetattribute.md](./eng/cublasltmatmuldescsetattribute.md) |
+| 52 | cublasltmatmulheuristicresult-t.md | [cublasltmatmulheuristicresult-t.md](./chs/cublasltmatmulheuristicresult-t.md) | [cublasltmatmulheuristicresult-t.md](./eng/cublasltmatmulheuristicresult-t.md) |
+| 53 | cublasltmatmulinnershape-t.md | [cublasltmatmulinnershape-t.md](./chs/cublasltmatmulinnershape-t.md) | [cublasltmatmulinnershape-t.md](./eng/cublasltmatmulinnershape-t.md) |
+| 54 | cublasltmatmulmatrixscale-t.md | [cublasltmatmulmatrixscale-t.md](./chs/cublasltmatmulmatrixscale-t.md) | [cublasltmatmulmatrixscale-t.md](./eng/cublasltmatmulmatrixscale-t.md) |
+| 55 | cublasltmatmulpreference-t.md | [cublasltmatmulpreference-t.md](./chs/cublasltmatmulpreference-t.md) | [cublasltmatmulpreference-t.md](./eng/cublasltmatmulpreference-t.md) |
+| 56 | cublasltmatmulpreferenceattributes-t.md | [cublasltmatmulpreferenceattributes-t.md](./chs/cublasltmatmulpreferenceattributes-t.md) | [cublasltmatmulpreferenceattributes-t.md](./eng/cublasltmatmulpreferenceattributes-t.md) |
+| 57 | cublasltmatmulpreferencecreate.md | [cublasltmatmulpreferencecreate.md](./chs/cublasltmatmulpreferencecreate.md) | [cublasltmatmulpreferencecreate.md](./eng/cublasltmatmulpreferencecreate.md) |
+| 58 | cublasltmatmulpreferencedestroy.md | [cublasltmatmulpreferencedestroy.md](./chs/cublasltmatmulpreferencedestroy.md) | [cublasltmatmulpreferencedestroy.md](./eng/cublasltmatmulpreferencedestroy.md) |
+| 59 | cublasltmatmulpreferencegetattribute.md | [cublasltmatmulpreferencegetattribute.md](./chs/cublasltmatmulpreferencegetattribute.md) | [cublasltmatmulpreferencegetattribute.md](./eng/cublasltmatmulpreferencegetattribute.md) |
+| 60 | cublasltmatmulpreferenceinit.md | [cublasltmatmulpreferenceinit.md](./chs/cublasltmatmulpreferenceinit.md) | [cublasltmatmulpreferenceinit.md](./eng/cublasltmatmulpreferenceinit.md) |
+| 61 | cublasltmatmulpreferencesetattribute.md | [cublasltmatmulpreferencesetattribute.md](./chs/cublasltmatmulpreferencesetattribute.md) | [cublasltmatmulpreferencesetattribute.md](./eng/cublasltmatmulpreferencesetattribute.md) |
+| 62 | cublasltmatmulsearch-t.md | [cublasltmatmulsearch-t.md](./chs/cublasltmatmulsearch-t.md) | [cublasltmatmulsearch-t.md](./eng/cublasltmatmulsearch-t.md) |
+| 63 | cublasltmatmulstages-t.md | [cublasltmatmulstages-t.md](./chs/cublasltmatmulstages-t.md) | [cublasltmatmulstages-t.md](./eng/cublasltmatmulstages-t.md) |
+| 64 | cublasltmatmultile-t.md | [cublasltmatmultile-t.md](./chs/cublasltmatmultile-t.md) | [cublasltmatmultile-t.md](./eng/cublasltmatmultile-t.md) |
+| 65 | cublasltmatrixlayout-t.md | [cublasltmatrixlayout-t.md](./chs/cublasltmatrixlayout-t.md) | [cublasltmatrixlayout-t.md](./eng/cublasltmatrixlayout-t.md) |
+| 66 | cublasltmatrixlayoutattribute-t.md | [cublasltmatrixlayoutattribute-t.md](./chs/cublasltmatrixlayoutattribute-t.md) | [cublasltmatrixlayoutattribute-t.md](./eng/cublasltmatrixlayoutattribute-t.md) |
+| 67 | cublasltmatrixlayoutcreate.md | [cublasltmatrixlayoutcreate.md](./chs/cublasltmatrixlayoutcreate.md) | [cublasltmatrixlayoutcreate.md](./eng/cublasltmatrixlayoutcreate.md) |
+| 68 | cublasltmatrixlayoutdestroy.md | [cublasltmatrixlayoutdestroy.md](./chs/cublasltmatrixlayoutdestroy.md) | [cublasltmatrixlayoutdestroy.md](./eng/cublasltmatrixlayoutdestroy.md) |
+| 69 | cublasltmatrixlayoutgetattribute.md | [cublasltmatrixlayoutgetattribute.md](./chs/cublasltmatrixlayoutgetattribute.md) | [cublasltmatrixlayoutgetattribute.md](./eng/cublasltmatrixlayoutgetattribute.md) |
+| 70 | cublasltmatrixlayoutinit.md | [cublasltmatrixlayoutinit.md](./chs/cublasltmatrixlayoutinit.md) | [cublasltmatrixlayoutinit.md](./eng/cublasltmatrixlayoutinit.md) |
+| 71 | cublasltmatrixlayoutsetattribute.md | [cublasltmatrixlayoutsetattribute.md](./chs/cublasltmatrixlayoutsetattribute.md) | [cublasltmatrixlayoutsetattribute.md](./eng/cublasltmatrixlayoutsetattribute.md) |
+| 72 | cublasltmatrixtransform.md | [cublasltmatrixtransform.md](./chs/cublasltmatrixtransform.md) | [cublasltmatrixtransform.md](./eng/cublasltmatrixtransform.md) |
+| 73 | cublasltmatrixtransformdesc-t.md | [cublasltmatrixtransformdesc-t.md](./chs/cublasltmatrixtransformdesc-t.md) | [cublasltmatrixtransformdesc-t.md](./eng/cublasltmatrixtransformdesc-t.md) |
+| 74 | cublasltmatrixtransformdescattributes-t.md | [cublasltmatrixtransformdescattributes-t.md](./chs/cublasltmatrixtransformdescattributes-t.md) | [cublasltmatrixtransformdescattributes-t.md](./eng/cublasltmatrixtransformdescattributes-t.md) |
+| 75 | cublasltmatrixtransformdesccreate.md | [cublasltmatrixtransformdesccreate.md](./chs/cublasltmatrixtransformdesccreate.md) | [cublasltmatrixtransformdesccreate.md](./eng/cublasltmatrixtransformdesccreate.md) |
+| 76 | cublasltmatrixtransformdescdestroy.md | [cublasltmatrixtransformdescdestroy.md](./chs/cublasltmatrixtransformdescdestroy.md) | [cublasltmatrixtransformdescdestroy.md](./eng/cublasltmatrixtransformdescdestroy.md) |
+| 77 | cublasltmatrixtransformdescgetattribute.md | [cublasltmatrixtransformdescgetattribute.md](./chs/cublasltmatrixtransformdescgetattribute.md) | [cublasltmatrixtransformdescgetattribute.md](./eng/cublasltmatrixtransformdescgetattribute.md) |
+| 78 | cublasltmatrixtransformdescinit.md | [cublasltmatrixtransformdescinit.md](./chs/cublasltmatrixtransformdescinit.md) | [cublasltmatrixtransformdescinit.md](./eng/cublasltmatrixtransformdescinit.md) |
+| 79 | cublasltmatrixtransformdescsetattribute.md | [cublasltmatrixtransformdescsetattribute.md](./chs/cublasltmatrixtransformdescsetattribute.md) | [cublasltmatrixtransformdescsetattribute.md](./eng/cublasltmatrixtransformdescsetattribute.md) |
+| 80 | cublasltnumericalimplflags-t.md | [cublasltnumericalimplflags-t.md](./chs/cublasltnumericalimplflags-t.md) | [cublasltnumericalimplflags-t.md](./eng/cublasltnumericalimplflags-t.md) |
+| 81 | cublasltorder-t.md | [cublasltorder-t.md](./chs/cublasltorder-t.md) | [cublasltorder-t.md](./eng/cublasltorder-t.md) |
+| 82 | cublasltpointermode-t.md | [cublasltpointermode-t.md](./chs/cublasltpointermode-t.md) | [cublasltpointermode-t.md](./eng/cublasltpointermode-t.md) |
+| 83 | cublasltpointermodemask-t.md | [cublasltpointermodemask-t.md](./chs/cublasltpointermodemask-t.md) | [cublasltpointermodemask-t.md](./eng/cublasltpointermodemask-t.md) |
+| 84 | cublasltreductionscheme-t.md | [cublasltreductionscheme-t.md](./chs/cublasltreductionscheme-t.md) | [cublasltreductionscheme-t.md](./eng/cublasltreductionscheme-t.md) |
+| 85 | results-reproducibility.md | [results-reproducibility.md](./chs/results-reproducibility.md) | [results-reproducibility.md](./eng/results-reproducibility.md) |
+| 86 | using-the-cublaslt-api.md | [using-the-cublaslt-api.md](./chs/using-the-cublaslt-api.md) | [using-the-cublaslt-api.md](./eng/using-the-cublaslt-api.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 40 |
-| **总计 Total** | **40** |
+| ✅ 已完成 / Completed | 86 |
+| ⏳ 未转换 / Not converted | 0 |
+| **总计 Total** | **86** |
 
 ---
 

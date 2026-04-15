@@ -10,16 +10,16 @@
 
 | 文档 Documentation | 中文标题 Chinese | 说明 Note |
 |-------------------|-----------------|----------|
-| [Introduction](./Introduction/) | 简介 | ✅ 已完成 / Completed |
-| [Using the cuBLAS API](./Using%20the%20cuBLAS%20API/) | 使用 cuBLAS API | ✅ 已完成 / Completed |
-| [Using the cuBLASLt API](./Using%20the%20cuBLASLt%20API/) | 使用 cuBLASLt API | ✅ 已完成 / Completed |
-| [Using the cuBLASXt API](./Using%20the%20cuBLASXt%20API/) | 使用 cuBLASXt API | ✅ 已完成 / Completed |
-| [Using the cuBLASDx API](./Using%20the%20cuBLASDx%20API/) | 使用 cuBLASDx API | ✅ 已完成 / Completed |
-| [Using the cuBLAS Legacy API](./Using%20the%20cuBLAS%20Legacy%20API/) | 使用 cuBLAS Legacy API | ✅ 已完成 / Completed |
-| [cuBLAS Fortran Bindings](./cuBLAS%20Fortran%20Bindings/) | cuBLAS Fortran 绑定 | ✅ 已完成 / Completed |
-| [Interaction with Other Libraries and Tools](./Interaction%20with%20Other%20Libraries%20and%20Tools/) | 与其他库和工具的交互 | ✅ 已完成 / Completed |
-| [Acknowledgements](./Acknowledgements/) | 致谢 | ✅ 已完成 / Completed |
-| [Notices](./Notices/) | 声明 | ✅ 已完成 / Completed |
+| [Introduction](./Introduction/INDEX.md) | 简介 | ✅ 已完成 / Completed |
+| [Using the cuBLAS API](./Using%20the%20cuBLAS%20API/INDEX.md) | 使用 cuBLAS API | ✅ 已完成 / Completed |
+| [Using the cuBLASLt API](./Using%20the%20cuBLASLt%20API/INDEX.md) | 使用 cuBLASLt API | ✅ 已完成 / Completed |
+| [Using the cuBLASXt API](./Using%20the%20cuBLASXt%20API/INDEX.md) | 使用 cuBLASXt API | ✅ 已完成 / Completed |
+| [Using the cuBLASDx API](./Using%20the%20cuBLASDx%20API/INDEX.md) | 使用 cuBLASDx API | ✅ 已完成 / Completed |
+| [Using the cuBLAS Legacy API](./Using%20the%20cuBLAS%20Legacy%20API/INDEX.md) | 使用 cuBLAS Legacy API | ✅ 已完成 / Completed |
+| [cuBLAS Fortran Bindings](./cuBLAS%20Fortran%20Bindings/INDEX.md) | cuBLAS Fortran 绑定 | ✅ 已完成 / Completed |
+| [Interaction with Other Libraries and Tools](./Interaction%20with%20Other%20Libraries%20and%20Tools/INDEX.md) | 与其他库和工具的交互 | ✅ 已完成 / Completed |
+| [Acknowledgements](./Acknowledgements/INDEX.md) | 致谢 | ✅ 已完成 / Completed |
+| [Notices](./Notices/INDEX.md) | 声明 | ✅ 已完成 / Completed |
 
 ---
 

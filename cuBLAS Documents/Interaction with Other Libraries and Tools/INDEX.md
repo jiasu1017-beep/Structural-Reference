@@ -1,32 +1,26 @@
-# Interaction with Other Libraries and Tools (8.)
+# Interaction with Other Libraries and Tools
 
-## 文档索引 / Documentation Index
+## 与其他库和工具的交互
 
-本手册为 NVIDIA cuBLAS 13.2 Interaction with Other Libraries and Tools 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 8
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - Interaction with Other Libraries and Tools
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 08
-*第八章 与其他库和工具的交互*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 8 与其他库和工具的交互 | 8. Interaction with Other Libraries and Tools | [ch08.md](./chs/ch08.md) | [ch08.md](./eng/ch08.md) |
-| 8.1 nvprune | 8.1. nvprune | [ch08s01.md](./chs/ch08s01.md) | [ch08s01.md](./eng/ch08s01.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | interaction-with-other-libraries-and-tools.md | [interaction-with-other-libraries-and-tools.md](./chs/interaction-with-other-libraries-and-tools.md) | [interaction-with-other-libraries-and-tools.md](./eng/interaction-with-other-libraries-and-tools.md) |
+| 2 | nvprune.md | [nvprune.md](./chs/nvprune.md) | [nvprune.md](./eng/nvprune.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 2 |
+| ✅ 已完成 / Completed | 2 |
+| ⏳ 未转换 / Not converted | 0 |
 | **总计 Total** | **2** |
 
 ---

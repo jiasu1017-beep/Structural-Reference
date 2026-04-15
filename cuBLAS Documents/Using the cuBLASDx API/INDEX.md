@@ -1,31 +1,25 @@
-# Using the cuBLASDx API (5.)
+# Using the cuBLASDx API
 
-## 文档索引 / Documentation Index
+## 使用 cuBLASDx API
 
-本手册为 NVIDIA cuBLAS 13.2 Using the cuBLASDx API 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 5
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - Using the cuBLASDx API
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 05
-*第五章 使用 cuBLASDx API*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 5 使用 cuBLASDx API | 5. Using the cuBLASDx API | [ch05.md](./chs/ch05.md) | [ch05.md](./eng/ch05.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | using-the-cublasdx-api.md | [using-the-cublasdx-api.md](./chs/using-the-cublasdx-api.md) | [using-the-cublasdx-api.md](./eng/using-the-cublasdx-api.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 1 |
+| ✅ 已完成 / Completed | 1 |
+| ⏳ 未转换 / Not converted | 0 |
 | **总计 Total** | **1** |
 
 ---

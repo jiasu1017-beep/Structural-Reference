@@ -1,31 +1,25 @@
-# Acknowledgements (9.)
+# Acknowledgements
 
-## 文档索引 / Documentation Index
+## 致谢
 
-本手册为 NVIDIA cuBLAS 13.2 Acknowledgements 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 9
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - Acknowledgements
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 09
-*第九章 致谢*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 9 致谢 | 9. Acknowledgements | [ch09.md](./chs/ch09.md) | [ch09.md](./eng/ch09.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | acknowledgements.md | [acknowledgements.md](./chs/acknowledgements.md) | [acknowledgements.md](./eng/acknowledgements.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 1 |
+| ✅ 已完成 / Completed | 1 |
+| ⏳ 未转换 / Not converted | 0 |
 | **总计 Total** | **1** |
 
 ---

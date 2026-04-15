@@ -1,31 +1,25 @@
-# cuBLAS Fortran Bindings (7.)
+# cuBLAS Fortran Bindings
 
-## 文档索引 / Documentation Index
+## cuBLAS Fortran 绑定
 
-本手册为 NVIDIA cuBLAS 13.2 cuBLAS Fortran Bindings 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 7
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - cuBLAS Fortran Bindings
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 07
-*第七章 cuBLAS Fortran 绑定*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 7 cuBLAS Fortran 绑定 | 7. cuBLAS Fortran Bindings | [ch07.md](./chs/ch07.md) | [ch07.md](./eng/ch07.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | cublas-fortran-bindings.md | [cublas-fortran-bindings.md](./chs/cublas-fortran-bindings.md) | [cublas-fortran-bindings.md](./eng/cublas-fortran-bindings.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 1 |
+| ✅ 已完成 / Completed | 1 |
+| ⏳ 未转换 / Not converted | 0 |
 | **总计 Total** | **1** |
 
 ---

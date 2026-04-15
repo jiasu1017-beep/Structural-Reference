@@ -1,41 +1,41 @@
-# Introduction (1.)
+# Introduction
 
-## 文档索引 / Documentation Index
+## 简介
 
-本手册为 NVIDIA cuBLAS 13.2 Introduction 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 1
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - Introduction
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 01
-*第一章 简介*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 1 简介 | 1. Introduction | [ch01.md](./chs/ch01.md) | [ch01.md](./eng/ch01.md) |
-| 1.1 数据布局 | 1.1. Data Layout | [ch01s01.md](./chs/ch01s01.md) | [ch01s01.md](./eng/ch01s01.md) |
-| 1.2 新版和传统 cuBLAS API | 1.2. New and Legacy cuBLAS API | [ch01s02.md](./chs/ch01s02.md) | [ch01s02.md](./eng/ch01s02.md) |
-| 1.3 示例代码 | 1.3. Example Code | [ch01s03.md](./chs/ch01s03.md) | [ch01s03.md](./eng/ch01s03.md) |
-| 1.4 前向兼容性 | 1.4. Forward Compatibility | [ch01s04.md](./chs/ch01s04.md) | [ch01s04.md](./eng/ch01s04.md) |
-| 1.5 浮点模拟 | 1.5. Floating Point Emulation | [ch01s05.md](./chs/ch01s05.md) | [ch01s05.md](./eng/ch01s05.md) |
-| 1.5.1 BF16x9 | 1.5.1. BF16x9 | [ch01s05s01.md](./chs/ch01s05s01.md) | [ch01s05s01.md](./eng/ch01s05s01.md) |
-| 1.5.2 定点数 | 1.5.2. Fixed-Point | [ch01s05s02.md](./chs/ch01s05s02.md) | [ch01s05s02.md](./eng/ch01s05s02.md) |
-| 1.5.3 默认库配置 | 1.5.3. Default Library Configurations | [ch01s05s03.md](./chs/ch01s05s03.md) | [ch01s05s03.md](./eng/ch01s05s03.md) |
-| 1.5.4 对浮点特殊值的支持 | 1.5.4. Support For Floating Point Special Values | [ch01s05s04.md](./chs/ch01s05s04.md) | [ch01s05s04.md](./eng/ch01s05s04.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | bf16x9.md | [bf16x9.md](./chs/bf16x9.md) | [bf16x9.md](./eng/bf16x9.md) |
+| 2 | ch01.md | [ch01.md](./chs/ch01.md) | [ch01.md](./eng/ch01.md) |
+| 3 | data-layout.md | [data-layout.md](./chs/data-layout.md) | [data-layout.md](./eng/data-layout.md) |
+| 4 | default-library-configurations.md | [default-library-configurations.md](./chs/default-library-configurations.md) | [default-library-configurations.md](./eng/default-library-configurations.md) |
+| 5 | dynamic-mantissa-control.md | [dynamic-mantissa-control.md](./chs/dynamic-mantissa-control.md) | [dynamic-mantissa-control.md](./eng/dynamic-mantissa-control.md) |
+| 6 | example-code.md | [example-code.md](./chs/example-code.md) | [example-code.md](./eng/example-code.md) |
+| 7 | fixed-mantissa-control.md | [fixed-mantissa-control.md](./chs/fixed-mantissa-control.md) | [fixed-mantissa-control.md](./eng/fixed-mantissa-control.md) |
+| 8 | fixed-point-performance-guide.md | [fixed-point-performance-guide.md](./chs/fixed-point-performance-guide.md) | [fixed-point-performance-guide.md](./eng/fixed-point-performance-guide.md) |
+| 9 | fixed-point-workspace-requirements.md | [fixed-point-workspace-requirements.md](./chs/fixed-point-workspace-requirements.md) | [fixed-point-workspace-requirements.md](./eng/fixed-point-workspace-requirements.md) |
+| 10 | fixed-point.md | [fixed-point.md](./chs/fixed-point.md) | [fixed-point.md](./eng/fixed-point.md) |
+| 11 | floating-point-emulation.md | [floating-point-emulation.md](./chs/floating-point-emulation.md) | [floating-point-emulation.md](./eng/floating-point-emulation.md) |
+| 12 | forward-compatibility.md | [forward-compatibility.md](./chs/forward-compatibility.md) | [forward-compatibility.md](./eng/forward-compatibility.md) |
+| 13 | introduction.md | [introduction.md](./chs/introduction.md) | [introduction.md](./eng/introduction.md) |
+| 14 | new-and-legacy-cublas-api.md | [new-and-legacy-cublas-api.md](./chs/new-and-legacy-cublas-api.md) | [new-and-legacy-cublas-api.md](./eng/new-and-legacy-cublas-api.md) |
+| 15 | representation-and-mappings.md | [representation-and-mappings.md](./chs/representation-and-mappings.md) | [representation-and-mappings.md](./eng/representation-and-mappings.md) |
+| 16 | support-for-floating-point-special-values.md | [support-for-floating-point-special-values.md](./chs/support-for-floating-point-special-values.md) | [support-for-floating-point-special-values.md](./eng/support-for-floating-point-special-values.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 10 |
-| **总计 Total** | **10** |
+| ✅ 已完成 / Completed | 16 |
+| ⏳ 未转换 / Not converted | 0 |
+| **总计 Total** | **16** |
 
 ---
 

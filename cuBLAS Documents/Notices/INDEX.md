@@ -1,35 +1,28 @@
-# Notices (10.)
+# Notices
 
-## 文档索引 / Documentation Index
+## 声明
 
-本手册为 NVIDIA cuBLAS 13.2 Notices 的中文翻译版本。
-
-**来源 / Source:** NVIDIA cuBLAS Library Documentation - Section 10
+**来源 / Source:** NVIDIA cuBLAS Library Documentation - Notices
 
 ---
 
 ## 双语目录对照 / Bilingual Table of Contents
 
-### 10
-*第十章 声明*
-
-| 中文标题 Chinese | 英文标题 English | 中文文件 Chinese | 英文文件 English |
-|-----------------|-----------------|-----------------|-----------------|
-| 10 声明 | 10. Notices | [ch10.md](./chs/ch10.md) | [ch10.md](./eng/ch10.md) |
-| 10.1 声明 | 10.1. Notice | [ch10s01.md](./chs/ch10s01.md) | [ch10s01.md](./eng/ch10s01.md) |
-| 10.2 OpenCL | 10.2. OpenCL | [ch10s02.md](./chs/ch10s02.md) | [ch10s02.md](./eng/ch10s02.md) |
-| 10.3 商标 | 10.3. Trademarks | [ch10s03.md](./chs/ch10s03.md) | [ch10s03.md](./eng/ch10s03.md) |
+| 序号 | 文件 File | 中文 Chinese | 英文 English |
+|------|-----------|--------------|--------------|
+| 1 | notices.md | [notices.md](./chs/notices.md) | [notices.md](./eng/notices.md) |
+| 2 | opencl.md | [opencl.md](./chs/opencl.md) | [opencl.md](./eng/opencl.md) |
+| 3 | trademarks.md | [trademarks.md](./chs/trademarks.md) | [trademarks.md](./eng/trademarks.md) |
 
 ---
 
-## 转换状态统计 / Conversion Status Summary
+## 翻译状态 / Translation Status
 
 | 状态 Status | 数量 Count |
 |-------------|------------|
-| ✅ 已完成 / Completed | 0 |
-| ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 4 |
-| **总计 Total** | **4** |
+| ✅ 已完成 / Completed | 3 |
+| ⏳ 未转换 / Not converted | 0 |
+| **总计 Total** | **3** |
 
 ---
 

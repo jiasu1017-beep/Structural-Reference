@@ -81,8 +81,33 @@
 
 ---
 
+## cuBLAS 13.2 文档索引
+
+**来源 / Source:** NVIDIA cuBLAS Library Documentation (https://docs.nvidia.com/cuda/cublas/)
+
+完整的 cuBLAS 文档中文翻译，包含 10 个文档模块，327 个文件。
+
+### API 参考 / API Reference
+
+| 文档 Documentation | 中文标题 Chinese | 说明 Note |
+|-------------------|-----------------|----------|
+| [Introduction](./cuBLAS%20Documents/Introduction/INDEX.md) | 简介 | ✅ 已完成 |
+| [Using the cuBLAS API](./cuBLAS%20Documents/Using%20the%20cuBLAS%20API/INDEX.md) | 使用 cuBLAS API | ✅ 已完成 |
+| [Using the cuBLASLt API](./cuBLAS%20Documents/Using%20the%20cuBLASLt%20API/INDEX.md) | 使用 cuBLASLt API | ✅ 已完成 |
+| [Using the cuBLASXt API](./cuBLAS%20Documents/Using%20the%20cuBLASXt%20API/INDEX.md) | 使用 cuBLASXt API | ✅ 已完成 |
+| [Using the cuBLASDx API](./cuBLAS%20Documents/Using%20the%20cuBLASDx%20API/INDEX.md) | 使用 cuBLASDx API | ✅ 已完成 |
+| [Using the cuBLAS Legacy API](./cuBLAS%20Documents/Using%20the%20cuBLAS%20Legacy%20API/INDEX.md) | 使用 cuBLAS Legacy API | ✅ 已完成 |
+| [cuBLAS Fortran Bindings](./cuBLAS%20Documents/cuBLAS%20Fortran%20Bindings/INDEX.md) | cuBLAS Fortran 绑定 | ✅ 已完成 |
+| [Interaction with Other Libraries and Tools](./cuBLAS%20Documents/Interaction%20with%20Other%20Libraries%20and%20Tools/INDEX.md) | 与其他库和工具的交互 | ✅ 已完成 |
+| [Acknowledgements](./cuBLAS%20Documents/Acknowledgements/INDEX.md) | 致谢 | ✅ 已完成 |
+| [Notices](./cuBLAS%20Documents/Notices/INDEX.md) | 声明 | ✅ 已完成 |
+
+---
+
 ## 版权声明 / Copyright Notice
 
-本翻译仅供学习研究使用，原文档版权归 Dassault Systèmes Simulia Corp. 所有。
+本翻译仅供学习研究使用，原文档版权归各原厂商所有。
 
-This translation is for study and research purposes only. Original documentation copyright Dassault Systèmes Simulia Corp.
+This translation is for study and research purposes only. Original documentation copyright respective owners.
+- ABAQUS: Dassault Systèmes Simulia Corp.
+- cuBLAS: NVIDIA Corporation

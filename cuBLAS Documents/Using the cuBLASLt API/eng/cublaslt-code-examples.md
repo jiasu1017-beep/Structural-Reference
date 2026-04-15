@@ -1,8 +1,0 @@
-
-
-## 3.2. cuBLASLt Code Examples
-
-
-Please visit [https://github.com/NVIDIA/CUDALibrarySamples/tree/main/cuBLASLt](https://github.com/NVIDIA/CUDALibrarySamples/tree/main/cuBLASLt) for updated code examples.
-
-

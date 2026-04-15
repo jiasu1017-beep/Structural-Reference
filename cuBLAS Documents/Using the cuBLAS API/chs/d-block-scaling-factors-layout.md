@@ -1,68 +1,38 @@
+## 3.1.4.4.2. 1D块缩放因子布局
 
+缩放因子使用平铺布局存储。下图展示了每个128×4块在内存中的布局方式。内存中的偏移量从左到右递增，然后从上到下递增。
 
-3.1.4.4.2. 1D Block Scaling Factors Layout
-
-Scaling factors are stored using a tiled layout. The following figure shows how each 128x4 tile is laid out in memory. The offset in memory is increasing from left to right, and then from top to bottom.
-
-
-
-
-
-The following pseudocode can be used to translate from `inner` (K for A and B, and M for C or D) and `outer` (M for A, and N for B, C and D) indices to linear `offset` within a tile and back:
-
-
+以下伪代码可用于将`inner`（A和B为K，C或D为M）和`outer`（A为M，B、C和D为N）索引转换为块内的线性`offset`，反之亦然：
 
 ```c++
-
-// Indices -> offset
+// 索引 -> 偏移量
 offset = (outer % 32) * 16 + (outer / 32) * 4 + inner
 
-// Offset -> Indices
+// 偏移量 -> 索引
 outer = ((offset % 16) / 4) * 32 + (offset / 16)
 inner = (offset % 4)
-
-
 ```
 
+单个缩放因子块在缩放模式为`CUBLASLT_MATMUL_MATRIX_SCALE_VEC16_UE4M3`时应用于128×64块，在为`CUBLASLT_MATMUL_MATRIX_SCALE_VEC32_UE8M0`时应用于128×128块。
 
-A single tile of scaling factors is applied to a 128x64 block when the scaling mode is `CUBLASLT_MATMUL_MATRIX_SCALE_VEC16_UE4M3` and to a 128x128 block when it is `CUBLASLT_MATMUL_MATRIX_SCALE_VEC32_UE8M0`.
+多个块按行主序排列。下一张图展示了一个示例。内存中的偏移量从左到右递增，然后从上到下递增。
 
-
-Multiple blocks are arranged in the row-major manner. The next picture shows an example. The offset in memory is increasing from left to right, and then from top to bottom.
-
-
-
-
-
-In general, for a scaling factors tensor with `sf_inner_dim` scaling factors per row, offset of a block with top left coordinate `(sf_outer, sf_inner)` (using the same correspondence to matrix coordinates as noted above) can be computed using the following pseudocode:
-
-
+一般来说，对于每个行有`sf_inner_dim`个缩放因子的缩放因子张量，使用以下伪代码可以计算左上角坐标为`(sf_outer, sf_inner)`的块的偏移量（使用与上述相同的矩阵坐标对应关系）：
 
 ```c++
-
-// Indices -> offset
-//   note that sf_inner is a multiple of 4 due to the tiling layout
+// 索引 -> 偏移量
+//   注意，由于平铺布局，sf_inner是4的倍数
 offset = (sf_inner + sf_outer * sf_inner_dim) * 128
-
-
 ```
 
+> **注意**
+>
+> 缩放因子的起始地址必须16字节对齐。
 
-> **Note**
+> **注意**
+>
+> 请注意，上述布局不允许转置。这意味着即使输入张量可以转置，缩放因子的布局也不会改变。
 
-Note
-Starting addresses of scaling factors must be 16B aligned.
-
-
-> **Note**
-
-Note
-Note that the layout described above does not allow transposition. This means that even though the input tensors can be transposed, the layout of scaling factors does not change.
-
-
-> **Note**
-
-Note
-Note that when tensor dimensions are not multiples of the tile size above, it is necessary to still allocate full tile for storage and fill out of bounds values with zeroes. Moreover, when writing output scaling factors, kernels may write additional zeroes, so it is best to not make any assuptions regarding the persistence of out of bounds values.
-
-
+> **注意**
+>
+> 请注意，当张量维度不是上述块大小的倍数时，仍需要分配完整的块用于存储，并用零填充边界外的值。此外，在写入输出缩放因子时，内核可能会写入额外的零，因此最好不要对边界外值的持久性做任何假设。

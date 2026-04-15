@@ -10,11 +10,11 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 3 | [Using the cuBLASLt API](./chs/using-the-cublaslt-api.md) | [Using the cuBLASLt API](./eng/using-the-cublaslt-api.md) |
-| 3.1 | [General Description](./chs/using-the-cublaslt-api.md) | [General Description](./eng/using-the-cublaslt-api.md) |
-| 3.2 | [cuBLASLt Code Examples](./chs/using-the-cublaslt-api.md) | [cuBLASLt Logging](./eng/using-the-cublaslt-api.md) |
-| 3.3 | [cuBLASLt Datatypes Reference](./chs/using-the-cublaslt-api.md) | [cuBLASLt Code Examples](./eng/using-the-cublaslt-api.md) |
-| 3.4 | [cuBLASLt API Reference](./chs/using-the-cublaslt-api.md) | [cublasLtEmulationDescAttributes_t](./eng/using-the-cublaslt-api.md) |
+| 3 | [使用 cuBLASLt API](./chs/3.md) | [Using the cuBLASLt API](./eng/3.md) |
+| 3.1 | [概述](./chs/3-1.md) | [General Description](./eng/3-1.md) |
+| 3.2 | [cuBLASLt 代码示例](./chs/3-2.md) | [cuBLASLt Code Examples](./eng/3-2.md) |
+| 3.3 | [cuBLASLt 数据类型参考](./chs/3-3.md) | [cuBLASLt Datatypes Reference](./eng/3-3.md) |
+| 3.4 | [cuBLASLt API 参考文档](./chs/3-4.md) | [cuBLASLt API Reference](./eng/3-4.md) |
 
 ---
 

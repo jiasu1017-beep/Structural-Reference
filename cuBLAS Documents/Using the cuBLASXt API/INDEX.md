@@ -10,11 +10,11 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 4 | [Using the cuBLASXt API](./chs/using-the-cublasxt-api.md) | [Using the cuBLASXt API](./eng/using-the-cublasxt-api.md) |
-| 4.1 | [General description](./chs/using-the-cublasxt-api.md) | [General description](./eng/using-the-cublasxt-api.md) |
-| 4.2 | [cuBLASXt API Datatypes Reference](./chs/using-the-cublasxt-api.md) | [cuBLASXt API Datatypes Reference](./eng/using-the-cublasxt-api.md) |
-| 4.3 | [cuBLASXt API Helper Function Reference](./chs/using-the-cublasxt-api.md) | [cublasXtBlasOp_t](./eng/using-the-cublasxt-api.md) |
-| 4.4 | [cuBLASXt API Math Functions Reference](./chs/using-the-cublasxt-api.md) | [cublasXtSetCpuRatio()](./eng/using-the-cublasxt-api.md) |
+| 4 | [使用 cuBLASXt API](./chs/4.md) | [Using the cuBLASXt API](./eng/4.md) |
+| 4.1 | [概述](./chs/4-1.md) | [General description](./eng/4-1.md) |
+| 4.2 | [cuBLASXt API 数据类型参考](./chs/4-2.md) | [cuBLASXt API Datatypes Reference](./eng/4-2.md) |
+| 4.3 | [cuBLASXt API Helper Function Reference](./chs/4-3.md) | [cuBLASXt API Helper Function Reference](./eng/4-3.md) |
+| 4.4 | [cuBLASXt API 数学函数参考](./chs/4-4.md) | [cuBLASXt API Math Functions Reference](./eng/4-4.md) |
 
 ---
 

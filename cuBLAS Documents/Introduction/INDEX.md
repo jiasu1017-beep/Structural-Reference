@@ -10,12 +10,12 @@
 
 | 章节号 | 中文 Chinese | 英文 English |
 |--------|--------------|--------------|
-| 1 | [简介](./chs/introduction.md) | [Introduction](./eng/introduction.md) |
-| 1.1 | [数据布局](./chs/introduction.md) | [Data Layout](./eng/introduction.md) |
-| 1.2 | [新API和旧版cuBLAS API](./chs/introduction.md) | [New and Legacy cuBLAS API](./eng/introduction.md) |
-| 1.3 | [示例代码](./chs/introduction.md) | [Example Code](./eng/introduction.md) |
-| 1.4 | [前向兼容性](./chs/introduction.md) | [Forward Compatibility](./eng/introduction.md) |
-| 1.5 | [浮点模拟](./chs/introduction.md) | [Floating Point Emulation](./eng/introduction.md) |
+| 1 | [简介](./chs/1.md) | [Introduction](./eng/1.md) |
+| 1.1 | [数据布局](./chs/1-1.md) | [Data Layout](./eng/1-1.md) |
+| 1.2 | [新API和旧版cuBLAS API](./chs/1-2.md) | [New and Legacy cuBLAS API](./eng/1-2.md) |
+| 1.3 | [示例代码](./chs/1-3.md) | [Example Code](./eng/1-3.md) |
+| 1.4 | [前向兼容性](./chs/1-4.md) | [Forward Compatibility](./eng/1-4.md) |
+| 1.5 | [浮点模拟](./chs/1-5.md) | [Floating Point Emulation](./eng/1-5.md) |
 
 ---
 

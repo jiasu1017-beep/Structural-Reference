@@ -1,3 +1,7 @@
 *.py
 *.inp
 /ABAQUS Documents/Abaqus Example Problems Guide/eif
+/ETABS Manuals/Manuals/
+*.pyc
+*.txt
+*.json

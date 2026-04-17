@@ -101,8 +101,8 @@
 |-------------|------------|
 | ✅ 已完成 / Completed | 18 |
 | ⏳ 翻译中 / Translating | 0 |
-| ⏳ 未转换 / Not converted | 2 |
-| **总计 Total** | **20** |
+| ⏳ 未转换 / Not converted | 0 |
+| **总计 Total** | **18** |
 
 ---
 
